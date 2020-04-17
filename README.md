@@ -1,5 +1,7 @@
 # CCV shop API client for PHP
 
+![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
+
 Work in progress, any help is appreciated.
 
 [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
