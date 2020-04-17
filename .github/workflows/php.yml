@@ -1,7 +1,7 @@
 name: Install and Check
 on: [push]
 jobs:
-  install-and-check:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
