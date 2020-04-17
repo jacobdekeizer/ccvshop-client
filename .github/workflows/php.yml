@@ -1,0 +1,25 @@
+name: Install and Check
+  on: [push]
+  jobs:
+    install-and-check:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout 🛎️
+          uses: actions/checkout@v2
+          with:
+            persist-credentials: false
+
+        - name: Install 🔧
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '7.2'
+            tools: composer
+          run:
+            - composer install
+
+        - name: Code sniffer 🔎
+          uses: shivammathur/setup-php@v2
+            with:
+              php-version: '7.2'
+          run:
+            - ./vendor/bin/phpcs --standard=PSR2 ./src
