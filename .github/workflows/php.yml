@@ -19,7 +19,7 @@ jobs:
 
       - name: Code sniffer 🔎
         uses: shivammathur/setup-php@v2
-          with:
-            php-version: '7.2'
+        with:
+          php-version: '7.2'
         run:
           - ./vendor/bin/phpcs --standard=PSR2 ./src
