@@ -2,7 +2,10 @@
 
 namespace JacobDeKeizer\Ccv\Contracts;
 
-interface Requestable
+interface Parameterable
 {
-    public function toRequest();
+    /**
+     * @return Parameter
+     */
+    public function toParameter();
 }

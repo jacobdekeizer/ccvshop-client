@@ -1,12 +1,23 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
-class User
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
+
+class User implements Model
 {
+    use FromArray;
+
     private $id;
     private $discountPercentage;
     private $href;
+
+    public static function fromArray(array $data): User
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getId(): ?int
     {

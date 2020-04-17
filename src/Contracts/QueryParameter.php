@@ -1,10 +1,8 @@
 <?php
 
-
 namespace JacobDeKeizer\Ccv\Contracts;
 
-
-class QueryParameter
+interface QueryParameter
 {
-
+    public function toQueryString(): ?string;
 }

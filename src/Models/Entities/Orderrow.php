@@ -1,17 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models;
+namespace JacobDeKeizer\Ccv\Models\Entities;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class Href implements Model
+class Orderrow implements Model
 {
     use FromArray;
 
     private $href;
 
-    public static function fromArray(array $data): Href
+    public static function fromArray(array $data): Orderrow
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);

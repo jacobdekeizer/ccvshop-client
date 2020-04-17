@@ -1,11 +1,22 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
-class TakeOutWindow
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
+
+class TakeOutWindow implements Model
 {
+    use FromArray;
+
     private $start;
     private $end;
+
+    public static function fromArray(array $data): TakeOutWindow
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getStart(): ?string
     {

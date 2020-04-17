@@ -1,9 +1,9 @@
 {
   "name": "jacobdekeizer/statusweb-client",
   "type": "library",
-  "description": "Statusweb API client for PHP",
-  "keywords": ["api", "statusweb", "bulstra", "php"],
-  "homepage": "https://github.com/jacobdekeizer/statusweb-client",
+  "description": "CCV shop API client for PHP",
+  "keywords": ["ccvshop", "ccv shop", "api", "client", "php"],
+  "homepage": "https://github.com/jacobdekeizer/ccvshop-client",
   "license": "MIT",
   "authors": [
     {
@@ -12,12 +12,17 @@
   ],
   "require": {
     "php": ">=7.2",
-    "ext-soap": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-ctype": "*",
+    "guzzlehttp/guzzle": "^6.5"
   },
   "autoload": {
     "psr-4": {
-      "JacobDeKeizer\\Statusweb\\": "src/"
+      "JacobDeKeizer\\Ccv\\": "src/"
     }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
   }
 }

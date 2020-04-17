@@ -1,11 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Models\Entities\Orderrow;
+use JacobDeKeizer\Ccv\Models\Entities\PersonalInfo;
 use JacobDeKeizer\Ccv\Models\Href;
+use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class Order
+class Order implements Model
 {
+    use FromArray;
+
     private $href;
     private $id;
     private $ordernumberPrefix;
@@ -56,6 +62,12 @@ class Order
     private $ordernotes;
     private $ordernotifications;
     private $orderaffiliatenetworks;
+
+    public static function fromArray(array $data): Order
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getHref(): string
     {
@@ -277,7 +289,7 @@ class Order
         return $this->discountcoupon;
     }
 
-    public function getCustomer(): Customer
+    public function getCustomer(): PersonalInfo
     {
         return $this->customer;
     }
@@ -571,7 +583,7 @@ class Order
         return $this;
     }
 
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(PersonalInfo $customer): self
     {
         $this->customer = $customer;
         return $this;
@@ -586,7 +598,7 @@ class Order
         return $this;
     }
 
-    public function setOrderrows(Orderrows $orderrows): self
+    public function setOrderrows(Orderrow $orderrows): self
     {
         $this->orderrows = $orderrows;
         return $this;
@@ -598,13 +610,13 @@ class Order
         return $this;
     }
 
-    public function setOrdernotifications(Ordernotifications $ordernotifications): self
+    public function setOrdernotifications(Href $ordernotifications): self
     {
         $this->ordernotifications = $ordernotifications;
         return $this;
     }
 
-    public function setOrderaffiliatenetworks(Orderaffiliatenetworks $orderaffiliatenetworks): self
+    public function setOrderaffiliatenetworks(Href $orderaffiliatenetworks): self
     {
         $this->orderaffiliatenetworks = $orderaffiliatenetworks;
         return $this;

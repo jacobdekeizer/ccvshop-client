@@ -2,7 +2,10 @@
 
 namespace JacobDeKeizer\Ccv\Contracts;
 
-interface Dto
+interface Model
 {
-
+    /**
+     * @return Model
+     */
+    public static function fromArray(array $data);
 }

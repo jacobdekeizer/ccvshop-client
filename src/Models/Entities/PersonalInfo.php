@@ -1,9 +1,14 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+namespace JacobDeKeizer\Ccv\Models\Entities;
 
-class Customer
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
+
+class PersonalInfo implements Model
 {
+    use FromArray;
+
     private $billingaddress;
     private $deliveryaddress;
     private $email;
@@ -37,6 +42,12 @@ class Customer
     private $ssnnumber;
     private $zzppass;
     private $costcentre;
+
+    public static function fromArray(array $data): PersonalInfo
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getBillingaddress(): Address
     {

@@ -4,6 +4,14 @@ namespace JacobDeKeizer\Ccv\Factories;
 
 class QueryParametersArrayFactory
 {
+    /**
+     * Url = "..orders/?start=25&size=25&is_paid=true"
+     * Result = [
+     *    'start' => '25',
+     *    'size' => '25',
+     *    'is_paid' => 'true',
+     * ]
+     */
     public static function fromUrl(string $url): array
     {
         $parts = explode('?', $url, 2);

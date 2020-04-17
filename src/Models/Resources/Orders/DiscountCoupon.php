@@ -1,9 +1,14 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
-class DiscountCoupon
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
+
+class DiscountCoupon implements Model
 {
+    use FromArray;
+
     private $id;
     private $code;
     private $discount;
@@ -12,6 +17,12 @@ class DiscountCoupon
     private $onetimeuse;
     private $minimumprice;
     private $givesfreeshipping;
+
+    public static function fromArray(array $data): DiscountCoupon
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getId(): int
     {

@@ -1,17 +1,20 @@
 <?php
 
+namespace JacobDeKeizer\Ccv\Models\Entities;
 
-namespace JacobDeKeizer\Ccv\Models\Orders;
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
 
-
-class Address
+class Address implements Model
 {
+    use FromArray;
+
     private $gender;
     private $fullName;
     private $initials;
     private $company;
-    private $addressLine_1;
-    private $addressLine_2;
+    private $addressLine1;
+    private $addressLine2;
     private $street;
     private $housenumber;
     private $housenumberSuffix;
@@ -23,6 +26,12 @@ class Address
     private $comment;
     private $country;
     private $countryCode;
+
+    public static function fromArray(array $data): Address
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return self::createFromArray($data);
+    }
 
     public function getGender(): ?string
     {
@@ -44,14 +53,14 @@ class Address
         return $this->company;
     }
 
-    public function getAddressLine_1(): ?string
+    public function getAddressLine1(): ?string
     {
-        return $this->addressLine_1;
+        return $this->addressLine1;
     }
 
-    public function getAddressLine_2(): ?string
+    public function getAddressLine2(): ?string
     {
-        return $this->addressLine_2;
+        return $this->addressLine2;
     }
 
     public function getStreet(): ?string
@@ -133,15 +142,15 @@ class Address
         return $this;
     }
 
-    public function setAddressLine_1(?string $addressLine_1): self
+    public function setAddressLine1(?string $addressLine1): self
     {
-        $this->addressLine_1 = $addressLine_1;
+        $this->addressLine1 = $addressLine1;
         return $this;
     }
 
-    public function setAddressLine_2(?string $addressLine_2): self
+    public function setAddressLine2(?string $addressLine2): self
     {
-        $this->addressLine_2 = $addressLine_2;
+        $this->addressLine2 = $addressLine2;
         return $this;
     }
 
