@@ -2,7 +2,7 @@
 
 Work in progress, any help is appreciated.
 
-[CCV shop API documentation](https://demo.ccvshop.nl/API/Schema/internal.resource.orders.post.v1.json)
+[CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
 
 ## Installation
 
