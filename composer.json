@@ -1,0 +1,23 @@
+{
+  "name": "jacobdekeizer/statusweb-client",
+  "type": "library",
+  "description": "Statusweb API client for PHP",
+  "keywords": ["api", "statusweb", "bulstra", "php"],
+  "homepage": "https://github.com/jacobdekeizer/statusweb-client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jacob de Keizer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "ext-soap": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "JacobDeKeizer\\Statusweb\\": "src/"
+    }
+  }
+}
