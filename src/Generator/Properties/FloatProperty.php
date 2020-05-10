@@ -18,12 +18,12 @@ class FloatProperty extends Property
 
     protected function getDocblockType(): string
     {
-        return 'float' . ($this->nullable ? '|null' : '');
+        return 'float' . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . 'float';
+        return ($this->nullable || !$this->required ? '?' : '') . 'float';
     }
 }
 

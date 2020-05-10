@@ -18,12 +18,12 @@ class BoolProperty extends Property
 
     protected function getDocblockType(): string
     {
-        return 'bool' . ($this->nullable ? '|null' : '');
+        return 'bool' . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . 'bool';
+        return ($this->nullable || !$this->required ? '?' : '') . 'bool';
     }
 }
 

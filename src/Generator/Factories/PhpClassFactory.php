@@ -39,12 +39,12 @@ class PhpClassFactory
             $property['phpClass'] = $childPhpClass;
         };
 
-        $makeRef = static function (array $item, array &$property) use ($pathParts, &$classes) {
+        $makeRef = static function (array &$item) use (&$classes) {
             $childPhpClass = self::make($item['$ref']);
 
             $classes[] = $childPhpClass;
-            $property['phpClass'] = $childPhpClass;
-            $property['type'] = 'object';
+            $item['phpClass'] = $childPhpClass;
+            $item['type'] = 'object';
         };
 
         foreach ($object['properties'] as $propertyName => $property) {
@@ -58,12 +58,13 @@ class PhpClassFactory
                 if (isset($arrayItem['type']) && $arrayItem['type'] === 'object') {
                     $makeObject($propertyName, $property);
                 } elseif (isset($arrayItem['$ref'])) {
-                    $makeRef($arrayItem, $property);
+                    $makeRef($arrayItem);
+                    $property['items'][0] = $arrayItem;
                 }
             }
 
             if (isset($property['$ref'])) {
-                $makeRef($property, $property);
+                $makeRef($property);
             }
 
             $properties[] = PropertyFactory::make($propertyName, $property);

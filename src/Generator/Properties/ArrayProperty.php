@@ -24,12 +24,13 @@ class ArrayProperty extends Property
 
     protected function getDocblockType(): string
     {
-        return $this->arrayType->getDocblockType() . '[]' . ($this->nullable ? '|null' : '');
+        return str_replace('|null', '', $this->arrayType->getDocblockType()) . '[]'
+            . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . 'array';
+        return ($this->nullable || !$this->required ? '?' : '') . 'array';
     }
 }
 

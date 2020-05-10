@@ -18,12 +18,12 @@ class IntegerProperty extends Property
 
     protected function getDocblockType(): string
     {
-        return 'int' . ($this->nullable ? '|null' : '');
+        return 'int' . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . 'int';
+        return ($this->nullable || !$this->required ? '?' : '') . 'int';
     }
 }
 

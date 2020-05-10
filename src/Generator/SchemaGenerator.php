@@ -13,7 +13,7 @@ class SchemaGenerator
 
     public function __construct()
     {
-        $this->rootDir = str_replace('Generator', 'testtest', __DIR__);
+        $this->rootDir = str_replace('Generator', '', __DIR__);
     }
 
     public function generate(string $url): void

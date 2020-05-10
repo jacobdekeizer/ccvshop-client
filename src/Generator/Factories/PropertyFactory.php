@@ -15,7 +15,7 @@ class PropertyFactory
     public static function make(string $propertyName, array $property): Property
     {
         $required = $property['required'] ?? false;
-        $description = $property['description'];
+        $description = $property['description'] ?? '';
         $nullable = false;
         $type = $property['type'];
 

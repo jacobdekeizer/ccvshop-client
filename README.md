@@ -47,23 +47,15 @@ do {
     $orders = $client->orders()->all($getOrdersParameter);
 
     foreach ($orders->getItems() as $order) {
-        $id = $order->getId();
         var_dump($order);
     }
-} while(($getOrdersParameter = $orders->getNextRequest()) !== null);
+} while(($getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext())) !== null);
 ```
 
 ### Get order
 
 ```php
 $order = $client->orders()->get(123456);
-```
-
-### Update order
-
-Update all order values including null fields
-```php
-
 ```
 
 ## Supported resources

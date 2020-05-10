@@ -3,8 +3,8 @@
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Resources\Orders\OrderResponse;
-use JacobDeKeizer\Ccv\Models\Resources\Orders\OrdersList;
+use JacobDeKeizer\Ccv\Models\Resource\Collection;
+use JacobDeKeizer\Ccv\Models\Webshop\Resource;
 use JacobDeKeizer\Ccv\Parameters\Orders\All;
 
 class OrdersEndpoint extends BaseEndpoint
@@ -12,7 +12,7 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function all(?All $payload = null): OrdersList
+    public function all(?All $payload = null): Collection\Orders
     {
         if ($payload === null) {
             $payload = new All();
@@ -20,30 +20,30 @@ class OrdersEndpoint extends BaseEndpoint
 
         $result = $this->doRequest('GET', 'orders' . $payload->toBuilder()->toQueryString());
 
-        return OrdersList::fromArray($result);
+        return Collection\Orders::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function get(int $id)
+    public function get(int $id): Resource\Orders
     {
         $result = $this->doRequest('GET', 'orders/' . $id);
 
-        return OrderResponse::fromArray($result);
+        return Resource\Orders::fromArray($result);
     }
 
-    public function update(int $id, OrderResponse $order, bool $includeNullValues = false)
-    {
-        var_dump(json_encode($order->toArray($includeNullValues)));
-
-        $result = $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($includeNullValues));
-
-        dd($result);
-    }
-
-    public function create(OrderResponse $order)
-    {
-        // todo
-    }
+//    public function update(int $id, Resource\Orders $order, bool $includeNullValues = false)
+//    {
+//        var_dump(json_encode($order->toArray($includeNullValues)));
+//
+//        $result = $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($includeNullValues));
+//
+//        var_dump($result);
+//    }
+//
+//    public function create(Resource\Orders $order)
+//    {
+//        // todo
+//    }
 }

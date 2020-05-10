@@ -24,12 +24,12 @@ class ObjectProperty extends Property
 
     protected function getDocblockType(): string
     {
-        return $this->objectClass . ($this->nullable ? '|null' : '');
+        return $this->objectClass . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . $this->objectClass;
+        return ($this->nullable || !$this->required ? '?' : '') . $this->objectClass;
     }
 }
 

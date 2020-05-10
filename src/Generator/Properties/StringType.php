@@ -18,12 +18,12 @@ class StringType extends Property
 
     protected function getDocblockType(): string
     {
-        return 'string' . ($this->nullable ? '|null' : '');
+        return 'string' . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable ? '?' : '') . 'string';
+        return ($this->nullable || !$this->required ? '?' : '') . 'string';
     }
 }
 
