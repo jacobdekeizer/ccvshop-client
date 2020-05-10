@@ -1,19 +1,22 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Entities;
+namespace JacobDeKeizer\Ccv\Models\Href;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Orderrow implements Model
 {
-    use FromArray;
+    use FromArray, ToArray;
 
     private $href;
 
-    public static function fromArray(array $data): Orderrow
+    /**
+     * @return Orderrow
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 

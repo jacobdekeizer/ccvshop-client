@@ -4,8 +4,7 @@ namespace JacobDeKeizer\Ccv\Contracts;
 
 interface Model
 {
-    /**
-     * @return Model
-     */
-    public static function fromArray(array $data);
+    public static function fromArray(array $data): Model;
+
+    public function toArray(bool $includeNullValues = true): array;
 }

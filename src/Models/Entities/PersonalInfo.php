@@ -4,10 +4,11 @@ namespace JacobDeKeizer\Ccv\Models\Entities;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class PersonalInfo implements Model
 {
-    use FromArray;
+    use FromArray, ToArray;
 
     private $billingaddress;
     private $deliveryaddress;
@@ -43,9 +44,11 @@ class PersonalInfo implements Model
     private $zzppass;
     private $costcentre;
 
-    public static function fromArray(array $data): PersonalInfo
+    /**
+     * @return PersonalInfo
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 

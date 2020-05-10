@@ -3,7 +3,7 @@
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Resources\Orders\Order;
+use JacobDeKeizer\Ccv\Models\Resources\Orders\OrderResponse;
 use JacobDeKeizer\Ccv\Models\Resources\Orders\OrdersList;
 use JacobDeKeizer\Ccv\Parameters\Orders\All;
 
@@ -30,15 +30,19 @@ class OrdersEndpoint extends BaseEndpoint
     {
         $result = $this->doRequest('GET', 'orders/' . $id);
 
-        return Order::fromArray($result);
+        return OrderResponse::fromArray($result);
     }
 
-    public function update()
+    public function update(int $id, OrderResponse $order, bool $includeNullValues = false)
     {
-        // todo
+        var_dump(json_encode($order->toArray($includeNullValues)));
+
+        $result = $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($includeNullValues));
+
+        dd($result);
     }
 
-    public function create()
+    public function create(OrderResponse $order)
     {
         // todo
     }

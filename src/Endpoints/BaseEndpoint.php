@@ -33,12 +33,14 @@ class BaseEndpoint
         /** @noinspection PhpUnhandledExceptionInspection */
         $timestamp = (new DateTime('now', new DateTimeZone('UTC')))->format(DateTimeInterface::ISO8601);
 
+        $postData = json_encode($data);
+
         $hashString = sprintf(
             '%s|%s|%s|%s|%s',
             $this->client->getPublicKey(),
             $httpMethod,
             $apiRoute,
-            (string) $data,
+            $data !== null ? $postData : null,
             $timestamp
         );
 
@@ -53,7 +55,7 @@ class BaseEndpoint
 
         if ($data !== null) {
             $requestHeaders['Content-Type'] = 'application/json';
-            $httpBody = json_encode($data);
+            $httpBody = $postData;
         }
 
         $request = new Request($httpMethod, $apiRoute, $requestHeaders, $httpBody);

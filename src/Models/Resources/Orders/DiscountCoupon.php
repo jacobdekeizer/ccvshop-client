@@ -4,10 +4,11 @@ namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class DiscountCoupon implements Model
 {
-    use FromArray;
+    use FromArray, ToArray;
 
     private $id;
     private $code;
@@ -18,9 +19,11 @@ class DiscountCoupon implements Model
     private $minimumprice;
     private $givesfreeshipping;
 
-    public static function fromArray(array $data): DiscountCoupon
+    /**
+     * @return DiscountCoupon
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 

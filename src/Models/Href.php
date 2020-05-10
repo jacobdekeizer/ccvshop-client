@@ -4,16 +4,19 @@ namespace JacobDeKeizer\Ccv\Models;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Href implements Model
 {
-    use FromArray;
+    use FromArray, ToArray;
 
     private $href;
 
-    public static function fromArray(array $data): Href
+    /**
+     * @return Href
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 

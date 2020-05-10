@@ -4,18 +4,21 @@ namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class User implements Model
 {
-    use FromArray;
+    use FromArray, ToArray;
 
     private $id;
     private $discountPercentage;
     private $href;
 
-    public static function fromArray(array $data): User
+    /**
+     * @return User
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 

@@ -2,23 +2,27 @@
 
 namespace JacobDeKeizer\Ccv\Models\Resources\Orders;
 
+use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Models\PaginatedList;
 use JacobDeKeizer\Ccv\Parameters\Orders\All;
 use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class OrdersList extends PaginatedList
 {
-    use FromArray;
+    use FromArray, ToArray;
 
-    public static function fromArray(array $data): OrdersList
+    /**
+     * @return OrdersList
+     */
+    public static function fromArray(array $data): Model
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
     }
 
     /**
-     * @return Order[]
+     * @return OrderResponse[]
      */
     public function getItems(): array
     {
@@ -43,8 +47,8 @@ class OrdersList extends PaginatedList
         return All::fromArray(QueryParametersArrayFactory::fromUrl($this->getPrevious()));
     }
 
-    protected function createModelItem(array $data): Order
+    protected function createModelItem(array $data): OrderResponse
     {
-        return Order::fromArray($data);
+        return OrderResponse::fromArray($data);
     }
 }

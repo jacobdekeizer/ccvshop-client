@@ -6,10 +6,7 @@ use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 
 interface Parameter
 {
-    /**
-     * @return Parameter
-     */
-    public static function fromArray(array $data);
+    public static function fromArray(array $data): Parameter;
 
     public function toBuilder(): QueryParameterBuilder;
 }

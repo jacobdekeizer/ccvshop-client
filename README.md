@@ -2,9 +2,17 @@
 
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-Work in progress, any help is appreciated.
-
 [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
+
+## Contributing
+This package is work in progress, any help is appreciated.
+
+Automatic model generation for new api endpoints:
+```php
+$generator = new \JacobDeKeizer\Ccv\Generator\SchemaGenerator();
+
+$generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json');
+```
 
 ## Installation
 
@@ -27,7 +35,7 @@ $client->setPrivateKey('private_key');
 
 ## Orders
 
-### List all orders
+### Get all orders
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -45,10 +53,17 @@ do {
 } while(($getOrdersParameter = $orders->getNextRequest()) !== null);
 ```
 
-### Get order by id
+### Get order
 
 ```php
 $order = $client->orders()->get(123456);
+```
+
+### Update order
+
+Update all order values including null fields
+```php
+
 ```
 
 ## Supported resources
@@ -85,7 +100,7 @@ $order = $client->orders()->get(123456);
 | ordernotes | ✖️ |
 | ordernotifications | ✖️ |
 | orderrows | ✖️ |
-| orders | ✔️️ |
+| orders | :heavy_check_mark: |
 | packages | ✖️ |
 | paymethods | ✖️ |
 | productattachments | ✖️ |

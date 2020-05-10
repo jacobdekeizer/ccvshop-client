@@ -9,6 +9,9 @@ use ReflectionMethod;
 
 trait FromArray
 {
+    /**
+     * @return mixed
+     */
     protected static function createFromArray(array $data)
     {
         $instance = new self;
