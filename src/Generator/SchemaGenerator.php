@@ -20,19 +20,21 @@ class SchemaGenerator
     {
         $generator = new self();
 
-        // orders endpoint
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json');
-        $generator->generate('/API/Schema/internal.resource.orders.patch.v1.json');
-        $generator->generate('/API/Schema/internal.resource.orders.post.v1.json');
+        // orders
+        $namespace = 'Orders';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orders.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orders.post.v1.json', $namespace);
 
-        // orderrows endpoint
-//        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json');
-//        $generator->generate('/API/Schema/vnd.verto.webshop.resource.orderrows.v1.json');
+        // orderrows
+        $namespace = 'Orderrows';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.orderrows.v1.json', $namespace);
     }
 
-    public function generate(string $url): void
+    public function generate(string $url, string $namespacePrefix): void
     {
-        $this->createClass(PhpClassFactory::make($url));
+        $this->createClass(PhpClassFactory::make($url, $namespacePrefix));
     }
 
     private function createClass(PhpClass $phpClass): void
