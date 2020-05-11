@@ -7,7 +7,7 @@ use JacobDeKeizer\Ccv\Support\Str;
 
 trait ToArray
 {
-    public function ToArray(bool $includeNullValues = true): array
+    public function toArray(bool $includeNullValues = true): array
     {
         $data = [];
 
@@ -46,4 +46,3 @@ trait ToArray
         return $value;
     }
 }
-

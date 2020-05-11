@@ -5,17 +5,10 @@
 [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
 
 ## Contributing
-This package is work in progress, any help is appreciated.
 
-Automatic model generation for new api endpoints:
-```php
-$generator = new \JacobDeKeizer\Ccv\Generator\SchemaGenerator();
-
-$generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json');
-```
+See [contributing](https://github.com/jacobdekeizer/ccvshop-client/blob/master/.github/CONTRIBUTING.md)
 
 ## Installation
-
 You can install this package via composer:
 
 ```
@@ -130,6 +123,3 @@ $order = $client->orders()->get(123456);
 | users | ✖️ |
 | webhooks | ✖️ |
 | webshops | ✖️ |
-
-## Code sniffer
-Run: `./vendor/bin/phpcs --standard=PSR2 ./src`

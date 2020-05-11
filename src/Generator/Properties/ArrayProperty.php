@@ -33,4 +33,3 @@ class ArrayProperty extends Property
         return ($this->nullable || !$this->required ? '?' : '') . 'array';
     }
 }
-

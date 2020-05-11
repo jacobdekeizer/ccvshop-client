@@ -26,4 +26,3 @@ class IntegerProperty extends Property
         return ($this->nullable || !$this->required ? '?' : '') . 'int';
     }
 }
-

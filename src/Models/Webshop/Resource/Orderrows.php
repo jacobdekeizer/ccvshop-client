@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace JacobDeKeizer\Ccv\Models\Webshop\Resource;
 
@@ -8,36 +8,36 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Orderrows implements Model
 {
-	use FromArray, ToArray;
+    use FromArray, ToArray;
 
-	/**
-	 * @var string Link to products that are ordered with this order
-	 */
-	 private $href;
+    /**
+     * @var string Link to products that are ordered with this order
+     */
+     private $href;
 
-	/**
-	 * @return self
-	 */
-	public static function fromArray(array $data): Model
-	{
-		return self::createFromArray($data);
-	}
-	/**
-	 * @return string Link to products that are ordered with this order
-	 */
-	public function getHref(): string
-	{
-		return $this->href;
-	}
+    /**
+     * @return self
+     */
+    public static function fromArray(array $data): Model
+    {
+        return self::createFromArray($data);
+    }
 
-	/**
-	 * @param string Link to products that are ordered with this order
-	 * @return self
-	 */
-	public function setHref($href): self
-	{
-		$this->href = $href;
-		return $this;
-	}
+    /**
+     * @return string Link to products that are ordered with this order
+     */
+    public function getHref(): string
+    {
+        return $this->href;
+    }
 
+    /**
+     * @param string Link to products that are ordered with this order
+     * @return self
+     */
+    public function setHref($href): self
+    {
+        $this->href = $href;
+        return $this;
+    }
 }

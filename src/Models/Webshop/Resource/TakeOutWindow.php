@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace JacobDeKeizer\Ccv\Models\Webshop\Resource;
 
@@ -8,59 +8,59 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class TakeOutWindow implements Model
 {
-	use FromArray, ToArray;
+    use FromArray, ToArray;
 
-	/**
-	 * @var string|null Start datetime of the take out slot in UTC.
-	 */
-	 private $start;
+    /**
+     * @var string|null Start datetime of the take out slot in UTC.
+     */
+     private $start;
 
-	/**
-	 * @var string|null End datetime of the take out slot in UTC.
-	 */
-	 private $end;
+    /**
+     * @var string|null End datetime of the take out slot in UTC.
+     */
+     private $end;
 
-	/**
-	 * @return self
-	 */
-	public static function fromArray(array $data): Model
-	{
-		return self::createFromArray($data);
-	}
-	/**
-	 * @return string|null Start datetime of the take out slot in UTC.
-	 */
-	public function getStart(): ?string
-	{
-		return $this->start;
-	}
+    /**
+     * @return self
+     */
+    public static function fromArray(array $data): Model
+    {
+        return self::createFromArray($data);
+    }
 
-	/**
-	 * @return string|null End datetime of the take out slot in UTC.
-	 */
-	public function getEnd(): ?string
-	{
-		return $this->end;
-	}
+    /**
+     * @return string|null Start datetime of the take out slot in UTC.
+     */
+    public function getStart(): ?string
+    {
+        return $this->start;
+    }
 
-	/**
-	 * @param string|null Start datetime of the take out slot in UTC.
-	 * @return self
-	 */
-	public function setStart($start): self
-	{
-		$this->start = $start;
-		return $this;
-	}
+    /**
+     * @return string|null End datetime of the take out slot in UTC.
+     */
+    public function getEnd(): ?string
+    {
+        return $this->end;
+    }
 
-	/**
-	 * @param string|null End datetime of the take out slot in UTC.
-	 * @return self
-	 */
-	public function setEnd($end): self
-	{
-		$this->end = $end;
-		return $this;
-	}
+    /**
+     * @param string|null Start datetime of the take out slot in UTC.
+     * @return self
+     */
+    public function setStart($start): self
+    {
+        $this->start = $start;
+        return $this;
+    }
 
+    /**
+     * @param string|null End datetime of the take out slot in UTC.
+     * @return self
+     */
+    public function setEnd($end): self
+    {
+        $this->end = $end;
+        return $this;
+    }
 }

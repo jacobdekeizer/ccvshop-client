@@ -40,7 +40,7 @@ class SchemaGenerator
     private function fileForceContents(string $path, string $contents): void
     {
         $parts = explode('/', $path);
-        $file = array_pop($parts);
+        array_pop($parts);
         $dir = '';
 
         foreach ($parts as $part) {
@@ -52,4 +52,3 @@ class SchemaGenerator
         file_put_contents($path, $contents);
     }
 }
-

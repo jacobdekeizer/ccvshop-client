@@ -26,4 +26,3 @@ class FloatProperty extends Property
         return ($this->nullable || !$this->required ? '?' : '') . 'float';
     }
 }
-

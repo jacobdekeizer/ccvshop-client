@@ -4,6 +4,8 @@ namespace JacobDeKeizer\Ccv\Generator\Properties;
 
 abstract class Property
 {
+    private const INDENT = '    ';
+
     /**
      * @var string
      */
@@ -26,46 +28,39 @@ abstract class Property
         $this->name = $name;
     }
 
-    protected abstract function getDocblockType(): string;
+    abstract protected function getDocblockType(): string;
 
-    protected abstract function getPhpType(): string;
+    abstract protected function getPhpType(): string;
 
     public function getProperty(): string
     {
-        $indent = "\t";
-
-        return $indent . '/**' . PHP_EOL
-            . $indent . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . $indent . ' */' . PHP_EOL
-            . $indent . ' private $' . $this->name . ';' . PHP_EOL;
+        return self::INDENT . '/**' . PHP_EOL
+            . self::INDENT . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
+            . self::INDENT . ' */' . PHP_EOL
+            . self::INDENT . ' private $' . $this->name . ';' . PHP_EOL;
     }
 
     public function getGetter(): string
     {
-        $indent = "\t";
-
-        return $indent . '/**' . PHP_EOL
-            . $indent . ' * @return ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . $indent . ' */' . PHP_EOL
-            . $indent . 'public function get' . ucfirst($this->name) . '(): ' . $this->getPhpType() . PHP_EOL
-            . $indent . '{' . PHP_EOL
-            . $indent . $indent . 'return $this->' . $this->name . ';' . PHP_EOL
-            . $indent . '}' . PHP_EOL;
+        return self::INDENT . '/**' . PHP_EOL
+            . self::INDENT . ' * @return ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
+            . self::INDENT . ' */' . PHP_EOL
+            . self::INDENT . 'public function get' . ucfirst($this->name) . '(): ' . $this->getPhpType() . PHP_EOL
+            . self::INDENT . '{' . PHP_EOL
+            . self::INDENT . self::INDENT . 'return $this->' . $this->name . ';' . PHP_EOL
+            . self::INDENT . '}' . PHP_EOL;
     }
 
     public function getSetter(): string
     {
-        $indent = "\t";
-
-        return $indent . '/**' . PHP_EOL
-            . $indent . ' * @param ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . $indent . ' * @return self' . PHP_EOL
-            . $indent . ' */' . PHP_EOL
-            . $indent . 'public function set' . ucfirst($this->name) . '($' . $this->name . '): self' . PHP_EOL
-            . $indent . '{' . PHP_EOL
-            . $indent . $indent . '$this->' . $this->name . ' = $' . $this->name . ';' . PHP_EOL
-            . $indent . $indent . 'return $this;' . PHP_EOL
-            . $indent . '}' . PHP_EOL;
+        return self::INDENT . '/**' . PHP_EOL
+            . self::INDENT . ' * @param ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
+            . self::INDENT . ' * @return self' . PHP_EOL
+            . self::INDENT . ' */' . PHP_EOL
+            . self::INDENT . 'public function set' . ucfirst($this->name) . '($' . $this->name . '): self' . PHP_EOL
+            . self::INDENT . '{' . PHP_EOL
+            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = $' . $this->name . ';' . PHP_EOL
+            . self::INDENT . self::INDENT . 'return $this;' . PHP_EOL
+            . self::INDENT . '}' . PHP_EOL;
     }
 }
-

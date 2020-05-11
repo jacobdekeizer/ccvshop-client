@@ -9,13 +9,15 @@ use JacobDeKeizer\Ccv\Generator\Properties\IntegerProperty;
 use JacobDeKeizer\Ccv\Generator\Properties\ObjectProperty;
 use JacobDeKeizer\Ccv\Generator\Properties\Property;
 use JacobDeKeizer\Ccv\Generator\Properties\StringType;
+use JacobDeKeizer\Ccv\Support\Str;
 
 class PropertyFactory
 {
     public static function make(string $propertyName, array $property): Property
     {
+        $propertyName = Str::camel($propertyName);
         $required = $property['required'] ?? false;
-        $description = $property['description'] ?? '';
+        $description = trim($property['description'] ?? '');
         $nullable = false;
         $type = $property['type'];
 
@@ -84,4 +86,3 @@ class PropertyFactory
         throw new \Exception('unkown type: ' . print_r($property));
     }
 }
-

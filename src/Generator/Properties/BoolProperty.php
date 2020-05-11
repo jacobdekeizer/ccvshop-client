@@ -26,4 +26,3 @@ class BoolProperty extends Property
         return ($this->nullable || !$this->required ? '?' : '') . 'bool';
     }
 }
-

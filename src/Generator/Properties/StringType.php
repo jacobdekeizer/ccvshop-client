@@ -26,4 +26,3 @@ class StringType extends Property
         return ($this->nullable || !$this->required ? '?' : '') . 'string';
     }
 }
-

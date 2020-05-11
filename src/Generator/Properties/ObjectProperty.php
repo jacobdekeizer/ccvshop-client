@@ -32,4 +32,3 @@ class ObjectProperty extends Property
         return ($this->nullable || !$this->required ? '?' : '') . $this->objectClass;
     }
 }
-

@@ -56,11 +56,12 @@ class PhpClassFactory
                 $arrayItem = $property['items'][0];
 
                 if (isset($arrayItem['type']) && $arrayItem['type'] === 'object') {
-                    $makeObject($propertyName, $property);
+                    $makeObject($propertyName, $arrayItem);
                 } elseif (isset($arrayItem['$ref'])) {
                     $makeRef($arrayItem);
-                    $property['items'][0] = $arrayItem;
                 }
+
+                $property['items'][0] = $arrayItem;
             }
 
             if (isset($property['$ref'])) {
@@ -114,4 +115,3 @@ class PhpClassFactory
         ];
     }
 }
-

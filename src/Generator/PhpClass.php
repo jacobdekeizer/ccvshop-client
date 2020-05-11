@@ -6,6 +6,8 @@ use JacobDeKeizer\Ccv\Generator\Properties\Property;
 
 class PhpClass
 {
+    private const INDENT = '    ';
+
     /**
      * @var string
      */
@@ -64,7 +66,7 @@ class PhpClass
 
     public function toString(): string
     {
-        $classString = '<?php ' . PHP_EOL
+        $classString = '<?php' . PHP_EOL
             . PHP_EOL
             . 'namespace ' . $this->namespace . ';' . PHP_EOL
             . PHP_EOL
@@ -77,29 +79,27 @@ class PhpClass
         $classString .= 'class ' . $this->name . ' implements Model' . PHP_EOL;
         $classString .= '{' . PHP_EOL;
 
-        $indent = "\t";
-
-        $classString .= $indent . 'use FromArray, ToArray;' . PHP_EOL;
+        $classString .= self::INDENT . 'use FromArray, ToArray;' . PHP_EOL;
         $classString .= PHP_EOL;
 
         foreach ($this->properties as $property) {
             $classString .= $property->getProperty() . PHP_EOL;
         }
 
-        $classString .= $indent . '/**' . PHP_EOL
-            . $indent . ' * @return self' . PHP_EOL
-            . $indent . ' */' . PHP_EOL
-            . $indent . 'public static function fromArray(array $data): Model' .PHP_EOL
-            . $indent . '{' . PHP_EOL
-            . $indent . $indent . 'return self::createFromArray($data);' . PHP_EOL
-            . $indent . '}' . PHP_EOL;
+        $classString .= self::INDENT . '/**' . PHP_EOL
+            . self::INDENT . ' * @return self' . PHP_EOL
+            . self::INDENT . ' */' . PHP_EOL
+            . self::INDENT . 'public static function fromArray(array $data): Model' .PHP_EOL
+            . self::INDENT . '{' . PHP_EOL
+            . self::INDENT . self::INDENT . 'return self::createFromArray($data);' . PHP_EOL
+            . self::INDENT . '}' . PHP_EOL;
 
         foreach ($this->properties as $property) {
-            $classString .= $property->getGetter() . PHP_EOL;
+            $classString .= PHP_EOL .$property->getGetter();
         }
 
         foreach ($this->properties as $property) {
-            $classString .= $property->getSetter() . PHP_EOL;
+            $classString .= PHP_EOL . $property->getSetter();
         }
 
         $classString .= '}' . PHP_EOL;
@@ -107,4 +107,3 @@ class PhpClass
         return $classString;
     }
 }
-
