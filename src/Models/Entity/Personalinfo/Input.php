@@ -493,6 +493,7 @@ class Input implements Model
     public function setBillingaddress($billingaddress): self
     {
         $this->billingaddress = $billingaddress;
+        $this->propertyFilled('billingaddress');
         return $this;
     }
 
@@ -503,6 +504,7 @@ class Input implements Model
     public function setDeliveryaddress($deliveryaddress): self
     {
         $this->deliveryaddress = $deliveryaddress;
+        $this->propertyFilled('deliveryaddress');
         return $this;
     }
 
@@ -513,6 +515,7 @@ class Input implements Model
     public function setEmail($email): self
     {
         $this->email = $email;
+        $this->propertyFilled('email');
         return $this;
     }
 
@@ -523,6 +526,7 @@ class Input implements Model
     public function setCustomertype($customertype): self
     {
         $this->customertype = $customertype;
+        $this->propertyFilled('customertype');
         return $this;
     }
 
@@ -533,6 +537,7 @@ class Input implements Model
     public function setBankaccount($bankaccount): self
     {
         $this->bankaccount = $bankaccount;
+        $this->propertyFilled('bankaccount');
         return $this;
     }
 
@@ -543,6 +548,7 @@ class Input implements Model
     public function setBankname($bankname): self
     {
         $this->bankname = $bankname;
+        $this->propertyFilled('bankname');
         return $this;
     }
 
@@ -553,6 +559,7 @@ class Input implements Model
     public function setBank($bank): self
     {
         $this->bank = $bank;
+        $this->propertyFilled('bank');
         return $this;
     }
 
@@ -563,6 +570,7 @@ class Input implements Model
     public function setTenname($tenname): self
     {
         $this->tenname = $tenname;
+        $this->propertyFilled('tenname');
         return $this;
     }
 
@@ -573,6 +581,7 @@ class Input implements Model
     public function setIban($iban): self
     {
         $this->iban = $iban;
+        $this->propertyFilled('iban');
         return $this;
     }
 
@@ -583,6 +592,7 @@ class Input implements Model
     public function setBic($bic): self
     {
         $this->bic = $bic;
+        $this->propertyFilled('bic');
         return $this;
     }
 
@@ -593,6 +603,7 @@ class Input implements Model
     public function setReference($reference): self
     {
         $this->reference = $reference;
+        $this->propertyFilled('reference');
         return $this;
     }
 
@@ -603,6 +614,7 @@ class Input implements Model
     public function setReservationnumber($reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
+        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -613,6 +625,7 @@ class Input implements Model
     public function setIncome($income): self
     {
         $this->income = $income;
+        $this->propertyFilled('income');
         return $this;
     }
 
@@ -623,6 +636,7 @@ class Input implements Model
     public function setBranche($branche): self
     {
         $this->branche = $branche;
+        $this->propertyFilled('branche');
         return $this;
     }
 
@@ -633,6 +647,7 @@ class Input implements Model
     public function setBranch($branch): self
     {
         $this->branch = $branch;
+        $this->propertyFilled('branch');
         return $this;
     }
 
@@ -643,6 +658,7 @@ class Input implements Model
     public function setWebsite($website): self
     {
         $this->website = $website;
+        $this->propertyFilled('website');
         return $this;
     }
 
@@ -653,6 +669,7 @@ class Input implements Model
     public function setClubcity($clubcity): self
     {
         $this->clubcity = $clubcity;
+        $this->propertyFilled('clubcity');
         return $this;
     }
 
@@ -663,6 +680,7 @@ class Input implements Model
     public function setClubcomment($clubcomment): self
     {
         $this->clubcomment = $clubcomment;
+        $this->propertyFilled('clubcomment');
         return $this;
     }
 
@@ -673,6 +691,7 @@ class Input implements Model
     public function setClubname($clubname): self
     {
         $this->clubname = $clubname;
+        $this->propertyFilled('clubname');
         return $this;
     }
 
@@ -683,6 +702,7 @@ class Input implements Model
     public function setBeurs($beurs): self
     {
         $this->beurs = $beurs;
+        $this->propertyFilled('beurs');
         return $this;
     }
 
@@ -693,6 +713,7 @@ class Input implements Model
     public function setStand($stand): self
     {
         $this->stand = $stand;
+        $this->propertyFilled('stand');
         return $this;
     }
 
@@ -703,6 +724,7 @@ class Input implements Model
     public function setFair($fair): self
     {
         $this->fair = $fair;
+        $this->propertyFilled('fair');
         return $this;
     }
 
@@ -713,6 +735,7 @@ class Input implements Model
     public function setBooth($booth): self
     {
         $this->booth = $booth;
+        $this->propertyFilled('booth');
         return $this;
     }
 
@@ -723,6 +746,7 @@ class Input implements Model
     public function setCarbrand($carbrand): self
     {
         $this->carbrand = $carbrand;
+        $this->propertyFilled('carbrand');
         return $this;
     }
 
@@ -733,6 +757,7 @@ class Input implements Model
     public function setCartype($cartype): self
     {
         $this->cartype = $cartype;
+        $this->propertyFilled('cartype');
         return $this;
     }
 
@@ -743,6 +768,7 @@ class Input implements Model
     public function setCarweight($carweight): self
     {
         $this->carweight = $carweight;
+        $this->propertyFilled('carweight');
         return $this;
     }
 
@@ -753,6 +779,7 @@ class Input implements Model
     public function setBirthdate($birthdate): self
     {
         $this->birthdate = $birthdate;
+        $this->propertyFilled('birthdate');
         return $this;
     }
 
@@ -763,6 +790,7 @@ class Input implements Model
     public function setBirthtime($birthtime): self
     {
         $this->birthtime = $birthtime;
+        $this->propertyFilled('birthtime');
         return $this;
     }
 
@@ -773,6 +801,7 @@ class Input implements Model
     public function setBirthplace($birthplace): self
     {
         $this->birthplace = $birthplace;
+        $this->propertyFilled('birthplace');
         return $this;
     }
 
@@ -783,6 +812,7 @@ class Input implements Model
     public function setCardnumber($cardnumber): self
     {
         $this->cardnumber = $cardnumber;
+        $this->propertyFilled('cardnumber');
         return $this;
     }
 
@@ -793,6 +823,7 @@ class Input implements Model
     public function setBtw($btw): self
     {
         $this->btw = $btw;
+        $this->propertyFilled('btw');
         return $this;
     }
 
@@ -803,6 +834,7 @@ class Input implements Model
     public function setKvk($kvk): self
     {
         $this->kvk = $kvk;
+        $this->propertyFilled('kvk');
         return $this;
     }
 
@@ -813,6 +845,7 @@ class Input implements Model
     public function setCostcentre($costcentre): self
     {
         $this->costcentre = $costcentre;
+        $this->propertyFilled('costcentre');
         return $this;
     }
 
@@ -823,6 +856,7 @@ class Input implements Model
     public function setFindus($findus): self
     {
         $this->findus = $findus;
+        $this->propertyFilled('findus');
         return $this;
     }
 
@@ -833,6 +867,7 @@ class Input implements Model
     public function setSsnnumber($ssnnumber): self
     {
         $this->ssnnumber = $ssnnumber;
+        $this->propertyFilled('ssnnumber');
         return $this;
     }
 
@@ -843,6 +878,7 @@ class Input implements Model
     public function setZzppass($zzppass): self
     {
         $this->zzppass = $zzppass;
+        $this->propertyFilled('zzppass');
         return $this;
     }
 }

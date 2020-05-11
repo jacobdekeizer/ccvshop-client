@@ -51,6 +51,7 @@ class TakeOutWindow implements Model
     public function setStart($start): self
     {
         $this->start = $start;
+        $this->propertyFilled('start');
         return $this;
     }
 
@@ -61,6 +62,7 @@ class TakeOutWindow implements Model
     public function setEnd($end): self
     {
         $this->end = $end;
+        $this->propertyFilled('end');
         return $this;
     }
 }

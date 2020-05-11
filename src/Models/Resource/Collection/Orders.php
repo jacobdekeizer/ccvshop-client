@@ -116,6 +116,7 @@ class Orders implements Model
     public function setStart($start): self
     {
         $this->start = $start;
+        $this->propertyFilled('start');
         return $this;
     }
 
@@ -126,6 +127,7 @@ class Orders implements Model
     public function setSize($size): self
     {
         $this->size = $size;
+        $this->propertyFilled('size');
         return $this;
     }
 
@@ -136,6 +138,7 @@ class Orders implements Model
     public function setHref($href): self
     {
         $this->href = $href;
+        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,6 +149,7 @@ class Orders implements Model
     public function setFirst($first): self
     {
         $this->first = $first;
+        $this->propertyFilled('first');
         return $this;
     }
 
@@ -156,6 +160,7 @@ class Orders implements Model
     public function setPrevious($previous): self
     {
         $this->previous = $previous;
+        $this->propertyFilled('previous');
         return $this;
     }
 
@@ -166,6 +171,7 @@ class Orders implements Model
     public function setNext($next): self
     {
         $this->next = $next;
+        $this->propertyFilled('next');
         return $this;
     }
 
@@ -176,6 +182,7 @@ class Orders implements Model
     public function setItems($items): self
     {
         $this->items = $items;
+        $this->propertyFilled('items');
         return $this;
     }
 }

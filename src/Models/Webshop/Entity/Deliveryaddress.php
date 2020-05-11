@@ -246,6 +246,7 @@ class Deliveryaddress implements Model
     public function setGender($gender): self
     {
         $this->gender = $gender;
+        $this->propertyFilled('gender');
         return $this;
     }
 
@@ -256,6 +257,7 @@ class Deliveryaddress implements Model
     public function setInitials($initials): self
     {
         $this->initials = $initials;
+        $this->propertyFilled('initials');
         return $this;
     }
 
@@ -266,6 +268,7 @@ class Deliveryaddress implements Model
     public function setFullName($fullName): self
     {
         $this->fullName = $fullName;
+        $this->propertyFilled('fullName');
         return $this;
     }
 
@@ -276,6 +279,7 @@ class Deliveryaddress implements Model
     public function setCompany($company): self
     {
         $this->company = $company;
+        $this->propertyFilled('company');
         return $this;
     }
 
@@ -286,6 +290,7 @@ class Deliveryaddress implements Model
     public function setAddressLine1($addressLine1): self
     {
         $this->addressLine1 = $addressLine1;
+        $this->propertyFilled('addressLine1');
         return $this;
     }
 
@@ -296,6 +301,7 @@ class Deliveryaddress implements Model
     public function setAddressLine2($addressLine2): self
     {
         $this->addressLine2 = $addressLine2;
+        $this->propertyFilled('addressLine2');
         return $this;
     }
 
@@ -306,6 +312,7 @@ class Deliveryaddress implements Model
     public function setStreet($street): self
     {
         $this->street = $street;
+        $this->propertyFilled('street');
         return $this;
     }
 
@@ -316,6 +323,7 @@ class Deliveryaddress implements Model
     public function setHousenumber($housenumber): self
     {
         $this->housenumber = $housenumber;
+        $this->propertyFilled('housenumber');
         return $this;
     }
 
@@ -326,6 +334,7 @@ class Deliveryaddress implements Model
     public function setHousenumberSuffix($housenumberSuffix): self
     {
         $this->housenumberSuffix = $housenumberSuffix;
+        $this->propertyFilled('housenumberSuffix');
         return $this;
     }
 
@@ -336,6 +345,7 @@ class Deliveryaddress implements Model
     public function setZipcode($zipcode): self
     {
         $this->zipcode = $zipcode;
+        $this->propertyFilled('zipcode');
         return $this;
     }
 
@@ -346,6 +356,7 @@ class Deliveryaddress implements Model
     public function setCity($city): self
     {
         $this->city = $city;
+        $this->propertyFilled('city');
         return $this;
     }
 
@@ -356,6 +367,7 @@ class Deliveryaddress implements Model
     public function setProvince($province): self
     {
         $this->province = $province;
+        $this->propertyFilled('province');
         return $this;
     }
 
@@ -366,6 +378,7 @@ class Deliveryaddress implements Model
     public function setCountry($country): self
     {
         $this->country = $country;
+        $this->propertyFilled('country');
         return $this;
     }
 
@@ -376,6 +389,7 @@ class Deliveryaddress implements Model
     public function setCountryCode($countryCode): self
     {
         $this->countryCode = $countryCode;
+        $this->propertyFilled('countryCode');
         return $this;
     }
 
@@ -386,6 +400,7 @@ class Deliveryaddress implements Model
     public function setTelephone($telephone): self
     {
         $this->telephone = $telephone;
+        $this->propertyFilled('telephone');
         return $this;
     }
 
@@ -396,6 +411,7 @@ class Deliveryaddress implements Model
     public function setMobile($mobile): self
     {
         $this->mobile = $mobile;
+        $this->propertyFilled('mobile');
         return $this;
     }
 
@@ -406,6 +422,7 @@ class Deliveryaddress implements Model
     public function setComment($comment): self
     {
         $this->comment = $comment;
+        $this->propertyFilled('comment');
         return $this;
     }
 }

@@ -60,6 +60,7 @@ abstract class Property
             . self::INDENT . 'public function set' . ucfirst($this->name) . '($' . $this->name . '): self' . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
             . self::INDENT . self::INDENT . '$this->' . $this->name . ' = $' . $this->name . ';' . PHP_EOL
+            . self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL
             . self::INDENT . self::INDENT . 'return $this;' . PHP_EOL
             . self::INDENT . '}' . PHP_EOL;
     }

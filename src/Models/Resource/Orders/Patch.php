@@ -337,6 +337,7 @@ class Patch implements Model
     public function setInvoicenumber($invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
+        $this->propertyFilled('invoicenumber');
         return $this;
     }
 
@@ -347,6 +348,7 @@ class Patch implements Model
     public function setPaid($paid): self
     {
         $this->paid = $paid;
+        $this->propertyFilled('paid');
         return $this;
     }
 
@@ -357,6 +359,7 @@ class Patch implements Model
     public function setSafetyDepositReturned($safetyDepositReturned): self
     {
         $this->safetyDepositReturned = $safetyDepositReturned;
+        $this->propertyFilled('safetyDepositReturned');
         return $this;
     }
 
@@ -367,6 +370,7 @@ class Patch implements Model
     public function setTotalShipping($totalShipping): self
     {
         $this->totalShipping = $totalShipping;
+        $this->propertyFilled('totalShipping');
         return $this;
     }
 
@@ -377,6 +381,7 @@ class Patch implements Model
     public function setPaymethodCosts($paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
+        $this->propertyFilled('paymethodCosts');
         return $this;
     }
 
@@ -387,6 +392,7 @@ class Patch implements Model
     public function setExtraCosts($extraCosts): self
     {
         $this->extraCosts = $extraCosts;
+        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -397,6 +403,7 @@ class Patch implements Model
     public function setExtraCostsDescription($extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
+        $this->propertyFilled('extraCostsDescription');
         return $this;
     }
 
@@ -407,6 +414,7 @@ class Patch implements Model
     public function setTaxesIncluded($taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
+        $this->propertyFilled('taxesIncluded');
         return $this;
     }
 
@@ -417,6 +425,7 @@ class Patch implements Model
     public function setOrderRowTaxesIncluded($orderRowTaxesIncluded): self
     {
         $this->orderRowTaxesIncluded = $orderRowTaxesIncluded;
+        $this->propertyFilled('orderRowTaxesIncluded');
         return $this;
     }
 
@@ -427,6 +436,7 @@ class Patch implements Model
     public function setShippingTaxesIncluded($shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
+        $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
 
@@ -437,6 +447,7 @@ class Patch implements Model
     public function setIsIntraCommunityOrder($isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
+        $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
 
@@ -447,6 +458,7 @@ class Patch implements Model
     public function setCurrency($currency): self
     {
         $this->currency = $currency;
+        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -457,6 +469,7 @@ class Patch implements Model
     public function setOrderedinlng($orderedinlng): self
     {
         $this->orderedinlng = $orderedinlng;
+        $this->propertyFilled('orderedinlng');
         return $this;
     }
 
@@ -467,6 +480,7 @@ class Patch implements Model
     public function setStatus($status): self
     {
         $this->status = $status;
+        $this->propertyFilled('status');
         return $this;
     }
 
@@ -477,6 +491,7 @@ class Patch implements Model
     public function setNote($note): self
     {
         $this->note = $note;
+        $this->propertyFilled('note');
         return $this;
     }
 
@@ -487,6 +502,7 @@ class Patch implements Model
     public function setTrackAndTraceCode($trackAndTraceCode): self
     {
         $this->trackAndTraceCode = $trackAndTraceCode;
+        $this->propertyFilled('trackAndTraceCode');
         return $this;
     }
 
@@ -497,6 +513,7 @@ class Patch implements Model
     public function setTrackAndTraceCarrier($trackAndTraceCarrier): self
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
+        $this->propertyFilled('trackAndTraceCarrier');
         return $this;
     }
 
@@ -507,6 +524,7 @@ class Patch implements Model
     public function setMail($mail): self
     {
         $this->mail = $mail;
+        $this->propertyFilled('mail');
         return $this;
     }
 
@@ -517,6 +535,7 @@ class Patch implements Model
     public function setDeliverDate($deliverDate): self
     {
         $this->deliverDate = $deliverDate;
+        $this->propertyFilled('deliverDate');
         return $this;
     }
 
@@ -527,6 +546,7 @@ class Patch implements Model
     public function setDeliverMethod($deliverMethod): self
     {
         $this->deliverMethod = $deliverMethod;
+        $this->propertyFilled('deliverMethod');
         return $this;
     }
 
@@ -537,6 +557,7 @@ class Patch implements Model
     public function setTakeoutslot($takeoutslot): self
     {
         $this->takeoutslot = $takeoutslot;
+        $this->propertyFilled('takeoutslot');
         return $this;
     }
 
@@ -547,6 +568,7 @@ class Patch implements Model
     public function setReservationnumber($reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
+        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -557,6 +579,7 @@ class Patch implements Model
     public function setCustomer($customer): self
     {
         $this->customer = $customer;
+        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -567,6 +590,7 @@ class Patch implements Model
     public function setOrderrows($orderrows): self
     {
         $this->orderrows = $orderrows;
+        $this->propertyFilled('orderrows');
         return $this;
     }
 }

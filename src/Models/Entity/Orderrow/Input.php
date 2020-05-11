@@ -220,6 +220,7 @@ class Input implements Model
     public function setProductType($productType): self
     {
         $this->productType = $productType;
+        $this->propertyFilled('productType');
         return $this;
     }
 
@@ -230,6 +231,7 @@ class Input implements Model
     public function setAutoCreateDepositRows($autoCreateDepositRows): self
     {
         $this->autoCreateDepositRows = $autoCreateDepositRows;
+        $this->propertyFilled('autoCreateDepositRows');
         return $this;
     }
 
@@ -240,6 +242,7 @@ class Input implements Model
     public function setProductId($productId): self
     {
         $this->productId = $productId;
+        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -250,6 +253,7 @@ class Input implements Model
     public function setProductName($productName): self
     {
         $this->productName = $productName;
+        $this->propertyFilled('productName');
         return $this;
     }
 
@@ -260,6 +264,7 @@ class Input implements Model
     public function setProductNumber($productNumber): self
     {
         $this->productNumber = $productNumber;
+        $this->propertyFilled('productNumber');
         return $this;
     }
 
@@ -270,6 +275,7 @@ class Input implements Model
     public function setCount($count): self
     {
         $this->count = $count;
+        $this->propertyFilled('count');
         return $this;
     }
 
@@ -280,6 +286,7 @@ class Input implements Model
     public function setPrice($price): self
     {
         $this->price = $price;
+        $this->propertyFilled('price');
         return $this;
     }
 
@@ -290,6 +297,7 @@ class Input implements Model
     public function setProductPurchasePrice($productPurchasePrice): self
     {
         $this->productPurchasePrice = $productPurchasePrice;
+        $this->propertyFilled('productPurchasePrice');
         return $this;
     }
 
@@ -300,6 +308,7 @@ class Input implements Model
     public function setDiscount($discount): self
     {
         $this->discount = $discount;
+        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -310,6 +319,7 @@ class Input implements Model
     public function setTax($tax): self
     {
         $this->tax = $tax;
+        $this->propertyFilled('tax');
         return $this;
     }
 
@@ -320,6 +330,7 @@ class Input implements Model
     public function setUnit($unit): self
     {
         $this->unit = $unit;
+        $this->propertyFilled('unit');
         return $this;
     }
 
@@ -330,6 +341,7 @@ class Input implements Model
     public function setWeight($weight): self
     {
         $this->weight = $weight;
+        $this->propertyFilled('weight');
         return $this;
     }
 
@@ -340,6 +352,7 @@ class Input implements Model
     public function setMemo($memo): self
     {
         $this->memo = $memo;
+        $this->propertyFilled('memo');
         return $this;
     }
 
@@ -350,6 +363,7 @@ class Input implements Model
     public function setPackageId($packageId): self
     {
         $this->packageId = $packageId;
+        $this->propertyFilled('packageId');
         return $this;
     }
 
@@ -360,6 +374,7 @@ class Input implements Model
     public function setAttributeCombinationId($attributeCombinationId): self
     {
         $this->attributeCombinationId = $attributeCombinationId;
+        $this->propertyFilled('attributeCombinationId');
         return $this;
     }
 }

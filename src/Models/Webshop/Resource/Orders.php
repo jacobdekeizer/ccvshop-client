@@ -714,6 +714,7 @@ class Orders implements Model
     public function setHref($href): self
     {
         $this->href = $href;
+        $this->propertyFilled('href');
         return $this;
     }
 
@@ -724,6 +725,7 @@ class Orders implements Model
     public function setId($id): self
     {
         $this->id = $id;
+        $this->propertyFilled('id');
         return $this;
     }
 
@@ -734,6 +736,7 @@ class Orders implements Model
     public function setOrdernumberPrefix($ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
+        $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
 
@@ -744,6 +747,7 @@ class Orders implements Model
     public function setOrdernumber($ordernumber): self
     {
         $this->ordernumber = $ordernumber;
+        $this->propertyFilled('ordernumber');
         return $this;
     }
 
@@ -754,6 +758,7 @@ class Orders implements Model
     public function setOrdernumberFull($ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
+        $this->propertyFilled('ordernumberFull');
         return $this;
     }
 
@@ -764,6 +769,7 @@ class Orders implements Model
     public function setInvoicenumber($invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
+        $this->propertyFilled('invoicenumber');
         return $this;
     }
 
@@ -774,6 +780,7 @@ class Orders implements Model
     public function setCreateDate($createDate): self
     {
         $this->createDate = $createDate;
+        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -784,6 +791,7 @@ class Orders implements Model
     public function setDeliverMethod($deliverMethod): self
     {
         $this->deliverMethod = $deliverMethod;
+        $this->propertyFilled('deliverMethod');
         return $this;
     }
 
@@ -794,6 +802,7 @@ class Orders implements Model
     public function setDeliverDate($deliverDate): self
     {
         $this->deliverDate = $deliverDate;
+        $this->propertyFilled('deliverDate');
         return $this;
     }
 
@@ -804,6 +813,7 @@ class Orders implements Model
     public function setTakeOutWindow($takeOutWindow): self
     {
         $this->takeOutWindow = $takeOutWindow;
+        $this->propertyFilled('takeOutWindow');
         return $this;
     }
 
@@ -814,6 +824,7 @@ class Orders implements Model
     public function setOrderedinlng($orderedinlng): self
     {
         $this->orderedinlng = $orderedinlng;
+        $this->propertyFilled('orderedinlng');
         return $this;
     }
 
@@ -824,6 +835,7 @@ class Orders implements Model
     public function setStatus($status): self
     {
         $this->status = $status;
+        $this->propertyFilled('status');
         return $this;
     }
 
@@ -834,6 +846,7 @@ class Orders implements Model
     public function setIsCompleted($isCompleted): self
     {
         $this->isCompleted = $isCompleted;
+        $this->propertyFilled('isCompleted');
         return $this;
     }
 
@@ -844,6 +857,7 @@ class Orders implements Model
     public function setBasketHref($basketHref): self
     {
         $this->basketHref = $basketHref;
+        $this->propertyFilled('basketHref');
         return $this;
     }
 
@@ -854,6 +868,7 @@ class Orders implements Model
     public function setCheckoutHref($checkoutHref): self
     {
         $this->checkoutHref = $checkoutHref;
+        $this->propertyFilled('checkoutHref');
         return $this;
     }
 
@@ -864,6 +879,7 @@ class Orders implements Model
     public function setPaid($paid): self
     {
         $this->paid = $paid;
+        $this->propertyFilled('paid');
         return $this;
     }
 
@@ -874,6 +890,7 @@ class Orders implements Model
     public function setSafetyDepositReturned($safetyDepositReturned): self
     {
         $this->safetyDepositReturned = $safetyDepositReturned;
+        $this->propertyFilled('safetyDepositReturned');
         return $this;
     }
 
@@ -884,6 +901,7 @@ class Orders implements Model
     public function setPaymethodId($paymethodId): self
     {
         $this->paymethodId = $paymethodId;
+        $this->propertyFilled('paymethodId');
         return $this;
     }
 
@@ -894,6 +912,7 @@ class Orders implements Model
     public function setPaymethod($paymethod): self
     {
         $this->paymethod = $paymethod;
+        $this->propertyFilled('paymethod');
         return $this;
     }
 
@@ -904,6 +923,7 @@ class Orders implements Model
     public function setTaxesIncluded($taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
+        $this->propertyFilled('taxesIncluded');
         return $this;
     }
 
@@ -914,6 +934,7 @@ class Orders implements Model
     public function setOrderRowTaxesIncluded($orderRowTaxesIncluded): self
     {
         $this->orderRowTaxesIncluded = $orderRowTaxesIncluded;
+        $this->propertyFilled('orderRowTaxesIncluded');
         return $this;
     }
 
@@ -924,6 +945,7 @@ class Orders implements Model
     public function setShippingTaxesIncluded($shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
+        $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
 
@@ -934,6 +956,7 @@ class Orders implements Model
     public function setShippingTaxPercentage($shippingTaxPercentage): self
     {
         $this->shippingTaxPercentage = $shippingTaxPercentage;
+        $this->propertyFilled('shippingTaxPercentage');
         return $this;
     }
 
@@ -944,6 +967,7 @@ class Orders implements Model
     public function setIsIntraCommunityOrder($isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
+        $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
 
@@ -954,6 +978,7 @@ class Orders implements Model
     public function setTotalOrderrowPrice($totalOrderrowPrice): self
     {
         $this->totalOrderrowPrice = $totalOrderrowPrice;
+        $this->propertyFilled('totalOrderrowPrice');
         return $this;
     }
 
@@ -964,6 +989,7 @@ class Orders implements Model
     public function setTotalShipping($totalShipping): self
     {
         $this->totalShipping = $totalShipping;
+        $this->propertyFilled('totalShipping');
         return $this;
     }
 
@@ -974,6 +1000,7 @@ class Orders implements Model
     public function setTotalDiscounts($totalDiscounts): self
     {
         $this->totalDiscounts = $totalDiscounts;
+        $this->propertyFilled('totalDiscounts');
         return $this;
     }
 
@@ -984,6 +1011,7 @@ class Orders implements Model
     public function setTotalPrice($totalPrice): self
     {
         $this->totalPrice = $totalPrice;
+        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -994,6 +1022,7 @@ class Orders implements Model
     public function setCurrency($currency): self
     {
         $this->currency = $currency;
+        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -1004,6 +1033,7 @@ class Orders implements Model
     public function setTotalTax($totalTax): self
     {
         $this->totalTax = $totalTax;
+        $this->propertyFilled('totalTax');
         return $this;
     }
 
@@ -1014,6 +1044,7 @@ class Orders implements Model
     public function setTotalWeight($totalWeight): self
     {
         $this->totalWeight = $totalWeight;
+        $this->propertyFilled('totalWeight');
         return $this;
     }
 
@@ -1024,6 +1055,7 @@ class Orders implements Model
     public function setExtraPaymentOption($extraPaymentOption): self
     {
         $this->extraPaymentOption = $extraPaymentOption;
+        $this->propertyFilled('extraPaymentOption');
         return $this;
     }
 
@@ -1034,6 +1066,7 @@ class Orders implements Model
     public function setExtraPaymentOptionPrice($extraPaymentOptionPrice): self
     {
         $this->extraPaymentOptionPrice = $extraPaymentOptionPrice;
+        $this->propertyFilled('extraPaymentOptionPrice');
         return $this;
     }
 
@@ -1044,6 +1077,7 @@ class Orders implements Model
     public function setExtraPaymentOptionNoSentprice($extraPaymentOptionNoSentprice): self
     {
         $this->extraPaymentOptionNoSentprice = $extraPaymentOptionNoSentprice;
+        $this->propertyFilled('extraPaymentOptionNoSentprice');
         return $this;
     }
 
@@ -1054,6 +1088,7 @@ class Orders implements Model
     public function setExtraPaymentOptionPayOnPickup($extraPaymentOptionPayOnPickup): self
     {
         $this->extraPaymentOptionPayOnPickup = $extraPaymentOptionPayOnPickup;
+        $this->propertyFilled('extraPaymentOptionPayOnPickup');
         return $this;
     }
 
@@ -1064,6 +1099,7 @@ class Orders implements Model
     public function setExtraPrice($extraPrice): self
     {
         $this->extraPrice = $extraPrice;
+        $this->propertyFilled('extraPrice');
         return $this;
     }
 
@@ -1074,6 +1110,7 @@ class Orders implements Model
     public function setPaymethodCosts($paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
+        $this->propertyFilled('paymethodCosts');
         return $this;
     }
 
@@ -1084,6 +1121,7 @@ class Orders implements Model
     public function setCreditPointDiscount($creditPointDiscount): self
     {
         $this->creditPointDiscount = $creditPointDiscount;
+        $this->propertyFilled('creditPointDiscount');
         return $this;
     }
 
@@ -1094,6 +1132,7 @@ class Orders implements Model
     public function setExtraCosts($extraCosts): self
     {
         $this->extraCosts = $extraCosts;
+        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -1104,6 +1143,7 @@ class Orders implements Model
     public function setExtraCostsDescription($extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
+        $this->propertyFilled('extraCostsDescription');
         return $this;
     }
 
@@ -1114,6 +1154,7 @@ class Orders implements Model
     public function setTrackAndTraceCode($trackAndTraceCode): self
     {
         $this->trackAndTraceCode = $trackAndTraceCode;
+        $this->propertyFilled('trackAndTraceCode');
         return $this;
     }
 
@@ -1124,6 +1165,7 @@ class Orders implements Model
     public function setTrackAndTraceCarrier($trackAndTraceCarrier): self
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
+        $this->propertyFilled('trackAndTraceCarrier');
         return $this;
     }
 
@@ -1134,6 +1176,7 @@ class Orders implements Model
     public function setReservationnumber($reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
+        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -1144,6 +1187,7 @@ class Orders implements Model
     public function setDeliveryOption($deliveryOption): self
     {
         $this->deliveryOption = $deliveryOption;
+        $this->propertyFilled('deliveryOption');
         return $this;
     }
 
@@ -1154,6 +1198,7 @@ class Orders implements Model
     public function setUser($user): self
     {
         $this->user = $user;
+        $this->propertyFilled('user');
         return $this;
     }
 
@@ -1164,6 +1209,7 @@ class Orders implements Model
     public function setDiscountcoupon($discountcoupon): self
     {
         $this->discountcoupon = $discountcoupon;
+        $this->propertyFilled('discountcoupon');
         return $this;
     }
 
@@ -1174,6 +1220,7 @@ class Orders implements Model
     public function setCustomer($customer): self
     {
         $this->customer = $customer;
+        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -1184,6 +1231,7 @@ class Orders implements Model
     public function setPickupAddress($pickupAddress): self
     {
         $this->pickupAddress = $pickupAddress;
+        $this->propertyFilled('pickupAddress');
         return $this;
     }
 
@@ -1194,6 +1242,7 @@ class Orders implements Model
     public function setOrderrows($orderrows): self
     {
         $this->orderrows = $orderrows;
+        $this->propertyFilled('orderrows');
         return $this;
     }
 
@@ -1204,6 +1253,7 @@ class Orders implements Model
     public function setOrdernotes($ordernotes): self
     {
         $this->ordernotes = $ordernotes;
+        $this->propertyFilled('ordernotes');
         return $this;
     }
 
@@ -1214,6 +1264,7 @@ class Orders implements Model
     public function setOrdernotifications($ordernotifications): self
     {
         $this->ordernotifications = $ordernotifications;
+        $this->propertyFilled('ordernotifications');
         return $this;
     }
 
@@ -1224,6 +1275,7 @@ class Orders implements Model
     public function setOrderaffiliatenetworks($orderaffiliatenetworks): self
     {
         $this->orderaffiliatenetworks = $orderaffiliatenetworks;
+        $this->propertyFilled('orderaffiliatenetworks');
         return $this;
     }
 
@@ -1234,6 +1286,7 @@ class Orders implements Model
     public function setInvoices($invoices): self
     {
         $this->invoices = $invoices;
+        $this->propertyFilled('invoices');
         return $this;
     }
 }

@@ -116,6 +116,7 @@ class Discountcoupon implements Model
     public function setCode($code): self
     {
         $this->code = $code;
+        $this->propertyFilled('code');
         return $this;
     }
 
@@ -126,6 +127,7 @@ class Discountcoupon implements Model
     public function setDiscount($discount): self
     {
         $this->discount = $discount;
+        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -136,6 +138,7 @@ class Discountcoupon implements Model
     public function setType($type): self
     {
         $this->type = $type;
+        $this->propertyFilled('type');
         return $this;
     }
 
@@ -146,6 +149,7 @@ class Discountcoupon implements Model
     public function setEnddate($enddate): self
     {
         $this->enddate = $enddate;
+        $this->propertyFilled('enddate');
         return $this;
     }
 
@@ -156,6 +160,7 @@ class Discountcoupon implements Model
     public function setOnetimeuse($onetimeuse): self
     {
         $this->onetimeuse = $onetimeuse;
+        $this->propertyFilled('onetimeuse');
         return $this;
     }
 
@@ -166,6 +171,7 @@ class Discountcoupon implements Model
     public function setGivesfreeshipping($givesfreeshipping): self
     {
         $this->givesfreeshipping = $givesfreeshipping;
+        $this->propertyFilled('givesfreeshipping');
         return $this;
     }
 
@@ -176,6 +182,7 @@ class Discountcoupon implements Model
     public function setMinimumprice($minimumprice): self
     {
         $this->minimumprice = $minimumprice;
+        $this->propertyFilled('minimumprice');
         return $this;
     }
 }

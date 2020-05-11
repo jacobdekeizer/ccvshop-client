@@ -64,6 +64,7 @@ class User implements Model
     public function setId($id): self
     {
         $this->id = $id;
+        $this->propertyFilled('id');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class User implements Model
     public function setDiscountPercentage($discountPercentage): self
     {
         $this->discountPercentage = $discountPercentage;
+        $this->propertyFilled('discountPercentage');
         return $this;
     }
 
@@ -84,6 +86,7 @@ class User implements Model
     public function setHref($href): self
     {
         $this->href = $href;
+        $this->propertyFilled('href');
         return $this;
     }
 }

@@ -7,7 +7,12 @@ use JacobDeKeizer\Ccv\Support\Str;
 
 trait ToArray
 {
-    public function toArray(bool $includeNullValues = true): array
+    /**
+     * @var string[]
+     */
+    private $filledProperties;
+
+    public function toArray(bool $onlyFilledProperties = true): array
     {
         $data = [];
 
@@ -20,20 +25,25 @@ trait ToArray
                 continue;
             }
 
+            if ($onlyFilledProperties && !in_array($snakeKey, $this->filledProperties)) {
+                continue;
+            }
+
             $value = $this->covertToData($snakeKey, $value);
 
             if ($value instanceof Model) {
                 $value = $value->toArray();
             }
 
-            if ($value === null && !$includeNullValues) {
-                continue;
-            }
-
             $data[$snakeKey] = $value;
         }
 
         return $data;
+    }
+
+    final protected function propertyFilled(string $key): void
+    {
+        $this->filledProperties[] = Str::snake($key);
     }
 
     protected function removeFromRequestData(string $key): bool

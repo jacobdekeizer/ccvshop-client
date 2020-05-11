@@ -38,6 +38,7 @@ class Invoices implements Model
     public function setHref($href): self
     {
         $this->href = $href;
+        $this->propertyFilled('href');
         return $this;
     }
 }

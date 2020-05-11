@@ -72,10 +72,14 @@ class BaseEndpoint
 
         $body = $response->getBody()->getContents();
 
-        try {
-            $object = json_decode($body, true, 512, JSON_THROW_ON_ERROR | JSON_OBJECT_AS_ARRAY);
-        } catch (Throwable $throwable) {
-            throw CcvShopException::fromPrevious('Unable to decode api response: ' . $body, $throwable);
+        if (empty($body)) {
+            $object = [];
+        } else {
+            try {
+                $object = json_decode($body, true, 512, JSON_THROW_ON_ERROR | JSON_OBJECT_AS_ARRAY);
+            } catch (Throwable $throwable) {
+                throw CcvShopException::fromPrevious('Unable to decode api response: ' . $body, $throwable);
+            }
         }
 
         if ($response->getStatusCode() >= 400) {
