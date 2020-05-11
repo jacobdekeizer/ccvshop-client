@@ -711,7 +711,7 @@ class Orders implements Model
      * @param string Link to self
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');
@@ -722,7 +722,7 @@ class Orders implements Model
      * @param int Order id
      * @return self
      */
-    public function setId($id): self
+    public function setId(int $id): self
     {
         $this->id = $id;
         $this->propertyFilled('id');
@@ -733,7 +733,7 @@ class Orders implements Model
      * @param string|null Prefix of the specific order number of the order. Automatically generated when the order is completed. This will be null when 'is_completed' is false.
      * @return self
      */
-    public function setOrdernumberPrefix($ordernumberPrefix): self
+    public function setOrdernumberPrefix(?string $ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
         $this->propertyFilled('ordernumberPrefix');
@@ -744,7 +744,7 @@ class Orders implements Model
      * @param int|null Order number, automatically generated when the order is completed. This will be null when 'is_completed' is false.
      * @return self
      */
-    public function setOrdernumber($ordernumber): self
+    public function setOrdernumber(?int $ordernumber): self
     {
         $this->ordernumber = $ordernumber;
         $this->propertyFilled('ordernumber');
@@ -755,7 +755,7 @@ class Orders implements Model
      * @param string|null Unique order number, Full order number as displayed in shop. With dash if the prefix is available. This will be null when 'is_completed' is false.
      * @return self
      */
-    public function setOrdernumberFull($ordernumberFull): self
+    public function setOrdernumberFull(?string $ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
         $this->propertyFilled('ordernumberFull');
@@ -766,7 +766,7 @@ class Orders implements Model
      * @param int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      * @return self
      */
-    public function setInvoicenumber($invoicenumber): self
+    public function setInvoicenumber(?int $invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
         $this->propertyFilled('invoicenumber');
@@ -777,7 +777,7 @@ class Orders implements Model
      * @param string Createdate of this order in UTC
      * @return self
      */
-    public function setCreateDate($createDate): self
+    public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
         $this->propertyFilled('createDate');
@@ -788,7 +788,7 @@ class Orders implements Model
      * @param string This is the deliver method the customer has chosen during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      * @return self
      */
-    public function setDeliverMethod($deliverMethod): self
+    public function setDeliverMethod(string $deliverMethod): self
     {
         $this->deliverMethod = $deliverMethod;
         $this->propertyFilled('deliverMethod');
@@ -799,7 +799,7 @@ class Orders implements Model
      * @param string|null Delivery date in UTC. In case of take out, see take_out_slot.
      * @return self
      */
-    public function setDeliverDate($deliverDate): self
+    public function setDeliverDate(?string $deliverDate): self
     {
         $this->deliverDate = $deliverDate;
         $this->propertyFilled('deliverDate');
@@ -810,7 +810,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      * @return self
      */
-    public function setTakeOutWindow($takeOutWindow): self
+    public function setTakeOutWindow(\JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow $takeOutWindow): self
     {
         $this->takeOutWindow = $takeOutWindow;
         $this->propertyFilled('takeOutWindow');
@@ -821,7 +821,7 @@ class Orders implements Model
      * @param string Language in which this order was ordered
      * @return self
      */
-    public function setOrderedinlng($orderedinlng): self
+    public function setOrderedinlng(string $orderedinlng): self
     {
         $this->orderedinlng = $orderedinlng;
         $this->propertyFilled('orderedinlng');
@@ -832,7 +832,7 @@ class Orders implements Model
      * @param int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      * @return self
      */
-    public function setStatus($status): self
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
         $this->propertyFilled('status');
@@ -843,7 +843,7 @@ class Orders implements Model
      * @param bool|null If status is null 'is_completed' will be false. If false, the order hasn't been completed by the customer.
      * @return self
      */
-    public function setIsCompleted($isCompleted): self
+    public function setIsCompleted(?bool $isCompleted): self
     {
         $this->isCompleted = $isCompleted;
         $this->propertyFilled('isCompleted');
@@ -854,7 +854,7 @@ class Orders implements Model
      * @param string|null Link to the shopping basket, only available when 'is_completed' is false.
      * @return self
      */
-    public function setBasketHref($basketHref): self
+    public function setBasketHref(?string $basketHref): self
     {
         $this->basketHref = $basketHref;
         $this->propertyFilled('basketHref');
@@ -865,7 +865,7 @@ class Orders implements Model
      * @param string|null Link to the checkout page, only available when 'is_completed' is false. If the shop has the regular checkout, this will be the basket_href.
      * @return self
      */
-    public function setCheckoutHref($checkoutHref): self
+    public function setCheckoutHref(?string $checkoutHref): self
     {
         $this->checkoutHref = $checkoutHref;
         $this->propertyFilled('checkoutHref');
@@ -876,7 +876,7 @@ class Orders implements Model
      * @param bool If the order is marked as paid
      * @return self
      */
-    public function setPaid($paid): self
+    public function setPaid(bool $paid): self
     {
         $this->paid = $paid;
         $this->propertyFilled('paid');
@@ -887,7 +887,7 @@ class Orders implements Model
      * @param bool If the order's safety deposit is returned to the customer.
      * @return self
      */
-    public function setSafetyDepositReturned($safetyDepositReturned): self
+    public function setSafetyDepositReturned(bool $safetyDepositReturned): self
     {
         $this->safetyDepositReturned = $safetyDepositReturned;
         $this->propertyFilled('safetyDepositReturned');
@@ -898,7 +898,7 @@ class Orders implements Model
      * @param int Paymethod Id of the order. Corresponse with the resource paymethods.
      * @return self
      */
-    public function setPaymethodId($paymethodId): self
+    public function setPaymethodId(int $paymethodId): self
     {
         $this->paymethodId = $paymethodId;
         $this->propertyFilled('paymethodId');
@@ -909,7 +909,7 @@ class Orders implements Model
      * @param string Paymethod of the order
      * @return self
      */
-    public function setPaymethod($paymethod): self
+    public function setPaymethod(string $paymethod): self
     {
         $this->paymethod = $paymethod;
         $this->propertyFilled('paymethod');
@@ -920,7 +920,7 @@ class Orders implements Model
      * @param bool If taxes are calculated in the total price. If false, all taxes will be hidden.
      * @return self
      */
-    public function setTaxesIncluded($taxesIncluded): self
+    public function setTaxesIncluded(bool $taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
         $this->propertyFilled('taxesIncluded');
@@ -931,7 +931,7 @@ class Orders implements Model
      * @param bool If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
      * @return self
      */
-    public function setOrderRowTaxesIncluded($orderRowTaxesIncluded): self
+    public function setOrderRowTaxesIncluded(bool $orderRowTaxesIncluded): self
     {
         $this->orderRowTaxesIncluded = $orderRowTaxesIncluded;
         $this->propertyFilled('orderRowTaxesIncluded');
@@ -942,7 +942,7 @@ class Orders implements Model
      * @param bool If shippingcosts are included in the total tax amount
      * @return self
      */
-    public function setShippingTaxesIncluded($shippingTaxesIncluded): self
+    public function setShippingTaxesIncluded(bool $shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
         $this->propertyFilled('shippingTaxesIncluded');
@@ -953,7 +953,7 @@ class Orders implements Model
      * @param float Tax percentage of the shipping costs
      * @return self
      */
-    public function setShippingTaxPercentage($shippingTaxPercentage): self
+    public function setShippingTaxPercentage(float $shippingTaxPercentage): self
     {
         $this->shippingTaxPercentage = $shippingTaxPercentage;
         $this->propertyFilled('shippingTaxPercentage');
@@ -964,7 +964,7 @@ class Orders implements Model
      * @param bool Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      * @return self
      */
-    public function setIsIntraCommunityOrder($isIntraCommunityOrder): self
+    public function setIsIntraCommunityOrder(bool $isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
         $this->propertyFilled('isIntraCommunityOrder');
@@ -975,7 +975,7 @@ class Orders implements Model
      * @param float Total orderrow price
      * @return self
      */
-    public function setTotalOrderrowPrice($totalOrderrowPrice): self
+    public function setTotalOrderrowPrice(float $totalOrderrowPrice): self
     {
         $this->totalOrderrowPrice = $totalOrderrowPrice;
         $this->propertyFilled('totalOrderrowPrice');
@@ -986,7 +986,7 @@ class Orders implements Model
      * @param float Total shipping costs
      * @return self
      */
-    public function setTotalShipping($totalShipping): self
+    public function setTotalShipping(float $totalShipping): self
     {
         $this->totalShipping = $totalShipping;
         $this->propertyFilled('totalShipping');
@@ -997,7 +997,7 @@ class Orders implements Model
      * @param float Total discount
      * @return self
      */
-    public function setTotalDiscounts($totalDiscounts): self
+    public function setTotalDiscounts(float $totalDiscounts): self
     {
         $this->totalDiscounts = $totalDiscounts;
         $this->propertyFilled('totalDiscounts');
@@ -1008,7 +1008,7 @@ class Orders implements Model
      * @param float Total price
      * @return self
      */
-    public function setTotalPrice($totalPrice): self
+    public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
         $this->propertyFilled('totalPrice');
@@ -1019,7 +1019,7 @@ class Orders implements Model
      * @param string ISO 4217 Currency Code
      * @return self
      */
-    public function setCurrency($currency): self
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
         $this->propertyFilled('currency');
@@ -1030,7 +1030,7 @@ class Orders implements Model
      * @param float Total tax amount
      * @return self
      */
-    public function setTotalTax($totalTax): self
+    public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
         $this->propertyFilled('totalTax');
@@ -1041,7 +1041,7 @@ class Orders implements Model
      * @param float Total weight of the order in kilograms
      * @return self
      */
-    public function setTotalWeight($totalWeight): self
+    public function setTotalWeight(float $totalWeight): self
     {
         $this->totalWeight = $totalWeight;
         $this->propertyFilled('totalWeight');
@@ -1052,7 +1052,7 @@ class Orders implements Model
      * @param string Payment option name
      * @return self
      */
-    public function setExtraPaymentOption($extraPaymentOption): self
+    public function setExtraPaymentOption(string $extraPaymentOption): self
     {
         $this->extraPaymentOption = $extraPaymentOption;
         $this->propertyFilled('extraPaymentOption');
@@ -1063,7 +1063,7 @@ class Orders implements Model
      * @param float|null Payment option price
      * @return self
      */
-    public function setExtraPaymentOptionPrice($extraPaymentOptionPrice): self
+    public function setExtraPaymentOptionPrice(?float $extraPaymentOptionPrice): self
     {
         $this->extraPaymentOptionPrice = $extraPaymentOptionPrice;
         $this->propertyFilled('extraPaymentOptionPrice');
@@ -1074,7 +1074,7 @@ class Orders implements Model
      * @param bool If shipping was free with this payment option
      * @return self
      */
-    public function setExtraPaymentOptionNoSentprice($extraPaymentOptionNoSentprice): self
+    public function setExtraPaymentOptionNoSentprice(bool $extraPaymentOptionNoSentprice): self
     {
         $this->extraPaymentOptionNoSentprice = $extraPaymentOptionNoSentprice;
         $this->propertyFilled('extraPaymentOptionNoSentprice');
@@ -1085,7 +1085,7 @@ class Orders implements Model
      * @param bool If this order will be paid on pickup with this payment option
      * @return self
      */
-    public function setExtraPaymentOptionPayOnPickup($extraPaymentOptionPayOnPickup): self
+    public function setExtraPaymentOptionPayOnPickup(bool $extraPaymentOptionPayOnPickup): self
     {
         $this->extraPaymentOptionPayOnPickup = $extraPaymentOptionPayOnPickup;
         $this->propertyFilled('extraPaymentOptionPayOnPickup');
@@ -1096,7 +1096,7 @@ class Orders implements Model
      * @param float Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
      * @return self
      */
-    public function setExtraPrice($extraPrice): self
+    public function setExtraPrice(float $extraPrice): self
     {
         $this->extraPrice = $extraPrice;
         $this->propertyFilled('extraPrice');
@@ -1107,7 +1107,7 @@ class Orders implements Model
      * @param float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'
      * @return self
      */
-    public function setPaymethodCosts($paymethodCosts): self
+    public function setPaymethodCosts(float $paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
         $this->propertyFilled('paymethodCosts');
@@ -1118,7 +1118,7 @@ class Orders implements Model
      * @param float The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'
      * @return self
      */
-    public function setCreditPointDiscount($creditPointDiscount): self
+    public function setCreditPointDiscount(float $creditPointDiscount): self
     {
         $this->creditPointDiscount = $creditPointDiscount;
         $this->propertyFilled('creditPointDiscount');
@@ -1129,7 +1129,7 @@ class Orders implements Model
      * @param float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      * @return self
      */
-    public function setExtraCosts($extraCosts): self
+    public function setExtraCosts(float $extraCosts): self
     {
         $this->extraCosts = $extraCosts;
         $this->propertyFilled('extraCosts');
@@ -1140,7 +1140,7 @@ class Orders implements Model
      * @param string Description of the extra costs. This is visible on the invoice.
      * @return self
      */
-    public function setExtraCostsDescription($extraCostsDescription): self
+    public function setExtraCostsDescription(string $extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
         $this->propertyFilled('extraCostsDescription');
@@ -1151,7 +1151,7 @@ class Orders implements Model
      * @param string Track & Trace code
      * @return self
      */
-    public function setTrackAndTraceCode($trackAndTraceCode): self
+    public function setTrackAndTraceCode(string $trackAndTraceCode): self
     {
         $this->trackAndTraceCode = $trackAndTraceCode;
         $this->propertyFilled('trackAndTraceCode');
@@ -1162,7 +1162,7 @@ class Orders implements Model
      * @param string|null Track & Trace Carrier. This value represents the shipping service.
      * @return self
      */
-    public function setTrackAndTraceCarrier($trackAndTraceCarrier): self
+    public function setTrackAndTraceCarrier(?string $trackAndTraceCarrier): self
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
         $this->propertyFilled('trackAndTraceCarrier');
@@ -1173,7 +1173,7 @@ class Orders implements Model
      * @param string|null The reservation number for an order. This may be visible on the invoice
      * @return self
      */
-    public function setReservationnumber($reservationnumber): self
+    public function setReservationnumber(?string $reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
         $this->propertyFilled('reservationnumber');
@@ -1184,7 +1184,7 @@ class Orders implements Model
      * @param string|null The delivery option the customer selected, when PG or PGE is chosen the property pickup_address is filled with the pickup address. DHDLE may be applicable to German users who ordered using the DHL Checkout.
      * @return self
      */
-    public function setDeliveryOption($deliveryOption): self
+    public function setDeliveryOption(?string $deliveryOption): self
     {
         $this->deliveryOption = $deliveryOption;
         $this->propertyFilled('deliveryOption');
@@ -1195,7 +1195,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\User Link to possible user resource associated with this order
      * @return self
      */
-    public function setUser($user): self
+    public function setUser(\JacobDeKeizer\Ccv\Models\Webshop\Resource\User $user): self
     {
         $this->user = $user;
         $this->propertyFilled('user');
@@ -1206,7 +1206,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
      * @return self
      */
-    public function setDiscountcoupon($discountcoupon): self
+    public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon $discountcoupon): self
     {
         $this->discountcoupon = $discountcoupon;
         $this->propertyFilled('discountcoupon');
@@ -1217,7 +1217,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo|null Describes personal information of the customer
      * @return self
      */
-    public function setCustomer($customer): self
+    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');
@@ -1228,7 +1228,7 @@ class Orders implements Model
      * @param object|null The pickup address that the customer selected
      * @return self
      */
-    public function setPickupAddress($pickupAddress): self
+    public function setPickupAddress(?object $pickupAddress): self
     {
         $this->pickupAddress = $pickupAddress;
         $this->propertyFilled('pickupAddress');
@@ -1239,7 +1239,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows Products that are ordered with this order
      * @return self
      */
-    public function setOrderrows($orderrows): self
+    public function setOrderrows(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows $orderrows): self
     {
         $this->orderrows = $orderrows;
         $this->propertyFilled('orderrows');
@@ -1250,7 +1250,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes Notes added to this order
      * @return self
      */
-    public function setOrdernotes($ordernotes): self
+    public function setOrdernotes(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes $ordernotes): self
     {
         $this->ordernotes = $ordernotes;
         $this->propertyFilled('ordernotes');
@@ -1261,7 +1261,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      * @return self
      */
-    public function setOrdernotifications($ordernotifications): self
+    public function setOrdernotifications(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications $ordernotifications): self
     {
         $this->ordernotifications = $ordernotifications;
         $this->propertyFilled('ordernotifications');
@@ -1272,7 +1272,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks Affilate networks
      * @return self
      */
-    public function setOrderaffiliatenetworks($orderaffiliatenetworks): self
+    public function setOrderaffiliatenetworks(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks $orderaffiliatenetworks): self
     {
         $this->orderaffiliatenetworks = $orderaffiliatenetworks;
         $this->propertyFilled('orderaffiliatenetworks');
@@ -1283,7 +1283,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices Invoices used for creating a new invoice.
      * @return self
      */
-    public function setInvoices($invoices): self
+    public function setInvoices(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices $invoices): self
     {
         $this->invoices = $invoices;
         $this->propertyFilled('invoices');

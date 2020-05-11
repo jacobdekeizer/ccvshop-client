@@ -35,7 +35,7 @@ class Orderrows implements Model
      * @param string Link to products that are ordered with this order
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');

@@ -35,7 +35,7 @@ class Invoices implements Model
      * @param string|null Link to create a new invoice for this order.
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(?string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');

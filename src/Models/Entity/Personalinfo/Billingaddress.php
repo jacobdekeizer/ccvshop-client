@@ -282,7 +282,7 @@ class Billingaddress implements Model
      * @param string|null Gender, can be blank.
      * @return self
      */
-    public function setGender($gender): self
+    public function setGender(?string $gender): self
     {
         $this->gender = $gender;
         $this->propertyFilled('gender');
@@ -293,7 +293,7 @@ class Billingaddress implements Model
      * @param string|null Initials, optional
      * @return self
      */
-    public function setInitials($initials): self
+    public function setInitials(?string $initials): self
     {
         $this->initials = $initials;
         $this->propertyFilled('initials');
@@ -304,7 +304,7 @@ class Billingaddress implements Model
      * @param string|null First name
      * @return self
      */
-    public function setFirstName($firstName): self
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
         $this->propertyFilled('firstName');
@@ -315,7 +315,7 @@ class Billingaddress implements Model
      * @param string|null Last name
      * @return self
      */
-    public function setLastName($lastName): self
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
         $this->propertyFilled('lastName');
@@ -326,7 +326,7 @@ class Billingaddress implements Model
      * @param string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      * @return self
      */
-    public function setFullName($fullName): self
+    public function setFullName(?string $fullName): self
     {
         $this->fullName = $fullName;
         $this->propertyFilled('fullName');
@@ -337,7 +337,7 @@ class Billingaddress implements Model
      * @param string|null Company name
      * @return self
      */
-    public function setCompany($company): self
+    public function setCompany(?string $company): self
     {
         $this->company = $company;
         $this->propertyFilled('company');
@@ -348,7 +348,7 @@ class Billingaddress implements Model
      * @param string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      * @return self
      */
-    public function setAddressLine1($addressLine1): self
+    public function setAddressLine1(?string $addressLine1): self
     {
         $this->addressLine1 = $addressLine1;
         $this->propertyFilled('addressLine1');
@@ -359,7 +359,7 @@ class Billingaddress implements Model
      * @param string|null Address line 2. Note: see address_line_1.
      * @return self
      */
-    public function setAddressLine2($addressLine2): self
+    public function setAddressLine2(?string $addressLine2): self
     {
         $this->addressLine2 = $addressLine2;
         $this->propertyFilled('addressLine2');
@@ -370,7 +370,7 @@ class Billingaddress implements Model
      * @param string|null Street name. Note: see address_line_1.
      * @return self
      */
-    public function setStreet($street): self
+    public function setStreet(?string $street): self
     {
         $this->street = $street;
         $this->propertyFilled('street');
@@ -381,7 +381,7 @@ class Billingaddress implements Model
      * @param int|null House number. Note: see address_line_1.
      * @return self
      */
-    public function setHousenumber($housenumber): self
+    public function setHousenumber(?int $housenumber): self
     {
         $this->housenumber = $housenumber;
         $this->propertyFilled('housenumber');
@@ -392,7 +392,7 @@ class Billingaddress implements Model
      * @param string|null House number suffix. Note: see address_line_1.
      * @return self
      */
-    public function setHousenumberSuffix($housenumberSuffix): self
+    public function setHousenumberSuffix(?string $housenumberSuffix): self
     {
         $this->housenumberSuffix = $housenumberSuffix;
         $this->propertyFilled('housenumberSuffix');
@@ -403,7 +403,7 @@ class Billingaddress implements Model
      * @param string|null Zipcode
      * @return self
      */
-    public function setZipcode($zipcode): self
+    public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
         $this->propertyFilled('zipcode');
@@ -414,7 +414,7 @@ class Billingaddress implements Model
      * @param string|null City
      * @return self
      */
-    public function setCity($city): self
+    public function setCity(?string $city): self
     {
         $this->city = $city;
         $this->propertyFilled('city');
@@ -425,7 +425,7 @@ class Billingaddress implements Model
      * @param string|null Province or state
      * @return self
      */
-    public function setProvince($province): self
+    public function setProvince(?string $province): self
     {
         $this->province = $province;
         $this->propertyFilled('province');
@@ -436,7 +436,7 @@ class Billingaddress implements Model
      * @param string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
      */
-    public function setCountry($country): self
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
         $this->propertyFilled('country');
@@ -447,7 +447,7 @@ class Billingaddress implements Model
      * @param string|null Country Alpha-2 code. See ISO 3166-1
      * @return self
      */
-    public function setCountryCode($countryCode): self
+    public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
         $this->propertyFilled('countryCode');
@@ -458,7 +458,7 @@ class Billingaddress implements Model
      * @param string|null Telephone number
      * @return self
      */
-    public function setTelephone($telephone): self
+    public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
         $this->propertyFilled('telephone');
@@ -469,7 +469,7 @@ class Billingaddress implements Model
      * @param string|null Fax number
      * @return self
      */
-    public function setFax($fax): self
+    public function setFax(?string $fax): self
     {
         $this->fax = $fax;
         $this->propertyFilled('fax');
@@ -480,7 +480,7 @@ class Billingaddress implements Model
      * @param string|null Mobile phone number
      * @return self
      */
-    public function setMobile($mobile): self
+    public function setMobile(?string $mobile): self
     {
         $this->mobile = $mobile;
         $this->propertyFilled('mobile');
@@ -491,7 +491,7 @@ class Billingaddress implements Model
      * @param string|null Comment left for the merchant
      * @return self
      */
-    public function setComment($comment): self
+    public function setComment(?string $comment): self
     {
         $this->comment = $comment;
         $this->propertyFilled('comment');

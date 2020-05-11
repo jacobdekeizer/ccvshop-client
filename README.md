@@ -65,7 +65,17 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Patch())
             ->setEmail('example@example.com')
     );
 
-$result = $client->orders()->update(123456, $patch);
+$client->orders()->update(123456, $patch);
+```
+
+### Create order
+
+```php
+$order = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Post())
+    ->setInvoicenumber(123456);
+    //->set..
+   
+$client->orders()->create($order);
 ```
 
 ## Supported resources

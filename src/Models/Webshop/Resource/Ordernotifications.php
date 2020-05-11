@@ -35,7 +35,7 @@ class Ordernotifications implements Model
      * @param string Link to the collection.
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');

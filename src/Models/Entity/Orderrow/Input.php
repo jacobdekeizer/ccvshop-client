@@ -217,7 +217,7 @@ class Input implements Model
      * @param string|null Product type of this orderrow. If the type is a deposit then VAT will always be 0%. If not included then product will be the default.
      * @return self
      */
-    public function setProductType($productType): self
+    public function setProductType(?string $productType): self
     {
         $this->productType = $productType;
         $this->propertyFilled('productType');
@@ -228,7 +228,7 @@ class Input implements Model
      * @param bool|null Default: true. When true and when the product has a deposit price (either container or safety) these additional order rows will automatically be created.
      * @return self
      */
-    public function setAutoCreateDepositRows($autoCreateDepositRows): self
+    public function setAutoCreateDepositRows(?bool $autoCreateDepositRows): self
     {
         $this->autoCreateDepositRows = $autoCreateDepositRows;
         $this->propertyFilled('autoCreateDepositRows');
@@ -239,7 +239,7 @@ class Input implements Model
      * @param int|null Unique product id. If provided product data will be used to create an order row.
      * @return self
      */
-    public function setProductId($productId): self
+    public function setProductId(?int $productId): self
     {
         $this->productId = $productId;
         $this->propertyFilled('productId');
@@ -250,7 +250,7 @@ class Input implements Model
      * @param string|null Product name. Only used if product_id is empty
      * @return self
      */
-    public function setProductName($productName): self
+    public function setProductName(?string $productName): self
     {
         $this->productName = $productName;
         $this->propertyFilled('productName');
@@ -261,7 +261,7 @@ class Input implements Model
      * @param string|null Product number. Only used if product_id is empty
      * @return self
      */
-    public function setProductNumber($productNumber): self
+    public function setProductNumber(?string $productNumber): self
     {
         $this->productNumber = $productNumber;
         $this->propertyFilled('productNumber');
@@ -272,7 +272,7 @@ class Input implements Model
      * @param float Quantity of products
      * @return self
      */
-    public function setCount($count): self
+    public function setCount(float $count): self
     {
         $this->count = $count;
         $this->propertyFilled('count');
@@ -283,7 +283,7 @@ class Input implements Model
      * @param float|null Product sell price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setPrice($price): self
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
         $this->propertyFilled('price');
@@ -294,7 +294,7 @@ class Input implements Model
      * @param float|null Product purchase price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setProductPurchasePrice($productPurchasePrice): self
+    public function setProductPurchasePrice(?float $productPurchasePrice): self
     {
         $this->productPurchasePrice = $productPurchasePrice;
         $this->propertyFilled('productPurchasePrice');
@@ -305,7 +305,7 @@ class Input implements Model
      * @param float|null Discount. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setDiscount($discount): self
+    public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
         $this->propertyFilled('discount');
@@ -316,7 +316,7 @@ class Input implements Model
      * @param float|null Tax percentage. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setTax($tax): self
+    public function setTax(?float $tax): self
     {
         $this->tax = $tax;
         $this->propertyFilled('tax');
@@ -327,7 +327,7 @@ class Input implements Model
      * @param string|null Product unit. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setUnit($unit): self
+    public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
         $this->propertyFilled('unit');
@@ -338,7 +338,7 @@ class Input implements Model
      * @param float|null Product weight. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setWeight($weight): self
+    public function setWeight(?float $weight): self
     {
         $this->weight = $weight;
         $this->propertyFilled('weight');
@@ -349,7 +349,7 @@ class Input implements Model
      * @param string|null Memo description of product. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
-    public function setMemo($memo): self
+    public function setMemo(?string $memo): self
     {
         $this->memo = $memo;
         $this->propertyFilled('memo');
@@ -360,7 +360,7 @@ class Input implements Model
      * @param int|null Package id. Depending on this ID, different shippingcosts will be calculated. Required if product_id is empty. See /:version/packages/
      * @return self
      */
-    public function setPackageId($packageId): self
+    public function setPackageId(?int $packageId): self
     {
         $this->packageId = $packageId;
         $this->propertyFilled('packageId');
@@ -371,7 +371,7 @@ class Input implements Model
      * @param float|null This should be filled if this order rows has an attribute combination. The associated attributes value with this id will be added to this row.
      * @return self
      */
-    public function setAttributeCombinationId($attributeCombinationId): self
+    public function setAttributeCombinationId(?float $attributeCombinationId): self
     {
         $this->attributeCombinationId = $attributeCombinationId;
         $this->propertyFilled('attributeCombinationId');

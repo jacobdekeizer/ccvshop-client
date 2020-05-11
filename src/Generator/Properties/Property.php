@@ -57,7 +57,8 @@ abstract class Property
             . self::INDENT . ' * @param ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public function set' . ucfirst($this->name) . '($' . $this->name . '): self' . PHP_EOL
+            . self::INDENT . 'public function set' . ucfirst($this->name)
+                . '(' . $this->getPhpType() . ' $' . $this->name . '): self' . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
             . self::INDENT . self::INDENT . '$this->' . $this->name . ' = $' . $this->name . ';' . PHP_EOL
             . self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL

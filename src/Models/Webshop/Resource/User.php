@@ -61,7 +61,7 @@ class User implements Model
      * @param int|null Unique id of the user. If null, no user was associated with this order
      * @return self
      */
-    public function setId($id): self
+    public function setId(?int $id): self
     {
         $this->id = $id;
         $this->propertyFilled('id');
@@ -72,7 +72,7 @@ class User implements Model
      * @param float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
      * @return self
      */
-    public function setDiscountPercentage($discountPercentage): self
+    public function setDiscountPercentage(?float $discountPercentage): self
     {
         $this->discountPercentage = $discountPercentage;
         $this->propertyFilled('discountPercentage');
@@ -83,7 +83,7 @@ class User implements Model
      * @param string|null Link to user associated with this order
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(?string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');

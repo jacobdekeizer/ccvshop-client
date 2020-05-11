@@ -39,9 +39,12 @@ class OrdersEndpoint extends BaseEndpoint
     {
         $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($onlyFilledProperties));
     }
-//
-//    public function create(Resource\Orders $order)
-//    {
-//        // todo
-//    }
+
+    /**
+     * @throws CcvShopException
+     */
+    public function create(Models\Resource\Orders\Post $order, bool $onlyFilledProperties = true): void
+    {
+        $this->doRequest('POST', 'orders', $order->toArray($onlyFilledProperties));
+    }
 }

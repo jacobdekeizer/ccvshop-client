@@ -490,7 +490,7 @@ class Personalinfo implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Entity\Billingaddress|null Billing address info
      * @return self
      */
-    public function setBillingaddress($billingaddress): self
+    public function setBillingaddress(?\JacobDeKeizer\Ccv\Models\Webshop\Entity\Billingaddress $billingaddress): self
     {
         $this->billingaddress = $billingaddress;
         $this->propertyFilled('billingaddress');
@@ -501,7 +501,7 @@ class Personalinfo implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Entity\Deliveryaddress|null Shipping address info
      * @return self
      */
-    public function setDeliveryaddress($deliveryaddress): self
+    public function setDeliveryaddress(?\JacobDeKeizer\Ccv\Models\Webshop\Entity\Deliveryaddress $deliveryaddress): self
     {
         $this->deliveryaddress = $deliveryaddress;
         $this->propertyFilled('deliveryaddress');
@@ -512,7 +512,7 @@ class Personalinfo implements Model
      * @param string|null E-mail address
      * @return self
      */
-    public function setEmail($email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
         $this->propertyFilled('email');
@@ -523,7 +523,7 @@ class Personalinfo implements Model
      * @param string Defines if this user is a consumer (b2c) or business (b2b) customer.
      * @return self
      */
-    public function setCustomertype($customertype): self
+    public function setCustomertype(string $customertype): self
     {
         $this->customertype = $customertype;
         $this->propertyFilled('customertype');
@@ -534,7 +534,7 @@ class Personalinfo implements Model
      * @param string|null Bankaccount number, within EU mostly IBAN will be used instead.
      * @return self
      */
-    public function setBankaccount($bankaccount): self
+    public function setBankaccount(?string $bankaccount): self
     {
         $this->bankaccount = $bankaccount;
         $this->propertyFilled('bankaccount');
@@ -545,7 +545,7 @@ class Personalinfo implements Model
      * @param string|null International Bank Account Number, if empty bankaccount could be used.
      * @return self
      */
-    public function setIban($iban): self
+    public function setIban(?string $iban): self
     {
         $this->iban = $iban;
         $this->propertyFilled('iban');
@@ -556,7 +556,7 @@ class Personalinfo implements Model
      * @param string|null Bank Identifier Code. Used in combination with IBAN.
      * @return self
      */
-    public function setBic($bic): self
+    public function setBic(?string $bic): self
     {
         $this->bic = $bic;
         $this->propertyFilled('bic');
@@ -567,7 +567,7 @@ class Personalinfo implements Model
      * @param string|null Bank account number.
      * @return self
      */
-    public function setBank($bank): self
+    public function setBank(?string $bank): self
     {
         $this->bank = $bank;
         $this->propertyFilled('bank');
@@ -578,7 +578,7 @@ class Personalinfo implements Model
      * @param string|null Bank account holder's name, similar to 'bankname'.
      * @return self
      */
-    public function setTenname($tenname): self
+    public function setTenname(?string $tenname): self
     {
         $this->tenname = $tenname;
         $this->propertyFilled('tenname');
@@ -589,7 +589,7 @@ class Personalinfo implements Model
      * @param string|null Bank account holder's name.
      * @return self
      */
-    public function setBankname($bankname): self
+    public function setBankname(?string $bankname): self
     {
         $this->bankname = $bankname;
         $this->propertyFilled('bankname');
@@ -600,7 +600,7 @@ class Personalinfo implements Model
      * @param string|null Customer reference. Could be used as customer number in some cases.
      * @return self
      */
-    public function setReference($reference): self
+    public function setReference(?string $reference): self
     {
         $this->reference = $reference;
         $this->propertyFilled('reference');
@@ -611,7 +611,7 @@ class Personalinfo implements Model
      * @param string|null Customer reservation number.
      * @return self
      */
-    public function setReservationnumber($reservationnumber): self
+    public function setReservationnumber(?string $reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
         $this->propertyFilled('reservationnumber');
@@ -622,7 +622,7 @@ class Personalinfo implements Model
      * @param string|null Customer's income
      * @return self
      */
-    public function setIncome($income): self
+    public function setIncome(?string $income): self
     {
         $this->income = $income;
         $this->propertyFilled('income');
@@ -633,7 +633,7 @@ class Personalinfo implements Model
      * @param string|null Deprecated. See 'branch'.
      * @return self
      */
-    public function setBranche($branche): self
+    public function setBranche(?string $branche): self
     {
         $this->branche = $branche;
         $this->propertyFilled('branche');
@@ -644,7 +644,7 @@ class Personalinfo implements Model
      * @param string|null Customer's branch. Mostly used with company info.
      * @return self
      */
-    public function setBranch($branch): self
+    public function setBranch(?string $branch): self
     {
         $this->branch = $branch;
         $this->propertyFilled('branch');
@@ -655,7 +655,7 @@ class Personalinfo implements Model
      * @param string|null Website of the customer
      * @return self
      */
-    public function setWebsite($website): self
+    public function setWebsite(?string $website): self
     {
         $this->website = $website;
         $this->propertyFilled('website');
@@ -666,7 +666,7 @@ class Personalinfo implements Model
      * @param string|null Club's city
      * @return self
      */
-    public function setClubcity($clubcity): self
+    public function setClubcity(?string $clubcity): self
     {
         $this->clubcity = $clubcity;
         $this->propertyFilled('clubcity');
@@ -677,7 +677,7 @@ class Personalinfo implements Model
      * @param string|null Club's comment
      * @return self
      */
-    public function setClubcomment($clubcomment): self
+    public function setClubcomment(?string $clubcomment): self
     {
         $this->clubcomment = $clubcomment;
         $this->propertyFilled('clubcomment');
@@ -688,7 +688,7 @@ class Personalinfo implements Model
      * @param string|null Club's name
      * @return self
      */
-    public function setClubname($clubname): self
+    public function setClubname(?string $clubname): self
     {
         $this->clubname = $clubname;
         $this->propertyFilled('clubname');
@@ -699,7 +699,7 @@ class Personalinfo implements Model
      * @param string|null Deprecated. Fair of the customer. See 'Fair'
      * @return self
      */
-    public function setBeurs($beurs): self
+    public function setBeurs(?string $beurs): self
     {
         $this->beurs = $beurs;
         $this->propertyFilled('beurs');
@@ -710,7 +710,7 @@ class Personalinfo implements Model
      * @param string|null Deprecated. Booth of the customer. See 'Booth'
      * @return self
      */
-    public function setStand($stand): self
+    public function setStand(?string $stand): self
     {
         $this->stand = $stand;
         $this->propertyFilled('stand');
@@ -721,7 +721,7 @@ class Personalinfo implements Model
      * @param string|null Fair of the customer.
      * @return self
      */
-    public function setFair($fair): self
+    public function setFair(?string $fair): self
     {
         $this->fair = $fair;
         $this->propertyFilled('fair');
@@ -732,7 +732,7 @@ class Personalinfo implements Model
      * @param string|null Booth of the customer.
      * @return self
      */
-    public function setBooth($booth): self
+    public function setBooth(?string $booth): self
     {
         $this->booth = $booth;
         $this->propertyFilled('booth');
@@ -743,7 +743,7 @@ class Personalinfo implements Model
      * @param string|null Car brand
      * @return self
      */
-    public function setCarbrand($carbrand): self
+    public function setCarbrand(?string $carbrand): self
     {
         $this->carbrand = $carbrand;
         $this->propertyFilled('carbrand');
@@ -754,7 +754,7 @@ class Personalinfo implements Model
      * @param string|null Car type
      * @return self
      */
-    public function setCartype($cartype): self
+    public function setCartype(?string $cartype): self
     {
         $this->cartype = $cartype;
         $this->propertyFilled('cartype');
@@ -765,7 +765,7 @@ class Personalinfo implements Model
      * @param string|null Car weight
      * @return self
      */
-    public function setCarweight($carweight): self
+    public function setCarweight(?string $carweight): self
     {
         $this->carweight = $carweight;
         $this->propertyFilled('carweight');
@@ -776,7 +776,7 @@ class Personalinfo implements Model
      * @param string|null Birthdate of the customer
      * @return self
      */
-    public function setBirthdate($birthdate): self
+    public function setBirthdate(?string $birthdate): self
     {
         $this->birthdate = $birthdate;
         $this->propertyFilled('birthdate');
@@ -787,7 +787,7 @@ class Personalinfo implements Model
      * @param string|null Birth time of the customer
      * @return self
      */
-    public function setBirthtime($birthtime): self
+    public function setBirthtime(?string $birthtime): self
     {
         $this->birthtime = $birthtime;
         $this->propertyFilled('birthtime');
@@ -798,7 +798,7 @@ class Personalinfo implements Model
      * @param string|null Birth place of the customer
      * @return self
      */
-    public function setBirthplace($birthplace): self
+    public function setBirthplace(?string $birthplace): self
     {
         $this->birthplace = $birthplace;
         $this->propertyFilled('birthplace');
@@ -809,7 +809,7 @@ class Personalinfo implements Model
      * @param string|null Card number
      * @return self
      */
-    public function setCardnumber($cardnumber): self
+    public function setCardnumber(?string $cardnumber): self
     {
         $this->cardnumber = $cardnumber;
         $this->propertyFilled('cardnumber');
@@ -820,7 +820,7 @@ class Personalinfo implements Model
      * @param string|null BTW number
      * @return self
      */
-    public function setBtw($btw): self
+    public function setBtw(?string $btw): self
     {
         $this->btw = $btw;
         $this->propertyFilled('btw');
@@ -831,7 +831,7 @@ class Personalinfo implements Model
      * @param string|null Chamber of Commerce number
      * @return self
      */
-    public function setKvk($kvk): self
+    public function setKvk(?string $kvk): self
     {
         $this->kvk = $kvk;
         $this->propertyFilled('kvk');
@@ -842,7 +842,7 @@ class Personalinfo implements Model
      * @param string|null Name of the cost centre
      * @return self
      */
-    public function setCostcentre($costcentre): self
+    public function setCostcentre(?string $costcentre): self
     {
         $this->costcentre = $costcentre;
         $this->propertyFilled('costcentre');
@@ -853,7 +853,7 @@ class Personalinfo implements Model
      * @param string|null How did the customer find you
      * @return self
      */
-    public function setFindus($findus): self
+    public function setFindus(?string $findus): self
     {
         $this->findus = $findus;
         $this->propertyFilled('findus');
@@ -864,7 +864,7 @@ class Personalinfo implements Model
      * @param string|null SSN number
      * @return self
      */
-    public function setSsnnumber($ssnnumber): self
+    public function setSsnnumber(?string $ssnnumber): self
     {
         $this->ssnnumber = $ssnnumber;
         $this->propertyFilled('ssnnumber');
@@ -875,7 +875,7 @@ class Personalinfo implements Model
      * @param string|null ZZP number
      * @return self
      */
-    public function setZzppass($zzppass): self
+    public function setZzppass(?string $zzppass): self
     {
         $this->zzppass = $zzppass;
         $this->propertyFilled('zzppass');

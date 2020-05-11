@@ -113,7 +113,7 @@ class Orders implements Model
      * @param int Offset of the set
      * @return self
      */
-    public function setStart($start): self
+    public function setStart(int $start): self
     {
         $this->start = $start;
         $this->propertyFilled('start');
@@ -124,7 +124,7 @@ class Orders implements Model
      * @param int Size of the set
      * @return self
      */
-    public function setSize($size): self
+    public function setSize(int $size): self
     {
         $this->size = $size;
         $this->propertyFilled('size');
@@ -135,7 +135,7 @@ class Orders implements Model
      * @param string Link to self
      * @return self
      */
-    public function setHref($href): self
+    public function setHref(string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');
@@ -146,7 +146,7 @@ class Orders implements Model
      * @param string|null Link to the first set of the collection
      * @return self
      */
-    public function setFirst($first): self
+    public function setFirst(?string $first): self
     {
         $this->first = $first;
         $this->propertyFilled('first');
@@ -157,7 +157,7 @@ class Orders implements Model
      * @param string|null Link to the previous set of the collection
      * @return self
      */
-    public function setPrevious($previous): self
+    public function setPrevious(?string $previous): self
     {
         $this->previous = $previous;
         $this->propertyFilled('previous');
@@ -168,7 +168,7 @@ class Orders implements Model
      * @param string|null Link to the next set of the collection
      * @return self
      */
-    public function setNext($next): self
+    public function setNext(?string $next): self
     {
         $this->next = $next;
         $this->propertyFilled('next');
@@ -179,7 +179,7 @@ class Orders implements Model
      * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orders[] Array with collection items
      * @return self
      */
-    public function setItems($items): self
+    public function setItems(array $items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
