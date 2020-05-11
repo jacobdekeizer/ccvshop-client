@@ -33,8 +33,7 @@ class PhpClassFactory
         $classes = [];
 
         $makeObject = static function (string $propertyName, array &$property)
-            use ($pathParts, &$classes, $namespacePrefix)
-        {
+ use ($pathParts, &$classes, $namespacePrefix) {
             $childPhpClass = self::makeChildObject(Str::studly($propertyName), $pathParts, $property, $namespacePrefix);
 
             $classes[] = $childPhpClass;

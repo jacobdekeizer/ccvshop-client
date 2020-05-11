@@ -18,4 +18,3 @@ class All extends PaginatedList implements Parameter
         return self::createFromArray($data);
     }
 }
-
