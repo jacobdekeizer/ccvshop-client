@@ -9,7 +9,7 @@ class QueryParametersArrayFactory
      * Result = [
      *    'start' => '25',
      *    'size' => '25',
-     *    'is_paid' => 'true',
+     *    'is_paid' => true,
      * ]
      */
     public static function fromUrl(string $url): array
@@ -33,6 +33,12 @@ class QueryParametersArrayFactory
 
             if ($key === null) {
                 continue;
+            }
+
+            if ($value === 'true') {
+                $value = true;
+            } elseif ($value === 'false') {
+                $value = false;
             }
 
             $data[$key] = $value;

@@ -2,12 +2,15 @@
 
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-Work in progress, any help is appreciated.
+An object oriented php client for the CCV shop api.
 
 [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
 
-## Installation
+## Contributing
 
+Any help is appreciated, see [contributing](https://github.com/jacobdekeizer/ccvshop-client/blob/master/.github/CONTRIBUTING.md) for more information.
+
+## Installation
 You can install this package via composer:
 
 ```
@@ -27,7 +30,7 @@ $client->setPrivateKey('private_key');
 
 ## Orders
 
-### List all orders
+### Get all orders
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -39,16 +42,40 @@ do {
     $orders = $client->orders()->all($getOrdersParameter);
 
     foreach ($orders->getItems() as $order) {
-        $id = $order->getId();
         var_dump($order);
     }
-} while(($getOrdersParameter = $orders->getNextRequest()) !== null);
+} while(($getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext())) !== null);
 ```
 
-### Get order by id
+### Get order
 
 ```php
 $order = $client->orders()->get(123456);
+```
+
+### Update order
+
+For example update the order status and the customer email
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Patch())
+    ->setStatus(6)
+    ->setCustomer(
+        (new \JacobDeKeizer\Ccv\Models\Entity\Personalinfo\Input)
+            ->setEmail('example@example.com')
+    );
+
+$client->orders()->update(123456, $patch);
+```
+
+### Create order
+
+```php
+$order = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Post())
+    ->setInvoicenumber(123456);
+    //->set..
+   
+$client->orders()->create($order);
 ```
 
 ## Supported resources
@@ -85,7 +112,7 @@ $order = $client->orders()->get(123456);
 | ordernotes | ✖️ |
 | ordernotifications | ✖️ |
 | orderrows | ✖️ |
-| orders | ✔️️ |
+| orders | :heavy_check_mark: |
 | packages | ✖️ |
 | paymethods | ✖️ |
 | productattachments | ✖️ |
@@ -123,6 +150,3 @@ $order = $client->orders()->get(123456);
 | users | ✖️ |
 | webhooks | ✖️ |
 | webshops | ✖️ |
-
-## Code sniffer
-Run: `./vendor/bin/phpcs --standard=PSR2 ./src`

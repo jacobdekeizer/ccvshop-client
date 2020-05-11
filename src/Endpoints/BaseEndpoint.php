@@ -33,12 +33,14 @@ class BaseEndpoint
         /** @noinspection PhpUnhandledExceptionInspection */
         $timestamp = (new DateTime('now', new DateTimeZone('UTC')))->format(DateTimeInterface::ISO8601);
 
+        $postData = json_encode($data);
+
         $hashString = sprintf(
             '%s|%s|%s|%s|%s',
             $this->client->getPublicKey(),
             $httpMethod,
             $apiRoute,
-            (string) $data,
+            $data !== null ? $postData : null,
             $timestamp
         );
 
@@ -53,7 +55,7 @@ class BaseEndpoint
 
         if ($data !== null) {
             $requestHeaders['Content-Type'] = 'application/json';
-            $httpBody = json_encode($data);
+            $httpBody = $postData;
         }
 
         $request = new Request($httpMethod, $apiRoute, $requestHeaders, $httpBody);
@@ -70,10 +72,14 @@ class BaseEndpoint
 
         $body = $response->getBody()->getContents();
 
-        try {
-            $object = json_decode($body, true, 512, JSON_THROW_ON_ERROR | JSON_OBJECT_AS_ARRAY);
-        } catch (Throwable $throwable) {
-            throw CcvShopException::fromPrevious('Unable to decode api response: ' . $body, $throwable);
+        if (empty($body)) {
+            $object = [];
+        } else {
+            try {
+                $object = json_decode($body, true, 512, JSON_THROW_ON_ERROR | JSON_OBJECT_AS_ARRAY);
+            } catch (Throwable $throwable) {
+                throw CcvShopException::fromPrevious('Unable to decode api response: ' . $body, $throwable);
+            }
         }
 
         if ($response->getStatusCode() >= 400) {

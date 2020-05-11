@@ -3,8 +3,7 @@
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Resources\Orders\Order;
-use JacobDeKeizer\Ccv\Models\Resources\Orders\OrdersList;
+use JacobDeKeizer\Ccv\Models;
 use JacobDeKeizer\Ccv\Parameters\Orders\All;
 
 class OrdersEndpoint extends BaseEndpoint
@@ -12,7 +11,7 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function all(?All $payload = null): OrdersList
+    public function all(?All $payload = null): Models\Resource\Collection\Orders
     {
         if ($payload === null) {
             $payload = new All();
@@ -20,26 +19,32 @@ class OrdersEndpoint extends BaseEndpoint
 
         $result = $this->doRequest('GET', 'orders' . $payload->toBuilder()->toQueryString());
 
-        return OrdersList::fromArray($result);
+        return Models\Resource\Collection\Orders::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function get(int $id)
+    public function get(int $id): Models\Webshop\Resource\Orders
     {
         $result = $this->doRequest('GET', 'orders/' . $id);
 
-        return Order::fromArray($result);
+        return Models\Webshop\Resource\Orders::fromArray($result);
     }
 
-    public function update()
+    /**
+     * @throws CcvShopException
+     */
+    public function update(int $id, Models\Resource\Orders\Patch $order, bool $onlyFilledProperties = true): void
     {
-        // todo
+        $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($onlyFilledProperties));
     }
 
-    public function create()
+    /**
+     * @throws CcvShopException
+     */
+    public function create(Models\Resource\Orders\Post $order, bool $onlyFilledProperties = true): void
     {
-        // todo
+        $this->doRequest('POST', 'orders', $order->toArray($onlyFilledProperties));
     }
 }

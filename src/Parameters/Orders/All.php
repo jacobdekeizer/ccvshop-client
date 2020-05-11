@@ -3,6 +3,7 @@
 namespace JacobDeKeizer\Ccv\Parameters\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
+use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
@@ -59,10 +60,21 @@ class All extends PaginatedList implements Parameter
      */
     private $paymethodId;
 
-    public static function fromArray(array $data): All
+    /**
+     * @return All
+     */
+    public static function fromArray(array $data): Parameter
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return self::createFromArray($data);
+    }
+
+    public static function fromUrl(?string $url): ?All
+    {
+        if ($url === null) {
+            return null;
+        }
+
+        return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
 
     public function toBuilder(): QueryParameterBuilder
