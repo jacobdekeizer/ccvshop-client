@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Entity\Orderrow;
+namespace JacobDeKeizer\Ccv\Models\Internal\Entity\Orderrow;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;

@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Webshop\Resource;
+namespace JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
@@ -56,7 +56,7 @@ class Orders implements Model
      private $deliverDate;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      */
      private $takeOutWindow;
 
@@ -231,17 +231,17 @@ class Orders implements Model
      private $deliveryOption;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\User Link to possible user resource associated with this order
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\User Link to possible user resource associated with this order
      */
      private $user;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
      */
      private $discountcoupon;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo|null Describes personal information of the customer
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity\Personalinfo|null Describes personal information of the customer
      */
      private $customer;
 
@@ -251,27 +251,27 @@ class Orders implements Model
      private $pickupAddress;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows Products that are ordered with this order
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderrows Products that are ordered with this order
      */
      private $orderrows;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes Notes added to this order
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotes Notes added to this order
      */
      private $ordernotes;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      */
      private $ordernotifications;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks Affilate networks
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderaffiliatenetworks Affilate networks
      */
      private $orderaffiliatenetworks;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices Invoices used for creating a new invoice.
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Invoices Invoices used for creating a new invoice.
      */
      private $invoices;
 
@@ -356,9 +356,9 @@ class Orders implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      */
-    public function getTakeOutWindow(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow
+    public function getTakeOutWindow(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\TakeOutWindow
     {
         return $this->takeOutWindow;
     }
@@ -636,25 +636,25 @@ class Orders implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\User Link to possible user resource associated with this order
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\User Link to possible user resource associated with this order
      */
-    public function getUser(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\User
+    public function getUser(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\User
     {
         return $this->user;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
      */
-    public function getDiscountcoupon(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon
+    public function getDiscountcoupon(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Discountcoupon
     {
         return $this->discountcoupon;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo|null Describes personal information of the customer
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity\Personalinfo|null Describes personal information of the customer
      */
-    public function getCustomer(): ?\JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo
+    public function getCustomer(): ?\JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity\Personalinfo
     {
         return $this->customer;
     }
@@ -668,41 +668,41 @@ class Orders implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows Products that are ordered with this order
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderrows Products that are ordered with this order
      */
-    public function getOrderrows(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows
+    public function getOrderrows(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderrows
     {
         return $this->orderrows;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes Notes added to this order
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotes Notes added to this order
      */
-    public function getOrdernotes(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes
+    public function getOrdernotes(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotes
     {
         return $this->ordernotes;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      */
-    public function getOrdernotifications(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications
+    public function getOrdernotifications(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotifications
     {
         return $this->ordernotifications;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks Affilate networks
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderaffiliatenetworks Affilate networks
      */
-    public function getOrderaffiliatenetworks(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks
+    public function getOrderaffiliatenetworks(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderaffiliatenetworks
     {
         return $this->orderaffiliatenetworks;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices Invoices used for creating a new invoice.
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Invoices Invoices used for creating a new invoice.
      */
-    public function getInvoices(): \JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices
+    public function getInvoices(): \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Invoices
     {
         return $this->invoices;
     }
@@ -807,10 +807,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      * @return self
      */
-    public function setTakeOutWindow(\JacobDeKeizer\Ccv\Models\Webshop\Resource\TakeOutWindow $takeOutWindow): self
+    public function setTakeOutWindow(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\TakeOutWindow $takeOutWindow): self
     {
         $this->takeOutWindow = $takeOutWindow;
         $this->propertyFilled('takeOutWindow');
@@ -1192,10 +1192,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\User Link to possible user resource associated with this order
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\User Link to possible user resource associated with this order
      * @return self
      */
-    public function setUser(\JacobDeKeizer\Ccv\Models\Webshop\Resource\User $user): self
+    public function setUser(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\User $user): self
     {
         $this->user = $user;
         $this->propertyFilled('user');
@@ -1203,10 +1203,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Discountcoupon Link to possible discount coupon associated with this order
      * @return self
      */
-    public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Discountcoupon $discountcoupon): self
+    public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Discountcoupon $discountcoupon): self
     {
         $this->discountcoupon = $discountcoupon;
         $this->propertyFilled('discountcoupon');
@@ -1214,10 +1214,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo|null Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity\Personalinfo|null Describes personal information of the customer
      * @return self
      */
-    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Webshop\Entity\Personalinfo $customer): self
+    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity\Personalinfo $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');
@@ -1236,10 +1236,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows Products that are ordered with this order
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderrows Products that are ordered with this order
      * @return self
      */
-    public function setOrderrows(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderrows $orderrows): self
+    public function setOrderrows(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderrows $orderrows): self
     {
         $this->orderrows = $orderrows;
         $this->propertyFilled('orderrows');
@@ -1247,10 +1247,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes Notes added to this order
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotes Notes added to this order
      * @return self
      */
-    public function setOrdernotes(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotes $ordernotes): self
+    public function setOrdernotes(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotes $ordernotes): self
     {
         $this->ordernotes = $ordernotes;
         $this->propertyFilled('ordernotes');
@@ -1258,10 +1258,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      * @return self
      */
-    public function setOrdernotifications(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Ordernotifications $ordernotifications): self
+    public function setOrdernotifications(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Ordernotifications $ordernotifications): self
     {
         $this->ordernotifications = $ordernotifications;
         $this->propertyFilled('ordernotifications');
@@ -1269,10 +1269,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks Affilate networks
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderaffiliatenetworks Affilate networks
      * @return self
      */
-    public function setOrderaffiliatenetworks(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Orderaffiliatenetworks $orderaffiliatenetworks): self
+    public function setOrderaffiliatenetworks(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orderaffiliatenetworks $orderaffiliatenetworks): self
     {
         $this->orderaffiliatenetworks = $orderaffiliatenetworks;
         $this->propertyFilled('orderaffiliatenetworks');
@@ -1280,10 +1280,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices Invoices used for creating a new invoice.
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Invoices Invoices used for creating a new invoice.
      * @return self
      */
-    public function setInvoices(\JacobDeKeizer\Ccv\Models\Webshop\Resource\Invoices $invoices): self
+    public function setInvoices(\JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Invoices $invoices): self
     {
         $this->invoices = $invoices;
         $this->propertyFilled('invoices');

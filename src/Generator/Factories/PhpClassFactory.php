@@ -95,20 +95,22 @@ class PhpClassFactory
 
     private static function makeNamespace(array $pathParts): string
     {
-        return sprintf(sprintf('JacobDeKeizer\Ccv\Models\%s\%s', $pathParts[0], $pathParts[1]));
+        return sprintf(sprintf('JacobDeKeizer\Ccv\Models\%s\%s\%s', $pathParts[0], $pathParts[1], $pathParts[2]));
     }
 
     /**
      * @param string $schemaUrl https://demo.ccvshop.nl/API/Schema/internal.resource.orders.post.v1.json
-     * @return array [ Resource, Orders, Post ]
+     * @return array [ Internal, Resource, Orders, Post ]
      */
     private static function makePathParts(string $schemaUrl): array
     {
+        $schemaUrl = str_replace('/API/Schema/', '', $schemaUrl);
         $parts = explode('.', $schemaUrl);
 
         $count = count($parts);
 
         return [
+            Str::studly($parts[$count - 6]),
             Str::studly($parts[$count - 5]),
             Str::studly($parts[$count - 4]),
             Str::studly($parts[$count - 3]),

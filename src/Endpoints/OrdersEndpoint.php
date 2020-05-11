@@ -11,7 +11,7 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function all(?All $payload = null): Models\Resource\Collection\Orders
+    public function all(?All $payload = null): Models\Webshop\Resource\Collection\Orders
     {
         if ($payload === null) {
             $payload = new All();
@@ -19,31 +19,34 @@ class OrdersEndpoint extends BaseEndpoint
 
         $result = $this->doRequest('GET', 'orders' . $payload->toBuilder()->toQueryString());
 
-        return Models\Resource\Collection\Orders::fromArray($result);
+        return Models\Webshop\Resource\Collection\Orders::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function get(int $id): Models\Webshop\Resource\Orders
+    public function get(int $id): Models\Verto\Webshop\Resource\Orders
     {
         $result = $this->doRequest('GET', 'orders/' . $id);
 
-        return Models\Webshop\Resource\Orders::fromArray($result);
+        return Models\Verto\Webshop\Resource\Orders::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Resource\Orders\Patch $order, bool $onlyFilledProperties = true): void
-    {
+    public function update(
+        int $id,
+        Models\Internal\Resource\Orders\Patch $order,
+        bool $onlyFilledProperties = true
+    ): void {
         $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($onlyFilledProperties));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(Models\Resource\Orders\Post $order, bool $onlyFilledProperties = true): void
+    public function create(Models\Internal\Resource\Orders\Post $order, bool $onlyFilledProperties = true): void
     {
         $this->doRequest('POST', 'orders', $order->toArray($onlyFilledProperties));
     }

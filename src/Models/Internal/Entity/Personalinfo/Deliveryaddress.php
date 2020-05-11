@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Webshop\Entity;
+namespace JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
@@ -11,7 +11,7 @@ class Deliveryaddress implements Model
     use FromArray, ToArray;
 
     /**
-     * @var string|null Gender, can be null.
+     * @var string|null Gender, can be blank.
      */
      private $gender;
 
@@ -41,17 +41,17 @@ class Deliveryaddress implements Model
      private $addressLine2;
 
     /**
-     * @var string|null Street name.  Note: see address_line_1.
+     * @var string|null Street name. Note: see address_line_1.
      */
      private $street;
 
     /**
-     * @var int|null House number.  Note: see address_line_1.
+     * @var int|null House number. Note: see address_line_1.
      */
      private $housenumber;
 
     /**
-     * @var string|null House number suffix.  Note: see address_line_1.
+     * @var string|null House number suffix. Note: see address_line_1.
      */
      private $housenumberSuffix;
 
@@ -71,7 +71,7 @@ class Deliveryaddress implements Model
      private $province;
 
     /**
-     * @var string|null Country full name.
+     * @var string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      */
      private $country;
 
@@ -104,7 +104,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Gender, can be null.
+     * @return string|null Gender, can be blank.
      */
     public function getGender(): ?string
     {
@@ -152,7 +152,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Street name.  Note: see address_line_1.
+     * @return string|null Street name. Note: see address_line_1.
      */
     public function getStreet(): ?string
     {
@@ -160,7 +160,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return int|null House number.  Note: see address_line_1.
+     * @return int|null House number. Note: see address_line_1.
      */
     public function getHousenumber(): ?int
     {
@@ -168,7 +168,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null House number suffix.  Note: see address_line_1.
+     * @return string|null House number suffix. Note: see address_line_1.
      */
     public function getHousenumberSuffix(): ?string
     {
@@ -200,7 +200,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Country full name.
+     * @return string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      */
     public function getCountry(): ?string
     {
@@ -240,7 +240,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Gender, can be null.
+     * @param string|null Gender, can be blank.
      * @return self
      */
     public function setGender(?string $gender): self
@@ -306,7 +306,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Street name.  Note: see address_line_1.
+     * @param string|null Street name. Note: see address_line_1.
      * @return self
      */
     public function setStreet(?string $street): self
@@ -317,7 +317,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param int|null House number.  Note: see address_line_1.
+     * @param int|null House number. Note: see address_line_1.
      * @return self
      */
     public function setHousenumber(?int $housenumber): self
@@ -328,7 +328,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null House number suffix.  Note: see address_line_1.
+     * @param string|null House number suffix. Note: see address_line_1.
      * @return self
      */
     public function setHousenumberSuffix(?string $housenumberSuffix): self
@@ -372,7 +372,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Country full name.
+     * @param string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
      */
     public function setCountry(?string $country): self

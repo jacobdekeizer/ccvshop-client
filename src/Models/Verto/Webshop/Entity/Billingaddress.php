@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Entity\Personalinfo;
+namespace JacobDeKeizer\Ccv\Models\Verto\Webshop\Entity;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
@@ -31,7 +31,7 @@ class Billingaddress implements Model
      private $lastName;
 
     /**
-     * @var string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
+     * @var string|null Full name
      */
      private $fullName;
 
@@ -51,17 +51,17 @@ class Billingaddress implements Model
      private $addressLine2;
 
     /**
-     * @var string|null Street name. Note: see address_line_1.
+     * @var string|null Street name.  Note: see address_line_1.
      */
      private $street;
 
     /**
-     * @var int|null House number. Note: see address_line_1.
+     * @var int|null House number.  Note: see address_line_1.
      */
      private $housenumber;
 
     /**
-     * @var string|null House number suffix. Note: see address_line_1.
+     * @var string|null House number suffix.  Note: see address_line_1.
      */
      private $housenumberSuffix;
 
@@ -81,7 +81,7 @@ class Billingaddress implements Model
      private $province;
 
     /**
-     * @var string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @var string|null Country full name.
      */
      private $country;
 
@@ -151,7 +151,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
+     * @return string|null Full name
      */
     public function getFullName(): ?string
     {
@@ -183,7 +183,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Street name. Note: see address_line_1.
+     * @return string|null Street name.  Note: see address_line_1.
      */
     public function getStreet(): ?string
     {
@@ -191,7 +191,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return int|null House number. Note: see address_line_1.
+     * @return int|null House number.  Note: see address_line_1.
      */
     public function getHousenumber(): ?int
     {
@@ -199,7 +199,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null House number suffix. Note: see address_line_1.
+     * @return string|null House number suffix.  Note: see address_line_1.
      */
     public function getHousenumberSuffix(): ?string
     {
@@ -231,7 +231,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @return string|null Country full name.
      */
     public function getCountry(): ?string
     {
@@ -323,7 +323,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
+     * @param string|null Full name
      * @return self
      */
     public function setFullName(?string $fullName): self
@@ -367,7 +367,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Street name. Note: see address_line_1.
+     * @param string|null Street name.  Note: see address_line_1.
      * @return self
      */
     public function setStreet(?string $street): self
@@ -378,7 +378,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param int|null House number. Note: see address_line_1.
+     * @param int|null House number.  Note: see address_line_1.
      * @return self
      */
     public function setHousenumber(?int $housenumber): self
@@ -389,7 +389,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null House number suffix. Note: see address_line_1.
+     * @param string|null House number suffix.  Note: see address_line_1.
      * @return self
      */
     public function setHousenumberSuffix(?string $housenumberSuffix): self
@@ -433,7 +433,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @param string|null Country full name.
      * @return self
      */
     public function setCountry(?string $country): self

@@ -2,9 +2,7 @@
 
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-An object oriented php client for the CCV shop api.
-
-[CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
+An object oriented php client for the CCV shop api. See here for the [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/).
 
 ## Contributing
 
@@ -58,10 +56,10 @@ $order = $client->orders()->get(123456);
 For example update the order status and the customer email
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Patch())
     ->setStatus(6)
     ->setCustomer(
-        (new \JacobDeKeizer\Ccv\Models\Entity\Personalinfo\Input)
+        (new \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input)
             ->setEmail('example@example.com')
     );
 
@@ -71,7 +69,7 @@ $client->orders()->update(123456, $patch);
 ### Create order
 
 ```php
-$order = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Post())
+$order = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Post())
     ->setInvoicenumber(123456);
     //->set..
    

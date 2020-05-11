@@ -1,17 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Webshop\Resource;
+namespace JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Ordernotifications implements Model
+class Orderaffiliatenetworks implements Model
 {
     use FromArray, ToArray;
 
     /**
-     * @var string Link to the collection.
+     * @var string|null Link to affiliate of order
      */
      private $href;
 
@@ -24,18 +24,18 @@ class Ordernotifications implements Model
     }
 
     /**
-     * @return string Link to the collection.
+     * @return string|null Link to affiliate of order
      */
-    public function getHref(): string
+    public function getHref(): ?string
     {
         return $this->href;
     }
 
     /**
-     * @param string Link to the collection.
+     * @param string|null Link to affiliate of order
      * @return self
      */
-    public function setHref(string $href): self
+    public function setHref(?string $href): self
     {
         $this->href = $href;
         $this->propertyFilled('href');

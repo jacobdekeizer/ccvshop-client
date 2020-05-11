@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Resource\Collection;
+namespace JacobDeKeizer\Ccv\Models\Webshop\Resource\Collection;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
@@ -41,7 +41,7 @@ class Orders implements Model
      private $next;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orders[] Array with collection items
+     * @var \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orders[] Array with collection items
      */
      private $items;
 
@@ -102,7 +102,7 @@ class Orders implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orders[] Array with collection items
+     * @return \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orders[] Array with collection items
      */
     public function getItems(): array
     {
@@ -176,7 +176,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Webshop\Resource\Orders[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Verto\Webshop\Resource\Orders[] Array with collection items
      * @return self
      */
     public function setItems(array $items): self

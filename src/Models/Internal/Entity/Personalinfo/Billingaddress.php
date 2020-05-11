@@ -1,12 +1,12 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Entity\Personalinfo;
+namespace JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Deliveryaddress implements Model
+class Billingaddress implements Model
 {
     use FromArray, ToArray;
 
@@ -21,7 +21,17 @@ class Deliveryaddress implements Model
      private $initials;
 
     /**
-     * @var string|null Full name
+     * @var string|null First name
+     */
+     private $firstName;
+
+    /**
+     * @var string|null Last name
+     */
+     private $lastName;
+
+    /**
+     * @var string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      */
      private $fullName;
 
@@ -86,12 +96,17 @@ class Deliveryaddress implements Model
      private $telephone;
 
     /**
+     * @var string|null Fax number
+     */
+     private $fax;
+
+    /**
      * @var string|null Mobile phone number
      */
      private $mobile;
 
     /**
-     * @var string|null Comment left for the recepient
+     * @var string|null Comment left for the merchant
      */
      private $comment;
 
@@ -120,7 +135,23 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Full name
+     * @return string|null First name
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string|null Last name
+     */
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @return string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      */
     public function getFullName(): ?string
     {
@@ -224,6 +255,14 @@ class Deliveryaddress implements Model
     }
 
     /**
+     * @return string|null Fax number
+     */
+    public function getFax(): ?string
+    {
+        return $this->fax;
+    }
+
+    /**
      * @return string|null Mobile phone number
      */
     public function getMobile(): ?string
@@ -232,7 +271,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Comment left for the recepient
+     * @return string|null Comment left for the merchant
      */
     public function getComment(): ?string
     {
@@ -262,7 +301,29 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Full name
+     * @param string|null First name
+     * @return self
+     */
+    public function setFirstName(?string $firstName): self
+    {
+        $this->firstName = $firstName;
+        $this->propertyFilled('firstName');
+        return $this;
+    }
+
+    /**
+     * @param string|null Last name
+     * @return self
+     */
+    public function setLastName(?string $lastName): self
+    {
+        $this->lastName = $lastName;
+        $this->propertyFilled('lastName');
+        return $this;
+    }
+
+    /**
+     * @param string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      * @return self
      */
     public function setFullName(?string $fullName): self
@@ -405,6 +466,17 @@ class Deliveryaddress implements Model
     }
 
     /**
+     * @param string|null Fax number
+     * @return self
+     */
+    public function setFax(?string $fax): self
+    {
+        $this->fax = $fax;
+        $this->propertyFilled('fax');
+        return $this;
+    }
+
+    /**
      * @param string|null Mobile phone number
      * @return self
      */
@@ -416,7 +488,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Comment left for the recepient
+     * @param string|null Comment left for the merchant
      * @return self
      */
     public function setComment(?string $comment): self
