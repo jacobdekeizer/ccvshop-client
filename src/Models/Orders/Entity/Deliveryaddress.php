@@ -1,17 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders\Webshop\Entity;
+namespace JacobDeKeizer\Ccv\Models\Orders\Entity;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Billingaddress implements Model
+class Deliveryaddress implements Model
 {
     use FromArray, ToArray;
 
     /**
-     * @var string|null Gender, can be blank.
+     * @var string|null Gender, can be null.
      */
      private $gender;
 
@@ -19,16 +19,6 @@ class Billingaddress implements Model
      * @var string|null Initials, optional
      */
      private $initials;
-
-    /**
-     * @var string|null First name
-     */
-     private $firstName;
-
-    /**
-     * @var string|null Last name
-     */
-     private $lastName;
 
     /**
      * @var string|null Full name
@@ -96,17 +86,12 @@ class Billingaddress implements Model
      private $telephone;
 
     /**
-     * @var string|null Fax number
-     */
-     private $fax;
-
-    /**
      * @var string|null Mobile phone number
      */
      private $mobile;
 
     /**
-     * @var string|null Comment left for the merchant
+     * @var string|null Comment left for the recepient
      */
      private $comment;
 
@@ -119,7 +104,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Gender, can be blank.
+     * @return string|null Gender, can be null.
      */
     public function getGender(): ?string
     {
@@ -132,22 +117,6 @@ class Billingaddress implements Model
     public function getInitials(): ?string
     {
         return $this->initials;
-    }
-
-    /**
-     * @return string|null First name
-     */
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return string|null Last name
-     */
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
     }
 
     /**
@@ -255,14 +224,6 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Fax number
-     */
-    public function getFax(): ?string
-    {
-        return $this->fax;
-    }
-
-    /**
      * @return string|null Mobile phone number
      */
     public function getMobile(): ?string
@@ -271,7 +232,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @return string|null Comment left for the merchant
+     * @return string|null Comment left for the recepient
      */
     public function getComment(): ?string
     {
@@ -279,7 +240,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Gender, can be blank.
+     * @param string|null Gender, can be null.
      * @return self
      */
     public function setGender(?string $gender): self
@@ -297,28 +258,6 @@ class Billingaddress implements Model
     {
         $this->initials = $initials;
         $this->propertyFilled('initials');
-        return $this;
-    }
-
-    /**
-     * @param string|null First name
-     * @return self
-     */
-    public function setFirstName(?string $firstName): self
-    {
-        $this->firstName = $firstName;
-        $this->propertyFilled('firstName');
-        return $this;
-    }
-
-    /**
-     * @param string|null Last name
-     * @return self
-     */
-    public function setLastName(?string $lastName): self
-    {
-        $this->lastName = $lastName;
-        $this->propertyFilled('lastName');
         return $this;
     }
 
@@ -466,17 +405,6 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Fax number
-     * @return self
-     */
-    public function setFax(?string $fax): self
-    {
-        $this->fax = $fax;
-        $this->propertyFilled('fax');
-        return $this;
-    }
-
-    /**
      * @param string|null Mobile phone number
      * @return self
      */
@@ -488,7 +416,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Comment left for the merchant
+     * @param string|null Comment left for the recepient
      * @return self
      */
     public function setComment(?string $comment): self

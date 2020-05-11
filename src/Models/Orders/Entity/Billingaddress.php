@@ -1,17 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders\Webshop\Entity;
+namespace JacobDeKeizer\Ccv\Models\Orders\Entity;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Deliveryaddress implements Model
+class Billingaddress implements Model
 {
     use FromArray, ToArray;
 
     /**
-     * @var string|null Gender, can be null.
+     * @var string|null Gender, can be blank.
      */
      private $gender;
 
@@ -19,6 +19,16 @@ class Deliveryaddress implements Model
      * @var string|null Initials, optional
      */
      private $initials;
+
+    /**
+     * @var string|null First name
+     */
+     private $firstName;
+
+    /**
+     * @var string|null Last name
+     */
+     private $lastName;
 
     /**
      * @var string|null Full name
@@ -86,12 +96,17 @@ class Deliveryaddress implements Model
      private $telephone;
 
     /**
+     * @var string|null Fax number
+     */
+     private $fax;
+
+    /**
      * @var string|null Mobile phone number
      */
      private $mobile;
 
     /**
-     * @var string|null Comment left for the recepient
+     * @var string|null Comment left for the merchant
      */
      private $comment;
 
@@ -104,7 +119,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Gender, can be null.
+     * @return string|null Gender, can be blank.
      */
     public function getGender(): ?string
     {
@@ -117,6 +132,22 @@ class Deliveryaddress implements Model
     public function getInitials(): ?string
     {
         return $this->initials;
+    }
+
+    /**
+     * @return string|null First name
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string|null Last name
+     */
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
     }
 
     /**
@@ -224,6 +255,14 @@ class Deliveryaddress implements Model
     }
 
     /**
+     * @return string|null Fax number
+     */
+    public function getFax(): ?string
+    {
+        return $this->fax;
+    }
+
+    /**
      * @return string|null Mobile phone number
      */
     public function getMobile(): ?string
@@ -232,7 +271,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @return string|null Comment left for the recepient
+     * @return string|null Comment left for the merchant
      */
     public function getComment(): ?string
     {
@@ -240,7 +279,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Gender, can be null.
+     * @param string|null Gender, can be blank.
      * @return self
      */
     public function setGender(?string $gender): self
@@ -258,6 +297,28 @@ class Deliveryaddress implements Model
     {
         $this->initials = $initials;
         $this->propertyFilled('initials');
+        return $this;
+    }
+
+    /**
+     * @param string|null First name
+     * @return self
+     */
+    public function setFirstName(?string $firstName): self
+    {
+        $this->firstName = $firstName;
+        $this->propertyFilled('firstName');
+        return $this;
+    }
+
+    /**
+     * @param string|null Last name
+     * @return self
+     */
+    public function setLastName(?string $lastName): self
+    {
+        $this->lastName = $lastName;
+        $this->propertyFilled('lastName');
         return $this;
     }
 
@@ -405,6 +466,17 @@ class Deliveryaddress implements Model
     }
 
     /**
+     * @param string|null Fax number
+     * @return self
+     */
+    public function setFax(?string $fax): self
+    {
+        $this->fax = $fax;
+        $this->propertyFilled('fax');
+        return $this;
+    }
+
+    /**
      * @param string|null Mobile phone number
      * @return self
      */
@@ -416,7 +488,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Comment left for the recepient
+     * @param string|null Comment left for the merchant
      * @return self
      */
     public function setComment(?string $comment): self

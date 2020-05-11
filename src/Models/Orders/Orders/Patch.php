@@ -1,12 +1,12 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders\Resource\Orders;
+namespace JacobDeKeizer\Ccv\Models\Orders\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Post implements Model
+class Patch implements Model
 {
     use FromArray, ToArray;
 
@@ -16,12 +16,7 @@ class Post implements Model
      private $invoicenumber;
 
     /**
-     * @var bool|null If false, the order won't be marked as completed. The basket_href and checkout_href will be available for this resource. The consumer can be forwarded to these urls and complete the order. By default this value is TRUE.
-     */
-     private $isCompleted;
-
-    /**
-     * @var bool|null If the order is marked as paid
+     * @var bool|null If the order is marked as paid.
      */
      private $paid;
 
@@ -31,7 +26,7 @@ class Post implements Model
      private $safetyDepositReturned;
 
     /**
-     * @var float|null Total shipping costs
+     * @var float|null Total shipping costs. If this order already has a value for this field, it will be overwritten.
      */
      private $totalShipping;
 
@@ -41,12 +36,12 @@ class Post implements Model
      private $paymethodCosts;
 
     /**
-     * @var float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @var float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero. If this order already has a value for this property, it will be overwritten.
      */
      private $extraCosts;
 
     /**
-     * @var string|null Description of the extra costs. This is visible on the invoice.
+     * @var string|null Description of the extra costs. This is visible on the invoice and only if extra_costs is not zero. If extra_costs is supplied, it's advised to fill this property.
      */
      private $extraCostsDescription;
 
@@ -56,12 +51,12 @@ class Post implements Model
      private $taxesIncluded;
 
     /**
-     * @var bool|null If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
+     * @var bool|null If order row prices contain taxes. Use this property to choose between an inc. VAT order and an ex. VAT order.
      */
      private $orderRowTaxesIncluded;
 
     /**
-     * @var bool|null If shippingcosts are included in the total tax amount
+     * @var bool|null If shippingcosts are included in the total tax amount.
      */
      private $shippingTaxesIncluded;
 
@@ -86,7 +81,12 @@ class Post implements Model
      private $status;
 
     /**
-     * @var string|null Track and Trace code, usually provided by the shipping service. If a note is emailed to the customer this value will be included.
+     * @var string|null When the boolean 'mail' is set, the note will be appended to the email which is send to the customer.
+     */
+     private $note;
+
+    /**
+     * @var string|null Track and Trace Code, supplied by shipping party. When the boolean 'mail' is set, the Track and Trace Code can be appended to the email which is send to the customer.
      */
      private $trackAndTraceCode;
 
@@ -94,6 +94,11 @@ class Post implements Model
      * @var string|null Track & Trace Carrier. This value represents the shipping service.
      */
      private $trackAndTraceCarrier;
+
+    /**
+     * @var bool|null If TRUE, notify the customer of the status change. Also see 'note' and 'track_and_trace_code'.
+     */
+     private $mail;
 
     /**
      * @var string|null Delivery date in UTC
@@ -116,17 +121,12 @@ class Post implements Model
      private $reservationnumber;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo\Input Describes personal information of the customer
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input|null Describes personal information of the customer
      */
      private $customer;
 
     /**
-     * @var int|null Unique id of the user (see GET /:version/users). The user's personal info will be added to this order. If additional information is provided in the property 'customer' that info will override this. If null, no user will be associated with this order.
-     */
-     private $userId;
-
-    /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[]|null Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
      private $orderrows;
 
@@ -147,15 +147,7 @@ class Post implements Model
     }
 
     /**
-     * @return bool|null If false, the order won't be marked as completed. The basket_href and checkout_href will be available for this resource. The consumer can be forwarded to these urls and complete the order. By default this value is TRUE.
-     */
-    public function getIsCompleted(): ?bool
-    {
-        return $this->isCompleted;
-    }
-
-    /**
-     * @return bool|null If the order is marked as paid
+     * @return bool|null If the order is marked as paid.
      */
     public function getPaid(): ?bool
     {
@@ -171,7 +163,7 @@ class Post implements Model
     }
 
     /**
-     * @return float|null Total shipping costs
+     * @return float|null Total shipping costs. If this order already has a value for this field, it will be overwritten.
      */
     public function getTotalShipping(): ?float
     {
@@ -187,7 +179,7 @@ class Post implements Model
     }
 
     /**
-     * @return float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @return float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero. If this order already has a value for this property, it will be overwritten.
      */
     public function getExtraCosts(): ?float
     {
@@ -195,7 +187,7 @@ class Post implements Model
     }
 
     /**
-     * @return string|null Description of the extra costs. This is visible on the invoice.
+     * @return string|null Description of the extra costs. This is visible on the invoice and only if extra_costs is not zero. If extra_costs is supplied, it's advised to fill this property.
      */
     public function getExtraCostsDescription(): ?string
     {
@@ -211,7 +203,7 @@ class Post implements Model
     }
 
     /**
-     * @return bool|null If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
+     * @return bool|null If order row prices contain taxes. Use this property to choose between an inc. VAT order and an ex. VAT order.
      */
     public function getOrderRowTaxesIncluded(): ?bool
     {
@@ -219,7 +211,7 @@ class Post implements Model
     }
 
     /**
-     * @return bool|null If shippingcosts are included in the total tax amount
+     * @return bool|null If shippingcosts are included in the total tax amount.
      */
     public function getShippingTaxesIncluded(): ?bool
     {
@@ -259,7 +251,15 @@ class Post implements Model
     }
 
     /**
-     * @return string|null Track and Trace code, usually provided by the shipping service. If a note is emailed to the customer this value will be included.
+     * @return string|null When the boolean 'mail' is set, the note will be appended to the email which is send to the customer.
+     */
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    /**
+     * @return string|null Track and Trace Code, supplied by shipping party. When the boolean 'mail' is set, the Track and Trace Code can be appended to the email which is send to the customer.
      */
     public function getTrackAndTraceCode(): ?string
     {
@@ -272,6 +272,14 @@ class Post implements Model
     public function getTrackAndTraceCarrier(): ?string
     {
         return $this->trackAndTraceCarrier;
+    }
+
+    /**
+     * @return bool|null If TRUE, notify the customer of the status change. Also see 'note' and 'track_and_trace_code'.
+     */
+    public function getMail(): ?bool
+    {
+        return $this->mail;
     }
 
     /**
@@ -307,25 +315,17 @@ class Post implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo\Input Describes personal information of the customer
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input|null Describes personal information of the customer
      */
-    public function getCustomer(): \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo\Input
+    public function getCustomer(): ?\JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input
     {
         return $this->customer;
     }
 
     /**
-     * @return int|null Unique id of the user (see GET /:version/users). The user's personal info will be added to this order. If additional information is provided in the property 'customer' that info will override this. If null, no user will be associated with this order.
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[]|null Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
-    public function getUserId(): ?int
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Entity\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
-     */
-    public function getOrderrows(): array
+    public function getOrderrows(): ?array
     {
         return $this->orderrows;
     }
@@ -342,18 +342,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If false, the order won't be marked as completed. The basket_href and checkout_href will be available for this resource. The consumer can be forwarded to these urls and complete the order. By default this value is TRUE.
-     * @return self
-     */
-    public function setIsCompleted(?bool $isCompleted): self
-    {
-        $this->isCompleted = $isCompleted;
-        $this->propertyFilled('isCompleted');
-        return $this;
-    }
-
-    /**
-     * @param bool|null If the order is marked as paid
+     * @param bool|null If the order is marked as paid.
      * @return self
      */
     public function setPaid(?bool $paid): self
@@ -375,7 +364,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null Total shipping costs
+     * @param float|null Total shipping costs. If this order already has a value for this field, it will be overwritten.
      * @return self
      */
     public function setTotalShipping(?float $totalShipping): self
@@ -397,7 +386,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @param float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero. If this order already has a value for this property, it will be overwritten.
      * @return self
      */
     public function setExtraCosts(?float $extraCosts): self
@@ -408,7 +397,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Description of the extra costs. This is visible on the invoice.
+     * @param string|null Description of the extra costs. This is visible on the invoice and only if extra_costs is not zero. If extra_costs is supplied, it's advised to fill this property.
      * @return self
      */
     public function setExtraCostsDescription(?string $extraCostsDescription): self
@@ -430,7 +419,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
+     * @param bool|null If order row prices contain taxes. Use this property to choose between an inc. VAT order and an ex. VAT order.
      * @return self
      */
     public function setOrderRowTaxesIncluded(?bool $orderRowTaxesIncluded): self
@@ -441,7 +430,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If shippingcosts are included in the total tax amount
+     * @param bool|null If shippingcosts are included in the total tax amount.
      * @return self
      */
     public function setShippingTaxesIncluded(?bool $shippingTaxesIncluded): self
@@ -496,7 +485,18 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Track and Trace code, usually provided by the shipping service. If a note is emailed to the customer this value will be included.
+     * @param string|null When the boolean 'mail' is set, the note will be appended to the email which is send to the customer.
+     * @return self
+     */
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
+        $this->propertyFilled('note');
+        return $this;
+    }
+
+    /**
+     * @param string|null Track and Trace Code, supplied by shipping party. When the boolean 'mail' is set, the Track and Trace Code can be appended to the email which is send to the customer.
      * @return self
      */
     public function setTrackAndTraceCode(?string $trackAndTraceCode): self
@@ -514,6 +514,17 @@ class Post implements Model
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
         $this->propertyFilled('trackAndTraceCarrier');
+        return $this;
+    }
+
+    /**
+     * @param bool|null If TRUE, notify the customer of the status change. Also see 'note' and 'track_and_trace_code'.
+     * @return self
+     */
+    public function setMail(?bool $mail): self
+    {
+        $this->mail = $mail;
+        $this->propertyFilled('mail');
         return $this;
     }
 
@@ -562,10 +573,10 @@ class Post implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo\Input Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input|null Describes personal information of the customer
      * @return self
      */
-    public function setCustomer(\JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo\Input $customer): self
+    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');
@@ -573,21 +584,10 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Unique id of the user (see GET /:version/users). The user's personal info will be added to this order. If additional information is provided in the property 'customer' that info will override this. If null, no user will be associated with this order.
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[]|null Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      * @return self
      */
-    public function setUserId(?int $userId): self
-    {
-        $this->userId = $userId;
-        $this->propertyFilled('userId');
-        return $this;
-    }
-
-    /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
-     * @return self
-     */
-    public function setOrderrows(array $orderrows): self
+    public function setOrderrows(?array $orderrows): self
     {
         $this->orderrows = $orderrows;
         $this->propertyFilled('orderrows');

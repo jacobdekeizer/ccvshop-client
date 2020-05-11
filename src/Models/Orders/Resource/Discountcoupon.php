@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders\Webshop\Resource;
+namespace JacobDeKeizer\Ccv\Models\Orders\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;

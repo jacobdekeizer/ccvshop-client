@@ -1,12 +1,12 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orderrows\Resource\Collection;
+namespace JacobDeKeizer\Ccv\Models\Orders\Collection;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Orderrows implements Model
+class Orders implements Model
 {
     use FromArray, ToArray;
 
@@ -41,7 +41,7 @@ class Orderrows implements Model
      private $next;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Webshop\Resource\Orderrows[]|null Array with collection items
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders[] Array with collection items
      */
      private $items;
 
@@ -102,9 +102,9 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Webshop\Resource\Orderrows[]|null Array with collection items
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders[] Array with collection items
      */
-    public function getItems(): ?array
+    public function getItems(): array
     {
         return $this->items;
     }
@@ -176,10 +176,10 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Webshop\Resource\Orderrows[]|null Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders[] Array with collection items
      * @return self
      */
-    public function setItems(?array $items): self
+    public function setItems(array $items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');

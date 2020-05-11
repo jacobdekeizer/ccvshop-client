@@ -1,17 +1,17 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Models\Orders\Webshop\Resource;
+namespace JacobDeKeizer\Ccv\Models\Orders\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
 
-class Ordernotifications implements Model
+class Orderrows implements Model
 {
     use FromArray, ToArray;
 
     /**
-     * @var string Link to the collection.
+     * @var string Link to products that are ordered with this order
      */
      private $href;
 
@@ -24,7 +24,7 @@ class Ordernotifications implements Model
     }
 
     /**
-     * @return string Link to the collection.
+     * @return string Link to products that are ordered with this order
      */
     public function getHref(): string
     {
@@ -32,7 +32,7 @@ class Ordernotifications implements Model
     }
 
     /**
-     * @param string Link to the collection.
+     * @param string Link to products that are ordered with this order
      * @return self
      */
     public function setHref(string $href): self
