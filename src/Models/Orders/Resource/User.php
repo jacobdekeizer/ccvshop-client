@@ -13,17 +13,17 @@ class User implements Model
     /**
      * @var int|null Unique id of the user. If null, no user was associated with this order
      */
-     private $id;
+    private $id;
 
     /**
      * @var float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
      */
-     private $discountPercentage;
+    private $discountPercentage;
 
     /**
      * @var string|null Link to user associated with this order
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

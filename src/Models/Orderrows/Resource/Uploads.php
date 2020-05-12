@@ -13,17 +13,17 @@ class Uploads implements Model
     /**
      * @var string Description of the kind of upload
      */
-     private $uploadDescription;
+    private $uploadDescription;
 
     /**
      * @var string File name of the uploaded file.
      */
-     private $fileName;
+    private $fileName;
 
     /**
      * @var string Deeplink to the file.
      */
-     private $deeplink;
+    private $deeplink;
 
     /**
      * @return self

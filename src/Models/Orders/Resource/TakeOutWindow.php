@@ -13,12 +13,12 @@ class TakeOutWindow implements Model
     /**
      * @var string|null Start datetime of the take out slot in UTC.
      */
-     private $start;
+    private $start;
 
     /**
      * @var string|null End datetime of the take out slot in UTC.
      */
-     private $end;
+    private $end;
 
     /**
      * @return self

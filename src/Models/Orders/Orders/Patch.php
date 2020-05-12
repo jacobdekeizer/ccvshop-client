@@ -13,122 +13,122 @@ class Patch implements Model
     /**
      * @var int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      */
-     private $invoicenumber;
+    private $invoicenumber;
 
     /**
      * @var bool|null If the order is marked as paid.
      */
-     private $paid;
+    private $paid;
 
     /**
      * @var bool|null If the order's safety deposit is returned to the customer.
      */
-     private $safetyDepositReturned;
+    private $safetyDepositReturned;
 
     /**
      * @var float|null Total shipping costs. If this order already has a value for this field, it will be overwritten.
      */
-     private $totalShipping;
+    private $totalShipping;
 
     /**
      * @var float|null Extra price added to the order as an additional fee for paymethod costs. If this order already has a value for this field, it will be overwritten.
      */
-     private $paymethodCosts;
+    private $paymethodCosts;
 
     /**
      * @var float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero. If this order already has a value for this property, it will be overwritten.
      */
-     private $extraCosts;
+    private $extraCosts;
 
     /**
      * @var string|null Description of the extra costs. This is visible on the invoice and only if extra_costs is not zero. If extra_costs is supplied, it's advised to fill this property.
      */
-     private $extraCostsDescription;
+    private $extraCostsDescription;
 
     /**
      * @var bool|null If taxes are calculated in the total price. If false, all taxes will be hidden.
      */
-     private $taxesIncluded;
+    private $taxesIncluded;
 
     /**
      * @var bool|null If order row prices contain taxes. Use this property to choose between an inc. VAT order and an ex. VAT order.
      */
-     private $orderRowTaxesIncluded;
+    private $orderRowTaxesIncluded;
 
     /**
      * @var bool|null If shippingcosts are included in the total tax amount.
      */
-     private $shippingTaxesIncluded;
+    private $shippingTaxesIncluded;
 
     /**
      * @var bool|null Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      */
-     private $isIntraCommunityOrder;
+    private $isIntraCommunityOrder;
 
     /**
      * @var string|null ISO 4217 Currency Code
      */
-     private $currency;
+    private $currency;
 
     /**
      * @var string|null Language in which this order was ordered
      */
-     private $orderedinlng;
+    private $orderedinlng;
 
     /**
      * @var int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      */
-     private $status;
+    private $status;
 
     /**
      * @var string|null When the boolean 'mail' is set, the note will be appended to the email which is send to the customer.
      */
-     private $note;
+    private $note;
 
     /**
      * @var string|null Track and Trace Code, supplied by shipping party. When the boolean 'mail' is set, the Track and Trace Code can be appended to the email which is send to the customer.
      */
-     private $trackAndTraceCode;
+    private $trackAndTraceCode;
 
     /**
      * @var string|null Track & Trace Carrier. This value represents the shipping service.
      */
-     private $trackAndTraceCarrier;
+    private $trackAndTraceCarrier;
 
     /**
      * @var bool|null If TRUE, notify the customer of the status change. Also see 'note' and 'track_and_trace_code'.
      */
-     private $mail;
+    private $mail;
 
     /**
      * @var string|null Delivery date in UTC
      */
-     private $deliverDate;
+    private $deliverDate;
 
     /**
      * @var string|null This is the deliver method the customer chooses during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      */
-     private $deliverMethod;
+    private $deliverMethod;
 
     /**
      * @var int|null Id for the takeout slot. If takeoutslot is used then deliver_method must be deliver or pickup
      */
-     private $takeoutslot;
+    private $takeoutslot;
 
     /**
      * @var string|null The reservation number for an order. This may be visible on the invoice
      */
-     private $reservationnumber;
+    private $reservationnumber;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input|null Describes personal information of the customer
      */
-     private $customer;
+    private $customer;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[]|null Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
-     private $orderrows;
+    private $orderrows;
 
     /**
      * @return self

@@ -13,17 +13,17 @@ class Attributes implements Model
     /**
      * @var string Option name
      */
-     private $optionName;
+    private $optionName;
 
     /**
      * @var string Value name
      */
-     private $valueName;
+    private $valueName;
 
     /**
      * @var float Extra price added to the order row.
      */
-     private $price;
+    private $price;
 
     /**
      * @return self

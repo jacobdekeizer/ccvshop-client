@@ -37,7 +37,7 @@ abstract class Property
         return self::INDENT . '/**' . PHP_EOL
             . self::INDENT . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . ' private $' . $this->name . ';' . PHP_EOL;
+            . self::INDENT . 'private $' . $this->name . ';' . PHP_EOL;
     }
 
     public function getGetter(): string

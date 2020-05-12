@@ -13,102 +13,102 @@ class Billingaddress implements Model
     /**
      * @var string|null Gender, can be blank.
      */
-     private $gender;
+    private $gender;
 
     /**
      * @var string|null Initials, optional
      */
-     private $initials;
+    private $initials;
 
     /**
      * @var string|null First name
      */
-     private $firstName;
+    private $firstName;
 
     /**
      * @var string|null Last name
      */
-     private $lastName;
+    private $lastName;
 
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      */
-     private $fullName;
+    private $fullName;
 
     /**
      * @var string|null Company name
      */
-     private $company;
+    private $company;
 
     /**
      * @var string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
-     private $addressLine1;
+    private $addressLine1;
 
     /**
      * @var string|null Address line 2. Note: see address_line_1.
      */
-     private $addressLine2;
+    private $addressLine2;
 
     /**
      * @var string|null Street name. Note: see address_line_1.
      */
-     private $street;
+    private $street;
 
     /**
      * @var int|null House number. Note: see address_line_1.
      */
-     private $housenumber;
+    private $housenumber;
 
     /**
      * @var string|null House number suffix. Note: see address_line_1.
      */
-     private $housenumberSuffix;
+    private $housenumberSuffix;
 
     /**
      * @var string|null Zipcode
      */
-     private $zipcode;
+    private $zipcode;
 
     /**
      * @var string|null City
      */
-     private $city;
+    private $city;
 
     /**
      * @var string|null Province or state
      */
-     private $province;
+    private $province;
 
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      */
-     private $country;
+    private $country;
 
     /**
      * @var string|null Country Alpha-2 code. See ISO 3166-1
      */
-     private $countryCode;
+    private $countryCode;
 
     /**
      * @var string|null Telephone number
      */
-     private $telephone;
+    private $telephone;
 
     /**
      * @var string|null Fax number
      */
-     private $fax;
+    private $fax;
 
     /**
      * @var string|null Mobile phone number
      */
-     private $mobile;
+    private $mobile;
 
     /**
      * @var string|null Comment left for the merchant
      */
-     private $comment;
+    private $comment;
 
     /**
      * @return self

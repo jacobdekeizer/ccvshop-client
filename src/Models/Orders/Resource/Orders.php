@@ -13,267 +13,267 @@ class Orders implements Model
     /**
      * @var string Link to self
      */
-     private $href;
+    private $href;
 
     /**
      * @var int Order id
      */
-     private $id;
+    private $id;
 
     /**
      * @var string|null Prefix of the specific order number of the order. Automatically generated when the order is completed. This will be null when 'is_completed' is false.
      */
-     private $ordernumberPrefix;
+    private $ordernumberPrefix;
 
     /**
      * @var int|null Order number, automatically generated when the order is completed. This will be null when 'is_completed' is false.
      */
-     private $ordernumber;
+    private $ordernumber;
 
     /**
      * @var string|null Unique order number, Full order number as displayed in shop. With dash if the prefix is available. This will be null when 'is_completed' is false.
      */
-     private $ordernumberFull;
+    private $ordernumberFull;
 
     /**
      * @var int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      */
-     private $invoicenumber;
+    private $invoicenumber;
 
     /**
      * @var string Createdate of this order in UTC
      */
-     private $createDate;
+    private $createDate;
 
     /**
      * @var string This is the deliver method the customer has chosen during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      */
-     private $deliverMethod;
+    private $deliverMethod;
 
     /**
      * @var string|null Delivery date in UTC. In case of take out, see take_out_slot.
      */
-     private $deliverDate;
+    private $deliverDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      */
-     private $takeOutWindow;
+    private $takeOutWindow;
 
     /**
      * @var string Language in which this order was ordered
      */
-     private $orderedinlng;
+    private $orderedinlng;
 
     /**
      * @var int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      */
-     private $status;
+    private $status;
 
     /**
      * @var bool|null If status is null 'is_completed' will be false. If false, the order hasn't been completed by the customer.
      */
-     private $isCompleted;
+    private $isCompleted;
 
     /**
      * @var string|null Link to the shopping basket, only available when 'is_completed' is false.
      */
-     private $basketHref;
+    private $basketHref;
 
     /**
      * @var string|null Link to the checkout page, only available when 'is_completed' is false. If the shop has the regular checkout, this will be the basket_href.
      */
-     private $checkoutHref;
+    private $checkoutHref;
 
     /**
      * @var bool If the order is marked as paid
      */
-     private $paid;
+    private $paid;
 
     /**
      * @var bool If the order's safety deposit is returned to the customer.
      */
-     private $safetyDepositReturned;
+    private $safetyDepositReturned;
 
     /**
      * @var int Paymethod Id of the order. Corresponse with the resource paymethods.
      */
-     private $paymethodId;
+    private $paymethodId;
 
     /**
      * @var string Paymethod of the order
      */
-     private $paymethod;
+    private $paymethod;
 
     /**
      * @var bool If taxes are calculated in the total price. If false, all taxes will be hidden.
      */
-     private $taxesIncluded;
+    private $taxesIncluded;
 
     /**
      * @var bool If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
      */
-     private $orderRowTaxesIncluded;
+    private $orderRowTaxesIncluded;
 
     /**
      * @var bool If shippingcosts are included in the total tax amount
      */
-     private $shippingTaxesIncluded;
+    private $shippingTaxesIncluded;
 
     /**
      * @var float Tax percentage of the shipping costs
      */
-     private $shippingTaxPercentage;
+    private $shippingTaxPercentage;
 
     /**
      * @var bool Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      */
-     private $isIntraCommunityOrder;
+    private $isIntraCommunityOrder;
 
     /**
      * @var float Total orderrow price
      */
-     private $totalOrderrowPrice;
+    private $totalOrderrowPrice;
 
     /**
      * @var float Total shipping costs
      */
-     private $totalShipping;
+    private $totalShipping;
 
     /**
      * @var float Total discount
      */
-     private $totalDiscounts;
+    private $totalDiscounts;
 
     /**
      * @var float Total price
      */
-     private $totalPrice;
+    private $totalPrice;
 
     /**
      * @var string ISO 4217 Currency Code
      */
-     private $currency;
+    private $currency;
 
     /**
      * @var float Total tax amount
      */
-     private $totalTax;
+    private $totalTax;
 
     /**
      * @var float Total weight of the order in kilograms
      */
-     private $totalWeight;
+    private $totalWeight;
 
     /**
      * @var string Payment option name
      */
-     private $extraPaymentOption;
+    private $extraPaymentOption;
 
     /**
      * @var float|null Payment option price
      */
-     private $extraPaymentOptionPrice;
+    private $extraPaymentOptionPrice;
 
     /**
      * @var bool If shipping was free with this payment option
      */
-     private $extraPaymentOptionNoSentprice;
+    private $extraPaymentOptionNoSentprice;
 
     /**
      * @var bool If this order will be paid on pickup with this payment option
      */
-     private $extraPaymentOptionPayOnPickup;
+    private $extraPaymentOptionPayOnPickup;
 
     /**
      * @var float Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
      */
-     private $extraPrice;
+    private $extraPrice;
 
     /**
      * @var float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'
      */
-     private $paymethodCosts;
+    private $paymethodCosts;
 
     /**
      * @var float The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'
      */
-     private $creditPointDiscount;
+    private $creditPointDiscount;
 
     /**
      * @var float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      */
-     private $extraCosts;
+    private $extraCosts;
 
     /**
      * @var string Description of the extra costs. This is visible on the invoice.
      */
-     private $extraCostsDescription;
+    private $extraCostsDescription;
 
     /**
      * @var string Track & Trace code
      */
-     private $trackAndTraceCode;
+    private $trackAndTraceCode;
 
     /**
      * @var string|null Track & Trace Carrier. This value represents the shipping service.
      */
-     private $trackAndTraceCarrier;
+    private $trackAndTraceCarrier;
 
     /**
      * @var string|null The reservation number for an order. This may be visible on the invoice
      */
-     private $reservationnumber;
+    private $reservationnumber;
 
     /**
      * @var string|null The delivery option the customer selected, when PG or PGE is chosen the property pickup_address is filled with the pickup address. DHDLE may be applicable to German users who ordered using the DHL Checkout.
      */
-     private $deliveryOption;
+    private $deliveryOption;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\User Link to possible user resource associated with this order
      */
-     private $user;
+    private $user;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Discountcoupon Link to possible discount coupon associated with this order
      */
-     private $discountcoupon;
+    private $discountcoupon;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null Describes personal information of the customer
      */
-     private $customer;
+    private $customer;
 
     /**
      * @var object|null The pickup address that the customer selected
      */
-     private $pickupAddress;
+    private $pickupAddress;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Orderrows Products that are ordered with this order
      */
-     private $orderrows;
+    private $orderrows;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Ordernotes Notes added to this order
      */
-     private $ordernotes;
+    private $ordernotes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      */
-     private $ordernotifications;
+    private $ordernotifications;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Orderaffiliatenetworks Affilate networks
      */
-     private $orderaffiliatenetworks;
+    private $orderaffiliatenetworks;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Invoices Invoices used for creating a new invoice.
      */
-     private $invoices;
+    private $invoices;
 
     /**
      * @return self

@@ -13,7 +13,7 @@ class Orderrows implements Model
     /**
      * @var string Link to products that are ordered with this order
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

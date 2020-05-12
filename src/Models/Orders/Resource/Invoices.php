@@ -13,7 +13,7 @@ class Invoices implements Model
     /**
      * @var string|null Link to create a new invoice for this order.
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

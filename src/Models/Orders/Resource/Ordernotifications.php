@@ -13,7 +13,7 @@ class Ordernotifications implements Model
     /**
      * @var string Link to the collection.
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

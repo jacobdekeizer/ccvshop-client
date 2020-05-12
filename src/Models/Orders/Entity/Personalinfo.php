@@ -13,182 +13,182 @@ class Personalinfo implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress|null Billing address info
      */
-     private $billingaddress;
+    private $billingaddress;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress|null Shipping address info
      */
-     private $deliveryaddress;
+    private $deliveryaddress;
 
     /**
      * @var string|null E-mail address
      */
-     private $email;
+    private $email;
 
     /**
      * @var string Defines if this user is a consumer (b2c) or business (b2b) customer.
      */
-     private $customertype;
+    private $customertype;
 
     /**
      * @var string|null Bankaccount number, within EU mostly IBAN will be used instead.
      */
-     private $bankaccount;
+    private $bankaccount;
 
     /**
      * @var string|null International Bank Account Number, if empty bankaccount could be used.
      */
-     private $iban;
+    private $iban;
 
     /**
      * @var string|null Bank Identifier Code. Used in combination with IBAN.
      */
-     private $bic;
+    private $bic;
 
     /**
      * @var string|null Bank account number.
      */
-     private $bank;
+    private $bank;
 
     /**
      * @var string|null Bank account holder's name, similar to 'bankname'.
      */
-     private $tenname;
+    private $tenname;
 
     /**
      * @var string|null Bank account holder's name.
      */
-     private $bankname;
+    private $bankname;
 
     /**
      * @var string|null Customer reference. Could be used as customer number in some cases.
      */
-     private $reference;
+    private $reference;
 
     /**
      * @var string|null Customer reservation number.
      */
-     private $reservationnumber;
+    private $reservationnumber;
 
     /**
      * @var string|null Customer's income
      */
-     private $income;
+    private $income;
 
     /**
      * @var string|null Deprecated. See 'branch'.
      */
-     private $branche;
+    private $branche;
 
     /**
      * @var string|null Customer's branch. Mostly used with company info.
      */
-     private $branch;
+    private $branch;
 
     /**
      * @var string|null Website of the customer
      */
-     private $website;
+    private $website;
 
     /**
      * @var string|null Club's city
      */
-     private $clubcity;
+    private $clubcity;
 
     /**
      * @var string|null Club's comment
      */
-     private $clubcomment;
+    private $clubcomment;
 
     /**
      * @var string|null Club's name
      */
-     private $clubname;
+    private $clubname;
 
     /**
      * @var string|null Deprecated. Fair of the customer. See 'Fair'
      */
-     private $beurs;
+    private $beurs;
 
     /**
      * @var string|null Deprecated. Booth of the customer. See 'Booth'
      */
-     private $stand;
+    private $stand;
 
     /**
      * @var string|null Fair of the customer.
      */
-     private $fair;
+    private $fair;
 
     /**
      * @var string|null Booth of the customer.
      */
-     private $booth;
+    private $booth;
 
     /**
      * @var string|null Car brand
      */
-     private $carbrand;
+    private $carbrand;
 
     /**
      * @var string|null Car type
      */
-     private $cartype;
+    private $cartype;
 
     /**
      * @var string|null Car weight
      */
-     private $carweight;
+    private $carweight;
 
     /**
      * @var string|null Birthdate of the customer
      */
-     private $birthdate;
+    private $birthdate;
 
     /**
      * @var string|null Birth time of the customer
      */
-     private $birthtime;
+    private $birthtime;
 
     /**
      * @var string|null Birth place of the customer
      */
-     private $birthplace;
+    private $birthplace;
 
     /**
      * @var string|null Card number
      */
-     private $cardnumber;
+    private $cardnumber;
 
     /**
      * @var string|null BTW number
      */
-     private $btw;
+    private $btw;
 
     /**
      * @var string|null Chamber of Commerce number
      */
-     private $kvk;
+    private $kvk;
 
     /**
      * @var string|null Name of the cost centre
      */
-     private $costcentre;
+    private $costcentre;
 
     /**
      * @var string|null How did the customer find you
      */
-     private $findus;
+    private $findus;
 
     /**
      * @var string|null SSN number
      */
-     private $ssnnumber;
+    private $ssnnumber;
 
     /**
      * @var string|null ZZP number
      */
-     private $zzppass;
+    private $zzppass;
 
     /**
      * @return self

@@ -26,12 +26,12 @@ class Client
     private $ordersEndpoint;
 
     /** @var Endpoints\OrderrowsEndpoint */
-    private $orderRowsEndpoint;
+    private $orderrowsEndpoint;
 
     public function __construct()
     {
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
-        $this->orderRowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
+        $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -88,6 +88,6 @@ class Client
 
     public function orderrows(): Endpoints\OrderrowsEndpoint
     {
-        return $this->orderRowsEndpoint;
+        return $this->orderrowsEndpoint;
     }
 }

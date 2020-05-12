@@ -13,77 +13,77 @@ class Input implements Model
     /**
      * @var string|null Product type of this orderrow. If the type is a deposit then VAT will always be 0%. If not included then product will be the default.
      */
-     private $productType;
+    private $productType;
 
     /**
      * @var bool|null Default: true. When true and when the product has a deposit price (either container or safety) these additional order rows will automatically be created.
      */
-     private $autoCreateDepositRows;
+    private $autoCreateDepositRows;
 
     /**
      * @var int|null Unique product id. If provided product data will be used to create an order row.
      */
-     private $productId;
+    private $productId;
 
     /**
      * @var string|null Product name. Only used if product_id is empty
      */
-     private $productName;
+    private $productName;
 
     /**
      * @var string|null Product number. Only used if product_id is empty
      */
-     private $productNumber;
+    private $productNumber;
 
     /**
      * @var float Quantity of products
      */
-     private $count;
+    private $count;
 
     /**
      * @var float|null Product sell price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $price;
+    private $price;
 
     /**
      * @var float|null Product purchase price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $productPurchasePrice;
+    private $productPurchasePrice;
 
     /**
      * @var float|null Discount. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $discount;
+    private $discount;
 
     /**
      * @var float|null Tax percentage. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $tax;
+    private $tax;
 
     /**
      * @var string|null Product unit. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $unit;
+    private $unit;
 
     /**
      * @var float|null Product weight. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $weight;
+    private $weight;
 
     /**
      * @var string|null Memo description of product. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-     private $memo;
+    private $memo;
 
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. Required if product_id is empty. See /:version/packages/
      */
-     private $packageId;
+    private $packageId;
 
     /**
      * @var float|null This should be filled if this order rows has an attribute combination. The associated attributes value with this id will be added to this row.
      */
-     private $attributeCombinationId;
+    private $attributeCombinationId;
 
     /**
      * @return self

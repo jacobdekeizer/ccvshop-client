@@ -32,7 +32,7 @@ trait ToArray
             $value = $this->covertToData($snakeKey, $value);
 
             if ($value instanceof Model) {
-                $value = $value->toArray();
+                $value = $value->toArray($onlyFilledProperties);
             }
 
             $data[$snakeKey] = $value;

@@ -13,7 +13,7 @@ class Orderaffiliatenetworks implements Model
     /**
      * @var string|null Link to affiliate of order
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

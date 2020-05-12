@@ -42,7 +42,9 @@ do {
     foreach ($orders->getItems() as $order) {
         var_dump($order);
     }
-} while(($getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext())) !== null);
+
+    $getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext());
+} while($getOrdersParameter !== null);
 ```
 
 ### Get order
@@ -109,7 +111,7 @@ $client->orders()->create($order);
 | orderaffiliatenetworks | ✖️ |
 | ordernotes | ✖️ |
 | ordernotifications | ✖️ |
-| orderrows | ✖️ |
+| orderrows | :heavy_check_mark: |
 | orders | :heavy_check_mark: |
 | packages | ✖️ |
 | paymethods | ✖️ |

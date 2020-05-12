@@ -13,187 +13,187 @@ class Orderrows implements Model
     /**
      * @var string Link to self
      */
-     private $href;
+    private $href;
 
     /**
      * @var int|null Order row Id
      */
-     private $id;
+    private $id;
 
     /**
      * @var int|null Order Id
      */
-     private $orderId;
+    private $orderId;
 
     /**
      * @var string Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
      */
-     private $productType;
+    private $productType;
 
     /**
      * @var string|null Product name
      */
-     private $productName;
+    private $productName;
 
     /**
      * @var string|null Product name google
      */
-     private $productNameGoogle;
+    private $productNameGoogle;
 
     /**
      * @var string|null Product number
      */
-     private $productNumber;
+    private $productNumber;
 
     /**
      * @var string|null Product number from the attributecombination
      */
-     private $subProductNumber;
+    private $subProductNumber;
 
     /**
      * @var string|null SKU number from the attributecombination
      */
-     private $subSkuNumber;
+    private $subSkuNumber;
 
     /**
      * @var string|null EAN number from the attributecombination
      */
-     private $subEanNumber;
+    private $subEanNumber;
 
     /**
      * @var int|null Unique product id.
      */
-     private $productId;
+    private $productId;
 
     /**
      * @var string|null Link to product resource
      */
-     private $productHref;
+    private $productHref;
 
     /**
      * @var float|null Quantity of products
      */
-     private $count;
+    private $count;
 
     /**
      * @var float|null Product original price per unit
      */
-     private $price;
+    private $price;
 
     /**
      * @var float|null Product purchase price  per unit
      */
-     private $productPurchasePrice;
+    private $productPurchasePrice;
 
     /**
      * @var float|null Discount price per unit
      */
-     private $discount;
+    private $discount;
 
     /**
      * @var bool|null Custom product price. If true, this price is differnt from the product price for this order row.
      */
-     private $customPrice;
+    private $customPrice;
 
     /**
      * @var float|null Tax percentage
      */
-     private $tax;
+    private $tax;
 
     /**
      * @var string|null Product unit
      */
-     private $unit;
+    private $unit;
 
     /**
      * @var float|null Product weight
      */
-     private $weight;
+    private $weight;
 
     /**
      * @var string|null Memo description of product
      */
-     private $memo;
+    private $memo;
 
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
-     private $packageId;
+    private $packageId;
 
     /**
      * @var string|null Package name
      */
-     private $packageName;
+    private $packageName;
 
     /**
      * @var string|null Stocklocation of product
      */
-     private $stockLocation;
+    private $stockLocation;
 
     /**
      * @var string|null Product supplier
      */
-     private $supplier;
+    private $supplier;
 
     /**
      * @var float|null Discount of user
      */
-     private $userDiscount;
+    private $userDiscount;
 
     /**
      * @var float|null Product original price.
      */
-     private $originalPrice;
+    private $originalPrice;
 
     /**
      * @var float|null Product orignal price and discount.
      */
-     private $sellingPrice;
+    private $sellingPrice;
 
     /**
      * @var float|null Product price without discount
      */
-     private $priceWithoutDiscount;
+    private $priceWithoutDiscount;
 
     /**
      * @var float|null Product price without discount, with attributes
      */
-     private $priceWithoutDiscountWithAttributes;
+    private $priceWithoutDiscountWithAttributes;
 
     /**
      * @var float|null Total order row price
      */
-     private $totalPrice;
+    private $totalPrice;
 
     /**
      * @var float|null Total price from attributes.
      */
-     private $totalExtraOptionPrice;
+    private $totalExtraOptionPrice;
 
     /**
      * @var float|null Product price with attributes per unit.
      */
-     private $priceWithAttributes;
+    private $priceWithAttributes;
 
     /**
      * @var float|null Total product price with attributes
      */
-     private $totalPriceWithAttributes;
+    private $totalPriceWithAttributes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
      */
-     private $attributes;
+    private $attributes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads[]|null A collection of order row uploads
      */
-     private $uploads;
+    private $uploads;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent|null Contains link to parent resource.
      */
-     private $parent;
+    private $parent;
 
     /**
      * @return self

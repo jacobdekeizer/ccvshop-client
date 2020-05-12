@@ -13,37 +13,37 @@ class Orders implements Model
     /**
      * @var int Offset of the set
      */
-     private $start;
+    private $start;
 
     /**
      * @var int Size of the set
      */
-     private $size;
+    private $size;
 
     /**
      * @var string Link to self
      */
-     private $href;
+    private $href;
 
     /**
      * @var string|null Link to the first set of the collection
      */
-     private $first;
+    private $first;
 
     /**
      * @var string|null Link to the previous set of the collection
      */
-     private $previous;
+    private $previous;
 
     /**
      * @var string|null Link to the next set of the collection
      */
-     private $next;
+    private $next;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders[] Array with collection items
      */
-     private $items;
+    private $items;
 
     /**
      * @return self

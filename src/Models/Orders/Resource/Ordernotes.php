@@ -13,7 +13,7 @@ class Ordernotes implements Model
     /**
      * @var string Link to notes added to this order
      */
-     private $href;
+    private $href;
 
     /**
      * @return self

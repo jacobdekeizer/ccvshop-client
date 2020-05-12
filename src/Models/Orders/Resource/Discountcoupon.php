@@ -13,37 +13,37 @@ class Discountcoupon implements Model
     /**
      * @var string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      */
-     private $code;
+    private $code;
 
     /**
      * @var float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
-     private $discount;
+    private $discount;
 
     /**
      * @var string|null Discount type
      */
-     private $type;
+    private $type;
 
     /**
      * @var string|null End date coupon validity, UTC
      */
-     private $enddate;
+    private $enddate;
 
     /**
      * @var bool One time use. After usage this coupon will be removed.
      */
-     private $onetimeuse;
+    private $onetimeuse;
 
     /**
      * @var bool This coupon gives free shipping costs.
      */
-     private $givesfreeshipping;
+    private $givesfreeshipping;
 
     /**
      * @var float Minimum price of the order before this coupon can be used.
      */
-     private $minimumprice;
+    private $minimumprice;
 
     /**
      * @return self
