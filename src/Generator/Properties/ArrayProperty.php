@@ -35,7 +35,8 @@ class ArrayProperty extends Property
             . PHP_EOL
             . $startIndent . self::INDENT . 'foreach ($value as $item) {' . PHP_EOL
             . $startIndent . self::INDENT . self::INDENT . sprintf(
-                '$items[] = %s::fromArray($item);', $this->getPropertyType()
+                '$items[] = %s::fromArray($item);',
+                $this->getPropertyType()
             ) . PHP_EOL
             . $startIndent . self::INDENT . '}' . PHP_EOL
             . PHP_EOL
