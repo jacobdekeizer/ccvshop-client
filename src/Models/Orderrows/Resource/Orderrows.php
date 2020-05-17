@@ -191,7 +191,7 @@ class Orderrows implements Model
     private $uploads;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent|null Contains link to parent resource.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
 
@@ -492,9 +492,9 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent|null Contains link to parent resource.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
      */
-    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent
+    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -896,13 +896,37 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
      * @return self
      */
-    public function setParent(?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\Parent $parent): self
+    public function setParent(?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
+    }
+
+    protected function convertFromData(string $key, $value)
+    {
+        if ($key === 'attributes') {
+            $items = [];
+
+            foreach ($value as $item) {
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes::fromArray($item);
+            }
+
+            return $items;
+        }
+        if ($key === 'uploads') {
+            $items = [];
+
+            foreach ($value as $item) {
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads::fromArray($item);
+            }
+
+            return $items;
+        }
+
+        return $value;
     }
 }

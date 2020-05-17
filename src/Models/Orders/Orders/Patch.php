@@ -593,4 +593,19 @@ class Patch implements Model
         $this->propertyFilled('orderrows');
         return $this;
     }
+
+    protected function convertFromData(string $key, $value)
+    {
+        if ($key === 'orderrows') {
+            $items = [];
+
+            foreach ($value as $item) {
+                $items[] = \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input::fromArray($item);
+            }
+
+            return $items;
+        }
+
+        return $value;
+    }
 }

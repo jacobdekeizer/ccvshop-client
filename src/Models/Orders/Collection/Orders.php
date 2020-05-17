@@ -185,4 +185,19 @@ class Orders implements Model
         $this->propertyFilled('items');
         return $this;
     }
+
+    protected function convertFromData(string $key, $value)
+    {
+        if ($key === 'items') {
+            $items = [];
+
+            foreach ($value as $item) {
+                $items[] = \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($item);
+            }
+
+            return $items;
+        }
+
+        return $value;
+    }
 }

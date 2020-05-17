@@ -2,6 +2,8 @@
 
 namespace JacobDeKeizer\Ccv\Generator\Properties;
 
+use JacobDeKeizer\Ccv\Support\Str;
+
 class ArrayProperty extends Property
 {
     /**
@@ -22,14 +24,38 @@ class ArrayProperty extends Property
         $this->arrayType = $arrayType;
     }
 
+    public function getConvertCode(): ?string
+    {
+        $startIndent = self::INDENT . self::INDENT;
+
+        $snakeName = Str::snake($this->name);
+
+        return $startIndent . sprintf('if ($key === \'%s\') {', $snakeName) . PHP_EOL
+            . $startIndent . self::INDENT . '$items = [];' . PHP_EOL
+            . PHP_EOL
+            . $startIndent . self::INDENT . 'foreach ($value as $item) {' . PHP_EOL
+            . $startIndent . self::INDENT . self::INDENT . sprintf(
+                '$items[] = %s::fromArray($item);', $this->getPropertyType()
+            ) . PHP_EOL
+            . $startIndent . self::INDENT . '}' . PHP_EOL
+            . PHP_EOL
+            . $startIndent . self::INDENT . 'return $items;' . PHP_EOL
+            . $startIndent . '}' . PHP_EOL;
+    }
+
     protected function getDocblockType(): string
     {
-        return str_replace('|null', '', $this->arrayType->getDocblockType()) . '[]'
+        return $this->getPropertyType() . '[]'
             . ($this->nullable || !$this->required ? '|null' : '');
     }
 
     protected function getPhpType(): string
     {
         return ($this->nullable || !$this->required ? '?' : '') . 'array';
+    }
+
+    private function getPropertyType(): string
+    {
+        return str_replace('|null', '', $this->arrayType->getDocblockType());
     }
 }

@@ -3,6 +3,7 @@
 namespace JacobDeKeizer\Ccv\Generator;
 
 use JacobDeKeizer\Ccv\Generator\Properties\Property;
+use JacobDeKeizer\Ccv\Support\Str;
 
 class PhpClass
 {
@@ -31,7 +32,13 @@ class PhpClass
     public function __construct(string $namespace, string $name, array $properties, array $classes)
     {
         $this->namespace = $namespace;
-        $this->name = $name;
+
+        if (in_array(Str::snake($name), Php::RESERVED_KEYWORDS)) {
+            $this->name = $name . 'Item';
+        } else {
+            $this->name = $name;
+        }
+
         $this->properties = $properties;
         $this->classes = $classes;
     }
@@ -95,11 +102,31 @@ class PhpClass
             . self::INDENT . '}' . PHP_EOL;
 
         foreach ($this->properties as $property) {
-            $classString .= PHP_EOL .$property->getGetter();
+            $classString .= PHP_EOL . $property->getGetter();
         }
 
         foreach ($this->properties as $property) {
             $classString .= PHP_EOL . $property->getSetter();
+        }
+
+        // start on convert code for the to array method for some properties
+        $convertCode = null;
+
+        foreach ($this->properties as $property) {
+            $tempConvertCode = $property->getConvertCode();
+
+            if ($tempConvertCode !== null) {
+                $convertCode .= $tempConvertCode;
+            }
+        }
+
+        if ($convertCode !== null) {
+            $classString .= PHP_EOL
+                . self::INDENT . 'protected function convertFromData(string $key, $value)' . PHP_EOL
+                . self::INDENT . '{' . PHP_EOL
+                . $convertCode . PHP_EOL
+                . self::INDENT . self::INDENT . 'return $value;' . PHP_EOL
+                . self::INDENT . '}' . PHP_EOL;
         }
 
         $classString .= '}' . PHP_EOL;

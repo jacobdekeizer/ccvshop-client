@@ -185,4 +185,19 @@ class Orderrows implements Model
         $this->propertyFilled('items');
         return $this;
     }
+
+    protected function convertFromData(string $key, $value)
+    {
+        if ($key === 'items') {
+            $items = [];
+
+            foreach ($value as $item) {
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrows::fromArray($item);
+            }
+
+            return $items;
+        }
+
+        return $value;
+    }
 }

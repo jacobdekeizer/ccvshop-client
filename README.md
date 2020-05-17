@@ -28,7 +28,7 @@ $client->setPrivateKey('private_key');
 
 ## Orders
 
-### Get all orders
+### Get all orders with orderrows
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -41,6 +41,10 @@ do {
 
     foreach ($orders->getItems() as $order) {
         var_dump($order);
+        
+        $orderrows = $client->orderrows()->all($order->getId());
+
+        var_dump($orderrows);
     }
 
     $getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext());
@@ -76,6 +80,18 @@ $order = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Post())
     //->set..
    
 $client->orders()->create($order);
+```
+
+## Orderrows
+
+### Get all orderrows of a order
+
+```php
+$orderId = 123456;
+
+$orderrows = $client->orderrows()->all($orderId);
+
+var_dump($orderrows);
 ```
 
 ## Supported resources
