@@ -31,6 +31,7 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.orderrows.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.orderrows.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orderrows.put.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

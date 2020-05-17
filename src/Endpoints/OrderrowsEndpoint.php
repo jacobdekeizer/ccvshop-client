@@ -42,4 +42,16 @@ class OrderrowsEndpoint extends BaseEndpoint
     {
         $this->doRequest('PATCH', 'orderrows/' . $id, $orderrow->toArray($onlyFilledProperties));
     }
+
+    /**
+     * @throws CcvShopException
+     */
+    public function replace(int $orderId, Models\Orderrows\Put $orderrows, bool $onlyFilledProperties = true): void
+    {
+        $this->doRequest(
+            'PUT',
+            'orders/' . $orderId . '/orderrows',
+            $orderrows->toArray($onlyFilledProperties)
+        );
+    }
 }

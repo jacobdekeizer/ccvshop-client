@@ -74,6 +74,7 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch())
         (new \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input)
             ->setEmail('example@example.com')
     );
+    // ->set...
 
 $client->orders()->update(123456, $patch);
 ```
@@ -104,7 +105,7 @@ $orderrows = $client->orderrows()->all($orderId);
 $orderrow = $client->orderrows()->get(336401521);
 ```
 
-### Update order
+### Update orderrow
 Order must not be completed to update orderrows
 
 ```php
@@ -114,6 +115,24 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch())
     ->setPrice(100);
 
 $client->orderrows()->update(123456, $patch);
+```
+
+### Replace orderrows of order
+
+```php
+$orderId = 123456;
+
+$newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
+    ->setOrderrows([
+        (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input())
+            ->setProductId(12345)
+            ->setCount(1)
+            ->setPrice(100)
+            ->setDiscount(20)
+            // ->set..
+    ]);
+
+$client->orderrows()->replace($orderId, $newOrderrows);
 ```
 
 ## Supported resources
