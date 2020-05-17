@@ -25,10 +25,21 @@ class OrderrowsEndpoint extends BaseEndpoint
         return Models\Collection\Orderrows::fromArray($result);
     }
 
+    /**
+     * @throws CcvShopException
+     */
     public function get(int $id): Models\Resource\Orderrows
     {
         $result = $this->doRequest('GET', 'orderrows/' . $id);
 
         return Models\Resource\Orderrows::fromArray($result);
+    }
+
+    /**
+     * @throws CcvShopException
+     */
+    public function update(int $id, Models\Orderrows\Patch $orderrow, bool $onlyFilledProperties = true): void
+    {
+        $this->doRequest('PATCH', 'orderrows/' . $id, $orderrow->toArray($onlyFilledProperties));
     }
 }

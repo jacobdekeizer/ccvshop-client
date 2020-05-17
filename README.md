@@ -104,6 +104,18 @@ $orderrows = $client->orderrows()->all($orderId);
 $orderrow = $client->orderrows()->get(336401521);
 ```
 
+### Update order
+Order must not be completed to update orderrows
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch())
+    ->setCount(1)
+    ->setDiscount(20)
+    ->setPrice(100);
+
+$client->orderrows()->update(123456, $patch);
+```
+
 ## Supported resources
 
 | Resources | Supported |

@@ -35,11 +35,8 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(
-        int $id,
-        Models\Orders\Patch $order,
-        bool $onlyFilledProperties = true
-    ): void {
+    public function update(int $id, Models\Orders\Patch $order, bool $onlyFilledProperties = true): void
+    {
         $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($onlyFilledProperties));
     }
 
