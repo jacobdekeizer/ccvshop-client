@@ -83,7 +83,6 @@ class BaseEndpoint
         }
 
         if ($response->getStatusCode() >= 400) {
-            // todo introduce new exception with more details
             throw new CcvShopException(
                 'Error executing api call: ' . ($object['developermessage'] ?? '')
                 . ', StatusCode: ' . $response->getStatusCode(),

@@ -16,9 +16,27 @@ class SchemaGenerator
         $this->rootDir = str_replace('Generator', '', __DIR__);
     }
 
-    public function generate(string $url): void
+    public static function generateAll(): void
     {
-        $this->createClass(PhpClassFactory::make($url));
+        $generator = new self();
+
+        // orders
+        $namespace = 'Orders';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orders.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orders.post.v1.json', $namespace);
+
+        // orderrows
+        $namespace = 'Orderrows';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.orderrows.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orderrows.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.orderrows.put.v1.json', $namespace);
+    }
+
+    public function generate(string $url, string $namespacePrefix): void
+    {
+        $this->createClass(PhpClassFactory::make($url, $namespacePrefix));
     }
 
     private function createClass(PhpClass $phpClass): void

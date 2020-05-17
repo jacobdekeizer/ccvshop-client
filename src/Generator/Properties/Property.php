@@ -4,12 +4,12 @@ namespace JacobDeKeizer\Ccv\Generator\Properties;
 
 abstract class Property
 {
-    private const INDENT = '    ';
+    protected const INDENT = '    ';
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
@@ -32,12 +32,17 @@ abstract class Property
 
     abstract protected function getPhpType(): string;
 
+    public function getConvertCode(): ?string
+    {
+        return null;
+    }
+
     public function getProperty(): string
     {
         return self::INDENT . '/**' . PHP_EOL
             . self::INDENT . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . ' private $' . $this->name . ';' . PHP_EOL;
+            . self::INDENT . 'private $' . $this->name . ';' . PHP_EOL;
     }
 
     public function getGetter(): string

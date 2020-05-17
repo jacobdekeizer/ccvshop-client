@@ -1,5 +1,5 @@
 {
-  "name": "jacobdekeizer/statusweb-client",
+  "name": "jacobdekeizer/ccvshop-client",
   "type": "library",
   "description": "CCV shop API client for PHP",
   "keywords": ["ccvshop", "ccv shop", "api", "client", "php"],

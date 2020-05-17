@@ -2,9 +2,7 @@
 
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-An object oriented php client for the CCV shop api.
-
-[CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/)
+An object oriented php client for the CCV shop api. See here for the [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/).
 
 ## Contributing
 
@@ -18,6 +16,7 @@ composer require jacobdekeizer/ccvshop-client
 ```
 
 ## Usage
+> This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
 Create the client
 
@@ -30,7 +29,7 @@ $client->setPrivateKey('private_key');
 
 ## Orders
 
-### Get all orders
+### Get all orders with orderrows
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -42,9 +41,20 @@ do {
     $orders = $client->orders()->all($getOrdersParameter);
 
     foreach ($orders->getItems() as $order) {
-        var_dump($order);
+        var_dump($order); // see the code and documentation for all available methods
+         
+        $orderrows = $client->orderrows()->all($order->getId());
+        
+        var_dump($orderrows);
+        
+        foreach ($orderrows->getItems() as $orderrow) {
+            $orderRowId = $orderrow->getId();
+            var_dump($orderrow);
+        }
     }
-} while(($getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext())) !== null);
+
+    $getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext());
+} while($getOrdersParameter !== null);
 ```
 
 ### Get order
@@ -58,12 +68,13 @@ $order = $client->orders()->get(123456);
 For example update the order status and the customer email
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch())
     ->setStatus(6)
     ->setCustomer(
-        (new \JacobDeKeizer\Ccv\Models\Entity\Personalinfo\Input)
+        (new \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input)
             ->setEmail('example@example.com')
     );
+    // ->set...
 
 $client->orders()->update(123456, $patch);
 ```
@@ -71,11 +82,57 @@ $client->orders()->update(123456, $patch);
 ### Create order
 
 ```php
-$order = (new \JacobDeKeizer\Ccv\Models\Resource\Orders\Post())
+$order = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Post())
     ->setInvoicenumber(123456);
     //->set..
    
 $client->orders()->create($order);
+```
+
+## Orderrows
+
+### Get all orderrows of an order
+
+```php
+$orderId = 123456;
+
+$orderrows = $client->orderrows()->all($orderId);
+```
+
+### Get orderrow
+
+```php
+$orderrow = $client->orderrows()->get(336401521);
+```
+
+### Update orderrow
+Order must not be completed to update orderrows
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch())
+    ->setCount(1)
+    ->setDiscount(20)
+    ->setPrice(100);
+
+$client->orderrows()->update(123456, $patch);
+```
+
+### Replace orderrows of order
+
+```php
+$orderId = 123456;
+
+$newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
+    ->setOrderrows([
+        (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input())
+            ->setProductId(12345)
+            ->setCount(1)
+            ->setPrice(100)
+            ->setDiscount(20)
+            // ->set..
+    ]);
+
+$client->orderrows()->replace($orderId, $newOrderrows);
 ```
 
 ## Supported resources
@@ -111,7 +168,7 @@ $client->orders()->create($order);
 | orderaffiliatenetworks | ✖️ |
 | ordernotes | ✖️ |
 | ordernotifications | ✖️ |
-| orderrows | ✖️ |
+| orderrows | :heavy_check_mark: |
 | orders | :heavy_check_mark: |
 | packages | ✖️ |
 | paymethods | ✖️ |
