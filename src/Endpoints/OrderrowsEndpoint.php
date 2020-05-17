@@ -24,4 +24,11 @@ class OrderrowsEndpoint extends BaseEndpoint
 
         return Models\Collection\Orderrows::fromArray($result);
     }
+
+    public function get(int $id): Models\Resource\Orderrows
+    {
+        $result = $this->doRequest('GET', 'orderrows/' . $id);
+
+        return Models\Resource\Orderrows::fromArray($result);
+    }
 }

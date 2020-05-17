@@ -16,6 +16,7 @@ composer require jacobdekeizer/ccvshop-client
 ```
 
 ## Usage
+> This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
 Create the client
 
@@ -40,11 +41,16 @@ do {
     $orders = $client->orders()->all($getOrdersParameter);
 
     foreach ($orders->getItems() as $order) {
-        var_dump($order);
-        
+        var_dump($order); // see the code and documentation for all available methods
+         
         $orderrows = $client->orderrows()->all($order->getId());
-
+        
         var_dump($orderrows);
+        
+        foreach ($orderrows->getItems() as $orderrow) {
+            $orderRowId = $orderrow->getId();
+            var_dump($orderrow);
+        }
     }
 
     $getOrdersParameter = \JacobDeKeizer\Ccv\Parameters\Orders\All::fromUrl($orders->getNext());
@@ -84,14 +90,18 @@ $client->orders()->create($order);
 
 ## Orderrows
 
-### Get all orderrows of a order
+### Get all orderrows of an order
 
 ```php
 $orderId = 123456;
 
 $orderrows = $client->orderrows()->all($orderId);
+```
 
-var_dump($orderrows);
+### Get orderrow
+
+```php
+$orderrow = $client->orderrows()->get(336401521);
 ```
 
 ## Supported resources
