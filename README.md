@@ -30,6 +30,18 @@ $client->setPublicKey('public_key');
 $client->setPrivateKey('private_key');
 ```
 
+## Supported endpoints
+
+This endpoint returns the supported endpoints for your ccv shop.
+
+```php
+$result = $client->root()->all();
+
+foreach ($result->getItems() as $item) {
+    var_dump($item);
+}
+```
+
 ## Orders
 
 ### Get all orders with orderrows
@@ -142,7 +154,7 @@ $client->orderrows()->replace($orderId, $newOrderrows);
 
 | Resources | Supported |
 | --- | --- |
-| root | ✖️ |
+| root | :heavy_check_mark: |
 | affiliatenetworks | ✖️ |
 | appcodeblocks | ✖️ |
 | apppsp | ✖️ |

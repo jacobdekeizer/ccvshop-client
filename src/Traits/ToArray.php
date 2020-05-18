@@ -31,7 +31,15 @@ trait ToArray
 
             $value = $this->covertToData($snakeKey, $value);
 
-            if ($value instanceof Model) {
+            if (is_array($value)) {
+                $value = array_map(static function ($val) use ($onlyFilledProperties) {
+                    if ($val instanceof Model) {
+                        return $val->toArray($onlyFilledProperties);
+                    }
+
+                    return $val;
+                }, $value);
+            } elseif ($value instanceof Model) {
                 $value = $value->toArray($onlyFilledProperties);
             }
 

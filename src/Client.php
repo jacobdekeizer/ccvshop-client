@@ -22,6 +22,9 @@ class Client
     /** @var HttpClient */
     private $client;
 
+    /** @var Endpoints\RootEndpoint */
+    private $rootEndpoint;
+
     /** @var Endpoints\OrdersEndpoint */
     private $ordersEndpoint;
 
@@ -30,6 +33,7 @@ class Client
 
     public function __construct()
     {
+        $this->rootEndpoint = new Endpoints\RootEndpoint($this);
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
     }
@@ -79,6 +83,11 @@ class Client
     {
         $this->client = $client;
         return $this;
+    }
+
+    public function root(): Endpoints\RootEndpoint
+    {
+        return $this->rootEndpoint;
     }
 
     public function orders(): Endpoints\OrdersEndpoint
