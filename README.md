@@ -56,15 +56,41 @@ do {
     $orders = $client->orders()->all($getOrdersParameter);
 
     foreach ($orders->getItems() as $order) {
-        var_dump($order); // see the code and documentation for all available methods
-         
+        // see the code and documentation for all available methods
+        var_dump($order);
+        $order->getUser()->getId();
+        $order->getCustomer()->getBillingaddress()->getStreet();
+        $order->getCustomer()->getBillingaddress()->getHousenumber();
+        $order->getCustomer()->getBillingaddress()->getHousenumberSuffix();
+        $order->getCustomer()->getBillingaddress()->getZipcode();
+        $order->getCustomer()->getBillingaddress()->getCity();
+        $order->getCustomer()->getDeliveryaddress()->getStreet();
+        $order->getCustomer()->getDeliveryaddress()->getHousenumber();
+        $order->getCustomer()->getDeliveryaddress()->getHousenumberSuffix();
+        $order->getCustomer()->getDeliveryaddress()->getZipcode();
+        $order->getCustomer()->getDeliveryaddress()->getCity();
+        $order->getCustomer()->getBillingaddress()->getFirstName();
+        $order->getCustomer()->getBillingaddress()->getLastName();
+        $order->getCustomer()->getBillingaddress()->getTelephone();
+        $order->getCustomer()->getEmail();
+
         $orderrows = $client->orderrows()->all($order->getId());
         
         var_dump($orderrows);
         
         foreach ($orderrows->getItems() as $orderrow) {
-            $orderRowId = $orderrow->getId();
             var_dump($orderrow);
+
+            $orderrow->getId();
+            $orderrow->getCount();
+            $orderrow->getPrice();
+            $orderrow->getProductId();
+            $orderrow->getProductName();
+            $orderrow->getPriceWithoutDiscount();
+            $orderrow->getDiscount();
+            $orderrow->getStockLocation();
+            $orderrow->getWeight();
+            $orderrow->getSubEanNumber();
         }
     }
 
@@ -75,6 +101,7 @@ do {
 ### Get order
 
 ```php
+// see the code and documentation for all available methods
 $order = $client->orders()->get(123456);
 ```
 
@@ -155,70 +182,5 @@ $client->orderrows()->replace($orderId, $newOrderrows);
 | Resources | Supported |
 | --- | --- |
 | root | :heavy_check_mark: |
-| affiliatenetworks | ✖️ |
-| appcodeblocks | ✖️ |
-| apppsp | ✖️ |
-| apppsppaymethods | ✖️ |
-| appstorecategories | ✖️ |
-| apps | ✖️ |
-| attributecombinationphotos | ✖️ |
-| attributecombinations | ✖️ |
-| attributevalues | ✖️ |
-| attributes | ✖️ |
-| brands | ✖️ |
-| categories | ✖️ |
-| categoryproductlayouts | ✖️ |
-| categorytree | ✖️ |
-| conditions | ✖️ |
-| creditpointmutations | ✖️ |
-| creditpoints | ✖️ |
-| disabledpaymethods | ✖️ |
-| discountcoupons | ✖️ |
-| domains | ✖️ |
-| languages | ✖️ |
-| mailingaddresses | ✖️ |
-| mailinglists | ✖️ |
-| marktplaatscategories | ✖️ |
-| merchant | ✖️ |
-| orderaffiliatenetworks | ✖️ |
-| ordernotes | ✖️ |
-| ordernotifications | ✖️ |
 | orderrows | :heavy_check_mark: |
 | orders | :heavy_check_mark: |
-| packages | ✖️ |
-| paymethods | ✖️ |
-| productattachments | ✖️ |
-| productattributesets | ✖️ |
-| productattributevalues | ✖️ |
-| productkeywords | ✖️ |
-| productphotos | ✖️ |
-| productproperties | ✖️ |
-| productpropertygroups | ✖️ |
-| productpropertyoptions | ✖️ |
-| productpropertyvalues | ✖️ |
-| productqueries | ✖️ |
-| productrelevant | ✖️ |
-| productreviews | ✖️ |
-| productshippingcosts | ✖️ |
-| productstaggeredprices | ✖️ |
-| producttocategories | ✖️ |
-| producttopropertygroups | ✖️ |
-| productvideos | ✖️ |
-| products | ✖️ |
-| redirects | ✖️ |
-| servicecategories | ✖️ |
-| services | ✖️ |
-| settings | ✖️ |
-| suppliers | ✖️ |
-| takeoutslots | ✖️ |
-| translations | ✖️ |
-| usercategoryadjustments | ✖️ |
-| usergroupcategoryadjustments | ✖️ |
-| usergroupproductadjustments | ✖️ |
-| usergroupstaggeredpriceadjustments | ✖️ |
-| usergroups | ✖️ |
-| userproductadjustments | ✖️ |
-| userstaggeredpriceadjustments | ✖️ |
-| users | ✖️ |
-| webhooks | ✖️ |
-| webshops | ✖️ |
