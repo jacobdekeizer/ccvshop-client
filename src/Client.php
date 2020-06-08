@@ -31,11 +31,15 @@ class Client
     /** @var Endpoints\OrderrowsEndpoint */
     private $orderrowsEndpoint;
 
+    /** @var Endpoints\ProductsEndpoint */
+    private $productsEndpoint;
+
     public function __construct()
     {
         $this->rootEndpoint = new Endpoints\RootEndpoint($this);
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
+        $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -98,5 +102,10 @@ class Client
     public function orderrows(): Endpoints\OrderrowsEndpoint
     {
         return $this->orderrowsEndpoint;
+    }
+
+    public function products(): Endpoints\ProductsEndpoint
+    {
+        return $this->productsEndpoint;
     }
 }

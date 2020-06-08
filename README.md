@@ -30,7 +30,7 @@ $client->setPublicKey('public_key');
 $client->setPrivateKey('private_key');
 ```
 
-## Supported endpoints
+## Root endpoint
 
 This endpoint returns the supported endpoints for your ccv shop.
 
@@ -41,6 +41,15 @@ foreach ($result->getItems() as $item) {
     var_dump($item);
 }
 ```
+
+This package supports the following endpoints:
+
+| Resources | Supported |
+| --- | --- |
+| root | :heavy_check_mark: |
+| orderrows | :heavy_check_mark: |
+| orders | :heavy_check_mark: |
+| products | :heavy_check_mark: |
 
 ## Orders
 
@@ -177,10 +186,114 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
 $client->orderrows()->replace($orderId, $newOrderrows);
 ```
 
-## Supported resources
+## Products
 
-| Resources | Supported |
-| --- | --- |
-| root | :heavy_check_mark: |
-| orderrows | :heavy_check_mark: |
-| orders | :heavy_check_mark: |
+### All products
+```php
+// parameter is optional
+$getProductsParameter = (new \JacobDeKeizer\Ccv\Parameters\Products\All)
+    ->setMinStock(5);
+
+$products = $client->products()->all($getProductsParameter);
+
+foreach ($products->getItems() as $product) {
+    // see the code and documentation for all available methods
+    var_dump($product);
+
+    $product->getId();
+    $product->getStock();
+    $product->getDiscount();
+    $product->getWeight();
+    $product->getPrice();
+    $product->getBrand()->getId();
+    $product->getEannumber();
+    $product->getVatrate();
+    // ...
+}
+
+$nextRequest = \JacobDeKeizer\Ccv\Parameters\Products\All::fromUrl($products->getNext());
+```
+
+### All products from brand
+
+```php
+$products = $client->products()->allFromBrand(1234);
+```
+
+### All products from webshop
+
+```php
+$products = $client->products()->allFromWebshop(1234);
+```
+
+### All products from category
+
+```php
+$products = $client->products()->allFromCategory(1234);
+```
+
+### All products from condition
+
+```php
+$products = $client->products()->allFromCondition(1234);
+```
+
+### All products from supplier
+
+```php
+$products = $client->products()->allFromSupplier(1234);
+```
+
+### Get product
+
+```php
+$product = $client->products()->get(1234);
+```
+
+### Update product
+
+```php
+// see the code and documentation for all available methods
+$patch = (new \JacobDeKeizer\Ccv\Models\Products\Products\Patch())
+        ->setDiscount(4.99)
+        ->setPrice(100)
+        ->setProductnumber('my_number')
+        ->setActive(true)
+        ->setDescription('This is a description')
+        ->setEannumber('an ean number')
+        ->setMetaKeywords('keyword')
+        ->setStock(100)
+        ->setUnit('piece')
+        ->setWeight(5.5);
+
+$client->products()->update(1234, $patch);
+
+// or only update stock
+$client->products()->update(1234, (new \JacobDeKeizer\Ccv\Models\Products\Products\Patch())->setStock(99));
+```
+
+### Create product
+
+```php
+// see the code and documentation for all available methods
+$product = (new \JacobDeKeizer\Ccv\Models\Products\Products\Post())
+    ->setDiscount(4.99)
+    ->setPrice(100)
+    ->setProductnumber('my_number')
+    ->setActive(true)
+    ->setDescription('This is a description')
+    ->setEannumber('an ean number')
+    ->setMetaKeywords('keyword')
+    ->setStock(100)
+    ->setUnit('piece')
+    ->setWeight(5.5);
+    // ->set...
+
+$client->products()->create($product);
+```
+
+### Delete product
+
+```php
+$client->products()->delete(1234);
+```
