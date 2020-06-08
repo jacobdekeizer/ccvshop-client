@@ -18,15 +18,6 @@ You can install this package via composer:
 composer require jacobdekeizer/ccvshop-client
 ```
 
-## Implemented endpoints
-
-| Endpoints |
-| --- |
-| root |
-| orderrows |
-| orders |
-| products|
-
 ## Usage
 > This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
@@ -297,3 +288,12 @@ $client->products()->create($product);
 ```php
 $client->products()->delete(1234);
 ```
+
+## Implemented endpoints
+
+| Endpoints |
+| --- |
+| root |
+| orderrows |
+| orders |
+| products|
