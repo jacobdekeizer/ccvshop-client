@@ -18,6 +18,15 @@ You can install this package via composer:
 composer require jacobdekeizer/ccvshop-client
 ```
 
+## Implemented endpoints
+
+| Endpoints |
+| --- |
+| root |
+| orderrows |
+| orders |
+| products|
+
 ## Usage
 > This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
@@ -41,15 +50,6 @@ foreach ($result->getItems() as $item) {
     var_dump($item);
 }
 ```
-
-This package supports the following endpoints:
-
-| Resources | Supported |
-| --- | --- |
-| root | :heavy_check_mark: |
-| orderrows | :heavy_check_mark: |
-| orders | :heavy_check_mark: |
-| products | :heavy_check_mark: |
 
 ## Orders
 
