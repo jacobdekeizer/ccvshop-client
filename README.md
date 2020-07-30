@@ -292,6 +292,56 @@ $client->products()->create($product);
 $client->products()->delete(1234);
 ```
 
+### Get product photo
+
+```php
+$client->productphotos()->get(1234);
+```
+
+### Delete product photo
+
+```php
+$client->productphotos()->delete(1234);
+```
+
+### Get all photos for product
+
+```php
+$client->productphotos()->getAllForProduct(1234);
+```
+
+### Create product photo
+
+```php
+// see the code and documentation for all available methods
+$productphoto = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
+$productphoto->setSource(base64_encode(file_get_contents('photo.png')));
+$productphoto->setFileType('png');
+          // ->set...
+
+$client->productphotos()->create($productphoto);
+```
+
+### Replace all product photos
+
+```php
+// see the code and documentation for all available methods
+$productphoto1 = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
+$productphoto1->setSource(base64_encode(file_get_contents('photo1.png')));
+$productphoto1->setFileType('png');
+           // ->set...
+
+$productphoto2 = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
+$productphoto2->setSource(base64_encode(file_get_contents('photo2.jpg')));
+$productphoto2->setFileType('jpg');
+           // ->set...
+
+$productphotosCollection = new \JacobDeKeizer\Ccv\Models\Productphotos\ProductphotosCollection();
+$productphotosCollection->setItems([$productphoto1, $productphoto2]);
+
+$client->productphotos()->replaceCollection(1234, $productphotosCollection);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -300,3 +350,4 @@ $client->products()->delete(1234);
 | orderrows |
 | orders |
 | products|
+| productphotos|
