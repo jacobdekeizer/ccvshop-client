@@ -46,6 +46,14 @@ class ProductphotosEndpoint extends BaseEndpoint
     }
 
     /**
+     * @throws CcvShopException
+     */
+    public function update(int $id, Models\Productphotos\Patch $productphoto, bool $onlyFilledProperties = true): void
+    {
+        $this->doRequest('PATCH', 'productphotos/' . $id, $productphoto->toArray($onlyFilledProperties));
+    }
+
+    /**
      * Replace a product photo collection of an existing product.
      * All existing photos will be deleted. With an empty collection you can achieve a DELETE ALL product photos.
      *
