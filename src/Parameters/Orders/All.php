@@ -4,13 +4,14 @@ namespace JacobDeKeizer\Ccv\Parameters\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
 use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray;
+    use FromArray, SortableFields;
 
     /**
      * Specific order number of the order.
@@ -86,7 +87,8 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('take_out_date', $this->getTakeOutDate())
             ->addOptionalParameter('min_create_date', $this->getMinCreateDate())
             ->addOptionalParameter('max_create_date', $this->getMaxCreateDate())
-            ->addOptionalParameter('paymethod_id', $this->getPaymethodId());
+            ->addOptionalParameter('paymethod_id', $this->getPaymethodId())
+            ->orderBy($this->getOrderBy());
     }
 
     public function setOrdernumber(?int $ordernumber): All
@@ -175,5 +177,53 @@ class All extends PaginatedList implements Parameter
     public function getPaymethodId(): ?int
     {
         return $this->paymethodId;
+    }
+
+    public function orderByIdAsc(): All
+    {
+        $this->orderByField('id', true);
+        return $this;
+    }
+
+    public function orderByIdDesc(): All
+    {
+        $this->orderByField('id', false);
+        return $this;
+    }
+
+    public function orderByOrderNumberAsc(): All
+    {
+        $this->orderByField('ordernumber', true);
+        return $this;
+    }
+
+    public function orderByOrderNumberDesc(): All
+    {
+        $this->orderByField('ordernumber', false);
+        return $this;
+    }
+
+    public function orderByCreateDateAsc(): All
+    {
+        $this->orderByField('create_date', true);
+        return $this;
+    }
+
+    public function orderByCreateDateDesc(): All
+    {
+        $this->orderByField('create_date', false);
+        return $this;
+    }
+
+    public function orderByDeliverDateAsc(): All
+    {
+        $this->orderByField('deliver_date', true);
+        return $this;
+    }
+
+    public function orderByDeliverDateDesc(): All
+    {
+        $this->orderByField('deliver_date', false);
+        return $this;
     }
 }

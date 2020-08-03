@@ -14,7 +14,7 @@ class QueryParametersArrayFactory
      */
     public static function fromUrl(string $url): array
     {
-        $parts = explode('?', $url, 2);
+        $parts = explode('?', urldecode($url), 2);
 
         $queryString = $parts[1] ?? null;
 

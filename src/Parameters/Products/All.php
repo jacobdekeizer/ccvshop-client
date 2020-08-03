@@ -4,6 +4,7 @@ namespace JacobDeKeizer\Ccv\Parameters\Products;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
 use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\Parameters\Products\Concerns\ExpandableProductFields;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
@@ -11,7 +12,7 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray, ExpandableProductFields;
+    use FromArray, ExpandableProductFields, SortableFields;
 
     /**
      * @var string|null Number of the product.
@@ -81,7 +82,8 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('minstock', $this->getMinStock())
             ->addOptionalParameter('maxstock', $this->getMaxStock())
             ->addOptionalParameter('quantity', $this->getQuantity())
-            ->expandFields($this->getExpandedFields());
+            ->expandFields($this->getExpandedFields())
+            ->orderBy($this->getOrderBy());
     }
 
     public function setProductNumber(?string $productNumber): All
@@ -170,5 +172,53 @@ class All extends PaginatedList implements Parameter
     public function getQuantity(): ?float
     {
         return $this->quantity;
+    }
+
+    public function orderByIdAsc(): All
+    {
+        $this->orderByField('id', true);
+        return $this;
+    }
+
+    public function orderByIdDesc(): All
+    {
+        $this->orderByField('id', false);
+        return $this;
+    }
+
+    public function orderByNameAsc(): All
+    {
+        $this->orderByField('name', true);
+        return $this;
+    }
+
+    public function orderByNameDesc(): All
+    {
+        $this->orderByField('name', false);
+        return $this;
+    }
+
+    public function orderByCreateDateAsc(): All
+    {
+        $this->orderByField('createdate', true);
+        return $this;
+    }
+
+    public function orderByCreateDateDesc(): All
+    {
+        $this->orderByField('createdate', false);
+        return $this;
+    }
+
+    public function orderByModifyDateAsc(): All
+    {
+        $this->orderByField('modifydate', true);
+        return $this;
+    }
+
+    public function orderByModifyDateDesc(): All
+    {
+        $this->orderByField('modifydate', false);
+        return $this;
     }
 }

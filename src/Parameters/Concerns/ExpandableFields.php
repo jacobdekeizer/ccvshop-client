@@ -5,11 +5,28 @@ namespace JacobDeKeizer\Ccv\Parameters\Concerns;
 trait ExpandableFields
 {
     /** @var array<string, bool> */
-    private $expandedFields = [];
+    private $expand = [];
+
+    /**
+     * Setter for the from array method
+     */
+    public function setExpand(string $expand): void
+    {
+        if (empty($expand)) {
+            $this->expand = [];
+            return;
+        }
+
+        $fields = explode(',', $expand);
+
+        foreach ($fields as $field) {
+            $this->expand[$field] = true;
+        }
+    }
 
     protected function expandField(string $name, bool $expand): void
     {
-        $this->expandedFields[$name] = $expand;
+        $this->expand[$name] = $expand;
     }
 
     /**
@@ -19,7 +36,7 @@ trait ExpandableFields
     {
         $fields = [];
 
-        foreach ($this->expandedFields as $field => $expand) {
+        foreach ($this->expand as $field => $expand) {
             if ($expand) {
                 $fields[] = $field;
             }

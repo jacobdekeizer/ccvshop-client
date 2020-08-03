@@ -29,6 +29,12 @@ class QueryParameterBuilder implements QueryParameter
         return $this;
     }
 
+    public function orderBy(?string $orderBy): QueryParameterBuilder
+    {
+        $this->parameters[] = new QueryParameterOrderBy($orderBy);
+        return $this;
+    }
+
     public function toQueryString(): ?string
     {
         $queryString = '';
