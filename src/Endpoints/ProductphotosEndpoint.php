@@ -59,7 +59,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      *
      * @throws CcvShopException
      */
-    public function replaceCollection(
+    public function replace(
         int $productId,
         Models\Collection\Productphotos $productphotosCollection,
         bool $onlyFilledProperties = true

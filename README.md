@@ -339,7 +339,7 @@ $productphoto2->setFileType('jpg');
 $productphotosCollection = new \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos();
 $productphotosCollection->setItems([$productphoto1, $productphoto2]);
 
-$client->productphotos()->replaceCollection(1234, $productphotosCollection);
+$client->productphotos()->replace(1234, $productphotosCollection);
 ```
 
 ## Implemented endpoints
