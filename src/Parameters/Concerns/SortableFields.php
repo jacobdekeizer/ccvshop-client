@@ -43,4 +43,3 @@ trait SortableFields
         return $this->orderBy;
     }
 }
-
