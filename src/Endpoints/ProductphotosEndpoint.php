@@ -41,8 +41,11 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function create(int $productId, Models\Productphotos\Post $productphoto, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('POST', 'products/' . $productId . '/productphotos',
-            $productphoto->toArray($onlyFilledProperties));
+        $this->doRequest(
+            'POST',
+            'products/' . $productId . '/productphotos',
+            $productphoto->toArray($onlyFilledProperties)
+        );
     }
 
     /**
