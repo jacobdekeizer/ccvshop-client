@@ -3,8 +3,7 @@
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post;
-use JacobDeKeizer\Ccv\Models\Productphotos\ProductphotosCollection;
+use JacobDeKeizer\Ccv\Models\Productphotos as Models;
 use JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos;
 
 class ProductphotosEndpoint extends BaseEndpoint
@@ -30,17 +29,17 @@ class ProductphotosEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function getAllForProduct(int $productId): ProductphotosCollection
+    public function getAllForProduct(int $productId): Models\Collection\Productphotos
     {
         $result = $this->doRequest('GET', 'products/' . $productId . '/productphotos');
 
-        return ProductphotosCollection::fromArray($result);
+        return Models\Collection\Productphotos::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(int $productId, Post $productphoto, bool $onlyFilledProperties = true): void
+    public function create(int $productId, Models\Productphotos\Post $productphoto, bool $onlyFilledProperties = true): void
     {
         $this->doRequest('POST', 'products/' . $productId . '/productphotos',
             $productphoto->toArray($onlyFilledProperties));
@@ -54,10 +53,10 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function replaceCollection(
         int $productId,
-        ProductphotosCollection $productphotosCollection,
+        Models\Collection\Productphotos $productphotosCollection,
         bool $onlyFilledProperties = true
     ): void {
-        $productphotos = array_map(function (Post $productphotos) use ($onlyFilledProperties) {
+        $productphotos = array_map(function (Models\Productphotos\Post $productphotos) use ($onlyFilledProperties) {
             return $productphotos->toArray($onlyFilledProperties);
         }, $productphotosCollection->getItems());
 

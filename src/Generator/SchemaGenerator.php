@@ -39,6 +39,14 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.products.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.products.patch.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.products.post.v1.json', $namespace);
+
+        // productphotos
+        $namespace = 'Productphotos';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.productphotos.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.productphotos.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.productphotos.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.productphotos.post.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.productphotos.put.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

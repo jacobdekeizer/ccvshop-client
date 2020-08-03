@@ -336,7 +336,7 @@ $productphoto2->setSource(base64_encode(file_get_contents('photo2.jpg')));
 $productphoto2->setFileType('jpg');
            // ->set...
 
-$productphotosCollection = new \JacobDeKeizer\Ccv\Models\Productphotos\ProductphotosCollection();
+$productphotosCollection = new \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos();
 $productphotosCollection->setItems([$productphoto1, $productphoto2]);
 
 $client->productphotos()->replaceCollection(1234, $productphotosCollection);
