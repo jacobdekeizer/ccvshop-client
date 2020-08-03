@@ -10,6 +10,7 @@ An object oriented php client for the CCV shop api. See here for the [CCV shop A
 ## Contributing
 
 Any help is appreciated, see [contributing](https://github.com/jacobdekeizer/ccvshop-client/blob/master/.github/CONTRIBUTING.md) for more information.
+On the contributing page is described how you can automatically generated the required models for new API endpoints.
 
 ## Installation
 You can install this package via composer:
