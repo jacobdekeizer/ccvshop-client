@@ -25,4 +25,3 @@ class QueryParameterExpand implements QueryParameter
         return 'expand=' . implode(',', $this->expandedFields);
     }
 }
-

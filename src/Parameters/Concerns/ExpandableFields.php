@@ -28,4 +28,3 @@ trait ExpandableFields
         return $fields;
     }
 }
-

@@ -5,6 +5,7 @@ namespace JacobDeKeizer\Ccv\Endpoints;
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
 use JacobDeKeizer\Ccv\Models\Products as Models;
 use JacobDeKeizer\Ccv\Parameters\Products\All;
+use JacobDeKeizer\Ccv\Parameters\Products\Get;
 
 class ProductsEndpoint extends BaseEndpoint
 {
@@ -110,9 +111,13 @@ class ProductsEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function get(int $id): Models\Resource\Products
+    public function get(int $id, ?Get $payload = null): Models\Resource\Products
     {
-        $result = $this->doRequest('GET', 'products/' . $id);
+        if ($payload === null) {
+            $payload = new Get();
+        }
+
+        $result = $this->doRequest('GET', sprintf('products/%s%s', $id, $payload->toBuilder()->toQueryString()));
 
         return Models\Resource\Products::fromArray($result);
     }

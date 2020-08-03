@@ -32,7 +32,10 @@ class PhpClassFactory
         /** @var PhpClass[] $classes */
         $classes = [];
 
-        $makeObject = static function (string $propertyName, array &$property) use (
+        $makeObject = static function (
+            string $propertyName,
+            array &$property
+        ) use (
             $pathParts,
             &$classes,
             $namespacePrefix
