@@ -310,6 +310,16 @@ $client->productphotos()->delete(1234);
 $client->productphotos()->getAllForProduct(1234);
 ```
 
+### Update product photo
+
+```php
+$patch = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch();
+$patch->setAlttext('text');
+$patch->setIsMainphoto(true);
+
+$client->productphotos()->update($patch);
+
+```
 ### Create product photo
 
 ```php
@@ -336,10 +346,10 @@ $productphoto2->setSource(base64_encode(file_get_contents('photo2.jpg')));
 $productphoto2->setFileType('jpg');
            // ->set...
 
-$productphotosCollection = new \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos();
-$productphotosCollection->setItems([$productphoto1, $productphoto2]);
+$put = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put();
+$put->setProductphotos([$productphoto1, $productphoto2]);
 
-$client->productphotos()->replace(1234, $productphotosCollection);
+$client->productphotos()->replace(1234, $put);
 ```
 
 ## Implemented endpoints

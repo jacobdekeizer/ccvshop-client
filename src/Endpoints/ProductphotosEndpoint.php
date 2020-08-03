@@ -64,13 +64,9 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function replace(
         int $productId,
-        Models\Collection\Productphotos $productphotosCollection,
+        Models\Productphotos\Put $productphotos,
         bool $onlyFilledProperties = true
     ): void {
-        $productphotos = array_map(function (Models\Productphotos\Post $productphotos) use ($onlyFilledProperties) {
-            return $productphotos->toArray($onlyFilledProperties);
-        }, $productphotosCollection->getItems());
-
-        $this->doRequest('PUT', 'products/' . $productId . '/productphotos', ['productphotos' => $productphotos]);
+        $this->doRequest('PUT', 'products/' . $productId . '/productphotos', $productphotos->toArray($onlyFilledProperties));
     }
 }
