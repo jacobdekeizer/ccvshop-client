@@ -39,13 +39,15 @@ class ProductphotosEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function create(int $productId, Models\Productphotos\Post $productphoto, bool $onlyFilledProperties = true): void
+    public function create(int $productId, Models\Productphotos\Post $productphoto, bool $onlyFilledProperties = true): Models\Resource\Productphotos
     {
-        $this->doRequest(
+        $response = $this->doRequest(
             'POST',
             'products/' . $productId . '/productphotos',
             $productphoto->toArray($onlyFilledProperties)
         );
+
+        return Models\Resource\Productphotos::fromArray($response);
     }
 
     /**
