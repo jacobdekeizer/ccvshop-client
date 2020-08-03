@@ -184,7 +184,8 @@ $client->orderrows()->replace($orderId, $newOrderrows);
 ```php
 // parameter is optional
 $getProductsParameter = (new \JacobDeKeizer\Ccv\Parameters\Products\All)
-    ->setMinStock(5);
+    ->setMinStock(5)
+    ->expandProductPhotos();
 
 $products = $client->products()->all($getProductsParameter);
 

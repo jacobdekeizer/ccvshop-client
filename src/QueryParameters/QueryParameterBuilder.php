@@ -20,6 +20,15 @@ class QueryParameterBuilder implements QueryParameter
         return $this;
     }
 
+    /**
+     * @param string[] $fields
+     */
+    public function expandFields(array $fields): QueryParameterBuilder
+    {
+        $this->parameters[] = new QueryParameterExpand($fields);
+        return $this;
+    }
+
     public function toQueryString(): ?string
     {
         $queryString = '';

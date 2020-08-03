@@ -101,7 +101,7 @@ class Products implements Model
     private $safetyDepositPrice;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      */
     private $productshippingcosts;
 
@@ -161,12 +161,12 @@ class Products implements Model
     private $subcategory;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Brand|null Brand resource
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand|null Brand resource
      */
     private $brand;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Condition|null Condition resource
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition|null Condition resource
      */
     private $condition;
 
@@ -321,12 +321,12 @@ class Products implements Model
     private $googleShoppingCategory;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Package|null Package of this product.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package|null Package of this product.
      */
     private $package;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Supplier|null Supplier resource
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier|null Supplier resource
      */
     private $supplier;
 
@@ -351,62 +351,67 @@ class Products implements Model
     private $canBeOrdered;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos|null Product photos
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels|null Product labels
+     */
+    private $productlabels;
+
+    /**
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos|null Product photos
      */
     private $productphotos;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productvideos|null Product videos
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null Product videos
      */
     private $productvideos;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productattachments|null Product attachments
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
      */
     private $productattachments;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      */
     private $productkeywords;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant|null Relevant product
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant|null Relevant product
      */
     private $productrelevant;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets|null Attribute sets
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets|null Attribute sets
      */
     private $productattributesets;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices|null Product staggered prices
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices|null Product staggered prices
      */
     private $productstaggeredprices;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories|null Product categories
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories|null Product categories
      */
     private $producttocategories;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews|null Product reviews
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews|null Product reviews
      */
     private $productreviews;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      */
     private $webshops;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinations|null Attribute combination
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations|null Attribute combination
      */
     private $attributecombinations;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Producttopropertygroups|null Collection of product property groups.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups|null Collection of product property groups.
      */
     private $producttopropertygroups;
 
@@ -563,9 +568,9 @@ class Products implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      */
-    public function getProductshippingcosts(): \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts
+    public function getProductshippingcosts(): \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts
     {
         return $this->productshippingcosts;
     }
@@ -659,17 +664,17 @@ class Products implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Brand|null Brand resource
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand|null Brand resource
      */
-    public function getBrand(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Brand
+    public function getBrand(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand
     {
         return $this->brand;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Condition|null Condition resource
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition|null Condition resource
      */
-    public function getCondition(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Condition
+    public function getCondition(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition
     {
         return $this->condition;
     }
@@ -915,17 +920,17 @@ class Products implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Package|null Package of this product.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package|null Package of this product.
      */
-    public function getPackage(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Package
+    public function getPackage(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package
     {
         return $this->package;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Supplier|null Supplier resource
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier|null Supplier resource
      */
-    public function getSupplier(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Supplier
+    public function getSupplier(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier
     {
         return $this->supplier;
     }
@@ -963,97 +968,105 @@ class Products implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos|null Product photos
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels|null Product labels
      */
-    public function getProductphotos(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos
+    public function getProductlabels(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels
+    {
+        return $this->productlabels;
+    }
+
+    /**
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos|null Product photos
+     */
+    public function getProductphotos(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos
     {
         return $this->productphotos;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productvideos|null Product videos
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null Product videos
      */
-    public function getProductvideos(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productvideos
+    public function getProductvideos(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos
     {
         return $this->productvideos;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productattachments|null Product attachments
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
      */
-    public function getProductattachments(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productattachments
+    public function getProductattachments(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments
     {
         return $this->productattachments;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      */
-    public function getProductkeywords(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords
+    public function getProductkeywords(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords
     {
         return $this->productkeywords;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant|null Relevant product
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant|null Relevant product
      */
-    public function getProductrelevant(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant
+    public function getProductrelevant(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant
     {
         return $this->productrelevant;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets|null Attribute sets
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets|null Attribute sets
      */
-    public function getProductattributesets(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets
+    public function getProductattributesets(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets
     {
         return $this->productattributesets;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices|null Product staggered prices
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices|null Product staggered prices
      */
-    public function getProductstaggeredprices(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices
+    public function getProductstaggeredprices(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices
     {
         return $this->productstaggeredprices;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories|null Product categories
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories|null Product categories
      */
-    public function getProducttocategories(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories
+    public function getProducttocategories(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories
     {
         return $this->producttocategories;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews|null Product reviews
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews|null Product reviews
      */
-    public function getProductreviews(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews
+    public function getProductreviews(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews
     {
         return $this->productreviews;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      */
-    public function getWebshops(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Webshops
+    public function getWebshops(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops
     {
         return $this->webshops;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinations|null Attribute combination
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations|null Attribute combination
      */
-    public function getAttributecombinations(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinations
+    public function getAttributecombinations(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations
     {
         return $this->attributecombinations;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Producttopropertygroups|null Collection of product property groups.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups|null Collection of product property groups.
      */
-    public function getProducttopropertygroups(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\Producttopropertygroups
+    public function getProducttopropertygroups(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups
     {
         return $this->producttopropertygroups;
     }
@@ -1257,10 +1270,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      * @return self
      */
-    public function setProductshippingcosts(\JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts $productshippingcosts): self
+    public function setProductshippingcosts(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts $productshippingcosts): self
     {
         $this->productshippingcosts = $productshippingcosts;
         $this->propertyFilled('productshippingcosts');
@@ -1389,10 +1402,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Brand|null Brand resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand|null Brand resource
      * @return self
      */
-    public function setBrand(?\JacobDeKeizer\Ccv\Models\Products\Resource\Brand $brand): self
+    public function setBrand(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand $brand): self
     {
         $this->brand = $brand;
         $this->propertyFilled('brand');
@@ -1400,10 +1413,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Condition|null Condition resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition|null Condition resource
      * @return self
      */
-    public function setCondition(?\JacobDeKeizer\Ccv\Models\Products\Resource\Condition $condition): self
+    public function setCondition(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition $condition): self
     {
         $this->condition = $condition;
         $this->propertyFilled('condition');
@@ -1741,10 +1754,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Package|null Package of this product.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package|null Package of this product.
      * @return self
      */
-    public function setPackage(?\JacobDeKeizer\Ccv\Models\Products\Resource\Package $package): self
+    public function setPackage(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package $package): self
     {
         $this->package = $package;
         $this->propertyFilled('package');
@@ -1752,10 +1765,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Supplier|null Supplier resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier|null Supplier resource
      * @return self
      */
-    public function setSupplier(?\JacobDeKeizer\Ccv\Models\Products\Resource\Supplier $supplier): self
+    public function setSupplier(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier $supplier): self
     {
         $this->supplier = $supplier;
         $this->propertyFilled('supplier');
@@ -1807,10 +1820,21 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos|null Product photos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels|null Product labels
      * @return self
      */
-    public function setProductphotos(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos $productphotos): self
+    public function setProductlabels(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels $productlabels): self
+    {
+        $this->productlabels = $productlabels;
+        $this->propertyFilled('productlabels');
+        return $this;
+    }
+
+    /**
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos|null Product photos
+     * @return self
+     */
+    public function setProductphotos(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos $productphotos): self
     {
         $this->productphotos = $productphotos;
         $this->propertyFilled('productphotos');
@@ -1818,10 +1842,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productvideos|null Product videos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null Product videos
      * @return self
      */
-    public function setProductvideos(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productvideos $productvideos): self
+    public function setProductvideos(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos $productvideos): self
     {
         $this->productvideos = $productvideos;
         $this->propertyFilled('productvideos');
@@ -1829,10 +1853,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productattachments|null Product attachments
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
      * @return self
      */
-    public function setProductattachments(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productattachments $productattachments): self
+    public function setProductattachments(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments $productattachments): self
     {
         $this->productattachments = $productattachments;
         $this->propertyFilled('productattachments');
@@ -1840,10 +1864,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      * @return self
      */
-    public function setProductkeywords(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords $productkeywords): self
+    public function setProductkeywords(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords $productkeywords): self
     {
         $this->productkeywords = $productkeywords;
         $this->propertyFilled('productkeywords');
@@ -1851,10 +1875,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant|null Relevant product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant|null Relevant product
      * @return self
      */
-    public function setProductrelevant(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant $productrelevant): self
+    public function setProductrelevant(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant $productrelevant): self
     {
         $this->productrelevant = $productrelevant;
         $this->propertyFilled('productrelevant');
@@ -1862,10 +1886,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets|null Attribute sets
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets|null Attribute sets
      * @return self
      */
-    public function setProductattributesets(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets $productattributesets): self
+    public function setProductattributesets(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets $productattributesets): self
     {
         $this->productattributesets = $productattributesets;
         $this->propertyFilled('productattributesets');
@@ -1873,10 +1897,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices|null Product staggered prices
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices|null Product staggered prices
      * @return self
      */
-    public function setProductstaggeredprices(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices $productstaggeredprices): self
+    public function setProductstaggeredprices(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices $productstaggeredprices): self
     {
         $this->productstaggeredprices = $productstaggeredprices;
         $this->propertyFilled('productstaggeredprices');
@@ -1884,10 +1908,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories|null Product categories
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories|null Product categories
      * @return self
      */
-    public function setProducttocategories(?\JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories $producttocategories): self
+    public function setProducttocategories(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories $producttocategories): self
     {
         $this->producttocategories = $producttocategories;
         $this->propertyFilled('producttocategories');
@@ -1895,10 +1919,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews|null Product reviews
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews|null Product reviews
      * @return self
      */
-    public function setProductreviews(?\JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews $productreviews): self
+    public function setProductreviews(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews $productreviews): self
     {
         $this->productreviews = $productreviews;
         $this->propertyFilled('productreviews');
@@ -1906,10 +1930,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      * @return self
      */
-    public function setWebshops(?\JacobDeKeizer\Ccv\Models\Products\Resource\Webshops $webshops): self
+    public function setWebshops(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops $webshops): self
     {
         $this->webshops = $webshops;
         $this->propertyFilled('webshops');
@@ -1917,10 +1941,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinations|null Attribute combination
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations|null Attribute combination
      * @return self
      */
-    public function setAttributecombinations(?\JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinations $attributecombinations): self
+    public function setAttributecombinations(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations $attributecombinations): self
     {
         $this->attributecombinations = $attributecombinations;
         $this->propertyFilled('attributecombinations');
@@ -1928,10 +1952,10 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Producttopropertygroups|null Collection of product property groups.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups|null Collection of product property groups.
      * @return self
      */
-    public function setProducttopropertygroups(?\JacobDeKeizer\Ccv\Models\Products\Resource\Producttopropertygroups $producttopropertygroups): self
+    public function setProducttopropertygroups(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups $producttopropertygroups): self
     {
         $this->producttopropertygroups = $producttopropertygroups;
         $this->propertyFilled('producttopropertygroups');

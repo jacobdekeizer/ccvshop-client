@@ -31,17 +31,17 @@ class Productrelevant implements Model
     private $parentProductId;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ChildProduct|null The child product
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct|null The child product
      */
     private $childProduct;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ParentProduct|null The parent product
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct|null The parent product
      */
     private $parentProduct;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
 
@@ -86,25 +86,25 @@ class Productrelevant implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ChildProduct|null The child product
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct|null The child product
      */
-    public function getChildProduct(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\ChildProduct
+    public function getChildProduct(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct
     {
         return $this->childProduct;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ParentProduct|null The parent product
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct|null The parent product
      */
-    public function getParentProduct(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentProduct
+    public function getParentProduct(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct
     {
         return $this->parentProduct;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      */
-    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem
+    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -154,10 +154,10 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ChildProduct|null The child product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct|null The child product
      * @return self
      */
-    public function setChildProduct(?\JacobDeKeizer\Ccv\Models\Products\Resource\ChildProduct $childProduct): self
+    public function setChildProduct(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct $childProduct): self
     {
         $this->childProduct = $childProduct;
         $this->propertyFilled('childProduct');
@@ -165,10 +165,10 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ParentProduct|null The parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct|null The parent product
      * @return self
      */
-    public function setParentProduct(?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentProduct $parentProduct): self
+    public function setParentProduct(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct $parentProduct): self
     {
         $this->parentProduct = $parentProduct;
         $this->propertyFilled('parentProduct');
@@ -176,10 +176,10 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      * @return self
      */
-    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem $parent): self
+    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');

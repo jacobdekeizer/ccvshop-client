@@ -2,7 +2,9 @@
 
 namespace JacobDeKeizer\Ccv\QueryParameters;
 
-class QueryParameterOptional
+use JacobDeKeizer\Ccv\Contracts\QueryParameter;
+
+class QueryParameterOptional implements QueryParameter
 {
     private $parameter;
     private $value;

@@ -32,8 +32,11 @@ class PhpClassFactory
         /** @var PhpClass[] $classes */
         $classes = [];
 
-        $makeObject = static function (string $propertyName, array &$property)
- use ($pathParts, &$classes, $namespacePrefix) {
+        $makeObject = static function (string $propertyName, array &$property) use (
+            $pathParts,
+            &$classes,
+            $namespacePrefix
+        ) {
             $childPhpClass = self::makeChildObject(Str::studly($propertyName), $pathParts, $property, $namespacePrefix);
 
             $classes[] = $childPhpClass;
@@ -90,7 +93,7 @@ class PhpClassFactory
             [$childProperties, $childClasses] = self::makePropertiesAndClasses($pathParts, $object, $namespacePrefix);
 
             return new PhpClass(
-                self::makeNamespace($childObjectParts, $namespacePrefix),
+                self::makeNamespace($childObjectParts, $namespacePrefix . '\Child'),
                 $className,
                 $childProperties,
                 $childClasses

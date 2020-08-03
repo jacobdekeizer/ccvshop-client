@@ -41,7 +41,7 @@ class Productphotos implements Model
     private $deeplink;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
 
@@ -102,9 +102,9 @@ class Productphotos implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      */
-    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem
+    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -176,10 +176,10 @@ class Productphotos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Parent resource of this resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
      * @return self
      */
-    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem $parent): self
+    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');

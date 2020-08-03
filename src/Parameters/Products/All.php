@@ -5,12 +5,13 @@ namespace JacobDeKeizer\Ccv\Parameters\Products;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\PaginatedList;
+use JacobDeKeizer\Ccv\Parameters\Products\Concerns\ExpandableProductFields;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray;
+    use FromArray, ExpandableProductFields;
 
     /**
      * @var string|null Number of the product.
@@ -79,7 +80,8 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('stock', $this->getStock())
             ->addOptionalParameter('minstock', $this->getMinStock())
             ->addOptionalParameter('maxstock', $this->getMaxStock())
-            ->addOptionalParameter('quantity', $this->getQuantity());
+            ->addOptionalParameter('quantity', $this->getQuantity())
+            ->expandFields($this->getExpandedFields());
     }
 
     public function setProductNumber(?string $productNumber): All

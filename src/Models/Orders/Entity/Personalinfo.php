@@ -11,12 +11,12 @@ class Personalinfo implements Model
     use FromArray, ToArray;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress|null Billing address info
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress|null Billing address info
      */
     private $billingaddress;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress|null Shipping address info
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress|null Shipping address info
      */
     private $deliveryaddress;
 
@@ -199,17 +199,17 @@ class Personalinfo implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress|null Billing address info
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress|null Billing address info
      */
-    public function getBillingaddress(): ?\JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress
+    public function getBillingaddress(): ?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress
     {
         return $this->billingaddress;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress|null Shipping address info
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress|null Shipping address info
      */
-    public function getDeliveryaddress(): ?\JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress
+    public function getDeliveryaddress(): ?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress
     {
         return $this->deliveryaddress;
     }
@@ -487,10 +487,10 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress|null Billing address info
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress|null Billing address info
      * @return self
      */
-    public function setBillingaddress(?\JacobDeKeizer\Ccv\Models\Orders\Entity\Billingaddress $billingaddress): self
+    public function setBillingaddress(?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress $billingaddress): self
     {
         $this->billingaddress = $billingaddress;
         $this->propertyFilled('billingaddress');
@@ -498,10 +498,10 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress|null Shipping address info
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress|null Shipping address info
      * @return self
      */
-    public function setDeliveryaddress(?\JacobDeKeizer\Ccv\Models\Orders\Entity\Deliveryaddress $deliveryaddress): self
+    public function setDeliveryaddress(?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress $deliveryaddress): self
     {
         $this->deliveryaddress = $deliveryaddress;
         $this->propertyFilled('deliveryaddress');

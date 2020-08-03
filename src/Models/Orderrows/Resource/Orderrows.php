@@ -181,17 +181,17 @@ class Orderrows implements Model
     private $totalPriceWithAttributes;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
      */
     private $attributes;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads[]|null A collection of order row uploads
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
      */
     private $uploads;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
 
@@ -476,7 +476,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
      */
     public function getAttributes(): ?array
     {
@@ -484,7 +484,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads[]|null A collection of order row uploads
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
      */
     public function getUploads(): ?array
     {
@@ -492,9 +492,9 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
      */
-    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem
+    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -874,7 +874,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
      * @return self
      */
     public function setAttributes(?array $attributes): self
@@ -885,7 +885,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads[]|null A collection of order row uploads
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
      * @return self
      */
     public function setUploads(?array $uploads): self
@@ -896,10 +896,10 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
      * @return self
      */
-    public function setParent(?\JacobDeKeizer\Ccv\Models\Orderrows\Resource\ParentItem $parent): self
+    public function setParent(?\JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');
@@ -912,7 +912,7 @@ class Orderrows implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Attributes::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes::fromArray($item);
             }
 
             return $items;
@@ -921,7 +921,7 @@ class Orderrows implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Uploads::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads::fromArray($item);
             }
 
             return $items;

@@ -81,27 +81,27 @@ class Attributecombinations implements Model
     private $active;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
      */
     private $combination;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphotos Attribute combination photos
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos Attribute combination photos
      */
     private $attributecombinationphotos;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Attributes Collection of attributes
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes Collection of attributes
      */
     private $attributes;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Attributevalues Collection of  attributevalues
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues Collection of  attributevalues
      */
     private $attributevalues;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem Contains link to parent resource.
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem Contains link to parent resource.
      */
     private $parent;
 
@@ -226,7 +226,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
      */
     public function getCombination(): array
     {
@@ -234,33 +234,33 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphotos Attribute combination photos
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos Attribute combination photos
      */
-    public function getAttributecombinationphotos(): \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphotos
+    public function getAttributecombinationphotos(): \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos
     {
         return $this->attributecombinationphotos;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Attributes Collection of attributes
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes Collection of attributes
      */
-    public function getAttributes(): \JacobDeKeizer\Ccv\Models\Products\Resource\Attributes
+    public function getAttributes(): \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes
     {
         return $this->attributes;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Attributevalues Collection of  attributevalues
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues Collection of  attributevalues
      */
-    public function getAttributevalues(): \JacobDeKeizer\Ccv\Models\Products\Resource\Attributevalues
+    public function getAttributevalues(): \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues
     {
         return $this->attributevalues;
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem Contains link to parent resource.
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem Contains link to parent resource.
      */
-    public function getParent(): \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem
+    public function getParent(): \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -420,7 +420,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
      * @return self
      */
     public function setCombination(array $combination): self
@@ -431,10 +431,10 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphotos Attribute combination photos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos Attribute combination photos
      * @return self
      */
-    public function setAttributecombinationphotos(\JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphotos $attributecombinationphotos): self
+    public function setAttributecombinationphotos(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos $attributecombinationphotos): self
     {
         $this->attributecombinationphotos = $attributecombinationphotos;
         $this->propertyFilled('attributecombinationphotos');
@@ -442,10 +442,10 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributes Collection of attributes
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes Collection of attributes
      * @return self
      */
-    public function setAttributes(\JacobDeKeizer\Ccv\Models\Products\Resource\Attributes $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes $attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
@@ -453,10 +453,10 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributevalues Collection of  attributevalues
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues Collection of  attributevalues
      * @return self
      */
-    public function setAttributevalues(\JacobDeKeizer\Ccv\Models\Products\Resource\Attributevalues $attributevalues): self
+    public function setAttributevalues(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues $attributevalues): self
     {
         $this->attributevalues = $attributevalues;
         $this->propertyFilled('attributevalues');
@@ -464,10 +464,10 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem Contains link to parent resource.
      * @return self
      */
-    public function setParent(\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem $parent): self
+    public function setParent(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');
@@ -480,7 +480,7 @@ class Attributecombinations implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Products\Resource\Combination::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination::fromArray($item);
             }
 
             return $items;

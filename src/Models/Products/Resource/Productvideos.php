@@ -41,7 +41,7 @@ class Productvideos implements Model
     private $embedcode;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Contains link to parent product
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
 
@@ -102,9 +102,9 @@ class Productvideos implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Contains link to parent product
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
-    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem
+    public function getParent(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem
     {
         return $this->parent;
     }
@@ -176,10 +176,10 @@ class Productvideos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      * @return self
      */
-    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Resource\ParentItem $parent): self
+    public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
     {
         $this->parent = $parent;
         $this->propertyFilled('parent');
