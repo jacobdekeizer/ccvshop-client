@@ -307,15 +307,15 @@ $client->productphotos()->delete(1234);
 ### Get all photos for product
 
 ```php
-$client->productphotos()->getAllForProduct(1234);
+$client->productphotos()->allForProduct(1234);
 ```
 
 ### Update product photo
 
 ```php
-$patch = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch();
-$patch->setAlttext('text');
-$patch->setIsMainphoto(true);
+$patch = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch())
+    ->setAlttext('text')
+    ->setIsMainphoto(true);
 
 $client->productphotos()->update($patch);
 
@@ -324,10 +324,10 @@ $client->productphotos()->update($patch);
 
 ```php
 // see the code and documentation for all available methods
-$productphoto = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
-$productphoto->setSource(base64_encode(file_get_contents('photo.png')));
-$productphoto->setFileType('png');
-          // ->set...
+$productphoto = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo.png')))
+    ->setFileType('png');
+    // ->set...
 
 $client->productphotos()->create($productphoto);
 ```
@@ -336,18 +336,18 @@ $client->productphotos()->create($productphoto);
 
 ```php
 // see the code and documentation for all available methods
-$productphoto1 = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
-$productphoto1->setSource(base64_encode(file_get_contents('photo1.png')));
-$productphoto1->setFileType('png');
-           // ->set...
+$productphoto1 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo1.png')))
+    ->setFileType('png');
+    // ->set...
 
-$productphoto2 = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post();
-$productphoto2->setSource(base64_encode(file_get_contents('photo2.jpg')));
-$productphoto2->setFileType('jpg');
-           // ->set...
+$productphoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo2.jpg')))
+    ->setFileType('jpg');
+    // ->set...
 
-$put = new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put();
-$put->setProductphotos([$productphoto1, $productphoto2]);
+$put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
+    ->setProductphotos([$productphoto1, $productphoto2]);
 
 $client->productphotos()->replace(1234, $put);
 ```

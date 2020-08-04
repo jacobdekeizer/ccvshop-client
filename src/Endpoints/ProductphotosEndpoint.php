@@ -5,6 +5,7 @@ namespace JacobDeKeizer\Ccv\Endpoints;
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
 use JacobDeKeizer\Ccv\Models\Productphotos as Models;
 use JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos;
+use JacobDeKeizer\Ccv\Parameters\Productphotos\All;
 
 class ProductphotosEndpoint extends BaseEndpoint
 {
@@ -29,9 +30,16 @@ class ProductphotosEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function getAllForProduct(int $productId): Models\Collection\Productphotos
+    public function allForProduct(int $productId, ?All $payload = null): Models\Collection\Productphotos
     {
-        $result = $this->doRequest('GET', 'products/' . $productId . '/productphotos');
+        if ($payload === null) {
+            $payload = new All();
+        }
+
+        $result = $this->doRequest(
+            'GET',
+            sprintf('products/%s/productphotos%s', $productId, $payload->toBuilder()->toQueryString())
+        );
 
         return Models\Collection\Productphotos::fromArray($result);
     }
@@ -39,8 +47,11 @@ class ProductphotosEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function create(int $productId, Models\Productphotos\Post $productphoto, bool $onlyFilledProperties = true): Models\Resource\Productphotos
-    {
+    public function create(
+        int $productId,
+        Models\Productphotos\Post $productphoto,
+        bool $onlyFilledProperties = true
+    ): Models\Resource\Productphotos {
         $response = $this->doRequest(
             'POST',
             'products/' . $productId . '/productphotos',
@@ -69,6 +80,10 @@ class ProductphotosEndpoint extends BaseEndpoint
         Models\Productphotos\Put $productphotos,
         bool $onlyFilledProperties = true
     ): void {
-        $this->doRequest('PUT', 'products/' . $productId . '/productphotos', $productphotos->toArray($onlyFilledProperties));
+        $this->doRequest(
+            'PUT',
+            'products/' . $productId . '/productphotos',
+            $productphotos->toArray($onlyFilledProperties)
+        );
     }
 }
