@@ -43,8 +43,10 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function create(Models\Orders\Post $order, bool $onlyFilledProperties = true): void
+    public function create(Models\Orders\Post $order, bool $onlyFilledProperties = true): Models\Resource\Orders
     {
-        $this->doRequest(self::POST, 'orders', $order->toArray($onlyFilledProperties));
+        $result = $this->doRequest(self::POST, 'orders', $order->toArray($onlyFilledProperties));
+
+        return Models\Resource\Orders::fromArray($result);
     }
 }
