@@ -292,6 +292,66 @@ $client->products()->create($product);
 $client->products()->delete(1234);
 ```
 
+### Get product photo
+
+```php
+$client->productphotos()->get(1234);
+```
+
+### Delete product photo
+
+```php
+$client->productphotos()->delete(1234);
+```
+
+### Get all photos for product
+
+```php
+$client->productphotos()->allForProduct(1234);
+```
+
+### Update product photo
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch())
+    ->setAlttext('text')
+    ->setIsMainphoto(true);
+
+$client->productphotos()->update($patch);
+
+```
+### Create product photo
+
+```php
+// see the code and documentation for all available methods
+$productphoto = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo.png')))
+    ->setFileType('png');
+    // ->set...
+
+$client->productphotos()->create($productphoto);
+```
+
+### Replace all product photos
+
+```php
+// see the code and documentation for all available methods
+$productphoto1 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo1.png')))
+    ->setFileType('png');
+    // ->set...
+
+$productphoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+    ->setSource(base64_encode(file_get_contents('photo2.jpg')))
+    ->setFileType('jpg');
+    // ->set...
+
+$put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
+    ->setProductphotos([$productphoto1, $productphoto2]);
+
+$client->productphotos()->replace(1234, $put);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -300,3 +360,4 @@ $client->products()->delete(1234);
 | orderrows |
 | orders |
 | products|
+| productphotos|
