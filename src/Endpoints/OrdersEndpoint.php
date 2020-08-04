@@ -17,7 +17,7 @@ class OrdersEndpoint extends BaseEndpoint
             $payload = new All();
         }
 
-        $result = $this->doRequest('GET', 'orders' . $payload->toBuilder()->toQueryString());
+        $result = $this->doRequest(self::GET, 'orders' . $payload->toBuilder()->toQueryString());
 
         return Models\Collection\Orders::fromArray($result);
     }
@@ -27,7 +27,7 @@ class OrdersEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Orders
     {
-        $result = $this->doRequest('GET', 'orders/' . $id);
+        $result = $this->doRequest(self::GET, 'orders/' . $id);
 
         return Models\Resource\Orders::fromArray($result);
     }
@@ -37,7 +37,7 @@ class OrdersEndpoint extends BaseEndpoint
      */
     public function update(int $id, Models\Orders\Patch $order, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('PATCH', 'orders/' . $id, $order->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, 'orders/' . $id, $order->toArray($onlyFilledProperties));
     }
 
     /**
@@ -45,6 +45,6 @@ class OrdersEndpoint extends BaseEndpoint
      */
     public function create(Models\Orders\Post $order, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('POST', 'orders', $order->toArray($onlyFilledProperties));
+        $this->doRequest(self::POST, 'orders', $order->toArray($onlyFilledProperties));
     }
 }

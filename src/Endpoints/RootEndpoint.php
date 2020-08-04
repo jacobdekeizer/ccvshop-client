@@ -12,7 +12,7 @@ class RootEndpoint extends BaseEndpoint
      */
     public function all(): RootCollection
     {
-        $result = $this->doRequest('GET', '');
+        $result = $this->doRequest(self::GET, '');
 
         return RootCollection::fromArray($result);
     }

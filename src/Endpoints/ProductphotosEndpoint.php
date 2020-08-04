@@ -14,7 +14,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function get(int $id): Productphotos
     {
-        $result = $this->doRequest('GET', 'productphotos/' . $id);
+        $result = $this->doRequest(self::GET, 'productphotos/' . $id);
 
         return Productphotos::fromArray($result);
     }
@@ -24,7 +24,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest('DELETE', 'productphotos/' . $id);
+        $this->doRequest(self::DELETE, 'productphotos/' . $id);
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductphotosEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('products/%s/productphotos%s', $productId, $payload->toBuilder()->toQueryString())
         );
 
@@ -53,7 +53,7 @@ class ProductphotosEndpoint extends BaseEndpoint
         bool $onlyFilledProperties = true
     ): Models\Resource\Productphotos {
         $response = $this->doRequest(
-            'POST',
+            self::POST,
             'products/' . $productId . '/productphotos',
             $productphoto->toArray($onlyFilledProperties)
         );
@@ -66,7 +66,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function update(int $id, Models\Productphotos\Patch $productphoto, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('PATCH', 'productphotos/' . $id, $productphoto->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, 'productphotos/' . $id, $productphoto->toArray($onlyFilledProperties));
     }
 
     /**
@@ -81,7 +81,7 @@ class ProductphotosEndpoint extends BaseEndpoint
         bool $onlyFilledProperties = true
     ): void {
         $this->doRequest(
-            'PUT',
+            self::PUT,
             'products/' . $productId . '/productphotos',
             $productphotos->toArray($onlyFilledProperties)
         );

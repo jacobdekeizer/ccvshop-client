@@ -18,7 +18,7 @@ class OrderrowsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('orders/%s/orderrows%s', $orderId, $payload->toBuilder()->toQueryString())
         );
 
@@ -30,7 +30,7 @@ class OrderrowsEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Orderrows
     {
-        $result = $this->doRequest('GET', 'orderrows/' . $id);
+        $result = $this->doRequest(self::GET, 'orderrows/' . $id);
 
         return Models\Resource\Orderrows::fromArray($result);
     }
@@ -40,7 +40,7 @@ class OrderrowsEndpoint extends BaseEndpoint
      */
     public function update(int $id, Models\Orderrows\Patch $orderrow, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('PATCH', 'orderrows/' . $id, $orderrow->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, 'orderrows/' . $id, $orderrow->toArray($onlyFilledProperties));
     }
 
     /**
@@ -49,7 +49,7 @@ class OrderrowsEndpoint extends BaseEndpoint
     public function replace(int $orderId, Models\Orderrows\Put $orderrows, bool $onlyFilledProperties = true): void
     {
         $this->doRequest(
-            'PUT',
+            self::PUT,
             'orders/' . $orderId . '/orderrows',
             $orderrows->toArray($onlyFilledProperties)
         );

@@ -12,6 +12,12 @@ use Throwable;
 
 class BaseEndpoint
 {
+    protected const GET = 'GET';
+    protected const POST = 'POST';
+    protected const PATCH = 'PATCH';
+    protected const PUT = 'PUT';
+    protected const DELETE = 'DELETE';
+
     protected $client;
 
     public function __construct(Client $client)
@@ -64,10 +70,6 @@ class BaseEndpoint
             $response = $this->client->getClient()->send($request, ['http_errors' => false]);
         } catch (Throwable $e) {
             throw CcvShopException::fromPrevious('Error connecting to api: ' . $e->getMessage(), $e);
-        }
-
-        if (!$response) {
-            throw new CcvShopException('No api response received.');
         }
 
         $body = $response->getBody()->getContents();

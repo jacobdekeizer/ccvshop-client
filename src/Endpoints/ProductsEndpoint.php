@@ -18,7 +18,7 @@ class ProductsEndpoint extends BaseEndpoint
             $payload = new All();
         }
 
-        $result = $this->doRequest('GET', 'products' . $payload->toBuilder()->toQueryString());
+        $result = $this->doRequest(self::GET, 'products' . $payload->toBuilder()->toQueryString());
 
         return Models\Collection\Products::fromArray($result);
     }
@@ -33,7 +33,7 @@ class ProductsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('brands/%s/products%s', $brandId, $payload->toBuilder()->toQueryString())
         );
 
@@ -50,7 +50,7 @@ class ProductsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('webshops/%s/products%s', $webshopId, $payload->toBuilder()->toQueryString())
         );
 
@@ -67,7 +67,7 @@ class ProductsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('categories/%s/products%s', $categoryId, $payload->toBuilder()->toQueryString())
         );
 
@@ -84,7 +84,7 @@ class ProductsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('conditions/%s/products%s', $conditionId, $payload->toBuilder()->toQueryString())
         );
 
@@ -101,7 +101,7 @@ class ProductsEndpoint extends BaseEndpoint
         }
 
         $result = $this->doRequest(
-            'GET',
+            self::GET,
             sprintf('suppliers/%s/products%s', $supplierId, $payload->toBuilder()->toQueryString())
         );
 
@@ -117,7 +117,7 @@ class ProductsEndpoint extends BaseEndpoint
             $payload = new Get();
         }
 
-        $result = $this->doRequest('GET', sprintf('products/%s%s', $id, $payload->toBuilder()->toQueryString()));
+        $result = $this->doRequest(self::GET, sprintf('products/%s%s', $id, $payload->toBuilder()->toQueryString()));
 
         return Models\Resource\Products::fromArray($result);
     }
@@ -127,7 +127,7 @@ class ProductsEndpoint extends BaseEndpoint
      */
     public function update(int $id, Models\Products\Patch $product, bool $onlyFilledProperties = true): void
     {
-        $this->doRequest('PATCH', 'products/' . $id, $product->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, 'products/' . $id, $product->toArray($onlyFilledProperties));
     }
 
     /**
@@ -135,7 +135,7 @@ class ProductsEndpoint extends BaseEndpoint
      */
     public function create(Models\Products\Post $product, bool $onlyFilledProperties = true): Models\Resource\Products
     {
-        $response = $this->doRequest('POST', 'products', $product->toArray($onlyFilledProperties));
+        $response = $this->doRequest(self::POST, 'products', $product->toArray($onlyFilledProperties));
 
         return Models\Resource\Products::fromArray($response);
     }
@@ -145,6 +145,6 @@ class ProductsEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest('DELETE', 'products/' . $id);
+        $this->doRequest(self::DELETE, 'products/' . $id);
     }
 }
