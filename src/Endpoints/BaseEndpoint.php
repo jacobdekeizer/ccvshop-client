@@ -84,6 +84,12 @@ class BaseEndpoint
             }
         }
 
+        //Too Many Requests
+        if ($response->getStatusCode() === 429) {
+            sleep(60);
+            return $this->doRequest($httpMethod, $resource, $data = null, $requestHeaders);
+        }
+
         if ($response->getStatusCode() >= 400) {
             throw new CcvShopException(
                 'Error executing api call: ' . ($object['developermessage'] ?? '')
