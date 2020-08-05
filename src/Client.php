@@ -3,6 +3,7 @@
 namespace JacobDeKeizer\Ccv;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\ClientInterface;
 use JacobDeKeizer\Ccv\Endpoints;
 
 class Client
@@ -19,7 +20,7 @@ class Client
     /** @var string */
     private $privateKey;
 
-    /** @var HttpClient */
+    /** @var ClientInterface */
     private $client;
 
     /** @var Endpoints\RootEndpoint */
@@ -39,6 +40,7 @@ class Client
 
     public function __construct()
     {
+        $this->client = new HttpClient();
         $this->rootEndpoint = new Endpoints\RootEndpoint($this);
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
@@ -54,9 +56,6 @@ class Client
     public function setBaseUrl(string $baseUrl): Client
     {
         $this->baseUrl = $baseUrl;
-        $this->setClient(new HttpClient([
-            'base_uri' => $baseUrl,
-        ]));
         return $this;
     }
 
@@ -82,12 +81,12 @@ class Client
         return $this;
     }
 
-    public function getClient(): HttpClient
+    public function getClient(): ClientInterface
     {
         return $this->client;
     }
 
-    public function setClient(HttpClient $client): Client
+    public function setClient(ClientInterface $client): Client
     {
         $this->client = $client;
         return $this;

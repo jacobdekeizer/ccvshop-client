@@ -64,7 +64,7 @@ class BaseEndpoint
             $httpBody = $postData;
         }
 
-        $request = new Request($httpMethod, $apiRoute, $requestHeaders, $httpBody);
+        $request = new Request($httpMethod, $this->client->getBaseUrl() . $apiRoute, $requestHeaders, $httpBody);
 
         try {
             $response = $this->client->getClient()->send($request, ['http_errors' => false]);
