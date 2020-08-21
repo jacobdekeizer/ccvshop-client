@@ -38,6 +38,15 @@ class Client
     /** @var Endpoints\ProductphotosEndpoint */
     private $productphotosEndpoint;
 
+    /** @var Endpoints\AttributesEndpoint */
+    private $attributesEndpoint;
+
+    /** @var Endpoints\AttributevaluesEndpoint */
+    private $attributevaluesEndpoint;
+
+    /** @var Endpoints\ProductattributevaluesEndpoint */
+    private $productattributevaluesEndpoint;
+
     public function __construct()
     {
         $this->client = new HttpClient();
@@ -46,6 +55,9 @@ class Client
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
         $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
         $this->productphotosEndpoint = new Endpoints\ProductphotosEndpoint($this);
+        $this->attributesEndpoint = new Endpoints\AttributesEndpoint($this);
+        $this->attributevaluesEndpoint = new Endpoints\AttributevaluesEndpoint($this);
+        $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -115,5 +127,20 @@ class Client
     public function productphotos(): Endpoints\ProductphotosEndpoint
     {
         return $this->productphotosEndpoint;
+    }
+
+    public function attributes(): Endpoints\AttributesEndpoint
+    {
+        return $this->attributesEndpoint;
+    }
+
+    public function attributevalues(): Endpoints\AttributevaluesEndpoint
+    {
+        return $this->attributevaluesEndpoint;
+    }
+
+    public function productattributevalues(): Endpoints\ProductattributevaluesEndpoint
+    {
+        return $this->productattributevaluesEndpoint;
     }
 }

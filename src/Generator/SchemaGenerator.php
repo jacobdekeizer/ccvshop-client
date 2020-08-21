@@ -47,6 +47,29 @@ class SchemaGenerator
         $generator->generate('/API/Schema/internal.resource.productphotos.patch.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.productphotos.post.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.productphotos.put.v1.json', $namespace);
+
+        // attributes
+        $namespace = 'Attributes';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.attributes.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.attributes.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.attributes.input.v1.json', $namespace);
+
+        // attributevalues
+        $namespace = 'Attributevalues';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.attributevalues.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.attributevalues.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.attributevalues.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.attributevalues.post.v1.json', $namespace);
+
+        // productattributevalues
+        $namespace = 'Productattributevalues';
+        $generator->generate(
+            '/API/Schema/vnd.verto.webshop.resource.collection.productattributevalues.v1.json',
+            $namespace
+        );
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.productattributevalues.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.productattributevalues.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.productattributevalues.post.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

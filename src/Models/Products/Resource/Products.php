@@ -361,6 +361,11 @@ class Products implements Model
     private $productphotos;
 
     /**
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations|null Product variations
+     */
+    private $productvariations;
+
+    /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null Product videos
      */
     private $productvideos;
@@ -981,6 +986,14 @@ class Products implements Model
     public function getProductphotos(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos
     {
         return $this->productphotos;
+    }
+
+    /**
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations|null Product variations
+     */
+    public function getProductvariations(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations
+    {
+        return $this->productvariations;
     }
 
     /**
@@ -1838,6 +1851,17 @@ class Products implements Model
     {
         $this->productphotos = $productphotos;
         $this->propertyFilled('productphotos');
+        return $this;
+    }
+
+    /**
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations|null Product variations
+     * @return self
+     */
+    public function setProductvariations(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations $productvariations): self
+    {
+        $this->productvariations = $productvariations;
+        $this->propertyFilled('productvariations');
         return $this;
     }
 

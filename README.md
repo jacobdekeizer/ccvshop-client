@@ -352,6 +352,130 @@ $put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
 $client->productphotos()->replace(1234, $put);
 ```
 
+### Get attribute
+
+```php
+$client->attributes()->get(1234);
+```
+
+### Get all attributes
+
+```php
+$client->attributes()->all();
+```
+
+### Get all attributecombinations
+
+```php
+$client->attributes()->allCombinationsFor(1234);
+```
+
+### Create attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->create($attribute);
+```
+
+### Update attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->update(1234, $attribute);
+```
+
+### Delete attribute
+
+```php
+$client->attributes()->delete(1234);
+```
+
+### Get attributevalues
+
+```php
+$client->attributevalues()->get(1234);
+```
+
+### Get all attributevalues
+
+```php
+$client->attributevalues()->all();
+```
+
+### Get all for attribute
+
+```php
+$client->attributevalues()->allForAttribute(1234);
+```
+
+### Get all for combination
+
+```php
+$client->attributevalues()->allForCombination(1234);
+```
+
+### Create attributevalue
+
+```php
+$attrubutevalue = new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post();
+$attrubutevalue->setName('Bar');
+$attrubutevalue->setDefaultPrice(0);
+$client->attributevalues()->create(1234, $attrubutevalue);
+```
+
+### Update attributevalue
+
+```php
+$attrubutevalue = new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch();
+$attrubutevalue->setName('Bar');
+$attrubutevalue->setDefaultPrice(0);
+$client->attributevalues()->update(1234, $attrubutevalue);
+```
+
+### Delete attributevalues
+
+```php
+$client->attributevalues()->delete(1234);
+```
+
+### Get productattributevalue
+
+```php
+$client->productattributevalues()->get(1234);
+```
+
+### Get all productattributevalues for product
+
+```php
+$client->productattributevalues()->allForProduct(1234);
+```
+
+### Create productattributevalues
+
+```php
+$productattributevalues = new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post();
+$productattributevalues->setPrice(2);
+$client->productattributevalues()->create(1234, $productattributevalues);
+```
+
+### Update productattributevalues
+
+```php
+$productattributevalues = new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch();
+$productattributevalues->setPrice(2);
+$client->productattributevalues()->update(1234, $productattributevalues);
+```
+
+### Delete productattributevalue
+
+```php
+$client->productattributevalues()->delete(1234);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -361,3 +485,6 @@ $client->productphotos()->replace(1234, $put);
 | orders |
 | products|
 | productphotos|
+| attributes|
+| attributevalues|
+| productattributevalues|
