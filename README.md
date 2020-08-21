@@ -352,6 +352,47 @@ $put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
 $client->productphotos()->replace(1234, $put);
 ```
 
+### Create product to category reference
+
+```php
+$post = new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post();
+$post->setProductId(123);
+$post->setCategoryId(456);
+$client->producttocategories()->create($post);
+```
+
+### Get product to category reference
+
+```php
+$client->producttocategories()->get(123);
+```
+
+### Get product to category references by product
+
+```php
+$client->producttocategories()->getCollectionByProduct(123);
+```
+
+### Get product to category references by category
+
+```php
+$client->producttocategories()->getCollectionByCategory(123);
+```
+
+### Delete product to category by reference
+
+```php
+$client->producttocategories()->delete(123);
+```
+
+### Update product to category reference
+
+```php
+$patch = new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch();
+$patch->setPosition(1);
+$client->producttocategories()->update(123, $patch);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -361,3 +402,4 @@ $client->productphotos()->replace(1234, $put);
 | orders |
 | products|
 | productphotos|
+| producttocategories|
