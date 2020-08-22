@@ -38,6 +38,9 @@ class Client
     /** @var Endpoints\ProductphotosEndpoint */
     private $productphotosEndpoint;
 
+    /** @var Endpoints\ProducttocategoriesEndpoint */
+    private $producttocategoriesEndpoint;
+
     /** @var Endpoints\AttributesEndpoint */
     private $attributesEndpoint;
 
@@ -55,6 +58,7 @@ class Client
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
         $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
         $this->productphotosEndpoint = new Endpoints\ProductphotosEndpoint($this);
+        $this->producttocategoriesEndpoint = new Endpoints\ProducttocategoriesEndpoint($this);
         $this->attributesEndpoint = new Endpoints\AttributesEndpoint($this);
         $this->attributevaluesEndpoint = new Endpoints\AttributevaluesEndpoint($this);
         $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
@@ -127,6 +131,11 @@ class Client
     public function productphotos(): Endpoints\ProductphotosEndpoint
     {
         return $this->productphotosEndpoint;
+    }
+
+    public function producttocategories(): Endpoints\ProducttocategoriesEndpoint
+    {
+        return $this->producttocategoriesEndpoint;
     }
 
     public function attributes(): Endpoints\AttributesEndpoint

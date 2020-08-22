@@ -48,6 +48,16 @@ class SchemaGenerator
         $generator->generate('/API/Schema/internal.resource.productphotos.post.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.productphotos.put.v1.json', $namespace);
 
+        // producttocategories
+        $namespace = 'Producttocategories';
+        $generator->generate(
+            '/API/Schema/vnd.verto.webshop.resource.collection.producttocategories.v1.json',
+            $namespace
+        );
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.producttocategories.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.producttocategories.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.producttocategories.post.v1.json', $namespace);
+
         // attributes
         $namespace = 'Attributes';
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.attributes.v1.json', $namespace);
