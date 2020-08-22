@@ -11,17 +11,19 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function delete(int $id): void
+    public function allForCategory(int $categoryId): Models\Collection\Producttocategories
     {
-        $this->doRequest(self::DELETE, 'producttocategories/' . $id);
+        $result = $this->doRequest(self::GET, 'categories/' . $categoryId . '/producttocategories/');
+
+        return Models\Collection\Producttocategories::fromArray($result);
     }
 
     /**
      * @throws CcvShopException
      */
-    public function getCollectionByCategory(int $id): Models\Collection\Producttocategories
+    public function allForProduct(int $productId): Models\Collection\Producttocategories
     {
-        $result = $this->doRequest(self::GET, 'categories/' . $id . '/producttocategories/');
+        $result = $this->doRequest(self::GET, 'products/' . $productId . '/producttocategories/');
 
         return Models\Collection\Producttocategories::fromArray($result);
     }
@@ -34,16 +36,6 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
         $result = $this->doRequest(self::GET, 'producttocategories/' . $id);
 
         return Models\Resource\Producttocategories::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function getCollectionByProduct(int $id): Models\Collection\Producttocategories
-    {
-        $result = $this->doRequest(self::GET, 'products/' . $id . '/producttocategories/');
-
-        return Models\Collection\Producttocategories::fromArray($result);
     }
 
     /**
@@ -75,5 +67,13 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
         );
 
         return Models\Resource\Producttocategories::fromArray($response);
+    }
+
+    /**
+     * @throws CcvShopException
+     */
+    public function delete(int $id): void
+    {
+        $this->doRequest(self::DELETE, 'producttocategories/' . $id);
     }
 }

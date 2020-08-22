@@ -355,9 +355,11 @@ $client->productphotos()->replace(1234, $put);
 ### Create product to category reference
 
 ```php
-$post = new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post();
-$post->setProductId(123);
-$post->setCategoryId(456);
+$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+    ->setProductId(123)
+    ->setCategoryId(456)
+    ->setPosition(null);
+
 $client->producttocategories()->create($post);
 ```
 
@@ -370,13 +372,13 @@ $client->producttocategories()->get(123);
 ### Get product to category references by product
 
 ```php
-$client->producttocategories()->getCollectionByProduct(123);
+$client->producttocategories()->allForProduct(123);
 ```
 
 ### Get product to category references by category
 
 ```php
-$client->producttocategories()->getCollectionByCategory(123);
+$client->producttocategories()->allForCategory(123);
 ```
 
 ### Delete product to category by reference
@@ -388,8 +390,9 @@ $client->producttocategories()->delete(123);
 ### Update product to category reference
 
 ```php
-$patch = new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch();
-$patch->setPosition(1);
+$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+    ->setPosition(1);
+
 $client->producttocategories()->update(123, $patch);
 ```
 
