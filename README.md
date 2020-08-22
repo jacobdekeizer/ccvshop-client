@@ -396,6 +396,180 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\
 $client->producttocategories()->update(123, $patch);
 ```
 
+### Create product to category reference
+
+```php
+$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+    ->setProductId(123)
+    ->setCategoryId(456)
+    ->setPosition(null);
+
+$client->producttocategories()->create($post);
+```
+
+### Get product to category reference
+
+```php
+$client->producttocategories()->get(123);
+```
+
+### Get product to category references by product
+
+```php
+$client->producttocategories()->allForProduct(123);
+```
+
+### Get product to category references by category
+
+```php
+$client->producttocategories()->allForCategory(123);
+```
+
+### Delete product to category by reference
+
+```php
+$client->producttocategories()->delete(123);
+```
+
+### Update product to category reference
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+    ->setPosition(1);
+
+$client->producttocategories()->update(123, $patch);
+```
+
+### Get attribute
+
+```php
+$client->attributes()->get(1234);
+```
+
+### Get all attributes
+
+```php
+$client->attributes()->all();
+```
+
+### Get all attributecombinations
+
+```php
+$client->attributes()->allCombinationsFor(1234);
+```
+
+### Create attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->create($attribute);
+```
+
+### Update attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->update(1234, $attribute);
+```
+
+### Delete attribute
+
+```php
+$client->attributes()->delete(1234);
+```
+
+### Get attributevalues
+
+```php
+$client->attributevalues()->get(1234);
+```
+
+### Get all attributevalues
+
+```php
+$client->attributevalues()->all();
+```
+
+### Get all for attribute
+
+```php
+$client->attributevalues()->allForAttribute(1234);
+```
+
+### Get all for combination
+
+```php
+$client->attributevalues()->allForCombination(1234);
+```
+
+### Create attributevalue
+
+```php
+$create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->create(1234, $create);
+```
+
+### Update attributevalue
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->update(1234, $patch);
+```
+
+### Delete attributevalues
+
+```php
+$client->attributevalues()->delete(1234);
+```
+
+### Get productattributevalue
+
+```php
+$client->productattributevalues()->get(1234);
+```
+
+### Get all productattributevalues for product
+
+```php
+$client->productattributevalues()->allForProduct(1234);
+```
+
+### Create productattributevalues
+
+```php
+$post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->create(1234, $post);
+```
+
+### Update productattributevalues
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->update(1234, $patch);
+```
+
+### Delete productattributevalue
+
+```php
+$client->productattributevalues()->delete(1234);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -406,3 +580,7 @@ $client->producttocategories()->update(123, $patch);
 | products|
 | productphotos|
 | producttocategories|
+| producttocategories|
+| attributes|
+| attributevalues|
+| productattributevalues|
