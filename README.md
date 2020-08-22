@@ -292,6 +292,8 @@ $client->products()->create($product);
 $client->products()->delete(1234);
 ```
 
+## Product photos
+
 ### Get product photo
 
 ```php
@@ -317,84 +319,42 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch())
     ->setAlttext('text')
     ->setIsMainphoto(true);
 
-$client->productphotos()->update($patch);
+$client->productphotos()->update(1234, $patch);
 
 ```
 ### Create product photo
 
 ```php
 // see the code and documentation for all available methods
-$productphoto = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$post = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
     ->setSource(base64_encode(file_get_contents('photo.png')))
     ->setFileType('png');
     // ->set...
 
-$client->productphotos()->create($productphoto);
+$client->productphotos()->create(1234, $post);
 ```
 
 ### Replace all product photos
 
 ```php
 // see the code and documentation for all available methods
-$productphoto1 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$productPhoto1 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
     ->setSource(base64_encode(file_get_contents('photo1.png')))
     ->setFileType('png');
     // ->set...
 
-$productphoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$productPhoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
     ->setSource(base64_encode(file_get_contents('photo2.jpg')))
     ->setFileType('jpg');
     // ->set...
 
 $put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
-    ->setProductphotos([$productphoto1, $productphoto2]);
+    ->setProductphotos([$productPhoto1, $productPhoto2]);
 
 $client->productphotos()->replace(1234, $put);
 ```
 
-### Create product to category reference
-
-```php
-$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
-    ->setProductId(123)
-    ->setCategoryId(456)
-    ->setPosition(null);
-
-$client->producttocategories()->create($post);
-```
-
-### Get product to category reference
-
-```php
-$client->producttocategories()->get(123);
-```
-
-### Get product to category references by product
-
-```php
-$client->producttocategories()->allForProduct(123);
-```
-
-### Get product to category references by category
-
-```php
-$client->producttocategories()->allForCategory(123);
-```
-
-### Delete product to category by reference
-
-```php
-$client->producttocategories()->delete(123);
-```
-
-### Update product to category reference
-
-```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
-    ->setPosition(1);
-
-$client->producttocategories()->update(123, $patch);
-```
+## Product categories
 
 ### Create product to category reference
 
@@ -439,6 +399,52 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\
 
 $client->producttocategories()->update(123, $patch);
 ```
+
+### Create product to category reference
+
+```php
+$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+    ->setProductId(123)
+    ->setCategoryId(456)
+    ->setPosition(null);
+
+$client->producttocategories()->create($post);
+```
+
+### Get product to category reference
+
+```php
+$client->producttocategories()->get(123);
+```
+
+### Get product to category references by product
+
+```php
+$client->producttocategories()->allForProduct(123);
+```
+
+### Get product to category references by category
+
+```php
+$client->producttocategories()->allForCategory(123);
+```
+
+### Delete product to category by reference
+
+```php
+$client->producttocategories()->delete(123);
+```
+
+### Update product to category reference
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+    ->setPosition(1);
+
+$client->producttocategories()->update(123, $patch);
+```
+
+## Attributes
 
 ### Get attribute
 
@@ -452,7 +458,7 @@ $client->attributes()->get(1234);
 $client->attributes()->all();
 ```
 
-### Get all attributecombinations
+### Get all attribute combinations
 
 ```php
 $client->attributes()->allCombinationsFor(1234);
@@ -482,31 +488,33 @@ $client->attributes()->update(1234, $attribute);
 $client->attributes()->delete(1234);
 ```
 
-### Get attributevalues
+## Attribute values
+
+### Get attribute values
 
 ```php
 $client->attributevalues()->get(1234);
 ```
 
-### Get all attributevalues
+### Get all attribute values
 
 ```php
 $client->attributevalues()->all();
 ```
 
-### Get all for attribute
+### Get all attribute values for attribute
 
 ```php
 $client->attributevalues()->allForAttribute(1234);
 ```
 
-### Get all for combination
+### Get all attribute values for combination
 
 ```php
 $client->attributevalues()->allForCombination(1234);
 ```
 
-### Create attributevalue
+### Create attribute value
 
 ```php
 $create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
@@ -516,7 +524,7 @@ $create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
 $client->attributevalues()->create(1234, $create);
 ```
 
-### Update attributevalue
+### Update attribute value
 
 ```php
 $patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
@@ -526,25 +534,27 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
 $client->attributevalues()->update(1234, $patch);
 ```
 
-### Delete attributevalues
+### Delete attribute values
 
 ```php
 $client->attributevalues()->delete(1234);
 ```
 
-### Get productattributevalue
+## Product attribute values
+
+### Get product attribute value
 
 ```php
 $client->productattributevalues()->get(1234);
 ```
 
-### Get all productattributevalues for product
+### Get all product attribute values for product
 
 ```php
 $client->productattributevalues()->allForProduct(1234);
 ```
 
-### Create productattributevalues
+### Create product attribute values
 
 ```php
 $post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
@@ -554,7 +564,7 @@ $post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributeva
 $client->productattributevalues()->create(1234, $post);
 ```
 
-### Update productattributevalues
+### Update product attribute values
 
 ```php
 $patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
@@ -564,7 +574,7 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributev
 $client->productattributevalues()->update(1234, $patch);
 ```
 
-### Delete productattributevalue
+### Delete product attribute value
 
 ```php
 $client->productattributevalues()->delete(1234);
