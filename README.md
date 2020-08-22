@@ -421,19 +421,21 @@ $client->attributevalues()->allForCombination(1234);
 ### Create attributevalue
 
 ```php
-$attrubutevalue = new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post();
-$attrubutevalue->setName('Bar');
-$attrubutevalue->setDefaultPrice(0);
-$client->attributevalues()->create(1234, $attrubutevalue);
+$create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->create(1234, $create);
 ```
 
 ### Update attributevalue
 
 ```php
-$attrubutevalue = new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch();
-$attrubutevalue->setName('Bar');
-$attrubutevalue->setDefaultPrice(0);
-$client->attributevalues()->update(1234, $attrubutevalue);
+$patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->update(1234, $patch);
 ```
 
 ### Delete attributevalues
@@ -457,17 +459,21 @@ $client->productattributevalues()->allForProduct(1234);
 ### Create productattributevalues
 
 ```php
-$productattributevalues = new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post();
-$productattributevalues->setPrice(2);
-$client->productattributevalues()->create(1234, $productattributevalues);
+$post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->create(1234, $post);
 ```
 
 ### Update productattributevalues
 
 ```php
-$productattributevalues = new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch();
-$productattributevalues->setPrice(2);
-$client->productattributevalues()->update(1234, $productattributevalues);
+$patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->update(1234, $patch);
 ```
 
 ### Delete productattributevalue
