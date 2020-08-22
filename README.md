@@ -396,6 +396,50 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\
 $client->producttocategories()->update(123, $patch);
 ```
 
+### Create product to category reference
+
+```php
+$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+    ->setProductId(123)
+    ->setCategoryId(456)
+    ->setPosition(null);
+
+$client->producttocategories()->create($post);
+```
+
+### Get product to category reference
+
+```php
+$client->producttocategories()->get(123);
+```
+
+### Get product to category references by product
+
+```php
+$client->producttocategories()->allForProduct(123);
+```
+
+### Get product to category references by category
+
+```php
+$client->producttocategories()->allForCategory(123);
+```
+
+### Delete product to category by reference
+
+```php
+$client->producttocategories()->delete(123);
+```
+
+### Update product to category reference
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+    ->setPosition(1);
+
+$client->producttocategories()->update(123, $patch);
+```
+
 ### Get attribute
 
 ```php
@@ -535,6 +579,7 @@ $client->productattributevalues()->delete(1234);
 | orders |
 | products|
 | productphotos|
+| producttocategories|
 | producttocategories|
 | attributes|
 | attributevalues|

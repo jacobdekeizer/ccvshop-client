@@ -41,6 +41,7 @@ class Client
     /** @var Endpoints\ProducttocategoriesEndpoint */
     private $producttocategoriesEndpoint;
 
+<<<<<<< HEAD
     /** @var Endpoints\AttributesEndpoint */
     private $attributesEndpoint;
 
@@ -50,6 +51,8 @@ class Client
     /** @var Endpoints\ProductattributevaluesEndpoint */
     private $productattributevaluesEndpoint;
 
+=======
+>>>>>>> master
     public function __construct()
     {
         $this->client = new HttpClient();
@@ -59,9 +62,12 @@ class Client
         $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
         $this->productphotosEndpoint = new Endpoints\ProductphotosEndpoint($this);
         $this->producttocategoriesEndpoint = new Endpoints\ProducttocategoriesEndpoint($this);
+<<<<<<< HEAD
         $this->attributesEndpoint = new Endpoints\AttributesEndpoint($this);
         $this->attributevaluesEndpoint = new Endpoints\AttributevaluesEndpoint($this);
         $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
+=======
+>>>>>>> master
     }
 
     public function getBaseUrl(): string
@@ -137,6 +143,7 @@ class Client
     {
         return $this->producttocategoriesEndpoint;
     }
+<<<<<<< HEAD
 
     public function attributes(): Endpoints\AttributesEndpoint
     {
@@ -152,4 +159,6 @@ class Client
     {
         return $this->productattributevaluesEndpoint;
     }
+=======
+>>>>>>> master
 }
