@@ -251,6 +251,11 @@ class Orders implements Model
     private $pickupAddress;
 
     /**
+     * @var string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
+     */
+    private $packingSlipDeeplink;
+
+    /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows Products that are ordered with this order
      */
     private $orderrows;
@@ -259,6 +264,11 @@ class Orders implements Model
      * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotes Notes added to this order
      */
     private $ordernotes;
+
+    /**
+     * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages Messages sent to the customer
+     */
+    private $ordermessages;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
@@ -673,6 +683,14 @@ class Orders implements Model
     }
 
     /**
+     * @return string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
+     */
+    public function getPackingSlipDeeplink(): ?string
+    {
+        return $this->packingSlipDeeplink;
+    }
+
+    /**
      * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows Products that are ordered with this order
      */
     public function getOrderrows(): \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows
@@ -686,6 +704,14 @@ class Orders implements Model
     public function getOrdernotes(): \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotes
     {
         return $this->ordernotes;
+    }
+
+    /**
+     * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages Messages sent to the customer
+     */
+    public function getOrdermessages(): \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages
+    {
+        return $this->ordermessages;
     }
 
     /**
@@ -1249,6 +1275,17 @@ class Orders implements Model
     }
 
     /**
+     * @param string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
+     * @return self
+     */
+    public function setPackingSlipDeeplink(?string $packingSlipDeeplink): self
+    {
+        $this->packingSlipDeeplink = $packingSlipDeeplink;
+        $this->propertyFilled('packingSlipDeeplink');
+        return $this;
+    }
+
+    /**
      * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows Products that are ordered with this order
      * @return self
      */
@@ -1267,6 +1304,17 @@ class Orders implements Model
     {
         $this->ordernotes = $ordernotes;
         $this->propertyFilled('ordernotes');
+        return $this;
+    }
+
+    /**
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages Messages sent to the customer
+     * @return self
+     */
+    public function setOrdermessages(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages $ordermessages): self
+    {
+        $this->ordermessages = $ordermessages;
+        $this->propertyFilled('ordermessages');
         return $this;
     }
 
