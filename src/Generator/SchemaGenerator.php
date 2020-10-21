@@ -80,6 +80,12 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.productattributevalues.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.productattributevalues.patch.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.productattributevalues.post.v1.json', $namespace);
+
+        // invoices
+        $namespace = 'Invoices';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.invoices.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.invoices.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.invoices.input.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

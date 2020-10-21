@@ -580,6 +580,47 @@ $client->productattributevalues()->update(1234, $patch);
 $client->productattributevalues()->delete(1234);
 ```
 
+
+## Invoices
+
+### Get all invoices
+Get all invoices between 2020-01-01 and 2020-01-31
+
+```php
+// see the code and documentation for all available methods
+$getInvoicesParameter = (new \JacobDeKeizer\Ccv\Parameters\Invoices\All)
+    ->setMinCreateDate('2020-01-01')
+    ->setMaxCreateDate('2020-01-31');
+
+$invoices = $client->invoices()->all($getInvoicesParameter);
+```
+
+### Get invoice
+
+```php
+$invoice = $client->invoices()->get(123456);
+```
+
+### Update invoice
+
+```php
+$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+    ->setStatus(1);
+    // ->set...
+
+$client->invoices()->update(123456, $invoice);
+```
+
+### Create invoice
+
+```php
+$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+    ->setStatus(2);
+    //->set..
+   
+$client->invoices()->create(123, $invoice);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -593,3 +634,4 @@ $client->productattributevalues()->delete(1234);
 | attributes|
 | attributevalues|
 | productattributevalues|
+| invoices|
