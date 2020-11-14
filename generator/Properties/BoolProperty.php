@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator\Properties;
+namespace JacobDeKeizer\CcvGenerator\Properties;
 
 class BoolProperty extends Property
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator\Factories;
+namespace JacobDeKeizer\CcvGenerator\Factories;
 
-use JacobDeKeizer\Ccv\Generator\Properties\ArrayProperty;
-use JacobDeKeizer\Ccv\Generator\Properties\BoolProperty;
-use JacobDeKeizer\Ccv\Generator\Properties\FloatProperty;
-use JacobDeKeizer\Ccv\Generator\Properties\IntegerProperty;
-use JacobDeKeizer\Ccv\Generator\Properties\ObjectProperty;
-use JacobDeKeizer\Ccv\Generator\Properties\Property;
-use JacobDeKeizer\Ccv\Generator\Properties\StringType;
+use JacobDeKeizer\CcvGenerator\Properties\ArrayProperty;
+use JacobDeKeizer\CcvGenerator\Properties\BoolProperty;
+use JacobDeKeizer\CcvGenerator\Properties\FloatProperty;
+use JacobDeKeizer\CcvGenerator\Properties\IntegerProperty;
+use JacobDeKeizer\CcvGenerator\Properties\ObjectProperty;
+use JacobDeKeizer\CcvGenerator\Properties\Property;
+use JacobDeKeizer\CcvGenerator\Properties\StringType;
 use JacobDeKeizer\Ccv\Support\Str;
 
 class PropertyFactory

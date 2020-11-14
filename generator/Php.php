@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator;
+namespace JacobDeKeizer\CcvGenerator;
 
 class Php
 {

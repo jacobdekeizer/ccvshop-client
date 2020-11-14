@@ -1,8 +1,8 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator;
+namespace JacobDeKeizer\CcvGenerator;
 
-use JacobDeKeizer\Ccv\Generator\Properties\Property;
+use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
 
 class PhpClass

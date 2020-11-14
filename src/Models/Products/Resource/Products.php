@@ -171,6 +171,11 @@ class Products implements Model
     private $condition;
 
     /**
+     * @var object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     */
+    private $color;
+
+    /**
      * @var string|null Link to mainphoto
      */
     private $productmainphoto;
@@ -682,6 +687,14 @@ class Products implements Model
     public function getCondition(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition
     {
         return $this->condition;
+    }
+
+    /**
+     * @return object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     */
+    public function getColor(): ?object
+    {
+        return $this->color;
     }
 
     /**
@@ -1433,6 +1446,17 @@ class Products implements Model
     {
         $this->condition = $condition;
         $this->propertyFilled('condition');
+        return $this;
+    }
+
+    /**
+     * @param object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     * @return self
+     */
+    public function setColor(?object $color): self
+    {
+        $this->color = $color;
+        $this->propertyFilled('color');
         return $this;
     }
 

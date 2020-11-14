@@ -1,8 +1,8 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator;
+namespace JacobDeKeizer\CcvGenerator;
 
-use JacobDeKeizer\Ccv\Generator\Factories\PhpClassFactory;
+use JacobDeKeizer\CcvGenerator\Factories\PhpClassFactory;
 
 class SchemaGenerator
 {
@@ -13,7 +13,7 @@ class SchemaGenerator
 
     public function __construct()
     {
-        $this->rootDir = str_replace('Generator', '', __DIR__);
+        $this->rootDir = $this->normalizePath(str_replace('generator', 'src', __DIR__));
     }
 
     public static function generateAll(): void
@@ -104,14 +104,14 @@ class SchemaGenerator
 
     private function createPhpFile(PhpClass $phpClass): void
     {
-        $filePath = $this->rootDir . str_replace('\\', '/', $phpClass->getRelativePath());
+        $filePath = $this->rootDir . $this->normalizePath($phpClass->getRelativePath());
 
         $this->fileForceContents($filePath, $phpClass->toString());
     }
 
     private function fileForceContents(string $path, string $contents): void
     {
-        $parts = explode('/', $path);
+        $parts = explode(DIRECTORY_SEPARATOR, $path);
         array_pop($parts);
         $dir = '';
 
@@ -122,5 +122,10 @@ class SchemaGenerator
         }
 
         file_put_contents($path, $contents);
+    }
+
+    private function normalizePath(string $path): string
+    {
+        return str_replace('\\', '/', $path);
     }
 }

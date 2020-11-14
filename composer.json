@@ -22,7 +22,15 @@
       "JacobDeKeizer\\Ccv\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "JacobDeKeizer\\CcvGenerator\\": "generator/"
+    }
+  },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5"
+  },
+  "scripts": {
+    "generate": "JacobDeKeizer\\CcvGenerator\\SchemaGenerator::generateAll"
   }
 }

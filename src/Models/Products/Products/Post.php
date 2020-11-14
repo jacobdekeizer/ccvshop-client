@@ -136,6 +136,11 @@ class Post implements Model
     private $conditionId;
 
     /**
+     * @var int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
+     */
+    private $colorId;
+
+    /**
      * @var string|null Main category of this product for exports and searches. This does not influence the category structure.
      */
     private $maincategory;
@@ -511,6 +516,14 @@ class Post implements Model
     public function getConditionId(): ?int
     {
         return $this->conditionId;
+    }
+
+    /**
+     * @return int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
+     */
+    public function getColorId(): ?int
+    {
+        return $this->colorId;
     }
 
     /**
@@ -1057,6 +1070,17 @@ class Post implements Model
     {
         $this->conditionId = $conditionId;
         $this->propertyFilled('conditionId');
+        return $this;
+    }
+
+    /**
+     * @param int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
+     * @return self
+     */
+    public function setColorId(?int $colorId): self
+    {
+        $this->colorId = $colorId;
+        $this->propertyFilled('colorId');
         return $this;
     }
 
