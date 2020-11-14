@@ -45,7 +45,7 @@ class Post implements Model
     }
 
     /**
-     * @param string Attribute value name
+     * @param string $name Attribute value name
      * @return self
      */
     public function setName(string $name): self
@@ -56,7 +56,7 @@ class Post implements Model
     }
 
     /**
-     * @param float Default price of this attribute value
+     * @param float $defaultPrice Default price of this attribute value
      * @return self
      */
     public function setDefaultPrice(float $defaultPrice): self

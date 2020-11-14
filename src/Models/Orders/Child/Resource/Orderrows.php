@@ -32,7 +32,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string Link to products that are ordered with this order
+     * @param string $href Link to products that are ordered with this order
      * @return self
      */
     public function setHref(string $href): self

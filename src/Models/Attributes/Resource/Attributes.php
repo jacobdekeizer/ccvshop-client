@@ -110,7 +110,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string|null Link to self
+     * @param string|null $href Link to self
      * @return self
      */
     public function setHref(?string $href): self
@@ -121,7 +121,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param int|null Unique id of the resource
+     * @param int|null $id Unique id of the resource
      * @return self
      */
     public function setId(?int $id): self
@@ -132,7 +132,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string|null Attribute name
+     * @param string|null $name Attribute name
      * @return self
      */
     public function setName(?string $name): self
@@ -143,7 +143,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param int|null Deprecated. Use property 'type' instead. Type of attribute. 1. Pulldown with Attribute values. 2. Text field (optional). 3. Text field (required). 4. Pulldown with Attribute values (required). 5. Additional menu. 6.Additional menu (required)
+     * @param int|null $attributeType Deprecated. Use property 'type' instead. Type of attribute. 1. Pulldown with Attribute values. 2. Text field (optional). 3. Text field (required). 4. Pulldown with Attribute values (required). 5. Additional menu. 6.Additional menu (required)
      * @return self
      */
     public function setAttributeType(?int $attributeType): self
@@ -154,7 +154,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string|null Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus will not be used to calculate attribute combinations.
+     * @param string|null $type Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus will not be used to calculate attribute combinations.
      * @return self
      */
     public function setType(?string $type): self
@@ -165,7 +165,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\AttributeValues|null Values linked to this attribute. This collection is empty with attribute_type 'text' and 'text_required'.
+     * @param \JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\AttributeValues|null $attributeValues Values linked to this attribute. This collection is empty with attribute_type 'text' and 'text_required'.
      * @return self
      */
     public function setAttributeValues(?\JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\AttributeValues $attributeValues): self
@@ -176,7 +176,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Attributes\Child\Resource\ParentItem $parent): self

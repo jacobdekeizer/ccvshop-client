@@ -45,7 +45,7 @@ class Productkeywords implements Model
     }
 
     /**
-     * @param string Product keyword
+     * @param string $keyword Product keyword
      * @return self
      */
     public function setKeyword(string $keyword): self
@@ -56,7 +56,7 @@ class Productkeywords implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

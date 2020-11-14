@@ -45,7 +45,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Attribute value name
+     * @param string|null $name Attribute value name
      * @return self
      */
     public function setName(?string $name): self
@@ -56,7 +56,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Default price of this attribute value
+     * @param float|null $defaultPrice Default price of this attribute value
      * @return self
      */
     public function setDefaultPrice(?float $defaultPrice): self

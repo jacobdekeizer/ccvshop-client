@@ -32,7 +32,7 @@ class Put implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] $orderrows Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      * @return self
      */
     public function setOrderrows(array $orderrows): self

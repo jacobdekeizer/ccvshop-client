@@ -45,7 +45,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param string Link to collection of attribute sets
+     * @param string $href Link to collection of attribute sets
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productattributesets[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self

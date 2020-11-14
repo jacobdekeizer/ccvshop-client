@@ -45,7 +45,7 @@ class TakeOutWindow implements Model
     }
 
     /**
-     * @param string|null Start datetime of the take out slot in UTC.
+     * @param string|null $start Start datetime of the take out slot in UTC.
      * @return self
      */
     public function setStart(?string $start): self
@@ -56,7 +56,7 @@ class TakeOutWindow implements Model
     }
 
     /**
-     * @param string|null End datetime of the take out slot in UTC.
+     * @param string|null $end End datetime of the take out slot in UTC.
      * @return self
      */
     public function setEnd(?string $end): self

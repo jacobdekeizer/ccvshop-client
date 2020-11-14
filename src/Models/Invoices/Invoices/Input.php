@@ -58,7 +58,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @param string|null $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      * @return self
      */
     public function setStatus(?string $status): self
@@ -69,7 +69,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Date of when the payment link was send to the customer in UTC
+     * @param string|null $paymentLinkSent Date of when the payment link was send to the customer in UTC
      * @return self
      */
     public function setPaymentLinkSent(?string $paymentLinkSent): self
@@ -80,7 +80,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null A reference to the invoice number at a third party.
+     * @param string|null $externalReference A reference to the invoice number at a third party.
      * @return self
      */
     public function setExternalReference(?string $externalReference): self

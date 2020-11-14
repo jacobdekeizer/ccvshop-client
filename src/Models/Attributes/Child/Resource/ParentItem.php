@@ -32,7 +32,7 @@ class ParentItem implements Model
     }
 
     /**
-     * @param string Link to attributes collection
+     * @param string $href Link to attributes collection
      * @return self
      */
     public function setHref(string $href): self

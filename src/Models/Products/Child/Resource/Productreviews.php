@@ -45,7 +45,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param string|null Link to collection of reviews.
+     * @param string|null $href Link to collection of reviews.
      * @return self
      */
     public function setHref(?string $href): self
@@ -56,7 +56,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews[]|null Array with review items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews[]|null $collection Array with review items
      * @return self
      */
     public function setCollection(?array $collection): self

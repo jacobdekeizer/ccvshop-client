@@ -32,7 +32,7 @@ class AttributeValues implements Model
     }
 
     /**
-     * @param string Link to the values of this attribute
+     * @param string $href Link to the values of this attribute
      * @return self
      */
     public function setHref(string $href): self

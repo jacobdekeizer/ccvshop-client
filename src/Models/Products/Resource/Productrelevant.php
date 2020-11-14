@@ -110,7 +110,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -121,7 +121,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param int Unique id of the resource
+     * @param int $id Unique id of the resource
      * @return self
      */
     public function setId(int $id): self
@@ -132,7 +132,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param int Unique id of the child product. This is product will show on the parent product page as a relevant product.
+     * @param int $childProductId Unique id of the child product. This is product will show on the parent product page as a relevant product.
      * @return self
      */
     public function setChildProductId(int $childProductId): self
@@ -143,7 +143,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param int Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
+     * @param int $parentProductId Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
      * @return self
      */
     public function setParentProductId(int $parentProductId): self
@@ -154,7 +154,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct|null The child product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct|null $childProduct The child product
      * @return self
      */
     public function setChildProduct(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ChildProduct $childProduct): self
@@ -165,7 +165,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct|null The parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct|null $parentProduct The parent product
      * @return self
      */
     public function setParentProduct(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentProduct $parentProduct): self
@@ -176,7 +176,7 @@ class Productrelevant implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Parent resource of this resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

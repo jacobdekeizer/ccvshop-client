@@ -58,7 +58,7 @@ class User implements Model
     }
 
     /**
-     * @param int|null Unique id of the user. If null, no user was associated with this order
+     * @param int|null $id Unique id of the user. If null, no user was associated with this order
      * @return self
      */
     public function setId(?int $id): self
@@ -69,7 +69,7 @@ class User implements Model
     }
 
     /**
-     * @param float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
+     * @param float|null $discountPercentage Percentage of discount this use received on this order. This discount is already calculated in the prices
      * @return self
      */
     public function setDiscountPercentage(?float $discountPercentage): self
@@ -80,7 +80,7 @@ class User implements Model
     }
 
     /**
-     * @param string|null Link to user associated with this order
+     * @param string|null $href Link to user associated with this order
      * @return self
      */
     public function setHref(?string $href): self

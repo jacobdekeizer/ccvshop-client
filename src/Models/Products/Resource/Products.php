@@ -1098,7 +1098,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -1109,7 +1109,7 @@ class Products implements Model
     }
 
     /**
-     * @param int Unique id of the resource
+     * @param int $id Unique id of the resource
      * @return self
      */
     public function setId(int $id): self
@@ -1120,7 +1120,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Indicates if (true) this product is active or (false) inactive.
+     * @param bool $isActive Indicates if (true) this product is active or (false) inactive.
      * @return self
      */
     public function setIsActive(bool $isActive): self
@@ -1131,7 +1131,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Create date of product in UTC
+     * @param string $createdate Create date of product in UTC
      * @return self
      */
     public function setCreatedate(string $createdate): self
@@ -1142,7 +1142,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Last modify date of product in UTC
+     * @param string $modifydate Last modify date of product in UTC
      * @return self
      */
     public function setModifydate(string $modifydate): self
@@ -1153,7 +1153,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Product number
+     * @param string $productnumber Product number
      * @return self
      */
     public function setProductnumber(string $productnumber): self
@@ -1164,7 +1164,7 @@ class Products implements Model
     }
 
     /**
-     * @param string EAN (European Article Number)
+     * @param string $eannumber EAN (European Article Number)
      * @return self
      */
     public function setEannumber(string $eannumber): self
@@ -1175,7 +1175,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Manufacturer Product Number
+     * @param string $mpnnumber Manufacturer Product Number
      * @return self
      */
     public function setMpnnumber(string $mpnnumber): self
@@ -1186,7 +1186,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
+     * @param bool $isMultishopProduct Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
      * @return self
      */
     public function setIsMultishopProduct(bool $isMultishopProduct): self
@@ -1197,7 +1197,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Product name
+     * @param string $name Product name
      * @return self
      */
     public function setName(string $name): self
@@ -1208,7 +1208,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Product short description
+     * @param string $shortdescription Product short description
      * @return self
      */
     public function setShortdescription(string $shortdescription): self
@@ -1219,7 +1219,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null Product description
+     * @param string|null $description Product description
      * @return self
      */
     public function setDescription(?string $description): self
@@ -1230,7 +1230,7 @@ class Products implements Model
     }
 
     /**
-     * @param float VAT rate of product in percentage
+     * @param float $vatrate VAT rate of product in percentage
      * @return self
      */
     public function setVatrate(float $vatrate): self
@@ -1241,7 +1241,7 @@ class Products implements Model
     }
 
     /**
-     * @param float Original price of the product, before discounts
+     * @param float $price Original price of the product, before discounts
      * @return self
      */
     public function setPrice(float $price): self
@@ -1252,7 +1252,7 @@ class Products implements Model
     }
 
     /**
-     * @param float Discount on the product. Price - Discount = Sell price
+     * @param float $discount Discount on the product. Price - Discount = Sell price
      * @return self
      */
     public function setDiscount(float $discount): self
@@ -1263,7 +1263,7 @@ class Products implements Model
     }
 
     /**
-     * @param float Purchase price ex. VAT off this product.
+     * @param float $purchaseprice Purchase price ex. VAT off this product.
      * @return self
      */
     public function setPurchaseprice(float $purchaseprice): self
@@ -1274,7 +1274,7 @@ class Products implements Model
     }
 
     /**
-     * @param float This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
+     * @param float $containerDepositPrice This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      * @return self
      */
     public function setContainerDepositPrice(float $containerDepositPrice): self
@@ -1285,7 +1285,7 @@ class Products implements Model
     }
 
     /**
-     * @param float This price will be added to the total price as a safety deposit (in Dutch: Borg).
+     * @param float $safetyDepositPrice This price will be added to the total price as a safety deposit (in Dutch: Borg).
      * @return self
      */
     public function setSafetyDepositPrice(float $safetyDepositPrice): self
@@ -1296,7 +1296,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts $productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      * @return self
      */
     public function setProductshippingcosts(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productshippingcosts $productshippingcosts): self
@@ -1307,7 +1307,7 @@ class Products implements Model
     }
 
     /**
-     * @param int|null Custom creditpoints for this product
+     * @param int|null $creditPointsCustom Custom creditpoints for this product
      * @return self
      */
     public function setCreditPointsCustom(?int $creditPointsCustom): self
@@ -1318,7 +1318,7 @@ class Products implements Model
     }
 
     /**
-     * @param int|null Calculated creditpoints for this product
+     * @param int|null $creditPointsCalculated Calculated creditpoints for this product
      * @return self
      */
     public function setCreditPointsCalculated(?int $creditPointsCalculated): self
@@ -1329,7 +1329,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null The unit in which this product is sold (ie 'per piece')
+     * @param string|null $unit The unit in which this product is sold (ie 'per piece')
      * @return self
      */
     public function setUnit(?string $unit): self
@@ -1340,7 +1340,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool|null This product has stock
+     * @param bool|null $stockenabled This product has stock
      * @return self
      */
     public function setStockenabled(?bool $stockenabled): self
@@ -1351,7 +1351,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null If the stock amount is linked to the product of the attribute combination
+     * @param string|null $stocktype If the stock amount is linked to the product of the attribute combination
      * @return self
      */
     public function setStocktype(?string $stocktype): self
@@ -1362,7 +1362,7 @@ class Products implements Model
     }
 
     /**
-     * @param float|null The quantity in stock for this product
+     * @param float|null $stock The quantity in stock for this product
      * @return self
      */
     public function setStock(?float $stock): self
@@ -1373,7 +1373,7 @@ class Products implements Model
     }
 
     /**
-     * @param string The location of the product's stock
+     * @param string $stocklocation The location of the product's stock
      * @return self
      */
     public function setStocklocation(string $stocklocation): self
@@ -1384,7 +1384,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
+     * @param string|null $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      * @return self
      */
     public function setOrderingWithoutStock(?string $orderingWithoutStock): self
@@ -1395,7 +1395,7 @@ class Products implements Model
     }
 
     /**
-     * @param float Weight of the product in kilograms
+     * @param float $weight Weight of the product in kilograms
      * @return self
      */
     public function setWeight(float $weight): self
@@ -1406,7 +1406,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null The main categorie of this product.
+     * @param string|null $maincategory The main categorie of this product.
      * @return self
      */
     public function setMaincategory(?string $maincategory): self
@@ -1417,7 +1417,7 @@ class Products implements Model
     }
 
     /**
-     * @param string The sub categorie of this product.
+     * @param string $subcategory The sub categorie of this product.
      * @return self
      */
     public function setSubcategory(string $subcategory): self
@@ -1428,7 +1428,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand|null Brand resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand|null $brand Brand resource
      * @return self
      */
     public function setBrand(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Brand $brand): self
@@ -1439,7 +1439,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition|null Condition resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition|null $condition Condition resource
      * @return self
      */
     public function setCondition(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Condition $condition): self
@@ -1450,7 +1450,7 @@ class Products implements Model
     }
 
     /**
-     * @param object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     * @param object|null $color A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      * @return self
      */
     public function setColor(?object $color): self
@@ -1461,7 +1461,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null Link to mainphoto
+     * @param string|null $productmainphoto Link to mainphoto
      * @return self
      */
     public function setProductmainphoto(?string $productmainphoto): self
@@ -1472,7 +1472,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Metatag Description
+     * @param string $metaDescription Metatag Description
      * @return self
      */
     public function setMetaDescription(string $metaDescription): self
@@ -1483,7 +1483,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Metatag Keywords
+     * @param string $metaKeywords Metatag Keywords
      * @return self
      */
     public function setMetaKeywords(string $metaKeywords): self
@@ -1494,7 +1494,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Page title
+     * @param string $pageTitle Page title
      * @return self
      */
     public function setPageTitle(string $pageTitle): self
@@ -1505,7 +1505,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Metatag robots: No-Index
+     * @param bool $noIndex Metatag robots: No-Index
      * @return self
      */
     public function setNoIndex(bool $noIndex): self
@@ -1516,7 +1516,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Metatag robots: No-Follow
+     * @param bool $noFollow Metatag robots: No-Follow
      * @return self
      */
     public function setNoFollow(bool $noFollow): self
@@ -1527,7 +1527,7 @@ class Products implements Model
     }
 
     /**
-     * @param string SEO Alias of this resource
+     * @param string $alias SEO Alias of this resource
      * @return self
      */
     public function setAlias(string $alias): self
@@ -1538,7 +1538,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Deeplink to this resource
+     * @param string $deeplink Deeplink to this resource
      * @return self
      */
     public function setDeeplink(string $deeplink): self
@@ -1549,7 +1549,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null Specification link
+     * @param string|null $specs Specification link
      * @return self
      */
     public function setSpecs(?string $specs): self
@@ -1560,7 +1560,7 @@ class Products implements Model
     }
 
     /**
-     * @param int Number of decimals that can be used in amounts
+     * @param int $decimalAmount Number of decimals that can be used in amounts
      * @return self
      */
     public function setDecimalAmount(int $decimalAmount): self
@@ -1571,7 +1571,7 @@ class Products implements Model
     }
 
     /**
-     * @param float Minimal order amount
+     * @param float $minimalOrderAmount Minimal order amount
      * @return self
      */
     public function setMinimalOrderAmount(float $minimalOrderAmount): self
@@ -1582,7 +1582,7 @@ class Products implements Model
     }
 
     /**
-     * @param int Expected delivery time, number of days, weeks, months, quarters, years
+     * @param int $stockDeliveryNumber Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
      */
     public function setStockDeliveryNumber(int $stockDeliveryNumber): self
@@ -1593,7 +1593,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Expected delivery type
+     * @param string $stockDeliveryType Expected delivery type
      * @return self
      */
     public function setStockDeliveryType(string $stockDeliveryType): self
@@ -1604,7 +1604,7 @@ class Products implements Model
     }
 
     /**
-     * @param string This field will be showed as the standard delivery text
+     * @param string $stockDeliveryStandard This field will be showed as the standard delivery text
      * @return self
      */
     public function setStockDeliveryStandard(string $stockDeliveryStandard): self
@@ -1615,7 +1615,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Show the product in the window offers
+     * @param bool $showInTemplate Show the product in the window offers
      * @return self
      */
     public function setShowInTemplate(bool $showInTemplate): self
@@ -1626,7 +1626,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Show the product as a offer at the beginpage or offer element
+     * @param bool $showOnBeginpage Show the product as a offer at the beginpage or offer element
      * @return self
      */
     public function setShowOnBeginpage(bool $showOnBeginpage): self
@@ -1637,7 +1637,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Show the product in the facebook shop when available
+     * @param bool $showOnFacebook Show the product in the facebook shop when available
      * @return self
      */
     public function setShowOnFacebook(bool $showOnFacebook): self
@@ -1648,7 +1648,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
+     * @param string $showOrderButton Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
      * @return self
      */
     public function setShowOrderButton(string $showOrderButton): self
@@ -1659,7 +1659,7 @@ class Products implements Model
     }
 
     /**
-     * @param int Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
+     * @param int $productLayout Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
      * @return self
      */
     public function setProductLayout(int $productLayout): self
@@ -1670,7 +1670,7 @@ class Products implements Model
     }
 
     /**
-     * @param string The photo description size
+     * @param string $photoSize The photo description size
      * @return self
      */
     public function setPhotoSize(string $photoSize): self
@@ -1681,7 +1681,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
+     * @param string $hideWithoutCategory Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
      * @return self
      */
     public function setHideWithoutCategory(string $hideWithoutCategory): self
@@ -1692,7 +1692,7 @@ class Products implements Model
     }
 
     /**
-     * @param string Internal memo for internal purpose only
+     * @param string $memo Internal memo for internal purpose only
      * @return self
      */
     public function setMemo(string $memo): self
@@ -1703,7 +1703,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool|null Enable / disable Marktplaats.
+     * @param bool|null $marktplaatsActive Enable / disable Marktplaats.
      * @return self
      */
     public function setMarktplaatsActive(?bool $marktplaatsActive): self
@@ -1714,7 +1714,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null The status for this advertisement
+     * @param string|null $marktplaatsStatus The status for this advertisement
      * @return self
      */
     public function setMarktplaatsStatus(?string $marktplaatsStatus): self
@@ -1725,7 +1725,7 @@ class Products implements Model
     }
 
     /**
-     * @param float|null Cost per click in euro cents
+     * @param float|null $marktplaatsCpc Cost per click in euro cents
      * @return self
      */
     public function setMarktplaatsCpc(?float $marktplaatsCpc): self
@@ -1736,7 +1736,7 @@ class Products implements Model
     }
 
     /**
-     * @param float|null Daily budget for this advertisement in euro cents
+     * @param float|null $marktplaatsDailyBudget Daily budget for this advertisement in euro cents
      * @return self
      */
     public function setMarktplaatsDailyBudget(?float $marktplaatsDailyBudget): self
@@ -1747,7 +1747,7 @@ class Products implements Model
     }
 
     /**
-     * @param float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
+     * @param float|null $marktplaatsTotalBudget Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      * @return self
      */
     public function setMarktplaatsTotalBudget(?float $marktplaatsTotalBudget): self
@@ -1758,7 +1758,7 @@ class Products implements Model
     }
 
     /**
-     * @param int|null The Marktplaats category Id
+     * @param int|null $marktplaatsCategoryId The Marktplaats category Id
      * @return self
      */
     public function setMarktplaatsCategoryId(?int $marktplaatsCategoryId): self
@@ -1769,7 +1769,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null The price type
+     * @param string|null $marktplaatsPriceType The price type
      * @return self
      */
     public function setMarktplaatsPriceType(?string $marktplaatsPriceType): self
@@ -1780,7 +1780,7 @@ class Products implements Model
     }
 
     /**
-     * @param string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
+     * @param string|null $googleShoppingCategory Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      * @return self
      */
     public function setGoogleShoppingCategory(?string $googleShoppingCategory): self
@@ -1791,7 +1791,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package|null Package of this product.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package|null $package Package of this product.
      * @return self
      */
     public function setPackage(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Package $package): self
@@ -1802,7 +1802,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier|null Supplier resource
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier|null $supplier Supplier resource
      * @return self
      */
     public function setSupplier(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Supplier $supplier): self
@@ -1813,7 +1813,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool|null Is this product included in the export feed
+     * @param bool|null $isIncludedForExportFeed Is this product included in the export feed
      * @return self
      */
     public function setIsIncludedForExportFeed(?bool $isIncludedForExportFeed): self
@@ -1824,7 +1824,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Fixed staggered prices enabled
+     * @param bool $fixedStaggeredPrices Fixed staggered prices enabled
      * @return self
      */
     public function setFixedStaggeredPrices(bool $fixedStaggeredPrices): self
@@ -1835,7 +1835,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Is this product visible in the webshop
+     * @param bool $isVisible Is this product visible in the webshop
      * @return self
      */
     public function setIsVisible(bool $isVisible): self
@@ -1846,7 +1846,7 @@ class Products implements Model
     }
 
     /**
-     * @param bool Can this product be ordered in the webshop
+     * @param bool $canBeOrdered Can this product be ordered in the webshop
      * @return self
      */
     public function setCanBeOrdered(bool $canBeOrdered): self
@@ -1857,7 +1857,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels|null Product labels
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels|null $productlabels Product labels
      * @return self
      */
     public function setProductlabels(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productlabels $productlabels): self
@@ -1868,7 +1868,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos|null Product photos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos|null $productphotos Product photos
      * @return self
      */
     public function setProductphotos(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productphotos $productphotos): self
@@ -1879,7 +1879,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations|null Product variations
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations|null $productvariations Product variations
      * @return self
      */
     public function setProductvariations(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvariations $productvariations): self
@@ -1890,7 +1890,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null Product videos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos|null $productvideos Product videos
      * @return self
      */
     public function setProductvideos(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productvideos $productvideos): self
@@ -1901,7 +1901,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null $productattachments Product attachments
      * @return self
      */
     public function setProductattachments(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments $productattachments): self
@@ -1912,7 +1912,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords|null $productkeywords These keyswords are used for the tagcloud and internal search engine on the webshop
      * @return self
      */
     public function setProductkeywords(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productkeywords $productkeywords): self
@@ -1923,7 +1923,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant|null Relevant product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant|null $productrelevant Relevant product
      * @return self
      */
     public function setProductrelevant(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productrelevant $productrelevant): self
@@ -1934,7 +1934,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets|null Attribute sets
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets|null $productattributesets Attribute sets
      * @return self
      */
     public function setProductattributesets(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattributesets $productattributesets): self
@@ -1945,7 +1945,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices|null Product staggered prices
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices|null $productstaggeredprices Product staggered prices
      * @return self
      */
     public function setProductstaggeredprices(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productstaggeredprices $productstaggeredprices): self
@@ -1956,7 +1956,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories|null Product categories
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories|null $producttocategories Product categories
      * @return self
      */
     public function setProducttocategories(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttocategories $producttocategories): self
@@ -1967,7 +1967,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews|null Product reviews
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews|null $productreviews Product reviews
      * @return self
      */
     public function setProductreviews(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productreviews $productreviews): self
@@ -1978,7 +1978,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops|null $webshops Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      * @return self
      */
     public function setWebshops(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Webshops $webshops): self
@@ -1989,7 +1989,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations|null Attribute combination
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations|null $attributecombinations Attribute combination
      * @return self
      */
     public function setAttributecombinations(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinations $attributecombinations): self
@@ -2000,7 +2000,7 @@ class Products implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups|null Collection of product property groups.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups|null $producttopropertygroups Collection of product property groups.
      * @return self
      */
     public function setProducttopropertygroups(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttopropertygroups $producttopropertygroups): self

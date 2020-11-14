@@ -58,7 +58,7 @@ class Combination implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attribute Describes the attribute set.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attribute $attribute Describes the attribute set.
      * @return self
      */
     public function setAttribute(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attribute $attribute): self
@@ -69,7 +69,7 @@ class Combination implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\AttributeValue Describes the attribute value in the attribute set.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\AttributeValue $attributeValue Describes the attribute value in the attribute set.
      * @return self
      */
     public function setAttributeValue(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\AttributeValue $attributeValue): self
@@ -80,7 +80,7 @@ class Combination implements Model
     }
 
     /**
-     * @param float The extra price that is calculated when selecting this attribute value.
+     * @param float $extraPrice The extra price that is calculated when selecting this attribute value.
      * @return self
      */
     public function setExtraPrice(float $extraPrice): self

@@ -45,7 +45,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param string Link to collection of product photos
+     * @param string $href Link to collection of product photos
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self

@@ -110,7 +110,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param int Offset of the set
+     * @param int $start Offset of the set
      * @return self
      */
     public function setStart(int $start): self
@@ -121,7 +121,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param int Size of the set
+     * @param int $size Size of the set
      * @return self
      */
     public function setSize(int $size): self
@@ -132,7 +132,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -143,7 +143,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Link to the first set of the collection
+     * @param string|null $first Link to the first set of the collection
      * @return self
      */
     public function setFirst(?string $first): self
@@ -154,7 +154,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Link to the previous set of the collection
+     * @param string|null $previous Link to the previous set of the collection
      * @return self
      */
     public function setPrevious(?string $previous): self
@@ -165,7 +165,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Link to the next set of the collection
+     * @param string|null $next Link to the next set of the collection
      * @return self
      */
     public function setNext(?string $next): self
@@ -176,7 +176,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices[] $items Array with collection items
      * @return self
      */
     public function setItems(array $items): self

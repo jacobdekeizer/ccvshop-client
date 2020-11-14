@@ -32,7 +32,7 @@ class Invoicerows implements Model
     }
 
     /**
-     * @param string Link to products that are included in this invoice.
+     * @param string $href Link to products that are included in this invoice.
      * @return self
      */
     public function setHref(string $href): self

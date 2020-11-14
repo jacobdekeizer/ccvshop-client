@@ -84,7 +84,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param float Indication of shipping costs if only one item would be baught and shipped to the default country.
+     * @param float $costs Indication of shipping costs if only one item would be baught and shipped to the default country.
      * @return self
      */
     public function setCosts(float $costs): self
@@ -95,7 +95,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param string|null This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
+     * @param string|null $defaultCountry This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      * @return self
      */
     public function setDefaultCountry(?string $defaultCountry): self
@@ -106,7 +106,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param float Quantity of items shipped. Default is 1. Can be changed with parameters.
+     * @param float $quantity Quantity of items shipped. Default is 1. Can be changed with parameters.
      * @return self
      */
     public function setQuantity(float $quantity): self
@@ -117,7 +117,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param string Link to collection of product shipping costs.
+     * @param string $href Link to collection of product shipping costs.
      * @return self
      */
     public function setHref(string $href): self
@@ -128,7 +128,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productshippingcosts[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self

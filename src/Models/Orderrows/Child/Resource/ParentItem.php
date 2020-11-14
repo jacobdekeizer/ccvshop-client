@@ -32,7 +32,7 @@ class ParentItem implements Model
     }
 
     /**
-     * @param string|null Link to order
+     * @param string|null $href Link to order
      * @return self
      */
     public function setHref(?string $href): self

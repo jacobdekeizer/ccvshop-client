@@ -45,7 +45,7 @@ class Productkeywords implements Model
     }
 
     /**
-     * @param string Link to collection of product keywords
+     * @param string $href Link to collection of product keywords
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Productkeywords implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productkeywords[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self

@@ -58,7 +58,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Quantity of products.
+     * @param float|null $count Quantity of products.
      * @return self
      */
     public function setCount(?float $count): self
@@ -69,7 +69,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Row original price. Sellprice is calculated as price - discount.
+     * @param float|null $price Row original price. Sellprice is calculated as price - discount.
      * @return self
      */
     public function setPrice(?float $price): self
@@ -80,7 +80,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Row discount price. Sellprice is calculated as price - discount.
+     * @param float|null $discount Row discount price. Sellprice is calculated as price - discount.
      * @return self
      */
     public function setDiscount(?float $discount): self

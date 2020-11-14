@@ -58,7 +58,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param float Indication of shipping costs if the quantity of items would be baught and shipped to this country.
+     * @param float $costs Indication of shipping costs if the quantity of items would be baught and shipped to this country.
      * @return self
      */
     public function setCosts(float $costs): self
@@ -69,7 +69,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param float Quantity of items shipped. Default is 1. Can be changed with parameters.
+     * @param float $quantity Quantity of items shipped. Default is 1. Can be changed with parameters.
      * @return self
      */
     public function setQuantity(float $quantity): self
@@ -80,7 +80,7 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param string This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
+     * @param string $country This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      * @return self
      */
     public function setCountry(string $country): self

@@ -110,7 +110,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -121,7 +121,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param int Product variation id
+     * @param int $id Product variation id
      * @return self
      */
     public function setId(int $id): self
@@ -132,7 +132,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param int Product Id that is linked as variation.
+     * @param int $productVariationId Product Id that is linked as variation.
      * @return self
      */
     public function setProductVariationId(int $productVariationId): self
@@ -143,7 +143,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param string Href to the product that is linked as variation.
+     * @param string $productVariationHref Href to the product that is linked as variation.
      * @return self
      */
     public function setProductVariationHref(string $productVariationHref): self
@@ -154,7 +154,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param bool If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
+     * @param bool $autoCreated If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
      * @return self
      */
     public function setAutoCreated(bool $autoCreated): self
@@ -165,7 +165,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param bool Inactive variation are hidden in the webshop.
+     * @param bool $active Inactive variation are hidden in the webshop.
      * @return self
      */
     public function setActive(bool $active): self
@@ -176,7 +176,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

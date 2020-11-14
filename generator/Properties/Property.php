@@ -59,15 +59,21 @@ abstract class Property
     public function getSetter(): string
     {
         return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @param ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
+            . self::INDENT. ' * @param '
+                . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL
             . self::INDENT . 'public function set' . ucfirst($this->name)
-                . '(' . $this->getPhpType() . ' $' . $this->name . '): self' . PHP_EOL
+                . '(' . $this->getPhpType() . ' ' . $this->getVariable() . '): self' . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = $' . $this->name . ';' . PHP_EOL
+            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = ' . $this->getVariable() . ';' . PHP_EOL
             . self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL
             . self::INDENT . self::INDENT . 'return $this;' . PHP_EOL
             . self::INDENT . '}' . PHP_EOL;
+    }
+
+    protected function getVariable(): string
+    {
+        return '$' . $this->name;
     }
 }

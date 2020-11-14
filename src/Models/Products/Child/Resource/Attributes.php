@@ -32,7 +32,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string|null Link to collection of attributes belonging to the combination
+     * @param string|null $href Link to collection of attributes belonging to the combination
      * @return self
      */
     public function setHref(?string $href): self

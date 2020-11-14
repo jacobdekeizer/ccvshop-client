@@ -799,7 +799,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Product number
+     * @param string|null $productnumber Product number
      * @return self
      */
     public function setProductnumber(?string $productnumber): self
@@ -810,7 +810,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Active product?
+     * @param bool|null $active Active product?
      * @return self
      */
     public function setActive(?bool $active): self
@@ -821,7 +821,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null EAN (European Article Number)
+     * @param string|null $eannumber EAN (European Article Number)
      * @return self
      */
     public function setEannumber(?string $eannumber): self
@@ -832,7 +832,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Manufacturer Product Number
+     * @param string|null $mpnnumber Manufacturer Product Number
      * @return self
      */
     public function setMpnnumber(?string $mpnnumber): self
@@ -843,7 +843,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Product name
+     * @param string|null $name Product name
      * @return self
      */
     public function setName(?string $name): self
@@ -854,7 +854,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Product short description
+     * @param string|null $shortdescription Product short description
      * @return self
      */
     public function setShortdescription(?string $shortdescription): self
@@ -865,7 +865,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Product description
+     * @param string|null $description Product description
      * @return self
      */
     public function setDescription(?string $description): self
@@ -876,7 +876,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null VAT rate of product in percentage
+     * @param float|null $vatrate VAT rate of product in percentage
      * @return self
      */
     public function setVatrate(?float $vatrate): self
@@ -887,7 +887,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Original price of the product, before discounts
+     * @param float|null $price Original price of the product, before discounts
      * @return self
      */
     public function setPrice(?float $price): self
@@ -898,7 +898,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Discount on the product. Price - Discount = Sell price
+     * @param float|null $discount Discount on the product. Price - Discount = Sell price
      * @return self
      */
     public function setDiscount(?float $discount): self
@@ -909,7 +909,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Purchase price ex. VAT off this product.
+     * @param float|null $purchaseprice Purchase price ex. VAT off this product.
      * @return self
      */
     public function setPurchaseprice(?float $purchaseprice): self
@@ -920,7 +920,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
+     * @param float|null $containerDepositPrice This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      * @return self
      */
     public function setContainerDepositPrice(?float $containerDepositPrice): self
@@ -931,7 +931,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null This price will be added to the total price as a safety deposit (in Dutch: Borg).
+     * @param float|null $safetyDepositPrice This price will be added to the total price as a safety deposit (in Dutch: Borg).
      * @return self
      */
     public function setSafetyDepositPrice(?float $safetyDepositPrice): self
@@ -942,7 +942,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Custom creditpoints for this product
+     * @param int|null $creditPointsCustom Custom creditpoints for this product
      * @return self
      */
     public function setCreditPointsCustom(?int $creditPointsCustom): self
@@ -953,7 +953,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null The unit in which this product is sold (ie 'per piece')
+     * @param string|null $unit The unit in which this product is sold (ie 'per piece')
      * @return self
      */
     public function setUnit(?string $unit): self
@@ -964,7 +964,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null This product has stock
+     * @param bool|null $stockenabled This product has stock
      * @return self
      */
     public function setStockenabled(?bool $stockenabled): self
@@ -975,7 +975,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null If the stock amount is linked to the product of the attribute combination
+     * @param string|null $stocktype If the stock amount is linked to the product of the attribute combination
      * @return self
      */
     public function setStocktype(?string $stocktype): self
@@ -986,7 +986,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null The quantity in stock for this product
+     * @param float|null $stock The quantity in stock for this product
      * @return self
      */
     public function setStock(?float $stock): self
@@ -997,7 +997,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null The location of the product's stock
+     * @param string|null $stocklocation The location of the product's stock
      * @return self
      */
     public function setStocklocation(?string $stocklocation): self
@@ -1008,7 +1008,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
+     * @param string|null $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      * @return self
      */
     public function setOrderingWithoutStock(?string $orderingWithoutStock): self
@@ -1019,7 +1019,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Weight of the product in kilograms
+     * @param float|null $weight Weight of the product in kilograms
      * @return self
      */
     public function setWeight(?float $weight): self
@@ -1030,7 +1030,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Deprecated. Product brand. Please use brand_id.
+     * @param string|null $brand Deprecated. Product brand. Please use brand_id.
      * @return self
      */
     public function setBrand(?string $brand): self
@@ -1041,7 +1041,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Id of the brand, the brand id are available in the resource brands
+     * @param int|null $brandId Id of the brand, the brand id are available in the resource brands
      * @return self
      */
     public function setBrandId(?int $brandId): self
@@ -1052,7 +1052,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Id of the condition, the condition id are available in the resource conditions
+     * @param int|null $conditionId Id of the condition, the condition id are available in the resource conditions
      * @return self
      */
     public function setConditionId(?int $conditionId): self
@@ -1063,7 +1063,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
+     * @param int|null $colorId Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
      * @return self
      */
     public function setColorId(?int $colorId): self
@@ -1074,7 +1074,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Deprecated. Product condition. Please use condition_id.
+     * @param string|null $condition Deprecated. Product condition. Please use condition_id.
      * @return self
      */
     public function setCondition(?string $condition): self
@@ -1085,7 +1085,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Main category of this product for exports and searches. This does not influence the category structure.
+     * @param string|null $maincategory Main category of this product for exports and searches. This does not influence the category structure.
      * @return self
      */
     public function setMaincategory(?string $maincategory): self
@@ -1096,7 +1096,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Sub category of this product for exports and searches. This does not influence the category structure.
+     * @param string|null $subcategory Sub category of this product for exports and searches. This does not influence the category structure.
      * @return self
      */
     public function setSubcategory(?string $subcategory): self
@@ -1107,7 +1107,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Package id of this product
+     * @param int|null $packageId Package id of this product
      * @return self
      */
     public function setPackageId(?int $packageId): self
@@ -1118,7 +1118,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Metatag Description
+     * @param string|null $metaDescription Metatag Description
      * @return self
      */
     public function setMetaDescription(?string $metaDescription): self
@@ -1129,7 +1129,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Metatag Keywords
+     * @param string|null $metaKeywords Metatag Keywords
      * @return self
      */
     public function setMetaKeywords(?string $metaKeywords): self
@@ -1140,7 +1140,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Page title
+     * @param string|null $pageTitle Page title
      * @return self
      */
     public function setPageTitle(?string $pageTitle): self
@@ -1151,7 +1151,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Metatag robots: No-Index
+     * @param bool|null $noIndex Metatag robots: No-Index
      * @return self
      */
     public function setNoIndex(?bool $noIndex): self
@@ -1162,7 +1162,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Metatag robots: No-Follow
+     * @param bool|null $noFollow Metatag robots: No-Follow
      * @return self
      */
     public function setNoFollow(?bool $noFollow): self
@@ -1173,7 +1173,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null SEO Alias of this resource
+     * @param string|null $alias SEO Alias of this resource
      * @return self
      */
     public function setAlias(?string $alias): self
@@ -1184,7 +1184,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Specification link
+     * @param string|null $specs Specification link
      * @return self
      */
     public function setSpecs(?string $specs): self
@@ -1195,7 +1195,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Number of decimals that can be used in amounts
+     * @param int|null $decimalAmount Number of decimals that can be used in amounts
      * @return self
      */
     public function setDecimalAmount(?int $decimalAmount): self
@@ -1206,7 +1206,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Minimal order amount
+     * @param float|null $minimalOrderAmount Minimal order amount
      * @return self
      */
     public function setMinimalOrderAmount(?float $minimalOrderAmount): self
@@ -1217,7 +1217,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Expected delivery time, number of days, weeks, months, quarters, years
+     * @param int|null $stockDeliveryNumber Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
      */
     public function setStockDeliveryNumber(?int $stockDeliveryNumber): self
@@ -1228,7 +1228,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
+     * @param string|null $stockDeliveryType Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      * @return self
      */
     public function setStockDeliveryType(?string $stockDeliveryType): self
@@ -1239,7 +1239,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null This field will be showed as the standard delivery text
+     * @param string|null $stockDeliveryStandard This field will be showed as the standard delivery text
      * @return self
      */
     public function setStockDeliveryStandard(?string $stockDeliveryStandard): self
@@ -1250,7 +1250,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Show the product in the window offers
+     * @param bool|null $showInTemplate Show the product in the window offers
      * @return self
      */
     public function setShowInTemplate(?bool $showInTemplate): self
@@ -1261,7 +1261,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Show the product as a offer at the beginpage or offer element
+     * @param bool|null $showOnBeginpage Show the product as a offer at the beginpage or offer element
      * @return self
      */
     public function setShowOnBeginpage(?bool $showOnBeginpage): self
@@ -1272,7 +1272,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Show the product in the facebook shop when available
+     * @param bool|null $showOnFacebook Show the product in the facebook shop when available
      * @return self
      */
     public function setShowOnFacebook(?bool $showOnFacebook): self
@@ -1283,7 +1283,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Show order/offer button Y=show QUOTATION=offer button N=No button
+     * @param string|null $showOrderButton Show order/offer button Y=show QUOTATION=offer button N=No button
      * @return self
      */
     public function setShowOrderButton(?string $showOrderButton): self
@@ -1294,7 +1294,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Product Layout 1=Standard layout, 2=Quick order, 3=Split layout, 4=Tab Layout
+     * @param int|null $productLayout Product Layout 1=Standard layout, 2=Quick order, 3=Split layout, 4=Tab Layout
      * @return self
      */
     public function setProductLayout(?int $productLayout): self
@@ -1305,7 +1305,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null The photo description size
+     * @param string|null $photoSize The photo description size
      * @return self
      */
     public function setPhotoSize(?string $photoSize): self
@@ -1316,7 +1316,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Hide the product when it has not any categories. YES=Hide, NO_DIRECTLINK=No, the product can be found by direct url, NO_SEARCHRESULTS=No, Product can be found in the searchresults
+     * @param string|null $hideWithoutCategory Hide the product when it has not any categories. YES=Hide, NO_DIRECTLINK=No, the product can be found by direct url, NO_SEARCHRESULTS=No, Product can be found in the searchresults
      * @return self
      */
     public function setHideWithoutCategory(?string $hideWithoutCategory): self
@@ -1327,7 +1327,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Internal memo for internal purpose only
+     * @param string|null $memo Internal memo for internal purpose only
      * @return self
      */
     public function setMemo(?string $memo): self
@@ -1338,7 +1338,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Id of the supplier, the supplier id are available in the resource suppliers
+     * @param int|null $supplierId Id of the supplier, the supplier id are available in the resource suppliers
      * @return self
      */
     public function setSupplierId(?int $supplierId): self
@@ -1349,7 +1349,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Enable / disable fixed staggered prices
+     * @param bool|null $fixedStaggeredPrices Enable / disable fixed staggered prices
      * @return self
      */
     public function setFixedStaggeredPrices(?bool $fixedStaggeredPrices): self
@@ -1360,7 +1360,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Enable / disable Marktplaats.
+     * @param bool|null $marktplaatsActive Enable / disable Marktplaats.
      * @return self
      */
     public function setMarktplaatsActive(?bool $marktplaatsActive): self
@@ -1371,7 +1371,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null The status for this advertisement
+     * @param string|null $marktplaatsStatus The status for this advertisement
      * @return self
      */
     public function setMarktplaatsStatus(?string $marktplaatsStatus): self
@@ -1382,7 +1382,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Cost per click in euro cents
+     * @param float|null $marktplaatsCpc Cost per click in euro cents
      * @return self
      */
     public function setMarktplaatsCpc(?float $marktplaatsCpc): self
@@ -1393,7 +1393,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Daily budget for this advertisement in euro cents
+     * @param float|null $marktplaatsDailyBudget Daily budget for this advertisement in euro cents
      * @return self
      */
     public function setMarktplaatsDailyBudget(?float $marktplaatsDailyBudget): self
@@ -1404,7 +1404,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
+     * @param float|null $marktplaatsTotalBudget Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      * @return self
      */
     public function setMarktplaatsTotalBudget(?float $marktplaatsTotalBudget): self
@@ -1415,7 +1415,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null The Marktplaats category Id
+     * @param int|null $marktplaatsCategoryId The Marktplaats category Id
      * @return self
      */
     public function setMarktplaatsCategoryId(?int $marktplaatsCategoryId): self
@@ -1426,7 +1426,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null The price type
+     * @param string|null $marktplaatsPriceType The price type
      * @return self
      */
     public function setMarktplaatsPriceType(?string $marktplaatsPriceType): self
@@ -1437,7 +1437,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
+     * @param string|null $googleShoppingCategory Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      * @return self
      */
     public function setGoogleShoppingCategory(?string $googleShoppingCategory): self
@@ -1448,7 +1448,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Is this product included in the export feed
+     * @param bool|null $isIncludedForExportFeed Is this product included in the export feed
      * @return self
      */
     public function setIsIncludedForExportFeed(?bool $isIncludedForExportFeed): self

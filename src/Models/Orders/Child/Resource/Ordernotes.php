@@ -32,7 +32,7 @@ class Ordernotes implements Model
     }
 
     /**
-     * @param string Link to notes added to this order
+     * @param string $href Link to notes added to this order
      * @return self
      */
     public function setHref(string $href): self

@@ -58,7 +58,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Unique product position. When the position isn't filled the highest position will be used.
+     * @param int|null $position Unique product position. When the position isn't filled the highest position will be used.
      * @return self
      */
     public function setPosition(?int $position): self
@@ -69,7 +69,7 @@ class Post implements Model
     }
 
     /**
-     * @param int Unique product id
+     * @param int $productId Unique product id
      * @return self
      */
     public function setProductId(int $productId): self
@@ -80,7 +80,7 @@ class Post implements Model
     }
 
     /**
-     * @param int Unique category id
+     * @param int $categoryId Unique category id
      * @return self
      */
     public function setCategoryId(int $categoryId): self

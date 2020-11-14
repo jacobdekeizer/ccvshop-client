@@ -32,7 +32,7 @@ class ParentProduct implements Model
     }
 
     /**
-     * @param string|null Link to the parent product
+     * @param string|null $href Link to the parent product
      * @return self
      */
     public function setHref(?string $href): self

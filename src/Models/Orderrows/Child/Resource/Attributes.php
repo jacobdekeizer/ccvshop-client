@@ -58,7 +58,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string Option name
+     * @param string $optionName Option name
      * @return self
      */
     public function setOptionName(string $optionName): self
@@ -69,7 +69,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string Value name
+     * @param string $valueName Value name
      * @return self
      */
     public function setValueName(string $valueName): self
@@ -80,7 +80,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param float Extra price added to the order row.
+     * @param float $price Extra price added to the order row.
      * @return self
      */
     public function setPrice(float $price): self

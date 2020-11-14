@@ -45,7 +45,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param string Link to collection of product variations
+     * @param string $href Link to collection of product variations
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Productvariations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productvariations[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productvariations[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self

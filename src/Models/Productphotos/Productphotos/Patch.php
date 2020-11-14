@@ -45,7 +45,7 @@ class Patch implements Model
     }
 
     /**
-     * @param string|null Photo alt text
+     * @param string|null $alttext Photo alt text
      * @return self
      */
     public function setAlttext(?string $alttext): self
@@ -56,7 +56,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Product photo marked as mainphoto
+     * @param bool|null $isMainphoto Product photo marked as mainphoto
      * @return self
      */
     public function setIsMainphoto(?bool $isMainphoto): self

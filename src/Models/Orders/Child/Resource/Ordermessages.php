@@ -32,7 +32,7 @@ class Ordermessages implements Model
     }
 
     /**
-     * @param string Link to Messages sent to the customer
+     * @param string $href Link to Messages sent to the customer
      * @return self
      */
     public function setHref(string $href): self

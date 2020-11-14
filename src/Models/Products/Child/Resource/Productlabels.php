@@ -32,7 +32,7 @@ class Productlabels implements Model
     }
 
     /**
-     * @param string Link to collection of product labels
+     * @param string $href Link to collection of product labels
      * @return self
      */
     public function setHref(string $href): self

@@ -58,7 +58,7 @@ class Brand implements Model
     }
 
     /**
-     * @param string|null Link to brand resource
+     * @param string|null $href Link to brand resource
      * @return self
      */
     public function setHref(?string $href): self
@@ -69,7 +69,7 @@ class Brand implements Model
     }
 
     /**
-     * @param int|null Brand Id
+     * @param int|null $id Brand Id
      * @return self
      */
     public function setId(?int $id): self
@@ -80,7 +80,7 @@ class Brand implements Model
     }
 
     /**
-     * @param string|null Brand name
+     * @param string|null $name Brand name
      * @return self
      */
     public function setName(?string $name): self

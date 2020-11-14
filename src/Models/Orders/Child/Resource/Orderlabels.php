@@ -32,7 +32,7 @@ class Orderlabels implements Model
     }
 
     /**
-     * @param string Link to collection of order labels
+     * @param string $href Link to collection of order labels
      * @return self
      */
     public function setHref(string $href): self

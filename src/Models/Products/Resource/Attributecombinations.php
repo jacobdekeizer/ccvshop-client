@@ -266,7 +266,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -277,7 +277,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param int Unique id of the resource
+     * @param int $id Unique id of the resource
      * @return self
      */
     public function setId(int $id): self
@@ -288,7 +288,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string A description of the attribute combination
+     * @param string $note A description of the attribute combination
      * @return self
      */
     public function setNote(string $note): self
@@ -299,7 +299,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param int Unique product id of the resource
+     * @param int $productId Unique product id of the resource
      * @return self
      */
     public function setProductId(int $productId): self
@@ -310,7 +310,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param float The stock of a product combination
+     * @param float $stock The stock of a product combination
      * @return self
      */
     public function setStock(float $stock): self
@@ -321,7 +321,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param float The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
+     * @param float $nettoExtraPrice The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
      * @return self
      */
     public function setNettoExtraPrice(float $nettoExtraPrice): self
@@ -332,7 +332,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
+     * @param string $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
      * @return self
      */
     public function setOrderingWithoutStock(string $orderingWithoutStock): self
@@ -343,7 +343,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string The product number
+     * @param string $productNumber The product number
      * @return self
      */
     public function setProductNumber(string $productNumber): self
@@ -354,7 +354,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string The ean number
+     * @param string $eanNumber The ean number
      * @return self
      */
     public function setEanNumber(string $eanNumber): self
@@ -365,7 +365,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string The sku number
+     * @param string $skuNumber The sku number
      * @return self
      */
     public function setSkuNumber(string $skuNumber): self
@@ -376,7 +376,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param int Expected delivery time, number of days, weeks, months, quarters, years
+     * @param int $deliveryTime Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
      */
     public function setDeliveryTime(int $deliveryTime): self
@@ -387,7 +387,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
+     * @param string $deliveryTimeType Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      * @return self
      */
     public function setDeliveryTimeType(string $deliveryTimeType): self
@@ -398,7 +398,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param string The delivery time default in text
+     * @param string $deliveryDefaultText The delivery time default in text
      * @return self
      */
     public function setDeliveryDefaultText(string $deliveryDefaultText): self
@@ -409,7 +409,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param bool If this combination is active. Inactive combinations can not be selected by the customer.
+     * @param bool $active If this combination is active. Inactive combinations can not be selected by the customer.
      * @return self
      */
     public function setActive(bool $active): self
@@ -420,7 +420,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Combination[] $combination Collection of attribute values that combined create this attribute combination.
      * @return self
      */
     public function setCombination(array $combination): self
@@ -431,7 +431,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos Attribute combination photos
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos $attributecombinationphotos Attribute combination photos
      * @return self
      */
     public function setAttributecombinationphotos(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributecombinationphotos $attributecombinationphotos): self
@@ -442,7 +442,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes Collection of attributes
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes $attributes Collection of attributes
      * @return self
      */
     public function setAttributes(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributes $attributes): self
@@ -453,7 +453,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues Collection of  attributevalues
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues $attributevalues Collection of  attributevalues
      * @return self
      */
     public function setAttributevalues(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Attributevalues $attributevalues): self
@@ -464,7 +464,7 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

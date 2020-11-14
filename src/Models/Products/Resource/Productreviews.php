@@ -123,7 +123,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param string Link to self.
+     * @param string $href Link to self.
      * @return self
      */
     public function setHref(string $href): self
@@ -134,7 +134,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param int Unique id of the resource.
+     * @param int $id Unique id of the resource.
      * @return self
      */
     public function setId(int $id): self
@@ -145,7 +145,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param int The ID of the product the review refers to.
+     * @param int $productid The ID of the product the review refers to.
      * @return self
      */
     public function setProductid(int $productid): self
@@ -156,7 +156,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param string|null Review createdate.
+     * @param string|null $createdate Review createdate.
      * @return self
      */
     public function setCreatedate(?string $createdate): self
@@ -167,7 +167,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param string The contents of the review.
+     * @param string $content The contents of the review.
      * @return self
      */
     public function setContent(string $content): self
@@ -178,7 +178,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param int Amount of points the reviewer has awarded.
+     * @param int $points Amount of points the reviewer has awarded.
      * @return self
      */
     public function setPoints(int $points): self
@@ -189,7 +189,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param string The reviewer's name.
+     * @param string $name The reviewer's name.
      * @return self
      */
     public function setName(string $name): self
@@ -200,7 +200,7 @@ class Productreviews implements Model
     }
 
     /**
-     * @param bool Is the review approved for publishing.
+     * @param bool $approved Is the review approved for publishing.
      * @return self
      */
     public function setApproved(bool $approved): self

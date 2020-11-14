@@ -539,7 +539,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Link to self.
+     * @param string $href Link to self.
      * @return self
      */
     public function setHref(string $href): self
@@ -550,7 +550,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param int Invoice id.
+     * @param int $id Invoice id.
      * @return self
      */
     public function setId(int $id): self
@@ -561,7 +561,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
+     * @param string|null $invoicenumberPrefix Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
      * @return self
      */
     public function setInvoicenumberPrefix(?string $invoicenumberPrefix): self
@@ -572,7 +572,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param int Invoice number, automatically generated when the invoice is created.
+     * @param int $invoicenumber Invoice number, automatically generated when the invoice is created.
      * @return self
      */
     public function setInvoicenumber(int $invoicenumber): self
@@ -583,7 +583,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
+     * @param string $invoicenumberFull Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
      * @return self
      */
     public function setInvoicenumberFull(string $invoicenumberFull): self
@@ -594,7 +594,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
+     * @param string|null $ordernumberPrefix Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
      * @return self
      */
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
@@ -605,7 +605,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param int Order number of the order that this invoice is part of, automatically generated when the invoice is created.
+     * @param int $ordernumber Order number of the order that this invoice is part of, automatically generated when the invoice is created.
      * @return self
      */
     public function setOrdernumber(int $ordernumber): self
@@ -616,7 +616,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
+     * @param string $ordernumberFull Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
      * @return self
      */
     public function setOrdernumberFull(string $ordernumberFull): self
@@ -627,7 +627,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Createdate of this invoice in UTC.
+     * @param string $createDate Createdate of this invoice in UTC.
      * @return self
      */
     public function setCreateDate(string $createDate): self
@@ -638,7 +638,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @param string $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      * @return self
      */
     public function setStatus(string $status): self
@@ -649,7 +649,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string The display name of the invoice status.
+     * @param string $statusName The display name of the invoice status.
      * @return self
      */
     public function setStatusName(string $statusName): self
@@ -660,7 +660,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Type defines if it either an debit or credit invoice.
+     * @param string $type Type defines if it either an debit or credit invoice.
      * @return self
      */
     public function setType(string $type): self
@@ -671,7 +671,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Date of when the payment link was send to the customer in UTC.
+     * @param string|null $paymentLinkSent Date of when the payment link was send to the customer in UTC.
      * @return self
      */
     public function setPaymentLinkSent(?string $paymentLinkSent): self
@@ -682,7 +682,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param bool If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
+     * @param bool $taxesIncluded If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
      * @return self
      */
     public function setTaxesIncluded(bool $taxesIncluded): self
@@ -693,7 +693,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param bool If true, invoice row prices contain taxes.
+     * @param bool $invoiceRowTaxesIncluded If true, invoice row prices contain taxes.
      * @return self
      */
     public function setInvoiceRowTaxesIncluded(bool $invoiceRowTaxesIncluded): self
@@ -704,7 +704,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param bool Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
+     * @param bool $isIntraCommunityOrder Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
      * @return self
      */
     public function setIsIntraCommunityOrder(bool $isIntraCommunityOrder): self
@@ -715,7 +715,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param bool If true, then shippingcosts are included in the total tax amount.
+     * @param bool $shippingTaxesIncluded If true, then shippingcosts are included in the total tax amount.
      * @return self
      */
     public function setShippingTaxesIncluded(bool $shippingTaxesIncluded): self
@@ -726,7 +726,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Tax percentage of the shipping costs.
+     * @param float $shippingTaxPercentage Tax percentage of the shipping costs.
      * @return self
      */
     public function setShippingTaxPercentage(float $shippingTaxPercentage): self
@@ -737,7 +737,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total shipping costs.
+     * @param float $totalShipping Total shipping costs.
      * @return self
      */
     public function setTotalShipping(float $totalShipping): self
@@ -748,7 +748,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total discount on the invoice. This includes the discount of coupons if available.
+     * @param float $totalDiscounts Total discount on the invoice. This includes the discount of coupons if available.
      * @return self
      */
     public function setTotalDiscounts(float $totalDiscounts): self
@@ -759,7 +759,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total price inc tax.
+     * @param float $totalPriceIncTax Total price inc tax.
      * @return self
      */
     public function setTotalPriceIncTax(float $totalPriceIncTax): self
@@ -770,7 +770,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total price excl tax.
+     * @param float $totalPriceExcTax Total price excl tax.
      * @return self
      */
     public function setTotalPriceExcTax(float $totalPriceExcTax): self
@@ -781,7 +781,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total price.
+     * @param float $totalPrice Total price.
      * @return self
      */
     public function setTotalPrice(float $totalPrice): self
@@ -792,7 +792,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Total tax amount on the invoice.
+     * @param float $totalTax Total tax amount on the invoice.
      * @return self
      */
     public function setTotalTax(float $totalTax): self
@@ -803,7 +803,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string ISO 4217 Currency Code.
+     * @param string $currency ISO 4217 Currency Code.
      * @return self
      */
     public function setCurrency(string $currency): self
@@ -814,7 +814,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Payment option name.
+     * @param string $extraPaymentOption Payment option name.
      * @return self
      */
     public function setExtraPaymentOption(string $extraPaymentOption): self
@@ -825,7 +825,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float|null Payment option price.
+     * @param float|null $extraPaymentOptionPrice Payment option price.
      * @return self
      */
     public function setExtraPaymentOptionPrice(?float $extraPaymentOptionPrice): self
@@ -836,7 +836,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
+     * @param float $paymethodCosts Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
      * @return self
      */
     public function setPaymethodCosts(float $paymethodCosts): self
@@ -847,7 +847,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
+     * @param string|null $creditPointDiscount The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      * @return self
      */
     public function setCreditPointDiscount(?string $creditPointDiscount): self
@@ -858,7 +858,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @param float $extraCosts Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      * @return self
      */
     public function setExtraCosts(float $extraCosts): self
@@ -869,7 +869,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Description of the extra costs. This is visible on the invoice.
+     * @param string $extraCostsDescription Description of the extra costs. This is visible on the invoice.
      * @return self
      */
     public function setExtraCostsDescription(string $extraCostsDescription): self
@@ -880,7 +880,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null A reference to the invoice number at a third party.
+     * @param string|null $externalReference A reference to the invoice number at a third party.
      * @return self
      */
     public function setExternalReference(?string $externalReference): self
@@ -891,7 +891,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Direct invoice download link.
+     * @param string $deeplink Direct invoice download link.
      * @return self
      */
     public function setDeeplink(string $deeplink): self
@@ -902,7 +902,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User Link to possible user resource associated with this invoice.
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User $user Link to possible user resource associated with this invoice.
      * @return self
      */
     public function setUser(\JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User $user): self
@@ -913,7 +913,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer Describes personal information of the customer
      * @return self
      */
     public function setCustomer(\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer): self
@@ -924,7 +924,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon Link to possible discount coupon associated with this invoice.
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon $discountcoupon Link to possible discount coupon associated with this invoice.
      * @return self
      */
     public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon $discountcoupon): self
@@ -935,7 +935,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Link to the order associated with this invoice.
+     * @param string|null $order Link to the order associated with this invoice.
      * @return self
      */
     public function setOrder(?string $order): self
@@ -946,7 +946,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows Products that are included in this invoice.
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows $invoicerows Products that are included in this invoice.
      * @return self
      */
     public function setInvoicerows(\JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows $invoicerows): self
@@ -957,7 +957,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications $invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
      * @return self
      */
     public function setInvoicenotifications(\JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications $invoicenotifications): self
@@ -968,7 +968,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
+     * @param string $downloadLink Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
      * @return self
      */
     public function setDownloadLink(string $downloadLink): self

@@ -32,7 +32,7 @@ class Put implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post[] Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
+     * @param \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post[] $productphotos Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      * @return self
      */
     public function setProductphotos(array $productphotos): self

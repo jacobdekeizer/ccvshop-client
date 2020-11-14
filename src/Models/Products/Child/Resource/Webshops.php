@@ -32,7 +32,7 @@ class Webshops implements Model
     }
 
     /**
-     * @param string|null Link to collection of webshops.
+     * @param string|null $href Link to collection of webshops.
      * @return self
      */
     public function setHref(?string $href): self

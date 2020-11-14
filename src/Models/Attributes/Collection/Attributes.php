@@ -45,7 +45,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Attributes implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes[] $items Array with collection items
      * @return self
      */
     public function setItems(array $items): self

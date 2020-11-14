@@ -97,7 +97,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -108,7 +108,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param int Combination photo id
+     * @param int $id Combination photo id
      * @return self
      */
     public function setId(int $id): self
@@ -119,7 +119,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param string|null Product photo alttext
+     * @param string|null $alt Product photo alttext
      * @return self
      */
     public function setAlt(?string $alt): self
@@ -130,7 +130,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param bool Combination photo marked as mainphoto
+     * @param bool $isMainphoto Combination photo marked as mainphoto
      * @return self
      */
     public function setIsMainphoto(bool $isMainphoto): self
@@ -141,7 +141,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param string Combination photo deeplink
+     * @param string $deeplink Combination photo deeplink
      * @return self
      */
     public function setDeeplink(string $deeplink): self
@@ -152,7 +152,7 @@ class Attributecombinationphoto implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
