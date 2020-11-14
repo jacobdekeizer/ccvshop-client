@@ -16,9 +16,7 @@ This namespace prefix is necessary because the models can differ between endpoin
 $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', 'Orders');
 ```
 
-To generate the models call:
-
-`composer generate`
+To generate the models call: `composer generate`
 
 ## Code sniffer
 
