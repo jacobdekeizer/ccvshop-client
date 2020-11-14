@@ -110,7 +110,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param string|null Link to self
+     * @param string|null $href Link to self
      * @return self
      */
     public function setHref(?string $href): self
@@ -121,7 +121,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param int|null Unique id of the resource
+     * @param int|null $id Unique id of the resource
      * @return self
      */
     public function setId(?int $id): self
@@ -132,7 +132,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param int|null Position of product in category
+     * @param int|null $position Position of product in category
      * @return self
      */
     public function setPosition(?int $position): self
@@ -143,7 +143,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param int|null Unique id of the product
+     * @param int|null $productId Unique id of the product
      * @return self
      */
     public function setProductId(?int $productId): self
@@ -154,7 +154,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param int|null Unique id of the category
+     * @param int|null $categoryId Unique id of the category
      * @return self
      */
     public function setCategoryId(?int $categoryId): self
@@ -165,7 +165,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param string|null Link to product
+     * @param string|null $productHref Link to product
      * @return self
      */
     public function setProductHref(?string $productHref): self
@@ -176,7 +176,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param string|null Link to category
+     * @param string|null $categoryHref Link to category
      * @return self
      */
     public function setCategoryHref(?string $categoryHref): self

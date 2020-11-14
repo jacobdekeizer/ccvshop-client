@@ -279,7 +279,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Gender, can be blank.
+     * @param string|null $gender Gender, can be blank.
      * @return self
      */
     public function setGender(?string $gender): self
@@ -290,7 +290,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Initials, optional
+     * @param string|null $initials Initials, optional
      * @return self
      */
     public function setInitials(?string $initials): self
@@ -301,7 +301,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null First name
+     * @param string|null $firstName First name
      * @return self
      */
     public function setFirstName(?string $firstName): self
@@ -312,7 +312,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Last name
+     * @param string|null $lastName Last name
      * @return self
      */
     public function setLastName(?string $lastName): self
@@ -323,7 +323,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
+     * @param string|null $fullName Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      * @return self
      */
     public function setFullName(?string $fullName): self
@@ -334,7 +334,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Company name
+     * @param string|null $company Company name
      * @return self
      */
     public function setCompany(?string $company): self
@@ -345,7 +345,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
+     * @param string|null $addressLine1 Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      * @return self
      */
     public function setAddressLine1(?string $addressLine1): self
@@ -356,7 +356,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Address line 2. Note: see address_line_1.
+     * @param string|null $addressLine2 Address line 2. Note: see address_line_1.
      * @return self
      */
     public function setAddressLine2(?string $addressLine2): self
@@ -367,7 +367,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Street name. Note: see address_line_1.
+     * @param string|null $street Street name. Note: see address_line_1.
      * @return self
      */
     public function setStreet(?string $street): self
@@ -378,7 +378,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param int|null House number. Note: see address_line_1.
+     * @param int|null $housenumber House number. Note: see address_line_1.
      * @return self
      */
     public function setHousenumber(?int $housenumber): self
@@ -389,7 +389,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null House number suffix. Note: see address_line_1.
+     * @param string|null $housenumberSuffix House number suffix. Note: see address_line_1.
      * @return self
      */
     public function setHousenumberSuffix(?string $housenumberSuffix): self
@@ -400,7 +400,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Zipcode
+     * @param string|null $zipcode Zipcode
      * @return self
      */
     public function setZipcode(?string $zipcode): self
@@ -411,7 +411,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null City
+     * @param string|null $city City
      * @return self
      */
     public function setCity(?string $city): self
@@ -422,7 +422,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Province or state
+     * @param string|null $province Province or state
      * @return self
      */
     public function setProvince(?string $province): self
@@ -433,7 +433,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @param string|null $country Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
      */
     public function setCountry(?string $country): self
@@ -444,7 +444,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Country Alpha-2 code. See ISO 3166-1
+     * @param string|null $countryCode Country Alpha-2 code. See ISO 3166-1
      * @return self
      */
     public function setCountryCode(?string $countryCode): self
@@ -455,7 +455,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Telephone number
+     * @param string|null $telephone Telephone number
      * @return self
      */
     public function setTelephone(?string $telephone): self
@@ -466,7 +466,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Fax number
+     * @param string|null $fax Fax number
      * @return self
      */
     public function setFax(?string $fax): self
@@ -477,7 +477,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Mobile phone number
+     * @param string|null $mobile Mobile phone number
      * @return self
      */
     public function setMobile(?string $mobile): self
@@ -488,7 +488,7 @@ class Billingaddress implements Model
     }
 
     /**
-     * @param string|null Comment left for the merchant
+     * @param string|null $comment Comment left for the merchant
      * @return self
      */
     public function setComment(?string $comment): self

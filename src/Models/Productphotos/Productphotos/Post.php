@@ -71,7 +71,7 @@ class Post implements Model
     }
 
     /**
-     * @param string Photo extension
+     * @param string $fileType Photo extension
      * @return self
      */
     public function setFileType(string $fileType): self
@@ -82,7 +82,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Photo alt text
+     * @param string|null $alttext Photo alt text
      * @return self
      */
     public function setAlttext(?string $alttext): self
@@ -93,7 +93,7 @@ class Post implements Model
     }
 
     /**
-     * @param string Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
+     * @param string $source Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
      * @return self
      */
     public function setSource(string $source): self
@@ -104,7 +104,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
+     * @param bool|null $isMainphoto Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
      * @return self
      */
     public function setIsMainphoto(?bool $isMainphoto): self

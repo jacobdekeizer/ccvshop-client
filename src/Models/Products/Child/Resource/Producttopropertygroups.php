@@ -32,7 +32,7 @@ class Producttopropertygroups implements Model
     }
 
     /**
-     * @param string|null Link to collection of product property groups.
+     * @param string|null $href Link to collection of product property groups.
      * @return self
      */
     public function setHref(?string $href): self

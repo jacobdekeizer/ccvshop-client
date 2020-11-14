@@ -58,7 +58,7 @@ class Condition implements Model
     }
 
     /**
-     * @param string|null Link to condition resource
+     * @param string|null $href Link to condition resource
      * @return self
      */
     public function setHref(?string $href): self
@@ -69,7 +69,7 @@ class Condition implements Model
     }
 
     /**
-     * @param int|null Condition Id
+     * @param int|null $id Condition Id
      * @return self
      */
     public function setId(?int $id): self
@@ -80,7 +80,7 @@ class Condition implements Model
     }
 
     /**
-     * @param string|null Condition name
+     * @param string|null $name Condition name
      * @return self
      */
     public function setName(?string $name): self

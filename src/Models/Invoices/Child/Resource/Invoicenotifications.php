@@ -32,7 +32,7 @@ class Invoicenotifications implements Model
     }
 
     /**
-     * @param string Link to the collection.
+     * @param string $href Link to the collection.
      * @return self
      */
     public function setHref(string $href): self

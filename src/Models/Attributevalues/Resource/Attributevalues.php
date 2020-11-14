@@ -97,7 +97,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param string|null Link to self
+     * @param string|null $href Link to self
      * @return self
      */
     public function setHref(?string $href): self
@@ -108,7 +108,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param int|null Unique id of the resource
+     * @param int|null $id Unique id of the resource
      * @return self
      */
     public function setId(?int $id): self
@@ -119,7 +119,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param string|null Package name
+     * @param string|null $name Package name
      * @return self
      */
     public function setName(?string $name): self
@@ -130,7 +130,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param float|null Default price of this value.
+     * @param float|null $defaultPrice Default price of this value.
      * @return self
      */
     public function setDefaultPrice(?float $defaultPrice): self
@@ -141,7 +141,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param int|null Id of the attribute to which this value belongs.
+     * @param int|null $attributeId Id of the attribute to which this value belongs.
      * @return self
      */
     public function setAttributeId(?int $attributeId): self
@@ -152,7 +152,7 @@ class Attributevalues implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem $parent): self

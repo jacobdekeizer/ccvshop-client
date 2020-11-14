@@ -71,7 +71,7 @@ class Post implements Model
     }
 
     /**
-     * @param int Attribute option value
+     * @param int $optionvalue Attribute option value
      * @return self
      */
     public function setOptionvalue(int $optionvalue): self
@@ -82,7 +82,7 @@ class Post implements Model
     }
 
     /**
-     * @param float Attribute option value price
+     * @param float $price Attribute option value price
      * @return self
      */
     public function setPrice(float $price): self
@@ -93,7 +93,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Attribute option value position. When the position isn't filled the highest position will be used.
+     * @param int|null $position Attribute option value position. When the position isn't filled the highest position will be used.
      * @return self
      */
     public function setPosition(?int $position): self
@@ -104,7 +104,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null Deprecated. Attribute option value enable. Value is always true.
+     * @param bool|null $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
      */
     public function setEnable(?bool $enable): self

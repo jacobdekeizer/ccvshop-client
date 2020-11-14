@@ -97,7 +97,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -108,7 +108,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param int Attachment id
+     * @param int $id Attachment id
      * @return self
      */
     public function setId(int $id): self
@@ -119,7 +119,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param string File name
+     * @param string $filename File name
      * @return self
      */
     public function setFilename(string $filename): self
@@ -130,7 +130,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param string Display name of the file.
+     * @param string $displayname Display name of the file.
      * @return self
      */
     public function setDisplayname(string $displayname): self
@@ -141,7 +141,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param int Position compared to other product attachments. Starting at 1.
+     * @param int $position Position compared to other product attachments. Starting at 1.
      * @return self
      */
     public function setPosition(int $position): self
@@ -152,7 +152,7 @@ class Productattachments implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

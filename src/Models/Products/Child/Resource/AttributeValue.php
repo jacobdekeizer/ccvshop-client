@@ -58,7 +58,7 @@ class AttributeValue implements Model
     }
 
     /**
-     * @param int Id of the attribute value.
+     * @param int $id Id of the attribute value.
      * @return self
      */
     public function setId(int $id): self
@@ -69,7 +69,7 @@ class AttributeValue implements Model
     }
 
     /**
-     * @param string Name of the attribute value.
+     * @param string $name Name of the attribute value.
      * @return self
      */
     public function setName(string $name): self
@@ -80,7 +80,7 @@ class AttributeValue implements Model
     }
 
     /**
-     * @param string Link of the attribute value.
+     * @param string $href Link of the attribute value.
      * @return self
      */
     public function setHref(string $href): self

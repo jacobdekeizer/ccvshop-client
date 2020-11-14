@@ -149,7 +149,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param string|null Link to self
+     * @param string|null $href Link to self
      * @return self
      */
     public function setHref(?string $href): self
@@ -160,7 +160,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param int Product 2 attribute ID
+     * @param int $id Product 2 attribute ID
      * @return self
      */
     public function setId(int $id): self
@@ -171,7 +171,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param int Attribute Id
+     * @param int $optionid Attribute Id
      * @return self
      */
     public function setOptionid(int $optionid): self
@@ -182,7 +182,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param string Attribute Name
+     * @param string $optionname Attribute Name
      * @return self
      */
     public function setOptionname(string $optionname): self
@@ -193,7 +193,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param int Attribute Position
+     * @param int $optionposition Attribute Position
      * @return self
      */
     public function setOptionposition(int $optionposition): self
@@ -204,7 +204,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param int Option value id
+     * @param int $optionvalueId Option value id
      * @return self
      */
     public function setOptionvalueId(int $optionvalueId): self
@@ -215,7 +215,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param string Option value name
+     * @param string $optionvalueName Option value name
      * @return self
      */
     public function setOptionvalueName(string $optionvalueName): self
@@ -226,7 +226,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param float Position starting from 1.
+     * @param float $position Position starting from 1.
      * @return self
      */
     public function setPosition(float $position): self
@@ -237,7 +237,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param float Extra price for this attribute
+     * @param float $price Extra price for this attribute
      * @return self
      */
     public function setPrice(float $price): self
@@ -248,7 +248,7 @@ class Productattributevalues implements Model
     }
 
     /**
-     * @param bool Deprecated. Attribute option value enable. Value is always true.
+     * @param bool $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
      */
     public function setEnable(bool $enable): self

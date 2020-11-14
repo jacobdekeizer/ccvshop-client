@@ -110,7 +110,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param string|null Link to self
+     * @param string|null $href Link to self
      * @return self
      */
     public function setHref(?string $href): self
@@ -121,7 +121,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param int|null Staggered price id
+     * @param int|null $id Staggered price id
      * @return self
      */
     public function setId(?int $id): self
@@ -132,7 +132,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param float|null Number of products
+     * @param float|null $quantity Number of products
      * @return self
      */
     public function setQuantity(?float $quantity): self
@@ -143,7 +143,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param float|null Price of products
+     * @param float|null $price Price of products
      * @return self
      */
     public function setPrice(?float $price): self
@@ -154,7 +154,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param float|null Discount of products
+     * @param float|null $discount Discount of products
      * @return self
      */
     public function setDiscount(?float $discount): self
@@ -165,7 +165,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param float|null Sellprice of products
+     * @param float|null $sellprice Sellprice of products
      * @return self
      */
     public function setSellprice(?float $sellprice): self
@@ -176,7 +176,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

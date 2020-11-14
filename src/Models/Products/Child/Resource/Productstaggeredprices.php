@@ -45,7 +45,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param string Link to collection of staggered prices
+     * @param string $href Link to collection of staggered prices
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Productstaggeredprices implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productstaggeredprices[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self
@@ -66,7 +66,7 @@ class Productstaggeredprices implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'collection') {
             $items = [];

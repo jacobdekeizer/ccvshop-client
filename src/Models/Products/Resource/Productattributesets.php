@@ -97,7 +97,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param int Attributeset id
+     * @param int $id Attributeset id
      * @return self
      */
     public function setId(int $id): self
@@ -108,7 +108,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param string Attributeset name
+     * @param string $attributename Attributeset name
      * @return self
      */
     public function setAttributename(string $attributename): self
@@ -119,7 +119,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param int Attributeset position
+     * @param int $attributeposition Attributeset position
      * @return self
      */
     public function setAttributeposition(int $attributeposition): self
@@ -130,7 +130,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param string Attributeset type
+     * @param string $type Attributeset type
      * @return self
      */
     public function setType(string $type): self
@@ -141,7 +141,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Items[] Collection of attribute values
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Items[] $items Collection of attribute values
      * @return self
      */
     public function setItems(array $items): self
@@ -152,7 +152,7 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self
@@ -162,7 +162,7 @@ class Productattributesets implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {
             $items = [];

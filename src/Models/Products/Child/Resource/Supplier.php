@@ -58,7 +58,7 @@ class Supplier implements Model
     }
 
     /**
-     * @param string|null Link to supplier resource
+     * @param string|null $href Link to supplier resource
      * @return self
      */
     public function setHref(?string $href): self
@@ -69,7 +69,7 @@ class Supplier implements Model
     }
 
     /**
-     * @param int|null Supplier Id
+     * @param int|null $id Supplier Id
      * @return self
      */
     public function setId(?int $id): self
@@ -80,7 +80,7 @@ class Supplier implements Model
     }
 
     /**
-     * @param string|null Supplier name
+     * @param string|null $name Supplier name
      * @return self
      */
     public function setName(?string $name): self

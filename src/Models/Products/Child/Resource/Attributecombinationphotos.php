@@ -45,7 +45,7 @@ class Attributecombinationphotos implements Model
     }
 
     /**
-     * @param string Link to collection of attribute combination photo belonging to the combination
+     * @param string $href Link to collection of attribute combination photo belonging to the combination
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Attributecombinationphotos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self
@@ -66,7 +66,7 @@ class Attributecombinationphotos implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'collection') {
             $items = [];

@@ -1,6 +1,6 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator\Properties;
+namespace JacobDeKeizer\CcvGenerator\Properties;
 
 use JacobDeKeizer\Ccv\Support\Str;
 

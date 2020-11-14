@@ -32,7 +32,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Unique product position.
+     * @param int|null $position Unique product position.
      * @return self
      */
     public function setPosition(?int $position): self

@@ -487,7 +487,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress|null Billing address info
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress|null $billingaddress Billing address info
      * @return self
      */
     public function setBillingaddress(?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Billingaddress $billingaddress): self
@@ -498,7 +498,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress|null Shipping address info
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress|null $deliveryaddress Shipping address info
      * @return self
      */
     public function setDeliveryaddress(?\JacobDeKeizer\Ccv\Models\Orders\Child\Entity\Deliveryaddress $deliveryaddress): self
@@ -509,7 +509,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null E-mail address
+     * @param string|null $email E-mail address
      * @return self
      */
     public function setEmail(?string $email): self
@@ -520,7 +520,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Defines if this user is a consumer (b2c) or business (b2b) customer.
+     * @param string|null $customertype Defines if this user is a consumer (b2c) or business (b2b) customer.
      * @return self
      */
     public function setCustomertype(?string $customertype): self
@@ -531,7 +531,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Bankaccount number, within EU mostly IBAN will be used instead.
+     * @param string|null $bankaccount Bankaccount number, within EU mostly IBAN will be used instead.
      * @return self
      */
     public function setBankaccount(?string $bankaccount): self
@@ -542,7 +542,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null International Bank Account Number, if empty bankaccount could be used.
+     * @param string|null $iban International Bank Account Number, if empty bankaccount could be used.
      * @return self
      */
     public function setIban(?string $iban): self
@@ -553,7 +553,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Bank Identifier Code. Used in combination with IBAN.
+     * @param string|null $bic Bank Identifier Code. Used in combination with IBAN.
      * @return self
      */
     public function setBic(?string $bic): self
@@ -564,7 +564,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Bank account number.
+     * @param string|null $bank Bank account number.
      * @return self
      */
     public function setBank(?string $bank): self
@@ -575,7 +575,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Bank account holder's name, similar to 'bankname'.
+     * @param string|null $tenname Bank account holder's name, similar to 'bankname'.
      * @return self
      */
     public function setTenname(?string $tenname): self
@@ -586,7 +586,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Bank account holder's name.
+     * @param string|null $bankname Bank account holder's name.
      * @return self
      */
     public function setBankname(?string $bankname): self
@@ -597,7 +597,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Customer reference. Could be used as customer number in some cases.
+     * @param string|null $reference Customer reference. Could be used as customer number in some cases.
      * @return self
      */
     public function setReference(?string $reference): self
@@ -608,7 +608,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Customer reservation number.
+     * @param string|null $reservationnumber Customer reservation number.
      * @return self
      */
     public function setReservationnumber(?string $reservationnumber): self
@@ -619,7 +619,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Customer's income
+     * @param string|null $income Customer's income
      * @return self
      */
     public function setIncome(?string $income): self
@@ -630,7 +630,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Deprecated. See 'branch'.
+     * @param string|null $branche Deprecated. See 'branch'.
      * @return self
      */
     public function setBranche(?string $branche): self
@@ -641,7 +641,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Customer's branch. Mostly used with company info.
+     * @param string|null $branch Customer's branch. Mostly used with company info.
      * @return self
      */
     public function setBranch(?string $branch): self
@@ -652,7 +652,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Website of the customer
+     * @param string|null $website Website of the customer
      * @return self
      */
     public function setWebsite(?string $website): self
@@ -663,7 +663,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Club's city
+     * @param string|null $clubcity Club's city
      * @return self
      */
     public function setClubcity(?string $clubcity): self
@@ -674,7 +674,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Club's comment
+     * @param string|null $clubcomment Club's comment
      * @return self
      */
     public function setClubcomment(?string $clubcomment): self
@@ -685,7 +685,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Club's name
+     * @param string|null $clubname Club's name
      * @return self
      */
     public function setClubname(?string $clubname): self
@@ -696,7 +696,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Deprecated. Fair of the customer. See 'Fair'
+     * @param string|null $beurs Deprecated. Fair of the customer. See 'Fair'
      * @return self
      */
     public function setBeurs(?string $beurs): self
@@ -707,7 +707,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Deprecated. Booth of the customer. See 'Booth'
+     * @param string|null $stand Deprecated. Booth of the customer. See 'Booth'
      * @return self
      */
     public function setStand(?string $stand): self
@@ -718,7 +718,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Fair of the customer.
+     * @param string|null $fair Fair of the customer.
      * @return self
      */
     public function setFair(?string $fair): self
@@ -729,7 +729,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Booth of the customer.
+     * @param string|null $booth Booth of the customer.
      * @return self
      */
     public function setBooth(?string $booth): self
@@ -740,7 +740,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Car brand
+     * @param string|null $carbrand Car brand
      * @return self
      */
     public function setCarbrand(?string $carbrand): self
@@ -751,7 +751,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Car type
+     * @param string|null $cartype Car type
      * @return self
      */
     public function setCartype(?string $cartype): self
@@ -762,7 +762,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Car weight
+     * @param string|null $carweight Car weight
      * @return self
      */
     public function setCarweight(?string $carweight): self
@@ -773,7 +773,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Birthdate of the customer
+     * @param string|null $birthdate Birthdate of the customer
      * @return self
      */
     public function setBirthdate(?string $birthdate): self
@@ -784,7 +784,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Birth time of the customer
+     * @param string|null $birthtime Birth time of the customer
      * @return self
      */
     public function setBirthtime(?string $birthtime): self
@@ -795,7 +795,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Birth place of the customer
+     * @param string|null $birthplace Birth place of the customer
      * @return self
      */
     public function setBirthplace(?string $birthplace): self
@@ -806,7 +806,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Card number
+     * @param string|null $cardnumber Card number
      * @return self
      */
     public function setCardnumber(?string $cardnumber): self
@@ -817,7 +817,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null BTW number
+     * @param string|null $btw BTW number
      * @return self
      */
     public function setBtw(?string $btw): self
@@ -828,7 +828,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Chamber of Commerce number
+     * @param string|null $kvk Chamber of Commerce number
      * @return self
      */
     public function setKvk(?string $kvk): self
@@ -839,7 +839,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null Name of the cost centre
+     * @param string|null $costcentre Name of the cost centre
      * @return self
      */
     public function setCostcentre(?string $costcentre): self
@@ -850,7 +850,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null How did the customer find you
+     * @param string|null $findus How did the customer find you
      * @return self
      */
     public function setFindus(?string $findus): self
@@ -861,7 +861,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null SSN number
+     * @param string|null $ssnnumber SSN number
      * @return self
      */
     public function setSsnnumber(?string $ssnnumber): self
@@ -872,7 +872,7 @@ class Personalinfo implements Model
     }
 
     /**
-     * @param string|null ZZP number
+     * @param string|null $zzppass ZZP number
      * @return self
      */
     public function setZzppass(?string $zzppass): self

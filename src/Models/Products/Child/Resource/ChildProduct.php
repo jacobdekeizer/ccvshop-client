@@ -32,7 +32,7 @@ class ChildProduct implements Model
     }
 
     /**
-     * @param string|null Link to the child product
+     * @param string|null $href Link to the child product
      * @return self
      */
     public function setHref(?string $href): self

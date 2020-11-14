@@ -1,9 +1,9 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Generator\Factories;
+namespace JacobDeKeizer\CcvGenerator\Factories;
 
-use JacobDeKeizer\Ccv\Generator\PhpClass;
-use JacobDeKeizer\Ccv\Generator\Properties\Property;
+use JacobDeKeizer\CcvGenerator\PhpClass;
+use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
 
 class PhpClassFactory

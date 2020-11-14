@@ -71,7 +71,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Attribute option position
+     * @param int|null $optionposition Attribute option position
      * @return self
      */
     public function setOptionposition(?int $optionposition): self
@@ -82,7 +82,7 @@ class Patch implements Model
     }
 
     /**
-     * @param int|null Attribute option value position
+     * @param int|null $position Attribute option value position
      * @return self
      */
     public function setPosition(?int $position): self
@@ -93,7 +93,7 @@ class Patch implements Model
     }
 
     /**
-     * @param float|null Attribute option value price
+     * @param float|null $price Attribute option value price
      * @return self
      */
     public function setPrice(?float $price): self
@@ -104,7 +104,7 @@ class Patch implements Model
     }
 
     /**
-     * @param bool|null Deprecated. Attribute option value enable. Value is always true.
+     * @param bool|null $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
      */
     public function setEnable(?bool $enable): self

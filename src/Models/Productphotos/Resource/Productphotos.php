@@ -110,7 +110,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -121,7 +121,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param int Product photo id
+     * @param int $id Product photo id
      * @return self
      */
     public function setId(int $id): self
@@ -132,7 +132,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param string Product photo filename
+     * @param string $filename Product photo filename
      * @return self
      */
     public function setFilename(string $filename): self
@@ -143,7 +143,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param string|null Product photo alttext
+     * @param string|null $alttext Product photo alttext
      * @return self
      */
     public function setAlttext(?string $alttext): self
@@ -154,7 +154,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param bool Product photo marked as mainphoto
+     * @param bool $isMainphoto Product photo marked as mainphoto
      * @return self
      */
     public function setIsMainphoto(bool $isMainphoto): self
@@ -165,7 +165,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param string Product photo deeplink
+     * @param string $deeplink Product photo deeplink
      * @return self
      */
     public function setDeeplink(string $deeplink): self
@@ -176,7 +176,7 @@ class Productphotos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Productphotos\Child\Resource\ParentItem|null Parent resource of this resource
+     * @param \JacobDeKeizer\Ccv\Models\Productphotos\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Productphotos\Child\Resource\ParentItem $parent): self

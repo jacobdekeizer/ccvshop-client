@@ -331,7 +331,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
+     * @param int|null $invoicenumber Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      * @return self
      */
     public function setInvoicenumber(?int $invoicenumber): self
@@ -342,7 +342,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If false, the order won't be marked as completed. The basket_href and checkout_href will be available for this resource. The consumer can be forwarded to these urls and complete the order. By default this value is TRUE.
+     * @param bool|null $isCompleted If false, the order won't be marked as completed. The basket_href and checkout_href will be available for this resource. The consumer can be forwarded to these urls and complete the order. By default this value is TRUE.
      * @return self
      */
     public function setIsCompleted(?bool $isCompleted): self
@@ -353,7 +353,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If the order is marked as paid
+     * @param bool|null $paid If the order is marked as paid
      * @return self
      */
     public function setPaid(?bool $paid): self
@@ -364,7 +364,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If the order's safety deposit is returned to the customer.
+     * @param bool|null $safetyDepositReturned If the order's safety deposit is returned to the customer.
      * @return self
      */
     public function setSafetyDepositReturned(?bool $safetyDepositReturned): self
@@ -375,7 +375,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null Total shipping costs
+     * @param float|null $totalShipping Total shipping costs
      * @return self
      */
     public function setTotalShipping(?float $totalShipping): self
@@ -386,7 +386,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null Extra price added to the order as an additional fee for paymethod costs. If this order already has a value for this field, it will be overwritten.
+     * @param float|null $paymethodCosts Extra price added to the order as an additional fee for paymethod costs. If this order already has a value for this field, it will be overwritten.
      * @return self
      */
     public function setPaymethodCosts(?float $paymethodCosts): self
@@ -397,7 +397,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @param float|null $extraCosts Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      * @return self
      */
     public function setExtraCosts(?float $extraCosts): self
@@ -408,7 +408,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Description of the extra costs. This is visible on the invoice.
+     * @param string|null $extraCostsDescription Description of the extra costs. This is visible on the invoice.
      * @return self
      */
     public function setExtraCostsDescription(?string $extraCostsDescription): self
@@ -419,7 +419,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If taxes are calculated in the total price. If false, all taxes will be hidden.
+     * @param bool|null $taxesIncluded If taxes are calculated in the total price. If false, all taxes will be hidden.
      * @return self
      */
     public function setTaxesIncluded(?bool $taxesIncluded): self
@@ -430,7 +430,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
+     * @param bool|null $orderRowTaxesIncluded If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
      * @return self
      */
     public function setOrderRowTaxesIncluded(?bool $orderRowTaxesIncluded): self
@@ -441,7 +441,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null If shippingcosts are included in the total tax amount
+     * @param bool|null $shippingTaxesIncluded If shippingcosts are included in the total tax amount
      * @return self
      */
     public function setShippingTaxesIncluded(?bool $shippingTaxesIncluded): self
@@ -452,7 +452,7 @@ class Post implements Model
     }
 
     /**
-     * @param bool|null Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
+     * @param bool|null $isIntraCommunityOrder Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      * @return self
      */
     public function setIsIntraCommunityOrder(?bool $isIntraCommunityOrder): self
@@ -463,7 +463,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null ISO 4217 Currency Code
+     * @param string|null $currency ISO 4217 Currency Code
      * @return self
      */
     public function setCurrency(?string $currency): self
@@ -474,7 +474,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Language in which this order was ordered
+     * @param string|null $orderedinlng Language in which this order was ordered
      * @return self
      */
     public function setOrderedinlng(?string $orderedinlng): self
@@ -485,7 +485,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
+     * @param int|null $status Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      * @return self
      */
     public function setStatus(?int $status): self
@@ -496,7 +496,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Track and Trace code, usually provided by the shipping service. If a note is emailed to the customer this value will be included.
+     * @param string|null $trackAndTraceCode Track and Trace code, usually provided by the shipping service. If a note is emailed to the customer this value will be included.
      * @return self
      */
     public function setTrackAndTraceCode(?string $trackAndTraceCode): self
@@ -507,7 +507,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Track & Trace Carrier. This value represents the shipping service.
+     * @param string|null $trackAndTraceCarrier Track & Trace Carrier. This value represents the shipping service.
      * @return self
      */
     public function setTrackAndTraceCarrier(?string $trackAndTraceCarrier): self
@@ -518,7 +518,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null Delivery date in UTC
+     * @param string|null $deliverDate Delivery date in UTC
      * @return self
      */
     public function setDeliverDate(?string $deliverDate): self
@@ -529,7 +529,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null This is the deliver method the customer chooses during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
+     * @param string|null $deliverMethod This is the deliver method the customer chooses during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      * @return self
      */
     public function setDeliverMethod(?string $deliverMethod): self
@@ -540,7 +540,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Id for the takeout slot. If takeoutslot is used then deliver_method must be deliver or pickup
+     * @param int|null $takeoutslot Id for the takeout slot. If takeoutslot is used then deliver_method must be deliver or pickup
      * @return self
      */
     public function setTakeoutslot(?int $takeoutslot): self
@@ -551,7 +551,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null The reservation number for an order. This may be visible on the invoice
+     * @param string|null $reservationnumber The reservation number for an order. This may be visible on the invoice
      * @return self
      */
     public function setReservationnumber(?string $reservationnumber): self
@@ -562,7 +562,7 @@ class Post implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input $customer Describes personal information of the customer
      * @return self
      */
     public function setCustomer(\JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input $customer): self
@@ -573,7 +573,7 @@ class Post implements Model
     }
 
     /**
-     * @param int|null Unique id of the user (see GET /:version/users). The user's personal info will be added to this order. If additional information is provided in the property 'customer' that info will override this. If null, no user will be associated with this order.
+     * @param int|null $userId Unique id of the user (see GET /:version/users). The user's personal info will be added to this order. If additional information is provided in the property 'customer' that info will override this. If null, no user will be associated with this order.
      * @return self
      */
     public function setUserId(?int $userId): self
@@ -584,7 +584,7 @@ class Post implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[] $orderrows Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      * @return self
      */
     public function setOrderrows(array $orderrows): self
@@ -594,7 +594,7 @@ class Post implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'orderrows') {
             $items = [];

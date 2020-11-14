@@ -45,7 +45,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param string|null Link to collection of product categories
+     * @param string|null $href Link to collection of product categories
      * @return self
      */
     public function setHref(?string $href): self
@@ -56,7 +56,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories[] Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Producttocategories[] $collection Array with collection items
      * @return self
      */
     public function setCollection(array $collection): self
@@ -66,7 +66,7 @@ class Producttocategories implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'collection') {
             $items = [];

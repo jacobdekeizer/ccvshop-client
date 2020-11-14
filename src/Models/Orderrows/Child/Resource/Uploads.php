@@ -58,7 +58,7 @@ class Uploads implements Model
     }
 
     /**
-     * @param string Description of the kind of upload
+     * @param string $uploadDescription Description of the kind of upload
      * @return self
      */
     public function setUploadDescription(string $uploadDescription): self
@@ -69,7 +69,7 @@ class Uploads implements Model
     }
 
     /**
-     * @param string File name of the uploaded file.
+     * @param string $fileName File name of the uploaded file.
      * @return self
      */
     public function setFileName(string $fileName): self
@@ -80,7 +80,7 @@ class Uploads implements Model
     }
 
     /**
-     * @param string Deeplink to the file.
+     * @param string $deeplink Deeplink to the file.
      * @return self
      */
     public function setDeeplink(string $deeplink): self

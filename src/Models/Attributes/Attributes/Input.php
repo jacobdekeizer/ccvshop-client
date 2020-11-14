@@ -45,7 +45,7 @@ class Input implements Model
     }
 
     /**
-     * @param string Attribute name
+     * @param string $name Attribute name
      * @return self
      */
     public function setName(string $name): self
@@ -56,7 +56,7 @@ class Input implements Model
     }
 
     /**
-     * @param string Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
+     * @param string $type Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
      * @return self
      */
     public function setType(string $type): self

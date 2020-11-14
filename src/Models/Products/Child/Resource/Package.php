@@ -45,7 +45,7 @@ class Package implements Model
     }
 
     /**
-     * @param string Link to package resource
+     * @param string $href Link to package resource
      * @return self
      */
     public function setHref(string $href): self
@@ -56,7 +56,7 @@ class Package implements Model
     }
 
     /**
-     * @param int Package Id
+     * @param int $id Package Id
      * @return self
      */
     public function setId(int $id): self

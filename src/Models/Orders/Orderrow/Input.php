@@ -214,7 +214,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Product type of this orderrow. If the type is a deposit then VAT will always be 0%. If not included then product will be the default.
+     * @param string|null $productType Product type of this orderrow. If the type is a deposit then VAT will always be 0%. If not included then product will be the default.
      * @return self
      */
     public function setProductType(?string $productType): self
@@ -225,7 +225,7 @@ class Input implements Model
     }
 
     /**
-     * @param bool|null Default: true. When true and when the product has a deposit price (either container or safety) these additional order rows will automatically be created.
+     * @param bool|null $autoCreateDepositRows Default: true. When true and when the product has a deposit price (either container or safety) these additional order rows will automatically be created.
      * @return self
      */
     public function setAutoCreateDepositRows(?bool $autoCreateDepositRows): self
@@ -236,7 +236,7 @@ class Input implements Model
     }
 
     /**
-     * @param int|null Unique product id. If provided product data will be used to create an order row.
+     * @param int|null $productId Unique product id. If provided product data will be used to create an order row.
      * @return self
      */
     public function setProductId(?int $productId): self
@@ -247,7 +247,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Product name. Only used if product_id is empty
+     * @param string|null $productName Product name. Only used if product_id is empty
      * @return self
      */
     public function setProductName(?string $productName): self
@@ -258,7 +258,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Product number. Only used if product_id is empty
+     * @param string|null $productNumber Product number. Only used if product_id is empty
      * @return self
      */
     public function setProductNumber(?string $productNumber): self
@@ -269,7 +269,7 @@ class Input implements Model
     }
 
     /**
-     * @param float Quantity of products
+     * @param float $count Quantity of products
      * @return self
      */
     public function setCount(float $count): self
@@ -280,7 +280,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null Product sell price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param float|null $price Product sell price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setPrice(?float $price): self
@@ -291,7 +291,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null Product purchase price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param float|null $productPurchasePrice Product purchase price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setProductPurchasePrice(?float $productPurchasePrice): self
@@ -302,7 +302,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null Discount. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param float|null $discount Discount. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setDiscount(?float $discount): self
@@ -313,7 +313,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null Tax percentage. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param float|null $tax Tax percentage. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setTax(?float $tax): self
@@ -324,7 +324,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Product unit. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param string|null $unit Product unit. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setUnit(?string $unit): self
@@ -335,7 +335,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null Product weight. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param float|null $weight Product weight. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setWeight(?float $weight): self
@@ -346,7 +346,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null Memo description of product. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
+     * @param string|null $memo Memo description of product. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      * @return self
      */
     public function setMemo(?string $memo): self
@@ -357,7 +357,7 @@ class Input implements Model
     }
 
     /**
-     * @param int|null Package id. Depending on this ID, different shippingcosts will be calculated. Required if product_id is empty. See /:version/packages/
+     * @param int|null $packageId Package id. Depending on this ID, different shippingcosts will be calculated. Required if product_id is empty. See /:version/packages/
      * @return self
      */
     public function setPackageId(?int $packageId): self
@@ -368,7 +368,7 @@ class Input implements Model
     }
 
     /**
-     * @param float|null This should be filled if this order rows has an attribute combination. The associated attributes value with this id will be added to this row.
+     * @param float|null $attributeCombinationId This should be filled if this order rows has an attribute combination. The associated attributes value with this id will be added to this row.
      * @return self
      */
     public function setAttributeCombinationId(?float $attributeCombinationId): self

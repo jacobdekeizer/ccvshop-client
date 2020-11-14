@@ -32,7 +32,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null Link to create a new invoice for this order.
+     * @param string|null $href Link to create a new invoice for this order.
      * @return self
      */
     public function setHref(?string $href): self

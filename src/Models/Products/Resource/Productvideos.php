@@ -110,7 +110,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -121,7 +121,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param int Product video id
+     * @param int $id Product video id
      * @return self
      */
     public function setId(int $id): self
@@ -132,7 +132,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param int Product video productid
+     * @param int $productid Product video productid
      * @return self
      */
     public function setProductid(int $productid): self
@@ -143,7 +143,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param string|null Product video name
+     * @param string|null $name Product video name
      * @return self
      */
     public function setName(?string $name): self
@@ -154,7 +154,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param int Product video position
+     * @param int $position Product video position
      * @return self
      */
     public function setPosition(int $position): self
@@ -165,7 +165,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param string Product video embed code
+     * @param string $embedcode Product video embed code
      * @return self
      */
     public function setEmbedcode(string $embedcode): self
@@ -176,7 +176,7 @@ class Productvideos implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem $parent): self

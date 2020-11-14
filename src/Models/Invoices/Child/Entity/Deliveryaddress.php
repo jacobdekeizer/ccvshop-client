@@ -240,7 +240,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Gender, can be null.
+     * @param string|null $gender Gender, can be null.
      * @return self
      */
     public function setGender(?string $gender): self
@@ -251,7 +251,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Initials, optional
+     * @param string|null $initials Initials, optional
      * @return self
      */
     public function setInitials(?string $initials): self
@@ -262,7 +262,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Full name
+     * @param string|null $fullName Full name
      * @return self
      */
     public function setFullName(?string $fullName): self
@@ -273,7 +273,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Company name
+     * @param string|null $company Company name
      * @return self
      */
     public function setCompany(?string $company): self
@@ -284,7 +284,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
+     * @param string|null $addressLine1 Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      * @return self
      */
     public function setAddressLine1(?string $addressLine1): self
@@ -295,7 +295,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Address line 2. Note: see address_line_1.
+     * @param string|null $addressLine2 Address line 2. Note: see address_line_1.
      * @return self
      */
     public function setAddressLine2(?string $addressLine2): self
@@ -306,7 +306,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Street name.  Note: see address_line_1.
+     * @param string|null $street Street name.  Note: see address_line_1.
      * @return self
      */
     public function setStreet(?string $street): self
@@ -317,7 +317,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param int|null House number.  Note: see address_line_1.
+     * @param int|null $housenumber House number.  Note: see address_line_1.
      * @return self
      */
     public function setHousenumber(?int $housenumber): self
@@ -328,7 +328,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null House number suffix.  Note: see address_line_1.
+     * @param string|null $housenumberSuffix House number suffix.  Note: see address_line_1.
      * @return self
      */
     public function setHousenumberSuffix(?string $housenumberSuffix): self
@@ -339,7 +339,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Zipcode
+     * @param string|null $zipcode Zipcode
      * @return self
      */
     public function setZipcode(?string $zipcode): self
@@ -350,7 +350,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null City
+     * @param string|null $city City
      * @return self
      */
     public function setCity(?string $city): self
@@ -361,7 +361,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Province or state
+     * @param string|null $province Province or state
      * @return self
      */
     public function setProvince(?string $province): self
@@ -372,7 +372,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Country full name.
+     * @param string|null $country Country full name.
      * @return self
      */
     public function setCountry(?string $country): self
@@ -383,7 +383,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Country Alpha-2 code. See ISO 3166-1
+     * @param string|null $countryCode Country Alpha-2 code. See ISO 3166-1
      * @return self
      */
     public function setCountryCode(?string $countryCode): self
@@ -394,7 +394,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Telephone number
+     * @param string|null $telephone Telephone number
      * @return self
      */
     public function setTelephone(?string $telephone): self
@@ -405,7 +405,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Mobile phone number
+     * @param string|null $mobile Mobile phone number
      * @return self
      */
     public function setMobile(?string $mobile): self
@@ -416,7 +416,7 @@ class Deliveryaddress implements Model
     }
 
     /**
-     * @param string|null Comment left for the recepient
+     * @param string|null $comment Comment left for the recepient
      * @return self
      */
     public function setComment(?string $comment): self

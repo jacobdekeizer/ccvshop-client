@@ -97,7 +97,7 @@ class Items implements Model
     }
 
     /**
-     * @param string|null Link to attribute values
+     * @param string|null $href Link to attribute values
      * @return self
      */
     public function setHref(?string $href): self
@@ -108,7 +108,7 @@ class Items implements Model
     }
 
     /**
-     * @param int Product 2 attribute ID
+     * @param int $id Product 2 attribute ID
      * @return self
      */
     public function setId(int $id): self
@@ -119,7 +119,7 @@ class Items implements Model
     }
 
     /**
-     * @param string Option value name
+     * @param string $optionsname Option value name
      * @return self
      */
     public function setOptionsname(string $optionsname): self
@@ -130,7 +130,7 @@ class Items implements Model
     }
 
     /**
-     * @param float Extra price of this attribute value
+     * @param float $price Extra price of this attribute value
      * @return self
      */
     public function setPrice(float $price): self
@@ -141,7 +141,7 @@ class Items implements Model
     }
 
     /**
-     * @param bool Deprecated. Attribute option value enable. Value is always true.
+     * @param bool $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
      */
     public function setEnable(bool $enable): self
@@ -152,7 +152,7 @@ class Items implements Model
     }
 
     /**
-     * @param int Position starting from 1
+     * @param int $position Position starting from 1
      * @return self
      */
     public function setPosition(int $position): self

@@ -32,7 +32,7 @@ class Orderaffiliatenetworks implements Model
     }
 
     /**
-     * @param string|null Link to affiliate of order
+     * @param string|null $href Link to affiliate of order
      * @return self
      */
     public function setHref(?string $href): self

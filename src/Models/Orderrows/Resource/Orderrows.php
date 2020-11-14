@@ -500,7 +500,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -511,7 +511,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param int|null Order row Id
+     * @param int|null $id Order row Id
      * @return self
      */
     public function setId(?int $id): self
@@ -522,7 +522,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param int|null Order Id
+     * @param int|null $orderId Order Id
      * @return self
      */
     public function setOrderId(?int $orderId): self
@@ -533,7 +533,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
+     * @param string $productType Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
      * @return self
      */
     public function setProductType(string $productType): self
@@ -544,7 +544,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product name
+     * @param string|null $productName Product name
      * @return self
      */
     public function setProductName(?string $productName): self
@@ -555,7 +555,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product name google
+     * @param string|null $productNameGoogle Product name google
      * @return self
      */
     public function setProductNameGoogle(?string $productNameGoogle): self
@@ -566,7 +566,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product number
+     * @param string|null $productNumber Product number
      * @return self
      */
     public function setProductNumber(?string $productNumber): self
@@ -577,7 +577,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product number from the attributecombination
+     * @param string|null $subProductNumber Product number from the attributecombination
      * @return self
      */
     public function setSubProductNumber(?string $subProductNumber): self
@@ -588,7 +588,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null SKU number from the attributecombination
+     * @param string|null $subSkuNumber SKU number from the attributecombination
      * @return self
      */
     public function setSubSkuNumber(?string $subSkuNumber): self
@@ -599,7 +599,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null EAN number from the attributecombination
+     * @param string|null $subEanNumber EAN number from the attributecombination
      * @return self
      */
     public function setSubEanNumber(?string $subEanNumber): self
@@ -610,7 +610,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param int|null Unique product id.
+     * @param int|null $productId Unique product id.
      * @return self
      */
     public function setProductId(?int $productId): self
@@ -621,7 +621,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Link to product resource
+     * @param string|null $productHref Link to product resource
      * @return self
      */
     public function setProductHref(?string $productHref): self
@@ -632,7 +632,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Quantity of products
+     * @param float|null $count Quantity of products
      * @return self
      */
     public function setCount(?float $count): self
@@ -643,7 +643,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product original price per unit
+     * @param float|null $price Product original price per unit
      * @return self
      */
     public function setPrice(?float $price): self
@@ -654,7 +654,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product purchase price  per unit
+     * @param float|null $productPurchasePrice Product purchase price  per unit
      * @return self
      */
     public function setProductPurchasePrice(?float $productPurchasePrice): self
@@ -665,7 +665,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Discount price per unit
+     * @param float|null $discount Discount price per unit
      * @return self
      */
     public function setDiscount(?float $discount): self
@@ -676,7 +676,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param bool|null Custom product price. If true, this price is differnt from the product price for this order row.
+     * @param bool|null $customPrice Custom product price. If true, this price is differnt from the product price for this order row.
      * @return self
      */
     public function setCustomPrice(?bool $customPrice): self
@@ -687,7 +687,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Tax percentage
+     * @param float|null $tax Tax percentage
      * @return self
      */
     public function setTax(?float $tax): self
@@ -698,7 +698,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product unit
+     * @param string|null $unit Product unit
      * @return self
      */
     public function setUnit(?string $unit): self
@@ -709,7 +709,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product weight
+     * @param float|null $weight Product weight
      * @return self
      */
     public function setWeight(?float $weight): self
@@ -720,7 +720,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Memo description of product
+     * @param string|null $memo Memo description of product
      * @return self
      */
     public function setMemo(?string $memo): self
@@ -731,7 +731,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
+     * @param int|null $packageId Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      * @return self
      */
     public function setPackageId(?int $packageId): self
@@ -742,7 +742,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Package name
+     * @param string|null $packageName Package name
      * @return self
      */
     public function setPackageName(?string $packageName): self
@@ -753,7 +753,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Stocklocation of product
+     * @param string|null $stockLocation Stocklocation of product
      * @return self
      */
     public function setStockLocation(?string $stockLocation): self
@@ -764,7 +764,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param string|null Product supplier
+     * @param string|null $supplier Product supplier
      * @return self
      */
     public function setSupplier(?string $supplier): self
@@ -775,7 +775,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Discount of user
+     * @param float|null $userDiscount Discount of user
      * @return self
      */
     public function setUserDiscount(?float $userDiscount): self
@@ -786,7 +786,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product original price.
+     * @param float|null $originalPrice Product original price.
      * @return self
      */
     public function setOriginalPrice(?float $originalPrice): self
@@ -797,7 +797,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product orignal price and discount.
+     * @param float|null $sellingPrice Product orignal price and discount.
      * @return self
      */
     public function setSellingPrice(?float $sellingPrice): self
@@ -808,7 +808,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product price without discount
+     * @param float|null $priceWithoutDiscount Product price without discount
      * @return self
      */
     public function setPriceWithoutDiscount(?float $priceWithoutDiscount): self
@@ -819,7 +819,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product price without discount, with attributes
+     * @param float|null $priceWithoutDiscountWithAttributes Product price without discount, with attributes
      * @return self
      */
     public function setPriceWithoutDiscountWithAttributes(?float $priceWithoutDiscountWithAttributes): self
@@ -830,7 +830,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Total order row price
+     * @param float|null $totalPrice Total order row price
      * @return self
      */
     public function setTotalPrice(?float $totalPrice): self
@@ -841,7 +841,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Total price from attributes.
+     * @param float|null $totalExtraOptionPrice Total price from attributes.
      * @return self
      */
     public function setTotalExtraOptionPrice(?float $totalExtraOptionPrice): self
@@ -852,7 +852,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Product price with attributes per unit.
+     * @param float|null $priceWithAttributes Product price with attributes per unit.
      * @return self
      */
     public function setPriceWithAttributes(?float $priceWithAttributes): self
@@ -863,7 +863,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param float|null Total product price with attributes
+     * @param float|null $totalPriceWithAttributes Total product price with attributes
      * @return self
      */
     public function setTotalPriceWithAttributes(?float $totalPriceWithAttributes): self
@@ -874,7 +874,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null $attributes Collection of the chosen attribute options of this order row.
      * @return self
      */
     public function setAttributes(?array $attributes): self
@@ -885,7 +885,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null $uploads A collection of order row uploads
      * @return self
      */
     public function setUploads(?array $uploads): self
@@ -896,7 +896,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
      */
     public function setParent(?\JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem $parent): self
@@ -906,7 +906,7 @@ class Orderrows implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'attributes') {
             $items = [];

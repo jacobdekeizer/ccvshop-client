@@ -747,7 +747,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Link to self
+     * @param string $href Link to self
      * @return self
      */
     public function setHref(string $href): self
@@ -758,7 +758,7 @@ class Orders implements Model
     }
 
     /**
-     * @param int Order id
+     * @param int $id Order id
      * @return self
      */
     public function setId(int $id): self
@@ -769,7 +769,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Prefix of the specific order number of the order. Automatically generated when the order is completed. This will be null when 'is_completed' is false.
+     * @param string|null $ordernumberPrefix Prefix of the specific order number of the order. Automatically generated when the order is completed. This will be null when 'is_completed' is false.
      * @return self
      */
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
@@ -780,7 +780,7 @@ class Orders implements Model
     }
 
     /**
-     * @param int|null Order number, automatically generated when the order is completed. This will be null when 'is_completed' is false.
+     * @param int|null $ordernumber Order number, automatically generated when the order is completed. This will be null when 'is_completed' is false.
      * @return self
      */
     public function setOrdernumber(?int $ordernumber): self
@@ -791,7 +791,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Unique order number, Full order number as displayed in shop. With dash if the prefix is available. This will be null when 'is_completed' is false.
+     * @param string|null $ordernumberFull Unique order number, Full order number as displayed in shop. With dash if the prefix is available. This will be null when 'is_completed' is false.
      * @return self
      */
     public function setOrdernumberFull(?string $ordernumberFull): self
@@ -802,7 +802,7 @@ class Orders implements Model
     }
 
     /**
-     * @param int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
+     * @param int|null $invoicenumber Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      * @return self
      */
     public function setInvoicenumber(?int $invoicenumber): self
@@ -813,7 +813,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Createdate of this order in UTC
+     * @param string $createDate Createdate of this order in UTC
      * @return self
      */
     public function setCreateDate(string $createDate): self
@@ -824,7 +824,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string This is the deliver method the customer has chosen during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
+     * @param string $deliverMethod This is the deliver method the customer has chosen during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      * @return self
      */
     public function setDeliverMethod(string $deliverMethod): self
@@ -835,7 +835,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Delivery date in UTC. In case of take out, see take_out_slot.
+     * @param string|null $deliverDate Delivery date in UTC. In case of take out, see take_out_slot.
      * @return self
      */
     public function setDeliverDate(?string $deliverDate): self
@@ -846,7 +846,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\TakeOutWindow $takeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      * @return self
      */
     public function setTakeOutWindow(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\TakeOutWindow $takeOutWindow): self
@@ -857,7 +857,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Language in which this order was ordered
+     * @param string $orderedinlng Language in which this order was ordered
      * @return self
      */
     public function setOrderedinlng(string $orderedinlng): self
@@ -868,7 +868,7 @@ class Orders implements Model
     }
 
     /**
-     * @param int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
+     * @param int|null $status Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      * @return self
      */
     public function setStatus(?int $status): self
@@ -879,7 +879,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool|null If status is null 'is_completed' will be false. If false, the order hasn't been completed by the customer.
+     * @param bool|null $isCompleted If status is null 'is_completed' will be false. If false, the order hasn't been completed by the customer.
      * @return self
      */
     public function setIsCompleted(?bool $isCompleted): self
@@ -890,7 +890,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Link to the shopping basket, only available when 'is_completed' is false.
+     * @param string|null $basketHref Link to the shopping basket, only available when 'is_completed' is false.
      * @return self
      */
     public function setBasketHref(?string $basketHref): self
@@ -901,7 +901,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Link to the checkout page, only available when 'is_completed' is false. If the shop has the regular checkout, this will be the basket_href.
+     * @param string|null $checkoutHref Link to the checkout page, only available when 'is_completed' is false. If the shop has the regular checkout, this will be the basket_href.
      * @return self
      */
     public function setCheckoutHref(?string $checkoutHref): self
@@ -912,7 +912,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If the order is marked as paid
+     * @param bool $paid If the order is marked as paid
      * @return self
      */
     public function setPaid(bool $paid): self
@@ -923,7 +923,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If the order's safety deposit is returned to the customer.
+     * @param bool $safetyDepositReturned If the order's safety deposit is returned to the customer.
      * @return self
      */
     public function setSafetyDepositReturned(bool $safetyDepositReturned): self
@@ -934,7 +934,7 @@ class Orders implements Model
     }
 
     /**
-     * @param int Paymethod Id of the order. Corresponse with the resource paymethods.
+     * @param int $paymethodId Paymethod Id of the order. Corresponse with the resource paymethods.
      * @return self
      */
     public function setPaymethodId(int $paymethodId): self
@@ -945,7 +945,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Paymethod of the order
+     * @param string $paymethod Paymethod of the order
      * @return self
      */
     public function setPaymethod(string $paymethod): self
@@ -956,7 +956,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If taxes are calculated in the total price. If false, all taxes will be hidden.
+     * @param bool $taxesIncluded If taxes are calculated in the total price. If false, all taxes will be hidden.
      * @return self
      */
     public function setTaxesIncluded(bool $taxesIncluded): self
@@ -967,7 +967,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
+     * @param bool $orderRowTaxesIncluded If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
      * @return self
      */
     public function setOrderRowTaxesIncluded(bool $orderRowTaxesIncluded): self
@@ -978,7 +978,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If shippingcosts are included in the total tax amount
+     * @param bool $shippingTaxesIncluded If shippingcosts are included in the total tax amount
      * @return self
      */
     public function setShippingTaxesIncluded(bool $shippingTaxesIncluded): self
@@ -989,7 +989,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Tax percentage of the shipping costs
+     * @param float $shippingTaxPercentage Tax percentage of the shipping costs
      * @return self
      */
     public function setShippingTaxPercentage(float $shippingTaxPercentage): self
@@ -1000,7 +1000,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
+     * @param bool $isIntraCommunityOrder Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      * @return self
      */
     public function setIsIntraCommunityOrder(bool $isIntraCommunityOrder): self
@@ -1011,7 +1011,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total orderrow price
+     * @param float $totalOrderrowPrice Total orderrow price
      * @return self
      */
     public function setTotalOrderrowPrice(float $totalOrderrowPrice): self
@@ -1022,7 +1022,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total shipping costs
+     * @param float $totalShipping Total shipping costs
      * @return self
      */
     public function setTotalShipping(float $totalShipping): self
@@ -1033,7 +1033,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total discount
+     * @param float $totalDiscounts Total discount
      * @return self
      */
     public function setTotalDiscounts(float $totalDiscounts): self
@@ -1044,7 +1044,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total price
+     * @param float $totalPrice Total price
      * @return self
      */
     public function setTotalPrice(float $totalPrice): self
@@ -1055,7 +1055,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string ISO 4217 Currency Code
+     * @param string $currency ISO 4217 Currency Code
      * @return self
      */
     public function setCurrency(string $currency): self
@@ -1066,7 +1066,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total tax amount
+     * @param float $totalTax Total tax amount
      * @return self
      */
     public function setTotalTax(float $totalTax): self
@@ -1077,7 +1077,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Total weight of the order in kilograms
+     * @param float $totalWeight Total weight of the order in kilograms
      * @return self
      */
     public function setTotalWeight(float $totalWeight): self
@@ -1088,7 +1088,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Payment option name
+     * @param string $extraPaymentOption Payment option name
      * @return self
      */
     public function setExtraPaymentOption(string $extraPaymentOption): self
@@ -1099,7 +1099,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float|null Payment option price
+     * @param float|null $extraPaymentOptionPrice Payment option price
      * @return self
      */
     public function setExtraPaymentOptionPrice(?float $extraPaymentOptionPrice): self
@@ -1110,7 +1110,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If shipping was free with this payment option
+     * @param bool $extraPaymentOptionNoSentprice If shipping was free with this payment option
      * @return self
      */
     public function setExtraPaymentOptionNoSentprice(bool $extraPaymentOptionNoSentprice): self
@@ -1121,7 +1121,7 @@ class Orders implements Model
     }
 
     /**
-     * @param bool If this order will be paid on pickup with this payment option
+     * @param bool $extraPaymentOptionPayOnPickup If this order will be paid on pickup with this payment option
      * @return self
      */
     public function setExtraPaymentOptionPayOnPickup(bool $extraPaymentOptionPayOnPickup): self
@@ -1132,7 +1132,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
+     * @param float $extraPrice Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
      * @return self
      */
     public function setExtraPrice(float $extraPrice): self
@@ -1143,7 +1143,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'
+     * @param float $paymethodCosts Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'
      * @return self
      */
     public function setPaymethodCosts(float $paymethodCosts): self
@@ -1154,7 +1154,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'
+     * @param float $creditPointDiscount The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'
      * @return self
      */
     public function setCreditPointDiscount(float $creditPointDiscount): self
@@ -1165,7 +1165,7 @@ class Orders implements Model
     }
 
     /**
-     * @param float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
+     * @param float $extraCosts Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      * @return self
      */
     public function setExtraCosts(float $extraCosts): self
@@ -1176,7 +1176,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Description of the extra costs. This is visible on the invoice.
+     * @param string $extraCostsDescription Description of the extra costs. This is visible on the invoice.
      * @return self
      */
     public function setExtraCostsDescription(string $extraCostsDescription): self
@@ -1187,7 +1187,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string Track & Trace code
+     * @param string $trackAndTraceCode Track & Trace code
      * @return self
      */
     public function setTrackAndTraceCode(string $trackAndTraceCode): self
@@ -1198,7 +1198,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Track & Trace Carrier. This value represents the shipping service.
+     * @param string|null $trackAndTraceCarrier Track & Trace Carrier. This value represents the shipping service.
      * @return self
      */
     public function setTrackAndTraceCarrier(?string $trackAndTraceCarrier): self
@@ -1209,7 +1209,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null The reservation number for an order. This may be visible on the invoice
+     * @param string|null $reservationnumber The reservation number for an order. This may be visible on the invoice
      * @return self
      */
     public function setReservationnumber(?string $reservationnumber): self
@@ -1220,7 +1220,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null The delivery option the customer selected, when PG or PGE is chosen the property pickup_address is filled with the pickup address. DHDLE may be applicable to German users who ordered using the DHL Checkout.
+     * @param string|null $deliveryOption The delivery option the customer selected, when PG or PGE is chosen the property pickup_address is filled with the pickup address. DHDLE may be applicable to German users who ordered using the DHL Checkout.
      * @return self
      */
     public function setDeliveryOption(?string $deliveryOption): self
@@ -1231,7 +1231,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\User Link to possible user resource associated with this order
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\User $user Link to possible user resource associated with this order
      * @return self
      */
     public function setUser(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\User $user): self
@@ -1242,7 +1242,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Discountcoupon Link to possible discount coupon associated with this order
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Discountcoupon $discountcoupon Link to possible discount coupon associated with this order
      * @return self
      */
     public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Discountcoupon $discountcoupon): self
@@ -1253,7 +1253,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null $customer Describes personal information of the customer
      * @return self
      */
     public function setCustomer(?\JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo $customer): self
@@ -1264,7 +1264,7 @@ class Orders implements Model
     }
 
     /**
-     * @param object|null The pickup address that the customer selected
+     * @param object|null $pickupAddress The pickup address that the customer selected
      * @return self
      */
     public function setPickupAddress(?object $pickupAddress): self
@@ -1275,7 +1275,7 @@ class Orders implements Model
     }
 
     /**
-     * @param string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
+     * @param string|null $packingSlipDeeplink Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
      * @return self
      */
     public function setPackingSlipDeeplink(?string $packingSlipDeeplink): self
@@ -1286,7 +1286,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows Products that are ordered with this order
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows $orderrows Products that are ordered with this order
      * @return self
      */
     public function setOrderrows(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderrows $orderrows): self
@@ -1297,7 +1297,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotes Notes added to this order
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotes $ordernotes Notes added to this order
      * @return self
      */
     public function setOrdernotes(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotes $ordernotes): self
@@ -1308,7 +1308,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages Messages sent to the customer
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages $ordermessages Messages sent to the customer
      * @return self
      */
     public function setOrdermessages(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordermessages $ordermessages): self
@@ -1319,7 +1319,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotifications $ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      * @return self
      */
     public function setOrdernotifications(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Ordernotifications $ordernotifications): self
@@ -1330,7 +1330,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderaffiliatenetworks Affilate networks
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderaffiliatenetworks $orderaffiliatenetworks Affilate networks
      * @return self
      */
     public function setOrderaffiliatenetworks(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderaffiliatenetworks $orderaffiliatenetworks): self
@@ -1341,7 +1341,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderlabels|null Order labels
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderlabels|null $orderlabels Order labels
      * @return self
      */
     public function setOrderlabels(?\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Orderlabels $orderlabels): self
@@ -1352,7 +1352,7 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Invoices Invoices used for creating a new invoice.
+     * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Invoices $invoices Invoices used for creating a new invoice.
      * @return self
      */
     public function setInvoices(\JacobDeKeizer\Ccv\Models\Orders\Child\Resource\Invoices $invoices): self
