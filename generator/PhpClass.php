@@ -122,7 +122,7 @@ class PhpClass
 
         if ($convertCode !== null) {
             $classString .= PHP_EOL
-                . self::INDENT . 'protected function convertFromData(string $key, $value)' . PHP_EOL
+                . self::INDENT . 'protected function convertFromArrayData(string $key, $value)' . PHP_EOL
                 . self::INDENT . '{' . PHP_EOL
                 . $convertCode . PHP_EOL
                 . self::INDENT . self::INDENT . 'return $value;' . PHP_EOL

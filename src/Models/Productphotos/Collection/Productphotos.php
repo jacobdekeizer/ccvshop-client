@@ -66,7 +66,7 @@ class Productphotos implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {
             $items = [];

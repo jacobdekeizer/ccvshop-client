@@ -10,7 +10,7 @@ use ReflectionMethod;
 trait FromArray
 {
     /**
-     * @return mixed
+     * @return static
      */
     protected static function createFromArray(array $data)
     {
@@ -33,7 +33,7 @@ trait FromArray
                     && $parameterReflectionClass->implementsInterface(Model::class)) {
                     $value = ($parameterReflectionClass->newInstanceWithoutConstructor())->fromArray($value ?? []);
                 } else {
-                    $value = $instance->convertFromData($key, $value);
+                    $value = $instance->convertFromArrayData($key, $value);
                 }
             } catch (ReflectionException $e) {
                 continue;
@@ -45,7 +45,7 @@ trait FromArray
         return $instance;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         return $value;
     }

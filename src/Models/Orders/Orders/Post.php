@@ -594,7 +594,7 @@ class Post implements Model
         return $this;
     }
 
-    protected function convertFromData(string $key, $value)
+    protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'orderrows') {
             $items = [];

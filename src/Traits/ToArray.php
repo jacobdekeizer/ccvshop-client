@@ -11,7 +11,6 @@ trait ToArray
      * @var string[]
      */
     private $filledProperties;
-    private $onlyFilledProperties = false;
     private $ignoredProperties = [
         'filledProperties',
         'onlyFilledProperties',
@@ -57,15 +56,6 @@ trait ToArray
         }
 
         return $data;
-    }
-
-    /**
-     * @return static
-     */
-    public function onlyFilledPropertiesInToArrayData(bool $onlyFilledProperties): self
-    {
-        $this->onlyFilledProperties = $onlyFilledProperties;
-        return $this;
     }
 
     final protected function propertyFilled(string $key): void
