@@ -20,14 +20,6 @@ To generate the models call: `composer generate`
 
 ## Code sniffer
 
-#### Unix
+Check: `composer phpcs`
 
-Check: `./vendor/bin/phpcs --standard=PSR2 --ignore=/src/model ./src`
-
-Autofix: `./vendor/bin/phpcbf --standard=PSR2 --ignore=/src/model ./src`
-
-#### Windows
-
-Check: `.\vendor\bin\phpcs --standard=PSR2 --ignore=/src/model ./src`
-
-Autofix: `.\vendor\bin\phpcbf --standard=PSR2 --ignore=/src/model ./src`
+Autofix: `composer phpcbf`
