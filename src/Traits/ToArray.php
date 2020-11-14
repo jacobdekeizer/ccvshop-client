@@ -11,6 +11,12 @@ trait ToArray
      * @var string[]
      */
     private $filledProperties;
+    private $onlyFilledProperties = false;
+    private $ignoredProperties = [
+        'filledProperties',
+        'onlyFilledProperties',
+        'ignoredProperties',
+    ];
 
     public function toArray(bool $onlyFilledProperties = true): array
     {
@@ -19,9 +25,13 @@ trait ToArray
         $properties = get_object_vars($this);
 
         foreach ($properties as $key => $value) {
+            if (in_array($key, $this->ignoredProperties)) {
+                continue;
+            }
+
             $snakeKey = Str::snake($key);
 
-            if ($this->removeFromRequestData($snakeKey)) {
+            if ($this->removeFromToArrayData($snakeKey)) {
                 continue;
             }
 
@@ -29,7 +39,7 @@ trait ToArray
                 continue;
             }
 
-            $value = $this->covertToData($snakeKey, $value);
+            $value = $this->convertToArrayData($snakeKey, $value);
 
             if (is_array($value)) {
                 $value = array_map(static function ($val) use ($onlyFilledProperties) {
@@ -49,17 +59,26 @@ trait ToArray
         return $data;
     }
 
+    /**
+     * @return static
+     */
+    public function onlyFilledPropertiesInToArrayData(bool $onlyFilledProperties): self
+    {
+        $this->onlyFilledProperties = $onlyFilledProperties;
+        return $this;
+    }
+
     final protected function propertyFilled(string $key): void
     {
         $this->filledProperties[] = Str::snake($key);
     }
 
-    protected function removeFromRequestData(string $key): bool
+    protected function removeFromToArrayData(string $key): bool
     {
         return false;
     }
 
-    protected function covertToData(string $key, $value)
+    protected function convertToArrayData(string $key, $value)
     {
         return $value;
     }
