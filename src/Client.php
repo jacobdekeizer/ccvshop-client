@@ -53,6 +53,9 @@ class Client
     /** @var Endpoints\InvoicesEndpoint */
     private $invoicesEndpoint;
 
+    /** @var Endpoints\OrdernotificationsEndpoint */
+    private $ordernotificationsEndpoint;
+
     public function __construct()
     {
         $this->client = new HttpClient();
@@ -66,6 +69,7 @@ class Client
         $this->attributevaluesEndpoint = new Endpoints\AttributevaluesEndpoint($this);
         $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
         $this->invoicesEndpoint = new Endpoints\InvoicesEndpoint($this);
+        $this->ordernotificationsEndpoint = new Endpoints\OrdernotificationsEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -160,5 +164,10 @@ class Client
     public function invoices(): Endpoints\InvoicesEndpoint
     {
         return $this->invoicesEndpoint;
+    }
+
+    public function ordernotifications(): Endpoints\OrdernotificationsEndpoint
+    {
+        return $this->ordernotificationsEndpoint;
     }
 }

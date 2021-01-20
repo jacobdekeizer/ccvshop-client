@@ -621,6 +621,29 @@ $invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
 $client->invoices()->create(123, $invoice);
 ```
 
+## Ordernotifications
+
+### Get all order notifications for order
+
+```php
+$notifications = $client->ordernotifications()->all(123);
+```
+
+### Get order notification
+
+```php
+$notification = $client->ordernotifications()->get(123456);
+```
+
+### Create order notification
+
+```php
+$ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input())
+    ->setType('customer_paymentlink');
+
+$client->ordernotifications()->create(123, $ordernotification);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -635,3 +658,4 @@ $client->invoices()->create(123, $invoice);
 | attributevalues|
 | productattributevalues|
 | invoices|
+| ordernotifications|
