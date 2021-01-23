@@ -86,6 +86,12 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.invoices.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.invoices.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.invoices.input.v1.json', $namespace);
+
+        // ordernotifications
+        $namespace = 'Ordernotifications';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.ordernotifications.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotifications.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.ordernotifications.input.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

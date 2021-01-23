@@ -36,6 +36,11 @@ class Productattachments implements Model
     private $position;
 
     /**
+     * @var string Deeplink to the file. This link will result in a file which can be downloaded.
+     */
+    private $deeplink;
+
+    /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
@@ -86,6 +91,14 @@ class Productattachments implements Model
     public function getPosition(): int
     {
         return $this->position;
+    }
+
+    /**
+     * @return string Deeplink to the file. This link will result in a file which can be downloaded.
+     */
+    public function getDeeplink(): string
+    {
+        return $this->deeplink;
     }
 
     /**
@@ -148,6 +161,17 @@ class Productattachments implements Model
     {
         $this->position = $position;
         $this->propertyFilled('position');
+        return $this;
+    }
+
+    /**
+     * @param string $deeplink Deeplink to the file. This link will result in a file which can be downloaded.
+     * @return self
+     */
+    public function setDeeplink(string $deeplink): self
+    {
+        $this->deeplink = $deeplink;
+        $this->propertyFilled('deeplink');
         return $this;
     }
 

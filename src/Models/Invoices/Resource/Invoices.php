@@ -151,7 +151,7 @@ class Invoices implements Model
     private $paymethodCosts;
 
     /**
-     * @var string|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
+     * @var float|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      */
     private $creditPointDiscount;
 
@@ -443,9 +443,9 @@ class Invoices implements Model
     }
 
     /**
-     * @return string|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
+     * @return float|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      */
-    public function getCreditPointDiscount(): ?string
+    public function getCreditPointDiscount(): ?float
     {
         return $this->creditPointDiscount;
     }
@@ -847,10 +847,10 @@ class Invoices implements Model
     }
 
     /**
-     * @param string|null $creditPointDiscount The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
+     * @param float|null $creditPointDiscount The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      * @return self
      */
-    public function setCreditPointDiscount(?string $creditPointDiscount): self
+    public function setCreditPointDiscount(?float $creditPointDiscount): self
     {
         $this->creditPointDiscount = $creditPointDiscount;
         $this->propertyFilled('creditPointDiscount');

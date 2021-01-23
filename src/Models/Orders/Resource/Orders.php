@@ -221,6 +221,11 @@ class Orders implements Model
     private $trackAndTraceCarrier;
 
     /**
+     * @var string Track & Trace deeplink. This links to the shipping carrier status page.
+     */
+    private $trackAndTraceDeeplink;
+
+    /**
      * @var string|null The reservation number for an order. This may be visible on the invoice
      */
     private $reservationnumber;
@@ -632,6 +637,14 @@ class Orders implements Model
     public function getTrackAndTraceCarrier(): ?string
     {
         return $this->trackAndTraceCarrier;
+    }
+
+    /**
+     * @return string Track & Trace deeplink. This links to the shipping carrier status page.
+     */
+    public function getTrackAndTraceDeeplink(): string
+    {
+        return $this->trackAndTraceDeeplink;
     }
 
     /**
@@ -1205,6 +1218,17 @@ class Orders implements Model
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
         $this->propertyFilled('trackAndTraceCarrier');
+        return $this;
+    }
+
+    /**
+     * @param string $trackAndTraceDeeplink Track & Trace deeplink. This links to the shipping carrier status page.
+     * @return self
+     */
+    public function setTrackAndTraceDeeplink(string $trackAndTraceDeeplink): self
+    {
+        $this->trackAndTraceDeeplink = $trackAndTraceDeeplink;
+        $this->propertyFilled('trackAndTraceDeeplink');
         return $this;
     }
 
