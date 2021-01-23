@@ -1,5 +1,9 @@
 # Change log
 
+## v0.13.0
+
+- Add order notifications endpoint
+
 ## v0.12.0
 
 - Add support for Guzzle 7.x
