@@ -473,28 +473,4 @@ class Apps implements Model
         $this->propertyFilled('parent');
         return $this;
     }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'available_languages') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = string::fromArray($item);
-            }
-
-            return $items;
-        }
-        if ($key === 'photos') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = string::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
-    }
 }
