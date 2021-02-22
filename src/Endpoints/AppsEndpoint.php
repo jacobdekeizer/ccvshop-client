@@ -6,16 +6,16 @@ use JacobDeKeizer\Ccv\Models\Apps as Models;
 
 class AppsEndpoint extends BaseEndpoint
 {
-    public function allAppStoreConfigurationsFor(int $id): Models\Collection\Apps
+    public function allForStoreCategory(int $storeCategoryId): Models\Collection\Apps
     {
-        $result = $this->doRequest(self::GET, "appstorecategories/{$id}/apps/");
+        $result = $this->doRequest(self::GET, "appstorecategories/{$storeCategoryId}/apps/");
 
         return Models\Collection\Apps::fromArray($result);
     }
 
-    public function all(int $id): Models\Collection\Apps
+    public function all(): Models\Collection\Apps
     {
-        $result = $this->doRequest(self::GET, "apps/{$id}/");
+        $result = $this->doRequest(self::GET, 'apps/');
 
         return Models\Collection\Apps::fromArray($result);
     }
