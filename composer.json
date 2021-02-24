@@ -32,7 +32,7 @@
   },
   "scripts": {
     "generate": "JacobDeKeizer\\CcvGenerator\\SchemaGenerator::generateAll",
-    "phpcs": "phpcs --standard=PSR12 --ignore=/src/Models ./src",
-    "phpcbf": "phpcbf --standard=PSR12 --ignore=/src/Models ./src"
+    "phpcs": "phpcs --standard=PSR12 --ignore=/src/Models ./src ./generator",
+    "phpcbf": "phpcbf --standard=PSR12 --ignore=/src/Models ./src ./generator"
   }
 }
