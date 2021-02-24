@@ -20,6 +20,13 @@ class SchemaGenerator
     {
         $generator = new self();
 
+        // categories
+        $namespace = 'Categories';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.categories.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.categories.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.categories.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.categories.post.v1.json', $namespace);
+
         // orders
         $namespace = 'Orders';
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', $namespace);

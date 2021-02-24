@@ -26,6 +26,9 @@ class Client
     /** @var Endpoints\RootEndpoint */
     private $rootEndpoint;
 
+    /** @var Endpoints\CategoriesEndpoint */
+    private $categoriesEndpoint;
+
     /** @var Endpoints\OrdersEndpoint */
     private $ordersEndpoint;
 
@@ -60,6 +63,7 @@ class Client
     {
         $this->client = new HttpClient();
         $this->rootEndpoint = new Endpoints\RootEndpoint($this);
+        $this->categoriesEndpoint = new Endpoints\CategoriesEndpoint($this);
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
         $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
@@ -119,6 +123,11 @@ class Client
     public function root(): Endpoints\RootEndpoint
     {
         return $this->rootEndpoint;
+    }
+
+    public function categories(): Endpoints\CategoriesEndpoint
+    {
+        return $this->categoriesEndpoint;
     }
 
     public function orders(): Endpoints\OrdersEndpoint
