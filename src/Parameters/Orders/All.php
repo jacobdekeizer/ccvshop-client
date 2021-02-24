@@ -11,7 +11,8 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray, SortableFields;
+    use FromArray;
+    use SortableFields;
 
     /**
      * Specific order number of the order.

@@ -9,7 +9,8 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class Get implements Parameter
 {
-    use FromArray, ExpandableProductFields;
+    use FromArray;
+    use ExpandableProductFields;
 
     /**
      * @return Get
