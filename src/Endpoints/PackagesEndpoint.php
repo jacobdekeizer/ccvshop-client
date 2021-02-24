@@ -22,12 +22,12 @@ class PackagesEndpoint extends BaseEndpoint
         return Packages::fromArray($result);
     }
 
-    public function update(int $id, Input $package, bool $onlyFilledProperties): void
+    public function update(int $id, Input $package, bool $onlyFilledProperties = true): void
     {
         $this->doRequest(self::PATCH, '/packages/' . $id . '/', $package->toArray($onlyFilledProperties));
     }
 
-    public function create(Input $package, bool $onlyFilledProperties): Package
+    public function create(Input $package, bool $onlyFilledProperties = true): Package
     {
         $result = $this->doRequest(self::POST, '/packages/', $package->toArray($onlyFilledProperties));
 
