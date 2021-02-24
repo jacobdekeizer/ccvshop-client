@@ -92,6 +92,13 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.ordernotifications.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotifications.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.ordernotifications.input.v1.json', $namespace);
+
+        // suppliers
+        $namespace = 'Suppliers';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.suppliers.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.suppliers.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.suppliers.input.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.suppliers.input.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void
