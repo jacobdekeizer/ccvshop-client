@@ -10,7 +10,9 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All implements Parameter
 {
-    use FromArray, ExpandableAppFields, SortableAppFields;
+    use FromArray;
+    use ExpandableAppFields;
+    use SortableAppFields;
 
     /**
      * @var string|null Title of the app.

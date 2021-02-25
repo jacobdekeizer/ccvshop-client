@@ -9,7 +9,8 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class Get implements Parameter
 {
-    use FromArray, ExpandableAppFields;
+    use FromArray;
+    use ExpandableAppFields;
 
     /**
      * @param array $data
