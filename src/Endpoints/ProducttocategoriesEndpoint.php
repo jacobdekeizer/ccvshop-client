@@ -15,7 +15,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      */
     public function allForCategory(int $categoryId): Models\Collection\Producttocategories
     {
-        $result = $this->doRequest(self::GET, 'categories/' . $categoryId . '/producttocategories/');
+        $result = $this->doRequest(self::GET, sprintf('categories/%d/producttocategories/', $categoryId));
 
         return Models\Collection\Producttocategories::fromArray($result);
     }
@@ -25,7 +25,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      */
     public function allForProduct(int $productId): Models\Collection\Producttocategories
     {
-        $result = $this->doRequest(self::GET, 'products/' . $productId . '/producttocategories/');
+        $result = $this->doRequest(self::GET, sprintf('products/%d/producttocategories/', $productId));
 
         return Models\Collection\Producttocategories::fromArray($result);
     }
@@ -35,7 +35,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Producttocategories
     {
-        $result = $this->doRequest(self::GET, 'producttocategories/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('producttocategories/%d', $id));
 
         return Models\Resource\Producttocategories::fromArray($result);
     }
@@ -43,30 +43,17 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(
-        int $id,
-        Models\Producttocategories\Patch $producttocategories,
-        bool $onlyFilledProperties = true
-    ): void {
-        $this->doRequest(
-            self::PATCH,
-            'producttocategories/' . $id,
-            $producttocategories->toArray($onlyFilledProperties)
-        );
+    public function update(int $id, Models\Producttocategories\Patch $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(self::PATCH, sprintf('producttocategories/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(
-        Post $producttocategories,
-        bool $onlyFilledProperties = true
-    ): Models\Resource\Producttocategories {
-        $response = $this->doRequest(
-            self::POST,
-            'producttocategories/',
-            $producttocategories->toArray($onlyFilledProperties)
-        );
+    public function create(Post $model, bool $onlyFilled = true): Models\Resource\Producttocategories
+    {
+        $response = $this->doRequest(self::POST, 'producttocategories/', $model->toArray($onlyFilled));
 
         return Models\Resource\Producttocategories::fromArray($response);
     }
@@ -76,6 +63,6 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'producttocategories/' . $id);
+        $this->doRequest(self::DELETE, sprintf('producttocategories/%d', $id));
     }
 }

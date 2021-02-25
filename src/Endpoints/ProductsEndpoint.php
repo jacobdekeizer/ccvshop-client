@@ -18,7 +18,7 @@ class ProductsEndpoint extends BaseEndpoint
             $payload = new All();
         }
 
-        $result = $this->doRequest(self::GET, 'products' . $payload->toBuilder()->toQueryString());
+        $result = $this->doRequest(self::GET, sprintf('products%s', $payload->toBuilder()->toQueryString()));
 
         return Models\Collection\Products::fromArray($result);
     }
@@ -34,7 +34,7 @@ class ProductsEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('brands/%s/products%s', $brandId, $payload->toBuilder()->toQueryString())
+            sprintf('brands/%d/products%s', $brandId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Products::fromArray($result);
@@ -51,7 +51,7 @@ class ProductsEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('webshops/%s/products%s', $webshopId, $payload->toBuilder()->toQueryString())
+            sprintf('webshops/%d/products%s', $webshopId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Products::fromArray($result);
@@ -68,7 +68,7 @@ class ProductsEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('categories/%s/products%s', $categoryId, $payload->toBuilder()->toQueryString())
+            sprintf('categories/%d/products%s', $categoryId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Products::fromArray($result);
@@ -85,7 +85,7 @@ class ProductsEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('conditions/%s/products%s', $conditionId, $payload->toBuilder()->toQueryString())
+            sprintf('conditions/%d/products%s', $conditionId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Products::fromArray($result);
@@ -102,7 +102,7 @@ class ProductsEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('suppliers/%s/products%s', $supplierId, $payload->toBuilder()->toQueryString())
+            sprintf('suppliers/%d/products%s', $supplierId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Products::fromArray($result);
@@ -117,7 +117,7 @@ class ProductsEndpoint extends BaseEndpoint
             $payload = new Get();
         }
 
-        $result = $this->doRequest(self::GET, sprintf('products/%s%s', $id, $payload->toBuilder()->toQueryString()));
+        $result = $this->doRequest(self::GET, sprintf('products/%d%s', $id, $payload->toBuilder()->toQueryString()));
 
         return Models\Resource\Products::fromArray($result);
     }
@@ -125,17 +125,17 @@ class ProductsEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Products\Patch $product, bool $onlyFilledProperties = true): void
+    public function update(int $id, Models\Products\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, 'products/' . $id, $product->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, sprintf('products/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(Models\Products\Post $product, bool $onlyFilledProperties = true): Models\Resource\Products
+    public function create(Models\Products\Post $model, bool $onlyFilled = true): Models\Resource\Products
     {
-        $response = $this->doRequest(self::POST, 'products', $product->toArray($onlyFilledProperties));
+        $response = $this->doRequest(self::POST, 'products', $model->toArray($onlyFilled));
 
         return Models\Resource\Products::fromArray($response);
     }
@@ -145,6 +145,6 @@ class ProductsEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'products/' . $id);
+        $this->doRequest(self::DELETE, sprintf('products/%d', $id));
     }
 }
