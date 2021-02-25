@@ -6,6 +6,8 @@ abstract class Property
 {
     protected const INDENT = '    ';
 
+    private const DEPRECATED_PREFIX = 'Deprecated. ';
+
     /**
      * @var string
      */
@@ -49,6 +51,7 @@ abstract class Property
     {
         return self::INDENT . '/**' . PHP_EOL
             . self::INDENT . ' * @return ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
+            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
             . self::INDENT . ' */' . PHP_EOL
             . self::INDENT . 'public function get' . ucfirst($this->name) . '(): ' . $this->getPhpType() . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
@@ -62,6 +65,7 @@ abstract class Property
             . self::INDENT . ' * @param '
                 . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
+            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
             . self::INDENT . ' */' . PHP_EOL
             . self::INDENT . 'public function set' . ucfirst($this->name)
                 . '(' . $this->getPhpType() . ' ' . $this->getVariable() . '): self' . PHP_EOL
@@ -72,8 +76,33 @@ abstract class Property
             . self::INDENT . '}' . PHP_EOL;
     }
 
+    public function isDeprecated(): bool
+    {
+        return substr($this->description, 0, 12) === self::DEPRECATED_PREFIX;
+    }
+
     protected function getVariable(): string
     {
         return '$' . $this->name;
+    }
+
+    private function getDeprecatedDocblock(): string
+    {
+        $seeProps = [
+            'See',
+            'Please use',
+            'Use the',
+        ];
+
+        $text = ' ';
+
+        foreach ($seeProps as $seeProp) {
+            if (strpos($this->description, $seeProp)) {
+                $text .= substr($this->description, (strpos($this->description, $seeProp) ?: -1));
+                break;
+            }
+        }
+
+        return '@deprecated' . $text;
     }
 }

@@ -23,7 +23,7 @@ class SchemaGenerator
     public static function generateAll(): void
     {
         $generator = new self();
-        
+
         $generator->removeOldModels();
 
         // apps
@@ -160,7 +160,6 @@ class SchemaGenerator
             }
 
             $this->removeDirectory($directory);
-            die();
         }
     }
 
