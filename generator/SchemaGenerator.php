@@ -152,7 +152,7 @@ class SchemaGenerator
 
     private function removeOldModels(): void
     {
-        $directories = glob( $this->rootDir . '/Models/*');
+        $directories = glob($this->rootDir . '/Models/*');
 
         foreach ($directories as $directory) {
             if (in_array(basename($directory), self::MANUAL_MODELS_DIRS)) {
@@ -165,7 +165,7 @@ class SchemaGenerator
 
     private function removeDirectory(string $path): void
     {
-        $files = glob( $path . '/*');
+        $files = glob($path . '/*');
 
         foreach ($files as $file) {
             is_dir($file) ? $this->removeDirectory($file) : unlink($file);
