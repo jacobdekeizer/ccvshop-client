@@ -6,6 +6,10 @@ use JacobDeKeizer\CcvGenerator\Factories\PhpClassFactory;
 
 class SchemaGenerator
 {
+    public const MANUAL_MODELS_DIRS = [
+        'Root'
+    ];
+
     /**
      * @var string
      */
@@ -20,6 +24,9 @@ class SchemaGenerator
     {
         $generator = new self();
 
+        $generator->removeOldModels();
+
+        // apps
         $namespace = 'Apps';
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.apps.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.apps.v1.json', $namespace);
@@ -125,9 +132,9 @@ class SchemaGenerator
 
     private function fileForceContents(string $path, string $contents): void
     {
-        $parts = explode(DIRECTORY_SEPARATOR, $path);
+        $parts = explode('/', str_replace($this->rootDir, '', $path));
         array_pop($parts);
-        $dir = '';
+        $dir = $this->rootDir;
 
         foreach ($parts as $part) {
             if (!is_dir($dir .= '/' . $part)) {
@@ -141,5 +148,29 @@ class SchemaGenerator
     private function normalizePath(string $path): string
     {
         return str_replace('\\', '/', $path);
+    }
+
+    private function removeOldModels(): void
+    {
+        $directories = glob($this->rootDir . '/Models/*');
+
+        foreach ($directories as $directory) {
+            if (in_array(basename($directory), self::MANUAL_MODELS_DIRS)) {
+                continue;
+            }
+
+            $this->removeDirectory($directory);
+        }
+    }
+
+    private function removeDirectory(string $path): void
+    {
+        $files = glob($path . '/*');
+
+        foreach ($files as $file) {
+            is_dir($file) ? $this->removeDirectory($file) : unlink($file);
+        }
+
+        rmdir($path);
     }
 }
