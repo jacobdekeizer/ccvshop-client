@@ -20,7 +20,7 @@ class AttributesEndpoint extends BaseEndpoint
      */
     public function allCombinationsFor(int $attributeId): Models\Collection\Attributes
     {
-        $result = $this->doRequest(self::GET, 'attributecombinations/' . $attributeId . '/attributes/');
+        $result = $this->doRequest(self::GET, sprintf('attributecombinations/%d/attributes/', $attributeId));
 
         return Models\Collection\Attributes::fromArray($result);
     }
@@ -40,7 +40,7 @@ class AttributesEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Attributes
     {
-        $result = $this->doRequest(self::GET, 'attributes/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('attributes/%d', $id));
 
         return Models\Resource\Attributes::fromArray($result);
     }
@@ -48,30 +48,21 @@ class AttributesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(
-        int $id,
-        Models\Attributes\Input $attribute,
-        bool $onlyFilledProperties = true
-    ): void {
+    public function update(int $id, Models\Attributes\Input $model, bool $onlyFilled = true): void
+    {
         $this->doRequest(
             self::PATCH,
-            'attributes/' . $id,
-            $attribute->toArray($onlyFilledProperties)
+            sprintf('attributes/%d', $id),
+            $model->toArray($onlyFilled)
         );
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(
-        Models\Attributes\Input $productattributevalues,
-        bool $onlyFilledProperties = true
-    ): Models\Resource\Attributes {
-        $response = $this->doRequest(
-            self::POST,
-            'attributes/',
-            $productattributevalues->toArray($onlyFilledProperties)
-        );
+    public function create(Models\Attributes\Input $model, bool $onlyFilled = true): Models\Resource\Attributes
+    {
+        $response = $this->doRequest(self::POST, 'attributes/', $model->toArray($onlyFilled));
 
         return Models\Resource\Attributes::fromArray($response);
     }

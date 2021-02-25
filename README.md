@@ -86,8 +86,8 @@ $app = $client->apps()->get(123456);
 print $app->name;
 ```
 
-### Set app to installed
-
+### Update app
+For example set the app to installed
 ```php
 $patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
     ->setIsInstalled(true);

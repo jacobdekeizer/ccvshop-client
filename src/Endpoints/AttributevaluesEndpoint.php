@@ -12,15 +12,18 @@ class AttributevaluesEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'attributevalues/' . $id);
+        $this->doRequest(self::DELETE, sprintf('attributevalues/%d', $id));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function allForCombination(int $attributeconbinationId): Models\Collection\Attributevalues
+    public function allForCombination(int $attributeCombinationId): Models\Collection\Attributevalues
     {
-        $result = $this->doRequest(self::GET, 'attributecombinations/' . $attributeconbinationId . '/attributevalues/');
+        $result = $this->doRequest(
+            self::GET,
+            sprintf('attributecombinations/%d/attributevalues/', $attributeCombinationId)
+        );
 
         return Models\Collection\Attributevalues::fromArray($result);
     }
@@ -30,7 +33,7 @@ class AttributevaluesEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Attributevalues
     {
-        $result = $this->doRequest(self::GET, 'attributevalues/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('attributevalues/%d', $id));
 
         return Models\Resource\Attributevalues::fromArray($result);
     }
@@ -40,7 +43,7 @@ class AttributevaluesEndpoint extends BaseEndpoint
      */
     public function allForAttribute(int $attributeId): Models\Collection\Attributevalues
     {
-        $result = $this->doRequest(self::GET, 'attributes/' . $attributeId . '/attributevalues/');
+        $result = $this->doRequest(self::GET, sprintf('attributes/%d/attributevalues/', $attributeId));
 
         return Models\Collection\Attributevalues::fromArray($result);
     }
@@ -58,16 +61,9 @@ class AttributevaluesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(
-        int $attributevalueId,
-        Models\Attributevalues\Patch $attributevalues,
-        bool $onlyFilledProperties = true
-    ): void {
-        $this->doRequest(
-            self::PATCH,
-            'attributevalues/' . $attributevalueId,
-            $attributevalues->toArray($onlyFilledProperties)
-        );
+    public function update(int $id, Models\Attributevalues\Patch $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(self::PATCH, sprintf('attributevalues/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
@@ -75,13 +71,13 @@ class AttributevaluesEndpoint extends BaseEndpoint
      */
     public function create(
         int $attributeId,
-        Models\Attributevalues\Post $attributevalues,
-        bool $onlyFilledProperties = true
+        Models\Attributevalues\Post $model,
+        bool $onlyFilled = true
     ): Models\Resource\Attributevalues {
         $response = $this->doRequest(
             self::POST,
-            'attributes/' . $attributeId . '/attributevalues',
-            $attributevalues->toArray($onlyFilledProperties)
+            sprintf('attributes/%d/attributevalues', $attributeId),
+            $model->toArray($onlyFilled)
         );
 
         return Models\Resource\Attributevalues::fromArray($response);
