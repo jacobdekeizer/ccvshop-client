@@ -116,7 +116,8 @@ class All extends PaginatedList implements Parameter
     }
 
     /**
-     * @param string|null $invoicenumberFull Specific invoice number, combined with the invoice number prefix of an invoice.
+     * @param string|null $invoicenumberFull Specific invoice number, combined with the invoice number prefix
+     *                                       of an invoice.
      * @return All
      */
     public function setInvoicenumberFull(?string $invoicenumberFull): All
