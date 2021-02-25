@@ -1,5 +1,14 @@
 # Change log
 
+## v0.14.0
+
+- Add apps endpoint
+- Fix composer.json file php version
+- Changed from PSR-2 to PSR-12 coding standard
+- Cleanup endpoints
+- Fixed docblocks for parameters
+- urlencode QueryParameters
+
 ## v0.13.0
 
 - Add order notifications endpoint
