@@ -8,6 +8,7 @@
 - Cleanup endpoints
 - Fixed docblocks for parameters
 - urlencode QueryParameters
+- PHP 8.0 support
 
 ## v0.13.0
 
