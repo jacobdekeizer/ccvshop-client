@@ -20,7 +20,6 @@ class All implements Parameter
     private $name;
 
     /**
-     * @param array $data
      * @return All
      */
     public static function fromArray(array $data): Parameter
@@ -37,7 +36,7 @@ class All implements Parameter
     }
 
     /**
-     * @return string|null
+     * @return string|null Title of the app.
      */
     public function getName(): ?string
     {
@@ -45,10 +44,10 @@ class All implements Parameter
     }
 
     /**
-     * @param mixed $name
+     * @param string $name Title of the app
      * @return All
      */
-    public function setName($name): All
+    public function setName(string $name): All
     {
         $this->name = $name;
         return $this;

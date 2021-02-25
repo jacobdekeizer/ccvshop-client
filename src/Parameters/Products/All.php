@@ -33,7 +33,7 @@ class All extends PaginatedList implements Parameter
 
     /**
      * @var string|null Specific part (min 3 char.) of productname with a LIKE matching method.
-     * Encode according to RFC 3986.
+     *                  Encode according to RFC 3986.
      */
     private $productName;
 
@@ -88,89 +88,147 @@ class All extends PaginatedList implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
+    /**
+     * @param string|null $productNumber Number of the product.
+     * @return All
+     */
     public function setProductNumber(?string $productNumber): All
     {
         $this->productNumber = $productNumber;
         return $this;
     }
 
+    /**
+     * @return string|null Number of the product.
+     */
     public function getProductNumber(): ?string
     {
         return $this->productNumber;
     }
 
+    /**
+     * @param string|null $eanNumber EAN (European Article Numbering) of the product.
+     * @return All
+     */
     public function setEanNumber(?string $eanNumber): All
     {
         $this->eanNumber = $eanNumber;
         return $this;
     }
 
+    /**
+     * @return string|null EAN (European Article Numbering) of the product.
+     */
     public function getEanNumber(): ?string
     {
         return $this->eanNumber;
     }
 
+    /**
+     * @param string|null $mpnNumber MPN (Manufacturer Part Number) of the product.
+     * @return All
+     */
     public function setMpnNumber(?string $mpnNumber): All
     {
         $this->mpnNumber = $mpnNumber;
         return $this;
     }
 
+    /**
+     * @return string|null MPN (Manufacturer Part Number) of the product.
+     */
     public function getMpnNumber(): ?string
     {
         return $this->mpnNumber;
     }
 
+    /**
+     * @param string|null $productName Specific part (min 3 char.) of productname with a LIKE matching method.
+     *                                 Encode according to RFC 3986.
+     * @return All
+     */
     public function setProductName(?string $productName): All
     {
         $this->productName = $productName;
         return $this;
     }
 
+    /**
+     * @return string|null Specific part (min 3 char.) of productname with a LIKE matching method.
+     *                     Encode according to RFC 3986.
+     */
     public function getProductName(): ?string
     {
         return $this->productName;
     }
 
+    /**
+     * @param int|null $stock Specific stock of the products in the result.
+     * @return All
+     */
     public function setStock(?int $stock): All
     {
         $this->stock = $stock;
         return $this;
     }
 
+    /**
+     * @return int|null Specific stock of the products in the result.
+     */
     public function getStock(): ?int
     {
         return $this->stock;
     }
 
+    /**
+     * @param float|null $minStock Minimal stock of the products in the result.
+     * @return All
+     */
     public function setMinStock(?float $minStock): All
     {
         $this->minStock = $minStock;
         return $this;
     }
 
+    /**
+     * @return float|null Minimal stock of the products in the result.
+     */
     public function getMinStock(): ?float
     {
         return $this->minStock;
     }
 
+    /**
+     * @param float|null $maxStock Maximal stock of the products in the result.
+     * @return All
+     */
     public function setMaxStock(?float $maxStock): All
     {
         $this->maxStock = $maxStock;
         return $this;
     }
 
+    /**
+     * @return float|null Maximal stock of the products in the result.
+     */
     public function getMaxStock(): ?float
     {
         return $this->maxStock;
     }
 
+    /**
+     * @param float|null $quantity Quantity used to calculate shipping costs.
+     * @return All
+     */
     public function setQuantity(?float $quantity): All
     {
         $this->quantity = $quantity;
         return $this;
     }
 
+    /**
+     * @return float|null Quantity used to calculate shipping costs.
+     */
     public function getQuantity(): ?float
     {
         return $this->quantity;
