@@ -6,8 +6,6 @@ abstract class Property
 {
     protected const INDENT = '    ';
 
-    private const DEPRECATED_PREFIX = 'Deprecated. ';
-
     /**
      * @var string
      */
@@ -78,7 +76,7 @@ abstract class Property
 
     public function isDeprecated(): bool
     {
-        return substr($this->description, 0, 12) === self::DEPRECATED_PREFIX;
+        return substr($this->description, 0, 12) === 'Deprecated. ';
     }
 
     protected function getVariable(): string
@@ -94,11 +92,11 @@ abstract class Property
             'Use the',
         ];
 
-        $text = ' ';
+        $text = '';
 
         foreach ($seeProps as $seeProp) {
             if (strpos($this->description, $seeProp)) {
-                $text .= substr($this->description, (strpos($this->description, $seeProp) ?: -1));
+                $text = ' ' . substr($this->description, (strpos($this->description, $seeProp) ?: -1));
                 break;
             }
         }

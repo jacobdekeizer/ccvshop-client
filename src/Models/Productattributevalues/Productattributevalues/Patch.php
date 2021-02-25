@@ -64,7 +64,7 @@ class Patch implements Model
 
     /**
      * @return bool|null Deprecated. Attribute option value enable. Value is always true.
-     * @deprecated 
+     * @deprecated
      */
     public function getEnable(): ?bool
     {
@@ -107,7 +107,7 @@ class Patch implements Model
     /**
      * @param bool|null $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
-     * @deprecated 
+     * @deprecated
      */
     public function setEnable(?bool $enable): self
     {

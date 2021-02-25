@@ -142,7 +142,7 @@ class Productattributevalues implements Model
 
     /**
      * @return bool Deprecated. Attribute option value enable. Value is always true.
-     * @deprecated 
+     * @deprecated
      */
     public function getEnable(): bool
     {
@@ -251,7 +251,7 @@ class Productattributevalues implements Model
     /**
      * @param bool $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
-     * @deprecated 
+     * @deprecated
      */
     public function setEnable(bool $enable): self
     {
