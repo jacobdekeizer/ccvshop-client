@@ -94,7 +94,10 @@ class SchemaGenerator
 
         // ordernotifications
         $namespace = 'Ordernotifications';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.ordernotifications.v1.json', $namespace);
+        $generator->generate(
+            '/API/Schema/vnd.verto.webshop.resource.collection.ordernotifications.v1.json',
+            $namespace
+        );
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotifications.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.ordernotifications.input.v1.json', $namespace);
     }

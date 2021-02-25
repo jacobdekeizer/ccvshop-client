@@ -59,7 +59,7 @@ abstract class Property
     public function getSetter(): string
     {
         return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT. ' * @param '
+            . self::INDENT . ' * @param '
                 . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL

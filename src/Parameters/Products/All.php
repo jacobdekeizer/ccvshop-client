@@ -12,7 +12,9 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray, ExpandableProductFields, SortableFields;
+    use FromArray;
+    use ExpandableProductFields;
+    use SortableFields;
 
     /**
      * @var string|null Number of the product.
