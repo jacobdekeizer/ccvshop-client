@@ -1,5 +1,9 @@
 # Change log
 
+## v0.15.0
+
+- Add @deprecated to the model methods docblock generated from the api documentation
+
 ## v0.14.0
 
 - Add apps endpoint
