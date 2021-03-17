@@ -283,6 +283,38 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
 $client->orderrows()->replace($orderId, $newOrderrows);
 ```
 
+## Packages
+
+### Get all packages
+
+```php
+$packages = $client->packages()->all();
+```
+
+### Get package
+
+```php
+$package = $client->packages()->get(12345);
+```
+
+### Create package
+
+```php
+$client->packages()->create(
+    (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+        ->setName('foobar')
+);
+```
+
+### Update package
+
+```php
+$input = (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+    ->setName('baz boo');
+
+$client->packages()->update(12345, $input);
+```
+
 ## Products
 
 ### All products
@@ -802,6 +834,7 @@ $client->webhooks()->delete(12345);
 | categories |
 | orderrows |
 | orders |
+| packages |
 | products|
 | productphotos|
 | producttocategories|
