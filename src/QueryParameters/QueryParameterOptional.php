@@ -39,6 +39,6 @@ class QueryParameterOptional implements QueryParameter
             return null;
         }
 
-        return $this->getParameter() . '=' . $this->getValue();
+        return urlencode($this->getParameter()) . '=' . urlencode($this->getValue());
     }
 }

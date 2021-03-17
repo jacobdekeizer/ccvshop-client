@@ -17,10 +17,7 @@ class InvoicesEndpoint extends BaseEndpoint
             $payload = new All();
         }
 
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('invoices%s', $payload->toBuilder()->toQueryString())
-        );
+        $result = $this->doRequest(self::GET, sprintf('invoices%s', $payload->toBuilder()->toQueryString()));
 
         return Models\Collection\Invoices::fromArray($result);
     }
@@ -30,7 +27,7 @@ class InvoicesEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Invoices
     {
-        $result = $this->doRequest(self::GET, 'invoices/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('invoices/%d', $id));
 
         return Models\Resource\Invoices::fromArray($result);
     }
@@ -38,9 +35,9 @@ class InvoicesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Invoices\Input $invoice, bool $onlyFilledProperties = true): void
+    public function update(int $id, Models\Invoices\Input $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, 'invoices/' . $id, $invoice->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, 'invoices/' . $id, $model->toArray($onlyFilled));
     }
 
     /**
@@ -48,14 +45,10 @@ class InvoicesEndpoint extends BaseEndpoint
      */
     public function create(
         int $orderId,
-        Models\Invoices\Input $invoice,
-        bool $onlyFilledProperties = true
+        Models\Invoices\Input $model,
+        bool $onlyFilled = true
     ): Models\Resource\Invoices {
-        $response = $this->doRequest(
-            self::POST,
-            'orders/' . $orderId . '/invoices',
-            $invoice->toArray($onlyFilledProperties)
-        );
+        $response = $this->doRequest(self::POST, sprintf('orders/%d/invoices', $orderId), $model->toArray($onlyFilled));
 
         return Models\Resource\Invoices::fromArray($response);
     }

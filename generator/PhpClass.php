@@ -96,7 +96,7 @@ class PhpClass
         $classString .= self::INDENT . '/**' . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
             . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public static function fromArray(array $data): Model' .PHP_EOL
+            . self::INDENT . 'public static function fromArray(array $data): Model' . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
             . self::INDENT . self::INDENT . 'return self::createFromArray($data);' . PHP_EOL
             . self::INDENT . '}' . PHP_EOL;

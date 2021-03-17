@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
@@ -25,7 +27,7 @@ class OrdernotificationsEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Ordernotifications
     {
-        $result = $this->doRequest(self::GET, 'ordernotifications/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('ordernotifications/%d', $id));
 
         return Models\Resource\Ordernotifications::fromArray($result);
     }
@@ -35,13 +37,13 @@ class OrdernotificationsEndpoint extends BaseEndpoint
      */
     public function create(
         int $orderId,
-        Models\Ordernotifications\Input $ordernotification,
-        bool $onlyFilledProperties = true
+        Models\Ordernotifications\Input $model,
+        bool $onlyFilled = true
     ): Models\Resource\Ordernotifications {
         $response = $this->doRequest(
             self::POST,
-            'orders/' . $orderId . '/ordernotifications',
-            $ordernotification->toArray($onlyFilledProperties)
+            sprintf('orders/%d/ordernotifications', $orderId),
+            $model->toArray($onlyFilled)
         );
 
         return Models\Resource\Ordernotifications::fromArray($response);

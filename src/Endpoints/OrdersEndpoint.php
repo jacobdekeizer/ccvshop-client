@@ -17,7 +17,7 @@ class OrdersEndpoint extends BaseEndpoint
             $payload = new All();
         }
 
-        $result = $this->doRequest(self::GET, 'orders' . $payload->toBuilder()->toQueryString());
+        $result = $this->doRequest(self::GET, sprintf('orders%s', $payload->toBuilder()->toQueryString()));
 
         return Models\Collection\Orders::fromArray($result);
     }
@@ -27,7 +27,7 @@ class OrdersEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Orders
     {
-        $result = $this->doRequest(self::GET, 'orders/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('orders/%d', $id));
 
         return Models\Resource\Orders::fromArray($result);
     }
@@ -35,17 +35,17 @@ class OrdersEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Orders\Patch $order, bool $onlyFilledProperties = true): void
+    public function update(int $id, Models\Orders\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, 'orders/' . $id, $order->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, sprintf('orders/%d' . $id), $model->toArray($onlyFilled));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function create(Models\Orders\Post $order, bool $onlyFilledProperties = true): Models\Resource\Orders
+    public function create(Models\Orders\Post $model, bool $onlyFilled = true): Models\Resource\Orders
     {
-        $result = $this->doRequest(self::POST, 'orders', $order->toArray($onlyFilledProperties));
+        $result = $this->doRequest(self::POST, 'orders', $model->toArray($onlyFilled));
 
         return Models\Resource\Orders::fromArray($result);
     }

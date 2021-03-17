@@ -11,53 +11,46 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray, SortableFields;
+    use FromArray;
+    use SortableFields;
 
     /**
-     * Specific order number of the order.
-     * @var int|null
+     * @var int|null Specific order number of the order.
      */
     private $ordernumber;
 
     /**
-     * Specific order status of the orders in the result.
-     * @var int|null
+     * @var int|null Specific order status of the orders in the result.
      */
     private $status;
 
     /**
-     * Specific paid status of the orders in the result.
-     * @var bool|null
+     * @var bool|null Specific paid status of the orders in the result.
      */
     private $isPaid;
 
     /**
-     * Specific deliver date of the orders in the result.
-     * @var string|null
+     * @var string|null Specific deliver date of the orders in the result.
      */
     private $takeOutDate;
 
     /**
-     * Minimal create date of the orders in the result.
-     * @var string|null
+     * @var string|null Minimal create date of the orders in the result.
      */
     private $minCreateDate;
 
     /**
-     * Maximal create date of the orders in the result.
-     * @var string|null
+     * @var string|null Maximal create date of the orders in the result.
      */
     private $maxCreateDate;
 
     /**
-     * Toggles completed orders. Default: true.
-     * @var bool|null
+     * @var bool|null Toggles completed orders. Default: true.
      */
     private $isCompleted;
 
     /**
-     * Specific paymethod of the orders in the result. See resource /paymethods for the options.
-     * @var int|null
+     * @var int|null Specific paymethod of the orders in the result. See resource /paymethods for the options.
      */
     private $paymethodId;
 
@@ -91,89 +84,146 @@ class All extends PaginatedList implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
+    /**
+     * @param int|null $ordernumber Specific order number of the order.
+     * @return All
+     */
     public function setOrdernumber(?int $ordernumber): All
     {
         $this->ordernumber = $ordernumber;
         return $this;
     }
 
+    /**
+     * @return int|null Specific order number of the order.
+     */
     public function getOrdernumber(): ?int
     {
         return $this->ordernumber;
     }
 
+    /**
+     * @param int|null $status Specific order status of the orders in the result.
+     * @return All
+     */
     public function setStatus(?int $status): All
     {
         $this->status = $status;
         return $this;
     }
 
+    /**
+     * @return int|null Specific order status of the orders in the result.
+     */
     public function getStatus(): ?int
     {
         return $this->status;
     }
 
+    /**
+     * @param bool|null $isPaid Specific paid status of the orders in the result.
+     * @return All
+     */
     public function setIsPaid(?bool $isPaid): All
     {
         $this->isPaid = $isPaid;
         return $this;
     }
 
+    /**
+     * @return bool|null Specific paid status of the orders in the result.
+     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
+    /**
+     * @param string|null $takeOutDate Specific deliver date of the orders in the result.
+     * @return All
+     */
     public function setTakeOutDate(?string $takeOutDate): All
     {
         $this->takeOutDate = $takeOutDate;
         return $this;
     }
 
+    /**
+     * @return string|null Specific deliver date of the orders in the result.
+     */
     public function getTakeOutDate(): ?string
     {
         return $this->takeOutDate;
     }
 
+    /**
+     * @param string|null $minCreateDate Minimal create date of the orders in the result.
+     * @return All
+     */
     public function setMinCreateDate(?string $minCreateDate): All
     {
         $this->minCreateDate = $minCreateDate;
         return $this;
     }
 
+    /**
+     * @return string|null Minimal create date of the orders in the result.
+     */
     public function getMinCreateDate(): ?string
     {
         return $this->minCreateDate;
     }
 
+    /**
+     * @param string|null $maxCreateDate Maximal create date of the orders in the result.
+     * @return All
+     */
     public function setMaxCreateDate(?string $maxCreateDate): All
     {
         $this->maxCreateDate = $maxCreateDate;
         return $this;
     }
 
+    /**
+     * @return string|null Maximal create date of the orders in the result.
+     */
     public function getMaxCreateDate(): ?string
     {
         return $this->maxCreateDate;
     }
 
+    /**
+     * @param bool|null $isCompleted Toggles completed orders. Default: true.
+     * @return All
+     */
     public function setIsCompleted(?bool $isCompleted): All
     {
         $this->isCompleted = $isCompleted;
         return $this;
     }
 
+    /**
+     * @return bool|null Toggles completed orders. Default: true.
+     */
     public function getIsCompleted(): ?bool
     {
         return $this->isCompleted;
     }
 
+    /**
+     * @param int|null $paymethodId Specific paymethod of the orders in the result.
+     *                              See resource /paymethods for the options.
+     * @return All
+     */
     public function setPaymethodId(?int $paymethodId): All
     {
         $this->paymethodId = $paymethodId;
         return $this;
     }
 
+    /**
+     * @return int|null Specific paymethod of the orders in the result. See resource /paymethods for the options.
+     */
     public function getPaymethodId(): ?int
     {
         return $this->paymethodId;

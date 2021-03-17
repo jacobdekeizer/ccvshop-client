@@ -11,47 +11,41 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All extends PaginatedList implements Parameter
 {
-    use FromArray, SortableFields;
+    use FromArray;
+    use SortableFields;
 
     /**
-     * Specific invoice number of an invoice.
-     * @var int|null
+     * @var int|null Specific invoice number of an invoice.
      */
     private $invoicenumber;
 
     /**
-     * Specific order number of the order.
-     * @var int|null
+     * @var int|null Specific order number of the order.
      */
     private $ordernumber;
 
     /**
-     * Specific invoice number, combined with the invoice number prefix of an invoice.
-     * @var string|null
+     * @var string|null Specific invoice number, combined with the invoice number prefix of an invoice.
      */
     private $invoicenumberFull;
 
     /**
-     * Specific order number, combined with the order number prefix of an invoice.
-     * @var string|null
+     * @var string|null Specific order number, combined with the order number prefix of an invoice.
      */
     private $ordernumberFull;
 
     /**
-     * Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
-     * @var string|null
+     * @var string|null Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
      */
     private $status;
 
     /**
-     * Minimal create date of the orders in the result.
-     * @var string|null
+     * @var string|null Minimal create date of the orders in the result.
      */
     private $minCreateDate;
 
     /**
-     * Maximal create date of the orders in the result.
-     * @var string|null
+     * @var string|null Maximal create date of the orders in the result.
      */
     private $maxCreateDate;
 
@@ -85,78 +79,128 @@ class All extends PaginatedList implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
+    /**
+     * @param int|null $invoicenumber Specific invoice number of an invoice.
+     * @return All
+     */
     public function setInvoicenumber(?int $invoicenumber): All
     {
         $this->ordernumber = $invoicenumber;
         return $this;
     }
 
+    /**
+     * @return int|null Specific invoice number of an invoice.
+     */
     public function getInvoicenumber(): ?int
     {
         return $this->invoicenumber;
     }
 
+    /**
+     * @param int|null $ordernumber Specific order number of the order.
+     * @return All
+     */
     public function setOrdernumber(?int $ordernumber): All
     {
         $this->ordernumber = $ordernumber;
         return $this;
     }
 
+    /**
+     * @return int|null Specific order number of the order.
+     */
     public function getOrdernumber(): ?int
     {
         return $this->ordernumber;
     }
 
+    /**
+     * @param string|null $invoicenumberFull Specific invoice number, combined with the invoice number prefix
+     *                                       of an invoice.
+     * @return All
+     */
     public function setInvoicenumberFull(?string $invoicenumberFull): All
     {
         $this->ordernumber = $invoicenumberFull;
         return $this;
     }
 
+    /**
+     * @return string|null Specific invoice number, combined with the invoice number prefix of an invoice.
+     */
     public function getInvoicenumberFull(): ?string
     {
         return $this->invoicenumberFull;
     }
 
+    /**
+     * @param string|null $ordernumberFull Specific order number, combined with the order number prefix of an invoice.
+     * @return All
+     */
     public function setOrdernumberFull(?string $ordernumberFull): All
     {
         $this->ordernumber = $ordernumberFull;
         return $this;
     }
 
+    /**
+     * @return string|null Specific order number, combined with the order number prefix of an invoice.
+     */
     public function getOrdernumberFull(): ?string
     {
         return $this->ordernumberFull;
     }
 
+    /**
+     * @param string|null $status Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
+     * @return All
+     */
     public function setStatus(?string $status): All
     {
         $this->status = $status;
         return $this;
     }
 
+    /**
+     * @return string|null Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
+     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
+    /**
+     * @param string|null $minCreateDate Minimal create date of the orders in the result.
+     * @return All
+     */
     public function setMinCreateDate(?string $minCreateDate): All
     {
         $this->minCreateDate = $minCreateDate;
         return $this;
     }
 
+    /**
+     * @return string|null Minimal create date of the orders in the result.
+     */
     public function getMinCreateDate(): ?string
     {
         return $this->minCreateDate;
     }
 
+    /**
+     * @param string|null $maxCreateDate Maximal create date of the orders in the result.
+     * @return All
+     */
     public function setMaxCreateDate(?string $maxCreateDate): All
     {
         $this->maxCreateDate = $maxCreateDate;
         return $this;
     }
 
+    /**
+     * @return string|null Maximal create date of the orders in the result.
+     */
     public function getMaxCreateDate(): ?string
     {
         return $this->maxCreateDate;

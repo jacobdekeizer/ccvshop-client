@@ -43,6 +43,58 @@ foreach ($result->getItems() as $item) {
 }
 ```
 
+## Apps
+
+### Get all apps in a certain store category
+
+You can optionally filter, expand or sort.
+
+In the example below, we're filtering by name, expanding categories and sorting by date.
+
+```php
+$parameters = (new \JacobDeKeizer\Ccv\Parameters\Apps\All())
+    ->setName('FooBar')
+    ->expandCategories()
+    ->orderByDateAsc();
+
+$apps = $client->apps()->allForStoreCategory(11, $parameters);
+
+foreach ($apps->getItems() as $app) {
+    print $app->name;
+}
+```
+
+### Get all apps
+
+This will get all apps associated with the current public and private key.
+
+The `All` parameter object mentioned above can be used with this method as well.
+
+```php
+$apps = $client->apps()->all();
+
+foreach ($apps->getItems() as $app) {
+    print $app->name;
+}
+```
+
+### Get an app
+
+```php
+$app = $client->apps()->get(123456);
+
+print $app->name;
+```
+
+### Update app
+For example set the app to installed
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
+    ->setIsInstalled(true);
+
+$client->apps()->update(12345, $patch);
+```
+
 ## Orders
 
 ### Get all orders with orderrows
@@ -649,6 +701,7 @@ $client->ordernotifications()->create(123, $ordernotification);
 | Endpoints |
 | --- |
 | root |
+| apps |
 | orderrows |
 | orders |
 | products|
