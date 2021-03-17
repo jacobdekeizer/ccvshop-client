@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
@@ -12,7 +14,7 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'productattributevalues/' . $id);
+        $this->doRequest(self::DELETE, sprintf('productattributevalues/%d', $id));
     }
 
     /**
@@ -20,7 +22,7 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      */
     public function allForProduct(int $productId): Models\Collection\Productattributevalues
     {
-        $result = $this->doRequest(self::GET, 'products/' . $productId . '/productattributevalues/');
+        $result = $this->doRequest(self::GET, sprintf('products/%d/productattributevalues/', $productId));
 
         return Models\Collection\Productattributevalues::fromArray($result);
     }
@@ -30,7 +32,7 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Productattributevalues
     {
-        $result = $this->doRequest(self::GET, 'productattributevalues/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('productattributevalues/%d', $id));
 
         return Models\Resource\Productattributevalues::fromArray($result);
     }
@@ -38,16 +40,9 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(
-        int $id,
-        Models\Productattributevalues\Patch $productattributevalue,
-        bool $onlyFilledProperties = true
-    ): void {
-        $this->doRequest(
-            self::PATCH,
-            'productattributevalues/' . $id,
-            $productattributevalue->toArray($onlyFilledProperties)
-        );
+    public function update(int $id, Models\Productattributevalues\Patch $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(self::PATCH, sprintf('productattributevalues/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
@@ -55,13 +50,13 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      */
     public function create(
         int $productId,
-        Models\Productattributevalues\Post $productattributevalues,
-        bool $onlyFilledProperties = true
+        Models\Productattributevalues\Post $model,
+        bool $onlyFilled = true
     ): Models\Resource\Productattributevalues {
         $response = $this->doRequest(
             self::POST,
-            'products/' . $productId . '/productattributevalues',
-            $productattributevalues->toArray($onlyFilledProperties)
+            sprintf('products/%d/productattributevalues', $productId),
+            $model->toArray($onlyFilled)
         );
 
         return Models\Resource\Productattributevalues::fromArray($response);

@@ -79,6 +79,7 @@ class Attributes implements Model
 
     /**
      * @return int|null Deprecated. Use property 'type' instead. Type of attribute. 1. Pulldown with Attribute values. 2. Text field (optional). 3. Text field (required). 4. Pulldown with Attribute values (required). 5. Additional menu. 6.Additional menu (required)
+     * @deprecated
      */
     public function getAttributeType(): ?int
     {
@@ -145,6 +146,7 @@ class Attributes implements Model
     /**
      * @param int|null $attributeType Deprecated. Use property 'type' instead. Type of attribute. 1. Pulldown with Attribute values. 2. Text field (optional). 3. Text field (required). 4. Pulldown with Attribute values (required). 5. Additional menu. 6.Additional menu (required)
      * @return self
+     * @deprecated
      */
     public function setAttributeType(?int $attributeType): self
     {

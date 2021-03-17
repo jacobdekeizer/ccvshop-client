@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=7.2",
+    "php": "^7.3 || ^8.0",
     "ext-json": "*",
     "ext-mbstring": "*",
     "ext-ctype": "*",
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "generate": "JacobDeKeizer\\CcvGenerator\\SchemaGenerator::generateAll",
-    "phpcs": "phpcs --standard=PSR2 --ignore=/src/model ./src",
-    "phpcbf": "phpcbf --standard=PSR2 --ignore=/src/model ./src"
+    "phpcs": "phpcs --standard=PSR12 --ignore=/src/Models ./src ./generator",
+    "phpcbf": "phpcbf --standard=PSR12 --ignore=/src/Models ./src ./generator"
   }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
@@ -14,7 +16,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function get(int $id): Productphotos
     {
-        $result = $this->doRequest(self::GET, 'productphotos/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('productphotos/%d', $id));
 
         return Productphotos::fromArray($result);
     }
@@ -24,7 +26,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'productphotos/' . $id);
+        $this->doRequest(self::DELETE, sprintf('productphotos/%d', $id));
     }
 
     /**
@@ -38,7 +40,7 @@ class ProductphotosEndpoint extends BaseEndpoint
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('products/%s/productphotos%s', $productId, $payload->toBuilder()->toQueryString())
+            sprintf('products/%d/productphotos%s', $productId, $payload->toBuilder()->toQueryString())
         );
 
         return Models\Collection\Productphotos::fromArray($result);
@@ -49,13 +51,13 @@ class ProductphotosEndpoint extends BaseEndpoint
      */
     public function create(
         int $productId,
-        Models\Productphotos\Post $productphoto,
-        bool $onlyFilledProperties = true
+        Models\Productphotos\Post $model,
+        bool $onlyFilled = true
     ): Models\Resource\Productphotos {
         $response = $this->doRequest(
             self::POST,
-            'products/' . $productId . '/productphotos',
-            $productphoto->toArray($onlyFilledProperties)
+            sprintf('products/%d/productphotos', $productId),
+            $model->toArray($onlyFilled)
         );
 
         return Models\Resource\Productphotos::fromArray($response);
@@ -64,9 +66,9 @@ class ProductphotosEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Productphotos\Patch $productphoto, bool $onlyFilledProperties = true): void
+    public function update(int $id, Models\Productphotos\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, 'productphotos/' . $id, $productphoto->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, sprintf('productphotos/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
@@ -75,15 +77,8 @@ class ProductphotosEndpoint extends BaseEndpoint
      *
      * @throws CcvShopException
      */
-    public function replace(
-        int $productId,
-        Models\Productphotos\Put $productphotos,
-        bool $onlyFilledProperties = true
-    ): void {
-        $this->doRequest(
-            self::PUT,
-            'products/' . $productId . '/productphotos',
-            $productphotos->toArray($onlyFilledProperties)
-        );
+    public function replace(int $productId, Models\Productphotos\Put $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(self::PUT, sprintf('products/%d/productphotos', $productId), $model->toArray($onlyFilled));
     }
 }

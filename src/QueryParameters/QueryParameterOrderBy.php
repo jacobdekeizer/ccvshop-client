@@ -19,6 +19,6 @@ class QueryParameterOrderBy implements QueryParameter
             return null;
         }
 
-        return 'orderby=' . $this->orderBy;
+        return 'orderby=' . urlencode($this->orderBy);
     }
 }

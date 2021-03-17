@@ -9,7 +9,8 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 
 class All implements Parameter
 {
-    use FromArray, SortableFields;
+    use FromArray;
+    use SortableFields;
 
     /**
      * @return All
