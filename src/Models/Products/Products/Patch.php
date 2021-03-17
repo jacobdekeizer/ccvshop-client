@@ -488,6 +488,7 @@ class Patch implements Model
 
     /**
      * @return string|null Deprecated. Product brand. Please use brand_id.
+     * @deprecated Please use brand_id.
      */
     public function getBrand(): ?string
     {
@@ -520,6 +521,7 @@ class Patch implements Model
 
     /**
      * @return string|null Deprecated. Product condition. Please use condition_id.
+     * @deprecated Please use condition_id.
      */
     public function getCondition(): ?string
     {
@@ -1032,6 +1034,7 @@ class Patch implements Model
     /**
      * @param string|null $brand Deprecated. Product brand. Please use brand_id.
      * @return self
+     * @deprecated Please use brand_id.
      */
     public function setBrand(?string $brand): self
     {
@@ -1076,6 +1079,7 @@ class Patch implements Model
     /**
      * @param string|null $condition Deprecated. Product condition. Please use condition_id.
      * @return self
+     * @deprecated Please use condition_id.
      */
     public function setCondition(?string $condition): self
     {

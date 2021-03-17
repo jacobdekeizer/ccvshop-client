@@ -26,6 +26,10 @@ class ArrayProperty extends Property
 
     public function getConvertCode(): ?string
     {
+        if (!($this->arrayType instanceof ObjectProperty)) {
+            return null;
+        }
+
         $startIndent = self::INDENT . self::INDENT;
 
         $snakeName = Str::snake($this->name);

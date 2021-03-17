@@ -31,7 +31,7 @@ class Post implements Model
     private $safetyDepositReturned;
 
     /**
-     * @var float|null Total shipping costs
+     * @var float|null Total shipping costs. If this order already has a value for this field, it will be overwritten. When value is not set the total shipping costs will be calculated. When no total shipping cost use 0 or 0.0
      */
     private $totalShipping;
 
@@ -171,7 +171,7 @@ class Post implements Model
     }
 
     /**
-     * @return float|null Total shipping costs
+     * @return float|null Total shipping costs. If this order already has a value for this field, it will be overwritten. When value is not set the total shipping costs will be calculated. When no total shipping cost use 0 or 0.0
      */
     public function getTotalShipping(): ?float
     {
@@ -375,7 +375,7 @@ class Post implements Model
     }
 
     /**
-     * @param float|null $totalShipping Total shipping costs
+     * @param float|null $totalShipping Total shipping costs. If this order already has a value for this field, it will be overwritten. When value is not set the total shipping costs will be calculated. When no total shipping cost use 0 or 0.0
      * @return self
      */
     public function setTotalShipping(?float $totalShipping): self

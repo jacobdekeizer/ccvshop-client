@@ -304,6 +304,7 @@ class Personalinfo implements Model
 
     /**
      * @return string|null Deprecated. See 'branch'.
+     * @deprecated See 'branch'.
      */
     public function getBranche(): ?string
     {
@@ -352,6 +353,7 @@ class Personalinfo implements Model
 
     /**
      * @return string|null Deprecated. Fair of the customer. See 'Fair'
+     * @deprecated See 'Fair'
      */
     public function getBeurs(): ?string
     {
@@ -360,6 +362,7 @@ class Personalinfo implements Model
 
     /**
      * @return string|null Deprecated. Booth of the customer. See 'Booth'
+     * @deprecated See 'Booth'
      */
     public function getStand(): ?string
     {
@@ -632,6 +635,7 @@ class Personalinfo implements Model
     /**
      * @param string|null $branche Deprecated. See 'branch'.
      * @return self
+     * @deprecated See 'branch'.
      */
     public function setBranche(?string $branche): self
     {
@@ -698,6 +702,7 @@ class Personalinfo implements Model
     /**
      * @param string|null $beurs Deprecated. Fair of the customer. See 'Fair'
      * @return self
+     * @deprecated See 'Fair'
      */
     public function setBeurs(?string $beurs): self
     {
@@ -709,6 +714,7 @@ class Personalinfo implements Model
     /**
      * @param string|null $stand Deprecated. Booth of the customer. See 'Booth'
      * @return self
+     * @deprecated See 'Booth'
      */
     public function setStand(?string $stand): self
     {

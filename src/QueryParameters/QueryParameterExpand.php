@@ -22,6 +22,6 @@ class QueryParameterExpand implements QueryParameter
             return null;
         }
 
-        return 'expand=' . implode(',', $this->expandedFields);
+        return 'expand=' . urlencode(implode(',', $this->expandedFields));
     }
 }

@@ -14,7 +14,7 @@ trait FromArray
      */
     protected static function createFromArray(array $data)
     {
-        $instance = new self;
+        $instance = new self();
 
         foreach ($data as $key => $value) {
             $setMethod = 'set' . Str::studly(strtolower($key));
@@ -29,8 +29,10 @@ trait FromArray
                 $firstParameter = $reflectionMethod->getParameters()[0] ?? null;
                 $parameterReflectionClass = $firstParameter ? $firstParameter->getClass() : null;
 
-                if ($parameterReflectionClass !== null
-                    && $parameterReflectionClass->implementsInterface(Model::class)) {
+                if (
+                    $parameterReflectionClass !== null
+                    && $parameterReflectionClass->implementsInterface(Model::class)
+                ) {
                     $value = ($parameterReflectionClass->newInstanceWithoutConstructor())->fromArray($value ?? []);
                 } else {
                     $value = $instance->convertFromArrayData($key, $value);

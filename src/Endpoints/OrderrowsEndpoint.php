@@ -30,7 +30,7 @@ class OrderrowsEndpoint extends BaseEndpoint
      */
     public function get(int $id): Models\Resource\Orderrows
     {
-        $result = $this->doRequest(self::GET, 'orderrows/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('orderrows/%d', $id));
 
         return Models\Resource\Orderrows::fromArray($result);
     }
@@ -38,20 +38,16 @@ class OrderrowsEndpoint extends BaseEndpoint
     /**
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Orderrows\Patch $orderrow, bool $onlyFilledProperties = true): void
+    public function update(int $id, Models\Orderrows\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, 'orderrows/' . $id, $orderrow->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, sprintf('orderrows/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
      * @throws CcvShopException
      */
-    public function replace(int $orderId, Models\Orderrows\Put $orderrows, bool $onlyFilledProperties = true): void
+    public function replace(int $orderId, Models\Orderrows\Put $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(
-            self::PUT,
-            'orders/' . $orderId . '/orderrows',
-            $orderrows->toArray($onlyFilledProperties)
-        );
+        $this->doRequest(self::PUT, sprintf('orders/%d/orderrows', $orderId), $model->toArray($onlyFilled));
     }
 }

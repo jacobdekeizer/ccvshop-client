@@ -4,9 +4,7 @@ namespace JacobDeKeizer\Ccv\Parameters\Concerns;
 
 trait SortableFields
 {
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $orderBy;
 
     /**
