@@ -95,6 +95,54 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
 $client->apps()->update(12345, $patch);
 ```
 
+## Categories
+
+### Get all child categories of a category
+
+```php
+$categories = $client->categories()->allForCategory(1);
+```
+
+### Get all categories
+
+```php
+$categories = $client->categories()->all();
+```
+
+### Get category
+
+```php
+$category = $client->categories()->get(1);
+
+$category->getId();
+$category->getName();
+$category->getDescription();
+```
+
+### Create category
+
+```php
+$client->categories()->create(
+    (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Post())
+        ->setName('foo bar')
+);
+```
+
+### Update category
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Patch())
+    ->setName('foo bar');
+
+$client->categories()->update(1, $patch);
+```
+
+### Delete category
+
+```php
+$client->categories()->delete(12345);
+```
+
 ## Orders
 
 ### Get all orders with orderrows
@@ -702,6 +750,7 @@ $client->ordernotifications()->create(123, $ordernotification);
 | --- |
 | root |
 | apps |
+| categories |
 | orderrows |
 | orders |
 | products|
