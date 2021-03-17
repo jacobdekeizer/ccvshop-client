@@ -2,47 +2,78 @@
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
 use JacobDeKeizer\Ccv\Models\Categories\Categories\Patch;
 use JacobDeKeizer\Ccv\Models\Categories\Categories\Post;
 use JacobDeKeizer\Ccv\Models\Categories\Collection\Categories;
 use JacobDeKeizer\Ccv\Models\Categories\Resource\Categories as Category;
+use JacobDeKeizer\Ccv\Parameters\Categories\All;
 
 class CategoriesEndpoint extends BaseEndpoint
 {
+    /**
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, '/categories/' . $id . '/');
+        $this->doRequest(self::DELETE, sprintf('/categories/%d/', $id));
     }
 
-    public function allForCategory(int $id): Categories
+    /**
+     * @throws CcvShopException
+     */
+    public function allForCategory(int $id, ?All $payload = null): Categories
     {
-        $result = $this->doRequest(self::GET, '/categories/' . $id . '/categories/');
+        if ($payload === null) {
+            $payload = new All();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            sprintf('/categories/%d/categories/%s', $id, $payload->toBuilder()->toQueryString())
+        );
 
         return Categories::fromArray($result);
     }
 
-    public function all(): Categories
+    /**
+     * @throws CcvShopException
+     */
+    public function all(?All $payload = null): Categories
     {
-        $result = $this->doRequest(self::GET, '/categories/');
+        if ($payload === null) {
+            $payload = new All();
+        }
+
+        $result = $this->doRequest(self::GET, sprintf('/categories/%s', $payload->toBuilder()->toQueryString()));
 
         return Categories::fromArray($result);
     }
 
+    /**
+     * @throws CcvShopException
+     */
     public function get(int $id): Category
     {
-        $result = $this->doRequest(self::GET, '/categories/' . $id);
+        $result = $this->doRequest(self::GET, sprintf('/categories/%d', $id));
 
         return Category::fromArray($result);
     }
 
-    public function update(int $id, Patch $category, bool $onlyFilledProperties = true): void
+    /**
+     * @throws CcvShopException
+     */
+    public function update(int $id, Patch $category, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, '/categories/' . $id . '/', $category->toArray($onlyFilledProperties));
+        $this->doRequest(self::PATCH, sprintf('/categories/%d/', $id), $category->toArray($onlyFilled));
     }
 
-    public function create(Post $category, bool $onlyFilledProperties = true): Category
+    /**
+     * @throws CcvShopException
+     */
+    public function create(Post $category, bool $onlyFilled = true): Category
     {
-        $result = $this->doRequest(self::POST, '/categories/', $category->toArray($onlyFilledProperties));
+        $result = $this->doRequest(self::POST, '/categories/', $category->toArray($onlyFilled));
 
         return Category::fromArray($result);
     }
