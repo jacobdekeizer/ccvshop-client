@@ -23,69 +23,9 @@ class Client
     /** @var ClientInterface */
     private $client;
 
-    /** @var Endpoints\RootEndpoint */
-    private $rootEndpoint;
-
-    /** @var Endpoints\AppsEndpoint */
-    private $appsEndpoint;
-
-    /** @var Endpoints\CategoriesEndpoint */
-    private $categoriesEndpoint;
-
-    /** @var Endpoints\OrdersEndpoint */
-    private $ordersEndpoint;
-
-    /** @var Endpoints\OrderrowsEndpoint */
-    private $orderrowsEndpoint;
-
-    /** @var Endpoints\ProductsEndpoint */
-    private $productsEndpoint;
-
-    /** @var Endpoints\ProductphotosEndpoint */
-    private $productphotosEndpoint;
-
-    /** @var Endpoints\ProducttocategoriesEndpoint */
-    private $producttocategoriesEndpoint;
-
-    /** @var Endpoints\AttributesEndpoint */
-    private $attributesEndpoint;
-
-    /** @var Endpoints\AttributevaluesEndpoint */
-    private $attributevaluesEndpoint;
-
-    /** @var Endpoints\ProductattributevaluesEndpoint */
-    private $productattributevaluesEndpoint;
-
-    /** @var Endpoints\InvoicesEndpoint */
-    private $invoicesEndpoint;
-
-    /** @var Endpoints\OrdernotificationsEndpoint */
-    private $ordernotificationsEndpoint;
-
-    /** @var Endpoints\SuppliersEndpoint */
-    private $suppliersEndpoint;
-
-    /** @var Endpoints\PackagesEndpoint */
-    private $packagesEndpoint;
-
     public function __construct()
     {
         $this->client = new HttpClient();
-        $this->rootEndpoint = new Endpoints\RootEndpoint($this);
-        $this->appsEndpoint = new Endpoints\AppsEndpoint($this);
-        $this->categoriesEndpoint = new Endpoints\CategoriesEndpoint($this);
-        $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
-        $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
-        $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
-        $this->productphotosEndpoint = new Endpoints\ProductphotosEndpoint($this);
-        $this->producttocategoriesEndpoint = new Endpoints\ProducttocategoriesEndpoint($this);
-        $this->attributesEndpoint = new Endpoints\AttributesEndpoint($this);
-        $this->attributevaluesEndpoint = new Endpoints\AttributevaluesEndpoint($this);
-        $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
-        $this->invoicesEndpoint = new Endpoints\InvoicesEndpoint($this);
-        $this->ordernotificationsEndpoint = new Endpoints\OrdernotificationsEndpoint($this);
-        $this->suppliersEndpoint = new Endpoints\SuppliersEndpoint($this);
-        $this->packagesEndpoint = new Endpoints\PackagesEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -134,76 +74,76 @@ class Client
 
     public function root(): Endpoints\RootEndpoint
     {
-        return $this->rootEndpoint;
+        return new Endpoints\RootEndpoint($this);
     }
 
     public function apps(): Endpoints\AppsEndpoint
     {
-        return $this->appsEndpoint;
+        return new Endpoints\AppsEndpoint($this);
     }
 
     public function categories(): Endpoints\CategoriesEndpoint
     {
-        return $this->categoriesEndpoint;
+        return new Endpoints\CategoriesEndpoint($this);
     }
 
     public function orders(): Endpoints\OrdersEndpoint
     {
-        return $this->ordersEndpoint;
+        return new Endpoints\OrdersEndpoint($this);
     }
 
     public function orderrows(): Endpoints\OrderrowsEndpoint
     {
-        return $this->orderrowsEndpoint;
+        return new Endpoints\OrderrowsEndpoint($this);
     }
 
     public function products(): Endpoints\ProductsEndpoint
     {
-        return $this->productsEndpoint;
+        return new Endpoints\ProductsEndpoint($this);
     }
 
     public function productphotos(): Endpoints\ProductphotosEndpoint
     {
-        return $this->productphotosEndpoint;
+        return new Endpoints\ProductphotosEndpoint($this);
     }
 
     public function producttocategories(): Endpoints\ProducttocategoriesEndpoint
     {
-        return $this->producttocategoriesEndpoint;
+        return new Endpoints\ProducttocategoriesEndpoint($this);
     }
 
     public function attributes(): Endpoints\AttributesEndpoint
     {
-        return $this->attributesEndpoint;
+        return new Endpoints\AttributesEndpoint($this);
     }
 
     public function attributevalues(): Endpoints\AttributevaluesEndpoint
     {
-        return $this->attributevaluesEndpoint;
+        return new Endpoints\AttributevaluesEndpoint($this);
     }
 
     public function productattributevalues(): Endpoints\ProductattributevaluesEndpoint
     {
-        return $this->productattributevaluesEndpoint;
+        return new Endpoints\ProductattributevaluesEndpoint($this);
     }
 
     public function invoices(): Endpoints\InvoicesEndpoint
     {
-        return $this->invoicesEndpoint;
+        return new Endpoints\InvoicesEndpoint($this);
     }
 
     public function ordernotifications(): Endpoints\OrdernotificationsEndpoint
     {
-        return $this->ordernotificationsEndpoint;
+        return new Endpoints\OrdernotificationsEndpoint($this);
     }
 
     public function suppliers(): Endpoints\SuppliersEndpoint
     {
-        return $this->suppliersEndpoint;
+        return new Endpoints\SuppliersEndpoint($this);
     }
 
     public function packages(): Endpoints\PackagesEndpoint
     {
-        return $this->packagesEndpoint;
+        return new Endpoints\PackagesEndpoint($this);
     }
 }
