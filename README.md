@@ -717,6 +717,43 @@ $client->productattributevalues()->update(1234, $patch);
 $client->productattributevalues()->delete(1234);
 ```
 
+## Suppliers
+
+### Get all suppliers
+
+```php
+$suppliers = $client->suppliers()->all();
+```
+
+### Get supplier
+
+```php
+$supplier = $client->suppliers()->get(12345);
+```
+
+### Create supplier
+
+```php
+$client->suppliers()->create(
+    (new \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input())
+        ->setName('foobar')
+);
+```
+
+### Update supplier
+
+```php
+$input = (new \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input())
+    ->setName('bazboo');
+
+$client->suppliers()->update(12345, $input);
+```
+
+### Delete supplier
+
+```php
+$client->suppliers()->delete(12345);
+```
 
 ## Invoices
 
@@ -841,6 +878,7 @@ $client->webhooks()->delete(12345);
 | attributes|
 | attributevalues|
 | productattributevalues|
+| suppliers |
 | invoices|
 | ordernotifications|
 | webhooks |

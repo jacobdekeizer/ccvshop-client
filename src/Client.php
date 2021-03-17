@@ -62,6 +62,9 @@ class Client
     /** @var Endpoints\OrdernotificationsEndpoint */
     private $ordernotificationsEndpoint;
 
+    /** @var Endpoints\SuppliersEndpoint */
+    private $suppliersEndpoint;
+
     /** @var Endpoints\PackagesEndpoint */
     private $packagesEndpoint;
 
@@ -84,6 +87,7 @@ class Client
         $this->productattributevaluesEndpoint = new Endpoints\ProductattributevaluesEndpoint($this);
         $this->invoicesEndpoint = new Endpoints\InvoicesEndpoint($this);
         $this->ordernotificationsEndpoint = new Endpoints\OrdernotificationsEndpoint($this);
+        $this->suppliersEndpoint = new Endpoints\SuppliersEndpoint($this);
         $this->packagesEndpoint = new Endpoints\PackagesEndpoint($this);
         $this->webhooksEndpoint = new Endpoints\WebhooksEndpoint($this);
     }
@@ -195,6 +199,11 @@ class Client
     public function ordernotifications(): Endpoints\OrdernotificationsEndpoint
     {
         return $this->ordernotificationsEndpoint;
+    }
+
+    public function suppliers(): Endpoints\SuppliersEndpoint
+    {
+        return $this->suppliersEndpoint;
     }
 
     public function packages(): Endpoints\PackagesEndpoint
