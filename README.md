@@ -249,7 +249,7 @@ $package = $client->packages()->get(12345);
 ```php
 $client->packages()->create(
     (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
-        ->setName('foobar');
+        ->setName('foobar')
 );
 ```
 
