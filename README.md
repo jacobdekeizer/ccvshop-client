@@ -60,7 +60,7 @@ $parameters = (new \JacobDeKeizer\Ccv\Parameters\Apps\All())
 $apps = $client->apps()->allForStoreCategory(11, $parameters);
 
 foreach ($apps->getItems() as $app) {
-    print $app->name;
+    var_dump($app->getName());
 }
 ```
 
@@ -74,7 +74,7 @@ The `All` parameter object mentioned above can be used with this method as well.
 $apps = $client->apps()->all();
 
 foreach ($apps->getItems() as $app) {
-    print $app->name;
+    var_dump($app->getName());
 }
 ```
 
@@ -83,16 +83,69 @@ foreach ($apps->getItems() as $app) {
 ```php
 $app = $client->apps()->get(123456);
 
-print $app->name;
+var_dump($app->getName());
 ```
 
-### Update app
+### Update an app
 For example set the app to installed
 ```php
 $patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
     ->setIsInstalled(true);
 
 $client->apps()->update(12345, $patch);
+```
+
+## Categories
+
+### Get all child categories of a category
+
+```php
+$categories = $client->categories()->allForCategory(1);
+```
+
+### Get all categories
+
+```php
+$parameter = (new \JacobDeKeizer\Ccv\Parameters\Categories\All)
+    ->setSize(10); // optional
+
+$categories = $client->categories()->all($parameter);
+
+$nextParameter = \JacobDeKeizer\Ccv\Parameters\Categories\All::fromUrl($categories->getNext());
+```
+
+### Get category
+
+```php
+$category = $client->categories()->get(1);
+
+$category->getId();
+$category->getName();
+$category->getDescription();
+```
+
+### Create category
+
+```php
+$client->categories()->create(
+    (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Post())
+        ->setName('foo bar')
+);
+```
+
+### Update category
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Patch())
+    ->setName('foo bar');
+
+$client->categories()->update(1, $patch);
+```
+
+### Delete category
+
+```php
+$client->categories()->delete(12345);
 ```
 
 ## Orders
@@ -228,6 +281,38 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
     ]);
 
 $client->orderrows()->replace($orderId, $newOrderrows);
+```
+
+## Packages
+
+### Get all packages
+
+```php
+$packages = $client->packages()->all();
+```
+
+### Get package
+
+```php
+$package = $client->packages()->get(12345);
+```
+
+### Create package
+
+```php
+$client->packages()->create(
+    (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+        ->setName('foobar')
+);
+```
+
+### Update package
+
+```php
+$input = (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+    ->setName('baz boo');
+
+$client->packages()->update(12345, $input);
 ```
 
 ## Products
@@ -739,8 +824,10 @@ $client->ordernotifications()->create(123, $ordernotification);
 | --- |
 | root |
 | apps |
+| categories |
 | orderrows |
 | orders |
+| packages |
 | products|
 | productphotos|
 | producttocategories|

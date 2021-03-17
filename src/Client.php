@@ -29,6 +29,9 @@ class Client
     /** @var Endpoints\AppsEndpoint */
     private $appsEndpoint;
 
+    /** @var Endpoints\CategoriesEndpoint */
+    private $categoriesEndpoint;
+
     /** @var Endpoints\OrdersEndpoint */
     private $ordersEndpoint;
 
@@ -62,11 +65,15 @@ class Client
     /** @var Endpoints\SuppliersEndpoint */
     private $suppliersEndpoint;
 
+    /** @var Endpoints\PackagesEndpoint */
+    private $packagesEndpoint;
+
     public function __construct()
     {
         $this->client = new HttpClient();
         $this->rootEndpoint = new Endpoints\RootEndpoint($this);
         $this->appsEndpoint = new Endpoints\AppsEndpoint($this);
+        $this->categoriesEndpoint = new Endpoints\CategoriesEndpoint($this);
         $this->ordersEndpoint = new Endpoints\OrdersEndpoint($this);
         $this->orderrowsEndpoint = new Endpoints\OrderrowsEndpoint($this);
         $this->productsEndpoint = new Endpoints\ProductsEndpoint($this);
@@ -78,6 +85,7 @@ class Client
         $this->invoicesEndpoint = new Endpoints\InvoicesEndpoint($this);
         $this->ordernotificationsEndpoint = new Endpoints\OrdernotificationsEndpoint($this);
         $this->suppliersEndpoint = new Endpoints\SuppliersEndpoint($this);
+        $this->packagesEndpoint = new Endpoints\PackagesEndpoint($this);
     }
 
     public function getBaseUrl(): string
@@ -134,6 +142,11 @@ class Client
         return $this->appsEndpoint;
     }
 
+    public function categories(): Endpoints\CategoriesEndpoint
+    {
+        return $this->categoriesEndpoint;
+    }
+
     public function orders(): Endpoints\OrdersEndpoint
     {
         return $this->ordersEndpoint;
@@ -187,5 +200,10 @@ class Client
     public function suppliers(): Endpoints\SuppliersEndpoint
     {
         return $this->suppliersEndpoint;
+    }
+
+    public function packages(): Endpoints\PackagesEndpoint
+    {
+        return $this->packagesEndpoint;
     }
 }

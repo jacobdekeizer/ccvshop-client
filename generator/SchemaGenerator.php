@@ -32,6 +32,13 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.apps.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.apps.patch.v1.json', $namespace);
 
+        // categories
+        $namespace = 'Categories';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.categories.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.categories.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.categories.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.categories.post.v1.json', $namespace);
+
         // orders
         $namespace = 'Orders';
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', $namespace);
@@ -113,6 +120,12 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.suppliers.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.suppliers.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.suppliers.input.v1.json', $namespace);
+
+        // packages
+        $namespace = 'Packages';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.packages.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.packages.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.packages.input.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void
