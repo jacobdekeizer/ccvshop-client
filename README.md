@@ -696,6 +696,50 @@ $ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernoti
 $client->ordernotifications()->create(123, $ordernotification);
 ```
 
+## Webhooks
+
+### Get all webhooks
+
+```php
+$webhooks = $client->webhooks()->all();
+```
+
+### Get a webhook
+
+```php
+$webhook = $client->webhooks()->get(12345);
+```
+
+### Create a webhook
+
+```php
+$webhook = (new \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Post())
+    ->setEvent('foo.bar')
+    ->setAddress('https://example.com/foo.bar')
+    ->setIsActive(true);
+
+$createdWebhook = $client->webhooks()->create($webhook);
+
+var_dump($createdWebhook->getId());
+```
+
+### Update a webhook
+
+In this example, the webhook will be disabled.
+
+```php
+$webhook = (new \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Patch())
+                ->setIsActive(false);
+
+$client->webhooks()->update(12345, $webhook);
+```
+
+### Delete a webhook
+
+```php
+$client->webhooks()->delete(12345);
+```
+
 ## Implemented endpoints
 
 | Endpoints |
@@ -712,3 +756,4 @@ $client->ordernotifications()->create(123, $ordernotification);
 | productattributevalues|
 | invoices|
 | ordernotifications|
+| webhooks |
