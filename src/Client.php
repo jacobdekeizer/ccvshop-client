@@ -149,6 +149,6 @@ class Client
 
     public function webhooks(): Endpoints\WebhooksEndpoint
     {
-        return $this->webhooksEndpoint;
+        return new Endpoints\WebhooksEndpoint($this);
     }
 }
