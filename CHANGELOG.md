@@ -1,5 +1,9 @@
 # Change log
 
+## v0.17.0
+- Added webhooks endpoint
+- Added missing fromUrl method to `JacobDeKeizer\Ccv\Parameters\OrderRows\All` parameter.
+
 ## v0.16.0
 
 - Added categories endpoint
