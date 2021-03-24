@@ -126,6 +126,13 @@ class SchemaGenerator
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.packages.v1.json', $namespace);
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.packages.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.packages.input.v1.json', $namespace);
+
+        // webhooks
+        $namespace = 'Webhooks';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.webhooks.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.webhooks.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.webhooks.patch.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.webhooks.post.v1.json', $namespace);
     }
 
     public function generate(string $url, string $namespacePrefix): void

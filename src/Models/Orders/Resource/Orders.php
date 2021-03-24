@@ -41,6 +41,11 @@ class Orders implements Model
     private $invoicenumber;
 
     /**
+     * @var string|null The most recent transaction id. Transaction Ids are normally provided by external Payment Service Providers. If an order has multiple transaction, this value is overwritten. If it has no transactions or if the PSP doens't provide an Id this is NULL.
+     */
+    private $transactionId;
+
+    /**
      * @var string Createdate of this order in UTC
      */
     private $createDate;
@@ -349,6 +354,14 @@ class Orders implements Model
     public function getInvoicenumber(): ?int
     {
         return $this->invoicenumber;
+    }
+
+    /**
+     * @return string|null The most recent transaction id. Transaction Ids are normally provided by external Payment Service Providers. If an order has multiple transaction, this value is overwritten. If it has no transactions or if the PSP doens't provide an Id this is NULL.
+     */
+    public function getTransactionId(): ?string
+    {
+        return $this->transactionId;
     }
 
     /**
@@ -823,6 +836,17 @@ class Orders implements Model
     {
         $this->invoicenumber = $invoicenumber;
         $this->propertyFilled('invoicenumber');
+        return $this;
+    }
+
+    /**
+     * @param string|null $transactionId The most recent transaction id. Transaction Ids are normally provided by external Payment Service Providers. If an order has multiple transaction, this value is overwritten. If it has no transactions or if the PSP doens't provide an Id this is NULL.
+     * @return self
+     */
+    public function setTransactionId(?string $transactionId): self
+    {
+        $this->transactionId = $transactionId;
+        $this->propertyFilled('transactionId');
         return $this;
     }
 
