@@ -823,7 +823,10 @@ $client->ordernotifications()->create(123, $ordernotification);
 ### Get all webhooks
 
 ```php
-$webhooks = $client->webhooks()->all();
+$parameters = (new \JacobDeKeizer\Ccv\Parameters\Webhooks\All())
+                ->setSize(10); // optional
+                
+$webhooks = $client->webhooks()->all($parameters);
 ```
 
 ### Get a webhook

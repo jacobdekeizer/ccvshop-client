@@ -4,15 +4,20 @@ namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
 use JacobDeKeizer\Ccv\Models\Webhooks as Models;
+use JacobDeKeizer\Ccv\Parameters\Webhooks\All;
 
 class WebhooksEndpoint extends BaseEndpoint
 {
     /**
      * @throws CcvShopException
      */
-    public function all(): Models\Collection\Webhooks
+    public function all(?All $payload = null): Models\Collection\Webhooks
     {
-        $result = $this->doRequest(self::GET, '/webhooks/');
+        if ($payload === null) {
+            $payload = new All();
+        }
+
+        $result = $this->doRequest(self::GET, sprintf('/webhooks/%s', $payload->toBuilder()->toQueryString()));
 
         return Models\Collection\Webhooks::fromArray($result);
     }
