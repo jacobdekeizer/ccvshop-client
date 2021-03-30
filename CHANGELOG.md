@@ -1,5 +1,8 @@
 # Change log
 
+## v0.17.1
+- Fixed orders update method
+
 ## v0.17.0
 - Added webhooks endpoint
 - Added missing fromUrl method to `JacobDeKeizer\Ccv\Parameters\OrderRows\All` parameter.
