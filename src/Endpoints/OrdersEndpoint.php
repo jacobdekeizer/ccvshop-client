@@ -37,7 +37,7 @@ class OrdersEndpoint extends BaseEndpoint
      */
     public function update(int $id, Models\Orders\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, sprintf('orders/%d' . $id), $model->toArray($onlyFilled));
+        $this->doRequest(self::PATCH, sprintf('orders/%d', $id), $model->toArray($onlyFilled));
     }
 
     /**
