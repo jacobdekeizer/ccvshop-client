@@ -800,6 +800,35 @@ $invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
 $client->invoices()->create(123, $invoice);
 ```
 
+## Ordernotes
+
+### Get all order notes for order
+
+```php
+$notes = $client->ordernotes()->all(123);
+```
+
+### Get order note
+
+```php
+$note = $client->ordernotes()->get(123456);
+```
+
+### Create order note
+
+```php
+$ordernote = (new \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post())
+    ->setNote('this note will not be seen by the customer');
+
+$client->ordernotes()->create(123, $ordernote);
+```
+
+### Delete order note
+
+```php
+$note = $client->ordernotes()->delete(123456);
+```
+
 ## Ordernotifications
 
 ### Get all order notifications for order
@@ -890,5 +919,6 @@ $client->webhooks()->delete(12345);
 | productattributevalues|
 | suppliers |
 | invoices|
+| ordernotes|
 | ordernotifications|
 | webhooks |
