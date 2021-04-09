@@ -45,6 +45,12 @@ class SchemaGenerator
         $generator->generate('/API/Schema/internal.resource.orders.patch.v1.json', $namespace);
         $generator->generate('/API/Schema/internal.resource.orders.post.v1.json', $namespace);
 
+        // ordernotes
+        $namespace = 'Ordernotes';
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.ordernotes.v1.json', $namespace);
+        $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotes.v1.json', $namespace);
+        $generator->generate('/API/Schema/internal.resource.ordernotes.post.v1.json', $namespace);
+
         // orderrows
         $namespace = 'Orderrows';
         $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json', $namespace);
