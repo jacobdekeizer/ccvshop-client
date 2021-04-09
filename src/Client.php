@@ -92,6 +92,11 @@ class Client
         return new Endpoints\OrdersEndpoint($this);
     }
 
+    public function ordernotes(): Endpoints\OrdernotesEndpoint
+    {
+        return new Endpoints\OrdernotesEndpoint($this);
+    }
+
     public function orderrows(): Endpoints\OrderrowsEndpoint
     {
         return new Endpoints\OrderrowsEndpoint($this);
