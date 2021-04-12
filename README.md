@@ -33,25 +33,25 @@ $client->setPrivateKey('private_key');
 
 ## Implemented endpoints
 
-| Endpoints |
-| --- |
-| root |
-| apps |
-| attributes|
-| attributevalues|
-| categories |
-| invoices|
-| orders |
-| orderrows |
-| ordernotes|
-| ordernotifications|
-| packages |
-| products|
-| productattributevalues|
-| productphotos|
-| producttocategories|
-| suppliers |
-| webhooks |
+| Endpoint | Main usage |
+| --- | --- |
+| root | [List supported endpoints](#root-endpoint) |
+| apps | [Set app to installed](#apps) |
+| attributes | [Manage attributes](#attributes) |
+| attributevalues | [Manage attribute values](#attribute-values) |
+| categories | [Manage categories](#categories) |
+| invoices | [Manage invoices](#invoices) |
+| orders | [Manage orders](#orders) |
+| orderrows | [Manage order rows](#order-rows) |
+| ordernotes | [Manage internal order notes](#order-notes) |
+| ordernotifications | [Manage order notifications](#order-notifications) |
+| packages | [Manage packages](#packages) |
+| products | [Manage products](#products) |
+| productattributevalues | [Manage product attribute values](#product-attribute-values) |
+| productphotos | [Manage product photos](#product-photos) |
+| producttocategories |  [Manage categories of a product](#product-categories) |
+| suppliers | [Manage suppliers](#suppliers) |
+| webhooks | [Manage webhooks](#webhooks) |
 
 ## Root endpoint
 
