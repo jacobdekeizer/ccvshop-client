@@ -1,15 +1,15 @@
-# CCV shop API client for PHP
+# CCV Shop API client for PHP
 
 [![Packagist Version](https://img.shields.io/packagist/v/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 [![Packagist](https://img.shields.io/packagist/l/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 [![Packagist](https://img.shields.io/packagist/dt/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-An object oriented php client for the CCV shop api. See here for the [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/).
+An object oriented PHP client for the CCV Shop API. See here for the [CCV Shop API documentation](https://demo.ccvshop.nl/API/Docs/).
 
 ## Contributing
 
-Any help is appreciated, see [contributing](https://github.com/jacobdekeizer/ccvshop-client/blob/master/.github/CONTRIBUTING.md) for more information.
+Any help is appreciated, see [contributing](.github/CONTRIBUTING.md) for more information.
 On the contributing page is described how you can automatically generate the required models for new API endpoints.
 
 ## Installation
@@ -20,6 +20,7 @@ composer require jacobdekeizer/ccvshop-client
 ```
 
 ## Usage
+
 > This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
 Create the client
