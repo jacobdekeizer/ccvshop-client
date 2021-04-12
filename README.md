@@ -308,7 +308,7 @@ $client->invoices()->create(123, $invoice);
 
 ## Orders
 
-### Get all orders with orderrows
+### Get all orders with order rows
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -397,7 +397,7 @@ $client->orders()->create($order);
 
 ## Order rows
 
-### Get all orderrows of an order
+### Get all order rows of an order
 
 ```php
 $orderId = 123456;
@@ -446,7 +446,9 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
 $client->orderrows()->replace($orderId, $newOrderrows);
 ```
 
-## Ordernotes
+## Order notes
+
+Order notes are for internal use only; they will not be seen by customers.
 
 ### Get all order notes for order
 
@@ -475,7 +477,7 @@ $client->ordernotes()->create(123, $ordernote);
 $note = $client->ordernotes()->delete(123456);
 ```
 
-## Ordernotifications
+## Order notifications
 
 ### Get all order notifications for order
 
