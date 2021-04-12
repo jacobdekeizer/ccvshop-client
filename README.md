@@ -1,15 +1,15 @@
-# CCV shop API client for PHP
+# CCV Shop API client for PHP
 
 [![Packagist Version](https://img.shields.io/packagist/v/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 [![Packagist](https://img.shields.io/packagist/l/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 [![Packagist](https://img.shields.io/packagist/dt/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
-An object oriented php client for the CCV shop api. See here for the [CCV shop API documentation](https://demo.ccvshop.nl/API/Docs/).
+An object oriented PHP client for the CCV Shop API. See here for the [CCV Shop API documentation](https://demo.ccvshop.nl/API/Docs/).
 
 ## Contributing
 
-Any help is appreciated, see [contributing](https://github.com/jacobdekeizer/ccvshop-client/blob/master/.github/CONTRIBUTING.md) for more information.
+Any help is appreciated, see [contributing](.github/CONTRIBUTING.md) for more information.
 On the contributing page is described how you can automatically generate the required models for new API endpoints.
 
 ## Installation
@@ -20,6 +20,7 @@ composer require jacobdekeizer/ccvshop-client
 ```
 
 ## Usage
+
 > This readme shows basic usage of this package, for all available options see the class definitions and the api documentation.
 
 Create the client
@@ -31,9 +32,31 @@ $client->setPublicKey('public_key');
 $client->setPrivateKey('private_key');
 ```
 
+## Implemented endpoints
+
+| Endpoint | Main usage |
+| --- | --- |
+| root | [List supported endpoints](#root-endpoint) |
+| apps | [Set app to installed](#apps) |
+| attributes | [Manage attributes](#attributes) |
+| attributevalues | [Manage attribute values](#attribute-values) |
+| categories | [Manage categories](#categories) |
+| invoices | [Manage invoices](#invoices) |
+| orders | [Manage orders](#orders) |
+| orderrows | [Manage order rows](#order-rows) |
+| ordernotes | [Manage internal order notes](#order-notes) |
+| ordernotifications | [Manage order notifications](#order-notifications) |
+| packages | [Manage packages](#packages) |
+| products | [Manage products](#products) |
+| productattributevalues | [Manage product attribute values](#product-attribute-values) |
+| productphotos | [Manage product photos](#product-photos) |
+| producttocategories |  [Manage categories of a product](#product-categories) |
+| suppliers | [Manage suppliers](#suppliers) |
+| webhooks | [Manage webhooks](#webhooks) |
+
 ## Root endpoint
 
-This endpoint returns the supported endpoints for your ccv shop.
+This endpoint returns the supported endpoints for your CCV Shop.
 
 ```php
 $result = $client->root()->all();
@@ -95,6 +118,102 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
 $client->apps()->update(12345, $patch);
 ```
 
+## Attributes
+
+### Get attribute
+
+```php
+$client->attributes()->get(1234);
+```
+
+### Get all attributes
+
+```php
+$client->attributes()->all();
+```
+
+### Get all attribute combinations
+
+```php
+$client->attributes()->allCombinationsFor(1234);
+```
+
+### Create attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->create($attribute);
+```
+
+### Update attribute
+
+```php
+$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+    ->setName('Foo')
+    ->setType('option_menu_required');
+$client->attributes()->update(1234, $attribute);
+```
+
+### Delete attribute
+
+```php
+$client->attributes()->delete(1234);
+```
+
+## Attribute values
+
+### Get attribute values
+
+```php
+$client->attributevalues()->get(1234);
+```
+
+### Get all attribute values
+
+```php
+$client->attributevalues()->all();
+```
+
+### Get all attribute values for attribute
+
+```php
+$client->attributevalues()->allForAttribute(1234);
+```
+
+### Get all attribute values for combination
+
+```php
+$client->attributevalues()->allForCombination(1234);
+```
+
+### Create attribute value
+
+```php
+$create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->create(1234, $create);
+```
+
+### Update attribute value
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
+    ->setName('Bar')
+    ->setDefaultPrice(0);
+
+$client->attributevalues()->update(1234, $patch);
+```
+
+### Delete attribute values
+
+```php
+$client->attributevalues()->delete(1234);
+```
+
 ## Categories
 
 ### Get all child categories of a category
@@ -148,9 +267,49 @@ $client->categories()->update(1, $patch);
 $client->categories()->delete(12345);
 ```
 
+## Invoices
+
+### Get all invoices
+Get all invoices between 2020-01-01 and 2020-01-31
+
+```php
+// see the code and documentation for all available methods
+$getInvoicesParameter = (new \JacobDeKeizer\Ccv\Parameters\Invoices\All)
+    ->setMinCreateDate('2020-01-01')
+    ->setMaxCreateDate('2020-01-31');
+
+$invoices = $client->invoices()->all($getInvoicesParameter);
+```
+
+### Get invoice
+
+```php
+$invoice = $client->invoices()->get(123456);
+```
+
+### Update invoice
+
+```php
+$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+    ->setStatus(1);
+    // ->set...
+
+$client->invoices()->update(123456, $invoice);
+```
+
+### Create invoice
+
+```php
+$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+    ->setStatus(2);
+    //->set..
+   
+$client->invoices()->create(123, $invoice);
+```
+
 ## Orders
 
-### Get all orders with orderrows
+### Get all orders with order rows
 Get all open orders which are paid and completed
 ```php
 $getOrdersParameter = (new \JacobDeKeizer\Ccv\Parameters\Orders\All)
@@ -237,9 +396,9 @@ $order = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Post())
 $client->orders()->create($order);
 ```
 
-## Orderrows
+## Order rows
 
-### Get all orderrows of an order
+### Get all order rows of an order
 
 ```php
 $orderId = 123456;
@@ -247,18 +406,18 @@ $orderId = 123456;
 $parameter = (new \JacobDeKeizer\Ccv\Parameters\OrderRows\All()) // optional parameter
     ->setStart(10);
 
-$orderrows = $client->orderrows()->all($orderId, $parameter);
+$orderRows = $client->orderrows()->all($orderId, $parameter);
 
-$nextParameter = \JacobDeKeizer\Ccv\Parameters\OrderRows\All::fromUrl($orderrows->getNext());
+$nextParameter = \JacobDeKeizer\Ccv\Parameters\OrderRows\All::fromUrl($orderRows->getNext());
 ```
 
-### Get orderrow
+### Get order row
 
 ```php
-$orderrow = $client->orderrows()->get(336401521);
+$orderRow = $client->orderrows()->get(336401521);
 ```
 
-### Update orderrow
+### Update order row
 Order must not be completed to update orderrows
 
 ```php
@@ -270,7 +429,7 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch())
 $client->orderrows()->update(123456, $patch);
 ```
 
-### Replace orderrows of order
+### Replace order rows of order
 
 ```php
 $orderId = 123456;
@@ -286,6 +445,60 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
     ]);
 
 $client->orderrows()->replace($orderId, $newOrderrows);
+```
+
+## Order notes
+
+Order notes are for internal use only; they will not be seen by customers.
+
+### Get all order notes for order
+
+```php
+$notes = $client->ordernotes()->all(123);
+```
+
+### Get order note
+
+```php
+$note = $client->ordernotes()->get(123456);
+```
+
+### Create order note
+
+```php
+$ordernote = (new \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post())
+    ->setNote('this note will not be seen by the customer');
+
+$client->ordernotes()->create(123, $ordernote);
+```
+
+### Delete order note
+
+```php
+$note = $client->ordernotes()->delete(123456);
+```
+
+## Order notifications
+
+### Get all order notifications for order
+
+```php
+$notifications = $client->ordernotifications()->all(123);
+```
+
+### Get order notification
+
+```php
+$notification = $client->ordernotifications()->get(123456);
+```
+
+### Create order notification
+
+```php
+$ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input())
+    ->setType('customer_paymentlink');
+
+$client->ordernotifications()->create(123, $ordernotification);
 ```
 
 ## Packages
@@ -432,6 +645,46 @@ $client->products()->create($product);
 
 ```php
 $client->products()->delete(1234);
+```
+
+## Product attribute values
+
+### Get product attribute value
+
+```php
+$client->productattributevalues()->get(1234);
+```
+
+### Get all product attribute values for product
+
+```php
+$client->productattributevalues()->allForProduct(1234);
+```
+
+### Create product attribute values
+
+```php
+$post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->create(1234, $post);
+```
+
+### Update product attribute values
+
+```php
+$patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
+    ->setPrice(2);
+    // ->set...
+
+$client->productattributevalues()->update(1234, $patch);
+```
+
+### Delete product attribute value
+
+```php
+$client->productattributevalues()->delete(1234);
 ```
 
 ## Product photos
@@ -586,142 +839,6 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\
 $client->producttocategories()->update(123, $patch);
 ```
 
-## Attributes
-
-### Get attribute
-
-```php
-$client->attributes()->get(1234);
-```
-
-### Get all attributes
-
-```php
-$client->attributes()->all();
-```
-
-### Get all attribute combinations
-
-```php
-$client->attributes()->allCombinationsFor(1234);
-```
-
-### Create attribute
-
-```php
-$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
-    ->setName('Foo')
-    ->setType('option_menu_required');
-$client->attributes()->create($attribute);
-```
-
-### Update attribute
-
-```php
-$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
-    ->setName('Foo')
-    ->setType('option_menu_required');
-$client->attributes()->update(1234, $attribute);
-```
-
-### Delete attribute
-
-```php
-$client->attributes()->delete(1234);
-```
-
-## Attribute values
-
-### Get attribute values
-
-```php
-$client->attributevalues()->get(1234);
-```
-
-### Get all attribute values
-
-```php
-$client->attributevalues()->all();
-```
-
-### Get all attribute values for attribute
-
-```php
-$client->attributevalues()->allForAttribute(1234);
-```
-
-### Get all attribute values for combination
-
-```php
-$client->attributevalues()->allForCombination(1234);
-```
-
-### Create attribute value
-
-```php
-$create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
-    ->setName('Bar')
-    ->setDefaultPrice(0);
-
-$client->attributevalues()->create(1234, $create);
-```
-
-### Update attribute value
-
-```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
-    ->setName('Bar')
-    ->setDefaultPrice(0);
-
-$client->attributevalues()->update(1234, $patch);
-```
-
-### Delete attribute values
-
-```php
-$client->attributevalues()->delete(1234);
-```
-
-## Product attribute values
-
-### Get product attribute value
-
-```php
-$client->productattributevalues()->get(1234);
-```
-
-### Get all product attribute values for product
-
-```php
-$client->productattributevalues()->allForProduct(1234);
-```
-
-### Create product attribute values
-
-```php
-$post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
-    ->setPrice(2);
-    // ->set...
-
-$client->productattributevalues()->create(1234, $post);
-```
-
-### Update product attribute values
-
-```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
-    ->setPrice(2);
-    // ->set...
-
-$client->productattributevalues()->update(1234, $patch);
-```
-
-### Delete product attribute value
-
-```php
-$client->productattributevalues()->delete(1234);
-```
-
 ## Suppliers
 
 ### Get all suppliers
@@ -758,98 +875,6 @@ $client->suppliers()->update(12345, $input);
 
 ```php
 $client->suppliers()->delete(12345);
-```
-
-## Invoices
-
-### Get all invoices
-Get all invoices between 2020-01-01 and 2020-01-31
-
-```php
-// see the code and documentation for all available methods
-$getInvoicesParameter = (new \JacobDeKeizer\Ccv\Parameters\Invoices\All)
-    ->setMinCreateDate('2020-01-01')
-    ->setMaxCreateDate('2020-01-31');
-
-$invoices = $client->invoices()->all($getInvoicesParameter);
-```
-
-### Get invoice
-
-```php
-$invoice = $client->invoices()->get(123456);
-```
-
-### Update invoice
-
-```php
-$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
-    ->setStatus(1);
-    // ->set...
-
-$client->invoices()->update(123456, $invoice);
-```
-
-### Create invoice
-
-```php
-$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
-    ->setStatus(2);
-    //->set..
-   
-$client->invoices()->create(123, $invoice);
-```
-
-## Ordernotes
-
-### Get all order notes for order
-
-```php
-$notes = $client->ordernotes()->all(123);
-```
-
-### Get order note
-
-```php
-$note = $client->ordernotes()->get(123456);
-```
-
-### Create order note
-
-```php
-$ordernote = (new \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post())
-    ->setNote('this note will not be seen by the customer');
-
-$client->ordernotes()->create(123, $ordernote);
-```
-
-### Delete order note
-
-```php
-$note = $client->ordernotes()->delete(123456);
-```
-
-## Ordernotifications
-
-### Get all order notifications for order
-
-```php
-$notifications = $client->ordernotifications()->all(123);
-```
-
-### Get order notification
-
-```php
-$notification = $client->ordernotifications()->get(123456);
-```
-
-### Create order notification
-
-```php
-$ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input())
-    ->setType('customer_paymentlink');
-
-$client->ordernotifications()->create(123, $ordernotification);
 ```
 
 ## Webhooks
@@ -900,25 +925,3 @@ $client->webhooks()->update(12345, $webhook);
 ```php
 $client->webhooks()->delete(12345);
 ```
-
-## Implemented endpoints
-
-| Endpoints |
-| --- |
-| root |
-| apps |
-| categories |
-| orderrows |
-| orders |
-| packages |
-| products|
-| productphotos|
-| producttocategories|
-| attributes|
-| attributevalues|
-| productattributevalues|
-| suppliers |
-| invoices|
-| ordernotes|
-| ordernotifications|
-| webhooks |
