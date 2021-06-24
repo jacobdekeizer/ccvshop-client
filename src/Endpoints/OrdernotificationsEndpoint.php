@@ -4,48 +4,35 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Ordernotifications as Models;
-
 class OrdernotificationsEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(int $orderId): Models\Collection\Ordernotifications
+    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications
     {
         $result = $this->doRequest(
             self::GET,
-            sprintf('orders/%d/ordernotifications/', $orderId)
+            'orders/' . $id . '/ordernotifications/'
         );
 
-        return Models\Collection\Ordernotifications::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Ordernotifications
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications
     {
-        $result = $this->doRequest(self::GET, sprintf('ordernotifications/%d', $id));
-
-        return Models\Resource\Ordernotifications::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $orderId,
-        Models\Ordernotifications\Input $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Ordernotifications {
-        $response = $this->doRequest(
-            self::POST,
-            sprintf('orders/%d/ordernotifications', $orderId),
-            $model->toArray($onlyFilled)
+        $result = $this->doRequest(
+            self::GET,
+            'ordernotifications/' . $id . '/'
         );
 
-        return Models\Resource\Ordernotifications::fromArray($response);
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications::fromArray($result);
+    }
+
+    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'orders/' . $id . '/ordernotifications/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input::fromArray($result);
     }
 }

@@ -4,84 +4,63 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Attributevalues as Models;
-
 class AttributevaluesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('attributevalues/%d', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'attributevalues/' . $id . '/'
+        );
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function allForCombination(int $attributeCombinationId): Models\Collection\Attributevalues
+    public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
         $result = $this->doRequest(
             self::GET,
-            sprintf('attributecombinations/%d/attributevalues/', $attributeCombinationId)
+            'attributecombinations/' . $id . '/attributevalues/'
         );
 
-        return Models\Collection\Attributevalues::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Attributevalues
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues
     {
-        $result = $this->doRequest(self::GET, sprintf('attributevalues/%d', $id));
+        $result = $this->doRequest(
+            self::GET,
+            'attributevalues/' . $id . '/'
+        );
 
-        return Models\Resource\Attributevalues::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function allForAttribute(int $attributeId): Models\Collection\Attributevalues
+    public function allFromAttributes(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
-        $result = $this->doRequest(self::GET, sprintf('attributes/%d/attributevalues/', $attributeId));
+        $result = $this->doRequest(
+            self::GET,
+            'attributes/' . $id . '/attributevalues/'
+        );
 
-        return Models\Collection\Attributevalues::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function all(): Models\Collection\Attributevalues
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch
     {
-        $result = $this->doRequest(self::GET, 'attributes/');
+        $result = $this->doRequest(
+            self::PATCH,
+            'attributevalues/' . $id . '/'
+        );
 
-        return Models\Collection\Attributevalues::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Attributevalues\Patch $model, bool $onlyFilled = true): void
+    public function createFromAttributes(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post
     {
-        $this->doRequest(self::PATCH, sprintf('attributevalues/%d', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $attributeId,
-        Models\Attributevalues\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Attributevalues {
-        $response = $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
-            sprintf('attributes/%d/attributevalues', $attributeId),
-            $model->toArray($onlyFilled)
+            'attributes/' . $id . '/attributevalues/'
         );
 
-        return Models\Resource\Attributevalues::fromArray($response);
+        return \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post::fromArray($result);
     }
 }

@@ -1,49 +1,48 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Packages\Collection\Packages;
-use JacobDeKeizer\Ccv\Models\Packages\Packages\Input;
-use JacobDeKeizer\Ccv\Models\Packages\Resource\Packages as Package;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class PackagesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Package
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages
     {
-        $result = $this->doRequest(self::GET, sprintf('/packages/%d/', $id));
+        $result = $this->doRequest(
+            self::GET,
+            'packages/' . $id . '/'
+        );
 
-        return Package::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function all(): Packages
+    public function all(): \JacobDeKeizer\Ccv\Models\Packages\Collection\Packages
     {
-        $result = $this->doRequest(self::GET, '/packages/');
+        $result = $this->doRequest(
+            self::GET,
+            'packages/'
+        );
 
-        return Packages::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Packages\Collection\Packages::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Input $package, bool $onlyFilledProperties = true): void
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Packages\Packages\Input
     {
-        $this->doRequest(self::PATCH, sprintf('/packages/%d/', $id), $package->toArray($onlyFilledProperties));
+        $result = $this->doRequest(
+            self::PATCH,
+            'packages/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Packages\Packages\Input::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Input $package, bool $onlyFilledProperties = true): Package
+    public function create(): \JacobDeKeizer\Ccv\Models\Packages\Packages\Input
     {
-        $result = $this->doRequest(self::POST, '/packages/', $package->toArray($onlyFilledProperties));
+        $result = $this->doRequest(
+            self::POST,
+            'packages/'
+        );
 
-        return Package::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Packages\Packages\Input::fromArray($result);
     }
 }

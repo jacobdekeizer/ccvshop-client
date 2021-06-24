@@ -1,13 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator;
 
-use JacobDeKeizer\CcvGenerator\Factories\PhpClassFactory;
+use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
+use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
+use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;
+use JacobDeKeizer\CcvGenerator\Factories\EndpointClassGenerator;
+use JacobDeKeizer\CcvGenerator\Factories\ModelClassFactory;
+use JacobDeKeizer\CcvGenerator\File\FileHelper;
 
 class SchemaGenerator
 {
     public const MANUAL_MODELS_DIRS = [
         'Root'
+    ];
+
+    public const MANUAL_ENDPOINTS = [
+        'BaseEndpoint.php',
+        'RootEndpoint.php',
+    ];
+
+    public const MANUAL_PARAMETERS = [
+        'Concerns',
+        'PaginatedList.php',
     ];
 
     /**
@@ -25,156 +42,65 @@ class SchemaGenerator
         $generator = new self();
 
         $generator->removeOldModels();
+        $generator->removeOldEndpoints();
+        $generator->removeOldParameters();
 
-        // apps
-        $namespace = 'Apps';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.apps.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.apps.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.apps.patch.v1.json', $namespace);
+        $endpoints = EndpointClassGenerator::make("https://demo.ccvshop.nl/API/Docs/");
 
-        // categories
-        $namespace = 'Categories';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.categories.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.categories.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.categories.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.categories.post.v1.json', $namespace);
+        foreach ($endpoints as $endpoint) {
+            $generator->createEndpointFile($endpoint);
 
-        // orders
-        $namespace = 'Orders';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.orders.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.orders.post.v1.json', $namespace);
+            foreach ($endpoint->getEndpointMethods() as $endpointMethod) {
+                if ($model = $endpointMethod->getModel()) {
+                    $generator->createModelFile($model);
+                }
 
-        // ordernotes
-        $namespace = 'Ordernotes';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.ordernotes.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotes.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.ordernotes.post.v1.json', $namespace);
-
-        // orderrows
-        $namespace = 'Orderrows';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orderrows.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.orderrows.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.orderrows.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.orderrows.put.v1.json', $namespace);
-
-        // products
-        $namespace = 'Products';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.products.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.products.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.products.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.products.post.v1.json', $namespace);
-
-        // productphotos
-        $namespace = 'Productphotos';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.productphotos.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.productphotos.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.productphotos.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.productphotos.post.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.productphotos.put.v1.json', $namespace);
-
-        // producttocategories
-        $namespace = 'Producttocategories';
-        $generator->generate(
-            '/API/Schema/vnd.verto.webshop.resource.collection.producttocategories.v1.json',
-            $namespace
-        );
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.producttocategories.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.producttocategories.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.producttocategories.post.v1.json', $namespace);
-
-        // attributes
-        $namespace = 'Attributes';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.attributes.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.attributes.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.attributes.input.v1.json', $namespace);
-
-        // attributevalues
-        $namespace = 'Attributevalues';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.attributevalues.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.attributevalues.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.attributevalues.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.attributevalues.post.v1.json', $namespace);
-
-        // productattributevalues
-        $namespace = 'Productattributevalues';
-        $generator->generate(
-            '/API/Schema/vnd.verto.webshop.resource.collection.productattributevalues.v1.json',
-            $namespace
-        );
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.productattributevalues.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.productattributevalues.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.productattributevalues.post.v1.json', $namespace);
-
-        // invoices
-        $namespace = 'Invoices';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.invoices.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.invoices.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.invoices.input.v1.json', $namespace);
-
-        // ordernotifications
-        $namespace = 'Ordernotifications';
-        $generator->generate(
-            '/API/Schema/vnd.verto.webshop.resource.collection.ordernotifications.v1.json',
-            $namespace
-        );
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.ordernotifications.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.ordernotifications.input.v1.json', $namespace);
-
-        // suppliers
-        $namespace = 'Suppliers';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.suppliers.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.suppliers.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.suppliers.input.v1.json', $namespace);
-
-        // packages
-        $namespace = 'Packages';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.packages.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.packages.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.packages.input.v1.json', $namespace);
-
-        // webhooks
-        $namespace = 'Webhooks';
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.webhooks.v1.json', $namespace);
-        $generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.webhooks.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.webhooks.patch.v1.json', $namespace);
-        $generator->generate('/API/Schema/internal.resource.webhooks.post.v1.json', $namespace);
+                if ($parameter = $endpointMethod->getParameter()) {
+                    $generator->createParameterFile($parameter);
+                }
+            }
+        }
     }
 
     public function generate(string $url, string $namespacePrefix): void
     {
-        $this->createClass(PhpClassFactory::make($url, $namespacePrefix));
+        $this->createModelClass(ModelClassFactory::make($url, $namespacePrefix));
     }
 
-    private function createClass(PhpClass $phpClass): void
+    private function createModelClass(ModelClass $phpClass): void
     {
-        $this->createPhpFile($phpClass);
+        $this->createModelFile($phpClass);
 
         foreach ($phpClass->getClasses() as $class) {
-            $this->createClass($class);
+            $this->createModelClass($class);
         }
     }
 
-    private function createPhpFile(PhpClass $phpClass): void
+    private function createEndpointFile(EndpointClass $endpoint): void
     {
-        $filePath = $this->rootDir . $this->normalizePath($phpClass->getRelativePath());
-
-        $this->fileForceContents($filePath, $phpClass->toString());
+        FileHelper::fileForceContents(
+            $this->rootDir,
+            'Endpoints/' . $endpoint->getClassName() . '.php',
+            $endpoint->toString()
+        );
     }
 
-    private function fileForceContents(string $path, string $contents): void
+    private function createModelFile(ModelClass $modelClass): void
     {
-        $parts = explode('/', str_replace($this->rootDir, '', $path));
-        array_pop($parts);
-        $dir = $this->rootDir;
+        FileHelper::fileForceContents(
+            $this->rootDir,
+            $this->normalizePath($modelClass->getRelativePath()),
+            $modelClass->toString()
+        );
+    }
 
-        foreach ($parts as $part) {
-            if (!is_dir($dir .= '/' . $part)) {
-                mkdir($dir);
-            }
-        }
-
-        file_put_contents($path, $contents);
+    private function createParameterFile(ParameterClass $parameterClass): void
+    {
+        FileHelper::fileForceContents(
+            $this->rootDir,
+            $this->normalizePath($parameterClass->getRelativePath()),
+            $parameterClass->toString()
+        );
     }
 
     private function normalizePath(string $path): string
@@ -191,18 +117,33 @@ class SchemaGenerator
                 continue;
             }
 
-            $this->removeDirectory($directory);
+            FileHelper::removeDirectoryWithContents($directory);
         }
     }
 
-    private function removeDirectory(string $path): void
+    private function removeOldEndpoints(): void
     {
-        $files = glob($path . '/*');
+        $directories = glob($this->rootDir . '/Endpoints/*');
 
-        foreach ($files as $file) {
-            is_dir($file) ? $this->removeDirectory($file) : unlink($file);
+        foreach ($directories as $directory) {
+            if (in_array(basename($directory), self::MANUAL_ENDPOINTS)) {
+                continue;
+            }
+
+            FileHelper::removeDirectoryWithContents($directory);
         }
+    }
 
-        rmdir($path);
+    private function removeOldParameters(): void
+    {
+        $directories = glob($this->rootDir . '/Parameters/*');
+
+        foreach ($directories as $directory) {
+            if (in_array(basename($directory), self::MANUAL_PARAMETERS)) {
+                continue;
+            }
+
+            FileHelper::removeDirectoryWithContents($directory);
+        }
     }
 }

@@ -1,9 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator;
 
 class Php
 {
+    public const INDENTATION = '    ';
+
     public const RESERVED_KEYWORDS = [
         '__halt_compiler',
         'abstract',

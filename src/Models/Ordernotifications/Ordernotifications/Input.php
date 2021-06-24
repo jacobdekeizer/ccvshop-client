@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications;
 
 use JacobDeKeizer\Ccv\Contracts\Model;

@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Parameters\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
-use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class All extends PaginatedList implements Parameter
+class All implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -31,6 +32,11 @@ class All extends PaginatedList implements Parameter
 
     /**
      * @var string|null Specific deliver date of the orders in the result.
+     */
+    private $deliverDate;
+
+    /**
+     * @var string|null Specific take out date of the orders in the result.
      */
     private $takeOutDate;
 
@@ -55,18 +61,25 @@ class All extends PaginatedList implements Parameter
     private $paymethodId;
 
     /**
-     * @return All
+     * @var int|null Specific transaction id of the order.
      */
-    public static function fromArray(array $data): Parameter
+    private $transactionId;
+
+    /**
+     * @return self
+     */
+    public static function fromArray(array $data): self
     {
         return self::createFromArray($data);
     }
 
-    public static function fromUrl(?string $url): ?All
+    /**
+     * @return self
+     */
+    public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;
-        }
+            return null;        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -74,24 +87,17 @@ class All extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('ordernumber', $this->getOrdernumber())
-            ->addOptionalParameter('status', $this->getStatus())
-            ->addOptionalParameter('is_paid', $this->getIsPaid())
-            ->addOptionalParameter('take_out_date', $this->getTakeOutDate())
-            ->addOptionalParameter('min_create_date', $this->getMinCreateDate())
-            ->addOptionalParameter('max_create_date', $this->getMaxCreateDate())
-            ->addOptionalParameter('paymethod_id', $this->getPaymethodId())
+            ->addOptionalParameter('ordernumber', $this->ordernumber)
+            ->addOptionalParameter('status', $this->status)
+            ->addOptionalParameter('isPaid', $this->isPaid)
+            ->addOptionalParameter('deliverDate', $this->deliverDate)
+            ->addOptionalParameter('takeOutDate', $this->takeOutDate)
+            ->addOptionalParameter('minCreateDate', $this->minCreateDate)
+            ->addOptionalParameter('maxCreateDate', $this->maxCreateDate)
+            ->addOptionalParameter('isCompleted', $this->isCompleted)
+            ->addOptionalParameter('paymethodId', $this->paymethodId)
+            ->addOptionalParameter('transactionId', $this->transactionId)
             ->orderBy($this->getOrderBy());
-    }
-
-    /**
-     * @param int|null $ordernumber Specific order number of the order.
-     * @return All
-     */
-    public function setOrdernumber(?int $ordernumber): All
-    {
-        $this->ordernumber = $ordernumber;
-        return $this;
     }
 
     /**
@@ -103,31 +109,11 @@ class All extends PaginatedList implements Parameter
     }
 
     /**
-     * @param int|null $status Specific order status of the orders in the result.
-     * @return All
-     */
-    public function setStatus(?int $status): All
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
      * @return int|null Specific order status of the orders in the result.
      */
     public function getStatus(): ?int
     {
         return $this->status;
-    }
-
-    /**
-     * @param bool|null $isPaid Specific paid status of the orders in the result.
-     * @return All
-     */
-    public function setIsPaid(?bool $isPaid): All
-    {
-        $this->isPaid = $isPaid;
-        return $this;
     }
 
     /**
@@ -139,31 +125,19 @@ class All extends PaginatedList implements Parameter
     }
 
     /**
-     * @param string|null $takeOutDate Specific deliver date of the orders in the result.
-     * @return All
+     * @return string|null Specific deliver date of the orders in the result.
      */
-    public function setTakeOutDate(?string $takeOutDate): All
+    public function getDeliverDate(): ?string
     {
-        $this->takeOutDate = $takeOutDate;
-        return $this;
+        return $this->deliverDate;
     }
 
     /**
-     * @return string|null Specific deliver date of the orders in the result.
+     * @return string|null Specific take out date of the orders in the result.
      */
     public function getTakeOutDate(): ?string
     {
         return $this->takeOutDate;
-    }
-
-    /**
-     * @param string|null $minCreateDate Minimal create date of the orders in the result.
-     * @return All
-     */
-    public function setMinCreateDate(?string $minCreateDate): All
-    {
-        $this->minCreateDate = $minCreateDate;
-        return $this;
     }
 
     /**
@@ -175,31 +149,11 @@ class All extends PaginatedList implements Parameter
     }
 
     /**
-     * @param string|null $maxCreateDate Maximal create date of the orders in the result.
-     * @return All
-     */
-    public function setMaxCreateDate(?string $maxCreateDate): All
-    {
-        $this->maxCreateDate = $maxCreateDate;
-        return $this;
-    }
-
-    /**
      * @return string|null Maximal create date of the orders in the result.
      */
     public function getMaxCreateDate(): ?string
     {
         return $this->maxCreateDate;
-    }
-
-    /**
-     * @param bool|null $isCompleted Toggles completed orders. Default: true.
-     * @return All
-     */
-    public function setIsCompleted(?bool $isCompleted): All
-    {
-        $this->isCompleted = $isCompleted;
-        return $this;
     }
 
     /**
@@ -211,17 +165,6 @@ class All extends PaginatedList implements Parameter
     }
 
     /**
-     * @param int|null $paymethodId Specific paymethod of the orders in the result.
-     *                              See resource /paymethods for the options.
-     * @return All
-     */
-    public function setPaymethodId(?int $paymethodId): All
-    {
-        $this->paymethodId = $paymethodId;
-        return $this;
-    }
-
-    /**
      * @return int|null Specific paymethod of the orders in the result. See resource /paymethods for the options.
      */
     public function getPaymethodId(): ?int
@@ -229,49 +172,157 @@ class All extends PaginatedList implements Parameter
         return $this->paymethodId;
     }
 
-    public function orderByIdAsc(): All
+    /**
+     * @return int|null Specific transaction id of the order.
+     */
+    public function getTransactionId(): ?int
+    {
+        return $this->transactionId;
+    }
+
+    /**
+     * @param int|null $ordernumber Specific order number of the order.
+     * @return self
+     */
+    public function setOrdernumber(?int $ordernumber): self
+    {
+        $this->ordernumber = $ordernumber;
+        return $this;
+    }
+
+    /**
+     * @param int|null $status Specific order status of the orders in the result.
+     * @return self
+     */
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @param bool|null $isPaid Specific paid status of the orders in the result.
+     * @return self
+     */
+    public function setIsPaid(?bool $isPaid): self
+    {
+        $this->isPaid = $isPaid;
+        return $this;
+    }
+
+    /**
+     * @param string|null $deliverDate Specific deliver date of the orders in the result.
+     * @return self
+     */
+    public function setDeliverDate(?string $deliverDate): self
+    {
+        $this->deliverDate = $deliverDate;
+        return $this;
+    }
+
+    /**
+     * @param string|null $takeOutDate Specific take out date of the orders in the result.
+     * @return self
+     */
+    public function setTakeOutDate(?string $takeOutDate): self
+    {
+        $this->takeOutDate = $takeOutDate;
+        return $this;
+    }
+
+    /**
+     * @param string|null $minCreateDate Minimal create date of the orders in the result.
+     * @return self
+     */
+    public function setMinCreateDate(?string $minCreateDate): self
+    {
+        $this->minCreateDate = $minCreateDate;
+        return $this;
+    }
+
+    /**
+     * @param string|null $maxCreateDate Maximal create date of the orders in the result.
+     * @return self
+     */
+    public function setMaxCreateDate(?string $maxCreateDate): self
+    {
+        $this->maxCreateDate = $maxCreateDate;
+        return $this;
+    }
+
+    /**
+     * @param bool|null $isCompleted Toggles completed orders. Default: true.
+     * @return self
+     */
+    public function setIsCompleted(?bool $isCompleted): self
+    {
+        $this->isCompleted = $isCompleted;
+        return $this;
+    }
+
+    /**
+     * @param int|null $paymethodId Specific paymethod of the orders in the result. See resource /paymethods for the options.
+     * @return self
+     */
+    public function setPaymethodId(?int $paymethodId): self
+    {
+        $this->paymethodId = $paymethodId;
+        return $this;
+    }
+
+    /**
+     * @param int|null $transactionId Specific transaction id of the order.
+     * @return self
+     */
+    public function setTransactionId(?int $transactionId): self
+    {
+        $this->transactionId = $transactionId;
+        return $this;
+    }
+
+    public function orderByIdAsc(bool $expand = true): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(): All
+    public function orderByIdDesc(bool $expand = true): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByOrderNumberAsc(): All
+    public function orderByOrdernumberAsc(bool $expand = true): self
     {
         $this->orderByField('ordernumber', true);
         return $this;
     }
 
-    public function orderByOrderNumberDesc(): All
+    public function orderByOrdernumberDesc(bool $expand = true): self
     {
         $this->orderByField('ordernumber', false);
         return $this;
     }
 
-    public function orderByCreateDateAsc(): All
+    public function orderByCreate_dateAsc(bool $expand = true): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
 
-    public function orderByCreateDateDesc(): All
+    public function orderByCreate_dateDesc(bool $expand = true): self
     {
         $this->orderByField('create_date', false);
         return $this;
     }
 
-    public function orderByDeliverDateAsc(): All
+    public function orderByDeliver_dateAsc(bool $expand = true): self
     {
         $this->orderByField('deliver_date', true);
         return $this;
     }
 
-    public function orderByDeliverDateDesc(): All
+    public function orderByDeliver_dateDesc(bool $expand = true): self
     {
         $this->orderByField('deliver_date', false);
         return $this;

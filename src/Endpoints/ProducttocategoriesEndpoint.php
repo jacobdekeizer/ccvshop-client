@@ -4,65 +4,63 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Producttocategories as Models;
-use JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post;
-
 class ProducttocategoriesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function allForCategory(int $categoryId): Models\Collection\Producttocategories
-    {
-        $result = $this->doRequest(self::GET, sprintf('categories/%d/producttocategories/', $categoryId));
-
-        return Models\Collection\Producttocategories::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allForProduct(int $productId): Models\Collection\Producttocategories
-    {
-        $result = $this->doRequest(self::GET, sprintf('products/%d/producttocategories/', $productId));
-
-        return Models\Collection\Producttocategories::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Producttocategories
-    {
-        $result = $this->doRequest(self::GET, sprintf('producttocategories/%d', $id));
-
-        return Models\Resource\Producttocategories::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Producttocategories\Patch $model, bool $onlyFilled = true): void
-    {
-        $this->doRequest(self::PATCH, sprintf('producttocategories/%d', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Post $model, bool $onlyFilled = true): Models\Resource\Producttocategories
-    {
-        $response = $this->doRequest(self::POST, 'producttocategories/', $model->toArray($onlyFilled));
-
-        return Models\Resource\Producttocategories::fromArray($response);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('producttocategories/%d', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'producttocategories/' . $id . '/'
+        );
+    }
+
+    public function allFromCategories(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'categories/' . $id . '/producttocategories/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
+    }
+
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'producttocategories/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories::fromArray($result);
+    }
+
+    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'products/' . $id . '/producttocategories/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'producttocategories/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch::fromArray($result);
+    }
+
+    public function create(): \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'producttocategories/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post::fromArray($result);
     }
 }

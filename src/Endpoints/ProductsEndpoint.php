@@ -1,150 +1,134 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Products as Models;
-use JacobDeKeizer\Ccv\Parameters\Products\All;
-use JacobDeKeizer\Ccv\Parameters\Products\Get;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class ProductsEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(self::GET, sprintf('products%s', $payload->toBuilder()->toQueryString()));
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allFromBrand(int $brandId, ?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('brands/%d/products%s', $brandId, $payload->toBuilder()->toQueryString())
-        );
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allFromWebshop(int $webshopId, ?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('webshops/%d/products%s', $webshopId, $payload->toBuilder()->toQueryString())
-        );
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allFromCategory(int $categoryId, ?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('categories/%d/products%s', $categoryId, $payload->toBuilder()->toQueryString())
-        );
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allFromCondition(int $conditionId, ?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('conditions/%d/products%s', $conditionId, $payload->toBuilder()->toQueryString())
-        );
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function allFromSupplier(int $supplierId, ?All $payload = null): Models\Collection\Products
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(
-            self::GET,
-            sprintf('suppliers/%d/products%s', $supplierId, $payload->toBuilder()->toQueryString())
-        );
-
-        return Models\Collection\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id, ?Get $payload = null): Models\Resource\Products
-    {
-        if ($payload === null) {
-            $payload = new Get();
-        }
-
-        $result = $this->doRequest(self::GET, sprintf('products/%d%s', $id, $payload->toBuilder()->toQueryString()));
-
-        return Models\Resource\Products::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Products\Patch $model, bool $onlyFilled = true): void
-    {
-        $this->doRequest(self::PATCH, sprintf('products/%d', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Models\Products\Post $model, bool $onlyFilled = true): Models\Resource\Products
-    {
-        $response = $this->doRequest(self::POST, 'products', $model->toArray($onlyFilled));
-
-        return Models\Resource\Products::fromArray($response);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('products/%d', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'products/' . $id . '/'
+        );
+    }
+
+    public function allFromBrands(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'brands/' . $id . '/products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function allFromWebshops(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'webshops/' . $id . '/products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Products\All $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\All();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\Get();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'products/' . $id . '/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Products::fromArray($result);
+    }
+
+    public function allFromCategories(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'categories/' . $id . '/products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function allFromConditions(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'conditions/' . $id . '/products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function allFromSuppliers(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers $parameter = null): \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products
+    {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers();
+        }
+
+        $result = $this->doRequest(
+            self::GET,
+            'suppliers/' . $id . '/products/' . $parameter->toBuilder()->toQueryString()
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Products\Products\Patch
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'products/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Products\Products\Patch::fromArray($result);
+    }
+
+    public function create(): \JacobDeKeizer\Ccv\Models\Products\Products\Post
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'products/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Products\Products\Post::fromArray($result);
     }
 }

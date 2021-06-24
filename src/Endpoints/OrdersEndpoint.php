@@ -1,52 +1,52 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Orders as Models;
-use JacobDeKeizer\Ccv\Parameters\Orders\All;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class OrdersEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(?All $payload = null): Models\Collection\Orders
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Orders\All $parameter = null): \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Orders\All();
         }
 
-        $result = $this->doRequest(self::GET, sprintf('orders%s', $payload->toBuilder()->toQueryString()));
+        $result = $this->doRequest(
+            self::GET,
+            'orders/' . $parameter->toBuilder()->toQueryString()
+        );
 
-        return Models\Collection\Orders::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Orders
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders
     {
-        $result = $this->doRequest(self::GET, sprintf('orders/%d', $id));
+        $result = $this->doRequest(
+            self::GET,
+            'orders/' . $id . '/'
+        );
 
-        return Models\Resource\Orders::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Orders\Patch $model, bool $onlyFilled = true): void
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch
     {
-        $this->doRequest(self::PATCH, sprintf('orders/%d', $id), $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::PATCH,
+            'orders/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Models\Orders\Post $model, bool $onlyFilled = true): Models\Resource\Orders
+    public function create(): \JacobDeKeizer\Ccv\Models\Orders\Orders\Post
     {
-        $result = $this->doRequest(self::POST, 'orders', $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::POST,
+            'orders/'
+        );
 
-        return Models\Resource\Orders::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Orders\Orders\Post::fromArray($result);
     }
 }

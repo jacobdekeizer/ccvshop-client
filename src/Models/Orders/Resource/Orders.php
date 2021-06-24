@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orders\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -66,6 +68,11 @@ class Orders implements Model
     private $takeOutWindow;
 
     /**
+     * @var bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     */
+    private $isPlatformSale;
+
+    /**
      * @var string Language in which this order was ordered
      */
     private $orderedinlng;
@@ -106,9 +113,14 @@ class Orders implements Model
     private $paymethodId;
 
     /**
-     * @var string Paymethod of the order
+     * @var string Paymethod of the order.
      */
     private $paymethod;
+
+    /**
+     * @var string This is similar to paymethod, but with a more human readable translation.
+     */
+    private $paymethodLabel;
 
     /**
      * @var bool If taxes are calculated in the total price. If false, all taxes will be hidden.
@@ -251,7 +263,7 @@ class Orders implements Model
     private $discountcoupon;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null Describes personal information of the customer
+     * @var \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo|null Describes personal information of the customer
      */
     private $customer;
 
@@ -397,6 +409,14 @@ class Orders implements Model
     }
 
     /**
+     * @return bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     */
+    public function getIsPlatformSale(): ?bool
+    {
+        return $this->isPlatformSale;
+    }
+
+    /**
      * @return string Language in which this order was ordered
      */
     public function getOrderedinlng(): string
@@ -461,11 +481,19 @@ class Orders implements Model
     }
 
     /**
-     * @return string Paymethod of the order
+     * @return string Paymethod of the order.
      */
     public function getPaymethod(): string
     {
         return $this->paymethod;
+    }
+
+    /**
+     * @return string This is similar to paymethod, but with a more human readable translation.
+     */
+    public function getPaymethodLabel(): string
+    {
+        return $this->paymethodLabel;
     }
 
     /**
@@ -694,9 +722,9 @@ class Orders implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null Describes personal information of the customer
+     * @return \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo|null Describes personal information of the customer
      */
-    public function getCustomer(): ?\JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo
+    public function getCustomer(): ?\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo
     {
         return $this->customer;
     }
@@ -895,6 +923,17 @@ class Orders implements Model
     }
 
     /**
+     * @param bool|null $isPlatformSale Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     * @return self
+     */
+    public function setIsPlatformSale(?bool $isPlatformSale): self
+    {
+        $this->isPlatformSale = $isPlatformSale;
+        $this->propertyFilled('isPlatformSale');
+        return $this;
+    }
+
+    /**
      * @param string $orderedinlng Language in which this order was ordered
      * @return self
      */
@@ -983,13 +1022,24 @@ class Orders implements Model
     }
 
     /**
-     * @param string $paymethod Paymethod of the order
+     * @param string $paymethod Paymethod of the order.
      * @return self
      */
     public function setPaymethod(string $paymethod): self
     {
         $this->paymethod = $paymethod;
         $this->propertyFilled('paymethod');
+        return $this;
+    }
+
+    /**
+     * @param string $paymethodLabel This is similar to paymethod, but with a more human readable translation.
+     * @return self
+     */
+    public function setPaymethodLabel(string $paymethodLabel): self
+    {
+        $this->paymethodLabel = $paymethodLabel;
+        $this->propertyFilled('paymethodLabel');
         return $this;
     }
 
@@ -1303,10 +1353,10 @@ class Orders implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo|null $customer Describes personal information of the customer
+     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo|null $customer Describes personal information of the customer
      * @return self
      */
-    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Orders\Entity\Personalinfo $customer): self
+    public function setCustomer(?\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');

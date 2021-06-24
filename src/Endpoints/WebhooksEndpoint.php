@@ -1,60 +1,56 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Webhooks as Models;
-use JacobDeKeizer\Ccv\Parameters\Webhooks\All;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class WebhooksEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(?All $payload = null): Models\Collection\Webhooks
-    {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
-        $result = $this->doRequest(self::GET, sprintf('/webhooks/%s', $payload->toBuilder()->toQueryString()));
-
-        return Models\Collection\Webhooks::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Webhooks
-    {
-        $result = $this->doRequest(self::GET, sprintf('/webhooks/%d/', $id));
-
-        return Models\Resource\Webhooks::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Models\Webhooks\Post $model, bool $onlyFilled = true): Models\Resource\Webhooks
-    {
-        $result = $this->doRequest(self::POST, '/webhooks/', $model->toArray($onlyFilled));
-
-        return Models\Resource\Webhooks::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Webhooks\Patch $model, bool $onlyFilled = true): void
-    {
-        $this->doRequest(self::PATCH, sprintf('/webhooks/%d/', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('/webhooks/%d/', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'webhooks/' . $id . '/'
+        );
+    }
+
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'webhooks/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks::fromArray($result);
+    }
+
+    public function all(): \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'webhooks/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Patch
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'webhooks/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Patch::fromArray($result);
+    }
+
+    public function create(): \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Post
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'webhooks/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Post::fromArray($result);
     }
 }

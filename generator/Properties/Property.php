@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Properties;
+
+use JacobDeKeizer\CcvGenerator\Php;
 
 abstract class Property
 {
-    protected const INDENT = '    ';
+    protected const INDENT = Php::INDENTATION;
 
     /**
      * @var string
@@ -57,21 +61,27 @@ abstract class Property
             . self::INDENT . '}' . PHP_EOL;
     }
 
-    public function getSetter(): string
+    public function getSetter(bool $setPropertyFilled = true): string
     {
-        return self::INDENT . '/**' . PHP_EOL
+        $content = self::INDENT . '/**' . PHP_EOL
             . self::INDENT . ' * @param '
                 . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
             . self::INDENT . ' * @return self' . PHP_EOL
             . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
             . self::INDENT . ' */' . PHP_EOL
             . self::INDENT . 'public function set' . ucfirst($this->name)
-                . '(' . $this->getPhpType() . ' ' . $this->getVariable() . '): self' . PHP_EOL
+                . '(' . $this->getMethodParameterSignature() . '): self' . PHP_EOL
             . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = ' . $this->getVariable() . ';' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL
-            . self::INDENT . self::INDENT . 'return $this;' . PHP_EOL
-            . self::INDENT . '}' . PHP_EOL;
+            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = ' . $this->getVariable() . ';' . PHP_EOL;
+
+        if ($setPropertyFilled) {
+            $content .= self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL;
+        }
+
+        $content .= self::INDENT . self::INDENT . 'return $this;' . PHP_EOL;
+        $content .= self::INDENT . '}' . PHP_EOL;
+
+        return $content;
     }
 
     public function isDeprecated(): bool
@@ -79,9 +89,19 @@ abstract class Property
         return substr($this->description, 0, 12) === 'Deprecated. ';
     }
 
-    protected function getVariable(): string
+    public function getMethodParameterSignature(): string
+    {
+        return $this->getPhpType() . ' ' . $this->getVariable();
+    }
+
+    public function getVariable(): string
     {
         return '$' . $this->name;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     private function getDeprecatedDocblock(): string

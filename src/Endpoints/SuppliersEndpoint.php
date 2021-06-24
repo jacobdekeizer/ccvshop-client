@@ -1,65 +1,56 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Suppliers\Collection\Suppliers;
-use JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers as Supplier;
-use JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class SuppliersEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('/suppliers/%d/', $id));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Supplier
-    {
-        $result = $this->doRequest(self::GET, sprintf('/suppliers/%d/', $id));
-
-        return Supplier::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function all(): Suppliers
-    {
-        $result = $this->doRequest(self::GET, '/suppliers/');
-
-        return Suppliers::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Input $supplier, bool $onlyFilledProperties = true): void
-    {
-        $this->doRequest(
-            self::PATCH,
-            sprintf('/suppliers/%d/', $id),
-            $supplier->toArray($onlyFilledProperties)
+        $result = $this->doRequest(
+            self::DELETE,
+            'suppliers/' . $id . '/'
         );
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function create(Input $supplier, bool $onlyFilledProperties = true): Supplier
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'suppliers/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers::fromArray($result);
+    }
+
+    public function all(): \JacobDeKeizer\Ccv\Models\Suppliers\Collection\Suppliers
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'suppliers/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Suppliers\Collection\Suppliers::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'suppliers/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input::fromArray($result);
+    }
+
+    public function create(): \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input
     {
         $result = $this->doRequest(
             self::POST,
-            '/suppliers/',
-            $supplier->toArray($onlyFilledProperties)
+            'suppliers/'
         );
 
-        return Supplier::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input::fromArray($result);
     }
 }

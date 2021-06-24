@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Factories;
 
 use JacobDeKeizer\CcvGenerator\Properties\ArrayProperty;
@@ -16,7 +18,7 @@ class PropertyFactory
     public static function make(string $propertyName, array $property): Property
     {
         $propertyName = Str::camel($propertyName);
-        $required = $property['required'] ?? false;
+        $required = self::isRequired($property);
         $description = trim($property['description'] ?? '');
         $nullable = false;
         $type = $property['type'];
@@ -34,6 +36,11 @@ class PropertyFactory
             }
         }
 
+        if (strpos($type, '|object') !== false) {
+            // some field types are defined as string|object, we fore an object here..
+            $type = 'object';
+        }
+
         switch ($type) {
             case 'array':
                 return new ArrayProperty(
@@ -43,6 +50,7 @@ class PropertyFactory
                     $description,
                     $required
                 );
+            case 'bool':
             case 'boolean':
                 return new BoolProperty(
                     $nullable,
@@ -74,6 +82,7 @@ class PropertyFactory
                     $description,
                     $required
                 );
+            case 'date':
             case 'string':
                 return new StringType(
                     $nullable,
@@ -83,6 +92,17 @@ class PropertyFactory
                 );
         }
 
-        throw new \Exception('unkown type: ' . print_r($property));
+        throw new \Exception('Unknown property type: ' . json_encode($property));
+    }
+
+    private static function isRequired(array $property): bool
+    {
+        $required = $property['required'] ?? false;
+
+        if (is_bool($required)) {
+            return $required;
+        }
+
+        return $required === 'true';
     }
 }

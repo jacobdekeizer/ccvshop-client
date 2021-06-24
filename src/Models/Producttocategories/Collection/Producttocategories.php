@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Producttocategories\Collection;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -16,7 +18,7 @@ class Producttocategories implements Model
     private $href;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories[] Array with collection items
+     * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories[] Array with collection items
      */
     private $items;
 
@@ -37,7 +39,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories[] Array with collection items
+     * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories[] Array with collection items
      */
     public function getItems(): array
     {
@@ -56,7 +58,7 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories[] $items Array with collection items
      * @return self
      */
     public function setItems(array $items): self
@@ -72,7 +74,7 @@ class Producttocategories implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Producttocategories::fromArray($item);
             }
 
             return $items;

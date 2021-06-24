@@ -4,61 +4,57 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Productattributevalues as Models;
-
 class ProductattributevaluesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('productattributevalues/%d', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'productattributevalues/' . $id . '/'
+        );
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function allForProduct(int $productId): Models\Collection\Productattributevalues
+    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
     {
-        $result = $this->doRequest(self::GET, sprintf('products/%d/productattributevalues/', $productId));
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts();
+        }
 
-        return Models\Collection\Productattributevalues::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Productattributevalues
-    {
-        $result = $this->doRequest(self::GET, sprintf('productattributevalues/%d', $id));
-
-        return Models\Resource\Productattributevalues::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Productattributevalues\Patch $model, bool $onlyFilled = true): void
-    {
-        $this->doRequest(self::PATCH, sprintf('productattributevalues/%d', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $productId,
-        Models\Productattributevalues\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Productattributevalues {
-        $response = $this->doRequest(
-            self::POST,
-            sprintf('products/%d/productattributevalues', $productId),
-            $model->toArray($onlyFilled)
+        $result = $this->doRequest(
+            self::GET,
+            'products/' . $id . '/productattributevalues/' . $parameter->toBuilder()->toQueryString()
         );
 
-        return Models\Resource\Productattributevalues::fromArray($response);
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues::fromArray($result);
+    }
+
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'productattributevalues/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'productattributevalues/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch::fromArray($result);
+    }
+
+    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'products/' . $id . '/productattributevalues/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post::fromArray($result);
     }
 }

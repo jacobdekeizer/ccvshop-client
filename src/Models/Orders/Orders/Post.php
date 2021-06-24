@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orders\Orders;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -76,6 +78,11 @@ class Post implements Model
     private $currency;
 
     /**
+     * @var bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     */
+    private $isPlatformSale;
+
+    /**
      * @var string|null Language in which this order was ordered
      */
     private $orderedinlng;
@@ -126,7 +133,7 @@ class Post implements Model
     private $userId;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
     private $orderrows;
 
@@ -243,6 +250,14 @@ class Post implements Model
     }
 
     /**
+     * @return bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     */
+    public function getIsPlatformSale(): ?bool
+    {
+        return $this->isPlatformSale;
+    }
+
+    /**
      * @return string|null Language in which this order was ordered
      */
     public function getOrderedinlng(): ?string
@@ -323,7 +338,7 @@ class Post implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
     public function getOrderrows(): array
     {
@@ -474,6 +489,17 @@ class Post implements Model
     }
 
     /**
+     * @param bool|null $isPlatformSale Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
+     * @return self
+     */
+    public function setIsPlatformSale(?bool $isPlatformSale): self
+    {
+        $this->isPlatformSale = $isPlatformSale;
+        $this->propertyFilled('isPlatformSale');
+        return $this;
+    }
+
+    /**
      * @param string|null $orderedinlng Language in which this order was ordered
      * @return self
      */
@@ -584,7 +610,7 @@ class Post implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input[] $orderrows Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] $orderrows Describes a collection of order rows. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      * @return self
      */
     public function setOrderrows(array $orderrows): self
@@ -600,7 +626,7 @@ class Post implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Orders\Orderrow\Input::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input::fromArray($item);
             }
 
             return $items;

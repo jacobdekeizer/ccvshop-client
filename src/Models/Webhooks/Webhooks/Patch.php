@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Webhooks\Webhooks;
 
 use JacobDeKeizer\Ccv\Contracts\Model;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orderrows\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -181,7 +183,7 @@ class Orderrows implements Model
     private $totalPriceWithAttributes;
 
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues[]|null Collection of the chosen attribute options of this order row.
      */
     private $attributes;
 
@@ -476,7 +478,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues[]|null Collection of the chosen attribute options of this order row.
      */
     public function getAttributes(): ?array
     {
@@ -874,7 +876,7 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null $attributes Collection of the chosen attribute options of this order row.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues[]|null $attributes Collection of the chosen attribute options of this order row.
      * @return self
      */
     public function setAttributes(?array $attributes): self
@@ -912,7 +914,7 @@ class Orderrows implements Model
             $items = [];
 
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues::fromArray($item);
             }
 
             return $items;

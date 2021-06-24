@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Productphotos\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;

@@ -1,55 +1,52 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Invoices as Models;
-use JacobDeKeizer\Ccv\Parameters\Invoices\All;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class InvoicesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(?All $payload = null): Models\Collection\Invoices
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Invoices\All $parameter = null): \JacobDeKeizer\Ccv\Models\Invoices\Collection\Invoices
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Invoices\All();
         }
 
-        $result = $this->doRequest(self::GET, sprintf('invoices%s', $payload->toBuilder()->toQueryString()));
+        $result = $this->doRequest(
+            self::GET,
+            'invoices/' . $parameter->toBuilder()->toQueryString()
+        );
 
-        return Models\Collection\Invoices::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Invoices\Collection\Invoices::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Invoices
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices
     {
-        $result = $this->doRequest(self::GET, sprintf('invoices/%d', $id));
+        $result = $this->doRequest(
+            self::GET,
+            'invoices/' . $id . '/'
+        );
 
-        return Models\Resource\Invoices::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Invoices\Input $model, bool $onlyFilled = true): void
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input
     {
-        $this->doRequest(self::PATCH, 'invoices/' . $id, $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::PATCH,
+            'invoices/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $orderId,
-        Models\Invoices\Input $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Invoices {
-        $response = $this->doRequest(self::POST, sprintf('orders/%d/invoices', $orderId), $model->toArray($onlyFilled));
+    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'orders/' . $id . '/invoices/'
+        );
 
-        return Models\Resource\Invoices::fromArray($response);
+        return \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input::fromArray($result);
     }
 }

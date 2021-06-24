@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Parameters;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;

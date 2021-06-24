@@ -4,81 +4,67 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Productphotos as Models;
-use JacobDeKeizer\Ccv\Models\Products\Resource\Productphotos;
-use JacobDeKeizer\Ccv\Parameters\Productphotos\All;
-
 class ProductphotosEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Productphotos
-    {
-        $result = $this->doRequest(self::GET, sprintf('productphotos/%d', $id));
-
-        return Productphotos::fromArray($result);
-    }
-
-    /**
-     * @throws CcvShopException
-     */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('productphotos/%d', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'productphotos/' . $id . '/'
+        );
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function allForProduct(int $productId, ?All $payload = null): Models\Collection\Productphotos
+    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts();
         }
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('products/%d/productphotos%s', $productId, $payload->toBuilder()->toQueryString())
+            'products/' . $id . '/productphotos/' . $parameter->toBuilder()->toQueryString()
         );
 
-        return Models\Collection\Productphotos::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $productId,
-        Models\Productphotos\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Productphotos {
-        $response = $this->doRequest(
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'productphotos/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos::fromArray($result);
+    }
+
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch
+    {
+        $result = $this->doRequest(
+            self::PATCH,
+            'productphotos/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch::fromArray($result);
+    }
+
+    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post
+    {
+        $result = $this->doRequest(
             self::POST,
-            sprintf('products/%d/productphotos', $productId),
-            $model->toArray($onlyFilled)
+            'products/' . $id . '/productphotos/'
         );
 
-        return Models\Resource\Productphotos::fromArray($response);
+        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Productphotos\Patch $model, bool $onlyFilled = true): void
+    public function updateFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put
     {
-        $this->doRequest(self::PATCH, sprintf('productphotos/%d', $id), $model->toArray($onlyFilled));
-    }
+        $result = $this->doRequest(
+            self::PUT,
+            'products/' . $id . '/productphotos/'
+        );
 
-    /**
-     * Replace a product photo collection of an existing product.
-     * All existing photos will be deleted. With an empty collection you can achieve a DELETE ALL product photos.
-     *
-     * @throws CcvShopException
-     */
-    public function replace(int $productId, Models\Productphotos\Put $model, bool $onlyFilled = true): void
-    {
-        $this->doRequest(self::PUT, sprintf('products/%d/productphotos', $productId), $model->toArray($onlyFilled));
+        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put::fromArray($result);
     }
 }

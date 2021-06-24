@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Attributevalues\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;

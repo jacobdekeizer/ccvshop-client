@@ -1,70 +1,60 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Apps as Models;
-use JacobDeKeizer\Ccv\Parameters\Apps\All;
-use JacobDeKeizer\Ccv\Parameters\Apps\Get;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class AppsEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function allForStoreCategory(int $storeCategoryId, ?All $payload = null): Models\Collection\Apps
+    public function allFromAppstorecategories(int $id, ?\JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategories $parameter = null): \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategories();
         }
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('appstorecategories/%d/apps/%s', $storeCategoryId, $payload->toBuilder()->toQueryString())
+            'appstorecategories/' . $id . '/apps/' . $parameter->toBuilder()->toQueryString()
         );
 
-        return Models\Collection\Apps::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function all(?All $payload = null): Models\Collection\Apps
+    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Apps\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Apps\Resource\Apps
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Apps\Get();
         }
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('apps/%s', $payload->toBuilder()->toQueryString())
+            'apps/' . $id . '/' . $parameter->toBuilder()->toQueryString()
         );
 
-        return Models\Collection\Apps::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Apps\Resource\Apps::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id, ?Get $payload = null): Models\Resource\Apps
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Apps\All $parameter = null): \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps
     {
-        if ($payload === null) {
-            $payload = new Get();
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Apps\All();
         }
 
         $result = $this->doRequest(
             self::GET,
-            sprintf('apps/%d/%s', $id, $payload->toBuilder()->toQueryString())
+            'apps/' . $parameter->toBuilder()->toQueryString()
         );
 
-        return Models\Resource\Apps::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Apps\Patch $model, bool $onlyFilled = true): void
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch
     {
-        $this->doRequest(self::PATCH, sprintf('apps/%d/', $id), $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::PATCH,
+            'apps/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch::fromArray($result);
     }
 }

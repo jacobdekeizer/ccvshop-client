@@ -1,53 +1,48 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Orderrows as Models;
-use JacobDeKeizer\Ccv\Parameters\OrderRows\All;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class OrderrowsEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(int $orderId, ?All $payload = null): Models\Collection\Orderrows
+    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
     {
-        if ($payload === null) {
-            $payload = new All();
-        }
-
         $result = $this->doRequest(
             self::GET,
-            sprintf('orders/%s/orderrows%s', $orderId, $payload->toBuilder()->toQueryString())
+            'orders/' . $id . '/orderrows/'
         );
 
-        return Models\Collection\Orderrows::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function get(int $id): Models\Resource\Orderrows
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrows
     {
-        $result = $this->doRequest(self::GET, sprintf('orderrows/%d', $id));
+        $result = $this->doRequest(
+            self::GET,
+            'orderrows/' . $id . '/'
+        );
 
-        return Models\Resource\Orderrows::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrows::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function update(int $id, Models\Orderrows\Patch $model, bool $onlyFilled = true): void
+    public function update(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch
     {
-        $this->doRequest(self::PATCH, sprintf('orderrows/%d', $id), $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::PATCH,
+            'orderrows/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch::fromArray($result);
     }
 
-    /**
-     * @throws CcvShopException
-     */
-    public function replace(int $orderId, Models\Orderrows\Put $model, bool $onlyFilled = true): void
+    public function updateFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put
     {
-        $this->doRequest(self::PUT, sprintf('orders/%d/orderrows', $orderId), $model->toArray($onlyFilled));
+        $result = $this->doRequest(
+            self::PUT,
+            'orders/' . $id . '/orderrows/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put::fromArray($result);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
 use JacobDeKeizer\Ccv\Support\Str;

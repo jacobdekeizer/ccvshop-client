@@ -1,45 +1,46 @@
 <?php
 
-namespace JacobDeKeizer\Ccv\Endpoints;
+declare(strict_types=1);
 
-use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Ordernotes as Models;
+namespace JacobDeKeizer\Ccv\Endpoints;
 
 class OrdernotesEndpoint extends BaseEndpoint
 {
-    /**
-     * @throws CcvShopException
-     */
-    public function all(int $orderId): Models\Collection\Ordernotes
-    {
-        $result = $this->doRequest(self::GET, sprintf('/orders/%d/ordernotes/', $orderId));
-
-        return Models\Collection\Ordernotes::fromArray($result);
-    }
-
-    public function get(int $id): Models\Resource\Ordernotes
-    {
-        $result = $this->doRequest(self::GET, sprintf('/ordernotes/%d/', $id));
-
-        return Models\Resource\Ordernotes::fromArray($result);
-    }
-
-    public function create(
-        int $orderId,
-        Models\Ordernotes\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Ordernotes {
-        $result = $this->doRequest(
-            self::POST,
-            sprintf('/orders/%d/ordernotes/', $orderId),
-            $model->toArray($onlyFilled)
-        );
-
-        return Models\Resource\Ordernotes::fromArray($result);
-    }
-
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('/ordernotes/%d/', $id));
+        $result = $this->doRequest(
+            self::DELETE,
+            'ordernotes/' . $id . '/'
+        );
+    }
+
+    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'orders/' . $id . '/ordernotes/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes::fromArray($result);
+    }
+
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'ordernotes/' . $id . '/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes::fromArray($result);
+    }
+
+    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post
+    {
+        $result = $this->doRequest(
+            self::POST,
+            'orders/' . $id . '/ordernotes/'
+        );
+
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post::fromArray($result);
     }
 }
