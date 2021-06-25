@@ -11,32 +11,32 @@ class ColorsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Colors\All();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'colors/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Colors\Collection\Colors::fromArray($result);
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors
     {
         $result = $this->doRequest(
             self::GET,
             'colors/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors::fromArray($result);
     }
-
+    
     public function create(): \JacobDeKeizer\Ccv\Models\Colors\Colors\Post
     {
         $result = $this->doRequest(
             self::POST,
             'colors/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Colors\Colors\Post::fromArray($result);
     }
 }

@@ -81,7 +81,7 @@ class EndpointClassGenerator
                 $methodName = self::getMethodNameFromPath($httpMethod, $path, $title, $properties);
 
                 $parameter = new ParameterClass(
-                    'JacobDeKeizer\Ccv\Parameters\\' . ucfirst($title),
+                    'JacobDeKeizer\Ccv\Parameters\\' . $endpoint->getTitle(),
                     ucfirst($methodName)
                 );
 
@@ -129,7 +129,7 @@ class EndpointClassGenerator
                     }
                 );
 
-                $modelClass = $contentType ? ModelClassFactory::make($contentType, Str::studly($title)) : null;
+                $modelClass = $contentType ? ModelClassFactory::make($contentType, $endpoint->getTitle()) : null;
 
                 $parameter->setPaginated($modelClass && $modelClass->hasProperty('next'));
 

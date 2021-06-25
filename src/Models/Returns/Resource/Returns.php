@@ -10,118 +10,119 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Returns implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Return id.
      */
     private $id;
-
+    
     /**
      * @var string|null Prefix of the specific return number of the return. Automatically generated when the return is created.
      */
     private $returnnumberPrefix;
-
+    
     /**
      * @var int Return number, automatically generated when the return is created.
      */
     private $returnnumber;
-
+    
     /**
      * @var string Unique return number, Full return number as displayed in shop. With dash if the prefix is available.
      */
     private $returnnumberFull;
-
+    
     /**
      * @var string|null Prefix of the specific order number of the order that this return is created from. automatically generated when the return is created.
      */
     private $ordernumberPrefix;
-
+    
     /**
      * @var int Order number of the order that this return is created from, automatically generated when the return is created.
      */
     private $ordernumber;
-
+    
     /**
      * @var string Unique order number, Full ordernumber of the order that this return is created from as displayed in shop. With dash if the prefix is available.
      */
     private $ordernumberFull;
-
+    
     /**
      * @var string Createdate of this invoice in UTC.
      */
     private $createDate;
-
+    
     /**
      * @var string Status of the return. 1. New. 2. Processing. 3. Custom 1. 4. Custom 2. 5. Custom 3. 6. Canceled. 7. Completed. 8. Credited.
      */
     private $status;
-
+    
     /**
      * @var string The display name of the return status.
      */
     private $statusName;
-
+    
     /**
      * @var string Action of the return. These are configured through the settings.
      */
     private $actionName;
-
+    
     /**
      * @var string Reason of the return. These are configured through the settings.
      */
     private $reasonName;
-
+    
     /**
      * @var float Total price inc tax.
      */
     private $totalPriceIncTax;
-
+    
     /**
      * @var float Total price excl tax.
      */
     private $totalPriceExcTax;
-
+    
     /**
      * @var float Total price.
      */
     private $totalPrice;
-
+    
     /**
      * @var float Total tax amount.
      */
     private $totalTax;
-
+    
     /**
      * @var string ISO 4217 Currency Code.
      */
     private $currency;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\User Link to possible user resource associated with this return.
      */
     private $user;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer.
+     * @var \JacobDeKeizer\Ccv\Models\Returns\Entity\Personalinfo Describes personal information of the customer.
      */
     private $customer;
-
+    
     /**
      * @var string Link to the order associated with this return.
      */
     private $order;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\Returnrows Products that are included in this return.
      */
     private $returnrows;
-
+    
     /**
      * @return self
      */
@@ -129,7 +130,7 @@ class Returns implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self.
      */
@@ -137,7 +138,7 @@ class Returns implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Return id.
      */
@@ -145,7 +146,7 @@ class Returns implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Prefix of the specific return number of the return. Automatically generated when the return is created.
      */
@@ -153,7 +154,7 @@ class Returns implements Model
     {
         return $this->returnnumberPrefix;
     }
-
+    
     /**
      * @return int Return number, automatically generated when the return is created.
      */
@@ -161,7 +162,7 @@ class Returns implements Model
     {
         return $this->returnnumber;
     }
-
+    
     /**
      * @return string Unique return number, Full return number as displayed in shop. With dash if the prefix is available.
      */
@@ -169,7 +170,7 @@ class Returns implements Model
     {
         return $this->returnnumberFull;
     }
-
+    
     /**
      * @return string|null Prefix of the specific order number of the order that this return is created from. automatically generated when the return is created.
      */
@@ -177,7 +178,7 @@ class Returns implements Model
     {
         return $this->ordernumberPrefix;
     }
-
+    
     /**
      * @return int Order number of the order that this return is created from, automatically generated when the return is created.
      */
@@ -185,7 +186,7 @@ class Returns implements Model
     {
         return $this->ordernumber;
     }
-
+    
     /**
      * @return string Unique order number, Full ordernumber of the order that this return is created from as displayed in shop. With dash if the prefix is available.
      */
@@ -193,7 +194,7 @@ class Returns implements Model
     {
         return $this->ordernumberFull;
     }
-
+    
     /**
      * @return string Createdate of this invoice in UTC.
      */
@@ -201,7 +202,7 @@ class Returns implements Model
     {
         return $this->createDate;
     }
-
+    
     /**
      * @return string Status of the return. 1. New. 2. Processing. 3. Custom 1. 4. Custom 2. 5. Custom 3. 6. Canceled. 7. Completed. 8. Credited.
      */
@@ -209,7 +210,7 @@ class Returns implements Model
     {
         return $this->status;
     }
-
+    
     /**
      * @return string The display name of the return status.
      */
@@ -217,7 +218,7 @@ class Returns implements Model
     {
         return $this->statusName;
     }
-
+    
     /**
      * @return string Action of the return. These are configured through the settings.
      */
@@ -225,7 +226,7 @@ class Returns implements Model
     {
         return $this->actionName;
     }
-
+    
     /**
      * @return string Reason of the return. These are configured through the settings.
      */
@@ -233,7 +234,7 @@ class Returns implements Model
     {
         return $this->reasonName;
     }
-
+    
     /**
      * @return float Total price inc tax.
      */
@@ -241,7 +242,7 @@ class Returns implements Model
     {
         return $this->totalPriceIncTax;
     }
-
+    
     /**
      * @return float Total price excl tax.
      */
@@ -249,7 +250,7 @@ class Returns implements Model
     {
         return $this->totalPriceExcTax;
     }
-
+    
     /**
      * @return float Total price.
      */
@@ -257,7 +258,7 @@ class Returns implements Model
     {
         return $this->totalPrice;
     }
-
+    
     /**
      * @return float Total tax amount.
      */
@@ -265,7 +266,7 @@ class Returns implements Model
     {
         return $this->totalTax;
     }
-
+    
     /**
      * @return string ISO 4217 Currency Code.
      */
@@ -273,7 +274,7 @@ class Returns implements Model
     {
         return $this->currency;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\User Link to possible user resource associated with this return.
      */
@@ -281,15 +282,15 @@ class Returns implements Model
     {
         return $this->user;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer.
+     * @return \JacobDeKeizer\Ccv\Models\Returns\Entity\Personalinfo Describes personal information of the customer.
      */
-    public function getCustomer(): \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo
+    public function getCustomer(): \JacobDeKeizer\Ccv\Models\Returns\Entity\Personalinfo
     {
         return $this->customer;
     }
-
+    
     /**
      * @return string Link to the order associated with this return.
      */
@@ -297,7 +298,7 @@ class Returns implements Model
     {
         return $this->order;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\Returnrows Products that are included in this return.
      */
@@ -305,7 +306,7 @@ class Returns implements Model
     {
         return $this->returnrows;
     }
-
+    
     /**
      * @param string $href Link to self.
      * @return self
@@ -316,7 +317,7 @@ class Returns implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Return id.
      * @return self
@@ -327,7 +328,7 @@ class Returns implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $returnnumberPrefix Prefix of the specific return number of the return. Automatically generated when the return is created.
      * @return self
@@ -338,7 +339,7 @@ class Returns implements Model
         $this->propertyFilled('returnnumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $returnnumber Return number, automatically generated when the return is created.
      * @return self
@@ -349,7 +350,7 @@ class Returns implements Model
         $this->propertyFilled('returnnumber');
         return $this;
     }
-
+    
     /**
      * @param string $returnnumberFull Unique return number, Full return number as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -360,7 +361,7 @@ class Returns implements Model
         $this->propertyFilled('returnnumberFull');
         return $this;
     }
-
+    
     /**
      * @param string|null $ordernumberPrefix Prefix of the specific order number of the order that this return is created from. automatically generated when the return is created.
      * @return self
@@ -371,7 +372,7 @@ class Returns implements Model
         $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $ordernumber Order number of the order that this return is created from, automatically generated when the return is created.
      * @return self
@@ -382,7 +383,7 @@ class Returns implements Model
         $this->propertyFilled('ordernumber');
         return $this;
     }
-
+    
     /**
      * @param string $ordernumberFull Unique order number, Full ordernumber of the order that this return is created from as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -393,7 +394,7 @@ class Returns implements Model
         $this->propertyFilled('ordernumberFull');
         return $this;
     }
-
+    
     /**
      * @param string $createDate Createdate of this invoice in UTC.
      * @return self
@@ -404,7 +405,7 @@ class Returns implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-
+    
     /**
      * @param string $status Status of the return. 1. New. 2. Processing. 3. Custom 1. 4. Custom 2. 5. Custom 3. 6. Canceled. 7. Completed. 8. Credited.
      * @return self
@@ -415,7 +416,7 @@ class Returns implements Model
         $this->propertyFilled('status');
         return $this;
     }
-
+    
     /**
      * @param string $statusName The display name of the return status.
      * @return self
@@ -426,7 +427,7 @@ class Returns implements Model
         $this->propertyFilled('statusName');
         return $this;
     }
-
+    
     /**
      * @param string $actionName Action of the return. These are configured through the settings.
      * @return self
@@ -437,7 +438,7 @@ class Returns implements Model
         $this->propertyFilled('actionName');
         return $this;
     }
-
+    
     /**
      * @param string $reasonName Reason of the return. These are configured through the settings.
      * @return self
@@ -448,7 +449,7 @@ class Returns implements Model
         $this->propertyFilled('reasonName');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceIncTax Total price inc tax.
      * @return self
@@ -459,7 +460,7 @@ class Returns implements Model
         $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceExcTax Total price excl tax.
      * @return self
@@ -470,7 +471,7 @@ class Returns implements Model
         $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPrice Total price.
      * @return self
@@ -481,7 +482,7 @@ class Returns implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-
+    
     /**
      * @param float $totalTax Total tax amount.
      * @return self
@@ -492,7 +493,7 @@ class Returns implements Model
         $this->propertyFilled('totalTax');
         return $this;
     }
-
+    
     /**
      * @param string $currency ISO 4217 Currency Code.
      * @return self
@@ -503,7 +504,7 @@ class Returns implements Model
         $this->propertyFilled('currency');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\User $user Link to possible user resource associated with this return.
      * @return self
@@ -514,18 +515,18 @@ class Returns implements Model
         $this->propertyFilled('user');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer Describes personal information of the customer.
+     * @param \JacobDeKeizer\Ccv\Models\Returns\Entity\Personalinfo $customer Describes personal information of the customer.
      * @return self
      */
-    public function setCustomer(\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer): self
+    public function setCustomer(\JacobDeKeizer\Ccv\Models\Returns\Entity\Personalinfo $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');
         return $this;
     }
-
+    
     /**
      * @param string $order Link to the order associated with this return.
      * @return self
@@ -536,7 +537,7 @@ class Returns implements Model
         $this->propertyFilled('order');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returns\Child\Resource\Returnrows $returnrows Products that are included in this return.
      * @return self

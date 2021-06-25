@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Photo alt text
      */
     private $alttext;
-
+    
     /**
      * @var bool|null Product photo marked as mainphoto
      */
     private $isMainphoto;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Photo alt text
      */
@@ -37,7 +38,7 @@ class Patch implements Model
     {
         return $this->alttext;
     }
-
+    
     /**
      * @return bool|null Product photo marked as mainphoto
      */
@@ -45,7 +46,7 @@ class Patch implements Model
     {
         return $this->isMainphoto;
     }
-
+    
     /**
      * @param string|null $alttext Photo alt text
      * @return self
@@ -56,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('alttext');
         return $this;
     }
-
+    
     /**
      * @param bool|null $isMainphoto Product photo marked as mainphoto
      * @return self

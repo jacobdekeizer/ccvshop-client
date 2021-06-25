@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Name product property group.
      */
     private $name;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Name product property group.
      */
@@ -32,7 +33,7 @@ class Post implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @param string $name Name product property group.
      * @return self

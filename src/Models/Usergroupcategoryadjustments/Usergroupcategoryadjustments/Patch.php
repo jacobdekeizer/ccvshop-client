@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
     private $discount;
-
+    
     /**
      * @var bool|null If TRUE then this categoy and its products won't be visible for this user group.
      */
     private $hidden;
-
+    
     /**
      * @var bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
     private $includeSubCategories;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int|null Adjusted discount percentage that is applied to all products in this category.
      */
@@ -42,7 +43,7 @@ class Patch implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool|null If TRUE then this categoy and its products won't be visible for this user group.
      */
@@ -50,7 +51,7 @@ class Patch implements Model
     {
         return $this->hidden;
     }
-
+    
     /**
      * @return bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
@@ -58,7 +59,7 @@ class Patch implements Model
     {
         return $this->includeSubCategories;
     }
-
+    
     /**
      * @param int|null $discount Adjusted discount percentage that is applied to all products in this category.
      * @return self
@@ -69,7 +70,7 @@ class Patch implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool|null $hidden If TRUE then this categoy and its products won't be visible for this user group.
      * @return self
@@ -80,7 +81,7 @@ class Patch implements Model
         $this->propertyFilled('hidden');
         return $this;
     }
-
+    
     /**
      * @param bool|null $includeSubCategories If TRUE this adjustment will be inherited by all sub categories of this one.
      * @return self

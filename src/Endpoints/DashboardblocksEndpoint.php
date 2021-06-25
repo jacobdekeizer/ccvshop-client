@@ -12,17 +12,17 @@ class DashboardblocksEndpoint extends BaseEndpoint
             self::GET,
             'dashboards/' . $id . '/dashboardblocks/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Collection\Dashboardblocks::fromArray($result);
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Dashboardblocks\Resource\Dashboardblocks
     {
         $result = $this->doRequest(
             self::GET,
             'dashboardblocks/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Resource\Dashboardblocks::fromArray($result);
     }
 }

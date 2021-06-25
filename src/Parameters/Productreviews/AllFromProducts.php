@@ -15,20 +15,20 @@ class AllFromProducts extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-
+    
     /**
      * @var bool|null Get reviews that are either approved (true) or unapproved (false).
      */
     private $approved;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -37,17 +37,17 @@ class AllFromProducts extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('approved', $this->approved)
             ->orderBy($this->getOrderBy());
     }
-
+    
     /**
      * @return bool|null Get reviews that are either approved (true) or unapproved (false).
      */
@@ -55,7 +55,7 @@ class AllFromProducts extends PaginatedList implements Parameter
     {
         return $this->approved;
     }
-
+    
     /**
      * @param bool|null $approved Get reviews that are either approved (true) or unapproved (false).
      * @return self
@@ -65,37 +65,37 @@ class AllFromProducts extends PaginatedList implements Parameter
         $this->approved = $approved;
         return $this;
     }
-
+    
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-
+    
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-
+    
     public function orderByPointsAsc(): self
     {
         $this->orderByField('points', true);
         return $this;
     }
-
+    
     public function orderByPointsDesc(): self
     {
         $this->orderByField('points', false);
         return $this;
     }
-
+    
     public function orderByCreatedateAsc(): self
     {
         $this->orderByField('createdate', true);
         return $this;
     }
-
+    
     public function orderByCreatedateDesc(): self
     {
         $this->orderByField('createdate', false);

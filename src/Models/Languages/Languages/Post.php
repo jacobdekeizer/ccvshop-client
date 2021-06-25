@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Display label of the language.
      */
     private $label;
-
+    
     /**
      * @var string Languages on which this language is based.
      */
     private $baseLanguage;
-
+    
     /**
      * @var string A href to the associated flag of this language. This will be used in the webshop.
      */
     private $flagIcon;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Display label of the language.
      */
@@ -42,7 +43,7 @@ class Post implements Model
     {
         return $this->label;
     }
-
+    
     /**
      * @return string Languages on which this language is based.
      */
@@ -50,7 +51,7 @@ class Post implements Model
     {
         return $this->baseLanguage;
     }
-
+    
     /**
      * @return string A href to the associated flag of this language. This will be used in the webshop.
      */
@@ -58,7 +59,7 @@ class Post implements Model
     {
         return $this->flagIcon;
     }
-
+    
     /**
      * @param string $label Display label of the language.
      * @return self
@@ -69,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('label');
         return $this;
     }
-
+    
     /**
      * @param string $baseLanguage Languages on which this language is based.
      * @return self
@@ -80,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('baseLanguage');
         return $this;
     }
-
+    
     /**
      * @param string $flagIcon A href to the associated flag of this language. This will be used in the webshop.
      * @return self

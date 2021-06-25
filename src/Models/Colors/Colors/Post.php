@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Color name
      */
     private $name;
-
+    
     /**
      * @var string Hex color code (#000000). Must be unique.
      */
     private $hex;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Color name
      */
@@ -37,7 +38,7 @@ class Post implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string Hex color code (#000000). Must be unique.
      */
@@ -45,7 +46,7 @@ class Post implements Model
     {
         return $this->hex;
     }
-
+    
     /**
      * @param string $name Color name
      * @return self
@@ -56,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string $hex Hex color code (#000000). Must be unique.
      * @return self

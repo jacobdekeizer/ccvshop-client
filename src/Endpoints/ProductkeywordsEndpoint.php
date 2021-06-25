@@ -13,24 +13,24 @@ class ProductkeywordsEndpoint extends BaseEndpoint
             'products/' . $id . '/productkeywords/'
         );
     }
-
+    
     public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords
     {
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productkeywords/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords::fromArray($result);
     }
-
+    
     public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post
     {
         $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productkeywords/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post::fromArray($result);
     }
 }

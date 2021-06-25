@@ -10,58 +10,59 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Paymethod implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var string The resource id of this paymethod. This will be used in the API with GET/PATCH/DELETE calls..
      */
     private $resourceId;
-
+    
     /**
      * @var string The ID of this paymethod. This will be posted to the app.
      */
     private $id;
-
+    
     /**
      * @var string Display name of this paymethod. This will be shown in the checkout.
      */
     private $name;
-
+    
     /**
      * @var string Location of the icon. This must be a HTTPS (secured) connection.
      */
     private $icon;
-
+    
     /**
      * @var string|null The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      */
     private $type;
-
+    
     /**
      * @var string[]|null This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      */
     private $currencies;
-
+    
     /**
      * @var string[]|null These additional customer fields will be shown as required during the order chechout.
      */
     private $requiredFields;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\Issuers[]|null Collection of Issuers
      */
     private $issuers;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -69,7 +70,7 @@ class Paymethod implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -77,7 +78,7 @@ class Paymethod implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return string The resource id of this paymethod. This will be used in the API with GET/PATCH/DELETE calls..
      */
@@ -85,7 +86,7 @@ class Paymethod implements Model
     {
         return $this->resourceId;
     }
-
+    
     /**
      * @return string The ID of this paymethod. This will be posted to the app.
      */
@@ -93,7 +94,7 @@ class Paymethod implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Display name of this paymethod. This will be shown in the checkout.
      */
@@ -101,7 +102,7 @@ class Paymethod implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string Location of the icon. This must be a HTTPS (secured) connection.
      */
@@ -109,7 +110,7 @@ class Paymethod implements Model
     {
         return $this->icon;
     }
-
+    
     /**
      * @return string|null The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      */
@@ -117,7 +118,7 @@ class Paymethod implements Model
     {
         return $this->type;
     }
-
+    
     /**
      * @return string[]|null This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      */
@@ -125,7 +126,7 @@ class Paymethod implements Model
     {
         return $this->currencies;
     }
-
+    
     /**
      * @return string[]|null These additional customer fields will be shown as required during the order chechout.
      */
@@ -133,7 +134,7 @@ class Paymethod implements Model
     {
         return $this->requiredFields;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\Issuers[]|null Collection of Issuers
      */
@@ -141,7 +142,7 @@ class Paymethod implements Model
     {
         return $this->issuers;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\ParentItem|null Contains link to parent resource.
      */
@@ -149,7 +150,7 @@ class Paymethod implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -160,7 +161,7 @@ class Paymethod implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param string $resourceId The resource id of this paymethod. This will be used in the API with GET/PATCH/DELETE calls..
      * @return self
@@ -171,7 +172,7 @@ class Paymethod implements Model
         $this->propertyFilled('resourceId');
         return $this;
     }
-
+    
     /**
      * @param string $id The ID of this paymethod. This will be posted to the app.
      * @return self
@@ -182,7 +183,7 @@ class Paymethod implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $name Display name of this paymethod. This will be shown in the checkout.
      * @return self
@@ -193,7 +194,7 @@ class Paymethod implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string $icon Location of the icon. This must be a HTTPS (secured) connection.
      * @return self
@@ -204,7 +205,7 @@ class Paymethod implements Model
         $this->propertyFilled('icon');
         return $this;
     }
-
+    
     /**
      * @param string|null $type The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      * @return self
@@ -215,7 +216,7 @@ class Paymethod implements Model
         $this->propertyFilled('type');
         return $this;
     }
-
+    
     /**
      * @param string[]|null $currencies This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      * @return self
@@ -226,7 +227,7 @@ class Paymethod implements Model
         $this->propertyFilled('currencies');
         return $this;
     }
-
+    
     /**
      * @param string[]|null $requiredFields These additional customer fields will be shown as required during the order chechout.
      * @return self
@@ -237,7 +238,7 @@ class Paymethod implements Model
         $this->propertyFilled('requiredFields');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\Issuers[]|null $issuers Collection of Issuers
      * @return self
@@ -248,7 +249,7 @@ class Paymethod implements Model
         $this->propertyFilled('issuers');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\ParentItem|null $parent Contains link to parent resource.
      * @return self
@@ -259,19 +260,18 @@ class Paymethod implements Model
         $this->propertyFilled('parent');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'issuers') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Apppsp\Issuers::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

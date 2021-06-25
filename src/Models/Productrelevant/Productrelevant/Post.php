@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
     private $childProductId;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
@@ -32,7 +33,7 @@ class Post implements Model
     {
         return $this->childProductId;
     }
-
+    
     /**
      * @param int $childProductId Unique id of the child product. This is product will show on the parent product page as a relevant product.
      * @return self

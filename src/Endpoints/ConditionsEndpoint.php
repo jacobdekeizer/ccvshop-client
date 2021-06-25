@@ -13,44 +13,44 @@ class ConditionsEndpoint extends BaseEndpoint
             'conditions/' . $id . '/'
         );
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions
     {
         $result = $this->doRequest(
             self::GET,
             'conditions/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions::fromArray($result);
     }
-
+    
     public function all(): \JacobDeKeizer\Ccv\Models\Conditions\Collection\Conditions
     {
         $result = $this->doRequest(
             self::GET,
             'conditions/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Conditions\Collection\Conditions::fromArray($result);
     }
-
+    
     public function update(int $id): \JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input
     {
         $result = $this->doRequest(
             self::PATCH,
             'conditions/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input::fromArray($result);
     }
-
+    
     public function create(): \JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input
     {
         $result = $this->doRequest(
             self::POST,
             'conditions/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input::fromArray($result);
     }
 }

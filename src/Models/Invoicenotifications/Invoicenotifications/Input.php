@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Input implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      */
     private $type;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      */
@@ -32,7 +33,7 @@ class Input implements Model
     {
         return $this->type;
     }
-
+    
     /**
      * @param string $type The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      * @return self

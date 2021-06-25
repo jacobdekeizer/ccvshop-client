@@ -12,20 +12,20 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class AllFromProducts implements Parameter
 {
     use FromArray;
-
+    
     /**
      * @var float|null Quantity of products used to calculate shipping costs.
      */
     private $quantity;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -34,16 +34,16 @@ class AllFromProducts implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('quantity', $this->quantity)
+            ->addOptionalParameter('quantity', $this->quantity);
     }
-
+    
     /**
      * @return float|null Quantity of products used to calculate shipping costs.
      */
@@ -51,7 +51,7 @@ class AllFromProducts implements Parameter
     {
         return $this->quantity;
     }
-
+    
     /**
      * @param float|null $quantity Quantity of products used to calculate shipping costs.
      * @return self

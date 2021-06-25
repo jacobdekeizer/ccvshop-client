@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null The name of the PSP. This is how the App PSP is identified
      */
     private $name;
-
+    
     /**
      * @var string|null The description will be shown to the merchant above the settings in the webshop's backend.
      */
     private $description;
-
+    
     /**
      * @var string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
     private $icon;
-
+    
     /**
      * @var string|null This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
     private $endpoint;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[]|null Array of paymethods of the psp.
      */
     private $paymethods;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null The name of the PSP. This is how the App PSP is identified
      */
@@ -52,7 +53,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string|null The description will be shown to the merchant above the settings in the webshop's backend.
      */
@@ -60,7 +61,7 @@ class Patch implements Model
     {
         return $this->description;
     }
-
+    
     /**
      * @return string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
@@ -68,7 +69,7 @@ class Patch implements Model
     {
         return $this->icon;
     }
-
+    
     /**
      * @return string|null This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
@@ -76,7 +77,7 @@ class Patch implements Model
     {
         return $this->endpoint;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[]|null Array of paymethods of the psp.
      */
@@ -84,7 +85,7 @@ class Patch implements Model
     {
         return $this->paymethods;
     }
-
+    
     /**
      * @param string|null $name The name of the PSP. This is how the App PSP is identified
      * @return self
@@ -95,7 +96,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string|null $description The description will be shown to the merchant above the settings in the webshop's backend.
      * @return self
@@ -106,7 +107,7 @@ class Patch implements Model
         $this->propertyFilled('description');
         return $this;
     }
-
+    
     /**
      * @param string|null $icon This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      * @return self
@@ -117,7 +118,7 @@ class Patch implements Model
         $this->propertyFilled('icon');
         return $this;
     }
-
+    
     /**
      * @param string|null $endpoint This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      * @return self
@@ -128,7 +129,7 @@ class Patch implements Model
         $this->propertyFilled('endpoint');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[]|null $paymethods Array of paymethods of the psp.
      * @return self
@@ -139,19 +140,18 @@ class Patch implements Model
         $this->propertyFilled('paymethods');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'paymethods') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

@@ -13,34 +13,34 @@ class OrderrowattributevaluesEndpoint extends BaseEndpoint
             'orderrowattributevalues/' . $id . '/'
         );
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues
     {
         $result = $this->doRequest(
             self::GET,
             'orderrowattributevalues/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues::fromArray($result);
     }
-
+    
     public function createFromOrderrows(int $id): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post
     {
         $result = $this->doRequest(
             self::POST,
             'orderrows/' . $id . '/orderrowattributevalues/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post::fromArray($result);
     }
-
+    
     public function updateFromOrderrows(int $id): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Put
     {
         $result = $this->doRequest(
             self::PUT,
             'orderrows/' . $id . '/orderrowattributevalues/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Put::fromArray($result);
     }
 }

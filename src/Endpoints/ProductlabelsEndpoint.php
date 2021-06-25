@@ -12,17 +12,17 @@ class ProductlabelsEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/productlabels/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productlabels\Collection\Productlabels::fromArray($result);
     }
-
+    
     public function updateFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productlabels\Productlabels\Put
     {
         $result = $this->doRequest(
             self::PUT,
             'products/' . $id . '/productlabels/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productlabels\Productlabels\Put::fromArray($result);
     }
 }

@@ -10,178 +10,179 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Returnrows implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Return row Id
      */
     private $id;
-
+    
     /**
      * @var int Return Id.
      */
     private $returnId;
-
+    
     /**
      * @var string Product name.
      */
     private $productName;
-
+    
     /**
      * @var string Product number.
      */
     private $productNumber;
-
+    
     /**
      * @var string Product number from the attributecombination.
      */
     private $subProductNumber;
-
+    
     /**
      * @var string SKU number from the attributecombination.
      */
     private $subSkuNumber;
-
+    
     /**
      * @var string EAN number from the attributecombination.
      */
     private $subEanNumber;
-
+    
     /**
      * @var int|null Unique product id.
      */
     private $productId;
-
+    
     /**
      * @var float Quantity of products.
      */
     private $count;
-
+    
     /**
      * @var float Product original price per unit.
      */
     private $price;
-
+    
     /**
      * @var float Product purchase price per unit.
      */
     private $productPurchasePrice;
-
+    
     /**
      * @var float Discount price per unit.
      */
     private $discount;
-
+    
     /**
      * @var bool Custom product price. If true, this price is differnt from the product price for this return row.
      */
     private $customPrice;
-
+    
     /**
      * @var float Tax percentage.
      */
     private $tax;
-
+    
     /**
      * @var string Product unit.
      */
     private $unit;
-
+    
     /**
      * @var float Product weight.
      */
     private $weight;
-
+    
     /**
      * @var string Memo description of product.
      */
     private $memo;
-
+    
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
     private $packageId;
-
+    
     /**
      * @var string Package name.
      */
     private $packageName;
-
+    
     /**
      * @var string Stocklocation of product.
      */
     private $stockLocation;
-
+    
     /**
      * @var string Product supplier.
      */
     private $supplier;
-
+    
     /**
      * @var float Product original price.
      */
     private $originalPrice;
-
+    
     /**
      * @var float Product orignal price and discount.
      */
     private $sellingPrice;
-
+    
     /**
      * @var float Product price without discount.
      */
     private $priceWithoutDiscount;
-
+    
     /**
      * @var float Product price without discount, with attributes.
      */
     private $priceWithoutDiscountWithAttributes;
-
+    
     /**
      * @var float Total return row price.
      */
     private $totalPrice;
-
+    
     /**
      * @var float|null Total price from attributes.
      */
     private $totalExtraOptionPrice;
-
+    
     /**
      * @var float Product price with attributes per unit.
      */
     private $priceWithAttributes;
-
+    
     /**
      * @var float Total product price with attributes.
      */
     private $totalPriceWithAttributes;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Attributes[] Collection of the chosen attribute options of this return row.
      */
     private $attributes;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Product Contains link to product resource.
      */
     private $product;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Orderrow Contains link to orderrow resource.
      */
     private $orderrow;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\ParentItem Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -189,7 +190,7 @@ class Returnrows implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self.
      */
@@ -197,7 +198,7 @@ class Returnrows implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Return row Id
      */
@@ -205,7 +206,7 @@ class Returnrows implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int Return Id.
      */
@@ -213,7 +214,7 @@ class Returnrows implements Model
     {
         return $this->returnId;
     }
-
+    
     /**
      * @return string Product name.
      */
@@ -221,7 +222,7 @@ class Returnrows implements Model
     {
         return $this->productName;
     }
-
+    
     /**
      * @return string Product number.
      */
@@ -229,7 +230,7 @@ class Returnrows implements Model
     {
         return $this->productNumber;
     }
-
+    
     /**
      * @return string Product number from the attributecombination.
      */
@@ -237,7 +238,7 @@ class Returnrows implements Model
     {
         return $this->subProductNumber;
     }
-
+    
     /**
      * @return string SKU number from the attributecombination.
      */
@@ -245,7 +246,7 @@ class Returnrows implements Model
     {
         return $this->subSkuNumber;
     }
-
+    
     /**
      * @return string EAN number from the attributecombination.
      */
@@ -253,7 +254,7 @@ class Returnrows implements Model
     {
         return $this->subEanNumber;
     }
-
+    
     /**
      * @return int|null Unique product id.
      */
@@ -261,7 +262,7 @@ class Returnrows implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return float Quantity of products.
      */
@@ -269,7 +270,7 @@ class Returnrows implements Model
     {
         return $this->count;
     }
-
+    
     /**
      * @return float Product original price per unit.
      */
@@ -277,7 +278,7 @@ class Returnrows implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float Product purchase price per unit.
      */
@@ -285,7 +286,7 @@ class Returnrows implements Model
     {
         return $this->productPurchasePrice;
     }
-
+    
     /**
      * @return float Discount price per unit.
      */
@@ -293,7 +294,7 @@ class Returnrows implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool Custom product price. If true, this price is differnt from the product price for this return row.
      */
@@ -301,7 +302,7 @@ class Returnrows implements Model
     {
         return $this->customPrice;
     }
-
+    
     /**
      * @return float Tax percentage.
      */
@@ -309,7 +310,7 @@ class Returnrows implements Model
     {
         return $this->tax;
     }
-
+    
     /**
      * @return string Product unit.
      */
@@ -317,7 +318,7 @@ class Returnrows implements Model
     {
         return $this->unit;
     }
-
+    
     /**
      * @return float Product weight.
      */
@@ -325,7 +326,7 @@ class Returnrows implements Model
     {
         return $this->weight;
     }
-
+    
     /**
      * @return string Memo description of product.
      */
@@ -333,7 +334,7 @@ class Returnrows implements Model
     {
         return $this->memo;
     }
-
+    
     /**
      * @return int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
@@ -341,7 +342,7 @@ class Returnrows implements Model
     {
         return $this->packageId;
     }
-
+    
     /**
      * @return string Package name.
      */
@@ -349,7 +350,7 @@ class Returnrows implements Model
     {
         return $this->packageName;
     }
-
+    
     /**
      * @return string Stocklocation of product.
      */
@@ -357,7 +358,7 @@ class Returnrows implements Model
     {
         return $this->stockLocation;
     }
-
+    
     /**
      * @return string Product supplier.
      */
@@ -365,7 +366,7 @@ class Returnrows implements Model
     {
         return $this->supplier;
     }
-
+    
     /**
      * @return float Product original price.
      */
@@ -373,7 +374,7 @@ class Returnrows implements Model
     {
         return $this->originalPrice;
     }
-
+    
     /**
      * @return float Product orignal price and discount.
      */
@@ -381,7 +382,7 @@ class Returnrows implements Model
     {
         return $this->sellingPrice;
     }
-
+    
     /**
      * @return float Product price without discount.
      */
@@ -389,7 +390,7 @@ class Returnrows implements Model
     {
         return $this->priceWithoutDiscount;
     }
-
+    
     /**
      * @return float Product price without discount, with attributes.
      */
@@ -397,7 +398,7 @@ class Returnrows implements Model
     {
         return $this->priceWithoutDiscountWithAttributes;
     }
-
+    
     /**
      * @return float Total return row price.
      */
@@ -405,7 +406,7 @@ class Returnrows implements Model
     {
         return $this->totalPrice;
     }
-
+    
     /**
      * @return float|null Total price from attributes.
      */
@@ -413,7 +414,7 @@ class Returnrows implements Model
     {
         return $this->totalExtraOptionPrice;
     }
-
+    
     /**
      * @return float Product price with attributes per unit.
      */
@@ -421,7 +422,7 @@ class Returnrows implements Model
     {
         return $this->priceWithAttributes;
     }
-
+    
     /**
      * @return float Total product price with attributes.
      */
@@ -429,7 +430,7 @@ class Returnrows implements Model
     {
         return $this->totalPriceWithAttributes;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Attributes[] Collection of the chosen attribute options of this return row.
      */
@@ -437,7 +438,7 @@ class Returnrows implements Model
     {
         return $this->attributes;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Product Contains link to product resource.
      */
@@ -445,7 +446,7 @@ class Returnrows implements Model
     {
         return $this->product;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Orderrow Contains link to orderrow resource.
      */
@@ -453,7 +454,7 @@ class Returnrows implements Model
     {
         return $this->orderrow;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\ParentItem Contains link to parent resource.
      */
@@ -461,7 +462,7 @@ class Returnrows implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self.
      * @return self
@@ -472,7 +473,7 @@ class Returnrows implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Return row Id
      * @return self
@@ -483,7 +484,7 @@ class Returnrows implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $returnId Return Id.
      * @return self
@@ -494,7 +495,7 @@ class Returnrows implements Model
         $this->propertyFilled('returnId');
         return $this;
     }
-
+    
     /**
      * @param string $productName Product name.
      * @return self
@@ -505,7 +506,7 @@ class Returnrows implements Model
         $this->propertyFilled('productName');
         return $this;
     }
-
+    
     /**
      * @param string $productNumber Product number.
      * @return self
@@ -516,7 +517,7 @@ class Returnrows implements Model
         $this->propertyFilled('productNumber');
         return $this;
     }
-
+    
     /**
      * @param string $subProductNumber Product number from the attributecombination.
      * @return self
@@ -527,7 +528,7 @@ class Returnrows implements Model
         $this->propertyFilled('subProductNumber');
         return $this;
     }
-
+    
     /**
      * @param string $subSkuNumber SKU number from the attributecombination.
      * @return self
@@ -538,7 +539,7 @@ class Returnrows implements Model
         $this->propertyFilled('subSkuNumber');
         return $this;
     }
-
+    
     /**
      * @param string $subEanNumber EAN number from the attributecombination.
      * @return self
@@ -549,7 +550,7 @@ class Returnrows implements Model
         $this->propertyFilled('subEanNumber');
         return $this;
     }
-
+    
     /**
      * @param int|null $productId Unique product id.
      * @return self
@@ -560,7 +561,7 @@ class Returnrows implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param float $count Quantity of products.
      * @return self
@@ -571,7 +572,7 @@ class Returnrows implements Model
         $this->propertyFilled('count');
         return $this;
     }
-
+    
     /**
      * @param float $price Product original price per unit.
      * @return self
@@ -582,7 +583,7 @@ class Returnrows implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float $productPurchasePrice Product purchase price per unit.
      * @return self
@@ -593,7 +594,7 @@ class Returnrows implements Model
         $this->propertyFilled('productPurchasePrice');
         return $this;
     }
-
+    
     /**
      * @param float $discount Discount price per unit.
      * @return self
@@ -604,7 +605,7 @@ class Returnrows implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool $customPrice Custom product price. If true, this price is differnt from the product price for this return row.
      * @return self
@@ -615,7 +616,7 @@ class Returnrows implements Model
         $this->propertyFilled('customPrice');
         return $this;
     }
-
+    
     /**
      * @param float $tax Tax percentage.
      * @return self
@@ -626,7 +627,7 @@ class Returnrows implements Model
         $this->propertyFilled('tax');
         return $this;
     }
-
+    
     /**
      * @param string $unit Product unit.
      * @return self
@@ -637,7 +638,7 @@ class Returnrows implements Model
         $this->propertyFilled('unit');
         return $this;
     }
-
+    
     /**
      * @param float $weight Product weight.
      * @return self
@@ -648,7 +649,7 @@ class Returnrows implements Model
         $this->propertyFilled('weight');
         return $this;
     }
-
+    
     /**
      * @param string $memo Memo description of product.
      * @return self
@@ -659,7 +660,7 @@ class Returnrows implements Model
         $this->propertyFilled('memo');
         return $this;
     }
-
+    
     /**
      * @param int|null $packageId Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      * @return self
@@ -670,7 +671,7 @@ class Returnrows implements Model
         $this->propertyFilled('packageId');
         return $this;
     }
-
+    
     /**
      * @param string $packageName Package name.
      * @return self
@@ -681,7 +682,7 @@ class Returnrows implements Model
         $this->propertyFilled('packageName');
         return $this;
     }
-
+    
     /**
      * @param string $stockLocation Stocklocation of product.
      * @return self
@@ -692,7 +693,7 @@ class Returnrows implements Model
         $this->propertyFilled('stockLocation');
         return $this;
     }
-
+    
     /**
      * @param string $supplier Product supplier.
      * @return self
@@ -703,7 +704,7 @@ class Returnrows implements Model
         $this->propertyFilled('supplier');
         return $this;
     }
-
+    
     /**
      * @param float $originalPrice Product original price.
      * @return self
@@ -714,7 +715,7 @@ class Returnrows implements Model
         $this->propertyFilled('originalPrice');
         return $this;
     }
-
+    
     /**
      * @param float $sellingPrice Product orignal price and discount.
      * @return self
@@ -725,7 +726,7 @@ class Returnrows implements Model
         $this->propertyFilled('sellingPrice');
         return $this;
     }
-
+    
     /**
      * @param float $priceWithoutDiscount Product price without discount.
      * @return self
@@ -736,7 +737,7 @@ class Returnrows implements Model
         $this->propertyFilled('priceWithoutDiscount');
         return $this;
     }
-
+    
     /**
      * @param float $priceWithoutDiscountWithAttributes Product price without discount, with attributes.
      * @return self
@@ -747,7 +748,7 @@ class Returnrows implements Model
         $this->propertyFilled('priceWithoutDiscountWithAttributes');
         return $this;
     }
-
+    
     /**
      * @param float $totalPrice Total return row price.
      * @return self
@@ -758,7 +759,7 @@ class Returnrows implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $totalExtraOptionPrice Total price from attributes.
      * @return self
@@ -769,7 +770,7 @@ class Returnrows implements Model
         $this->propertyFilled('totalExtraOptionPrice');
         return $this;
     }
-
+    
     /**
      * @param float $priceWithAttributes Product price with attributes per unit.
      * @return self
@@ -780,7 +781,7 @@ class Returnrows implements Model
         $this->propertyFilled('priceWithAttributes');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceWithAttributes Total product price with attributes.
      * @return self
@@ -791,7 +792,7 @@ class Returnrows implements Model
         $this->propertyFilled('totalPriceWithAttributes');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Attributes[] $attributes Collection of the chosen attribute options of this return row.
      * @return self
@@ -802,7 +803,7 @@ class Returnrows implements Model
         $this->propertyFilled('attributes');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Product $product Contains link to product resource.
      * @return self
@@ -813,7 +814,7 @@ class Returnrows implements Model
         $this->propertyFilled('product');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Orderrow $orderrow Contains link to orderrow resource.
      * @return self
@@ -824,7 +825,7 @@ class Returnrows implements Model
         $this->propertyFilled('orderrow');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\ParentItem $parent Contains link to parent resource.
      * @return self
@@ -835,19 +836,18 @@ class Returnrows implements Model
         $this->propertyFilled('parent');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'attributes') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Returnrows\Child\Resource\Attributes::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

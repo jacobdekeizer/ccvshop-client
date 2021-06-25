@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JacobDeKeizer\CcvGenerator\Classes;
 
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class EndpointClass
 {
@@ -39,33 +40,34 @@ class EndpointClass
 
     public function getClassName(): string
     {
-        return Str::studly($this->title . 'Endpoint');
+        return $this->getTitle() . 'Endpoint';
+    }
+
+    public function getTitle(): string
+    {
+        return Str::studly($this->title);
     }
 
     public function toString(): string
     {
-        $content = '<?php' . PHP_EOL
-            . PHP_EOL
-            . 'declare(strict_types=1);' . PHP_EOL
-            . PHP_EOL
-            . 'namespace JacobDeKeizer\Ccv\Endpoints;' . PHP_EOL
-            . PHP_EOL;
+        $codeWriter = new CodeWriter();
 
-        $content .= 'class ' . $this->getClassName() . ' extends BaseEndpoint' . PHP_EOL;
-        $content .= '{' . PHP_EOL;
+        $codeWriter->startPhpFile('JacobDeKeizer\Ccv\Endpoints');
+
+        $codeWriter->openClass('class ' . $this->getClassName() . ' extends BaseEndpoint');
 
         $count = count($this->endpointMethods);
 
         for ($i = 0; $i < $count; $i++) {
-            $content .= $this->endpointMethods[$i]->toString();
+            $this->endpointMethods[$i]->write($codeWriter);
 
             if ($i < $count - 1) {
-                $content .= PHP_EOL;
+                $codeWriter->insertNewLine();
             }
         }
 
-        $content .= '}' . PHP_EOL;
+        $codeWriter->closeClass();
 
-        return $content;
+        return $codeWriter->content();
     }
 }

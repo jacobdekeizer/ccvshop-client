@@ -10,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Translations implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Offset of the set
      */
     private $start;
-
+    
     /**
      * @var int Size of the set
      */
     private $size;
-
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var string|null Link to the first set of the collection
      */
     private $first;
-
+    
     /**
      * @var string|null Link to the previous set of the collection
      */
     private $previous;
-
+    
     /**
      * @var string|null Link to the next set of the collection
      */
     private $next;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Translations\Resource\Translations[] Array with collection items
      */
     private $items;
-
+    
     /**
      * @return self
      */
@@ -54,7 +55,7 @@ class Translations implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Offset of the set
      */
@@ -62,7 +63,7 @@ class Translations implements Model
     {
         return $this->start;
     }
-
+    
     /**
      * @return int Size of the set
      */
@@ -70,7 +71,7 @@ class Translations implements Model
     {
         return $this->size;
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -78,7 +79,7 @@ class Translations implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return string|null Link to the first set of the collection
      */
@@ -86,7 +87,7 @@ class Translations implements Model
     {
         return $this->first;
     }
-
+    
     /**
      * @return string|null Link to the previous set of the collection
      */
@@ -94,7 +95,7 @@ class Translations implements Model
     {
         return $this->previous;
     }
-
+    
     /**
      * @return string|null Link to the next set of the collection
      */
@@ -102,7 +103,7 @@ class Translations implements Model
     {
         return $this->next;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Translations\Resource\Translations[] Array with collection items
      */
@@ -110,7 +111,7 @@ class Translations implements Model
     {
         return $this->items;
     }
-
+    
     /**
      * @param int $start Offset of the set
      * @return self
@@ -121,7 +122,7 @@ class Translations implements Model
         $this->propertyFilled('start');
         return $this;
     }
-
+    
     /**
      * @param int $size Size of the set
      * @return self
@@ -132,7 +133,7 @@ class Translations implements Model
         $this->propertyFilled('size');
         return $this;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -143,7 +144,7 @@ class Translations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param string|null $first Link to the first set of the collection
      * @return self
@@ -154,7 +155,7 @@ class Translations implements Model
         $this->propertyFilled('first');
         return $this;
     }
-
+    
     /**
      * @param string|null $previous Link to the previous set of the collection
      * @return self
@@ -165,7 +166,7 @@ class Translations implements Model
         $this->propertyFilled('previous');
         return $this;
     }
-
+    
     /**
      * @param string|null $next Link to the next set of the collection
      * @return self
@@ -176,7 +177,7 @@ class Translations implements Model
         $this->propertyFilled('next');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Translations\Resource\Translations[] $items Array with collection items
      * @return self
@@ -187,19 +188,18 @@ class Translations implements Model
         $this->propertyFilled('items');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Translations\Resource\Translations::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

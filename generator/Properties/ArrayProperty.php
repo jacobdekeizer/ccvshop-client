@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class ArrayProperty extends Property
 {
@@ -26,28 +27,32 @@ class ArrayProperty extends Property
         $this->arrayType = $arrayType;
     }
 
-    public function getConvertCode(): ?string
+    public function writeConvertCode(CodeWriter $codeWriter): void
     {
-        if (!($this->arrayType instanceof ObjectProperty)) {
-            return null;
+        if (!$this->hasConvertCode()) {
+            return;
         }
-
-        $startIndent = self::INDENT . self::INDENT;
 
         $snakeName = Str::snake($this->name);
 
-        return $startIndent . sprintf('if ($key === \'%s\') {', $snakeName) . PHP_EOL
-            . $startIndent . self::INDENT . '$items = [];' . PHP_EOL
-            . PHP_EOL
-            . $startIndent . self::INDENT . 'foreach ($value as $item) {' . PHP_EOL
-            . $startIndent . self::INDENT . self::INDENT . sprintf(
-                '$items[] = %s::fromArray($item);',
-                $this->getPropertyType()
-            ) . PHP_EOL
-            . $startIndent . self::INDENT . '}' . PHP_EOL
-            . PHP_EOL
-            . $startIndent . self::INDENT . 'return $items;' . PHP_EOL
-            . $startIndent . '}' . PHP_EOL;
+        $codeWriter->writeLine(sprintf('if ($key === \'%s\') {', $snakeName));
+        $codeWriter->indent();
+        $codeWriter->writeLine('$items = [];');
+        $codeWriter->insertNewLine();
+        $codeWriter->writeLine('foreach ($value as $item) {');
+        $codeWriter->indent();
+        $codeWriter->writeLine(sprintf('$items[] = %s::fromArray($item);', $this->getPropertyType()));
+        $codeWriter->outdent();
+        $codeWriter->writeLine('}');
+        $codeWriter->insertNewLine();
+        $codeWriter->writeLine('return $items;');
+        $codeWriter->outdent();
+        $codeWriter->writeLine('}');
+    }
+
+    public function hasConvertCode(): bool
+    {
+        return $this->arrayType instanceof ObjectProperty;
     }
 
     protected function getDocblockType(): string

@@ -12,25 +12,25 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All implements Parameter
 {
     use FromArray;
-
+    
     /**
      * @var string|null End date for the timeslots in Y-m-d format. if no date is chosen all available timeslots will be returned.
      */
     private $date;
-
+    
     /**
      * @var string|null The deliverytype, deliver or pickup. if no type is chosen both deliver and pickup slots are returned.
      */
     private $type;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -39,17 +39,17 @@ class All implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('date', $this->date)
-            ->addOptionalParameter('type', $this->type)
+            ->addOptionalParameter('type', $this->type);
     }
-
+    
     /**
      * @return string|null End date for the timeslots in Y-m-d format. if no date is chosen all available timeslots will be returned.
      */
@@ -57,7 +57,7 @@ class All implements Parameter
     {
         return $this->date;
     }
-
+    
     /**
      * @return string|null The deliverytype, deliver or pickup. if no type is chosen both deliver and pickup slots are returned.
      */
@@ -65,7 +65,7 @@ class All implements Parameter
     {
         return $this->type;
     }
-
+    
     /**
      * @param string|null $date End date for the timeslots in Y-m-d format. if no date is chosen all available timeslots will be returned.
      * @return self
@@ -75,7 +75,7 @@ class All implements Parameter
         $this->date = $date;
         return $this;
     }
-
+    
     /**
      * @param string|null $type The deliverytype, deliver or pickup. if no type is chosen both deliver and pickup slots are returned.
      * @return self

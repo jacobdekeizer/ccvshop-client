@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Unique id of the category.
      */
     private $categoryId;
-
+    
     /**
      * @var int Unique id of the user gropup. Making this adjust apply to all users in this group.
      */
     private $usergroupId;
-
+    
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
     private $discount;
-
+    
     /**
      * @var bool|null If TRUE then this categoy and its products won't be visible for this user group.
      */
     private $hidden;
-
+    
     /**
      * @var bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
     private $includeSubCategories;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Unique id of the category.
      */
@@ -52,7 +53,7 @@ class Post implements Model
     {
         return $this->categoryId;
     }
-
+    
     /**
      * @return int Unique id of the user gropup. Making this adjust apply to all users in this group.
      */
@@ -60,7 +61,7 @@ class Post implements Model
     {
         return $this->usergroupId;
     }
-
+    
     /**
      * @return int|null Adjusted discount percentage that is applied to all products in this category.
      */
@@ -68,7 +69,7 @@ class Post implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool|null If TRUE then this categoy and its products won't be visible for this user group.
      */
@@ -76,7 +77,7 @@ class Post implements Model
     {
         return $this->hidden;
     }
-
+    
     /**
      * @return bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
@@ -84,7 +85,7 @@ class Post implements Model
     {
         return $this->includeSubCategories;
     }
-
+    
     /**
      * @param int $categoryId Unique id of the category.
      * @return self
@@ -95,7 +96,7 @@ class Post implements Model
         $this->propertyFilled('categoryId');
         return $this;
     }
-
+    
     /**
      * @param int $usergroupId Unique id of the user gropup. Making this adjust apply to all users in this group.
      * @return self
@@ -106,7 +107,7 @@ class Post implements Model
         $this->propertyFilled('usergroupId');
         return $this;
     }
-
+    
     /**
      * @param int|null $discount Adjusted discount percentage that is applied to all products in this category.
      * @return self
@@ -117,7 +118,7 @@ class Post implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool|null $hidden If TRUE then this categoy and its products won't be visible for this user group.
      * @return self
@@ -128,7 +129,7 @@ class Post implements Model
         $this->propertyFilled('hidden');
         return $this;
     }
-
+    
     /**
      * @param bool|null $includeSubCategories If TRUE this adjustment will be inherited by all sub categories of this one.
      * @return self

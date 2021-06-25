@@ -10,98 +10,99 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Quotations implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Quotation id.
      */
     private $id;
-
+    
     /**
      * @var string|null Prefix of the specific quotation number of the quotation. Automatically generated when the quotation is created.
      */
     private $quotationnumberPrefix;
-
+    
     /**
      * @var int Quotation number, automatically generated when the quotation is created.
      */
     private $quotationnumber;
-
+    
     /**
      * @var string Unique quotation number, Full quotation number as displayed in shop. With dash if the prefix is available.
      */
     private $quotationnumberFull;
-
+    
     /**
      * @var string|null Prefix of the specific order number of the order that was created from this quotation. automatically generated when the order is created.
      */
     private $ordernumberPrefix;
-
+    
     /**
      * @var int Order number of the order that was created from this quotation, automatically generated when the order is created.
      */
     private $ordernumber;
-
+    
     /**
      * @var string Unique order number, Full ordernumber of the order that was created from this quotation as displayed in shop. With dash if the prefix is available.
      */
     private $ordernumberFull;
-
+    
     /**
      * @var string Createdate of this quotation in UTC.
      */
     private $createDate;
-
+    
     /**
      * @var string Status of the quotation. 1. Open. 2. Requested. 3. Send. 4. Accepted. 5. Concept. A concept quotation is a quotation that is created, but not yet saved. Thats also why concept quotations aren't visible for the merchant.
      */
     private $status;
-
+    
     /**
      * @var string The display name of the quotation status.
      */
     private $statusName;
-
+    
     /**
      * @var float Total price inc tax.
      */
     private $totalPriceIncTax;
-
+    
     /**
      * @var float Total price excl tax.
      */
     private $totalPriceExcTax;
-
+    
     /**
      * @var float Total price.
      */
     private $totalPrice;
-
+    
     /**
      * @var float Total tax amount.
      */
     private $totalTax;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\User Link to possible user resource associated with this quotation.
      */
     private $user;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer.
+     * @var \JacobDeKeizer\Ccv\Models\Quotations\Entity\Personalinfo Describes personal information of the customer.
      */
     private $customer;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\Quotationrows Products that are included in this quotation.
      */
     private $quotationrows;
-
+    
     /**
      * @return self
      */
@@ -109,7 +110,7 @@ class Quotations implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self.
      */
@@ -117,7 +118,7 @@ class Quotations implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Quotation id.
      */
@@ -125,7 +126,7 @@ class Quotations implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Prefix of the specific quotation number of the quotation. Automatically generated when the quotation is created.
      */
@@ -133,7 +134,7 @@ class Quotations implements Model
     {
         return $this->quotationnumberPrefix;
     }
-
+    
     /**
      * @return int Quotation number, automatically generated when the quotation is created.
      */
@@ -141,7 +142,7 @@ class Quotations implements Model
     {
         return $this->quotationnumber;
     }
-
+    
     /**
      * @return string Unique quotation number, Full quotation number as displayed in shop. With dash if the prefix is available.
      */
@@ -149,7 +150,7 @@ class Quotations implements Model
     {
         return $this->quotationnumberFull;
     }
-
+    
     /**
      * @return string|null Prefix of the specific order number of the order that was created from this quotation. automatically generated when the order is created.
      */
@@ -157,7 +158,7 @@ class Quotations implements Model
     {
         return $this->ordernumberPrefix;
     }
-
+    
     /**
      * @return int Order number of the order that was created from this quotation, automatically generated when the order is created.
      */
@@ -165,7 +166,7 @@ class Quotations implements Model
     {
         return $this->ordernumber;
     }
-
+    
     /**
      * @return string Unique order number, Full ordernumber of the order that was created from this quotation as displayed in shop. With dash if the prefix is available.
      */
@@ -173,7 +174,7 @@ class Quotations implements Model
     {
         return $this->ordernumberFull;
     }
-
+    
     /**
      * @return string Createdate of this quotation in UTC.
      */
@@ -181,7 +182,7 @@ class Quotations implements Model
     {
         return $this->createDate;
     }
-
+    
     /**
      * @return string Status of the quotation. 1. Open. 2. Requested. 3. Send. 4. Accepted. 5. Concept. A concept quotation is a quotation that is created, but not yet saved. Thats also why concept quotations aren't visible for the merchant.
      */
@@ -189,7 +190,7 @@ class Quotations implements Model
     {
         return $this->status;
     }
-
+    
     /**
      * @return string The display name of the quotation status.
      */
@@ -197,7 +198,7 @@ class Quotations implements Model
     {
         return $this->statusName;
     }
-
+    
     /**
      * @return float Total price inc tax.
      */
@@ -205,7 +206,7 @@ class Quotations implements Model
     {
         return $this->totalPriceIncTax;
     }
-
+    
     /**
      * @return float Total price excl tax.
      */
@@ -213,7 +214,7 @@ class Quotations implements Model
     {
         return $this->totalPriceExcTax;
     }
-
+    
     /**
      * @return float Total price.
      */
@@ -221,7 +222,7 @@ class Quotations implements Model
     {
         return $this->totalPrice;
     }
-
+    
     /**
      * @return float Total tax amount.
      */
@@ -229,7 +230,7 @@ class Quotations implements Model
     {
         return $this->totalTax;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\User Link to possible user resource associated with this quotation.
      */
@@ -237,15 +238,15 @@ class Quotations implements Model
     {
         return $this->user;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer.
+     * @return \JacobDeKeizer\Ccv\Models\Quotations\Entity\Personalinfo Describes personal information of the customer.
      */
-    public function getCustomer(): \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo
+    public function getCustomer(): \JacobDeKeizer\Ccv\Models\Quotations\Entity\Personalinfo
     {
         return $this->customer;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\Quotationrows Products that are included in this quotation.
      */
@@ -253,7 +254,7 @@ class Quotations implements Model
     {
         return $this->quotationrows;
     }
-
+    
     /**
      * @param string $href Link to self.
      * @return self
@@ -264,7 +265,7 @@ class Quotations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Quotation id.
      * @return self
@@ -275,7 +276,7 @@ class Quotations implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $quotationnumberPrefix Prefix of the specific quotation number of the quotation. Automatically generated when the quotation is created.
      * @return self
@@ -286,7 +287,7 @@ class Quotations implements Model
         $this->propertyFilled('quotationnumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $quotationnumber Quotation number, automatically generated when the quotation is created.
      * @return self
@@ -297,7 +298,7 @@ class Quotations implements Model
         $this->propertyFilled('quotationnumber');
         return $this;
     }
-
+    
     /**
      * @param string $quotationnumberFull Unique quotation number, Full quotation number as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -308,7 +309,7 @@ class Quotations implements Model
         $this->propertyFilled('quotationnumberFull');
         return $this;
     }
-
+    
     /**
      * @param string|null $ordernumberPrefix Prefix of the specific order number of the order that was created from this quotation. automatically generated when the order is created.
      * @return self
@@ -319,7 +320,7 @@ class Quotations implements Model
         $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $ordernumber Order number of the order that was created from this quotation, automatically generated when the order is created.
      * @return self
@@ -330,7 +331,7 @@ class Quotations implements Model
         $this->propertyFilled('ordernumber');
         return $this;
     }
-
+    
     /**
      * @param string $ordernumberFull Unique order number, Full ordernumber of the order that was created from this quotation as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -341,7 +342,7 @@ class Quotations implements Model
         $this->propertyFilled('ordernumberFull');
         return $this;
     }
-
+    
     /**
      * @param string $createDate Createdate of this quotation in UTC.
      * @return self
@@ -352,7 +353,7 @@ class Quotations implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-
+    
     /**
      * @param string $status Status of the quotation. 1. Open. 2. Requested. 3. Send. 4. Accepted. 5. Concept. A concept quotation is a quotation that is created, but not yet saved. Thats also why concept quotations aren't visible for the merchant.
      * @return self
@@ -363,7 +364,7 @@ class Quotations implements Model
         $this->propertyFilled('status');
         return $this;
     }
-
+    
     /**
      * @param string $statusName The display name of the quotation status.
      * @return self
@@ -374,7 +375,7 @@ class Quotations implements Model
         $this->propertyFilled('statusName');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceIncTax Total price inc tax.
      * @return self
@@ -385,7 +386,7 @@ class Quotations implements Model
         $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceExcTax Total price excl tax.
      * @return self
@@ -396,7 +397,7 @@ class Quotations implements Model
         $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPrice Total price.
      * @return self
@@ -407,7 +408,7 @@ class Quotations implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-
+    
     /**
      * @param float $totalTax Total tax amount.
      * @return self
@@ -418,7 +419,7 @@ class Quotations implements Model
         $this->propertyFilled('totalTax');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\User $user Link to possible user resource associated with this quotation.
      * @return self
@@ -429,18 +430,18 @@ class Quotations implements Model
         $this->propertyFilled('user');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer Describes personal information of the customer.
+     * @param \JacobDeKeizer\Ccv\Models\Quotations\Entity\Personalinfo $customer Describes personal information of the customer.
      * @return self
      */
-    public function setCustomer(\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer): self
+    public function setCustomer(\JacobDeKeizer\Ccv\Models\Quotations\Entity\Personalinfo $customer): self
     {
         $this->customer = $customer;
         $this->propertyFilled('customer');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Quotations\Child\Resource\Quotationrows $quotationrows Products that are included in this quotation.
      * @return self

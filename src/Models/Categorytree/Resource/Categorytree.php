@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Categorytree implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytreenode[] Array with root categories.
      */
     private $rootCategories;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Categorytree implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -37,7 +38,7 @@ class Categorytree implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytreenode[] Array with root categories.
      */
@@ -45,7 +46,7 @@ class Categorytree implements Model
     {
         return $this->rootCategories;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -56,7 +57,7 @@ class Categorytree implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytreenode[] $rootCategories Array with root categories.
      * @return self
@@ -67,19 +68,18 @@ class Categorytree implements Model
         $this->propertyFilled('rootCategories');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'root_categories') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytreenode::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

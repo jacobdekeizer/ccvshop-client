@@ -8,7 +8,6 @@ use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
 use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;
 use JacobDeKeizer\CcvGenerator\Factories\EndpointClassGenerator;
-use JacobDeKeizer\CcvGenerator\Factories\ModelClassFactory;
 use JacobDeKeizer\CcvGenerator\File\FileHelper;
 
 class SchemaGenerator
@@ -32,6 +31,11 @@ class SchemaGenerator
      */
     private $rootDir;
 
+    /**
+     * @var array<string, bool>
+     */
+    private $writtenPaths = [];
+
     public function __construct()
     {
         $this->rootDir = $this->normalizePath(str_replace('generator', 'src', __DIR__));
@@ -50,6 +54,11 @@ class SchemaGenerator
         foreach ($endpoints as $endpoint) {
             $generator->createEndpointFile($endpoint);
 
+//            if ($endpoint->getTitle() === 'Productqueries') {
+//                var_dump($endpoint);
+//                die();
+//            }
+
             foreach ($endpoint->getEndpointMethods() as $endpointMethod) {
                 if ($model = $endpointMethod->getModel()) {
                     $generator->createModelFile($model);
@@ -62,45 +71,56 @@ class SchemaGenerator
         }
     }
 
-    public function generate(string $url, string $namespacePrefix): void
-    {
-        $this->createModelClass(ModelClassFactory::make($url, $namespacePrefix));
-    }
-
-    private function createModelClass(ModelClass $phpClass): void
-    {
-        $this->createModelFile($phpClass);
-
-        foreach ($phpClass->getClasses() as $class) {
-            $this->createModelClass($class);
-        }
-    }
-
     private function createEndpointFile(EndpointClass $endpoint): void
     {
-        FileHelper::fileForceContents(
-            $this->rootDir,
-            'Endpoints/' . $endpoint->getClassName() . '.php',
-            $endpoint->toString()
-        );
+        $path = 'Endpoints/' . $endpoint->getClassName() . '.php';
+
+        echo 'Write endpoint ' . $path . PHP_EOL;
+
+        $this->writeFileContentsWithCacheCheck($path, $endpoint->toString());
     }
 
     private function createModelFile(ModelClass $modelClass): void
     {
-        FileHelper::fileForceContents(
-            $this->rootDir,
-            $this->normalizePath($modelClass->getRelativePath()),
-            $modelClass->toString()
-        );
+        $path = $this->normalizePath($modelClass->getRelativePath());
+
+        echo 'Write model ' . $path . PHP_EOL;
+
+        $newFile = $this->writeFileContentsWithCacheCheck($path, $modelClass->toString());
+
+        if (!$newFile) {
+            return;
+        }
+
+        foreach ($modelClass->getClasses() as $class) {
+            $this->createModelFile($class);
+        }
     }
 
     private function createParameterFile(ParameterClass $parameterClass): void
     {
+        $path = $this->normalizePath($parameterClass->getRelativePath());
+
+        echo 'Write parameter ' . $path . PHP_EOL;
+
+        $this->writeFileContentsWithCacheCheck($path, $parameterClass->toString());
+    }
+
+    private function writeFileContentsWithCacheCheck(string $path, string $contents): bool
+    {
+        if ($this->writtenPaths[$path] ?? false) {
+            return false;
+        }
+
+        $this->writtenPaths[$path] = true;
+
         FileHelper::fileForceContents(
             $this->rootDir,
-            $this->normalizePath($parameterClass->getRelativePath()),
-            $parameterClass->toString()
+            $path,
+            $contents
         );
+
+        return true;
     }
 
     private function normalizePath(string $path): string
@@ -110,40 +130,16 @@ class SchemaGenerator
 
     private function removeOldModels(): void
     {
-        $directories = glob($this->rootDir . '/Models/*');
-
-        foreach ($directories as $directory) {
-            if (in_array(basename($directory), self::MANUAL_MODELS_DIRS)) {
-                continue;
-            }
-
-            FileHelper::removeDirectoryWithContents($directory);
-        }
+        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Models/*', self::MANUAL_MODELS_DIRS);
     }
 
     private function removeOldEndpoints(): void
     {
-        $directories = glob($this->rootDir . '/Endpoints/*');
-
-        foreach ($directories as $directory) {
-            if (in_array(basename($directory), self::MANUAL_ENDPOINTS)) {
-                continue;
-            }
-
-            FileHelper::removeDirectoryWithContents($directory);
-        }
+        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Endpoints/*', self::MANUAL_ENDPOINTS);
     }
 
     private function removeOldParameters(): void
     {
-        $directories = glob($this->rootDir . '/Parameters/*');
-
-        foreach ($directories as $directory) {
-            if (in_array(basename($directory), self::MANUAL_PARAMETERS)) {
-                continue;
-            }
-
-            FileHelper::removeDirectoryWithContents($directory);
-        }
+        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Parameters/*', self::MANUAL_PARAMETERS);
     }
 }

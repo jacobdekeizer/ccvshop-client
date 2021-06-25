@@ -10,148 +10,149 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Category name
      */
     private $name;
-
+    
     /**
      * @var string|null Category description
      */
     private $description;
-
+    
     /**
      * @var string|null Category description on the bottom of the page
      */
     private $descriptionBottom;
-
+    
     /**
      * @var string|null Search keywords
      */
     private $searchwords;
-
+    
     /**
      * @var string|null Description photo position
      */
     private $descriptionPhotoPosition;
-
+    
     /**
      * @var string|null Description photo size
      */
     private $descriptionPhotoSize;
-
+    
     /**
      * @var string|null Base64 encode image
      */
     private $descriptionPhotoSource;
-
+    
     /**
      * @var string|null File extension jpg,gif,png etc
      */
     private $descriptionPhotoFileType;
-
+    
     /**
      * @var int|null The unique Id of the layout of the products in this category. A list of the layouts is available in the resource categoryproductlayouts
      */
     private $layoutOfProductsId;
-
+    
     /**
      * @var int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
     private $color;
-
+    
     /**
      * @var int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
     private $colorAlternative;
-
+    
     /**
      * @var int|null The layout id of the categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
     private $layoutOfCategoriesId;
-
+    
     /**
      * @var string|null Base 64 encode photo source
      */
     private $photoSource;
-
+    
     /**
      * @var string|null Photo extension.
      */
     private $photoFileType;
-
+    
     /**
      * @var bool|null Show a larger photo on mouseover.
      */
     private $showBigPhoto;
-
+    
     /**
      * @var bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
     private $productphotoInCanvas;
-
+    
     /**
      * @var bool|null Show the product order button.
      */
     private $showOrderbutton;
-
+    
     /**
      * @var string|null The order in which the products are sorted in this category
      */
     private $orderby;
-
+    
     /**
      * @var int|null Number of items per page
      */
     private $itemsPerPage;
-
+    
     /**
      * @var int|null Category position
      */
     private $position;
-
+    
     /**
      * @var bool|null Category visible on website
      */
     private $showOnWebsite;
-
+    
     /**
      * @var int|null Category parent id
      */
     private $parentcategoryId;
-
+    
     /**
      * @var string|null Metatag Description
      */
     private $metaDescription;
-
+    
     /**
      * @var string|null Metatag Keywords
      */
     private $metaKeywords;
-
+    
     /**
      * @var string|null Page title
      */
     private $pageTitle;
-
+    
     /**
      * @var bool|null Metatag robots: No-Index
      */
     private $noIndex;
-
+    
     /**
      * @var bool|null Metatag robots: No-Follow
      */
     private $noFollow;
-
+    
     /**
      * @var string|null SEO Alias of this resource
      */
     private $alias;
-
+    
     /**
      * @return self
      */
@@ -159,7 +160,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Category name
      */
@@ -167,7 +168,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string|null Category description
      */
@@ -175,7 +176,7 @@ class Patch implements Model
     {
         return $this->description;
     }
-
+    
     /**
      * @return string|null Category description on the bottom of the page
      */
@@ -183,7 +184,7 @@ class Patch implements Model
     {
         return $this->descriptionBottom;
     }
-
+    
     /**
      * @return string|null Search keywords
      */
@@ -191,7 +192,7 @@ class Patch implements Model
     {
         return $this->searchwords;
     }
-
+    
     /**
      * @return string|null Description photo position
      */
@@ -199,7 +200,7 @@ class Patch implements Model
     {
         return $this->descriptionPhotoPosition;
     }
-
+    
     /**
      * @return string|null Description photo size
      */
@@ -207,7 +208,7 @@ class Patch implements Model
     {
         return $this->descriptionPhotoSize;
     }
-
+    
     /**
      * @return string|null Base64 encode image
      */
@@ -215,7 +216,7 @@ class Patch implements Model
     {
         return $this->descriptionPhotoSource;
     }
-
+    
     /**
      * @return string|null File extension jpg,gif,png etc
      */
@@ -223,7 +224,7 @@ class Patch implements Model
     {
         return $this->descriptionPhotoFileType;
     }
-
+    
     /**
      * @return int|null The unique Id of the layout of the products in this category. A list of the layouts is available in the resource categoryproductlayouts
      */
@@ -231,7 +232,7 @@ class Patch implements Model
     {
         return $this->layoutOfProductsId;
     }
-
+    
     /**
      * @return int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
@@ -239,7 +240,7 @@ class Patch implements Model
     {
         return $this->color;
     }
-
+    
     /**
      * @return int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
@@ -247,7 +248,7 @@ class Patch implements Model
     {
         return $this->colorAlternative;
     }
-
+    
     /**
      * @return int|null The layout id of the categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
@@ -255,7 +256,7 @@ class Patch implements Model
     {
         return $this->layoutOfCategoriesId;
     }
-
+    
     /**
      * @return string|null Base 64 encode photo source
      */
@@ -263,7 +264,7 @@ class Patch implements Model
     {
         return $this->photoSource;
     }
-
+    
     /**
      * @return string|null Photo extension.
      */
@@ -271,7 +272,7 @@ class Patch implements Model
     {
         return $this->photoFileType;
     }
-
+    
     /**
      * @return bool|null Show a larger photo on mouseover.
      */
@@ -279,7 +280,7 @@ class Patch implements Model
     {
         return $this->showBigPhoto;
     }
-
+    
     /**
      * @return bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
@@ -287,7 +288,7 @@ class Patch implements Model
     {
         return $this->productphotoInCanvas;
     }
-
+    
     /**
      * @return bool|null Show the product order button.
      */
@@ -295,7 +296,7 @@ class Patch implements Model
     {
         return $this->showOrderbutton;
     }
-
+    
     /**
      * @return string|null The order in which the products are sorted in this category
      */
@@ -303,7 +304,7 @@ class Patch implements Model
     {
         return $this->orderby;
     }
-
+    
     /**
      * @return int|null Number of items per page
      */
@@ -311,7 +312,7 @@ class Patch implements Model
     {
         return $this->itemsPerPage;
     }
-
+    
     /**
      * @return int|null Category position
      */
@@ -319,7 +320,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @return bool|null Category visible on website
      */
@@ -327,7 +328,7 @@ class Patch implements Model
     {
         return $this->showOnWebsite;
     }
-
+    
     /**
      * @return int|null Category parent id
      */
@@ -335,7 +336,7 @@ class Patch implements Model
     {
         return $this->parentcategoryId;
     }
-
+    
     /**
      * @return string|null Metatag Description
      */
@@ -343,7 +344,7 @@ class Patch implements Model
     {
         return $this->metaDescription;
     }
-
+    
     /**
      * @return string|null Metatag Keywords
      */
@@ -351,7 +352,7 @@ class Patch implements Model
     {
         return $this->metaKeywords;
     }
-
+    
     /**
      * @return string|null Page title
      */
@@ -359,7 +360,7 @@ class Patch implements Model
     {
         return $this->pageTitle;
     }
-
+    
     /**
      * @return bool|null Metatag robots: No-Index
      */
@@ -367,7 +368,7 @@ class Patch implements Model
     {
         return $this->noIndex;
     }
-
+    
     /**
      * @return bool|null Metatag robots: No-Follow
      */
@@ -375,7 +376,7 @@ class Patch implements Model
     {
         return $this->noFollow;
     }
-
+    
     /**
      * @return string|null SEO Alias of this resource
      */
@@ -383,7 +384,7 @@ class Patch implements Model
     {
         return $this->alias;
     }
-
+    
     /**
      * @param string|null $name Category name
      * @return self
@@ -394,7 +395,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string|null $description Category description
      * @return self
@@ -405,7 +406,7 @@ class Patch implements Model
         $this->propertyFilled('description');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionBottom Category description on the bottom of the page
      * @return self
@@ -416,7 +417,7 @@ class Patch implements Model
         $this->propertyFilled('descriptionBottom');
         return $this;
     }
-
+    
     /**
      * @param string|null $searchwords Search keywords
      * @return self
@@ -427,7 +428,7 @@ class Patch implements Model
         $this->propertyFilled('searchwords');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoPosition Description photo position
      * @return self
@@ -438,7 +439,7 @@ class Patch implements Model
         $this->propertyFilled('descriptionPhotoPosition');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoSize Description photo size
      * @return self
@@ -449,7 +450,7 @@ class Patch implements Model
         $this->propertyFilled('descriptionPhotoSize');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoSource Base64 encode image
      * @return self
@@ -460,7 +461,7 @@ class Patch implements Model
         $this->propertyFilled('descriptionPhotoSource');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoFileType File extension jpg,gif,png etc
      * @return self
@@ -471,7 +472,7 @@ class Patch implements Model
         $this->propertyFilled('descriptionPhotoFileType');
         return $this;
     }
-
+    
     /**
      * @param int|null $layoutOfProductsId The unique Id of the layout of the products in this category. A list of the layouts is available in the resource categoryproductlayouts
      * @return self
@@ -482,7 +483,7 @@ class Patch implements Model
         $this->propertyFilled('layoutOfProductsId');
         return $this;
     }
-
+    
     /**
      * @param int|null $color Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      * @return self
@@ -493,7 +494,7 @@ class Patch implements Model
         $this->propertyFilled('color');
         return $this;
     }
-
+    
     /**
      * @param int|null $colorAlternative Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      * @return self
@@ -504,7 +505,7 @@ class Patch implements Model
         $this->propertyFilled('colorAlternative');
         return $this;
     }
-
+    
     /**
      * @param int|null $layoutOfCategoriesId The layout id of the categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      * @return self
@@ -515,7 +516,7 @@ class Patch implements Model
         $this->propertyFilled('layoutOfCategoriesId');
         return $this;
     }
-
+    
     /**
      * @param string|null $photoSource Base 64 encode photo source
      * @return self
@@ -526,7 +527,7 @@ class Patch implements Model
         $this->propertyFilled('photoSource');
         return $this;
     }
-
+    
     /**
      * @param string|null $photoFileType Photo extension.
      * @return self
@@ -537,7 +538,7 @@ class Patch implements Model
         $this->propertyFilled('photoFileType');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showBigPhoto Show a larger photo on mouseover.
      * @return self
@@ -548,7 +549,7 @@ class Patch implements Model
         $this->propertyFilled('showBigPhoto');
         return $this;
     }
-
+    
     /**
      * @param bool|null $productphotoInCanvas Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      * @return self
@@ -559,7 +560,7 @@ class Patch implements Model
         $this->propertyFilled('productphotoInCanvas');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOrderbutton Show the product order button.
      * @return self
@@ -570,7 +571,7 @@ class Patch implements Model
         $this->propertyFilled('showOrderbutton');
         return $this;
     }
-
+    
     /**
      * @param string|null $orderby The order in which the products are sorted in this category
      * @return self
@@ -581,7 +582,7 @@ class Patch implements Model
         $this->propertyFilled('orderby');
         return $this;
     }
-
+    
     /**
      * @param int|null $itemsPerPage Number of items per page
      * @return self
@@ -592,7 +593,7 @@ class Patch implements Model
         $this->propertyFilled('itemsPerPage');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Category position
      * @return self
@@ -603,7 +604,7 @@ class Patch implements Model
         $this->propertyFilled('position');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOnWebsite Category visible on website
      * @return self
@@ -614,7 +615,7 @@ class Patch implements Model
         $this->propertyFilled('showOnWebsite');
         return $this;
     }
-
+    
     /**
      * @param int|null $parentcategoryId Category parent id
      * @return self
@@ -625,7 +626,7 @@ class Patch implements Model
         $this->propertyFilled('parentcategoryId');
         return $this;
     }
-
+    
     /**
      * @param string|null $metaDescription Metatag Description
      * @return self
@@ -636,7 +637,7 @@ class Patch implements Model
         $this->propertyFilled('metaDescription');
         return $this;
     }
-
+    
     /**
      * @param string|null $metaKeywords Metatag Keywords
      * @return self
@@ -647,7 +648,7 @@ class Patch implements Model
         $this->propertyFilled('metaKeywords');
         return $this;
     }
-
+    
     /**
      * @param string|null $pageTitle Page title
      * @return self
@@ -658,7 +659,7 @@ class Patch implements Model
         $this->propertyFilled('pageTitle');
         return $this;
     }
-
+    
     /**
      * @param bool|null $noIndex Metatag robots: No-Index
      * @return self
@@ -669,7 +670,7 @@ class Patch implements Model
         $this->propertyFilled('noIndex');
         return $this;
     }
-
+    
     /**
      * @param bool|null $noFollow Metatag robots: No-Follow
      * @return self
@@ -680,7 +681,7 @@ class Patch implements Model
         $this->propertyFilled('noFollow');
         return $this;
     }
-
+    
     /**
      * @param string|null $alias SEO Alias of this resource
      * @return self

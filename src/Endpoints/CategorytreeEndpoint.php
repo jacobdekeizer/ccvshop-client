@@ -12,7 +12,7 @@ class CategorytreeEndpoint extends BaseEndpoint
             self::GET,
             'categorytree/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytree::fromArray($result);
     }
 }

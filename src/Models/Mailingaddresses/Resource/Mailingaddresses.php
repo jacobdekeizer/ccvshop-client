@@ -10,58 +10,59 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Mailingaddresses implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var string|null Name of the e-mail address owner
      */
     private $name;
-
+    
     /**
      * @var string|null Company name
      */
     private $companyname;
-
+    
     /**
      * @var string E-mail address
      */
     private $email;
-
+    
     /**
      * @var string|null Languagecode (nl, de, uk etc) to send language specific mails
      */
     private $language;
-
+    
     /**
      * @var int|null Mailinglist id
      */
     private $mailinglistId;
-
+    
     /**
      * @var bool Is mailingaddress enabled
      */
     private $enable;
-
+    
     /**
      * @var string|null The create date of mailingaddress, UTC
      */
     private $createDate;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Mailingaddresses\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -69,7 +70,7 @@ class Mailingaddresses implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -77,7 +78,7 @@ class Mailingaddresses implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -85,7 +86,7 @@ class Mailingaddresses implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Name of the e-mail address owner
      */
@@ -93,7 +94,7 @@ class Mailingaddresses implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string|null Company name
      */
@@ -101,7 +102,7 @@ class Mailingaddresses implements Model
     {
         return $this->companyname;
     }
-
+    
     /**
      * @return string E-mail address
      */
@@ -109,7 +110,7 @@ class Mailingaddresses implements Model
     {
         return $this->email;
     }
-
+    
     /**
      * @return string|null Languagecode (nl, de, uk etc) to send language specific mails
      */
@@ -117,7 +118,7 @@ class Mailingaddresses implements Model
     {
         return $this->language;
     }
-
+    
     /**
      * @return int|null Mailinglist id
      */
@@ -125,7 +126,7 @@ class Mailingaddresses implements Model
     {
         return $this->mailinglistId;
     }
-
+    
     /**
      * @return bool Is mailingaddress enabled
      */
@@ -133,7 +134,7 @@ class Mailingaddresses implements Model
     {
         return $this->enable;
     }
-
+    
     /**
      * @return string|null The create date of mailingaddress, UTC
      */
@@ -141,7 +142,7 @@ class Mailingaddresses implements Model
     {
         return $this->createDate;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -149,7 +150,7 @@ class Mailingaddresses implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -160,7 +161,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -171,7 +172,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Name of the e-mail address owner
      * @return self
@@ -182,7 +183,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string|null $companyname Company name
      * @return self
@@ -193,7 +194,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('companyname');
         return $this;
     }
-
+    
     /**
      * @param string $email E-mail address
      * @return self
@@ -204,7 +205,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('email');
         return $this;
     }
-
+    
     /**
      * @param string|null $language Languagecode (nl, de, uk etc) to send language specific mails
      * @return self
@@ -215,7 +216,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('language');
         return $this;
     }
-
+    
     /**
      * @param int|null $mailinglistId Mailinglist id
      * @return self
@@ -226,7 +227,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('mailinglistId');
         return $this;
     }
-
+    
     /**
      * @param bool $enable Is mailingaddress enabled
      * @return self
@@ -237,7 +238,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('enable');
         return $this;
     }
-
+    
     /**
      * @param string|null $createDate The create date of mailingaddress, UTC
      * @return self
@@ -248,7 +249,7 @@ class Mailingaddresses implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Mailingaddresses\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

@@ -12,17 +12,17 @@ class DashboardsEndpoint extends BaseEndpoint
             self::GET,
             'dashboards/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Dashboards\Collection\Dashboards::fromArray($result);
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Dashboards\Resource\Dashboards
     {
         $result = $this->doRequest(
             self::GET,
             'dashboards/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Dashboards\Resource\Dashboards::fromArray($result);
     }
 }

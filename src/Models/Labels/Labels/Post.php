@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Uri to the image. These images will be shown as icons as 16x16.
      */
     private $imageLocation;
-
+    
     /**
      * @var string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
     private $tooltip;
-
+    
     /**
      * @var bool|null If TRUE this label will be added as filter on the product collection page.
      */
     private $showOnProducts;
-
+    
     /**
      * @var bool|null If TRUE this label will be added as filter on the order collection page.
      */
     private $showOnOrders;
-
+    
     /**
      * @var bool|null If TRUE this label will be added as filter on the invoice collection page.
      */
     private $showOnInvoices;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Uri to the image. These images will be shown as icons as 16x16.
      */
@@ -52,7 +53,7 @@ class Post implements Model
     {
         return $this->imageLocation;
     }
-
+    
     /**
      * @return string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
@@ -60,7 +61,7 @@ class Post implements Model
     {
         return $this->tooltip;
     }
-
+    
     /**
      * @return bool|null If TRUE this label will be added as filter on the product collection page.
      */
@@ -68,7 +69,7 @@ class Post implements Model
     {
         return $this->showOnProducts;
     }
-
+    
     /**
      * @return bool|null If TRUE this label will be added as filter on the order collection page.
      */
@@ -76,7 +77,7 @@ class Post implements Model
     {
         return $this->showOnOrders;
     }
-
+    
     /**
      * @return bool|null If TRUE this label will be added as filter on the invoice collection page.
      */
@@ -84,7 +85,7 @@ class Post implements Model
     {
         return $this->showOnInvoices;
     }
-
+    
     /**
      * @param string $imageLocation Uri to the image. These images will be shown as icons as 16x16.
      * @return self
@@ -95,7 +96,7 @@ class Post implements Model
         $this->propertyFilled('imageLocation');
         return $this;
     }
-
+    
     /**
      * @param string|null $tooltip Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      * @return self
@@ -106,7 +107,7 @@ class Post implements Model
         $this->propertyFilled('tooltip');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOnProducts If TRUE this label will be added as filter on the product collection page.
      * @return self
@@ -117,7 +118,7 @@ class Post implements Model
         $this->propertyFilled('showOnProducts');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOnOrders If TRUE this label will be added as filter on the order collection page.
      * @return self
@@ -128,7 +129,7 @@ class Post implements Model
         $this->propertyFilled('showOnOrders');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOnInvoices If TRUE this label will be added as filter on the invoice collection page.
      * @return self

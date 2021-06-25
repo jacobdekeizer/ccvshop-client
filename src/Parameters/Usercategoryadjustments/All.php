@@ -12,25 +12,25 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All implements Parameter
 {
     use FromArray;
-
+    
     /**
      * @var int|null User Id, see resource /users.
      */
     private $userId;
-
+    
     /**
      * @var int|null Category Id,  see resource /categories.
      */
     private $categoryId;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -39,17 +39,17 @@ class All implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('userId', $this->userId)
-            ->addOptionalParameter('categoryId', $this->categoryId)
+            ->addOptionalParameter('categoryId', $this->categoryId);
     }
-
+    
     /**
      * @return int|null User Id, see resource /users.
      */
@@ -57,7 +57,7 @@ class All implements Parameter
     {
         return $this->userId;
     }
-
+    
     /**
      * @return int|null Category Id,  see resource /categories.
      */
@@ -65,7 +65,7 @@ class All implements Parameter
     {
         return $this->categoryId;
     }
-
+    
     /**
      * @param int|null $userId User Id, see resource /users.
      * @return self
@@ -75,7 +75,7 @@ class All implements Parameter
         $this->userId = $userId;
         return $this;
     }
-
+    
     /**
      * @param int|null $categoryId Category Id,  see resource /categories.
      * @return self

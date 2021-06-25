@@ -11,12 +11,12 @@ class ProductqueriesEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Productqueries\All();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'productqueries/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productqueries\Collection\Products::fromArray($result);
     }
 }

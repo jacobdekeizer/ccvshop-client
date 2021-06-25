@@ -12,17 +12,17 @@ class AppstorecategoriesEndpoint extends BaseEndpoint
             self::GET,
             'appstorecategories/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Appstorecategories\Resource\Appstorecategories::fromArray($result);
     }
-
+    
     public function all(): \JacobDeKeizer\Ccv\Models\Appstorecategories\Collection\Appstorecategories
     {
         $result = $this->doRequest(
             self::GET,
             'appstorecategories/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Appstorecategories\Collection\Appstorecategories::fromArray($result);
     }
 }

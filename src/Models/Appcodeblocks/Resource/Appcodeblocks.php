@@ -10,48 +10,49 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Appcodeblocks implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Unique id of the resource.
      */
     private $id;
-
+    
     /**
      * @var int Unique id of the app associated with this code block.
      */
     private $appId;
-
+    
     /**
      * @var string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
     private $placeholder;
-
+    
     /**
      * @var string|null This is the title of the app code block. When empty the app name will be used.
      */
     private $title;
-
+    
     /**
      * @var string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
     private $value;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
     private $interactiveContent;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Appcodeblocks\Child\Resource\ParentItem|null App
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -59,7 +60,7 @@ class Appcodeblocks implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self.
      */
@@ -67,7 +68,7 @@ class Appcodeblocks implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Unique id of the resource.
      */
@@ -75,7 +76,7 @@ class Appcodeblocks implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int Unique id of the app associated with this code block.
      */
@@ -83,7 +84,7 @@ class Appcodeblocks implements Model
     {
         return $this->appId;
     }
-
+    
     /**
      * @return string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
@@ -91,7 +92,7 @@ class Appcodeblocks implements Model
     {
         return $this->placeholder;
     }
-
+    
     /**
      * @return string|null This is the title of the app code block. When empty the app name will be used.
      */
@@ -99,7 +100,7 @@ class Appcodeblocks implements Model
     {
         return $this->title;
     }
-
+    
     /**
      * @return string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
@@ -107,7 +108,7 @@ class Appcodeblocks implements Model
     {
         return $this->value;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
@@ -115,7 +116,7 @@ class Appcodeblocks implements Model
     {
         return $this->interactiveContent;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Child\Resource\ParentItem|null App
      */
@@ -123,7 +124,7 @@ class Appcodeblocks implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string|null $href Link to self.
      * @return self
@@ -134,7 +135,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Unique id of the resource.
      * @return self
@@ -145,7 +146,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $appId Unique id of the app associated with this code block.
      * @return self
@@ -156,7 +157,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('appId');
         return $this;
     }
-
+    
     /**
      * @param string $placeholder The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      * @return self
@@ -167,7 +168,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('placeholder');
         return $this;
     }
-
+    
     /**
      * @param string|null $title This is the title of the app code block. When empty the app name will be used.
      * @return self
@@ -178,7 +179,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('title');
         return $this;
     }
-
+    
     /**
      * @param string|null $value This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      * @return self
@@ -189,7 +190,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('value');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null $interactiveContent This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      * @return self
@@ -200,7 +201,7 @@ class Appcodeblocks implements Model
         $this->propertyFilled('interactiveContent');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Appcodeblocks\Child\Resource\ParentItem|null $parent App
      * @return self

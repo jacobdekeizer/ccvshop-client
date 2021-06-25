@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Unique id of the product.
      */
     private $productId;
-
+    
     /**
      * @var int Unique id of the user group.
      */
     private $usergroupId;
-
+    
     /**
      * @var float|null Adjusted price for this user group for this product.
      */
     private $price;
-
+    
     /**
      * @var float|null Adjusted discount price for this user group for this product. Must be NULL if price is NULL too.
      */
     private $discount;
-
+    
     /**
      * @var bool|null If TRUE then this product won't be visible for this user group.
      */
     private $hidden;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Unique id of the product.
      */
@@ -52,7 +53,7 @@ class Post implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return int Unique id of the user group.
      */
@@ -60,7 +61,7 @@ class Post implements Model
     {
         return $this->usergroupId;
     }
-
+    
     /**
      * @return float|null Adjusted price for this user group for this product.
      */
@@ -68,7 +69,7 @@ class Post implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float|null Adjusted discount price for this user group for this product. Must be NULL if price is NULL too.
      */
@@ -76,7 +77,7 @@ class Post implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool|null If TRUE then this product won't be visible for this user group.
      */
@@ -84,7 +85,7 @@ class Post implements Model
     {
         return $this->hidden;
     }
-
+    
     /**
      * @param int $productId Unique id of the product.
      * @return self
@@ -95,7 +96,7 @@ class Post implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param int $usergroupId Unique id of the user group.
      * @return self
@@ -106,7 +107,7 @@ class Post implements Model
         $this->propertyFilled('usergroupId');
         return $this;
     }
-
+    
     /**
      * @param float|null $price Adjusted price for this user group for this product.
      * @return self
@@ -117,7 +118,7 @@ class Post implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Adjusted discount price for this user group for this product. Must be NULL if price is NULL too.
      * @return self
@@ -128,7 +129,7 @@ class Post implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool|null $hidden If TRUE then this product won't be visible for this user group.
      * @return self

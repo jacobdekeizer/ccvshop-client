@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Classes;
 
+use JacobDeKeizer\Ccv\Contracts\Model;
+use JacobDeKeizer\Ccv\Traits\FromArray;
+use JacobDeKeizer\Ccv\Traits\ToArray;
 use JacobDeKeizer\CcvGenerator\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 use JacobDeKeizer\CcvGenerator\Writers\PropertiesWriter;
 
 class ModelClass
@@ -102,38 +106,35 @@ class ModelClass
 
     public function toString(): string
     {
-        $content = '<?php' . PHP_EOL
-            . PHP_EOL
-            . 'declare(strict_types=1);' . PHP_EOL
-            . PHP_EOL
-            . 'namespace ' . $this->namespace . ';' . PHP_EOL
-            . PHP_EOL
-            . 'use JacobDeKeizer\Ccv\Contracts\Model;' . PHP_EOL;
+        $codeWriter = new CodeWriter();
 
-        $content .= 'use JacobDeKeizer\Ccv\Traits\FromArray;' . PHP_EOL;
-        $content .= 'use JacobDeKeizer\Ccv\Traits\ToArray;' . PHP_EOL;
-        $content .= PHP_EOL;
+        $codeWriter->startPhpFile($this->namespace);
 
-        $content .= 'class ' . $this->name . ' implements Model' . PHP_EOL;
-        $content .= '{' . PHP_EOL;
+        $codeWriter->useClass(Model::class);
+        $codeWriter->useClass(FromArray::class);
+        $codeWriter->useClass(ToArray::class);
 
-        $content .= Php::INDENTATION . 'use FromArray, ToArray;' . PHP_EOL;
-        $content .= PHP_EOL;
+        $codeWriter->insertNewLine();
 
-        $content .= PropertiesWriter::writeProperties($this->properties);
+        $codeWriter->openClass('class ' . $this->name . ' implements Model');
+        $codeWriter->useClass('FromArray');
+        $codeWriter->useClass('ToArray');
 
-        $content .= Php::INDENTATION . '/**' . PHP_EOL
-            . Php::INDENTATION . ' * @return self' . PHP_EOL
-            . Php::INDENTATION . ' */' . PHP_EOL
-            . Php::INDENTATION . 'public static function fromArray(array $data): Model' . PHP_EOL
-            . Php::INDENTATION . '{' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . 'return self::createFromArray($data);' . PHP_EOL
-            . Php::INDENTATION . '}' . PHP_EOL;
+        PropertiesWriter::writeProperties($codeWriter, $this->properties);
 
-        $content .= PropertiesWriter::writeMethods($this->properties);
+        $codeWriter->insertNewLine();
 
-        $content .= '}' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock([
+            '@return self'
+        ]);
+        $codeWriter->openMethod('public static function fromArray(array $data): Model');
+        $codeWriter->writeLine('return self::createFromArray($data);');
+        $codeWriter->closeMethod();
 
-        return $content;
+        PropertiesWriter::writeMethods($codeWriter, $this->properties);
+
+        $codeWriter->closeClass();
+
+        return $codeWriter->content();
     }
 }

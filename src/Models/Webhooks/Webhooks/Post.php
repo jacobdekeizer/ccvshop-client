@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Event name, on which WebHook is triggered.
      */
     private $event;
-
+    
     /**
      * @var string Uri that will be called once the WebHook event is triggered.
      */
     private $address;
-
+    
     /**
      * @var bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
     private $isActive;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Event name, on which WebHook is triggered.
      */
@@ -42,7 +43,7 @@ class Post implements Model
     {
         return $this->event;
     }
-
+    
     /**
      * @return string Uri that will be called once the WebHook event is triggered.
      */
@@ -50,7 +51,7 @@ class Post implements Model
     {
         return $this->address;
     }
-
+    
     /**
      * @return bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
@@ -58,7 +59,7 @@ class Post implements Model
     {
         return $this->isActive;
     }
-
+    
     /**
      * @param string $event Event name, on which WebHook is triggered.
      * @return self
@@ -69,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('event');
         return $this;
     }
-
+    
     /**
      * @param string $address Uri that will be called once the WebHook event is triggered.
      * @return self
@@ -80,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('address');
         return $this;
     }
-
+    
     /**
      * @param bool|null $isActive True if the WebHook is active. Disabled WebHooks will not be triggered.
      * @return self

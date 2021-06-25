@@ -10,68 +10,69 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Users implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int User id
      */
     private $id;
-
+    
     /**
      * @var string Username must be unique within the webshop.
      */
     private $username;
-
+    
     /**
      * @var int|null Group id
      */
     private $groupId;
-
+    
     /**
      * @var bool Status of the user. Disabled users can't log in.
      */
     private $status;
-
+    
     /**
      * @var string Approval status of the user. Pending users are waiting on acceptance or rejection.
      */
     private $approvalStatus;
-
+    
     /**
      * @var string If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
     private $productInCategoryDiscount;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the user
+     * @var \JacobDeKeizer\Ccv\Models\Users\Entity\Personalinfo Describes personal information of the user
      */
     private $userinfo;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpoints|null Contains link to creditpoint resource.
      */
     private $creditpoints;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpointmutations|null Contains link to creditpoinmutations collection resource.
      */
     private $creditpointmutations;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
     private $disabledpaymethods;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Users\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -79,7 +80,7 @@ class Users implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -87,7 +88,7 @@ class Users implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int User id
      */
@@ -95,7 +96,7 @@ class Users implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Username must be unique within the webshop.
      */
@@ -103,7 +104,7 @@ class Users implements Model
     {
         return $this->username;
     }
-
+    
     /**
      * @return int|null Group id
      */
@@ -111,7 +112,7 @@ class Users implements Model
     {
         return $this->groupId;
     }
-
+    
     /**
      * @return bool Status of the user. Disabled users can't log in.
      */
@@ -119,7 +120,7 @@ class Users implements Model
     {
         return $this->status;
     }
-
+    
     /**
      * @return string Approval status of the user. Pending users are waiting on acceptance or rejection.
      */
@@ -127,7 +128,7 @@ class Users implements Model
     {
         return $this->approvalStatus;
     }
-
+    
     /**
      * @return string If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
@@ -135,15 +136,15 @@ class Users implements Model
     {
         return $this->productInCategoryDiscount;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the user
+     * @return \JacobDeKeizer\Ccv\Models\Users\Entity\Personalinfo Describes personal information of the user
      */
-    public function getUserinfo(): \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo
+    public function getUserinfo(): \JacobDeKeizer\Ccv\Models\Users\Entity\Personalinfo
     {
         return $this->userinfo;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpoints|null Contains link to creditpoint resource.
      */
@@ -151,7 +152,7 @@ class Users implements Model
     {
         return $this->creditpoints;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpointmutations|null Contains link to creditpoinmutations collection resource.
      */
@@ -159,7 +160,7 @@ class Users implements Model
     {
         return $this->creditpointmutations;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
@@ -167,7 +168,7 @@ class Users implements Model
     {
         return $this->disabledpaymethods;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Users\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -175,7 +176,7 @@ class Users implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -186,7 +187,7 @@ class Users implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id User id
      * @return self
@@ -197,7 +198,7 @@ class Users implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $username Username must be unique within the webshop.
      * @return self
@@ -208,7 +209,7 @@ class Users implements Model
         $this->propertyFilled('username');
         return $this;
     }
-
+    
     /**
      * @param int|null $groupId Group id
      * @return self
@@ -219,7 +220,7 @@ class Users implements Model
         $this->propertyFilled('groupId');
         return $this;
     }
-
+    
     /**
      * @param bool $status Status of the user. Disabled users can't log in.
      * @return self
@@ -230,7 +231,7 @@ class Users implements Model
         $this->propertyFilled('status');
         return $this;
     }
-
+    
     /**
      * @param string $approvalStatus Approval status of the user. Pending users are waiting on acceptance or rejection.
      * @return self
@@ -241,7 +242,7 @@ class Users implements Model
         $this->propertyFilled('approvalStatus');
         return $this;
     }
-
+    
     /**
      * @param string $productInCategoryDiscount If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      * @return self
@@ -252,18 +253,18 @@ class Users implements Model
         $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $userinfo Describes personal information of the user
+     * @param \JacobDeKeizer\Ccv\Models\Users\Entity\Personalinfo $userinfo Describes personal information of the user
      * @return self
      */
-    public function setUserinfo(\JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $userinfo): self
+    public function setUserinfo(\JacobDeKeizer\Ccv\Models\Users\Entity\Personalinfo $userinfo): self
     {
         $this->userinfo = $userinfo;
         $this->propertyFilled('userinfo');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpoints|null $creditpoints Contains link to creditpoint resource.
      * @return self
@@ -274,7 +275,7 @@ class Users implements Model
         $this->propertyFilled('creditpoints');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Creditpointmutations|null $creditpointmutations Contains link to creditpoinmutations collection resource.
      * @return self
@@ -285,7 +286,7 @@ class Users implements Model
         $this->propertyFilled('creditpointmutations');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Users\Child\Resource\Disabledpaymethods|null $disabledpaymethods Contains link to disabledpaymethods collection resource.
      * @return self
@@ -296,7 +297,7 @@ class Users implements Model
         $this->propertyFilled('disabledpaymethods');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Users\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

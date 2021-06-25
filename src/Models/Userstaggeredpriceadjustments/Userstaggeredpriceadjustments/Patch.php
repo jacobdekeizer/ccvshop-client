@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var float|null Adjusted price for this user for this product staggered price.
      */
     private $price;
-
+    
     /**
      * @var float|null Adjusted discount price for this user for this product staggered price.
      */
     private $discount;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return float|null Adjusted price for this user for this product staggered price.
      */
@@ -37,7 +38,7 @@ class Patch implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float|null Adjusted discount price for this user for this product staggered price.
      */
@@ -45,7 +46,7 @@ class Patch implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @param float|null $price Adjusted price for this user for this product staggered price.
      * @return self
@@ -56,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Adjusted discount price for this user for this product staggered price.
      * @return self

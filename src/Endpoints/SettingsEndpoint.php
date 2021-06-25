@@ -12,17 +12,17 @@ class SettingsEndpoint extends BaseEndpoint
             self::GET,
             'webshops/' . $id . '/settings/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Settings\Entity\Settings::fromArray($result);
     }
-
+    
     public function updateFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Settings\Settings\Put
     {
         $result = $this->doRequest(
             self::PUT,
             'webshops/' . $id . '/settings/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Settings\Settings\Put::fromArray($result);
     }
 }

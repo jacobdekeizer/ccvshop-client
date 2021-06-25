@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int|null Attribute option position
      */
     private $optionposition;
-
+    
     /**
      * @var int|null Attribute option value position
      */
     private $position;
-
+    
     /**
      * @var float|null Attribute option value price
      */
     private $price;
-
+    
     /**
      * @var bool|null Deprecated. Attribute option value enable. Value is always true.
      */
     private $enable;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int|null Attribute option position
      */
@@ -47,7 +48,7 @@ class Patch implements Model
     {
         return $this->optionposition;
     }
-
+    
     /**
      * @return int|null Attribute option value position
      */
@@ -55,7 +56,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @return float|null Attribute option value price
      */
@@ -63,16 +64,15 @@ class Patch implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return bool|null Deprecated. Attribute option value enable. Value is always true.
-     * @deprecated
      */
     public function getEnable(): ?bool
     {
         return $this->enable;
     }
-
+    
     /**
      * @param int|null $optionposition Attribute option position
      * @return self
@@ -83,7 +83,7 @@ class Patch implements Model
         $this->propertyFilled('optionposition');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Attribute option value position
      * @return self
@@ -94,7 +94,7 @@ class Patch implements Model
         $this->propertyFilled('position');
         return $this;
     }
-
+    
     /**
      * @param float|null $price Attribute option value price
      * @return self
@@ -105,11 +105,10 @@ class Patch implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param bool|null $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
-     * @deprecated
      */
     public function setEnable(?bool $enable): self
     {

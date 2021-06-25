@@ -12,17 +12,17 @@ class OrderlabelsEndpoint extends BaseEndpoint
             self::GET,
             'orders/' . $id . '/orderlabels/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderlabels\Collection\Orderlabels::fromArray($result);
     }
-
+    
     public function updateFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Orderlabels\Orderlabels\Put
     {
         $result = $this->doRequest(
             self::PUT,
             'orders/' . $id . '/orderlabels/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderlabels\Orderlabels\Put::fromArray($result);
     }
 }

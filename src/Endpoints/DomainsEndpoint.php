@@ -12,7 +12,7 @@ class DomainsEndpoint extends BaseEndpoint
             self::GET,
             'webshops/' . $id . '/domains/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Domains\Collection\Domains::fromArray($result);
     }
 }

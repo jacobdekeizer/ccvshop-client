@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
     private $value;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
@@ -32,7 +33,7 @@ class Patch implements Model
     {
         return $this->value;
     }
-
+    
     /**
      * @param string $value The value, an boolean when checkbox, an optionid when property type is option, string when else
      * @return self

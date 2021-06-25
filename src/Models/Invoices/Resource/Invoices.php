@@ -10,208 +10,209 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Invoices implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Invoice id.
      */
     private $id;
-
+    
     /**
      * @var string|null Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
      */
     private $invoicenumberPrefix;
-
+    
     /**
      * @var int Invoice number, automatically generated when the invoice is created.
      */
     private $invoicenumber;
-
+    
     /**
      * @var string Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
      */
     private $invoicenumberFull;
-
+    
     /**
      * @var string|null Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
      */
     private $ordernumberPrefix;
-
+    
     /**
      * @var int Order number of the order that this invoice is part of, automatically generated when the invoice is created.
      */
     private $ordernumber;
-
+    
     /**
      * @var string Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
      */
     private $ordernumberFull;
-
+    
     /**
      * @var string Createdate of this invoice in UTC.
      */
     private $createDate;
-
+    
     /**
      * @var string Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      */
     private $status;
-
+    
     /**
      * @var string The display name of the invoice status.
      */
     private $statusName;
-
+    
     /**
      * @var string Type defines if it either an debit or credit invoice.
      */
     private $type;
-
+    
     /**
      * @var string|null Date of when the payment link was send to the customer in UTC.
      */
     private $paymentLinkSent;
-
+    
     /**
      * @var bool If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
      */
     private $taxesIncluded;
-
+    
     /**
      * @var bool If true, invoice row prices contain taxes.
      */
     private $invoiceRowTaxesIncluded;
-
+    
     /**
      * @var bool Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
      */
     private $isIntraCommunityOrder;
-
+    
     /**
      * @var bool If true, then shippingcosts are included in the total tax amount.
      */
     private $shippingTaxesIncluded;
-
+    
     /**
      * @var float Tax percentage of the shipping costs.
      */
     private $shippingTaxPercentage;
-
+    
     /**
      * @var float Total shipping costs.
      */
     private $totalShipping;
-
+    
     /**
      * @var float Total discount on the invoice. This includes the discount of coupons if available.
      */
     private $totalDiscounts;
-
+    
     /**
      * @var float Total price inc tax.
      */
     private $totalPriceIncTax;
-
+    
     /**
      * @var float Total price excl tax.
      */
     private $totalPriceExcTax;
-
+    
     /**
      * @var float Total price.
      */
     private $totalPrice;
-
+    
     /**
      * @var float Total tax amount on the invoice.
      */
     private $totalTax;
-
+    
     /**
      * @var string ISO 4217 Currency Code.
      */
     private $currency;
-
+    
     /**
      * @var string Payment option name.
      */
     private $extraPaymentOption;
-
+    
     /**
      * @var float|null Payment option price.
      */
     private $extraPaymentOptionPrice;
-
+    
     /**
      * @var float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
      */
     private $paymethodCosts;
-
+    
     /**
      * @var float|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      */
     private $creditPointDiscount;
-
+    
     /**
      * @var float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      */
     private $extraCosts;
-
+    
     /**
      * @var string Description of the extra costs. This is visible on the invoice.
      */
     private $extraCostsDescription;
-
+    
     /**
      * @var string|null A reference to the invoice number at a third party.
      */
     private $externalReference;
-
+    
     /**
      * @var string Direct invoice download link.
      */
     private $deeplink;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User Link to possible user resource associated with this invoice.
      */
     private $user;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer
      */
     private $customer;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon Link to possible discount coupon associated with this invoice.
      */
     private $discountcoupon;
-
+    
     /**
      * @var string|null Link to the order associated with this invoice.
      */
     private $order;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows Products that are included in this invoice.
      */
     private $invoicerows;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
      */
     private $invoicenotifications;
-
+    
     /**
      * @var string Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
      */
     private $downloadLink;
-
+    
     /**
      * @return self
      */
@@ -219,7 +220,7 @@ class Invoices implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self.
      */
@@ -227,7 +228,7 @@ class Invoices implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Invoice id.
      */
@@ -235,7 +236,7 @@ class Invoices implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
      */
@@ -243,7 +244,7 @@ class Invoices implements Model
     {
         return $this->invoicenumberPrefix;
     }
-
+    
     /**
      * @return int Invoice number, automatically generated when the invoice is created.
      */
@@ -251,7 +252,7 @@ class Invoices implements Model
     {
         return $this->invoicenumber;
     }
-
+    
     /**
      * @return string Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
      */
@@ -259,7 +260,7 @@ class Invoices implements Model
     {
         return $this->invoicenumberFull;
     }
-
+    
     /**
      * @return string|null Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
      */
@@ -267,7 +268,7 @@ class Invoices implements Model
     {
         return $this->ordernumberPrefix;
     }
-
+    
     /**
      * @return int Order number of the order that this invoice is part of, automatically generated when the invoice is created.
      */
@@ -275,7 +276,7 @@ class Invoices implements Model
     {
         return $this->ordernumber;
     }
-
+    
     /**
      * @return string Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
      */
@@ -283,7 +284,7 @@ class Invoices implements Model
     {
         return $this->ordernumberFull;
     }
-
+    
     /**
      * @return string Createdate of this invoice in UTC.
      */
@@ -291,7 +292,7 @@ class Invoices implements Model
     {
         return $this->createDate;
     }
-
+    
     /**
      * @return string Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      */
@@ -299,7 +300,7 @@ class Invoices implements Model
     {
         return $this->status;
     }
-
+    
     /**
      * @return string The display name of the invoice status.
      */
@@ -307,7 +308,7 @@ class Invoices implements Model
     {
         return $this->statusName;
     }
-
+    
     /**
      * @return string Type defines if it either an debit or credit invoice.
      */
@@ -315,7 +316,7 @@ class Invoices implements Model
     {
         return $this->type;
     }
-
+    
     /**
      * @return string|null Date of when the payment link was send to the customer in UTC.
      */
@@ -323,7 +324,7 @@ class Invoices implements Model
     {
         return $this->paymentLinkSent;
     }
-
+    
     /**
      * @return bool If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
      */
@@ -331,7 +332,7 @@ class Invoices implements Model
     {
         return $this->taxesIncluded;
     }
-
+    
     /**
      * @return bool If true, invoice row prices contain taxes.
      */
@@ -339,7 +340,7 @@ class Invoices implements Model
     {
         return $this->invoiceRowTaxesIncluded;
     }
-
+    
     /**
      * @return bool Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
      */
@@ -347,7 +348,7 @@ class Invoices implements Model
     {
         return $this->isIntraCommunityOrder;
     }
-
+    
     /**
      * @return bool If true, then shippingcosts are included in the total tax amount.
      */
@@ -355,7 +356,7 @@ class Invoices implements Model
     {
         return $this->shippingTaxesIncluded;
     }
-
+    
     /**
      * @return float Tax percentage of the shipping costs.
      */
@@ -363,7 +364,7 @@ class Invoices implements Model
     {
         return $this->shippingTaxPercentage;
     }
-
+    
     /**
      * @return float Total shipping costs.
      */
@@ -371,7 +372,7 @@ class Invoices implements Model
     {
         return $this->totalShipping;
     }
-
+    
     /**
      * @return float Total discount on the invoice. This includes the discount of coupons if available.
      */
@@ -379,7 +380,7 @@ class Invoices implements Model
     {
         return $this->totalDiscounts;
     }
-
+    
     /**
      * @return float Total price inc tax.
      */
@@ -387,7 +388,7 @@ class Invoices implements Model
     {
         return $this->totalPriceIncTax;
     }
-
+    
     /**
      * @return float Total price excl tax.
      */
@@ -395,7 +396,7 @@ class Invoices implements Model
     {
         return $this->totalPriceExcTax;
     }
-
+    
     /**
      * @return float Total price.
      */
@@ -403,7 +404,7 @@ class Invoices implements Model
     {
         return $this->totalPrice;
     }
-
+    
     /**
      * @return float Total tax amount on the invoice.
      */
@@ -411,7 +412,7 @@ class Invoices implements Model
     {
         return $this->totalTax;
     }
-
+    
     /**
      * @return string ISO 4217 Currency Code.
      */
@@ -419,7 +420,7 @@ class Invoices implements Model
     {
         return $this->currency;
     }
-
+    
     /**
      * @return string Payment option name.
      */
@@ -427,7 +428,7 @@ class Invoices implements Model
     {
         return $this->extraPaymentOption;
     }
-
+    
     /**
      * @return float|null Payment option price.
      */
@@ -435,7 +436,7 @@ class Invoices implements Model
     {
         return $this->extraPaymentOptionPrice;
     }
-
+    
     /**
      * @return float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
      */
@@ -443,7 +444,7 @@ class Invoices implements Model
     {
         return $this->paymethodCosts;
     }
-
+    
     /**
      * @return float|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      */
@@ -451,7 +452,7 @@ class Invoices implements Model
     {
         return $this->creditPointDiscount;
     }
-
+    
     /**
      * @return float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      */
@@ -459,7 +460,7 @@ class Invoices implements Model
     {
         return $this->extraCosts;
     }
-
+    
     /**
      * @return string Description of the extra costs. This is visible on the invoice.
      */
@@ -467,7 +468,7 @@ class Invoices implements Model
     {
         return $this->extraCostsDescription;
     }
-
+    
     /**
      * @return string|null A reference to the invoice number at a third party.
      */
@@ -475,7 +476,7 @@ class Invoices implements Model
     {
         return $this->externalReference;
     }
-
+    
     /**
      * @return string Direct invoice download link.
      */
@@ -483,7 +484,7 @@ class Invoices implements Model
     {
         return $this->deeplink;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User Link to possible user resource associated with this invoice.
      */
@@ -491,7 +492,7 @@ class Invoices implements Model
     {
         return $this->user;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo Describes personal information of the customer
      */
@@ -499,7 +500,7 @@ class Invoices implements Model
     {
         return $this->customer;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon Link to possible discount coupon associated with this invoice.
      */
@@ -507,7 +508,7 @@ class Invoices implements Model
     {
         return $this->discountcoupon;
     }
-
+    
     /**
      * @return string|null Link to the order associated with this invoice.
      */
@@ -515,7 +516,7 @@ class Invoices implements Model
     {
         return $this->order;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows Products that are included in this invoice.
      */
@@ -523,7 +524,7 @@ class Invoices implements Model
     {
         return $this->invoicerows;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
      */
@@ -531,16 +532,15 @@ class Invoices implements Model
     {
         return $this->invoicenotifications;
     }
-
+    
     /**
      * @return string Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
-     * @deprecated Use the property 'deeplink' instead.
      */
     public function getDownloadLink(): string
     {
         return $this->downloadLink;
     }
-
+    
     /**
      * @param string $href Link to self.
      * @return self
@@ -551,7 +551,7 @@ class Invoices implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Invoice id.
      * @return self
@@ -562,7 +562,7 @@ class Invoices implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $invoicenumberPrefix Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
      * @return self
@@ -573,7 +573,7 @@ class Invoices implements Model
         $this->propertyFilled('invoicenumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $invoicenumber Invoice number, automatically generated when the invoice is created.
      * @return self
@@ -584,7 +584,7 @@ class Invoices implements Model
         $this->propertyFilled('invoicenumber');
         return $this;
     }
-
+    
     /**
      * @param string $invoicenumberFull Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -595,7 +595,7 @@ class Invoices implements Model
         $this->propertyFilled('invoicenumberFull');
         return $this;
     }
-
+    
     /**
      * @param string|null $ordernumberPrefix Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
      * @return self
@@ -606,7 +606,7 @@ class Invoices implements Model
         $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
-
+    
     /**
      * @param int $ordernumber Order number of the order that this invoice is part of, automatically generated when the invoice is created.
      * @return self
@@ -617,7 +617,7 @@ class Invoices implements Model
         $this->propertyFilled('ordernumber');
         return $this;
     }
-
+    
     /**
      * @param string $ordernumberFull Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
      * @return self
@@ -628,7 +628,7 @@ class Invoices implements Model
         $this->propertyFilled('ordernumberFull');
         return $this;
     }
-
+    
     /**
      * @param string $createDate Createdate of this invoice in UTC.
      * @return self
@@ -639,7 +639,7 @@ class Invoices implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-
+    
     /**
      * @param string $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      * @return self
@@ -650,7 +650,7 @@ class Invoices implements Model
         $this->propertyFilled('status');
         return $this;
     }
-
+    
     /**
      * @param string $statusName The display name of the invoice status.
      * @return self
@@ -661,7 +661,7 @@ class Invoices implements Model
         $this->propertyFilled('statusName');
         return $this;
     }
-
+    
     /**
      * @param string $type Type defines if it either an debit or credit invoice.
      * @return self
@@ -672,7 +672,7 @@ class Invoices implements Model
         $this->propertyFilled('type');
         return $this;
     }
-
+    
     /**
      * @param string|null $paymentLinkSent Date of when the payment link was send to the customer in UTC.
      * @return self
@@ -683,7 +683,7 @@ class Invoices implements Model
         $this->propertyFilled('paymentLinkSent');
         return $this;
     }
-
+    
     /**
      * @param bool $taxesIncluded If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
      * @return self
@@ -694,7 +694,7 @@ class Invoices implements Model
         $this->propertyFilled('taxesIncluded');
         return $this;
     }
-
+    
     /**
      * @param bool $invoiceRowTaxesIncluded If true, invoice row prices contain taxes.
      * @return self
@@ -705,7 +705,7 @@ class Invoices implements Model
         $this->propertyFilled('invoiceRowTaxesIncluded');
         return $this;
     }
-
+    
     /**
      * @param bool $isIntraCommunityOrder Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
      * @return self
@@ -716,7 +716,7 @@ class Invoices implements Model
         $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
-
+    
     /**
      * @param bool $shippingTaxesIncluded If true, then shippingcosts are included in the total tax amount.
      * @return self
@@ -727,7 +727,7 @@ class Invoices implements Model
         $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
-
+    
     /**
      * @param float $shippingTaxPercentage Tax percentage of the shipping costs.
      * @return self
@@ -738,7 +738,7 @@ class Invoices implements Model
         $this->propertyFilled('shippingTaxPercentage');
         return $this;
     }
-
+    
     /**
      * @param float $totalShipping Total shipping costs.
      * @return self
@@ -749,7 +749,7 @@ class Invoices implements Model
         $this->propertyFilled('totalShipping');
         return $this;
     }
-
+    
     /**
      * @param float $totalDiscounts Total discount on the invoice. This includes the discount of coupons if available.
      * @return self
@@ -760,7 +760,7 @@ class Invoices implements Model
         $this->propertyFilled('totalDiscounts');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceIncTax Total price inc tax.
      * @return self
@@ -771,7 +771,7 @@ class Invoices implements Model
         $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPriceExcTax Total price excl tax.
      * @return self
@@ -782,7 +782,7 @@ class Invoices implements Model
         $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
-
+    
     /**
      * @param float $totalPrice Total price.
      * @return self
@@ -793,7 +793,7 @@ class Invoices implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-
+    
     /**
      * @param float $totalTax Total tax amount on the invoice.
      * @return self
@@ -804,7 +804,7 @@ class Invoices implements Model
         $this->propertyFilled('totalTax');
         return $this;
     }
-
+    
     /**
      * @param string $currency ISO 4217 Currency Code.
      * @return self
@@ -815,7 +815,7 @@ class Invoices implements Model
         $this->propertyFilled('currency');
         return $this;
     }
-
+    
     /**
      * @param string $extraPaymentOption Payment option name.
      * @return self
@@ -826,7 +826,7 @@ class Invoices implements Model
         $this->propertyFilled('extraPaymentOption');
         return $this;
     }
-
+    
     /**
      * @param float|null $extraPaymentOptionPrice Payment option price.
      * @return self
@@ -837,7 +837,7 @@ class Invoices implements Model
         $this->propertyFilled('extraPaymentOptionPrice');
         return $this;
     }
-
+    
     /**
      * @param float $paymethodCosts Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
      * @return self
@@ -848,7 +848,7 @@ class Invoices implements Model
         $this->propertyFilled('paymethodCosts');
         return $this;
     }
-
+    
     /**
      * @param float|null $creditPointDiscount The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      * @return self
@@ -859,7 +859,7 @@ class Invoices implements Model
         $this->propertyFilled('creditPointDiscount');
         return $this;
     }
-
+    
     /**
      * @param float $extraCosts Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      * @return self
@@ -870,7 +870,7 @@ class Invoices implements Model
         $this->propertyFilled('extraCosts');
         return $this;
     }
-
+    
     /**
      * @param string $extraCostsDescription Description of the extra costs. This is visible on the invoice.
      * @return self
@@ -881,7 +881,7 @@ class Invoices implements Model
         $this->propertyFilled('extraCostsDescription');
         return $this;
     }
-
+    
     /**
      * @param string|null $externalReference A reference to the invoice number at a third party.
      * @return self
@@ -892,7 +892,7 @@ class Invoices implements Model
         $this->propertyFilled('externalReference');
         return $this;
     }
-
+    
     /**
      * @param string $deeplink Direct invoice download link.
      * @return self
@@ -903,7 +903,7 @@ class Invoices implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\User $user Link to possible user resource associated with this invoice.
      * @return self
@@ -914,7 +914,7 @@ class Invoices implements Model
         $this->propertyFilled('user');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoices\Entity\Personalinfo $customer Describes personal information of the customer
      * @return self
@@ -925,7 +925,7 @@ class Invoices implements Model
         $this->propertyFilled('customer');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Discountcoupon $discountcoupon Link to possible discount coupon associated with this invoice.
      * @return self
@@ -936,7 +936,7 @@ class Invoices implements Model
         $this->propertyFilled('discountcoupon');
         return $this;
     }
-
+    
     /**
      * @param string|null $order Link to the order associated with this invoice.
      * @return self
@@ -947,7 +947,7 @@ class Invoices implements Model
         $this->propertyFilled('order');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicerows $invoicerows Products that are included in this invoice.
      * @return self
@@ -958,7 +958,7 @@ class Invoices implements Model
         $this->propertyFilled('invoicerows');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoices\Child\Resource\Invoicenotifications $invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
      * @return self
@@ -969,11 +969,10 @@ class Invoices implements Model
         $this->propertyFilled('invoicenotifications');
         return $this;
     }
-
+    
     /**
      * @param string $downloadLink Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
      * @return self
-     * @deprecated Use the property 'deeplink' instead.
      */
     public function setDownloadLink(string $downloadLink): self
     {

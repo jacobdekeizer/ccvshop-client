@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Keyword to add for this product.
      */
     private $keyword;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Keyword to add for this product.
      */
@@ -32,7 +33,7 @@ class Post implements Model
     {
         return $this->keyword;
     }
-
+    
     /**
      * @param string $keyword Keyword to add for this product.
      * @return self

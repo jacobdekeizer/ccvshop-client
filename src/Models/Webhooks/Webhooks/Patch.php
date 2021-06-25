@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Uri that will be called once the WebHook event is triggered.
      */
     private $address;
-
+    
     /**
      * @var bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
     private $isActive;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Uri that will be called once the WebHook event is triggered.
      */
@@ -37,7 +38,7 @@ class Patch implements Model
     {
         return $this->address;
     }
-
+    
     /**
      * @return bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
@@ -45,7 +46,7 @@ class Patch implements Model
     {
         return $this->isActive;
     }
-
+    
     /**
      * @param string|null $address Uri that will be called once the WebHook event is triggered.
      * @return self
@@ -56,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('address');
         return $this;
     }
-
+    
     /**
      * @param bool|null $isActive True if the WebHook is active. Disabled WebHooks will not be triggered.
      * @return self

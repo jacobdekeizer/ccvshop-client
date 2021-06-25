@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Photo extension
      */
     private $fileType;
-
+    
     /**
      * @var string|null Photo alt text
      */
     private $alttext;
-
+    
     /**
      * @var string Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
      */
     private $source;
-
+    
     /**
      * @var bool|null Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
      */
     private $isMainphoto;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Photo extension
      */
@@ -47,7 +48,7 @@ class Post implements Model
     {
         return $this->fileType;
     }
-
+    
     /**
      * @return string|null Photo alt text
      */
@@ -55,7 +56,7 @@ class Post implements Model
     {
         return $this->alttext;
     }
-
+    
     /**
      * @return string Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
      */
@@ -63,7 +64,7 @@ class Post implements Model
     {
         return $this->source;
     }
-
+    
     /**
      * @return bool|null Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
      */
@@ -71,7 +72,7 @@ class Post implements Model
     {
         return $this->isMainphoto;
     }
-
+    
     /**
      * @param string $fileType Photo extension
      * @return self
@@ -82,7 +83,7 @@ class Post implements Model
         $this->propertyFilled('fileType');
         return $this;
     }
-
+    
     /**
      * @param string|null $alttext Photo alt text
      * @return self
@@ -93,7 +94,7 @@ class Post implements Model
         $this->propertyFilled('alttext');
         return $this;
     }
-
+    
     /**
      * @param string $source Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
      * @return self
@@ -104,7 +105,7 @@ class Post implements Model
         $this->propertyFilled('source');
         return $this;
     }
-
+    
     /**
      * @param bool|null $isMainphoto Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
      * @return self

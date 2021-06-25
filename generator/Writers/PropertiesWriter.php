@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Writers;
 
-use JacobDeKeizer\CcvGenerator\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 
 class PropertiesWriter
@@ -12,52 +11,52 @@ class PropertiesWriter
     /**
      * @param Property[] $properties
      */
-    public static function writeProperties(array $properties): string
+    public static function writeProperties(CodeWriter $codeWriter, array $properties): void
     {
-        $content = '';
-
         foreach ($properties as $property) {
-            $content .= $property->getProperty() . PHP_EOL;
+            $codeWriter->insertNewLine();
+            $property->writeProperty($codeWriter);
         }
-
-        return $content;
     }
 
     /**
      * @param Property[] $properties
      */
-    public static function writeMethods(array $properties, bool $setPropertyFilled = true): string
+    public static function writeMethods(CodeWriter $codeWriter, array $properties, bool $setPropertyFilled = true): void
     {
-        $content = '';
-
         foreach ($properties as $property) {
-            $content .= PHP_EOL . $property->getGetter();
+            $codeWriter->insertNewLine();
+            $property->writeGetter($codeWriter);
         }
 
         foreach ($properties as $property) {
-            $content .= PHP_EOL . $property->getSetter($setPropertyFilled);
+            $codeWriter->insertNewLine();
+            $property->writeSetter($codeWriter, $setPropertyFilled);
         }
 
-        // start on convert code for the to array method for some properties
-        $convertCode = null;
+        $hasConvertCode = false;
 
         foreach ($properties as $property) {
-            $tempConvertCode = $property->getConvertCode();
-
-            if ($tempConvertCode !== null) {
-                $convertCode .= $tempConvertCode;
+            if ($property->hasConvertCode()) {
+                $hasConvertCode = true;
+                break;
             }
         }
 
-        if ($convertCode !== null) {
-            $content .= PHP_EOL
-                . Php::INDENTATION . 'protected function convertFromArrayData(string $key, $value)' . PHP_EOL
-                . Php::INDENTATION . '{' . PHP_EOL
-                . $convertCode . PHP_EOL
-                . Php::INDENTATION . Php::INDENTATION . 'return $value;' . PHP_EOL
-                . Php::INDENTATION . '}' . PHP_EOL;
+        if (!$hasConvertCode) {
+            return;
         }
 
-        return $content;
+        $codeWriter->openMethod('protected function convertFromArrayData(string $key, $value)');
+
+        foreach ($properties as $property) {
+            if ($property->hasConvertCode()) {
+                $property->writeConvertCode($codeWriter);
+                $codeWriter->insertNewLine();
+            }
+        }
+
+        $codeWriter->writeLine('return $value;');
+        $codeWriter->closeMethod();
     }
 }

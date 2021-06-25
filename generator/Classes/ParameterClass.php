@@ -4,9 +4,17 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Classes;
 
+use JacobDeKeizer\Ccv\Contracts\Parameter;
+use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;
+use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
+use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
+use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\CcvGenerator\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 use JacobDeKeizer\CcvGenerator\Writers\PropertiesWriter;
 
 class ParameterClass
@@ -101,160 +109,137 @@ class ParameterClass
     public function toString(): string
     {
         $hasExpandableFields = count($this->expandableFields) > 0;
-        $hasSortableFields =  count($this->sortableFields) > 0;
+        $hasSortableFields = count($this->sortableFields) > 0;
 
-        $content = '<?php' . PHP_EOL
-            . PHP_EOL
-            . 'declare(strict_types=1);' . PHP_EOL
-            . PHP_EOL
-            . 'namespace ' . $this->namespace . ';' . PHP_EOL
-            . PHP_EOL;
+        $codeWriter = new CodeWriter();
+        $codeWriter->startPhpFile($this->namespace);
 
-        $content .= 'use JacobDeKeizer\Ccv\Contracts\Parameter;' . PHP_EOL;
-        $content .= 'use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;' . PHP_EOL;
+        $codeWriter->useClass(Parameter::class);
+        $codeWriter->useClass(QueryParametersArrayFactory::class);
 
         if ($hasExpandableFields) {
-            $content .= 'use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;' . PHP_EOL;
+            $codeWriter->useClass(ExpandableFields::class);
         }
 
         if ($hasSortableFields) {
-            $content .= 'use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;' . PHP_EOL;
+            $codeWriter->useClass(SortableFields::class);
         }
 
         if ($this->paginated) {
-            $content .= 'use JacobDeKeizer\Ccv\Parameters\PaginatedList;' . PHP_EOL;
+            $codeWriter->useClass(PaginatedList::class);
         }
 
-        $content .= 'use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;' . PHP_EOL;
-        $content .= 'use JacobDeKeizer\Ccv\Traits\FromArray;' . PHP_EOL;
-        $content .= PHP_EOL;
+        $codeWriter->useClass(QueryParameterBuilder::class);
+        $codeWriter->useClass(FromArray::class);
 
-        $content .= sprintf(
-            'class %s%s implements Parameter' . PHP_EOL,
+        $codeWriter->insertNewLine();
+
+        $codeWriter->openClass(sprintf(
+            'class %s%s implements Parameter',
             $this->name,
             $this->paginated ? ' extends PaginatedList' : ''
-        );
-        $content .= '{' . PHP_EOL;
+        ));
 
-        $content .= Php::INDENTATION . 'use FromArray;' . PHP_EOL;
+        $codeWriter->useClass('FromArray');
 
         if ($hasExpandableFields) {
-            $content .= Php::INDENTATION . 'use ExpandableFields;' . PHP_EOL;
+            $codeWriter->useClass('ExpandableFields');
         }
 
         if ($hasSortableFields) {
-            $content .= Php::INDENTATION . 'use SortableFields;' . PHP_EOL;
+            $codeWriter->useClass('SortableFields');
         }
 
-        $content .= PHP_EOL;
+        PropertiesWriter::writeProperties($codeWriter, $this->properties);
 
-        $content .= PropertiesWriter::writeProperties($this->properties);
+        $codeWriter->insertNewLine();
 
-        $content .= Php::INDENTATION . '/**' . PHP_EOL
-            . Php::INDENTATION . ' * @return self' . PHP_EOL
-            . Php::INDENTATION . ' */' . PHP_EOL
-            . Php::INDENTATION . 'public static function fromArray(array $data): self' . PHP_EOL
-            . Php::INDENTATION . '{' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . 'return self::createFromArray($data);' . PHP_EOL
-            . Php::INDENTATION . '}' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock(['@return self']);
+        $codeWriter->openMethod('public static function fromArray(array $data): Parameter');
+        $codeWriter->writeLine('return self::createFromArray($data);');
+        $codeWriter->closeMethod();
 
-        $content .= PHP_EOL;
+        $codeWriter->insertNewLine();
 
-        $content .= Php::INDENTATION . '/**' . PHP_EOL
-            . Php::INDENTATION . ' * @return self' . PHP_EOL
-            . Php::INDENTATION . ' */' . PHP_EOL
-            . Php::INDENTATION . 'public static function fromUrl(?string $url): ?self' . PHP_EOL
-            . Php::INDENTATION . '{' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . 'if ($url === null) {' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . Php::INDENTATION . 'return null;' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . '}' . PHP_EOL
-            . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION
-                . 'return self::fromArray(QueryParametersArrayFactory::fromUrl($url));' . PHP_EOL
-            . Php::INDENTATION . '}' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock(['@return self']);
+        $codeWriter->openMethod('public static function fromUrl(?string $url): ?self');
+        $codeWriter->writeLine('if ($url === null) {');
+        $codeWriter->indent();
+        $codeWriter->writeLine('return null;');
+        $codeWriter->outdent();
+        $codeWriter->writeLine('}');
+        $codeWriter->insertNewLine();
+        $codeWriter->writeLine('return self::fromArray(QueryParametersArrayFactory::fromUrl($url));');
+        $codeWriter->closeMethod();
 
-        $content .= PHP_EOL;
+        $codeWriter->insertNewLine();
 
-        $content .= Php::INDENTATION . 'public function toBuilder(): QueryParameterBuilder' . PHP_EOL
-            . Php::INDENTATION . '{' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . 'return (parent::toBuilder())' . PHP_EOL;
+        $codeWriter->openMethod('public function toBuilder(): QueryParameterBuilder');
+        $codeWriter->writeLine('return (parent::toBuilder())');
+        $codeWriter->indent();
 
-        $methodIndentation = Php::INDENTATION . Php::INDENTATION . Php::INDENTATION;
+        $propertiesCount = count($this->properties);
 
-        foreach ($this->properties as $property) {
-            $content .= sprintf('%s->addOptionalParameter(\'%s\', $this->%s)%s',
-                $methodIndentation,
-                $property->getName(),
-                $property->getName(),
-                PHP_EOL
+        for ($i = 0; $i < $propertiesCount; $i++) {
+            $codeWriter->writeLine(
+                sprintf(
+                    '->addOptionalParameter(\'%s\', $this->%s)%s',
+                    $this->properties[$i]->getName(),
+                    $this->properties[$i]->getName(),
+                    $i === $propertiesCount - 1 && !$hasExpandableFields && !$hasSortableFields ? ';' : ''
+                )
             );
         }
 
+
         if ($hasExpandableFields) {
-            $content .= $methodIndentation . '->expandFields($this->getExpandedFields())' . PHP_EOL;
+            $codeWriter->writeLine('->expandFields($this->getExpandedFields())' . ($hasSortableFields ? '' : ';'));
         }
 
         if ($hasSortableFields) {
-            $content .= $methodIndentation . '->orderBy($this->getOrderBy());'  . PHP_EOL;
+            $codeWriter->writeLine('->orderBy($this->getOrderBy());');
         }
 
-        $content .= Php::INDENTATION . '}' . PHP_EOL;
+        $codeWriter->outdent();
+        $codeWriter->closeMethod();
 
-        $content .= PropertiesWriter::writeMethods($this->properties, false);
+        PropertiesWriter::writeMethods($codeWriter, $this->properties, false);
 
         foreach ($this->expandableFields as $expandableField) {
-            $content .= PHP_EOL;
-            $content .= sprintf(
-                '%spublic function expand%s(bool $expand = true): self%s',
-                Php::INDENTATION,
+            $codeWriter->insertNewLine();
+
+            $codeWriter->openMethod(sprintf(
+                'public function expand%s(bool $expand = true): self',
                 ucfirst($expandableField),
-                PHP_EOL
-            );
-
-            $content .= Php::INDENTATION . '{' . PHP_EOL;
-
-            $content .= Php::INDENTATION . Php::INDENTATION . sprintf(
-                '$this->expandField(\'%s\', $expand);%s',
-                $expandableField,
-                PHP_EOL
-            );
-
-            $content .= PHP::INDENTATION . PHP::INDENTATION . 'return $this;' . PHP_EOL;
-
-            $content .= Php::INDENTATION . '}' . PHP_EOL;
+            ));
+            $codeWriter->writeLine(sprintf('$this->expandField(\'%s\', $expand);', $expandableField));
+            $codeWriter->writeLine('return $this;');
+            $codeWriter->closeMethod();
         }
 
         foreach ($this->sortableFields as $sortableField) {
-            $content .= $this->makeOrderByField($sortableField, true);
-            $content .= $this->makeOrderByField($sortableField, false);
+            $this->writeOrderByField($codeWriter, $sortableField, true);
+            $this->writeOrderByField($codeWriter, $sortableField, false);
         }
 
-        $content .= '}' . PHP_EOL;
+        $codeWriter->closeClass();
 
-        return $content;
+        return $codeWriter->content();
     }
 
-    private function makeOrderByField(string $field, bool $ascending): string
+    private function writeOrderByField(CodeWriter $codeWriter, string $field, bool $ascending): void
     {
-        $content = PHP_EOL;
-        $content .= sprintf(
-            '%spublic function orderBy%s(): self%s',
-            Php::INDENTATION,
-            ucfirst($field) . ($ascending ? 'Asc' : 'Desc'),
-            PHP_EOL
-        );
-
-        $content .= Php::INDENTATION . '{' . PHP_EOL;
-        $content .= sprintf(
-            '%s$this->orderByField(\'%s\', %s);%s',
-            Php::INDENTATION . Php::INDENTATION,
+        $codeWriter->insertNewLine();
+        $codeWriter->openMethod(sprintf(
+            'public function orderBy%s(): self',
+            ucfirst($field) . ($ascending ? 'Asc' : 'Desc')
+        ));
+        $codeWriter->writeLine(sprintf(
+            '$this->orderByField(\'%s\', %s);',
             $field,
             $ascending ? 'true' : 'false',
-            PHP_EOL
-        );
-        $content .= Php::INDENTATION . Php::INDENTATION . 'return $this;' . PHP_EOL;
-        $content .= Php::INDENTATION . '}' . PHP_EOL;
-
-        return $content;
+        ));
+        $codeWriter->writeLine('return $this;');
+        $codeWriter->closeMethod();
     }
 }

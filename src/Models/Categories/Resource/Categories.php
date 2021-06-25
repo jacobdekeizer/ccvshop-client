@@ -10,168 +10,169 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Categories implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var string|null Category name
      */
     private $name;
-
+    
     /**
      * @var string|null Category description
      */
     private $description;
-
+    
     /**
      * @var string|null Category description photo size.
      */
     private $descriptionPhotoSize;
-
+    
     /**
      * @var string|null Category description photo position
      */
     private $descriptionPhotoPosition;
-
+    
     /**
      * @var string|null Category description photo
      */
     private $descriptionPhoto;
-
+    
     /**
      * @var string|null Category description on the bottom of the page
      */
     private $descriptionBottom;
-
+    
     /**
      * @var string|null Search keywords
      */
     private $searchwords;
-
+    
     /**
      * @var string|null Link to the photo.
      */
     private $photo;
-
+    
     /**
      * @var bool|null Show a larger photo on mouseover.
      */
     private $showBigPhoto;
-
+    
     /**
      * @var bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
     private $productphotoInCanvas;
-
+    
     /**
      * @var bool|null Show the product order button.
      */
     private $showOrderbutton;
-
+    
     /**
      * @var string|null The order in which the products are sorted in this category
      */
     private $orderby;
-
+    
     /**
      * @var int|null Number of items per page
      */
     private $itemsPerPage;
-
+    
     /**
      * @var int|null Category position
      */
     private $position;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\LayoutOfProducts|null Layout of the products in this category
      */
     private $layoutOfProducts;
-
+    
     /**
      * @var int|null The layout id of the sub categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
     private $layoutOfCategoriesId;
-
+    
     /**
      * @var bool|null Category visible on website
      */
     private $showOnWebsite;
-
+    
     /**
      * @var int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
     private $color;
-
+    
     /**
      * @var int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
     private $colorAlternative;
-
+    
     /**
      * @var string|null Metatag Description
      */
     private $metaDescription;
-
+    
     /**
      * @var string|null Metatag Keywords
      */
     private $metaKeywords;
-
+    
     /**
      * @var string|null Page title
      */
     private $pageTitle;
-
+    
     /**
      * @var bool|null Metatag robots: No-Index
      */
     private $noIndex;
-
+    
     /**
      * @var bool|null Metatag robots: No-Follow
      */
     private $noFollow;
-
+    
     /**
      * @var string|null SEO Alias of this resource
      */
     private $alias;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Producttocategories|null Category products
      */
     private $producttocategories;
-
+    
     /**
      * @var string|null Deeplink to this resource
      */
     private $deeplink;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Categories|null Children categories of this category
      */
     private $categories;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Parentcategory|null Parent category
      */
     private $parentcategory;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -179,7 +180,7 @@ class Categories implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -187,7 +188,7 @@ class Categories implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -195,7 +196,7 @@ class Categories implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Category name
      */
@@ -203,7 +204,7 @@ class Categories implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string|null Category description
      */
@@ -211,7 +212,7 @@ class Categories implements Model
     {
         return $this->description;
     }
-
+    
     /**
      * @return string|null Category description photo size.
      */
@@ -219,7 +220,7 @@ class Categories implements Model
     {
         return $this->descriptionPhotoSize;
     }
-
+    
     /**
      * @return string|null Category description photo position
      */
@@ -227,7 +228,7 @@ class Categories implements Model
     {
         return $this->descriptionPhotoPosition;
     }
-
+    
     /**
      * @return string|null Category description photo
      */
@@ -235,7 +236,7 @@ class Categories implements Model
     {
         return $this->descriptionPhoto;
     }
-
+    
     /**
      * @return string|null Category description on the bottom of the page
      */
@@ -243,7 +244,7 @@ class Categories implements Model
     {
         return $this->descriptionBottom;
     }
-
+    
     /**
      * @return string|null Search keywords
      */
@@ -251,7 +252,7 @@ class Categories implements Model
     {
         return $this->searchwords;
     }
-
+    
     /**
      * @return string|null Link to the photo.
      */
@@ -259,7 +260,7 @@ class Categories implements Model
     {
         return $this->photo;
     }
-
+    
     /**
      * @return bool|null Show a larger photo on mouseover.
      */
@@ -267,7 +268,7 @@ class Categories implements Model
     {
         return $this->showBigPhoto;
     }
-
+    
     /**
      * @return bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
@@ -275,7 +276,7 @@ class Categories implements Model
     {
         return $this->productphotoInCanvas;
     }
-
+    
     /**
      * @return bool|null Show the product order button.
      */
@@ -283,7 +284,7 @@ class Categories implements Model
     {
         return $this->showOrderbutton;
     }
-
+    
     /**
      * @return string|null The order in which the products are sorted in this category
      */
@@ -291,7 +292,7 @@ class Categories implements Model
     {
         return $this->orderby;
     }
-
+    
     /**
      * @return int|null Number of items per page
      */
@@ -299,7 +300,7 @@ class Categories implements Model
     {
         return $this->itemsPerPage;
     }
-
+    
     /**
      * @return int|null Category position
      */
@@ -307,7 +308,7 @@ class Categories implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\LayoutOfProducts|null Layout of the products in this category
      */
@@ -315,7 +316,7 @@ class Categories implements Model
     {
         return $this->layoutOfProducts;
     }
-
+    
     /**
      * @return int|null The layout id of the sub categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
@@ -323,7 +324,7 @@ class Categories implements Model
     {
         return $this->layoutOfCategoriesId;
     }
-
+    
     /**
      * @return bool|null Category visible on website
      */
@@ -331,7 +332,7 @@ class Categories implements Model
     {
         return $this->showOnWebsite;
     }
-
+    
     /**
      * @return int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
@@ -339,7 +340,7 @@ class Categories implements Model
     {
         return $this->color;
     }
-
+    
     /**
      * @return int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
@@ -347,7 +348,7 @@ class Categories implements Model
     {
         return $this->colorAlternative;
     }
-
+    
     /**
      * @return string|null Metatag Description
      */
@@ -355,7 +356,7 @@ class Categories implements Model
     {
         return $this->metaDescription;
     }
-
+    
     /**
      * @return string|null Metatag Keywords
      */
@@ -363,7 +364,7 @@ class Categories implements Model
     {
         return $this->metaKeywords;
     }
-
+    
     /**
      * @return string|null Page title
      */
@@ -371,7 +372,7 @@ class Categories implements Model
     {
         return $this->pageTitle;
     }
-
+    
     /**
      * @return bool|null Metatag robots: No-Index
      */
@@ -379,7 +380,7 @@ class Categories implements Model
     {
         return $this->noIndex;
     }
-
+    
     /**
      * @return bool|null Metatag robots: No-Follow
      */
@@ -387,7 +388,7 @@ class Categories implements Model
     {
         return $this->noFollow;
     }
-
+    
     /**
      * @return string|null SEO Alias of this resource
      */
@@ -395,7 +396,7 @@ class Categories implements Model
     {
         return $this->alias;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Producttocategories|null Category products
      */
@@ -403,7 +404,7 @@ class Categories implements Model
     {
         return $this->producttocategories;
     }
-
+    
     /**
      * @return string|null Deeplink to this resource
      */
@@ -411,7 +412,7 @@ class Categories implements Model
     {
         return $this->deeplink;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Categories|null Children categories of this category
      */
@@ -419,7 +420,7 @@ class Categories implements Model
     {
         return $this->categories;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Parentcategory|null Parent category
      */
@@ -427,7 +428,7 @@ class Categories implements Model
     {
         return $this->parentcategory;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -435,7 +436,7 @@ class Categories implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -446,7 +447,7 @@ class Categories implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -457,7 +458,7 @@ class Categories implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Category name
      * @return self
@@ -468,7 +469,7 @@ class Categories implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string|null $description Category description
      * @return self
@@ -479,7 +480,7 @@ class Categories implements Model
         $this->propertyFilled('description');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoSize Category description photo size.
      * @return self
@@ -490,7 +491,7 @@ class Categories implements Model
         $this->propertyFilled('descriptionPhotoSize');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhotoPosition Category description photo position
      * @return self
@@ -501,7 +502,7 @@ class Categories implements Model
         $this->propertyFilled('descriptionPhotoPosition');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionPhoto Category description photo
      * @return self
@@ -512,7 +513,7 @@ class Categories implements Model
         $this->propertyFilled('descriptionPhoto');
         return $this;
     }
-
+    
     /**
      * @param string|null $descriptionBottom Category description on the bottom of the page
      * @return self
@@ -523,7 +524,7 @@ class Categories implements Model
         $this->propertyFilled('descriptionBottom');
         return $this;
     }
-
+    
     /**
      * @param string|null $searchwords Search keywords
      * @return self
@@ -534,7 +535,7 @@ class Categories implements Model
         $this->propertyFilled('searchwords');
         return $this;
     }
-
+    
     /**
      * @param string|null $photo Link to the photo.
      * @return self
@@ -545,7 +546,7 @@ class Categories implements Model
         $this->propertyFilled('photo');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showBigPhoto Show a larger photo on mouseover.
      * @return self
@@ -556,7 +557,7 @@ class Categories implements Model
         $this->propertyFilled('showBigPhoto');
         return $this;
     }
-
+    
     /**
      * @param bool|null $productphotoInCanvas Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      * @return self
@@ -567,7 +568,7 @@ class Categories implements Model
         $this->propertyFilled('productphotoInCanvas');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOrderbutton Show the product order button.
      * @return self
@@ -578,7 +579,7 @@ class Categories implements Model
         $this->propertyFilled('showOrderbutton');
         return $this;
     }
-
+    
     /**
      * @param string|null $orderby The order in which the products are sorted in this category
      * @return self
@@ -589,7 +590,7 @@ class Categories implements Model
         $this->propertyFilled('orderby');
         return $this;
     }
-
+    
     /**
      * @param int|null $itemsPerPage Number of items per page
      * @return self
@@ -600,7 +601,7 @@ class Categories implements Model
         $this->propertyFilled('itemsPerPage');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Category position
      * @return self
@@ -611,7 +612,7 @@ class Categories implements Model
         $this->propertyFilled('position');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\LayoutOfProducts|null $layoutOfProducts Layout of the products in this category
      * @return self
@@ -622,7 +623,7 @@ class Categories implements Model
         $this->propertyFilled('layoutOfProducts');
         return $this;
     }
-
+    
     /**
      * @param int|null $layoutOfCategoriesId The layout id of the sub categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      * @return self
@@ -633,7 +634,7 @@ class Categories implements Model
         $this->propertyFilled('layoutOfCategoriesId');
         return $this;
     }
-
+    
     /**
      * @param bool|null $showOnWebsite Category visible on website
      * @return self
@@ -644,7 +645,7 @@ class Categories implements Model
         $this->propertyFilled('showOnWebsite');
         return $this;
     }
-
+    
     /**
      * @param int|null $color Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      * @return self
@@ -655,7 +656,7 @@ class Categories implements Model
         $this->propertyFilled('color');
         return $this;
     }
-
+    
     /**
      * @param int|null $colorAlternative Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      * @return self
@@ -666,7 +667,7 @@ class Categories implements Model
         $this->propertyFilled('colorAlternative');
         return $this;
     }
-
+    
     /**
      * @param string|null $metaDescription Metatag Description
      * @return self
@@ -677,7 +678,7 @@ class Categories implements Model
         $this->propertyFilled('metaDescription');
         return $this;
     }
-
+    
     /**
      * @param string|null $metaKeywords Metatag Keywords
      * @return self
@@ -688,7 +689,7 @@ class Categories implements Model
         $this->propertyFilled('metaKeywords');
         return $this;
     }
-
+    
     /**
      * @param string|null $pageTitle Page title
      * @return self
@@ -699,7 +700,7 @@ class Categories implements Model
         $this->propertyFilled('pageTitle');
         return $this;
     }
-
+    
     /**
      * @param bool|null $noIndex Metatag robots: No-Index
      * @return self
@@ -710,7 +711,7 @@ class Categories implements Model
         $this->propertyFilled('noIndex');
         return $this;
     }
-
+    
     /**
      * @param bool|null $noFollow Metatag robots: No-Follow
      * @return self
@@ -721,7 +722,7 @@ class Categories implements Model
         $this->propertyFilled('noFollow');
         return $this;
     }
-
+    
     /**
      * @param string|null $alias SEO Alias of this resource
      * @return self
@@ -732,7 +733,7 @@ class Categories implements Model
         $this->propertyFilled('alias');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Producttocategories|null $producttocategories Category products
      * @return self
@@ -743,7 +744,7 @@ class Categories implements Model
         $this->propertyFilled('producttocategories');
         return $this;
     }
-
+    
     /**
      * @param string|null $deeplink Deeplink to this resource
      * @return self
@@ -754,7 +755,7 @@ class Categories implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Categories|null $categories Children categories of this category
      * @return self
@@ -765,7 +766,7 @@ class Categories implements Model
         $this->propertyFilled('categories');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\Parentcategory|null $parentcategory Parent category
      * @return self
@@ -776,7 +777,7 @@ class Categories implements Model
         $this->propertyFilled('parentcategory');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categories\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

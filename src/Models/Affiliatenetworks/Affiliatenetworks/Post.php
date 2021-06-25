@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Affiliate network name
      */
     private $name;
-
+    
     /**
      * @var int|null Cookie TTL time in minutes until cookie expires.
      */
     private $cookieTtl;
-
+    
     /**
      * @var bool|null True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
     private $deduplicate;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Affiliate network name
      */
@@ -42,7 +43,7 @@ class Post implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return int|null Cookie TTL time in minutes until cookie expires.
      */
@@ -50,7 +51,7 @@ class Post implements Model
     {
         return $this->cookieTtl;
     }
-
+    
     /**
      * @return bool|null True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
@@ -58,7 +59,7 @@ class Post implements Model
     {
         return $this->deduplicate;
     }
-
+    
     /**
      * @param string $name Affiliate network name
      * @return self
@@ -69,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param int|null $cookieTtl Cookie TTL time in minutes until cookie expires.
      * @return self
@@ -80,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('cookieTtl');
         return $this;
     }
-
+    
     /**
      * @param bool|null $deduplicate True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      * @return self

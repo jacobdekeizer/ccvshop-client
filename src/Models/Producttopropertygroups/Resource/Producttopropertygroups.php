@@ -10,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Producttopropertygroups implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var int|null Unique id of the product
      */
     private $productId;
-
+    
     /**
      * @var int|null Unique id of the product property group
      */
     private $productPropertyGroupId;
-
+    
     /**
      * @var string|null Link to product
      */
     private $productHref;
-
+    
     /**
      * @var string|null Link to Product Property Group
      */
     private $productPropertyGroupHref;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Child\Resource\Values|null Product values
      */
     private $values;
-
+    
     /**
      * @return self
      */
@@ -54,7 +55,7 @@ class Producttopropertygroups implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -62,7 +63,7 @@ class Producttopropertygroups implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -70,7 +71,7 @@ class Producttopropertygroups implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int|null Unique id of the product
      */
@@ -78,7 +79,7 @@ class Producttopropertygroups implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return int|null Unique id of the product property group
      */
@@ -86,7 +87,7 @@ class Producttopropertygroups implements Model
     {
         return $this->productPropertyGroupId;
     }
-
+    
     /**
      * @return string|null Link to product
      */
@@ -94,7 +95,7 @@ class Producttopropertygroups implements Model
     {
         return $this->productHref;
     }
-
+    
     /**
      * @return string|null Link to Product Property Group
      */
@@ -102,7 +103,7 @@ class Producttopropertygroups implements Model
     {
         return $this->productPropertyGroupHref;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Child\Resource\Values|null Product values
      */
@@ -110,7 +111,7 @@ class Producttopropertygroups implements Model
     {
         return $this->values;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -121,7 +122,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -132,7 +133,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int|null $productId Unique id of the product
      * @return self
@@ -143,7 +144,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param int|null $productPropertyGroupId Unique id of the product property group
      * @return self
@@ -154,7 +155,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('productPropertyGroupId');
         return $this;
     }
-
+    
     /**
      * @param string|null $productHref Link to product
      * @return self
@@ -165,7 +166,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('productHref');
         return $this;
     }
-
+    
     /**
      * @param string|null $productPropertyGroupHref Link to Product Property Group
      * @return self
@@ -176,7 +177,7 @@ class Producttopropertygroups implements Model
         $this->propertyFilled('productPropertyGroupHref');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Child\Resource\Values|null $values Product values
      * @return self

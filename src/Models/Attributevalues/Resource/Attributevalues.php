@@ -10,38 +10,39 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Attributevalues implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var string|null Package name
      */
     private $name;
-
+    
     /**
      * @var float|null Default price of this value.
      */
     private $defaultPrice;
-
+    
     /**
      * @var int|null Id of the attribute to which this value belongs.
      */
     private $attributeId;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -49,7 +50,7 @@ class Attributevalues implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -57,7 +58,7 @@ class Attributevalues implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -65,7 +66,7 @@ class Attributevalues implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Package name
      */
@@ -73,7 +74,7 @@ class Attributevalues implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return float|null Default price of this value.
      */
@@ -81,7 +82,7 @@ class Attributevalues implements Model
     {
         return $this->defaultPrice;
     }
-
+    
     /**
      * @return int|null Id of the attribute to which this value belongs.
      */
@@ -89,7 +90,7 @@ class Attributevalues implements Model
     {
         return $this->attributeId;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -97,7 +98,7 @@ class Attributevalues implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -108,7 +109,7 @@ class Attributevalues implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -119,7 +120,7 @@ class Attributevalues implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Package name
      * @return self
@@ -130,7 +131,7 @@ class Attributevalues implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param float|null $defaultPrice Default price of this value.
      * @return self
@@ -141,7 +142,7 @@ class Attributevalues implements Model
         $this->propertyFilled('defaultPrice');
         return $this;
     }
-
+    
     /**
      * @param int|null $attributeId Id of the attribute to which this value belongs.
      * @return self
@@ -152,7 +153,7 @@ class Attributevalues implements Model
         $this->propertyFilled('attributeId');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributevalues\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

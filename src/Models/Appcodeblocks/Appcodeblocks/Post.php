@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
     private $placeholder;
-
+    
     /**
      * @var string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
     private $value;
-
+    
     /**
      * @var string|null This is the title of the app code block. When empty the app name will be used.
      */
     private $title;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
     private $interactiveContent;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
@@ -47,7 +48,7 @@ class Post implements Model
     {
         return $this->placeholder;
     }
-
+    
     /**
      * @return string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
@@ -55,7 +56,7 @@ class Post implements Model
     {
         return $this->value;
     }
-
+    
     /**
      * @return string|null This is the title of the app code block. When empty the app name will be used.
      */
@@ -63,7 +64,7 @@ class Post implements Model
     {
         return $this->title;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
@@ -71,7 +72,7 @@ class Post implements Model
     {
         return $this->interactiveContent;
     }
-
+    
     /**
      * @param string $placeholder The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      * @return self
@@ -82,7 +83,7 @@ class Post implements Model
         $this->propertyFilled('placeholder');
         return $this;
     }
-
+    
     /**
      * @param string|null $value This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      * @return self
@@ -93,7 +94,7 @@ class Post implements Model
         $this->propertyFilled('value');
         return $this;
     }
-
+    
     /**
      * @param string|null $title This is the title of the app code block. When empty the app name will be used.
      * @return self
@@ -104,7 +105,7 @@ class Post implements Model
         $this->propertyFilled('title');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\View|null $interactiveContent This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      * @return self

@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productvideos implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productvideos[] Array with collection items
+     * @var \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos[] Array with collection items
      */
     private $items;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Productvideos implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -37,15 +38,15 @@ class Productvideos implements Model
     {
         return $this->href;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productvideos[] Array with collection items
+     * @return \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos[] Array with collection items
      */
     public function getItems(): array
     {
         return $this->items;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -56,9 +57,9 @@ class Productvideos implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productvideos[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos[] $items Array with collection items
      * @return self
      */
     public function setItems(array $items): self
@@ -67,19 +68,18 @@ class Productvideos implements Model
         $this->propertyFilled('items');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {
             $items = [];
-
+            
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productvideos::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

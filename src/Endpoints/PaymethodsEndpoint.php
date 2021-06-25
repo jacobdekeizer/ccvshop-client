@@ -12,7 +12,7 @@ class PaymethodsEndpoint extends BaseEndpoint
             self::GET,
             'paymethods/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Paymethods\Collection\Paymethods::fromArray($result);
     }
 }

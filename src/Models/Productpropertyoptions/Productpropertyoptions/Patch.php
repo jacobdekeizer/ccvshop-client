@@ -10,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Option name.
      */
     private $name;
-
+    
     /**
      * @var int|null Position of the option in the list.
      */
     private $position;
-
+    
     /**
      * @return self
      */
@@ -29,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Option name.
      */
@@ -37,7 +38,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return int|null Position of the option in the list.
      */
@@ -45,7 +46,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @param string $name Option name.
      * @return self
@@ -56,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Position of the option in the list.
      * @return self

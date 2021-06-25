@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Input implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Group name
      */
     private $groupname;
-
+    
     /**
      * @var float|null Discount in percentage
      */
     private $discount;
-
+    
     /**
      * @var bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
     private $default;
-
+    
     /**
      * @var string|null If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      */
     private $productInCategoryDiscount;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Group name
      */
@@ -47,7 +48,7 @@ class Input implements Model
     {
         return $this->groupname;
     }
-
+    
     /**
      * @return float|null Discount in percentage
      */
@@ -55,7 +56,7 @@ class Input implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
@@ -63,7 +64,7 @@ class Input implements Model
     {
         return $this->default;
     }
-
+    
     /**
      * @return string|null If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      */
@@ -71,7 +72,7 @@ class Input implements Model
     {
         return $this->productInCategoryDiscount;
     }
-
+    
     /**
      * @param string|null $groupname Group name
      * @return self
@@ -82,7 +83,7 @@ class Input implements Model
         $this->propertyFilled('groupname');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Discount in percentage
      * @return self
@@ -93,7 +94,7 @@ class Input implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool|null $default True if the group is a default group. New users are automatically added to the standard group.
      * @return self
@@ -104,7 +105,7 @@ class Input implements Model
         $this->propertyFilled('default');
         return $this;
     }
-
+    
     /**
      * @param string|null $productInCategoryDiscount If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      * @return self

@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Product photo attachment display name
      */
     private $displayname;
-
+    
     /**
      * @var string Attachment full name (ie. picture.png)
      */
     private $filename;
-
+    
     /**
      * @var string Attachment source base 64 encoded
      */
     private $source;
-
+    
     /**
      * @var int|null Attachment position. When the position isn't filled the highest position will be used.
      */
     private $position;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Product photo attachment display name
      */
@@ -47,7 +48,7 @@ class Post implements Model
     {
         return $this->displayname;
     }
-
+    
     /**
      * @return string Attachment full name (ie. picture.png)
      */
@@ -55,7 +56,7 @@ class Post implements Model
     {
         return $this->filename;
     }
-
+    
     /**
      * @return string Attachment source base 64 encoded
      */
@@ -63,7 +64,7 @@ class Post implements Model
     {
         return $this->source;
     }
-
+    
     /**
      * @return int|null Attachment position. When the position isn't filled the highest position will be used.
      */
@@ -71,7 +72,7 @@ class Post implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @param string $displayname Product photo attachment display name
      * @return self
@@ -82,7 +83,7 @@ class Post implements Model
         $this->propertyFilled('displayname');
         return $this;
     }
-
+    
     /**
      * @param string $filename Attachment full name (ie. picture.png)
      * @return self
@@ -93,7 +94,7 @@ class Post implements Model
         $this->propertyFilled('filename');
         return $this;
     }
-
+    
     /**
      * @param string $source Attachment source base 64 encoded
      * @return self
@@ -104,7 +105,7 @@ class Post implements Model
         $this->propertyFilled('source');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Attachment position. When the position isn't filled the highest position will be used.
      * @return self

@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productshippingcosts implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] Array with collection items
+     * @var \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] Array with collection items
      */
     private $items;
-
+    
     /**
      * @var float|null Optional value of the parameter.
      */
     private $quantity;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Productshippingcosts implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -42,15 +43,15 @@ class Productshippingcosts implements Model
     {
         return $this->href;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] Array with collection items
+     * @return \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] Array with collection items
      */
     public function getItems(): array
     {
         return $this->items;
     }
-
+    
     /**
      * @return float|null Optional value of the parameter.
      */
@@ -58,7 +59,7 @@ class Productshippingcosts implements Model
     {
         return $this->quantity;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -69,9 +70,9 @@ class Productshippingcosts implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] $items Array with collection items
      * @return self
      */
     public function setItems(array $items): self
@@ -80,7 +81,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('items');
         return $this;
     }
-
+    
     /**
      * @param float|null $quantity Optional value of the parameter.
      * @return self
@@ -91,19 +92,18 @@ class Productshippingcosts implements Model
         $this->propertyFilled('quantity');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {
             $items = [];
-
+            
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

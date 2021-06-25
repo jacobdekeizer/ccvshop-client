@@ -36,4 +36,17 @@ class FileHelper
 
         rmdir($path);
     }
+
+    public static function removeDirectoryWithContentsGlob(string $pattern, array $except = [])
+    {
+        $directories = glob($pattern);
+
+        foreach ($directories as $directory) {
+            if (in_array(basename($directory), $except)) {
+                continue;
+            }
+
+            self::removeDirectoryWithContents($directory);
+        }
+    }
 }

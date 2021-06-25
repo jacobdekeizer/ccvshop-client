@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Input implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Translations\Child\Translations\Translations[] Collection of translations.
      */
     private $translations;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Translations\Child\Translations\Translations[] Collection of translations.
      */
@@ -32,7 +33,7 @@ class Input implements Model
     {
         return $this->translations;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Translations\Child\Translations\Translations[] $translations Collection of translations.
      * @return self
@@ -43,19 +44,18 @@ class Input implements Model
         $this->propertyFilled('translations');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'translations') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Translations\Child\Translations\Translations::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

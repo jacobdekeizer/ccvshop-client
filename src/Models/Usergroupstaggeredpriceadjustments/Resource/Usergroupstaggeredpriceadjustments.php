@@ -10,38 +10,39 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Usergroupstaggeredpriceadjustments implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Unique id of the resource.
      */
     private $id;
-
+    
     /**
      * @var int Unique id of the product staggered price.
      */
     private $staggeredpriceId;
-
+    
     /**
      * @var int Unique id of the user group.
      */
     private $usergroupId;
-
+    
     /**
      * @var float Adjusted price for this user group for this product staggered price.
      */
     private $price;
-
+    
     /**
      * @var float|null Adjusted discount price for this user group for this product staggered price.
      */
     private $discount;
-
+    
     /**
      * @return self
      */
@@ -49,7 +50,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -57,7 +58,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Unique id of the resource.
      */
@@ -65,7 +66,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int Unique id of the product staggered price.
      */
@@ -73,7 +74,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->staggeredpriceId;
     }
-
+    
     /**
      * @return int Unique id of the user group.
      */
@@ -81,7 +82,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->usergroupId;
     }
-
+    
     /**
      * @return float Adjusted price for this user group for this product staggered price.
      */
@@ -89,7 +90,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float|null Adjusted discount price for this user group for this product staggered price.
      */
@@ -97,7 +98,7 @@ class Usergroupstaggeredpriceadjustments implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -108,7 +109,7 @@ class Usergroupstaggeredpriceadjustments implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Unique id of the resource.
      * @return self
@@ -119,7 +120,7 @@ class Usergroupstaggeredpriceadjustments implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $staggeredpriceId Unique id of the product staggered price.
      * @return self
@@ -130,7 +131,7 @@ class Usergroupstaggeredpriceadjustments implements Model
         $this->propertyFilled('staggeredpriceId');
         return $this;
     }
-
+    
     /**
      * @param int $usergroupId Unique id of the user group.
      * @return self
@@ -141,7 +142,7 @@ class Usergroupstaggeredpriceadjustments implements Model
         $this->propertyFilled('usergroupId');
         return $this;
     }
-
+    
     /**
      * @param float $price Adjusted price for this user group for this product staggered price.
      * @return self
@@ -152,7 +153,7 @@ class Usergroupstaggeredpriceadjustments implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Adjusted discount price for this user group for this product staggered price.
      * @return self

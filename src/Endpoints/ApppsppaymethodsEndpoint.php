@@ -13,44 +13,44 @@ class ApppsppaymethodsEndpoint extends BaseEndpoint
             'apppsppaymethods/' . $id . '/'
         );
     }
-
+    
     public function allFromApppsp(int $id): \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethods
     {
         $result = $this->doRequest(
             self::GET,
             'apppsp/' . $id . '/apppsppaymethods/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethods::fromArray($result);
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod
     {
         $result = $this->doRequest(
             self::GET,
             'apppsppaymethods/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod::fromArray($result);
     }
-
+    
     public function update(int $id): \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Paymethods\Patch
     {
         $result = $this->doRequest(
             self::PATCH,
             'apppsppaymethods/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Paymethods\Patch::fromArray($result);
     }
-
-    public function createFromApppsp(int $id): \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod
+    
+    public function createFromApppsp(int $id): \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod
     {
         $result = $this->doRequest(
             self::POST,
             'apppsp/' . $id . '/apppsppaymethods/'
         );
-
-        return \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod::fromArray($result);
+        
+        return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod::fromArray($result);
     }
 }

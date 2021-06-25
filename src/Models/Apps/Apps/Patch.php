@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var bool Marks if an app is installed in the webshop.
      */
     private $isInstalled;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return bool Marks if an app is installed in the webshop.
      */
@@ -32,7 +33,7 @@ class Patch implements Model
     {
         return $this->isInstalled;
     }
-
+    
     /**
      * @param bool $isInstalled Marks if an app is installed in the webshop.
      * @return self

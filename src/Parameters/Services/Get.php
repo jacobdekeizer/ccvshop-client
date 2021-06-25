@@ -14,15 +14,15 @@ class Get implements Parameter
 {
     use FromArray;
     use ExpandableFields;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -31,16 +31,16 @@ class Get implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->expandFields($this->getExpandedFields())
+            ->expandFields($this->getExpandedFields());
     }
-
+    
     public function expandCategories(bool $expand = true): self
     {
         $this->expandField('categories', $expand);

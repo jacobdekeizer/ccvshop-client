@@ -11,12 +11,12 @@ class ProductattributesetsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Productattributesets\AllFromProducts();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productattributesets/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productattributesets\Collection\Productattributesets::fromArray($result);
     }
 }

@@ -13,35 +13,35 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All extends PaginatedList implements Parameter
 {
     use FromArray;
-
+    
     /**
      * @var string|null Number of the product.
      */
     private $productnumber;
-
+    
     /**
      * @var string|null EAN (European Article Numbering) of the product.
      */
     private $eannumber;
-
+    
     /**
      * @var string|null MPN (Manufacturer Part Number) of the product.
      */
     private $mpnnumber;
-
+    
     /**
      * @var string|null SKU (Stock Keeping Unit ) of the product.
      */
     private $skunumber;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -50,19 +50,19 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('productnumber', $this->productnumber)
             ->addOptionalParameter('eannumber', $this->eannumber)
             ->addOptionalParameter('mpnnumber', $this->mpnnumber)
-            ->addOptionalParameter('skunumber', $this->skunumber)
+            ->addOptionalParameter('skunumber', $this->skunumber);
     }
-
+    
     /**
      * @return string|null Number of the product.
      */
@@ -70,7 +70,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->productnumber;
     }
-
+    
     /**
      * @return string|null EAN (European Article Numbering) of the product.
      */
@@ -78,7 +78,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->eannumber;
     }
-
+    
     /**
      * @return string|null MPN (Manufacturer Part Number) of the product.
      */
@@ -86,7 +86,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->mpnnumber;
     }
-
+    
     /**
      * @return string|null SKU (Stock Keeping Unit ) of the product.
      */
@@ -94,7 +94,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->skunumber;
     }
-
+    
     /**
      * @param string|null $productnumber Number of the product.
      * @return self
@@ -104,7 +104,7 @@ class All extends PaginatedList implements Parameter
         $this->productnumber = $productnumber;
         return $this;
     }
-
+    
     /**
      * @param string|null $eannumber EAN (European Article Numbering) of the product.
      * @return self
@@ -114,7 +114,7 @@ class All extends PaginatedList implements Parameter
         $this->eannumber = $eannumber;
         return $this;
     }
-
+    
     /**
      * @param string|null $mpnnumber MPN (Manufacturer Part Number) of the product.
      * @return self
@@ -124,7 +124,7 @@ class All extends PaginatedList implements Parameter
         $this->mpnnumber = $mpnnumber;
         return $this;
     }
-
+    
     /**
      * @param string|null $skunumber SKU (Stock Keeping Unit ) of the product.
      * @return self

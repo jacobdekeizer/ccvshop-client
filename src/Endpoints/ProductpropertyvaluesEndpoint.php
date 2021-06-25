@@ -13,34 +13,34 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
             'productpropertyvalues/' . $id . '/'
         );
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues
     {
         $result = $this->doRequest(
             self::GET,
             'productpropertyvalues/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues::fromArray($result);
     }
-
+    
     public function update(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch
     {
         $result = $this->doRequest(
             self::PATCH,
             'productpropertyvalues/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch::fromArray($result);
     }
-
+    
     public function create(): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post
     {
         $result = $this->doRequest(
             self::POST,
             'productpropertyvalues/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post::fromArray($result);
     }
 }

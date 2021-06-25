@@ -12,17 +12,17 @@ class CategoryproductlayoutsEndpoint extends BaseEndpoint
             self::GET,
             'categoryproductlayouts/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Resource\Categoryproductlayouts::fromArray($result);
     }
-
+    
     public function all(): \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Collection\Categoryproductlayouts
     {
         $result = $this->doRequest(
             self::GET,
             'categoryproductlayouts/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Collection\Categoryproductlayouts::fromArray($result);
     }
 }

@@ -10,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Producttocategories implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var int|null Position of product in category
      */
     private $position;
-
+    
     /**
      * @var int|null Unique id of the product
      */
     private $productId;
-
+    
     /**
      * @var int|null Unique id of the category
      */
     private $categoryId;
-
+    
     /**
      * @var string|null Link to product
      */
     private $productHref;
-
+    
     /**
      * @var string|null Link to category
      */
     private $categoryHref;
-
+    
     /**
      * @return self
      */
@@ -54,7 +55,7 @@ class Producttocategories implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -62,7 +63,7 @@ class Producttocategories implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -70,7 +71,7 @@ class Producttocategories implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int|null Position of product in category
      */
@@ -78,7 +79,7 @@ class Producttocategories implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @return int|null Unique id of the product
      */
@@ -86,7 +87,7 @@ class Producttocategories implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return int|null Unique id of the category
      */
@@ -94,7 +95,7 @@ class Producttocategories implements Model
     {
         return $this->categoryId;
     }
-
+    
     /**
      * @return string|null Link to product
      */
@@ -102,7 +103,7 @@ class Producttocategories implements Model
     {
         return $this->productHref;
     }
-
+    
     /**
      * @return string|null Link to category
      */
@@ -110,7 +111,7 @@ class Producttocategories implements Model
     {
         return $this->categoryHref;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -121,7 +122,7 @@ class Producttocategories implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -132,7 +133,7 @@ class Producttocategories implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int|null $position Position of product in category
      * @return self
@@ -143,7 +144,7 @@ class Producttocategories implements Model
         $this->propertyFilled('position');
         return $this;
     }
-
+    
     /**
      * @param int|null $productId Unique id of the product
      * @return self
@@ -154,7 +155,7 @@ class Producttocategories implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param int|null $categoryId Unique id of the category
      * @return self
@@ -165,7 +166,7 @@ class Producttocategories implements Model
         $this->propertyFilled('categoryId');
         return $this;
     }
-
+    
     /**
      * @param string|null $productHref Link to product
      * @return self
@@ -176,7 +177,7 @@ class Producttocategories implements Model
         $this->propertyFilled('productHref');
         return $this;
     }
-
+    
     /**
      * @param string|null $categoryHref Link to category
      * @return self

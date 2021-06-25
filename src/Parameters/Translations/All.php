@@ -13,20 +13,20 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All extends PaginatedList implements Parameter
 {
     use FromArray;
-
+    
     /**
      * @var bool|null If false only show keys that don't differ from the default value.
      */
     private $customValue;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -35,16 +35,16 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('customValue', $this->customValue)
+            ->addOptionalParameter('customValue', $this->customValue);
     }
-
+    
     /**
      * @return bool|null If false only show keys that don't differ from the default value.
      */
@@ -52,7 +52,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->customValue;
     }
-
+    
     /**
      * @param bool|null $customValue If false only show keys that don't differ from the default value.
      * @return self

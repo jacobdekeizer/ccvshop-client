@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
 use JacobDeKeizer\CcvGenerator\Php;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 abstract class Property
 {
@@ -36,52 +37,53 @@ abstract class Property
 
     abstract protected function getPhpType(): string;
 
-    public function getConvertCode(): ?string
+    public function writeConvertCode(CodeWriter $codeWriter): void
     {
-        return null;
+        // ..
     }
 
-    public function getProperty(): string
+    public function hasConvertCode(): bool
     {
-        return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'private $' . $this->name . ';' . PHP_EOL;
+        return false;
     }
 
-    public function getGetter(): string
+    public function writeProperty(CodeWriter $codeWriter): void
     {
-        return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @return ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public function get' . ucfirst($this->name) . '(): ' . $this->getPhpType() . PHP_EOL
-            . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . 'return $this->' . $this->name . ';' . PHP_EOL
-            . self::INDENT . '}' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock([
+            '@var ' . $this->getDocblockType() . ' ' . $this->description,
+        ]);
+        $codeWriter->writeLine('private $' . $this->name . ';');
     }
 
-    public function getSetter(bool $setPropertyFilled = true): string
+    public function writeGetter(CodeWriter $codeWriter): void
     {
-        $content = self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @param '
-                . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
-            . self::INDENT . ' * @return self' . PHP_EOL
-            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public function set' . ucfirst($this->name)
-                . '(' . $this->getMethodParameterSignature() . '): self' . PHP_EOL
-            . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = ' . $this->getVariable() . ';' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock([
+            '@return ' . $this->getDocblockType() . ' ' . $this->description,
+        ]);
+        $codeWriter->openMethod('public function get' . $this->getMethodName() . '(): ' . $this->getPhpType());
+        $codeWriter->writeLine('return $this->' . $this->name . ';');
+        $codeWriter->closeMethod();
+    }
+
+    public function writeSetter(CodeWriter $codeWriter, bool $setPropertyFilled = true): void
+    {
+        $codeWriter->writeMultilineDocblock([
+            '@param ' . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description,
+            '@return self',
+        ]);
+        $codeWriter->openMethod(sprintf(
+            'public function set%s(%s): self',
+            $this->getMethodName(),
+            $this->getMethodParameterSignature()
+        ));
+        $codeWriter->writeLine('$this->' . $this->name . ' = ' . $this->getVariable() . ';');
 
         if ($setPropertyFilled) {
-            $content .= self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL;
+            $codeWriter->writeLine('$this->propertyFilled(\'' . $this->name . '\');');
         }
 
-        $content .= self::INDENT . self::INDENT . 'return $this;' . PHP_EOL;
-        $content .= self::INDENT . '}' . PHP_EOL;
-
-        return $content;
+        $codeWriter->writeLine('return $this;');
+        $codeWriter->closeMethod();
     }
 
     public function isDeprecated(): bool
@@ -102,6 +104,11 @@ abstract class Property
     public function getName(): string
     {
         return $this->name;
+    }
+
+    private function getMethodName(): string
+    {
+        return ucfirst($this->getName());
     }
 
     private function getDeprecatedDocblock(): string

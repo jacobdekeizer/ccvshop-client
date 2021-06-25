@@ -17,8 +17,10 @@ class ModelClassFactory
 
     public static function make(string $url, string $namespacePrefix): ModelClass
     {
-        if (isset(self::$MEMORY[$url])) {
-            return self::$MEMORY[$url];
+        $key = $namespacePrefix . $url;
+
+        if (isset(self::$MEMORY[$key])) {
+            return self::$MEMORY[$key];
         }
 
         $object = json_decode(file_get_contents('https://demo.ccvshop.nl' . $url), true);
@@ -30,7 +32,7 @@ class ModelClassFactory
             $pathParts[count($pathParts) - 1],
         );
 
-        self::$MEMORY[$url] = $modelClass;
+        self::$MEMORY[$key] = $modelClass;
 
         [$properties, $classes] = self::makePropertiesAndClasses($pathParts, $object, $namespacePrefix);
 

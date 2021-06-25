@@ -10,428 +10,429 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Products implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var bool Indicates if (true) this product is active or (false) inactive.
      */
     private $isActive;
-
+    
     /**
      * @var string Create date of product in UTC
      */
     private $createdate;
-
+    
     /**
      * @var string Last modify date of product in UTC
      */
     private $modifydate;
-
+    
     /**
      * @var string Product number
      */
     private $productnumber;
-
+    
     /**
      * @var string EAN (European Article Number)
      */
     private $eannumber;
-
+    
     /**
      * @var string Manufacturer Product Number
      */
     private $mpnnumber;
-
+    
     /**
      * @var bool Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
      */
     private $isMultishopProduct;
-
+    
     /**
      * @var string|null Href to this system's product. This is only available with the proper api credentials.
      */
     private $multishopHref;
-
+    
     /**
      * @var string Product name
      */
     private $name;
-
+    
     /**
      * @var string Product short description
      */
     private $shortdescription;
-
+    
     /**
      * @var string|null Product description
      */
     private $description;
-
+    
     /**
      * @var float VAT rate of product in percentage
      */
     private $vatrate;
-
+    
     /**
      * @var float Original price of the product, before discounts
      */
     private $price;
-
+    
     /**
      * @var float Discount on the product. Price - Discount = Sell price
      */
     private $discount;
-
+    
     /**
      * @var float Purchase price ex. VAT off this product.
      */
     private $purchaseprice;
-
+    
     /**
      * @var float This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      */
     private $containerDepositPrice;
-
+    
     /**
      * @var float This price will be added to the total price as a safety deposit (in Dutch: Borg).
      */
     private $safetyDepositPrice;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      */
     private $productshippingcosts;
-
+    
     /**
      * @var int|null Custom creditpoints for this product
      */
     private $creditPointsCustom;
-
+    
     /**
      * @var int|null Calculated creditpoints for this product
      */
     private $creditPointsCalculated;
-
+    
     /**
      * @var string|null The unit in which this product is sold (ie 'per piece')
      */
     private $unit;
-
+    
     /**
      * @var bool|null This product has stock
      */
     private $stockenabled;
-
+    
     /**
      * @var string|null If the stock amount is linked to the product of the attribute combination
      */
     private $stocktype;
-
+    
     /**
      * @var float|null The quantity in stock for this product
      */
     private $stock;
-
+    
     /**
      * @var string The location of the product's stock
      */
     private $stocklocation;
-
+    
     /**
      * @var string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      */
     private $orderingWithoutStock;
-
+    
     /**
      * @var float Weight of the product in kilograms
      */
     private $weight;
-
+    
     /**
      * @var string|null The main categorie of this product.
      */
     private $maincategory;
-
+    
     /**
      * @var string The sub categorie of this product.
      */
     private $subcategory;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Brand|null Brand resource
      */
     private $brand;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Condition|null Condition resource
      */
     private $condition;
-
+    
     /**
      * @var object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      */
     private $color;
-
+    
     /**
      * @var string|null Link to mainphoto
      */
     private $productmainphoto;
-
+    
     /**
      * @var string Metatag Description
      */
     private $metaDescription;
-
+    
     /**
      * @var string Metatag Keywords
      */
     private $metaKeywords;
-
+    
     /**
      * @var string Page title
      */
     private $pageTitle;
-
+    
     /**
      * @var bool Metatag robots: No-Index
      */
     private $noIndex;
-
+    
     /**
      * @var bool Metatag robots: No-Follow
      */
     private $noFollow;
-
+    
     /**
      * @var string SEO Alias of this resource
      */
     private $alias;
-
+    
     /**
      * @var string Deeplink to this resource
      */
     private $deeplink;
-
+    
     /**
      * @var string|null Specification link
      */
     private $specs;
-
+    
     /**
      * @var int Number of decimals that can be used in amounts
      */
     private $decimalAmount;
-
+    
     /**
      * @var float Minimal order amount
      */
     private $minimalOrderAmount;
-
+    
     /**
      * @var int Expected delivery time, number of days, weeks, months, quarters, years
      */
     private $stockDeliveryNumber;
-
+    
     /**
      * @var string Expected delivery type
      */
     private $stockDeliveryType;
-
+    
     /**
      * @var string This field will be showed as the standard delivery text
      */
     private $stockDeliveryStandard;
-
+    
     /**
      * @var bool Show the product in the window offers
      */
     private $showInTemplate;
-
+    
     /**
      * @var bool Show the product as a offer at the beginpage or offer element
      */
     private $showOnBeginpage;
-
+    
     /**
      * @var bool Show the product in the facebook shop when available
      */
     private $showOnFacebook;
-
+    
     /**
      * @var string Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
      */
     private $showOrderButton;
-
+    
     /**
      * @var int Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
      */
     private $productLayout;
-
+    
     /**
      * @var string The photo description size
      */
     private $photoSize;
-
+    
     /**
      * @var string Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
      */
     private $hideWithoutCategory;
-
+    
     /**
      * @var string Internal memo for internal purpose only
      */
     private $memo;
-
+    
     /**
      * @var bool|null Enable / disable Marktplaats.
      */
     private $marktplaatsActive;
-
+    
     /**
      * @var string|null The status for this advertisement
      */
     private $marktplaatsStatus;
-
+    
     /**
      * @var float|null Cost per click in euro cents
      */
     private $marktplaatsCpc;
-
+    
     /**
      * @var float|null Daily budget for this advertisement in euro cents
      */
     private $marktplaatsDailyBudget;
-
+    
     /**
      * @var float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      */
     private $marktplaatsTotalBudget;
-
+    
     /**
      * @var int|null The Marktplaats category Id
      */
     private $marktplaatsCategoryId;
-
+    
     /**
      * @var string|null The price type
      */
     private $marktplaatsPriceType;
-
+    
     /**
      * @var string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      */
     private $googleShoppingCategory;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Package|null Package of this product.
      */
     private $package;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Supplier|null Supplier resource
      */
     private $supplier;
-
+    
     /**
      * @var bool|null Is this product included in the export feed
      */
     private $isIncludedForExportFeed;
-
+    
     /**
      * @var bool Fixed staggered prices enabled
      */
     private $fixedStaggeredPrices;
-
+    
     /**
      * @var bool Is this product visible in the webshop
      */
     private $isVisible;
-
+    
     /**
      * @var bool Can this product be ordered in the webshop
      */
     private $canBeOrdered;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productlabels|null Product labels
      */
     private $productlabels;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productphotos|null Product photos
      */
     private $productphotos;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvariations|null Product variations
      */
     private $productvariations;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvideos|null Product videos
      */
     private $productvideos;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattachments|null Product attachments
      */
     private $productattachments;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      */
     private $productkeywords;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productrelevant|null Relevant product
      */
     private $productrelevant;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattributesets|null Attribute sets
      */
     private $productattributesets;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productstaggeredprices|null Product staggered prices
      */
     private $productstaggeredprices;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttocategories|null Product categories
      */
     private $producttocategories;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productreviews|null Product reviews
      */
     private $productreviews;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      */
     private $webshops;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Attributecombinations|null Attribute combination
      */
     private $attributecombinations;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttopropertygroups|null Collection of product property groups.
      */
     private $producttopropertygroups;
-
+    
     /**
      * @return self
      */
@@ -439,7 +440,7 @@ class Products implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -447,7 +448,7 @@ class Products implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Unique id of the resource
      */
@@ -455,7 +456,7 @@ class Products implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return bool Indicates if (true) this product is active or (false) inactive.
      */
@@ -463,7 +464,7 @@ class Products implements Model
     {
         return $this->isActive;
     }
-
+    
     /**
      * @return string Create date of product in UTC
      */
@@ -471,7 +472,7 @@ class Products implements Model
     {
         return $this->createdate;
     }
-
+    
     /**
      * @return string Last modify date of product in UTC
      */
@@ -479,7 +480,7 @@ class Products implements Model
     {
         return $this->modifydate;
     }
-
+    
     /**
      * @return string Product number
      */
@@ -487,7 +488,7 @@ class Products implements Model
     {
         return $this->productnumber;
     }
-
+    
     /**
      * @return string EAN (European Article Number)
      */
@@ -495,7 +496,7 @@ class Products implements Model
     {
         return $this->eannumber;
     }
-
+    
     /**
      * @return string Manufacturer Product Number
      */
@@ -503,7 +504,7 @@ class Products implements Model
     {
         return $this->mpnnumber;
     }
-
+    
     /**
      * @return bool Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
      */
@@ -511,7 +512,7 @@ class Products implements Model
     {
         return $this->isMultishopProduct;
     }
-
+    
     /**
      * @return string|null Href to this system's product. This is only available with the proper api credentials.
      */
@@ -519,7 +520,7 @@ class Products implements Model
     {
         return $this->multishopHref;
     }
-
+    
     /**
      * @return string Product name
      */
@@ -527,7 +528,7 @@ class Products implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string Product short description
      */
@@ -535,7 +536,7 @@ class Products implements Model
     {
         return $this->shortdescription;
     }
-
+    
     /**
      * @return string|null Product description
      */
@@ -543,7 +544,7 @@ class Products implements Model
     {
         return $this->description;
     }
-
+    
     /**
      * @return float VAT rate of product in percentage
      */
@@ -551,7 +552,7 @@ class Products implements Model
     {
         return $this->vatrate;
     }
-
+    
     /**
      * @return float Original price of the product, before discounts
      */
@@ -559,7 +560,7 @@ class Products implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float Discount on the product. Price - Discount = Sell price
      */
@@ -567,7 +568,7 @@ class Products implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return float Purchase price ex. VAT off this product.
      */
@@ -575,7 +576,7 @@ class Products implements Model
     {
         return $this->purchaseprice;
     }
-
+    
     /**
      * @return float This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      */
@@ -583,7 +584,7 @@ class Products implements Model
     {
         return $this->containerDepositPrice;
     }
-
+    
     /**
      * @return float This price will be added to the total price as a safety deposit (in Dutch: Borg).
      */
@@ -591,7 +592,7 @@ class Products implements Model
     {
         return $this->safetyDepositPrice;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      */
@@ -599,7 +600,7 @@ class Products implements Model
     {
         return $this->productshippingcosts;
     }
-
+    
     /**
      * @return int|null Custom creditpoints for this product
      */
@@ -607,7 +608,7 @@ class Products implements Model
     {
         return $this->creditPointsCustom;
     }
-
+    
     /**
      * @return int|null Calculated creditpoints for this product
      */
@@ -615,7 +616,7 @@ class Products implements Model
     {
         return $this->creditPointsCalculated;
     }
-
+    
     /**
      * @return string|null The unit in which this product is sold (ie 'per piece')
      */
@@ -623,7 +624,7 @@ class Products implements Model
     {
         return $this->unit;
     }
-
+    
     /**
      * @return bool|null This product has stock
      */
@@ -631,7 +632,7 @@ class Products implements Model
     {
         return $this->stockenabled;
     }
-
+    
     /**
      * @return string|null If the stock amount is linked to the product of the attribute combination
      */
@@ -639,7 +640,7 @@ class Products implements Model
     {
         return $this->stocktype;
     }
-
+    
     /**
      * @return float|null The quantity in stock for this product
      */
@@ -647,7 +648,7 @@ class Products implements Model
     {
         return $this->stock;
     }
-
+    
     /**
      * @return string The location of the product's stock
      */
@@ -655,7 +656,7 @@ class Products implements Model
     {
         return $this->stocklocation;
     }
-
+    
     /**
      * @return string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      */
@@ -663,7 +664,7 @@ class Products implements Model
     {
         return $this->orderingWithoutStock;
     }
-
+    
     /**
      * @return float Weight of the product in kilograms
      */
@@ -671,7 +672,7 @@ class Products implements Model
     {
         return $this->weight;
     }
-
+    
     /**
      * @return string|null The main categorie of this product.
      */
@@ -679,7 +680,7 @@ class Products implements Model
     {
         return $this->maincategory;
     }
-
+    
     /**
      * @return string The sub categorie of this product.
      */
@@ -687,7 +688,7 @@ class Products implements Model
     {
         return $this->subcategory;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Brand|null Brand resource
      */
@@ -695,7 +696,7 @@ class Products implements Model
     {
         return $this->brand;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Condition|null Condition resource
      */
@@ -703,7 +704,7 @@ class Products implements Model
     {
         return $this->condition;
     }
-
+    
     /**
      * @return object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      */
@@ -711,7 +712,7 @@ class Products implements Model
     {
         return $this->color;
     }
-
+    
     /**
      * @return string|null Link to mainphoto
      */
@@ -719,7 +720,7 @@ class Products implements Model
     {
         return $this->productmainphoto;
     }
-
+    
     /**
      * @return string Metatag Description
      */
@@ -727,7 +728,7 @@ class Products implements Model
     {
         return $this->metaDescription;
     }
-
+    
     /**
      * @return string Metatag Keywords
      */
@@ -735,7 +736,7 @@ class Products implements Model
     {
         return $this->metaKeywords;
     }
-
+    
     /**
      * @return string Page title
      */
@@ -743,7 +744,7 @@ class Products implements Model
     {
         return $this->pageTitle;
     }
-
+    
     /**
      * @return bool Metatag robots: No-Index
      */
@@ -751,7 +752,7 @@ class Products implements Model
     {
         return $this->noIndex;
     }
-
+    
     /**
      * @return bool Metatag robots: No-Follow
      */
@@ -759,7 +760,7 @@ class Products implements Model
     {
         return $this->noFollow;
     }
-
+    
     /**
      * @return string SEO Alias of this resource
      */
@@ -767,7 +768,7 @@ class Products implements Model
     {
         return $this->alias;
     }
-
+    
     /**
      * @return string Deeplink to this resource
      */
@@ -775,7 +776,7 @@ class Products implements Model
     {
         return $this->deeplink;
     }
-
+    
     /**
      * @return string|null Specification link
      */
@@ -783,7 +784,7 @@ class Products implements Model
     {
         return $this->specs;
     }
-
+    
     /**
      * @return int Number of decimals that can be used in amounts
      */
@@ -791,7 +792,7 @@ class Products implements Model
     {
         return $this->decimalAmount;
     }
-
+    
     /**
      * @return float Minimal order amount
      */
@@ -799,7 +800,7 @@ class Products implements Model
     {
         return $this->minimalOrderAmount;
     }
-
+    
     /**
      * @return int Expected delivery time, number of days, weeks, months, quarters, years
      */
@@ -807,7 +808,7 @@ class Products implements Model
     {
         return $this->stockDeliveryNumber;
     }
-
+    
     /**
      * @return string Expected delivery type
      */
@@ -815,7 +816,7 @@ class Products implements Model
     {
         return $this->stockDeliveryType;
     }
-
+    
     /**
      * @return string This field will be showed as the standard delivery text
      */
@@ -823,7 +824,7 @@ class Products implements Model
     {
         return $this->stockDeliveryStandard;
     }
-
+    
     /**
      * @return bool Show the product in the window offers
      */
@@ -831,7 +832,7 @@ class Products implements Model
     {
         return $this->showInTemplate;
     }
-
+    
     /**
      * @return bool Show the product as a offer at the beginpage or offer element
      */
@@ -839,7 +840,7 @@ class Products implements Model
     {
         return $this->showOnBeginpage;
     }
-
+    
     /**
      * @return bool Show the product in the facebook shop when available
      */
@@ -847,7 +848,7 @@ class Products implements Model
     {
         return $this->showOnFacebook;
     }
-
+    
     /**
      * @return string Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
      */
@@ -855,7 +856,7 @@ class Products implements Model
     {
         return $this->showOrderButton;
     }
-
+    
     /**
      * @return int Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
      */
@@ -863,7 +864,7 @@ class Products implements Model
     {
         return $this->productLayout;
     }
-
+    
     /**
      * @return string The photo description size
      */
@@ -871,7 +872,7 @@ class Products implements Model
     {
         return $this->photoSize;
     }
-
+    
     /**
      * @return string Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
      */
@@ -879,7 +880,7 @@ class Products implements Model
     {
         return $this->hideWithoutCategory;
     }
-
+    
     /**
      * @return string Internal memo for internal purpose only
      */
@@ -887,7 +888,7 @@ class Products implements Model
     {
         return $this->memo;
     }
-
+    
     /**
      * @return bool|null Enable / disable Marktplaats.
      */
@@ -895,7 +896,7 @@ class Products implements Model
     {
         return $this->marktplaatsActive;
     }
-
+    
     /**
      * @return string|null The status for this advertisement
      */
@@ -903,7 +904,7 @@ class Products implements Model
     {
         return $this->marktplaatsStatus;
     }
-
+    
     /**
      * @return float|null Cost per click in euro cents
      */
@@ -911,7 +912,7 @@ class Products implements Model
     {
         return $this->marktplaatsCpc;
     }
-
+    
     /**
      * @return float|null Daily budget for this advertisement in euro cents
      */
@@ -919,7 +920,7 @@ class Products implements Model
     {
         return $this->marktplaatsDailyBudget;
     }
-
+    
     /**
      * @return float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      */
@@ -927,7 +928,7 @@ class Products implements Model
     {
         return $this->marktplaatsTotalBudget;
     }
-
+    
     /**
      * @return int|null The Marktplaats category Id
      */
@@ -935,7 +936,7 @@ class Products implements Model
     {
         return $this->marktplaatsCategoryId;
     }
-
+    
     /**
      * @return string|null The price type
      */
@@ -943,7 +944,7 @@ class Products implements Model
     {
         return $this->marktplaatsPriceType;
     }
-
+    
     /**
      * @return string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      */
@@ -951,7 +952,7 @@ class Products implements Model
     {
         return $this->googleShoppingCategory;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Package|null Package of this product.
      */
@@ -959,7 +960,7 @@ class Products implements Model
     {
         return $this->package;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Supplier|null Supplier resource
      */
@@ -967,7 +968,7 @@ class Products implements Model
     {
         return $this->supplier;
     }
-
+    
     /**
      * @return bool|null Is this product included in the export feed
      */
@@ -975,7 +976,7 @@ class Products implements Model
     {
         return $this->isIncludedForExportFeed;
     }
-
+    
     /**
      * @return bool Fixed staggered prices enabled
      */
@@ -983,7 +984,7 @@ class Products implements Model
     {
         return $this->fixedStaggeredPrices;
     }
-
+    
     /**
      * @return bool Is this product visible in the webshop
      */
@@ -991,7 +992,7 @@ class Products implements Model
     {
         return $this->isVisible;
     }
-
+    
     /**
      * @return bool Can this product be ordered in the webshop
      */
@@ -999,7 +1000,7 @@ class Products implements Model
     {
         return $this->canBeOrdered;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productlabels|null Product labels
      */
@@ -1007,7 +1008,7 @@ class Products implements Model
     {
         return $this->productlabels;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productphotos|null Product photos
      */
@@ -1015,7 +1016,7 @@ class Products implements Model
     {
         return $this->productphotos;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvariations|null Product variations
      */
@@ -1023,7 +1024,7 @@ class Products implements Model
     {
         return $this->productvariations;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvideos|null Product videos
      */
@@ -1031,7 +1032,7 @@ class Products implements Model
     {
         return $this->productvideos;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattachments|null Product attachments
      */
@@ -1039,7 +1040,7 @@ class Products implements Model
     {
         return $this->productattachments;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      */
@@ -1047,7 +1048,7 @@ class Products implements Model
     {
         return $this->productkeywords;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productrelevant|null Relevant product
      */
@@ -1055,7 +1056,7 @@ class Products implements Model
     {
         return $this->productrelevant;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattributesets|null Attribute sets
      */
@@ -1063,7 +1064,7 @@ class Products implements Model
     {
         return $this->productattributesets;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productstaggeredprices|null Product staggered prices
      */
@@ -1071,7 +1072,7 @@ class Products implements Model
     {
         return $this->productstaggeredprices;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttocategories|null Product categories
      */
@@ -1079,7 +1080,7 @@ class Products implements Model
     {
         return $this->producttocategories;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productreviews|null Product reviews
      */
@@ -1087,7 +1088,7 @@ class Products implements Model
     {
         return $this->productreviews;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      */
@@ -1095,7 +1096,7 @@ class Products implements Model
     {
         return $this->webshops;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Attributecombinations|null Attribute combination
      */
@@ -1103,7 +1104,7 @@ class Products implements Model
     {
         return $this->attributecombinations;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttopropertygroups|null Collection of product property groups.
      */
@@ -1111,7 +1112,7 @@ class Products implements Model
     {
         return $this->producttopropertygroups;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -1122,7 +1123,7 @@ class Products implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -1133,7 +1134,7 @@ class Products implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param bool $isActive Indicates if (true) this product is active or (false) inactive.
      * @return self
@@ -1144,7 +1145,7 @@ class Products implements Model
         $this->propertyFilled('isActive');
         return $this;
     }
-
+    
     /**
      * @param string $createdate Create date of product in UTC
      * @return self
@@ -1155,7 +1156,7 @@ class Products implements Model
         $this->propertyFilled('createdate');
         return $this;
     }
-
+    
     /**
      * @param string $modifydate Last modify date of product in UTC
      * @return self
@@ -1166,7 +1167,7 @@ class Products implements Model
         $this->propertyFilled('modifydate');
         return $this;
     }
-
+    
     /**
      * @param string $productnumber Product number
      * @return self
@@ -1177,7 +1178,7 @@ class Products implements Model
         $this->propertyFilled('productnumber');
         return $this;
     }
-
+    
     /**
      * @param string $eannumber EAN (European Article Number)
      * @return self
@@ -1188,7 +1189,7 @@ class Products implements Model
         $this->propertyFilled('eannumber');
         return $this;
     }
-
+    
     /**
      * @param string $mpnnumber Manufacturer Product Number
      * @return self
@@ -1199,7 +1200,7 @@ class Products implements Model
         $this->propertyFilled('mpnnumber');
         return $this;
     }
-
+    
     /**
      * @param bool $isMultishopProduct Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
      * @return self
@@ -1210,7 +1211,7 @@ class Products implements Model
         $this->propertyFilled('isMultishopProduct');
         return $this;
     }
-
+    
     /**
      * @param string|null $multishopHref Href to this system's product. This is only available with the proper api credentials.
      * @return self
@@ -1221,7 +1222,7 @@ class Products implements Model
         $this->propertyFilled('multishopHref');
         return $this;
     }
-
+    
     /**
      * @param string $name Product name
      * @return self
@@ -1232,7 +1233,7 @@ class Products implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string $shortdescription Product short description
      * @return self
@@ -1243,7 +1244,7 @@ class Products implements Model
         $this->propertyFilled('shortdescription');
         return $this;
     }
-
+    
     /**
      * @param string|null $description Product description
      * @return self
@@ -1254,7 +1255,7 @@ class Products implements Model
         $this->propertyFilled('description');
         return $this;
     }
-
+    
     /**
      * @param float $vatrate VAT rate of product in percentage
      * @return self
@@ -1265,7 +1266,7 @@ class Products implements Model
         $this->propertyFilled('vatrate');
         return $this;
     }
-
+    
     /**
      * @param float $price Original price of the product, before discounts
      * @return self
@@ -1276,7 +1277,7 @@ class Products implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float $discount Discount on the product. Price - Discount = Sell price
      * @return self
@@ -1287,7 +1288,7 @@ class Products implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param float $purchaseprice Purchase price ex. VAT off this product.
      * @return self
@@ -1298,7 +1299,7 @@ class Products implements Model
         $this->propertyFilled('purchaseprice');
         return $this;
     }
-
+    
     /**
      * @param float $containerDepositPrice This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      * @return self
@@ -1309,7 +1310,7 @@ class Products implements Model
         $this->propertyFilled('containerDepositPrice');
         return $this;
     }
-
+    
     /**
      * @param float $safetyDepositPrice This price will be added to the total price as a safety deposit (in Dutch: Borg).
      * @return self
@@ -1320,7 +1321,7 @@ class Products implements Model
         $this->propertyFilled('safetyDepositPrice');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productshippingcosts $productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      * @return self
@@ -1331,7 +1332,7 @@ class Products implements Model
         $this->propertyFilled('productshippingcosts');
         return $this;
     }
-
+    
     /**
      * @param int|null $creditPointsCustom Custom creditpoints for this product
      * @return self
@@ -1342,7 +1343,7 @@ class Products implements Model
         $this->propertyFilled('creditPointsCustom');
         return $this;
     }
-
+    
     /**
      * @param int|null $creditPointsCalculated Calculated creditpoints for this product
      * @return self
@@ -1353,7 +1354,7 @@ class Products implements Model
         $this->propertyFilled('creditPointsCalculated');
         return $this;
     }
-
+    
     /**
      * @param string|null $unit The unit in which this product is sold (ie 'per piece')
      * @return self
@@ -1364,7 +1365,7 @@ class Products implements Model
         $this->propertyFilled('unit');
         return $this;
     }
-
+    
     /**
      * @param bool|null $stockenabled This product has stock
      * @return self
@@ -1375,7 +1376,7 @@ class Products implements Model
         $this->propertyFilled('stockenabled');
         return $this;
     }
-
+    
     /**
      * @param string|null $stocktype If the stock amount is linked to the product of the attribute combination
      * @return self
@@ -1386,7 +1387,7 @@ class Products implements Model
         $this->propertyFilled('stocktype');
         return $this;
     }
-
+    
     /**
      * @param float|null $stock The quantity in stock for this product
      * @return self
@@ -1397,7 +1398,7 @@ class Products implements Model
         $this->propertyFilled('stock');
         return $this;
     }
-
+    
     /**
      * @param string $stocklocation The location of the product's stock
      * @return self
@@ -1408,7 +1409,7 @@ class Products implements Model
         $this->propertyFilled('stocklocation');
         return $this;
     }
-
+    
     /**
      * @param string|null $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      * @return self
@@ -1419,7 +1420,7 @@ class Products implements Model
         $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
-
+    
     /**
      * @param float $weight Weight of the product in kilograms
      * @return self
@@ -1430,7 +1431,7 @@ class Products implements Model
         $this->propertyFilled('weight');
         return $this;
     }
-
+    
     /**
      * @param string|null $maincategory The main categorie of this product.
      * @return self
@@ -1441,7 +1442,7 @@ class Products implements Model
         $this->propertyFilled('maincategory');
         return $this;
     }
-
+    
     /**
      * @param string $subcategory The sub categorie of this product.
      * @return self
@@ -1452,7 +1453,7 @@ class Products implements Model
         $this->propertyFilled('subcategory');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Brand|null $brand Brand resource
      * @return self
@@ -1463,7 +1464,7 @@ class Products implements Model
         $this->propertyFilled('brand');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Condition|null $condition Condition resource
      * @return self
@@ -1474,7 +1475,7 @@ class Products implements Model
         $this->propertyFilled('condition');
         return $this;
     }
-
+    
     /**
      * @param object|null $color A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      * @return self
@@ -1485,7 +1486,7 @@ class Products implements Model
         $this->propertyFilled('color');
         return $this;
     }
-
+    
     /**
      * @param string|null $productmainphoto Link to mainphoto
      * @return self
@@ -1496,7 +1497,7 @@ class Products implements Model
         $this->propertyFilled('productmainphoto');
         return $this;
     }
-
+    
     /**
      * @param string $metaDescription Metatag Description
      * @return self
@@ -1507,7 +1508,7 @@ class Products implements Model
         $this->propertyFilled('metaDescription');
         return $this;
     }
-
+    
     /**
      * @param string $metaKeywords Metatag Keywords
      * @return self
@@ -1518,7 +1519,7 @@ class Products implements Model
         $this->propertyFilled('metaKeywords');
         return $this;
     }
-
+    
     /**
      * @param string $pageTitle Page title
      * @return self
@@ -1529,7 +1530,7 @@ class Products implements Model
         $this->propertyFilled('pageTitle');
         return $this;
     }
-
+    
     /**
      * @param bool $noIndex Metatag robots: No-Index
      * @return self
@@ -1540,7 +1541,7 @@ class Products implements Model
         $this->propertyFilled('noIndex');
         return $this;
     }
-
+    
     /**
      * @param bool $noFollow Metatag robots: No-Follow
      * @return self
@@ -1551,7 +1552,7 @@ class Products implements Model
         $this->propertyFilled('noFollow');
         return $this;
     }
-
+    
     /**
      * @param string $alias SEO Alias of this resource
      * @return self
@@ -1562,7 +1563,7 @@ class Products implements Model
         $this->propertyFilled('alias');
         return $this;
     }
-
+    
     /**
      * @param string $deeplink Deeplink to this resource
      * @return self
@@ -1573,7 +1574,7 @@ class Products implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-
+    
     /**
      * @param string|null $specs Specification link
      * @return self
@@ -1584,7 +1585,7 @@ class Products implements Model
         $this->propertyFilled('specs');
         return $this;
     }
-
+    
     /**
      * @param int $decimalAmount Number of decimals that can be used in amounts
      * @return self
@@ -1595,7 +1596,7 @@ class Products implements Model
         $this->propertyFilled('decimalAmount');
         return $this;
     }
-
+    
     /**
      * @param float $minimalOrderAmount Minimal order amount
      * @return self
@@ -1606,7 +1607,7 @@ class Products implements Model
         $this->propertyFilled('minimalOrderAmount');
         return $this;
     }
-
+    
     /**
      * @param int $stockDeliveryNumber Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
@@ -1617,7 +1618,7 @@ class Products implements Model
         $this->propertyFilled('stockDeliveryNumber');
         return $this;
     }
-
+    
     /**
      * @param string $stockDeliveryType Expected delivery type
      * @return self
@@ -1628,7 +1629,7 @@ class Products implements Model
         $this->propertyFilled('stockDeliveryType');
         return $this;
     }
-
+    
     /**
      * @param string $stockDeliveryStandard This field will be showed as the standard delivery text
      * @return self
@@ -1639,7 +1640,7 @@ class Products implements Model
         $this->propertyFilled('stockDeliveryStandard');
         return $this;
     }
-
+    
     /**
      * @param bool $showInTemplate Show the product in the window offers
      * @return self
@@ -1650,7 +1651,7 @@ class Products implements Model
         $this->propertyFilled('showInTemplate');
         return $this;
     }
-
+    
     /**
      * @param bool $showOnBeginpage Show the product as a offer at the beginpage or offer element
      * @return self
@@ -1661,7 +1662,7 @@ class Products implements Model
         $this->propertyFilled('showOnBeginpage');
         return $this;
     }
-
+    
     /**
      * @param bool $showOnFacebook Show the product in the facebook shop when available
      * @return self
@@ -1672,7 +1673,7 @@ class Products implements Model
         $this->propertyFilled('showOnFacebook');
         return $this;
     }
-
+    
     /**
      * @param string $showOrderButton Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
      * @return self
@@ -1683,7 +1684,7 @@ class Products implements Model
         $this->propertyFilled('showOrderButton');
         return $this;
     }
-
+    
     /**
      * @param int $productLayout Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
      * @return self
@@ -1694,7 +1695,7 @@ class Products implements Model
         $this->propertyFilled('productLayout');
         return $this;
     }
-
+    
     /**
      * @param string $photoSize The photo description size
      * @return self
@@ -1705,7 +1706,7 @@ class Products implements Model
         $this->propertyFilled('photoSize');
         return $this;
     }
-
+    
     /**
      * @param string $hideWithoutCategory Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
      * @return self
@@ -1716,7 +1717,7 @@ class Products implements Model
         $this->propertyFilled('hideWithoutCategory');
         return $this;
     }
-
+    
     /**
      * @param string $memo Internal memo for internal purpose only
      * @return self
@@ -1727,7 +1728,7 @@ class Products implements Model
         $this->propertyFilled('memo');
         return $this;
     }
-
+    
     /**
      * @param bool|null $marktplaatsActive Enable / disable Marktplaats.
      * @return self
@@ -1738,7 +1739,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsActive');
         return $this;
     }
-
+    
     /**
      * @param string|null $marktplaatsStatus The status for this advertisement
      * @return self
@@ -1749,7 +1750,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsStatus');
         return $this;
     }
-
+    
     /**
      * @param float|null $marktplaatsCpc Cost per click in euro cents
      * @return self
@@ -1760,7 +1761,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsCpc');
         return $this;
     }
-
+    
     /**
      * @param float|null $marktplaatsDailyBudget Daily budget for this advertisement in euro cents
      * @return self
@@ -1771,7 +1772,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsDailyBudget');
         return $this;
     }
-
+    
     /**
      * @param float|null $marktplaatsTotalBudget Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      * @return self
@@ -1782,7 +1783,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsTotalBudget');
         return $this;
     }
-
+    
     /**
      * @param int|null $marktplaatsCategoryId The Marktplaats category Id
      * @return self
@@ -1793,7 +1794,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsCategoryId');
         return $this;
     }
-
+    
     /**
      * @param string|null $marktplaatsPriceType The price type
      * @return self
@@ -1804,7 +1805,7 @@ class Products implements Model
         $this->propertyFilled('marktplaatsPriceType');
         return $this;
     }
-
+    
     /**
      * @param string|null $googleShoppingCategory Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      * @return self
@@ -1815,7 +1816,7 @@ class Products implements Model
         $this->propertyFilled('googleShoppingCategory');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Package|null $package Package of this product.
      * @return self
@@ -1826,7 +1827,7 @@ class Products implements Model
         $this->propertyFilled('package');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Supplier|null $supplier Supplier resource
      * @return self
@@ -1837,7 +1838,7 @@ class Products implements Model
         $this->propertyFilled('supplier');
         return $this;
     }
-
+    
     /**
      * @param bool|null $isIncludedForExportFeed Is this product included in the export feed
      * @return self
@@ -1848,7 +1849,7 @@ class Products implements Model
         $this->propertyFilled('isIncludedForExportFeed');
         return $this;
     }
-
+    
     /**
      * @param bool $fixedStaggeredPrices Fixed staggered prices enabled
      * @return self
@@ -1859,7 +1860,7 @@ class Products implements Model
         $this->propertyFilled('fixedStaggeredPrices');
         return $this;
     }
-
+    
     /**
      * @param bool $isVisible Is this product visible in the webshop
      * @return self
@@ -1870,7 +1871,7 @@ class Products implements Model
         $this->propertyFilled('isVisible');
         return $this;
     }
-
+    
     /**
      * @param bool $canBeOrdered Can this product be ordered in the webshop
      * @return self
@@ -1881,7 +1882,7 @@ class Products implements Model
         $this->propertyFilled('canBeOrdered');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productlabels|null $productlabels Product labels
      * @return self
@@ -1892,7 +1893,7 @@ class Products implements Model
         $this->propertyFilled('productlabels');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productphotos|null $productphotos Product photos
      * @return self
@@ -1903,7 +1904,7 @@ class Products implements Model
         $this->propertyFilled('productphotos');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvariations|null $productvariations Product variations
      * @return self
@@ -1914,7 +1915,7 @@ class Products implements Model
         $this->propertyFilled('productvariations');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productvideos|null $productvideos Product videos
      * @return self
@@ -1925,7 +1926,7 @@ class Products implements Model
         $this->propertyFilled('productvideos');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattachments|null $productattachments Product attachments
      * @return self
@@ -1936,7 +1937,7 @@ class Products implements Model
         $this->propertyFilled('productattachments');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productkeywords|null $productkeywords These keyswords are used for the tagcloud and internal search engine on the webshop
      * @return self
@@ -1947,7 +1948,7 @@ class Products implements Model
         $this->propertyFilled('productkeywords');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productrelevant|null $productrelevant Relevant product
      * @return self
@@ -1958,7 +1959,7 @@ class Products implements Model
         $this->propertyFilled('productrelevant');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productattributesets|null $productattributesets Attribute sets
      * @return self
@@ -1969,7 +1970,7 @@ class Products implements Model
         $this->propertyFilled('productattributesets');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productstaggeredprices|null $productstaggeredprices Product staggered prices
      * @return self
@@ -1980,7 +1981,7 @@ class Products implements Model
         $this->propertyFilled('productstaggeredprices');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttocategories|null $producttocategories Product categories
      * @return self
@@ -1991,7 +1992,7 @@ class Products implements Model
         $this->propertyFilled('producttocategories');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Productreviews|null $productreviews Product reviews
      * @return self
@@ -2002,7 +2003,7 @@ class Products implements Model
         $this->propertyFilled('productreviews');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Webshops|null $webshops Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      * @return self
@@ -2013,7 +2014,7 @@ class Products implements Model
         $this->propertyFilled('webshops');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Attributecombinations|null $attributecombinations Attribute combination
      * @return self
@@ -2024,7 +2025,7 @@ class Products implements Model
         $this->propertyFilled('attributecombinations');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Producttopropertygroups|null $producttopropertygroups Collection of product property groups.
      * @return self

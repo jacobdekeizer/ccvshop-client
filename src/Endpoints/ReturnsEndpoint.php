@@ -11,22 +11,22 @@ class ReturnsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Returns\All();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'returns/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Returns\Collection\Returns::fromArray($result);
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Returns\Resource\Returns
     {
         $result = $this->doRequest(
             self::GET,
             'returns/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Returns\Resource\Returns::fromArray($result);
     }
 }

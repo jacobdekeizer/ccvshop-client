@@ -6,6 +6,7 @@ namespace JacobDeKeizer\CcvGenerator\Classes;
 
 use JacobDeKeizer\CcvGenerator\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class EndpointMethod
 {
@@ -54,42 +55,38 @@ class EndpointMethod
         return $this->parameter;
     }
 
-    public function toString(): string
+    public function write(CodeWriter $codeWriter): void
     {
-        $content = sprintf(
-            '%spublic function %s(%s): %s%s',
-            Php::INDENTATION,
+        $codeWriter->openMethod(sprintf(
+            'public function %s(%s): %s',
             $this->methodName,
             $this->getPropertiesSignature() . $this->getParameterSignature(),
-            $this->model ? $this->model->getNamespacedClass() : 'void',
-            PHP_EOL
-        );
-
-        $content .= Php::INDENTATION . '{' . PHP_EOL;
-
-        $curIndent = Php::INDENTATION . Php::INDENTATION;
+            $this->model ? $this->model->getNamespacedClass() : 'void'
+        ));
 
         if ($this->parameter !== null) {
-            $content .= $curIndent . 'if ($parameter === null) {' . PHP_EOL;
-            $content .= $curIndent . Php::INDENTATION
-                . '$payload = new ' . $this->parameter->getNamespacedClass() . '();' . PHP_EOL;
-            $content .= $curIndent . '}' . PHP_EOL;
-            $content .= PHP_EOL;
+            $codeWriter->writeLine('if ($parameter === null) {');
+            $codeWriter->indent();
+            $codeWriter->writeLine('$payload = new ' . $this->parameter->getNamespacedClass() . '();');
+            $codeWriter->outdent();
+            $codeWriter->writeLine('}');
+
+            $codeWriter->insertNewLine();
         }
 
-        $content .= $curIndent . '$result = $this->doRequest(' . PHP_EOL;
-        $content .= $curIndent . Php::INDENTATION . 'self::' . $this->httpMethod . ',' . PHP_EOL;
-        $content .= $curIndent . Php::INDENTATION . $this->getParameterizedUrl() . PHP_EOL;
-        $content .= $curIndent  . ');' . PHP_EOL;
+        $codeWriter->writeLine('$result = $this->doRequest(');
+        $codeWriter->indent();
+        $codeWriter->writeLine('self::' . $this->httpMethod . ',');
+        $codeWriter->writeLine($this->getParameterizedUrl());
+        $codeWriter->outdent();
+        $codeWriter->writeLine(');');
 
         if ($this->model) {
-            $content .= PHP_EOL;
-            $content .= $curIndent . 'return ' . $this->model->getNamespacedClass() . '::fromArray($result);' . PHP_EOL;
+            $codeWriter->insertNewLine();
+            $codeWriter->writeLine('return ' . $this->model->getNamespacedClass() . '::fromArray($result);');
         }
 
-        $content .= Php::INDENTATION . '}' . PHP_EOL;
-
-        return $content;
+        $codeWriter->closeMethod();
     }
 
     private function getPropertiesSignature(): string

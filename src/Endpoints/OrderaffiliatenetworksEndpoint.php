@@ -11,12 +11,12 @@ class OrderaffiliatenetworksEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Orderaffiliatenetworks\AllFromOrders();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'orders/' . $id . '/orderaffiliatenetworks/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Collection\Orderaffiliatenetworks::fromArray($result);
     }
 }

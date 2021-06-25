@@ -13,44 +13,44 @@ class AffiliatenetworksEndpoint extends BaseEndpoint
             'affiliatenetworks/' . $id . '/'
         );
     }
-
+    
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Resource\Affiliatenetworks
     {
         $result = $this->doRequest(
             self::GET,
             'affiliatenetworks/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Resource\Affiliatenetworks::fromArray($result);
     }
-
+    
     public function all(): \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Collection\Affiliatenetworks
     {
         $result = $this->doRequest(
             self::GET,
             'affiliatenetworks/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Collection\Affiliatenetworks::fromArray($result);
     }
-
+    
     public function update(int $id): \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Patch
     {
         $result = $this->doRequest(
             self::PATCH,
             'affiliatenetworks/' . $id . '/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Patch::fromArray($result);
     }
-
+    
     public function create(): \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Post
     {
         $result = $this->doRequest(
             self::POST,
             'affiliatenetworks/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Post::fromArray($result);
     }
 }

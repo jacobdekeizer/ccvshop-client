@@ -11,12 +11,12 @@ class ProductshippingcostsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $payload = new \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productshippingcosts/' . $parameter->toBuilder()->toQueryString()
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Productshippingcosts\Collection\Productshippingcosts::fromArray($result);
     }
 }

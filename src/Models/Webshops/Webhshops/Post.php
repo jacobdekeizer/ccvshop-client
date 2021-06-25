@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int The unique ID of this webshop. Note that this webshop needs to be connected to the multishop system to work.
      */
     private $webshopId;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int The unique ID of this webshop. Note that this webshop needs to be connected to the multishop system to work.
      */
@@ -32,7 +33,7 @@ class Post implements Model
     {
         return $this->webshopId;
     }
-
+    
     /**
      * @param int $webshopId The unique ID of this webshop. Note that this webshop needs to be connected to the multishop system to work.
      * @return self

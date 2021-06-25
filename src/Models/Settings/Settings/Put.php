@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Put implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string[]|null Array with available languages of the webshop. Putting this will change the active languages.
      */
     private $languages;
-
+    
     /**
      * @var bool|null If the webshop is disabled a notice will be shown to visitors.
      */
     private $webshopEnabled;
-
+    
     /**
      * @var string|null If the webshop is disabled a notice will be shown to visitors. This is the title of the notice.
      */
     private $webshopDisabledTitle;
-
+    
     /**
      * @var string|null If the webshop is disabled a notice will be shown to visitors. This is the body of the notice.
      */
     private $webshopDisabledText;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string[]|null Array with available languages of the webshop. Putting this will change the active languages.
      */
@@ -47,7 +48,7 @@ class Put implements Model
     {
         return $this->languages;
     }
-
+    
     /**
      * @return bool|null If the webshop is disabled a notice will be shown to visitors.
      */
@@ -55,7 +56,7 @@ class Put implements Model
     {
         return $this->webshopEnabled;
     }
-
+    
     /**
      * @return string|null If the webshop is disabled a notice will be shown to visitors. This is the title of the notice.
      */
@@ -63,7 +64,7 @@ class Put implements Model
     {
         return $this->webshopDisabledTitle;
     }
-
+    
     /**
      * @return string|null If the webshop is disabled a notice will be shown to visitors. This is the body of the notice.
      */
@@ -71,7 +72,7 @@ class Put implements Model
     {
         return $this->webshopDisabledText;
     }
-
+    
     /**
      * @param string[]|null $languages Array with available languages of the webshop. Putting this will change the active languages.
      * @return self
@@ -82,7 +83,7 @@ class Put implements Model
         $this->propertyFilled('languages');
         return $this;
     }
-
+    
     /**
      * @param bool|null $webshopEnabled If the webshop is disabled a notice will be shown to visitors.
      * @return self
@@ -93,7 +94,7 @@ class Put implements Model
         $this->propertyFilled('webshopEnabled');
         return $this;
     }
-
+    
     /**
      * @param string|null $webshopDisabledTitle If the webshop is disabled a notice will be shown to visitors. This is the title of the notice.
      * @return self
@@ -104,7 +105,7 @@ class Put implements Model
         $this->propertyFilled('webshopDisabledTitle');
         return $this;
     }
-
+    
     /**
      * @param string|null $webshopDisabledText If the webshop is disabled a notice will be shown to visitors. This is the body of the notice.
      * @return self

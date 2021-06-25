@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productpropertyvalues implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Property value Id
      */
     private $id;
-
+    
     /**
      * @var int Product Id
      */
     private $productId;
-
+    
     /**
      * @var int Property Id
      */
     private $productPropertyId;
-
+    
     /**
      * @var string Value of Product property value
      */
     private $value;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Productpropertyvalues implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -52,7 +53,7 @@ class Productpropertyvalues implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Property value Id
      */
@@ -60,7 +61,7 @@ class Productpropertyvalues implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int Product Id
      */
@@ -68,7 +69,7 @@ class Productpropertyvalues implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return int Property Id
      */
@@ -76,7 +77,7 @@ class Productpropertyvalues implements Model
     {
         return $this->productPropertyId;
     }
-
+    
     /**
      * @return string Value of Product property value
      */
@@ -84,7 +85,7 @@ class Productpropertyvalues implements Model
     {
         return $this->value;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -95,7 +96,7 @@ class Productpropertyvalues implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Property value Id
      * @return self
@@ -106,7 +107,7 @@ class Productpropertyvalues implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $productId Product Id
      * @return self
@@ -117,7 +118,7 @@ class Productpropertyvalues implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param int $productPropertyId Property Id
      * @return self
@@ -128,7 +129,7 @@ class Productpropertyvalues implements Model
         $this->propertyFilled('productPropertyId');
         return $this;
     }
-
+    
     /**
      * @param string $value Value of Product property value
      * @return self

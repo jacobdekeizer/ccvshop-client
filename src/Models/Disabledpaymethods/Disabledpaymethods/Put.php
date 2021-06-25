@@ -10,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Put implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Child\Disabledpaymethods\DisabledPaymethods[] Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
      */
     private $disabledPaymethods;
-
+    
     /**
      * @return self
      */
@@ -24,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Child\Disabledpaymethods\DisabledPaymethods[] Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
      */
@@ -32,7 +33,7 @@ class Put implements Model
     {
         return $this->disabledPaymethods;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Child\Disabledpaymethods\DisabledPaymethods[] $disabledPaymethods Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
      * @return self
@@ -43,19 +44,18 @@ class Put implements Model
         $this->propertyFilled('disabledPaymethods');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'disabled_paymethods') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Child\Disabledpaymethods\DisabledPaymethods::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

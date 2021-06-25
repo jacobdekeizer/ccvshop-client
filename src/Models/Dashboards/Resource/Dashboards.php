@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Dashboards implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Id of this dashboard.
      */
     private $id;
-
+    
     /**
      * @var string Link to this dashboard.
      */
     private $href;
-
+    
     /**
      * @var string Name of this dashboard. Describes more or less the location of the dashboard within the menu structure.
      */
     private $name;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Dashboards\Child\Resource\Dashboardblocks Collection of dashboard blocks.
      */
     private $dashboardblocks;
-
+    
     /**
      * @var string Link to parent
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Dashboards implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Id of this dashboard.
      */
@@ -52,7 +53,7 @@ class Dashboards implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Link to this dashboard.
      */
@@ -60,7 +61,7 @@ class Dashboards implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return string Name of this dashboard. Describes more or less the location of the dashboard within the menu structure.
      */
@@ -68,7 +69,7 @@ class Dashboards implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Dashboards\Child\Resource\Dashboardblocks Collection of dashboard blocks.
      */
@@ -76,7 +77,7 @@ class Dashboards implements Model
     {
         return $this->dashboardblocks;
     }
-
+    
     /**
      * @return string Link to parent
      */
@@ -84,7 +85,7 @@ class Dashboards implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param int $id Id of this dashboard.
      * @return self
@@ -95,7 +96,7 @@ class Dashboards implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $href Link to this dashboard.
      * @return self
@@ -106,7 +107,7 @@ class Dashboards implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param string $name Name of this dashboard. Describes more or less the location of the dashboard within the menu structure.
      * @return self
@@ -117,7 +118,7 @@ class Dashboards implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Dashboards\Child\Resource\Dashboardblocks $dashboardblocks Collection of dashboard blocks.
      * @return self
@@ -128,7 +129,7 @@ class Dashboards implements Model
         $this->propertyFilled('dashboardblocks');
         return $this;
     }
-
+    
     /**
      * @param string $parent Link to parent
      * @return self

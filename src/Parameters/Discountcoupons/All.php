@@ -15,40 +15,40 @@ class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-
+    
     /**
      * @var string|null Minimal begin date of the coupons in the result.
      */
     private $minBegindate;
-
+    
     /**
      * @var string|null Maximal begin date of the coupons in the result.
      */
     private $maxBegindate;
-
+    
     /**
      * @var string|null Minimal end date of the coupons in the result.
      */
     private $minEnddate;
-
+    
     /**
      * @var string|null Maximal end date of the coupons in the result.
      */
     private $maxEnddate;
-
+    
     /**
      * @var bool|null Show coupons that can only be used once. If false it will only show coupons that can be used multiple times.
      */
     private $onetimeuse;
-
+    
     /**
      * @return self
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data): Parameter
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return self
      */
@@ -57,10 +57,10 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-
+        
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
+    
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
@@ -71,7 +71,7 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('onetimeuse', $this->onetimeuse)
             ->orderBy($this->getOrderBy());
     }
-
+    
     /**
      * @return string|null Minimal begin date of the coupons in the result.
      */
@@ -79,7 +79,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->minBegindate;
     }
-
+    
     /**
      * @return string|null Maximal begin date of the coupons in the result.
      */
@@ -87,7 +87,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->maxBegindate;
     }
-
+    
     /**
      * @return string|null Minimal end date of the coupons in the result.
      */
@@ -95,7 +95,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->minEnddate;
     }
-
+    
     /**
      * @return string|null Maximal end date of the coupons in the result.
      */
@@ -103,7 +103,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->maxEnddate;
     }
-
+    
     /**
      * @return bool|null Show coupons that can only be used once. If false it will only show coupons that can be used multiple times.
      */
@@ -111,7 +111,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->onetimeuse;
     }
-
+    
     /**
      * @param string|null $minBegindate Minimal begin date of the coupons in the result.
      * @return self
@@ -121,7 +121,7 @@ class All extends PaginatedList implements Parameter
         $this->minBegindate = $minBegindate;
         return $this;
     }
-
+    
     /**
      * @param string|null $maxBegindate Maximal begin date of the coupons in the result.
      * @return self
@@ -131,7 +131,7 @@ class All extends PaginatedList implements Parameter
         $this->maxBegindate = $maxBegindate;
         return $this;
     }
-
+    
     /**
      * @param string|null $minEnddate Minimal end date of the coupons in the result.
      * @return self
@@ -141,7 +141,7 @@ class All extends PaginatedList implements Parameter
         $this->minEnddate = $minEnddate;
         return $this;
     }
-
+    
     /**
      * @param string|null $maxEnddate Maximal end date of the coupons in the result.
      * @return self
@@ -151,7 +151,7 @@ class All extends PaginatedList implements Parameter
         $this->maxEnddate = $maxEnddate;
         return $this;
     }
-
+    
     /**
      * @param bool|null $onetimeuse Show coupons that can only be used once. If false it will only show coupons that can be used multiple times.
      * @return self
@@ -161,49 +161,49 @@ class All extends PaginatedList implements Parameter
         $this->onetimeuse = $onetimeuse;
         return $this;
     }
-
+    
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-
+    
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-
+    
     public function orderByBegindateAsc(): self
     {
         $this->orderByField('begindate', true);
         return $this;
     }
-
+    
     public function orderByBegindateDesc(): self
     {
         $this->orderByField('begindate', false);
         return $this;
     }
-
+    
     public function orderByEnddateAsc(): self
     {
         $this->orderByField('enddate', true);
         return $this;
     }
-
+    
     public function orderByEnddateDesc(): self
     {
         $this->orderByField('enddate', false);
         return $this;
     }
-
+    
     public function orderByTypeAsc(): self
     {
         $this->orderByField('type', true);
         return $this;
     }
-
+    
     public function orderByTypeDesc(): self
     {
         $this->orderByField('type', false);

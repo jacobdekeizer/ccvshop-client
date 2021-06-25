@@ -10,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productpropertygroups implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Product Property Group Id
      */
     private $id;
-
+    
     /**
      * @var string Group name
      */
     private $name;
-
+    
     /**
      * @var string|null Link to productproperties
      */
     private $productproperties;
-
+    
     /**
      * @return self
      */
@@ -39,7 +40,7 @@ class Productpropertygroups implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -47,7 +48,7 @@ class Productpropertygroups implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Product Property Group Id
      */
@@ -55,7 +56,7 @@ class Productpropertygroups implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Group name
      */
@@ -63,7 +64,7 @@ class Productpropertygroups implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string|null Link to productproperties
      */
@@ -71,7 +72,7 @@ class Productpropertygroups implements Model
     {
         return $this->productproperties;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -82,7 +83,7 @@ class Productpropertygroups implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Product Property Group Id
      * @return self
@@ -93,7 +94,7 @@ class Productpropertygroups implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $name Group name
      * @return self
@@ -104,7 +105,7 @@ class Productpropertygroups implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string|null $productproperties Link to productproperties
      * @return self

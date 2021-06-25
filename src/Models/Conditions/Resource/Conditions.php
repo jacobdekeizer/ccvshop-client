@@ -10,33 +10,34 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Conditions implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var string|null Condition Name
      */
     private $name;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\Products|null Collection of products that have this condition.
      */
     private $products;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -44,7 +45,7 @@ class Conditions implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -52,7 +53,7 @@ class Conditions implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Unique id of the resource
      */
@@ -60,7 +61,7 @@ class Conditions implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Condition Name
      */
@@ -68,7 +69,7 @@ class Conditions implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\Products|null Collection of products that have this condition.
      */
@@ -76,7 +77,7 @@ class Conditions implements Model
     {
         return $this->products;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -84,7 +85,7 @@ class Conditions implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -95,7 +96,7 @@ class Conditions implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -106,7 +107,7 @@ class Conditions implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Condition Name
      * @return self
@@ -117,7 +118,7 @@ class Conditions implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\Products|null $products Collection of products that have this condition.
      * @return self
@@ -128,7 +129,7 @@ class Conditions implements Model
         $this->propertyFilled('products');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Conditions\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

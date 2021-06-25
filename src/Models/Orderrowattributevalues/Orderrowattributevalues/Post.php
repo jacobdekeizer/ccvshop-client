@@ -10,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Post implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Name of the option (attribute)
      */
     private $optionName;
-
+    
     /**
      * @var string Name of the attribute value
      */
     private $valueName;
-
+    
     /**
      * @var float|null Additional price of this attribute value
      */
     private $price;
-
+    
     /**
      * @return self
      */
@@ -34,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Name of the option (attribute)
      */
@@ -42,7 +43,7 @@ class Post implements Model
     {
         return $this->optionName;
     }
-
+    
     /**
      * @return string Name of the attribute value
      */
@@ -50,7 +51,7 @@ class Post implements Model
     {
         return $this->valueName;
     }
-
+    
     /**
      * @return float|null Additional price of this attribute value
      */
@@ -58,7 +59,7 @@ class Post implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @param string $optionName Name of the option (attribute)
      * @return self
@@ -69,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('optionName');
         return $this;
     }
-
+    
     /**
      * @param string $valueName Name of the attribute value
      * @return self
@@ -80,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('valueName');
         return $this;
     }
-
+    
     /**
      * @param float|null $price Additional price of this attribute value
      * @return self

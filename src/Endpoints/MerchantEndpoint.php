@@ -12,7 +12,7 @@ class MerchantEndpoint extends BaseEndpoint
             self::GET,
             'webshops/' . $id . '/merchant/'
         );
-
+        
         return \JacobDeKeizer\Ccv\Models\Merchant\Entity\Merchant::fromArray($result);
     }
 }
