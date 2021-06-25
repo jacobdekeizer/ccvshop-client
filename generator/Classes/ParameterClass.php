@@ -166,7 +166,7 @@ class ParameterClass
             . Php::INDENTATION . 'public static function fromUrl(?string $url): ?self' . PHP_EOL
             . Php::INDENTATION . '{' . PHP_EOL
             . Php::INDENTATION . Php::INDENTATION . 'if ($url === null) {' . PHP_EOL
-            . Php::INDENTATION . Php::INDENTATION . Php::INDENTATION . 'return null;'
+            . Php::INDENTATION . Php::INDENTATION . Php::INDENTATION . 'return null;' . PHP_EOL
             . Php::INDENTATION . Php::INDENTATION . '}' . PHP_EOL
             . PHP_EOL
             . Php::INDENTATION . Php::INDENTATION
@@ -238,7 +238,7 @@ class ParameterClass
     {
         $content = PHP_EOL;
         $content .= sprintf(
-            '%spublic function orderBy%s(bool $expand = true): self%s',
+            '%spublic function orderBy%s(): self%s',
             Php::INDENTATION,
             ucfirst($field) . ($ascending ? 'Asc' : 'Desc'),
             PHP_EOL

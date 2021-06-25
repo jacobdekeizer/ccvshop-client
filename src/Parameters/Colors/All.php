@@ -32,7 +32,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }

@@ -7,10 +7,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Usergroups;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class All implements Parameter
+class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -29,7 +30,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -40,25 +42,25 @@ class All implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByGroupnameAsc(bool $expand = true): self
+    public function orderByGroupnameAsc(): self
     {
         $this->orderByField('groupname', true);
         return $this;
     }
 
-    public function orderByGroupnameDesc(bool $expand = true): self
+    public function orderByGroupnameDesc(): self
     {
         $this->orderByField('groupname', false);
         return $this;

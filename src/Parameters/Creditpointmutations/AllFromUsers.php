@@ -29,7 +29,8 @@ class AllFromUsers implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -40,13 +41,13 @@ class AllFromUsers implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
-    public function orderByCreate_dateAsc(bool $expand = true): self
+    public function orderByCreate_dateAsc(): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
 
-    public function orderByCreate_dateDesc(bool $expand = true): self
+    public function orderByCreate_dateDesc(): self
     {
         $this->orderByField('create_date', false);
         return $this;

@@ -6,11 +6,15 @@ namespace JacobDeKeizer\Ccv\Endpoints;
 
 class OrderrowsEndpoint extends BaseEndpoint
 {
-    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
+    public function allFromOrders(int $id, ?\JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'orders/' . $id . '/orderrows/'
+            'orders/' . $id . '/orderrows/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows::fromArray($result);

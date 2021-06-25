@@ -14,21 +14,29 @@ class CategoriesEndpoint extends BaseEndpoint
         );
     }
 
-    public function get(int $id): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
+    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Categories\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Categories\Get();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'categories/' . $id . '/categories/'
+            'categories/' . $id . '/categories/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);
     }
 
-    public function all(): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Categories\All $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Categories\All();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'categories/'
+            'categories/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);

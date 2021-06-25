@@ -24,11 +24,15 @@ class WebhooksEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks::fromArray($result);
     }
 
-    public function all(): \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks
+    public function all(?\JacobDeKeizer\Ccv\Parameters\Webhooks\All $parameter = null): \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Webhooks\All();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'webhooks/'
+            'webhooks/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks::fromArray($result);

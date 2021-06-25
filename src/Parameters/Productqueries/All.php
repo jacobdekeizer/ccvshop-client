@@ -6,10 +6,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Productqueries;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class All implements Parameter
+class All extends PaginatedList implements Parameter
 {
     use FromArray;
 
@@ -47,7 +48,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }

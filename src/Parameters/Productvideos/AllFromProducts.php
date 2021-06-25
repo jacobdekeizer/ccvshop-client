@@ -29,7 +29,8 @@ class AllFromProducts implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -40,25 +41,25 @@ class AllFromProducts implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByPositionAsc(bool $expand = true): self
+    public function orderByPositionAsc(): self
     {
         $this->orderByField('position', true);
         return $this;
     }
 
-    public function orderByPositionDesc(bool $expand = true): self
+    public function orderByPositionDesc(): self
     {
         $this->orderByField('position', false);
         return $this;

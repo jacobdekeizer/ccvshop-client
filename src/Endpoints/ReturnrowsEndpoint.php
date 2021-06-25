@@ -6,11 +6,15 @@ namespace JacobDeKeizer\Ccv\Endpoints;
 
 class ReturnrowsEndpoint extends BaseEndpoint
 {
-    public function allFromReturns(int $id): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
+    public function allFromReturns(int $id, ?\JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns $parameter = null): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'returns/' . $id . '/returnrows/'
+            'returns/' . $id . '/returnrows/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows::fromArray($result);

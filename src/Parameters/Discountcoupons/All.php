@@ -7,10 +7,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Discountcoupons;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class All implements Parameter
+class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -54,7 +55,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -160,49 +162,49 @@ class All implements Parameter
         return $this;
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByBegindateAsc(bool $expand = true): self
+    public function orderByBegindateAsc(): self
     {
         $this->orderByField('begindate', true);
         return $this;
     }
 
-    public function orderByBegindateDesc(bool $expand = true): self
+    public function orderByBegindateDesc(): self
     {
         $this->orderByField('begindate', false);
         return $this;
     }
 
-    public function orderByEnddateAsc(bool $expand = true): self
+    public function orderByEnddateAsc(): self
     {
         $this->orderByField('enddate', true);
         return $this;
     }
 
-    public function orderByEnddateDesc(bool $expand = true): self
+    public function orderByEnddateDesc(): self
     {
         $this->orderByField('enddate', false);
         return $this;
     }
 
-    public function orderByTypeAsc(bool $expand = true): self
+    public function orderByTypeAsc(): self
     {
         $this->orderByField('type', true);
         return $this;
     }
 
-    public function orderByTypeDesc(bool $expand = true): self
+    public function orderByTypeDesc(): self
     {
         $this->orderByField('type', false);
         return $this;

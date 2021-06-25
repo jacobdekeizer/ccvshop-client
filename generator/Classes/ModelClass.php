@@ -89,10 +89,10 @@ class ModelClass
         return '\\' . $this->namespace . '\\' . $this->name;
     }
 
-    public function hasProperty(string $property): bool
+    public function hasProperty(string $propertyName): bool
     {
         foreach ($this->properties as $property) {
-            if ($property->getName() === $property) {
+            if ($property->getName() === $propertyName) {
                 return true;
             }
         }

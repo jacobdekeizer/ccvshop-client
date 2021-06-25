@@ -7,10 +7,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Users;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromUsergroups implements Parameter
+class AllFromUsergroups extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -34,7 +35,8 @@ class AllFromUsergroups implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -64,37 +66,37 @@ class AllFromUsergroups implements Parameter
         return $this;
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByFirst_nameAsc(bool $expand = true): self
+    public function orderByFirst_nameAsc(): self
     {
         $this->orderByField('first_name', true);
         return $this;
     }
 
-    public function orderByFirst_nameDesc(bool $expand = true): self
+    public function orderByFirst_nameDesc(): self
     {
         $this->orderByField('first_name', false);
         return $this;
     }
 
-    public function orderByLast_nameAsc(bool $expand = true): self
+    public function orderByLast_nameAsc(): self
     {
         $this->orderByField('last_name', true);
         return $this;
     }
 
-    public function orderByLast_nameDesc(bool $expand = true): self
+    public function orderByLast_nameDesc(): self
     {
         $this->orderByField('last_name', false);
         return $this;

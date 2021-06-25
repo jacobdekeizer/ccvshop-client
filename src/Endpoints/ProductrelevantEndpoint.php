@@ -14,11 +14,15 @@ class ProductrelevantEndpoint extends BaseEndpoint
         );
     }
 
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant
+    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant
     {
+        if ($parameter === null) {
+            $payload = new \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts();
+        }
+
         $result = $this->doRequest(
             self::GET,
-            'products/' . $id . '/productrelevant/'
+            'products/' . $id . '/productrelevant/' . $parameter->toBuilder()->toQueryString()
         );
 
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant::fromArray($result);

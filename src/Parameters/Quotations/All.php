@@ -7,10 +7,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Quotations;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class All implements Parameter
+class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -64,7 +65,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -208,97 +210,97 @@ class All implements Parameter
         return $this;
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByQuotationnumberAsc(bool $expand = true): self
+    public function orderByQuotationnumberAsc(): self
     {
         $this->orderByField('quotationnumber', true);
         return $this;
     }
 
-    public function orderByQuotationnumberDesc(bool $expand = true): self
+    public function orderByQuotationnumberDesc(): self
     {
         $this->orderByField('quotationnumber', false);
         return $this;
     }
 
-    public function orderByOrdernumberAsc(bool $expand = true): self
+    public function orderByOrdernumberAsc(): self
     {
         $this->orderByField('ordernumber', true);
         return $this;
     }
 
-    public function orderByOrdernumberDesc(bool $expand = true): self
+    public function orderByOrdernumberDesc(): self
     {
         $this->orderByField('ordernumber', false);
         return $this;
     }
 
-    public function orderByQuotationnumber_fullAsc(bool $expand = true): self
+    public function orderByQuotationnumber_fullAsc(): self
     {
         $this->orderByField('quotationnumber_full', true);
         return $this;
     }
 
-    public function orderByQuotationnumber_fullDesc(bool $expand = true): self
+    public function orderByQuotationnumber_fullDesc(): self
     {
         $this->orderByField('quotationnumber_full', false);
         return $this;
     }
 
-    public function orderByOrdernumber_fullAsc(bool $expand = true): self
+    public function orderByOrdernumber_fullAsc(): self
     {
         $this->orderByField('ordernumber_full', true);
         return $this;
     }
 
-    public function orderByOrdernumber_fullDesc(bool $expand = true): self
+    public function orderByOrdernumber_fullDesc(): self
     {
         $this->orderByField('ordernumber_full', false);
         return $this;
     }
 
-    public function orderByCreate_dateAsc(bool $expand = true): self
+    public function orderByCreate_dateAsc(): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
 
-    public function orderByCreate_dateDesc(bool $expand = true): self
+    public function orderByCreate_dateDesc(): self
     {
         $this->orderByField('create_date', false);
         return $this;
     }
 
-    public function orderByStatusAsc(bool $expand = true): self
+    public function orderByStatusAsc(): self
     {
         $this->orderByField('status', true);
         return $this;
     }
 
-    public function orderByStatusDesc(bool $expand = true): self
+    public function orderByStatusDesc(): self
     {
         $this->orderByField('status', false);
         return $this;
     }
 
-    public function orderByTotal_priceAsc(bool $expand = true): self
+    public function orderByTotal_priceAsc(): self
     {
         $this->orderByField('total_price', true);
         return $this;
     }
 
-    public function orderByTotal_priceDesc(bool $expand = true): self
+    public function orderByTotal_priceDesc(): self
     {
         $this->orderByField('total_price', false);
         return $this;

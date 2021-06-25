@@ -36,7 +36,8 @@ class All implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -73,37 +74,37 @@ class All implements Parameter
         return $this;
     }
 
-    public function orderByIdAsc(bool $expand = true): self
+    public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
 
-    public function orderByIdDesc(bool $expand = true): self
+    public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
 
-    public function orderByNameAsc(bool $expand = true): self
+    public function orderByNameAsc(): self
     {
         $this->orderByField('name', true);
         return $this;
     }
 
-    public function orderByNameDesc(bool $expand = true): self
+    public function orderByNameDesc(): self
     {
         $this->orderByField('name', false);
         return $this;
     }
 
-    public function orderByDateAsc(bool $expand = true): self
+    public function orderByDateAsc(): self
     {
         $this->orderByField('date', true);
         return $this;
     }
 
-    public function orderByDateDesc(bool $expand = true): self
+    public function orderByDateDesc(): self
     {
         $this->orderByField('date', false);
         return $this;

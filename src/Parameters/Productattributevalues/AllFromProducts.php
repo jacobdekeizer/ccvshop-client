@@ -7,10 +7,11 @@ namespace JacobDeKeizer\Ccv\Parameters\Productattributevalues;
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromProducts extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -29,7 +30,8 @@ class AllFromProducts implements Parameter
     public static function fromUrl(?string $url): ?self
     {
         if ($url === null) {
-            return null;        }
+            return null;
+        }
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
@@ -40,25 +42,25 @@ class AllFromProducts implements Parameter
             ->orderBy($this->getOrderBy());
     }
 
-    public function orderByPositionAsc(bool $expand = true): self
+    public function orderByPositionAsc(): self
     {
         $this->orderByField('position', true);
         return $this;
     }
 
-    public function orderByPositionDesc(bool $expand = true): self
+    public function orderByPositionDesc(): self
     {
         $this->orderByField('position', false);
         return $this;
     }
 
-    public function orderByOptionpositionAsc(bool $expand = true): self
+    public function orderByOptionpositionAsc(): self
     {
         $this->orderByField('optionposition', true);
         return $this;
     }
 
-    public function orderByOptionpositionDesc(bool $expand = true): self
+    public function orderByOptionpositionDesc(): self
     {
         $this->orderByField('optionposition', false);
         return $this;
