@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orderrows\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,193 +10,194 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Orderrows implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Order row Id
      */
     private $id;
-
+    
     /**
      * @var int|null Order Id
      */
     private $orderId;
-
+    
     /**
      * @var string Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
      */
     private $productType;
-
+    
     /**
      * @var string|null Product name
      */
     private $productName;
-
+    
     /**
      * @var string|null Product name google
      */
     private $productNameGoogle;
-
+    
     /**
      * @var string|null Product number
      */
     private $productNumber;
-
+    
     /**
      * @var string|null Product number from the attributecombination
      */
     private $subProductNumber;
-
+    
     /**
      * @var string|null SKU number from the attributecombination
      */
     private $subSkuNumber;
-
+    
     /**
      * @var string|null EAN number from the attributecombination
      */
     private $subEanNumber;
-
+    
     /**
      * @var int|null Unique product id.
      */
     private $productId;
-
+    
     /**
      * @var string|null Link to product resource
      */
     private $productHref;
-
+    
     /**
      * @var float|null Quantity of products
      */
     private $count;
-
+    
     /**
      * @var float|null Product original price per unit
      */
     private $price;
-
+    
     /**
      * @var float|null Product purchase price  per unit
      */
     private $productPurchasePrice;
-
+    
     /**
      * @var float|null Discount price per unit
      */
     private $discount;
-
+    
     /**
      * @var bool|null Custom product price. If true, this price is differnt from the product price for this order row.
      */
     private $customPrice;
-
+    
     /**
      * @var float|null Tax percentage
      */
     private $tax;
-
+    
     /**
      * @var string|null Product unit
      */
     private $unit;
-
+    
     /**
      * @var float|null Product weight
      */
     private $weight;
-
+    
     /**
      * @var string|null Memo description of product
      */
     private $memo;
-
+    
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
     private $packageId;
-
+    
     /**
      * @var string|null Package name
      */
     private $packageName;
-
+    
     /**
      * @var string|null Stocklocation of product
      */
     private $stockLocation;
-
+    
     /**
      * @var string|null Product supplier
      */
     private $supplier;
-
+    
     /**
      * @var float|null Discount of user
      */
     private $userDiscount;
-
+    
     /**
      * @var float|null Product original price.
      */
     private $originalPrice;
-
+    
     /**
      * @var float|null Product orignal price and discount.
      */
     private $sellingPrice;
-
+    
     /**
      * @var float|null Product price without discount
      */
     private $priceWithoutDiscount;
-
+    
     /**
      * @var float|null Product price without discount, with attributes
      */
     private $priceWithoutDiscountWithAttributes;
-
+    
     /**
      * @var float|null Total order row price
      */
     private $totalPrice;
-
+    
     /**
      * @var float|null Total price from attributes.
      */
     private $totalExtraOptionPrice;
-
+    
     /**
      * @var float|null Product price with attributes per unit.
      */
     private $priceWithAttributes;
-
+    
     /**
      * @var float|null Total product price with attributes
      */
     private $totalPriceWithAttributes;
-
+    
     /**
-     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @var \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrowattributevalues[]|null Collection of the chosen attribute options of this order row.
      */
     private $attributes;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
      */
     private $uploads;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -202,7 +205,7 @@ class Orderrows implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -210,7 +213,7 @@ class Orderrows implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Order row Id
      */
@@ -218,7 +221,7 @@ class Orderrows implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int|null Order Id
      */
@@ -226,7 +229,7 @@ class Orderrows implements Model
     {
         return $this->orderId;
     }
-
+    
     /**
      * @return string Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
      */
@@ -234,7 +237,7 @@ class Orderrows implements Model
     {
         return $this->productType;
     }
-
+    
     /**
      * @return string|null Product name
      */
@@ -242,7 +245,7 @@ class Orderrows implements Model
     {
         return $this->productName;
     }
-
+    
     /**
      * @return string|null Product name google
      */
@@ -250,7 +253,7 @@ class Orderrows implements Model
     {
         return $this->productNameGoogle;
     }
-
+    
     /**
      * @return string|null Product number
      */
@@ -258,7 +261,7 @@ class Orderrows implements Model
     {
         return $this->productNumber;
     }
-
+    
     /**
      * @return string|null Product number from the attributecombination
      */
@@ -266,7 +269,7 @@ class Orderrows implements Model
     {
         return $this->subProductNumber;
     }
-
+    
     /**
      * @return string|null SKU number from the attributecombination
      */
@@ -274,7 +277,7 @@ class Orderrows implements Model
     {
         return $this->subSkuNumber;
     }
-
+    
     /**
      * @return string|null EAN number from the attributecombination
      */
@@ -282,7 +285,7 @@ class Orderrows implements Model
     {
         return $this->subEanNumber;
     }
-
+    
     /**
      * @return int|null Unique product id.
      */
@@ -290,7 +293,7 @@ class Orderrows implements Model
     {
         return $this->productId;
     }
-
+    
     /**
      * @return string|null Link to product resource
      */
@@ -298,7 +301,7 @@ class Orderrows implements Model
     {
         return $this->productHref;
     }
-
+    
     /**
      * @return float|null Quantity of products
      */
@@ -306,7 +309,7 @@ class Orderrows implements Model
     {
         return $this->count;
     }
-
+    
     /**
      * @return float|null Product original price per unit
      */
@@ -314,7 +317,7 @@ class Orderrows implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float|null Product purchase price  per unit
      */
@@ -322,7 +325,7 @@ class Orderrows implements Model
     {
         return $this->productPurchasePrice;
     }
-
+    
     /**
      * @return float|null Discount price per unit
      */
@@ -330,7 +333,7 @@ class Orderrows implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return bool|null Custom product price. If true, this price is differnt from the product price for this order row.
      */
@@ -338,7 +341,7 @@ class Orderrows implements Model
     {
         return $this->customPrice;
     }
-
+    
     /**
      * @return float|null Tax percentage
      */
@@ -346,7 +349,7 @@ class Orderrows implements Model
     {
         return $this->tax;
     }
-
+    
     /**
      * @return string|null Product unit
      */
@@ -354,7 +357,7 @@ class Orderrows implements Model
     {
         return $this->unit;
     }
-
+    
     /**
      * @return float|null Product weight
      */
@@ -362,7 +365,7 @@ class Orderrows implements Model
     {
         return $this->weight;
     }
-
+    
     /**
      * @return string|null Memo description of product
      */
@@ -370,7 +373,7 @@ class Orderrows implements Model
     {
         return $this->memo;
     }
-
+    
     /**
      * @return int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
@@ -378,7 +381,7 @@ class Orderrows implements Model
     {
         return $this->packageId;
     }
-
+    
     /**
      * @return string|null Package name
      */
@@ -386,7 +389,7 @@ class Orderrows implements Model
     {
         return $this->packageName;
     }
-
+    
     /**
      * @return string|null Stocklocation of product
      */
@@ -394,7 +397,7 @@ class Orderrows implements Model
     {
         return $this->stockLocation;
     }
-
+    
     /**
      * @return string|null Product supplier
      */
@@ -402,7 +405,7 @@ class Orderrows implements Model
     {
         return $this->supplier;
     }
-
+    
     /**
      * @return float|null Discount of user
      */
@@ -410,7 +413,7 @@ class Orderrows implements Model
     {
         return $this->userDiscount;
     }
-
+    
     /**
      * @return float|null Product original price.
      */
@@ -418,7 +421,7 @@ class Orderrows implements Model
     {
         return $this->originalPrice;
     }
-
+    
     /**
      * @return float|null Product orignal price and discount.
      */
@@ -426,7 +429,7 @@ class Orderrows implements Model
     {
         return $this->sellingPrice;
     }
-
+    
     /**
      * @return float|null Product price without discount
      */
@@ -434,7 +437,7 @@ class Orderrows implements Model
     {
         return $this->priceWithoutDiscount;
     }
-
+    
     /**
      * @return float|null Product price without discount, with attributes
      */
@@ -442,7 +445,7 @@ class Orderrows implements Model
     {
         return $this->priceWithoutDiscountWithAttributes;
     }
-
+    
     /**
      * @return float|null Total order row price
      */
@@ -450,7 +453,7 @@ class Orderrows implements Model
     {
         return $this->totalPrice;
     }
-
+    
     /**
      * @return float|null Total price from attributes.
      */
@@ -458,7 +461,7 @@ class Orderrows implements Model
     {
         return $this->totalExtraOptionPrice;
     }
-
+    
     /**
      * @return float|null Product price with attributes per unit.
      */
@@ -466,7 +469,7 @@ class Orderrows implements Model
     {
         return $this->priceWithAttributes;
     }
-
+    
     /**
      * @return float|null Total product price with attributes
      */
@@ -474,15 +477,15 @@ class Orderrows implements Model
     {
         return $this->totalPriceWithAttributes;
     }
-
+    
     /**
-     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null Collection of the chosen attribute options of this order row.
+     * @return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrowattributevalues[]|null Collection of the chosen attribute options of this order row.
      */
     public function getAttributes(): ?array
     {
         return $this->attributes;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null A collection of order row uploads
      */
@@ -490,7 +493,7 @@ class Orderrows implements Model
     {
         return $this->uploads;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -498,7 +501,7 @@ class Orderrows implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -509,7 +512,7 @@ class Orderrows implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Order row Id
      * @return self
@@ -520,7 +523,7 @@ class Orderrows implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int|null $orderId Order Id
      * @return self
@@ -531,7 +534,7 @@ class Orderrows implements Model
         $this->propertyFilled('orderId');
         return $this;
     }
-
+    
     /**
      * @param string $productType Product type of this orderrow. If the type is a deposit then taxrate will always be 0%.
      * @return self
@@ -542,7 +545,7 @@ class Orderrows implements Model
         $this->propertyFilled('productType');
         return $this;
     }
-
+    
     /**
      * @param string|null $productName Product name
      * @return self
@@ -553,7 +556,7 @@ class Orderrows implements Model
         $this->propertyFilled('productName');
         return $this;
     }
-
+    
     /**
      * @param string|null $productNameGoogle Product name google
      * @return self
@@ -564,7 +567,7 @@ class Orderrows implements Model
         $this->propertyFilled('productNameGoogle');
         return $this;
     }
-
+    
     /**
      * @param string|null $productNumber Product number
      * @return self
@@ -575,7 +578,7 @@ class Orderrows implements Model
         $this->propertyFilled('productNumber');
         return $this;
     }
-
+    
     /**
      * @param string|null $subProductNumber Product number from the attributecombination
      * @return self
@@ -586,7 +589,7 @@ class Orderrows implements Model
         $this->propertyFilled('subProductNumber');
         return $this;
     }
-
+    
     /**
      * @param string|null $subSkuNumber SKU number from the attributecombination
      * @return self
@@ -597,7 +600,7 @@ class Orderrows implements Model
         $this->propertyFilled('subSkuNumber');
         return $this;
     }
-
+    
     /**
      * @param string|null $subEanNumber EAN number from the attributecombination
      * @return self
@@ -608,7 +611,7 @@ class Orderrows implements Model
         $this->propertyFilled('subEanNumber');
         return $this;
     }
-
+    
     /**
      * @param int|null $productId Unique product id.
      * @return self
@@ -619,7 +622,7 @@ class Orderrows implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-
+    
     /**
      * @param string|null $productHref Link to product resource
      * @return self
@@ -630,7 +633,7 @@ class Orderrows implements Model
         $this->propertyFilled('productHref');
         return $this;
     }
-
+    
     /**
      * @param float|null $count Quantity of products
      * @return self
@@ -641,7 +644,7 @@ class Orderrows implements Model
         $this->propertyFilled('count');
         return $this;
     }
-
+    
     /**
      * @param float|null $price Product original price per unit
      * @return self
@@ -652,7 +655,7 @@ class Orderrows implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float|null $productPurchasePrice Product purchase price  per unit
      * @return self
@@ -663,7 +666,7 @@ class Orderrows implements Model
         $this->propertyFilled('productPurchasePrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Discount price per unit
      * @return self
@@ -674,7 +677,7 @@ class Orderrows implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param bool|null $customPrice Custom product price. If true, this price is differnt from the product price for this order row.
      * @return self
@@ -685,7 +688,7 @@ class Orderrows implements Model
         $this->propertyFilled('customPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $tax Tax percentage
      * @return self
@@ -696,7 +699,7 @@ class Orderrows implements Model
         $this->propertyFilled('tax');
         return $this;
     }
-
+    
     /**
      * @param string|null $unit Product unit
      * @return self
@@ -707,7 +710,7 @@ class Orderrows implements Model
         $this->propertyFilled('unit');
         return $this;
     }
-
+    
     /**
      * @param float|null $weight Product weight
      * @return self
@@ -718,7 +721,7 @@ class Orderrows implements Model
         $this->propertyFilled('weight');
         return $this;
     }
-
+    
     /**
      * @param string|null $memo Memo description of product
      * @return self
@@ -729,7 +732,7 @@ class Orderrows implements Model
         $this->propertyFilled('memo');
         return $this;
     }
-
+    
     /**
      * @param int|null $packageId Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      * @return self
@@ -740,7 +743,7 @@ class Orderrows implements Model
         $this->propertyFilled('packageId');
         return $this;
     }
-
+    
     /**
      * @param string|null $packageName Package name
      * @return self
@@ -751,7 +754,7 @@ class Orderrows implements Model
         $this->propertyFilled('packageName');
         return $this;
     }
-
+    
     /**
      * @param string|null $stockLocation Stocklocation of product
      * @return self
@@ -762,7 +765,7 @@ class Orderrows implements Model
         $this->propertyFilled('stockLocation');
         return $this;
     }
-
+    
     /**
      * @param string|null $supplier Product supplier
      * @return self
@@ -773,7 +776,7 @@ class Orderrows implements Model
         $this->propertyFilled('supplier');
         return $this;
     }
-
+    
     /**
      * @param float|null $userDiscount Discount of user
      * @return self
@@ -784,7 +787,7 @@ class Orderrows implements Model
         $this->propertyFilled('userDiscount');
         return $this;
     }
-
+    
     /**
      * @param float|null $originalPrice Product original price.
      * @return self
@@ -795,7 +798,7 @@ class Orderrows implements Model
         $this->propertyFilled('originalPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $sellingPrice Product orignal price and discount.
      * @return self
@@ -806,7 +809,7 @@ class Orderrows implements Model
         $this->propertyFilled('sellingPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $priceWithoutDiscount Product price without discount
      * @return self
@@ -817,7 +820,7 @@ class Orderrows implements Model
         $this->propertyFilled('priceWithoutDiscount');
         return $this;
     }
-
+    
     /**
      * @param float|null $priceWithoutDiscountWithAttributes Product price without discount, with attributes
      * @return self
@@ -828,7 +831,7 @@ class Orderrows implements Model
         $this->propertyFilled('priceWithoutDiscountWithAttributes');
         return $this;
     }
-
+    
     /**
      * @param float|null $totalPrice Total order row price
      * @return self
@@ -839,7 +842,7 @@ class Orderrows implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $totalExtraOptionPrice Total price from attributes.
      * @return self
@@ -850,7 +853,7 @@ class Orderrows implements Model
         $this->propertyFilled('totalExtraOptionPrice');
         return $this;
     }
-
+    
     /**
      * @param float|null $priceWithAttributes Product price with attributes per unit.
      * @return self
@@ -861,7 +864,7 @@ class Orderrows implements Model
         $this->propertyFilled('priceWithAttributes');
         return $this;
     }
-
+    
     /**
      * @param float|null $totalPriceWithAttributes Total product price with attributes
      * @return self
@@ -872,9 +875,9 @@ class Orderrows implements Model
         $this->propertyFilled('totalPriceWithAttributes');
         return $this;
     }
-
+    
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes[]|null $attributes Collection of the chosen attribute options of this order row.
+     * @param \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrowattributevalues[]|null $attributes Collection of the chosen attribute options of this order row.
      * @return self
      */
     public function setAttributes(?array $attributes): self
@@ -883,7 +886,7 @@ class Orderrows implements Model
         $this->propertyFilled('attributes');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads[]|null $uploads A collection of order row uploads
      * @return self
@@ -894,7 +897,7 @@ class Orderrows implements Model
         $this->propertyFilled('uploads');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self
@@ -905,28 +908,28 @@ class Orderrows implements Model
         $this->propertyFilled('parent');
         return $this;
     }
-
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'attributes') {
             $items = [];
-
+            
             foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Attributes::fromArray($item);
+                $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrowattributevalues::fromArray($item);
             }
-
+            
             return $items;
         }
+        
         if ($key === 'uploads') {
             $items = [];
-
+            
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource\Uploads::fromArray($item);
             }
-
+            
             return $items;
         }
-
+        
         return $value;
     }
 }

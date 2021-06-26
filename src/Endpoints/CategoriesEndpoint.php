@@ -1,80 +1,104 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Categories\Categories\Patch;
-use JacobDeKeizer\Ccv\Models\Categories\Categories\Post;
-use JacobDeKeizer\Ccv\Models\Categories\Collection\Categories;
-use JacobDeKeizer\Ccv\Models\Categories\Resource\Categories as Category;
-use JacobDeKeizer\Ccv\Parameters\Categories\All;
 
 class CategoriesEndpoint extends BaseEndpoint
 {
     /**
+     * Delete a product category. 100 per minute
+     * 
      * @throws CcvShopException
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('/categories/%d/', $id));
+        $this->doRequest(
+            self::DELETE,
+            'categories/' . $id . '/',
+        );
     }
-
+    
     /**
+     * Get all categories from this category. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function allForCategory(int $id, ?All $payload = null): Categories
+    public function get(int $id, \JacobDeKeizer\Ccv\Parameters\Categories\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\Get();
         }
-
+        
         $result = $this->doRequest(
             self::GET,
-            sprintf('/categories/%d/categories/%s', $id, $payload->toBuilder()->toQueryString())
+            'categories/' . $id . '/categories/' . $parameter->toBuilder()->toQueryString()
         );
-
-        return Categories::fromArray($result);
+        
+        return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);
     }
-
+    
     /**
+     * Get a collection of product categories. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function all(?All $payload = null): Categories
+    public function all(\JacobDeKeizer\Ccv\Parameters\Categories\All $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
-        if ($payload === null) {
-            $payload = new All();
+        if ($parameter === null) {
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\All();
         }
-
-        $result = $this->doRequest(self::GET, sprintf('/categories/%s', $payload->toBuilder()->toQueryString()));
-
-        return Categories::fromArray($result);
+        
+        $result = $this->doRequest(
+            self::GET,
+            'categories/' . $parameter->toBuilder()->toQueryString()
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);
     }
-
+    
     /**
+     * Get one product category. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function get(int $id): Category
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Categories\Resource\Categories
     {
-        $result = $this->doRequest(self::GET, sprintf('/categories/%d', $id));
-
-        return Category::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'categories/' . $id . '/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Categories\Resource\Categories::fromArray($result);
     }
-
+    
     /**
+     * Patch a product category. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function update(int $id, Patch $category, bool $onlyFilled = true): void
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Categories\Categories\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, sprintf('/categories/%d/', $id), $category->toArray($onlyFilled));
+        $this->doRequest(
+            self::PATCH,
+            'categories/' . $id . '/',
+            $model->toArray($onlyFilled)
+        );
     }
-
+    
     /**
+     * Post a product category. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function create(Post $category, bool $onlyFilled = true): Category
+    public function create(\JacobDeKeizer\Ccv\Models\Categories\Categories\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(self::POST, '/categories/', $category->toArray($onlyFilled));
-
-        return Category::fromArray($result);
+        $this->doRequest(
+            self::POST,
+            'categories/',
+            $model->toArray($onlyFilled)
+        );
     }
 }

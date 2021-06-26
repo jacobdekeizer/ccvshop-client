@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Patch implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int|null Unique product position.
      */
     private $position;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int|null Unique product position.
      */
@@ -30,7 +33,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @param int|null $position Unique product position.
      * @return self

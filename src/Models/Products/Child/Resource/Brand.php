@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Brand implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to brand resource
      */
     private $href;
-
+    
     /**
      * @var int|null Brand Id
      */
     private $id;
-
+    
     /**
      * @var string|null Brand name
      */
     private $name;
-
+    
     /**
      * @return self
      */
@@ -32,7 +35,7 @@ class Brand implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to brand resource
      */
@@ -40,7 +43,7 @@ class Brand implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Brand Id
      */
@@ -48,7 +51,7 @@ class Brand implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Brand name
      */
@@ -56,7 +59,7 @@ class Brand implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @param string|null $href Link to brand resource
      * @return self
@@ -67,7 +70,7 @@ class Brand implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Brand Id
      * @return self
@@ -78,7 +81,7 @@ class Brand implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Brand name
      * @return self

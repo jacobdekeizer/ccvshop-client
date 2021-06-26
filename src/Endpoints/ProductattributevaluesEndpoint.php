@@ -5,60 +5,81 @@ declare(strict_types=1);
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Productattributevalues as Models;
 
 class ProductattributevaluesEndpoint extends BaseEndpoint
 {
     /**
+     * Delete a product attribute value. 100 per minute
+     * 
      * @throws CcvShopException
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('productattributevalues/%d', $id));
+        $this->doRequest(
+            self::DELETE,
+            'productattributevalues/' . $id . '/',
+        );
     }
-
+    
     /**
+     * Get all attribute values of this product. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function allForProduct(int $productId): Models\Collection\Productattributevalues
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
     {
-        $result = $this->doRequest(self::GET, sprintf('products/%d/productattributevalues/', $productId));
-
-        return Models\Collection\Productattributevalues::fromArray($result);
+        if ($parameter === null) {
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts();
+        }
+        
+        $result = $this->doRequest(
+            self::GET,
+            'products/' . $id . '/productattributevalues/' . $parameter->toBuilder()->toQueryString()
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues::fromArray($result);
     }
-
+    
     /**
+     * Get one attribute value. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function get(int $id): Models\Resource\Productattributevalues
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
     {
-        $result = $this->doRequest(self::GET, sprintf('productattributevalues/%d', $id));
-
-        return Models\Resource\Productattributevalues::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'productattributevalues/' . $id . '/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues::fromArray($result);
     }
-
+    
     /**
+     * Patch a product attribute value. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Productattributevalues\Patch $model, bool $onlyFilled = true): void
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch $model, bool $onlyFilled = true): void
     {
-        $this->doRequest(self::PATCH, sprintf('productattributevalues/%d', $id), $model->toArray($onlyFilled));
-    }
-
-    /**
-     * @throws CcvShopException
-     */
-    public function create(
-        int $productId,
-        Models\Productattributevalues\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Productattributevalues {
-        $response = $this->doRequest(
-            self::POST,
-            sprintf('products/%d/productattributevalues', $productId),
+        $this->doRequest(
+            self::PATCH,
+            'productattributevalues/' . $id . '/',
             $model->toArray($onlyFilled)
         );
-
-        return Models\Resource\Productattributevalues::fromArray($response);
+    }
+    
+    /**
+     * Create an attribute value for this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(
+            self::POST,
+            'products/' . $id . '/productattributevalues/',
+            $model->toArray($onlyFilled)
+        );
     }
 }

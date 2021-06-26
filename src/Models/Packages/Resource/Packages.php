@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Packages\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Packages implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Unique id of the resource
      */
     private $id;
-
+    
     /**
      * @var string Package name. Used in the merchant's backend as display name. This does not support translations.
      */
     private $name;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Packages\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -37,7 +40,7 @@ class Packages implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -45,7 +48,7 @@ class Packages implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Unique id of the resource
      */
@@ -53,7 +56,7 @@ class Packages implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Package name. Used in the merchant's backend as display name. This does not support translations.
      */
@@ -61,7 +64,7 @@ class Packages implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Packages\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -69,7 +72,7 @@ class Packages implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -80,7 +83,7 @@ class Packages implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -91,7 +94,7 @@ class Packages implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $name Package name. Used in the merchant's backend as display name. This does not support translations.
      * @return self
@@ -102,7 +105,7 @@ class Packages implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Packages\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

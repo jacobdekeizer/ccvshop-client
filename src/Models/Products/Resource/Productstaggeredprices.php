@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productstaggeredprices implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to self
      */
     private $href;
-
+    
     /**
      * @var int|null Staggered price id
      */
     private $id;
-
+    
     /**
      * @var float|null Number of products
      */
     private $quantity;
-
+    
     /**
      * @var float|null Price of products
      */
     private $price;
-
+    
     /**
      * @var float|null Discount of products
      */
     private $discount;
-
+    
     /**
      * @var float|null Sellprice of products
      */
     private $sellprice;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -52,7 +55,7 @@ class Productstaggeredprices implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to self
      */
@@ -60,7 +63,7 @@ class Productstaggeredprices implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Staggered price id
      */
@@ -68,7 +71,7 @@ class Productstaggeredprices implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return float|null Number of products
      */
@@ -76,7 +79,7 @@ class Productstaggeredprices implements Model
     {
         return $this->quantity;
     }
-
+    
     /**
      * @return float|null Price of products
      */
@@ -84,7 +87,7 @@ class Productstaggeredprices implements Model
     {
         return $this->price;
     }
-
+    
     /**
      * @return float|null Discount of products
      */
@@ -92,7 +95,7 @@ class Productstaggeredprices implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return float|null Sellprice of products
      */
@@ -100,7 +103,7 @@ class Productstaggeredprices implements Model
     {
         return $this->sellprice;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -108,7 +111,7 @@ class Productstaggeredprices implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string|null $href Link to self
      * @return self
@@ -119,7 +122,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Staggered price id
      * @return self
@@ -130,7 +133,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param float|null $quantity Number of products
      * @return self
@@ -141,7 +144,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('quantity');
         return $this;
     }
-
+    
     /**
      * @param float|null $price Price of products
      * @return self
@@ -152,7 +155,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('price');
         return $this;
     }
-
+    
     /**
      * @param float|null $discount Discount of products
      * @return self
@@ -163,7 +166,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param float|null $sellprice Sellprice of products
      * @return self
@@ -174,7 +177,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('sellprice');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self

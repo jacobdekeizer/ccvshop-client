@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class AttributeValue implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int Id of the attribute value.
      */
     private $id;
-
+    
     /**
      * @var string Name of the attribute value.
      */
     private $name;
-
+    
     /**
      * @var string Link of the attribute value.
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -32,7 +35,7 @@ class AttributeValue implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int Id of the attribute value.
      */
@@ -40,7 +43,7 @@ class AttributeValue implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string Name of the attribute value.
      */
@@ -48,7 +51,7 @@ class AttributeValue implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return string Link of the attribute value.
      */
@@ -56,7 +59,7 @@ class AttributeValue implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param int $id Id of the attribute value.
      * @return self
@@ -67,7 +70,7 @@ class AttributeValue implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string $name Name of the attribute value.
      * @return self
@@ -78,7 +81,7 @@ class AttributeValue implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param string $href Link of the attribute value.
      * @return self

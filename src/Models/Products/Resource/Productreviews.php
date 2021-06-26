@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,48 +10,49 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productreviews implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self.
      */
     private $href;
-
+    
     /**
      * @var int Unique id of the resource.
      */
     private $id;
-
+    
     /**
      * @var int The ID of the product the review refers to.
      */
     private $productid;
-
+    
     /**
      * @var string|null Review createdate.
      */
     private $createdate;
-
+    
     /**
      * @var string The contents of the review.
      */
     private $content;
-
+    
     /**
      * @var int Amount of points the reviewer has awarded.
      */
     private $points;
-
+    
     /**
      * @var string The reviewer's name.
      */
     private $name;
-
+    
     /**
      * @var bool Is the review approved for publishing.
      */
     private $approved;
-
+    
     /**
      * @return self
      */
@@ -57,7 +60,7 @@ class Productreviews implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self.
      */
@@ -65,7 +68,7 @@ class Productreviews implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Unique id of the resource.
      */
@@ -73,7 +76,7 @@ class Productreviews implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int The ID of the product the review refers to.
      */
@@ -81,7 +84,7 @@ class Productreviews implements Model
     {
         return $this->productid;
     }
-
+    
     /**
      * @return string|null Review createdate.
      */
@@ -89,7 +92,7 @@ class Productreviews implements Model
     {
         return $this->createdate;
     }
-
+    
     /**
      * @return string The contents of the review.
      */
@@ -97,7 +100,7 @@ class Productreviews implements Model
     {
         return $this->content;
     }
-
+    
     /**
      * @return int Amount of points the reviewer has awarded.
      */
@@ -105,7 +108,7 @@ class Productreviews implements Model
     {
         return $this->points;
     }
-
+    
     /**
      * @return string The reviewer's name.
      */
@@ -113,7 +116,7 @@ class Productreviews implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return bool Is the review approved for publishing.
      */
@@ -121,7 +124,7 @@ class Productreviews implements Model
     {
         return $this->approved;
     }
-
+    
     /**
      * @param string $href Link to self.
      * @return self
@@ -132,7 +135,7 @@ class Productreviews implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Unique id of the resource.
      * @return self
@@ -143,7 +146,7 @@ class Productreviews implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $productid The ID of the product the review refers to.
      * @return self
@@ -154,7 +157,7 @@ class Productreviews implements Model
         $this->propertyFilled('productid');
         return $this;
     }
-
+    
     /**
      * @param string|null $createdate Review createdate.
      * @return self
@@ -165,7 +168,7 @@ class Productreviews implements Model
         $this->propertyFilled('createdate');
         return $this;
     }
-
+    
     /**
      * @param string $content The contents of the review.
      * @return self
@@ -176,7 +179,7 @@ class Productreviews implements Model
         $this->propertyFilled('content');
         return $this;
     }
-
+    
     /**
      * @param int $points Amount of points the reviewer has awarded.
      * @return self
@@ -187,7 +190,7 @@ class Productreviews implements Model
         $this->propertyFilled('points');
         return $this;
     }
-
+    
     /**
      * @param string $name The reviewer's name.
      * @return self
@@ -198,7 +201,7 @@ class Productreviews implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param bool $approved Is the review approved for publishing.
      * @return self

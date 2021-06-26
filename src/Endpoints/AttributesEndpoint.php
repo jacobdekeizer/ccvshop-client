@@ -5,67 +5,92 @@ declare(strict_types=1);
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Attributes as Models;
 
 class AttributesEndpoint extends BaseEndpoint
 {
     /**
+     * Delete an attribute. 100 per minute
+     * 
      * @throws CcvShopException
      */
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, 'attributes/' . $id);
+        $this->doRequest(
+            self::DELETE,
+            'attributes/' . $id . '/',
+        );
     }
-
+    
     /**
+     * Gets all values for the attribute. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function allCombinationsFor(int $attributeId): Models\Collection\Attributes
+    public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
     {
-        $result = $this->doRequest(self::GET, sprintf('attributecombinations/%d/attributes/', $attributeId));
-
-        return Models\Collection\Attributes::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'attributecombinations/' . $id . '/attributes/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes::fromArray($result);
     }
-
+    
     /**
+     * Gets all attributes of this webshop. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function all(): Models\Collection\Attributes
+    public function all(): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
     {
-        $result = $this->doRequest(self::GET, 'attributes/');
-
-        return Models\Collection\Attributes::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'attributes/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes::fromArray($result);
     }
-
+    
     /**
+     * Gets one attribute. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function get(int $id): Models\Resource\Attributes
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes
     {
-        $result = $this->doRequest(self::GET, sprintf('attributes/%d', $id));
-
-        return Models\Resource\Attributes::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'attributes/' . $id . '/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes::fromArray($result);
     }
-
+    
     /**
+     * Patch an attribute. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function update(int $id, Models\Attributes\Input $model, bool $onlyFilled = true): void
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PATCH,
-            sprintf('attributes/%d', $id),
+            'attributes/' . $id . '/',
             $model->toArray($onlyFilled)
         );
     }
-
+    
     /**
+     * Post an attribute. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function create(Models\Attributes\Input $model, bool $onlyFilled = true): Models\Resource\Attributes
+    public function create(\JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): void
     {
-        $response = $this->doRequest(self::POST, 'attributes/', $model->toArray($onlyFilled));
-
-        return Models\Resource\Attributes::fromArray($response);
+        $this->doRequest(
+            self::POST,
+            'attributes/',
+            $model->toArray($onlyFilled)
+        );
     }
 }

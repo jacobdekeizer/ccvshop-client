@@ -5,47 +5,50 @@ declare(strict_types=1);
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Ordernotifications as Models;
 
 class OrdernotificationsEndpoint extends BaseEndpoint
 {
     /**
+     * Get all order notifications belonging to an order. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function all(int $orderId): Models\Collection\Ordernotifications
+    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications
     {
         $result = $this->doRequest(
             self::GET,
-            sprintf('orders/%d/ordernotifications/', $orderId)
+            'orders/' . $id . '/ordernotifications/'
         );
-
-        return Models\Collection\Ordernotifications::fromArray($result);
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications::fromArray($result);
     }
-
+    
     /**
+     * Get one order notification based on an Id. 150 per minute
+     * 
      * @throws CcvShopException
      */
-    public function get(int $id): Models\Resource\Ordernotifications
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications
     {
-        $result = $this->doRequest(self::GET, sprintf('ordernotifications/%d', $id));
-
-        return Models\Resource\Ordernotifications::fromArray($result);
+        $result = $this->doRequest(
+            self::GET,
+            'ordernotifications/' . $id . '/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications::fromArray($result);
     }
-
+    
     /**
+     * Create a order notification of the given type. This will trigger an e-mail of the given type. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function create(
-        int $orderId,
-        Models\Ordernotifications\Input $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Ordernotifications {
-        $response = $this->doRequest(
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(
             self::POST,
-            sprintf('orders/%d/ordernotifications', $orderId),
+            'orders/' . $id . '/ordernotifications/',
             $model->toArray($onlyFilled)
         );
-
-        return Models\Resource\Ordernotifications::fromArray($response);
     }
 }

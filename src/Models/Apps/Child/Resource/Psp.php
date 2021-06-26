@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Apps\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Psp implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to Payment Service Providers collection
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class Psp implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to Payment Service Providers collection
      */
@@ -30,7 +33,7 @@ class Psp implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param string $href Link to Payment Service Providers collection
      * @return self

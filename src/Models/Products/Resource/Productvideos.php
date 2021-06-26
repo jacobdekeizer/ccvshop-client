@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productvideos implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to self
      */
     private $href;
-
+    
     /**
      * @var int Product video id
      */
     private $id;
-
+    
     /**
      * @var int Product video productid
      */
     private $productid;
-
+    
     /**
      * @var string|null Product video name
      */
     private $name;
-
+    
     /**
      * @var int Product video position
      */
     private $position;
-
+    
     /**
      * @var string Product video embed code
      */
     private $embedcode;
-
+    
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-
+    
     /**
      * @return self
      */
@@ -52,7 +55,7 @@ class Productvideos implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to self
      */
@@ -60,7 +63,7 @@ class Productvideos implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int Product video id
      */
@@ -68,7 +71,7 @@ class Productvideos implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return int Product video productid
      */
@@ -76,7 +79,7 @@ class Productvideos implements Model
     {
         return $this->productid;
     }
-
+    
     /**
      * @return string|null Product video name
      */
@@ -84,7 +87,7 @@ class Productvideos implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @return int Product video position
      */
@@ -92,7 +95,7 @@ class Productvideos implements Model
     {
         return $this->position;
     }
-
+    
     /**
      * @return string Product video embed code
      */
@@ -100,7 +103,7 @@ class Productvideos implements Model
     {
         return $this->embedcode;
     }
-
+    
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -108,7 +111,7 @@ class Productvideos implements Model
     {
         return $this->parent;
     }
-
+    
     /**
      * @param string $href Link to self
      * @return self
@@ -119,7 +122,7 @@ class Productvideos implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int $id Product video id
      * @return self
@@ -130,7 +133,7 @@ class Productvideos implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param int $productid Product video productid
      * @return self
@@ -141,7 +144,7 @@ class Productvideos implements Model
         $this->propertyFilled('productid');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Product video name
      * @return self
@@ -152,7 +155,7 @@ class Productvideos implements Model
         $this->propertyFilled('name');
         return $this;
     }
-
+    
     /**
      * @param int $position Product video position
      * @return self
@@ -163,7 +166,7 @@ class Productvideos implements Model
         $this->propertyFilled('position');
         return $this;
     }
-
+    
     /**
      * @param string $embedcode Product video embed code
      * @return self
@@ -174,7 +177,7 @@ class Productvideos implements Model
         $this->propertyFilled('embedcode');
         return $this;
     }
-
+    
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self

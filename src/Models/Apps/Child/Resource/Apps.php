@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Apps\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Apps implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to the apps of this categorie
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class Apps implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to the apps of this categorie
      */
@@ -30,7 +33,7 @@ class Apps implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param string $href Link to the apps of this categorie
      * @return self

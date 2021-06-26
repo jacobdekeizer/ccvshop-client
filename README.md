@@ -10,7 +10,7 @@ An object oriented PHP client for the CCV Shop API. See here for the [CCV Shop A
 ## Contributing
 
 Any help is appreciated, see [contributing](.github/CONTRIBUTING.md) for more information.
-On the contributing page is described how you can automatically generate the required models for new API endpoints.
+The models and endpoints are **automatically generated**.
 
 ## Installation
 You can install this package via composer:
@@ -32,7 +32,7 @@ $client->setPublicKey('public_key');
 $client->setPrivateKey('private_key');
 ```
 
-## Implemented endpoints
+## Documented endpoints
 
 | Endpoint | Main usage |
 | --- | --- |

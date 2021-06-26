@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Attributes implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to collection of attributes belonging to the combination
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class Attributes implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to collection of attributes belonging to the combination
      */
@@ -30,7 +33,7 @@ class Attributes implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param string|null $href Link to collection of attributes belonging to the combination
      * @return self

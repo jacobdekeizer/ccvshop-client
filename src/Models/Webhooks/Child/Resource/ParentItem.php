@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Webhooks\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class ParentItem implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to WebHooks collection
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class ParentItem implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to WebHooks collection
      */
@@ -30,7 +33,7 @@ class ParentItem implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param string $href Link to WebHooks collection
      * @return self

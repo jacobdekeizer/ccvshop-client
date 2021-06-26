@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orders\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,13 +10,14 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Ordernotes implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Link to notes added to this order
      */
     private $href;
-
+    
     /**
      * @return self
      */
@@ -22,7 +25,7 @@ class Ordernotes implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Link to notes added to this order
      */
@@ -30,7 +33,7 @@ class Ordernotes implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @param string $href Link to notes added to this order
      * @return self

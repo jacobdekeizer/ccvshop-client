@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Invoices\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,43 +10,44 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Discountcoupon implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *.
      */
     private $code;
-
+    
     /**
      * @var float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
     private $discount;
-
+    
     /**
      * @var string|null Discount type.
      */
     private $type;
-
+    
     /**
      * @var string|null End date coupon validity, UTC.
      */
     private $enddate;
-
+    
     /**
      * @var bool|null One time use. After usage this coupon will be removed.
      */
     private $onetimeuse;
-
+    
     /**
      * @var bool This coupon gives free shipping costs.
      */
     private $givesfreeshipping;
-
+    
     /**
      * @var float|null Minimum price of the order before this coupon can be used.
      */
     private $minimumprice;
-
+    
     /**
      * @return self
      */
@@ -52,7 +55,7 @@ class Discountcoupon implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *.
      */
@@ -60,7 +63,7 @@ class Discountcoupon implements Model
     {
         return $this->code;
     }
-
+    
     /**
      * @return float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
@@ -68,7 +71,7 @@ class Discountcoupon implements Model
     {
         return $this->discount;
     }
-
+    
     /**
      * @return string|null Discount type.
      */
@@ -76,7 +79,7 @@ class Discountcoupon implements Model
     {
         return $this->type;
     }
-
+    
     /**
      * @return string|null End date coupon validity, UTC.
      */
@@ -84,7 +87,7 @@ class Discountcoupon implements Model
     {
         return $this->enddate;
     }
-
+    
     /**
      * @return bool|null One time use. After usage this coupon will be removed.
      */
@@ -92,7 +95,7 @@ class Discountcoupon implements Model
     {
         return $this->onetimeuse;
     }
-
+    
     /**
      * @return bool This coupon gives free shipping costs.
      */
@@ -100,7 +103,7 @@ class Discountcoupon implements Model
     {
         return $this->givesfreeshipping;
     }
-
+    
     /**
      * @return float|null Minimum price of the order before this coupon can be used.
      */
@@ -108,7 +111,7 @@ class Discountcoupon implements Model
     {
         return $this->minimumprice;
     }
-
+    
     /**
      * @param string $code Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *.
      * @return self
@@ -119,7 +122,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('code');
         return $this;
     }
-
+    
     /**
      * @param float $discount The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      * @return self
@@ -130,7 +133,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-
+    
     /**
      * @param string|null $type Discount type.
      * @return self
@@ -141,7 +144,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('type');
         return $this;
     }
-
+    
     /**
      * @param string|null $enddate End date coupon validity, UTC.
      * @return self
@@ -152,7 +155,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('enddate');
         return $this;
     }
-
+    
     /**
      * @param bool|null $onetimeuse One time use. After usage this coupon will be removed.
      * @return self
@@ -163,7 +166,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('onetimeuse');
         return $this;
     }
-
+    
     /**
      * @param bool $givesfreeshipping This coupon gives free shipping costs.
      * @return self
@@ -174,7 +177,7 @@ class Discountcoupon implements Model
         $this->propertyFilled('givesfreeshipping');
         return $this;
     }
-
+    
     /**
      * @param float|null $minimumprice Minimum price of the order before this coupon can be used.
      * @return self

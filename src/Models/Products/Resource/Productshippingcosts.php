@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Productshippingcosts implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var float Indication of shipping costs if the quantity of items would be baught and shipped to this country.
      */
     private $costs;
-
+    
     /**
      * @var float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
     private $quantity;
-
+    
     /**
      * @var string This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
     private $country;
-
+    
     /**
      * @return self
      */
@@ -32,7 +35,7 @@ class Productshippingcosts implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return float Indication of shipping costs if the quantity of items would be baught and shipped to this country.
      */
@@ -40,7 +43,7 @@ class Productshippingcosts implements Model
     {
         return $this->costs;
     }
-
+    
     /**
      * @return float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
@@ -48,7 +51,7 @@ class Productshippingcosts implements Model
     {
         return $this->quantity;
     }
-
+    
     /**
      * @return string This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
@@ -56,7 +59,7 @@ class Productshippingcosts implements Model
     {
         return $this->country;
     }
-
+    
     /**
      * @param float $costs Indication of shipping costs if the quantity of items would be baught and shipped to this country.
      * @return self
@@ -67,7 +70,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('costs');
         return $this;
     }
-
+    
     /**
      * @param float $quantity Quantity of items shipped. Default is 1. Can be changed with parameters.
      * @return self
@@ -78,7 +81,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('quantity');
         return $this;
     }
-
+    
     /**
      * @param string $country This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      * @return self

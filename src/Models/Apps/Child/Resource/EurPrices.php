@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Apps\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,18 +10,19 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class EurPrices implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var float|null One time costs
      */
     private $oneTimeCosts;
-
+    
     /**
      * @var float|null Monthly time costs
      */
     private $monthlyCosts;
-
+    
     /**
      * @return self
      */
@@ -27,7 +30,7 @@ class EurPrices implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return float|null One time costs
      */
@@ -35,7 +38,7 @@ class EurPrices implements Model
     {
         return $this->oneTimeCosts;
     }
-
+    
     /**
      * @return float|null Monthly time costs
      */
@@ -43,7 +46,7 @@ class EurPrices implements Model
     {
         return $this->monthlyCosts;
     }
-
+    
     /**
      * @param float|null $oneTimeCosts One time costs
      * @return self
@@ -54,7 +57,7 @@ class EurPrices implements Model
         $this->propertyFilled('oneTimeCosts');
         return $this;
     }
-
+    
     /**
      * @param float|null $monthlyCosts Monthly time costs
      * @return self

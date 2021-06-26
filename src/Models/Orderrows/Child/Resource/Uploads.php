@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Orderrows\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Uploads implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string Description of the kind of upload
      */
     private $uploadDescription;
-
+    
     /**
      * @var string File name of the uploaded file.
      */
     private $fileName;
-
+    
     /**
      * @var string Deeplink to the file.
      */
     private $deeplink;
-
+    
     /**
      * @return self
      */
@@ -32,7 +35,7 @@ class Uploads implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string Description of the kind of upload
      */
@@ -40,7 +43,7 @@ class Uploads implements Model
     {
         return $this->uploadDescription;
     }
-
+    
     /**
      * @return string File name of the uploaded file.
      */
@@ -48,7 +51,7 @@ class Uploads implements Model
     {
         return $this->fileName;
     }
-
+    
     /**
      * @return string Deeplink to the file.
      */
@@ -56,7 +59,7 @@ class Uploads implements Model
     {
         return $this->deeplink;
     }
-
+    
     /**
      * @param string $uploadDescription Description of the kind of upload
      * @return self
@@ -67,7 +70,7 @@ class Uploads implements Model
         $this->propertyFilled('uploadDescription');
         return $this;
     }
-
+    
     /**
      * @param string $fileName File name of the uploaded file.
      * @return self
@@ -78,7 +81,7 @@ class Uploads implements Model
         $this->propertyFilled('fileName');
         return $this;
     }
-
+    
     /**
      * @param string $deeplink Deeplink to the file.
      * @return self

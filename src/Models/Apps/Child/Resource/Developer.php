@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Apps\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,28 +10,29 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Developer implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var int|null Id of the developer.
      */
     private $id;
-
+    
     /**
      * @var string|null E-mail address of the developer.
      */
     private $email;
-
+    
     /**
      * @var string|null Website of the developer.
      */
     private $website;
-
+    
     /**
      * @var string|null Full name of the developer.
      */
     private $name;
-
+    
     /**
      * @return self
      */
@@ -37,7 +40,7 @@ class Developer implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return int|null Id of the developer.
      */
@@ -45,7 +48,7 @@ class Developer implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null E-mail address of the developer.
      */
@@ -53,7 +56,7 @@ class Developer implements Model
     {
         return $this->email;
     }
-
+    
     /**
      * @return string|null Website of the developer.
      */
@@ -61,7 +64,7 @@ class Developer implements Model
     {
         return $this->website;
     }
-
+    
     /**
      * @return string|null Full name of the developer.
      */
@@ -69,7 +72,7 @@ class Developer implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @param int|null $id Id of the developer.
      * @return self
@@ -80,7 +83,7 @@ class Developer implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $email E-mail address of the developer.
      * @return self
@@ -91,7 +94,7 @@ class Developer implements Model
         $this->propertyFilled('email');
         return $this;
     }
-
+    
     /**
      * @param string|null $website Website of the developer.
      * @return self
@@ -102,7 +105,7 @@ class Developer implements Model
         $this->propertyFilled('website');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Full name of the developer.
      * @return self

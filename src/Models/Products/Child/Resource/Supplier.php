@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Products\Child\Resource;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,23 +10,24 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class Supplier implements Model
 {
-    use FromArray, ToArray;
-
+    use FromArray;
+    use ToArray;
+    
     /**
      * @var string|null Link to supplier resource
      */
     private $href;
-
+    
     /**
      * @var int|null Supplier Id
      */
     private $id;
-
+    
     /**
      * @var string|null Supplier name
      */
     private $name;
-
+    
     /**
      * @return self
      */
@@ -32,7 +35,7 @@ class Supplier implements Model
     {
         return self::createFromArray($data);
     }
-
+    
     /**
      * @return string|null Link to supplier resource
      */
@@ -40,7 +43,7 @@ class Supplier implements Model
     {
         return $this->href;
     }
-
+    
     /**
      * @return int|null Supplier Id
      */
@@ -48,7 +51,7 @@ class Supplier implements Model
     {
         return $this->id;
     }
-
+    
     /**
      * @return string|null Supplier name
      */
@@ -56,7 +59,7 @@ class Supplier implements Model
     {
         return $this->name;
     }
-
+    
     /**
      * @param string|null $href Link to supplier resource
      * @return self
@@ -67,7 +70,7 @@ class Supplier implements Model
         $this->propertyFilled('href');
         return $this;
     }
-
+    
     /**
      * @param int|null $id Supplier Id
      * @return self
@@ -78,7 +81,7 @@ class Supplier implements Model
         $this->propertyFilled('id');
         return $this;
     }
-
+    
     /**
      * @param string|null $name Supplier name
      * @return self

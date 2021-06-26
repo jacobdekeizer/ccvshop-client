@@ -1,45 +1,67 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Endpoints;
 
 use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
-use JacobDeKeizer\Ccv\Models\Ordernotes as Models;
 
 class OrdernotesEndpoint extends BaseEndpoint
 {
     /**
+     * Delete one notes of an order. 100 per minute
+     * 
      * @throws CcvShopException
      */
-    public function all(int $orderId): Models\Collection\Ordernotes
-    {
-        $result = $this->doRequest(self::GET, sprintf('/orders/%d/ordernotes/', $orderId));
-
-        return Models\Collection\Ordernotes::fromArray($result);
-    }
-
-    public function get(int $id): Models\Resource\Ordernotes
-    {
-        $result = $this->doRequest(self::GET, sprintf('/ordernotes/%d/', $id));
-
-        return Models\Resource\Ordernotes::fromArray($result);
-    }
-
-    public function create(
-        int $orderId,
-        Models\Ordernotes\Post $model,
-        bool $onlyFilled = true
-    ): Models\Resource\Ordernotes {
-        $result = $this->doRequest(
-            self::POST,
-            sprintf('/orders/%d/ordernotes/', $orderId),
-            $model->toArray($onlyFilled)
-        );
-
-        return Models\Resource\Ordernotes::fromArray($result);
-    }
-
     public function delete(int $id): void
     {
-        $this->doRequest(self::DELETE, sprintf('/ordernotes/%d/', $id));
+        $this->doRequest(
+            self::DELETE,
+            'ordernotes/' . $id . '/',
+        );
+    }
+    
+    /**
+     * Get all notes of this order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'orders/' . $id . '/ordernotes/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes::fromArray($result);
+    }
+    
+    /**
+     * Get one notes of an order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
+    {
+        $result = $this->doRequest(
+            self::GET,
+            'ordernotes/' . $id . '/'
+        );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes::fromArray($result);
+    }
+    
+    /**
+     * Creates an internal note on one order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): void
+    {
+        $this->doRequest(
+            self::POST,
+            'orders/' . $id . '/ordernotes/',
+            $model->toArray($onlyFilled)
+        );
     }
 }
