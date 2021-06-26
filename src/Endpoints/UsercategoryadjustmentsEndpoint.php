@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class UsercategoryadjustmentsEndpoint extends BaseEndpoint
 {
+    /**
+     * Deleting an adjustment. Prices and visibility will be reverted to default for this user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'usercategoryadjustments/' . $id . '/'
+            'usercategoryadjustments/' . $id . '/',
         );
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Usercategoryadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Collection\Usercategoryadjustments
+    /**
+     * Get all adjustments. This can only be done by either user_id or category_id or both. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Usercategoryadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Collection\Usercategoryadjustments
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Usercategoryadjustments\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Usercategoryadjustments\All();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class UsercategoryadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Collection\Usercategoryadjustments::fromArray($result);
     }
     
+    /**
+     * Get one adjustment by id. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Resource\Usercategoryadjustments
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class UsercategoryadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Resource\Usercategoryadjustments::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Patch
+    /**
+     * Update an existing adjustment. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'usercategoryadjustments/' . $id . '/'
+            'usercategoryadjustments/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Post
+    /**
+     * Create a new adjustment for an user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'usercategoryadjustments/'
+            'usercategoryadjustments/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usercategoryadjustments\Usercategoryadjustments\Post::fromArray($result);
     }
 }

@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductrelevantEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete one relevant product. Note: this will not delete the product itsself. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productrelevant/' . $id . '/'
+            'productrelevant/' . $id . '/',
         );
     }
     
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant
+    /**
+     * Get all relevant products of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class ProductrelevantEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant::fromArray($result);
     }
     
+    /**
+     * Get one relevant product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant
     {
         $result = $this->doRequest(
@@ -38,13 +55,17 @@ class ProductrelevantEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post
+    /**
+     * Create a relevant product. Note: This will not create a new product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productrelevant/'
+            'products/' . $id . '/productrelevant/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post::fromArray($result);
     }
 }

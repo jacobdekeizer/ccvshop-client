@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class UsergroupcategoryadjustmentsEndpoint extends BaseEndpoint
 {
+    /**
+     * Deleting an adjustment. Prices and visibility will be reverted to default for this user group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'usergroupcategoryadjustments/' . $id . '/'
+            'usergroupcategoryadjustments/' . $id . '/',
         );
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Usergroupcategoryadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Collection\Usergroupcategoryadjustments
+    /**
+     * Get all adjustments. This can only be done by either usergroup_id or category_id or both. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Usergroupcategoryadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Collection\Usergroupcategoryadjustments
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Usergroupcategoryadjustments\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Usergroupcategoryadjustments\All();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class UsergroupcategoryadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Collection\Usergroupcategoryadjustments::fromArray($result);
     }
     
+    /**
+     * Get one adjustment by id. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Resource\Usergroupcategoryadjustments
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class UsergroupcategoryadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Resource\Usergroupcategoryadjustments::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Patch
+    /**
+     * Update an existing adjustment. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'usergroupcategoryadjustments/' . $id . '/'
+            'usergroupcategoryadjustments/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Post
+    /**
+     * Create a new adjustment for an user group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'usergroupcategoryadjustments/'
+            'usergroupcategoryadjustments/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroupcategoryadjustments\Usergroupcategoryadjustments\Post::fromArray($result);
     }
 }

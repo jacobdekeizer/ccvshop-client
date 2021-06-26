@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class OrderrowsEndpoint extends BaseEndpoint
 {
-    public function allFromOrders(int $id, ?\JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
+    /**
+     * Get all order rows of this order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromOrders(int $id, \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class OrderrowsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows::fromArray($result);
     }
     
+    /**
+     * Get one order row. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrows
     {
         $result = $this->doRequest(
@@ -30,23 +42,31 @@ class OrderrowsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Orderrows\Resource\Orderrows::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch
+    /**
+     * This gives the option to change orderrow's count and prices of non-completed orders. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'orderrows/' . $id . '/'
+            'orderrows/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch::fromArray($result);
     }
     
-    public function updateFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put
+    /**
+     * Replace an order row collection of an existing order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function updateFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PUT,
-            'orders/' . $id . '/orderrows/'
+            'orders/' . $id . '/orderrows/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put::fromArray($result);
     }
 }

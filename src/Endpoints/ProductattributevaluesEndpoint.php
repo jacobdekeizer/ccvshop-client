@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductattributevaluesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product attribute value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productattributevalues/' . $id . '/'
+            'productattributevalues/' . $id . '/',
         );
     }
     
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
+    /**
+     * Get all attribute values of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues::fromArray($result);
     }
     
+    /**
+     * Get one attribute value. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch
+    /**
+     * Patch a product attribute value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productattributevalues/' . $id . '/'
+            'productattributevalues/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post
+    /**
+     * Create an attribute value for this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productattributevalues/'
+            'products/' . $id . '/productattributevalues/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post::fromArray($result);
     }
 }

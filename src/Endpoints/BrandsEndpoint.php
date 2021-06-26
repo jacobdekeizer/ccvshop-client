@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class BrandsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a Brand. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'brands/' . $id . '/'
+            'brands/' . $id . '/',
         );
     }
     
+    /**
+     * Get one brand. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Brands\Resource\Brands
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class BrandsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Brands\Resource\Brands::fromArray($result);
     }
     
+    /**
+     * Get all brands of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function all(): \JacobDeKeizer\Ccv\Models\Brands\Collection\Brands
     {
         $result = $this->doRequest(
@@ -34,23 +51,31 @@ class BrandsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Brands\Collection\Brands::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Brands\Brands\Input
+    /**
+     * Patch a Brand. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Brands\Brands\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'brands/' . $id . '/'
+            'brands/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Brands\Brands\Input::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Brands\Brands\Input
+    /**
+     * Post a brand. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Brands\Brands\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'brands/'
+            'brands/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Brands\Brands\Input::fromArray($result);
     }
 }

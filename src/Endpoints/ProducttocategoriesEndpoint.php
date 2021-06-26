@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProducttocategoriesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product xref. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'producttocategories/' . $id . '/'
+            'producttocategories/' . $id . '/',
         );
     }
     
+    /**
+     * Get all products of this category. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromCategories(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
     }
     
+    /**
+     * Get one product xref. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories
     {
         $result = $this->doRequest(
@@ -34,6 +51,11 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories::fromArray($result);
     }
     
+    /**
+     * Get all photos of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
     {
         $result = $this->doRequest(
@@ -44,23 +66,31 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch
+    /**
+     * Patch a product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'producttocategories/' . $id . '/'
+            'producttocategories/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post
+    /**
+     * Post a product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'producttocategories/'
+            'producttocategories/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post::fromArray($result);
     }
 }

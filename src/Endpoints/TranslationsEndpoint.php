@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class TranslationsEndpoint extends BaseEndpoint
 {
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Translations\All $parameter = null): \JacobDeKeizer\Ccv\Models\Translations\Collection\Translations
+    /**
+     * Get all translations keys and values. Translation will be based on accept language. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Translations\All $parameter = null): \JacobDeKeizer\Ccv\Models\Translations\Collection\Translations
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Translations\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Translations\All();
         }
         
         $result = $this->doRequest(
@@ -20,13 +27,17 @@ class TranslationsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Translations\Collection\Translations::fromArray($result);
     }
     
-    public function update(): \JacobDeKeizer\Ccv\Models\Translations\Translations\Input
+    /**
+     * Overwrites the current value of a language of a key. The translation will be applied to the accept language. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(\JacobDeKeizer\Ccv\Models\Translations\Translations\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PUT,
-            'translations/'
+            'translations/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Translations\Translations\Input::fromArray($result);
     }
 }

@@ -191,7 +191,6 @@ class ParameterClass
             );
         }
 
-
         if ($hasExpandableFields) {
             $codeWriter->writeLine('->expandFields($this->getExpandedFields())' . ($hasSortableFields ? '' : ';'));
         }

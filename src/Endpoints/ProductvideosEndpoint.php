@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductvideosEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product video. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productvideos/' . $id . '/'
+            'productvideos/' . $id . '/',
         );
     }
     
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos
+    /**
+     * Get all videos that belong to this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class ProductvideosEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos::fromArray($result);
     }
     
+    /**
+     * Get one product video. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class ProductvideosEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Patch
+    /**
+     * Patch a product video. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productvideos/' . $id . '/'
+            'productvideos/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Patch::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post
+    /**
+     * Post a video for this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productvideos/'
+            'products/' . $id . '/productvideos/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post::fromArray($result);
     }
 }

@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class SuppliersEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a Supplier. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'suppliers/' . $id . '/'
+            'suppliers/' . $id . '/',
         );
     }
     
+    /**
+     * Get one supplier. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class SuppliersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers::fromArray($result);
     }
     
+    /**
+     * Get all suppliers of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function all(): \JacobDeKeizer\Ccv\Models\Suppliers\Collection\Suppliers
     {
         $result = $this->doRequest(
@@ -34,23 +51,31 @@ class SuppliersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Suppliers\Collection\Suppliers::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input
+    /**
+     * Patch a Supplier. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'suppliers/' . $id . '/'
+            'suppliers/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input
+    /**
+     * Post a supplier. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'suppliers/'
+            'suppliers/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input::fromArray($result);
     }
 }

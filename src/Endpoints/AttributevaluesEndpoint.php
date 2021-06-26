@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class AttributevaluesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete an attribute value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'attributevalues/' . $id . '/'
+            'attributevalues/' . $id . '/',
         );
     }
     
+    /**
+     * Gets all values for the attribute. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class AttributevaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues::fromArray($result);
     }
     
+    /**
+     * Gets on value of an attribute. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues
     {
         $result = $this->doRequest(
@@ -34,6 +51,11 @@ class AttributevaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues::fromArray($result);
     }
     
+    /**
+     * Gets all values for the attribute. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromAttributes(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
         $result = $this->doRequest(
@@ -44,23 +66,31 @@ class AttributevaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch
+    /**
+     * Patch an attribute value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'attributevalues/' . $id . '/'
+            'attributevalues/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch::fromArray($result);
     }
     
-    public function createFromAttributes(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post
+    /**
+     * Post an attribute value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromAttributes(int $id, \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'attributes/' . $id . '/attributevalues/'
+            'attributes/' . $id . '/attributevalues/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post::fromArray($result);
     }
 }

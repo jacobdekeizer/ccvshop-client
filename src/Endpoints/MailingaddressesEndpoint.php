@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class MailingaddressesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a mailingaddress. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'mailingaddresses/' . $id . '/'
+            'mailingaddresses/' . $id . '/',
         );
     }
     
-    public function allFromMailinglists(int $id, ?\JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
+    /**
+     * Get all mailingaddresses that belong to this mailinglist. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromMailinglists(int $id, \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists();
         }
         
         $result = $this->doRequest(
@@ -28,10 +40,15 @@ class MailingaddressesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Mailingaddresses\All $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
+    /**
+     * Get all mailingaddresses. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Mailingaddresses\All $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\All();
         }
         
         $result = $this->doRequest(
@@ -42,6 +59,11 @@ class MailingaddressesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses::fromArray($result);
     }
     
+    /**
+     * Get one mailingaddress. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses
     {
         $result = $this->doRequest(
@@ -52,23 +74,31 @@ class MailingaddressesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Patch
+    /**
+     * Patch a mailingaddress. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'mailingaddresses/' . $id . '/'
+            'mailingaddresses/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Patch::fromArray($result);
     }
     
-    public function createFromMailinglists(int $id): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post
+    /**
+     * Post a mailingaddress. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromMailinglists(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'mailinglists/' . $id . '/mailingaddresses/'
+            'mailinglists/' . $id . '/mailingaddresses/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post::fromArray($result);
     }
 }

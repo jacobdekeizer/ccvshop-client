@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductshippingcostsEndpoint extends BaseEndpoint
 {
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productshippingcosts\Collection\Productshippingcosts
+    /**
+     * Retrieve all shipping costs to the possible countries this product can be shipped to. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productshippingcosts\Collection\Productshippingcosts
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts();
         }
         
         $result = $this->doRequest(

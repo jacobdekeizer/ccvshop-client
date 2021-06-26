@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class OrdernotesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete one notes of an order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'ordernotes/' . $id . '/'
+            'ordernotes/' . $id . '/',
         );
     }
     
+    /**
+     * Get all notes of this order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class OrdernotesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes::fromArray($result);
     }
     
+    /**
+     * Get one notes of an order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
     {
         $result = $this->doRequest(
@@ -34,13 +51,17 @@ class OrdernotesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes::fromArray($result);
     }
     
-    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post
+    /**
+     * Creates an internal note on one order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'orders/' . $id . '/ordernotes/'
+            'orders/' . $id . '/ordernotes/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post::fromArray($result);
     }
 }

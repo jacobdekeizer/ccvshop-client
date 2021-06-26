@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductkeywordsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete all keywords from this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function deleteFromProducts(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'products/' . $id . '/productkeywords/'
+            'products/' . $id . '/productkeywords/',
         );
     }
     
+    /**
+     * Get all keywords for this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords
     {
         $result = $this->doRequest(
@@ -24,13 +36,17 @@ class ProductkeywordsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post
+    /**
+     * Post a product keyword. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productkeywords/'
+            'products/' . $id . '/productkeywords/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post::fromArray($result);
     }
 }

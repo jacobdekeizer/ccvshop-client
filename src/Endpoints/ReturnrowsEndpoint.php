@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ReturnrowsEndpoint extends BaseEndpoint
 {
-    public function allFromReturns(int $id, ?\JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns $parameter = null): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
+    /**
+     * Get all return rows of this return. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromReturns(int $id, \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns $parameter = null): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class ReturnrowsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows::fromArray($result);
     }
     
+    /**
+     * Get one return row. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Returnrows\Resource\Returnrows
     {
         $result = $this->doRequest(

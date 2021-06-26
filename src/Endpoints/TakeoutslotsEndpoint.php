@@ -4,8 +4,15 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class TakeoutslotsEndpoint extends BaseEndpoint
 {
+    /**
+     * Get one slot. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots
     {
         $result = $this->doRequest(
@@ -16,10 +23,15 @@ class TakeoutslotsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Takeoutslots\All $parameter = null): \JacobDeKeizer\Ccv\Models\Takeoutslots\Collection\Takeoutslots
+    /**
+     * Get all slots for this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Takeoutslots\All $parameter = null): \JacobDeKeizer\Ccv\Models\Takeoutslots\Collection\Takeoutslots
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Takeoutslots\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Takeoutslots\All();
         }
         
         $result = $this->doRequest(

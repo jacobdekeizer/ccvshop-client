@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'products/' . $id . '/'
+            'products/' . $id . '/',
         );
     }
     
-    public function allFromBrands(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop in the parent category. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromBrands(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands();
         }
         
         $result = $this->doRequest(
@@ -28,10 +40,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function allFromWebshops(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromWebshops(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops();
         }
         
         $result = $this->doRequest(
@@ -42,10 +59,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Products\All $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Products\All $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\All();
         }
         
         $result = $this->doRequest(
@@ -56,10 +78,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Resource\Products
+    /**
+     * Get one product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function get(int $id, \JacobDeKeizer\Ccv\Parameters\Products\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Resource\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\Get();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\Get();
         }
         
         $result = $this->doRequest(
@@ -70,10 +97,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Resource\Products::fromArray($result);
     }
     
-    public function allFromCategories(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop in the parent category. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromCategories(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories();
         }
         
         $result = $this->doRequest(
@@ -84,10 +116,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function allFromConditions(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop in the parent category. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromConditions(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions();
         }
         
         $result = $this->doRequest(
@@ -98,10 +135,15 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function allFromSuppliers(int $id, ?\JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    /**
+     * Retrieve all products of the webshop in the parent category. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromSuppliers(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers();
         }
         
         $result = $this->doRequest(
@@ -112,23 +154,31 @@ class ProductsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Products\Collection\Products::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Products\Products\Patch
+    /**
+     * Patch a product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Products\Products\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'products/' . $id . '/'
+            'products/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Products\Products\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Products\Products\Post
+    /**
+     * Post a product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Products\Products\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/'
+            'products/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Products\Products\Post::fromArray($result);
     }
 }

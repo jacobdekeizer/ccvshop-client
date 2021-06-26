@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductpropertiesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product attachment. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productproperties/' . $id . '/'
+            'productproperties/' . $id . '/',
         );
     }
     
+    /**
+     * Get all product properties that belongs too this product property group. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromProductpropertygroups(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Collection\Productproperties
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class ProductpropertiesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productproperties\Collection\Productproperties::fromArray($result);
     }
     
+    /**
+     * Get one product property. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties
     {
         $result = $this->doRequest(
@@ -34,23 +51,31 @@ class ProductpropertiesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Patch
+    /**
+     * Patch a product Product property group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productproperties/' . $id . '/'
+            'productproperties/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Patch::fromArray($result);
     }
     
-    public function createFromProductpropertygroups(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Post
+    /**
+     * Create a new product property that belongs too a product property group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProductpropertygroups(int $id, \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'productpropertygroups/' . $id . '/productproperties/'
+            'productpropertygroups/' . $id . '/productproperties/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Post::fromArray($result);
     }
 }

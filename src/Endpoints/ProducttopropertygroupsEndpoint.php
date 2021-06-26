@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProducttopropertygroupsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product to product property group link. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'producttopropertygroups/' . $id . '/'
+            'producttopropertygroups/' . $id . '/',
         );
     }
     
+    /**
+     * Get all product property groups of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Collection\Producttopropertygroups
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class ProducttopropertygroupsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Collection\Producttopropertygroups::fromArray($result);
     }
     
+    /**
+     * Get a product to product property group link. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Resource\Producttopropertygroups
     {
         $result = $this->doRequest(
@@ -34,13 +51,17 @@ class ProducttopropertygroupsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Resource\Producttopropertygroups::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Producttopropertygroups\Post
+    /**
+     * Create a new product to product property group link. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Producttopropertygroups\Producttopropertygroups\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'producttopropertygroups/'
+            'producttopropertygroups/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Producttopropertygroups\Post::fromArray($result);
     }
 }

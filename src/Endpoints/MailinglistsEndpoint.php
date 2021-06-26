@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class MailinglistsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a mailinglist. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'mailinglists/' . $id . '/'
+            'mailinglists/' . $id . '/',
         );
     }
     
+    /**
+     * Get one mailinglist. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists
     {
         $result = $this->doRequest(
@@ -24,6 +36,11 @@ class MailinglistsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists::fromArray($result);
     }
     
+    /**
+     * Get all mailinglists of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function all(): \JacobDeKeizer\Ccv\Models\Mailinglists\Collection\Mailinglists
     {
         $result = $this->doRequest(
@@ -34,23 +51,31 @@ class MailinglistsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Mailinglists\Collection\Mailinglists::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input
+    /**
+     * Patch a mailinglist. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'mailinglists/' . $id . '/'
+            'mailinglists/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input
+    /**
+     * Post a mailinglist. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'mailinglists/'
+            'mailinglists/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input::fromArray($result);
     }
 }

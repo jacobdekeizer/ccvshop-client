@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class OrdermessagesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete one specific message. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'ordermessages/' . $id . '/'
+            'ordermessages/' . $id . '/',
         );
     }
     
-    public function allFromOrders(int $id, ?\JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages
+    /**
+     * Get all messages from this order. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromOrders(int $id, \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class OrdermessagesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages::fromArray($result);
     }
     
+    /**
+     * Get one specific message. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
     {
         $result = $this->doRequest(
@@ -38,13 +55,17 @@ class OrdermessagesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages::fromArray($result);
     }
     
-    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post
+    /**
+     * Create a new order message. This message will also be emailed to the customer. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'orders/' . $id . '/ordermessages/'
+            'orders/' . $id . '/ordermessages/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post::fromArray($result);
     }
 }

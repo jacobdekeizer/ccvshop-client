@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ColorsEndpoint extends BaseEndpoint
 {
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Colors\All $parameter = null): \JacobDeKeizer\Ccv\Models\Colors\Collection\Colors
+    /**
+     * Get all colors. Filters can be applied. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Colors\All $parameter = null): \JacobDeKeizer\Ccv\Models\Colors\Collection\Colors
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Colors\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Colors\All();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class ColorsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Colors\Collection\Colors::fromArray($result);
     }
     
+    /**
+     * Get one color. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors
     {
         $result = $this->doRequest(
@@ -30,13 +42,17 @@ class ColorsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Colors\Colors\Post
+    /**
+     * Create a new color based on a hex color code. The hex must be unique. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Colors\Colors\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'colors/'
+            'colors/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Colors\Colors\Post::fromArray($result);
     }
 }

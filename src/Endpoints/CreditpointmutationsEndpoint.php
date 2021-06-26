@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class CreditpointmutationsEndpoint extends BaseEndpoint
 {
-    public function allFromUsers(int $id, ?\JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers $parameter = null): \JacobDeKeizer\Ccv\Models\Creditpointmutations\Collection\Creditpointmutations
+    /**
+     * Gets the creditpoint mutation history of a user. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromUsers(int $id, \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers $parameter = null): \JacobDeKeizer\Ccv\Models\Creditpointmutations\Collection\Creditpointmutations
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class CreditpointmutationsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Creditpointmutations\Collection\Creditpointmutations::fromArray($result);
     }
     
+    /**
+     * Get one creditpoint mutation. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Creditpointmutations\Resource\Creditpointmutations
     {
         $result = $this->doRequest(

@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class UsergroupstaggeredpriceadjustmentsEndpoint extends BaseEndpoint
 {
+    /**
+     * Deleting an adjustment. Prices and discounts will be reverted to default for this user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'usergroupstaggeredpriceadjustments/' . $id . '/'
+            'usergroupstaggeredpriceadjustments/' . $id . '/',
         );
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Usergroupstaggeredpriceadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Collection\Usergroupstaggeredpriceadjustments
+    /**
+     * Get all adjustments. This can only be done by either usergroup_id, product_id, staggeredprice_id or a combination of them. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Usergroupstaggeredpriceadjustments\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Collection\Usergroupstaggeredpriceadjustments
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Usergroupstaggeredpriceadjustments\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Usergroupstaggeredpriceadjustments\All();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class UsergroupstaggeredpriceadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Collection\Usergroupstaggeredpriceadjustments::fromArray($result);
     }
     
+    /**
+     * Get one adjustment by id. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Resource\Usergroupstaggeredpriceadjustments
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class UsergroupstaggeredpriceadjustmentsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Resource\Usergroupstaggeredpriceadjustments::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Patch
+    /**
+     * Update an existing adjustment. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'usergroupstaggeredpriceadjustments/' . $id . '/'
+            'usergroupstaggeredpriceadjustments/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Post
+    /**
+     * Create a new adjustment for an user for a product staggered price. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'usergroupstaggeredpriceadjustments/'
+            'usergroupstaggeredpriceadjustments/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Post::fromArray($result);
     }
 }

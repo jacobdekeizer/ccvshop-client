@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class UsergroupsEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a user group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'usergroups/' . $id . '/'
+            'usergroups/' . $id . '/',
         );
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Usergroups\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroups\Collection\Usergroups
+    /**
+     * Get all user groups. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Usergroups\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroups\Collection\Usergroups
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Usergroups\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Usergroups\All();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class UsergroupsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroups\Collection\Usergroups::fromArray($result);
     }
     
+    /**
+     * Get one user group. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups
     {
         $result = $this->doRequest(
@@ -38,23 +55,31 @@ class UsergroupsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input
+    /**
+     * Patch a user group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'usergroups/' . $id . '/'
+            'usergroups/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input
+    /**
+     * Post a user group. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'usergroups/'
+            'usergroups/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input::fromArray($result);
     }
 }

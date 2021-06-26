@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class InvoicerowsEndpoint extends BaseEndpoint
 {
-    public function allFromInvoices(int $id, ?\JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices $parameter = null): \JacobDeKeizer\Ccv\Models\Invoicerows\Collection\Invoicerows
+    /**
+     * Get all invoice rows of this invoice. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromInvoices(int $id, \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices $parameter = null): \JacobDeKeizer\Ccv\Models\Invoicerows\Collection\Invoicerows
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class InvoicerowsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Invoicerows\Collection\Invoicerows::fromArray($result);
     }
     
+    /**
+     * Get one invoice row. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Invoicerows\Resource\Invoicerows
     {
         $result = $this->doRequest(

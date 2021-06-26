@@ -4,16 +4,28 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductpropertyvaluesEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product property value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productpropertyvalues/' . $id . '/'
+            'productpropertyvalues/' . $id . '/',
         );
     }
     
+    /**
+     * Get one product property value. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues
     {
         $result = $this->doRequest(
@@ -24,23 +36,31 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch
+    /**
+     * Patch a product Product property value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productpropertyvalues/' . $id . '/'
+            'productpropertyvalues/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post
+    /**
+     * Post a product property value. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'productpropertyvalues/'
+            'productpropertyvalues/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post::fromArray($result);
     }
 }

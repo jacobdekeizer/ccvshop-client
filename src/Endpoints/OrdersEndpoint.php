@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class OrdersEndpoint extends BaseEndpoint
 {
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Orders\All $parameter = null): \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders
+    /**
+     * Get all orders of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Orders\All $parameter = null): \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Orders\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orders\All();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class OrdersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders::fromArray($result);
     }
     
+    /**
+     * Get one order of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders
     {
         $result = $this->doRequest(
@@ -30,23 +42,31 @@ class OrdersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch
+    /**
+     * Patch an existing order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'orders/' . $id . '/'
+            'orders/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Orders\Orders\Post
+    /**
+     * Post a new order. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Orders\Orders\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'orders/'
+            'orders/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Orders\Orders\Post::fromArray($result);
     }
 }

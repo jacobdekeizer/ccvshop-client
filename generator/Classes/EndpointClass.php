@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Classes;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
 use JacobDeKeizer\Ccv\Support\Str;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
@@ -53,6 +54,10 @@ class EndpointClass
         $codeWriter = new CodeWriter();
 
         $codeWriter->startPhpFile('JacobDeKeizer\Ccv\Endpoints');
+
+        $codeWriter->useClass(CcvShopException::class);
+
+        $codeWriter->insertNewLine();
 
         $codeWriter->openClass('class ' . $this->getClassName() . ' extends BaseEndpoint');
 

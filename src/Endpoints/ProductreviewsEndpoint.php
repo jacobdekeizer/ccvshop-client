@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductreviewsEndpoint extends BaseEndpoint
 {
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
+    /**
+     * Get all reviews of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class ProductreviewsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews::fromArray($result);
     }
     
+    /**
+     * Get one review. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productreviews\Resource\Productreviews
     {
         $result = $this->doRequest(
@@ -30,10 +42,15 @@ class ProductreviewsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productreviews\Resource\Productreviews::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Productreviews\All $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
+    /**
+     * Get all reviews place on the webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Productreviews\All $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productreviews\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productreviews\All();
         }
         
         $result = $this->doRequest(
@@ -44,23 +61,31 @@ class ProductreviewsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Patch
+    /**
+     * Patches an existing ProductReview. Depending on the webshop's settings review might need to be approved. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productreviews/' . $id . '/'
+            'productreviews/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Patch::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Post
+    /**
+     * Post a review for this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productreviews/'
+            'products/' . $id . '/productreviews/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Post::fromArray($result);
     }
 }

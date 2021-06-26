@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class UsersEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'users/' . $id . '/'
+            'users/' . $id . '/',
         );
     }
     
-    public function allFromUsergroups(int $id, ?\JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
+    /**
+     * Get all users that belong to this usergroup. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromUsergroups(int $id, \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups();
         }
         
         $result = $this->doRequest(
@@ -28,10 +40,15 @@ class UsersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Users\Collection\Users::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Users\All $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
+    /**
+     * Get all users. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Users\All $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Users\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Users\All();
         }
         
         $result = $this->doRequest(
@@ -42,6 +59,11 @@ class UsersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Users\Collection\Users::fromArray($result);
     }
     
+    /**
+     * Get one user. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Users\Resource\Users
     {
         $result = $this->doRequest(
@@ -52,23 +74,31 @@ class UsersEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Users\Resource\Users::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Users\Users\Patch
+    /**
+     * Patch a user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Users\Users\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'users/' . $id . '/'
+            'users/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Users\Users\Patch::fromArray($result);
     }
     
-    public function create(): \JacobDeKeizer\Ccv\Models\Users\Users\Post
+    /**
+     * Post a user. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function create(\JacobDeKeizer\Ccv\Models\Users\Users\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'users/'
+            'users/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Users\Users\Post::fromArray($result);
     }
 }

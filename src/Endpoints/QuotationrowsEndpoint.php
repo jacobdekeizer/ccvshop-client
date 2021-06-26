@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class QuotationrowsEndpoint extends BaseEndpoint
 {
-    public function allFromQuotations(int $id, ?\JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations $parameter = null): \JacobDeKeizer\Ccv\Models\Quotationrows\Collection\Quotationrows
+    /**
+     * Get all invoice rows of this invoice. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromQuotations(int $id, \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations $parameter = null): \JacobDeKeizer\Ccv\Models\Quotationrows\Collection\Quotationrows
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class QuotationrowsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Quotationrows\Collection\Quotationrows::fromArray($result);
     }
     
+    /**
+     * Get one QuotationRow. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Quotationrows\Resource\Quotationrows
     {
         $result = $this->doRequest(

@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ServicesEndpoint extends BaseEndpoint
 {
-    public function allFromServicecategories(int $id, ?\JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
+    /**
+     * Get all apps associated by this categorie id. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromServicecategories(int $id, \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories();
         }
         
         $result = $this->doRequest(
@@ -20,10 +27,15 @@ class ServicesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Services\Collection\Services::fromArray($result);
     }
     
-    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Services\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Resource\Services
+    /**
+     * Gets one service associated with this apikey. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function get(int $id, \JacobDeKeizer\Ccv\Parameters\Services\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Resource\Services
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Services\Get();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Services\Get();
         }
         
         $result = $this->doRequest(
@@ -34,10 +46,15 @@ class ServicesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Services\Resource\Services::fromArray($result);
     }
     
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Services\All $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
+    /**
+     * Gets all apps associated with this apikey. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Services\All $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Services\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Services\All();
         }
         
         $result = $this->doRequest(
@@ -48,13 +65,17 @@ class ServicesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Services\Collection\Services::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Services\Services\Patch
+    /**
+     * Updates an existing app. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Services\Services\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'services/' . $id . '/'
+            'services/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Services\Services\Patch::fromArray($result);
     }
 }

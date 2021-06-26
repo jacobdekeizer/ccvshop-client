@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class ProductphotosEndpoint extends BaseEndpoint
 {
+    /**
+     * Delete a product photo. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function delete(int $id): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::DELETE,
-            'productphotos/' . $id . '/'
+            'productphotos/' . $id . '/',
         );
     }
     
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
+    /**
+     * Get all photos of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -28,6 +40,11 @@ class ProductphotosEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos::fromArray($result);
     }
     
+    /**
+     * Get one product photo. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
     {
         $result = $this->doRequest(
@@ -38,33 +55,45 @@ class ProductphotosEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch
+    /**
+     * Patch a product photo. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'productphotos/' . $id . '/'
+            'productphotos/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch::fromArray($result);
     }
     
-    public function createFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post
+    /**
+     * Add a photo to this product. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'products/' . $id . '/productphotos/'
+            'products/' . $id . '/productphotos/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post::fromArray($result);
     }
     
-    public function updateFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put
+    /**
+     * Replace a product photo collection of an existing product. All existing photos will be deleted. With an empty collection you can achieve a DELETE ALL product photos. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function updateFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PUT,
-            'products/' . $id . '/productphotos/'
+            'products/' . $id . '/productphotos/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put::fromArray($result);
     }
 }

@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class InvoicesEndpoint extends BaseEndpoint
 {
-    public function all(?\JacobDeKeizer\Ccv\Parameters\Invoices\All $parameter = null): \JacobDeKeizer\Ccv\Models\Invoices\Collection\Invoices
+    /**
+     * Get all invoices of this webshop. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function all(\JacobDeKeizer\Ccv\Parameters\Invoices\All $parameter = null): \JacobDeKeizer\Ccv\Models\Invoices\Collection\Invoices
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Invoices\All();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Invoices\All();
         }
         
         $result = $this->doRequest(
@@ -20,6 +27,11 @@ class InvoicesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Invoices\Collection\Invoices::fromArray($result);
     }
     
+    /**
+     * Get one invoices by id. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices
     {
         $result = $this->doRequest(
@@ -30,23 +42,31 @@ class InvoicesEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input
+    /**
+     * Patch an invoice. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'invoices/' . $id . '/'
+            'invoices/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input::fromArray($result);
     }
     
-    public function createFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input
+    /**
+     * Create an invoice for this order. With a post action an invoice is created based on the difference between the current order and the most recent invoice. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::POST,
-            'orders/' . $id . '/invoices/'
+            'orders/' . $id . '/invoices/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input::fromArray($result);
     }
 }

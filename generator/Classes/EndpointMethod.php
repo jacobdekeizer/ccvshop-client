@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Classes;
 
-use JacobDeKeizer\CcvGenerator\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
@@ -57,22 +56,24 @@ class EndpointMethod
 
     public function write(CodeWriter $codeWriter): void
     {
-        $codeWriter->openMethod(sprintf(
-            'public function %s(%s): %s',
-            $this->methodName,
-            $this->getPropertiesSignature() . $this->getParameterSignature(),
-            $this->model ? $this->model->getNamespacedClass() : 'void'
-        ));
-
-        if ($this->parameter !== null) {
-            $codeWriter->writeLine('if ($parameter === null) {');
-            $codeWriter->indent();
-            $codeWriter->writeLine('$payload = new ' . $this->parameter->getNamespacedClass() . '();');
-            $codeWriter->outdent();
-            $codeWriter->writeLine('}');
-
-            $codeWriter->insertNewLine();
+        if ($this->isCreateOrUpdate()) {
+            $this->writeCreateOrUpdate($codeWriter);
+            return;
         }
+
+        if ($this->isDelete()) {
+            $this->writeDelete($codeWriter);
+            return;
+        }
+
+        $this->writeGet($codeWriter);
+    }
+
+    private function writeGet(CodeWriter $codeWriter): void
+    {
+        $this->writeMethod($codeWriter, $this->model->getNamespacedClass());
+
+        $this->writeParameter($codeWriter);
 
         $codeWriter->writeLine('$result = $this->doRequest(');
         $codeWriter->indent();
@@ -81,15 +82,85 @@ class EndpointMethod
         $codeWriter->outdent();
         $codeWriter->writeLine(');');
 
-        if ($this->model) {
-            $codeWriter->insertNewLine();
-            $codeWriter->writeLine('return ' . $this->model->getNamespacedClass() . '::fromArray($result);');
-        }
+        $codeWriter->insertNewLine();
+
+        $codeWriter->writeLine('return ' . $this->model->getNamespacedClass() . '::fromArray($result);');
 
         $codeWriter->closeMethod();
     }
 
-    private function getPropertiesSignature(): string
+    private function writeCreateOrUpdate(CodeWriter $codeWriter): void
+    {
+        $this->writeMethod($codeWriter, 'void');
+
+        $this->writeParameter($codeWriter);
+
+        $codeWriter->writeLine('$this->doRequest(');
+        $codeWriter->indent();
+        $codeWriter->writeLine('self::' . $this->httpMethod . ',');
+        $codeWriter->writeLine($this->getParameterizedUrl() . ',');
+        $codeWriter->writeLine('$model->toArray($onlyFilled)');
+        $codeWriter->outdent();
+        $codeWriter->writeLine(');');
+        $codeWriter->closeMethod();
+    }
+
+    private function writeDelete(CodeWriter $codeWriter): void
+    {
+        $this->writeMethod($codeWriter, 'void');
+
+        $this->writeParameter($codeWriter);
+
+        $codeWriter->writeLine('$this->doRequest(');
+        $codeWriter->indent();
+        $codeWriter->writeLine('self::' . $this->httpMethod . ',');
+        $codeWriter->writeLine($this->getParameterizedUrl() . ',');
+        $codeWriter->outdent();
+        $codeWriter->writeLine(');');
+        $codeWriter->closeMethod();
+    }
+
+    private function writeMethod(CodeWriter $codeWriter, string $returnType): void
+    {
+        $codeWriter->writeMultilineDocblock([
+            $this->description,
+            '',
+            '@throws CcvShopException'
+        ]);
+        $codeWriter->openMethod(sprintf(
+            'public function %s(%s): %s',
+            $this->methodName,
+            $this->getMethodSignature(),
+            $returnType
+        ));
+    }
+
+    private function writeParameter(CodeWriter $codeWriter): void
+    {
+        if ($this->parameter === null) {
+            return;
+        }
+
+        $codeWriter->writeLine('if ($parameter === null) {');
+        $codeWriter->indent();
+        $codeWriter->writeLine('$parameter = new ' . $this->parameter->getNamespacedClass() . '();');
+        $codeWriter->outdent();
+        $codeWriter->writeLine('}');
+
+        $codeWriter->insertNewLine();
+    }
+
+    private function isCreateOrUpdate(): bool
+    {
+        return $this->httpMethod === 'PATCH' || $this->httpMethod === 'POST' || $this->httpMethod === 'PUT';
+    }
+
+    private function isDelete(): bool
+    {
+        return $this->httpMethod === 'DELETE';
+    }
+
+    private function getPropertiesMethodSignature(): string
     {
         $content = '';
 
@@ -106,14 +177,26 @@ class EndpointMethod
         return $content;
     }
 
-    private function getParameterSignature(): string
+    private function getMethodSignature(): string
     {
-        if ($this->parameter === null) {
-            return '';
+        $content = $this->getPropertiesMethodSignature();
+
+        if ($this->isCreateOrUpdate()) {
+            $content .= $this->addSeparator($content);
+            $content .= $this->model->getNamespacedClass() . ' $model';
         }
 
-        $content = count($this->properties) > 0 ? ', ' : '';
-        return $content . '?' . $this->parameter->getNamespacedClass() . ' $parameter = null';
+        if ($this->parameter) {
+            $content .= $this->addSeparator($content);
+            $content .= $this->parameter->getNamespacedClass() . ' $parameter = null';
+        }
+
+        if ($this->isCreateOrUpdate()) {
+            $content .= $this->addSeparator($content);
+            $content .= 'bool $onlyFilled = true';
+        }
+
+        return $content;
     }
 
     private function getParameterizedUrl(): string
@@ -131,5 +214,10 @@ class EndpointMethod
         }
 
         return $url;
+    }
+
+    private function addSeparator(string $content): string
+    {
+        return $content === '' ? '' : ', ';
     }
 }

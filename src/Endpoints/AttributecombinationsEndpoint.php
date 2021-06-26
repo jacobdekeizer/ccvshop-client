@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\Ccv\Endpoints;
 
+use JacobDeKeizer\Ccv\Exceptions\CcvShopException;
+
 class AttributecombinationsEndpoint extends BaseEndpoint
 {
-    public function allFromProducts(int $id, ?\JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Collection\Attributecombinations
+    /**
+     * Get all attribute combinations of this product. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Collection\Attributecombinations
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts();
         }
         
         $result = $this->doRequest(
@@ -20,10 +27,15 @@ class AttributecombinationsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Attributecombinations\Collection\Attributecombinations::fromArray($result);
     }
     
-    public function get(int $id, ?\JacobDeKeizer\Ccv\Parameters\Attributecombinations\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Resource\Attributecombinations
+    /**
+     * Gets one attribute combination. 150 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function get(int $id, \JacobDeKeizer\Ccv\Parameters\Attributecombinations\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Resource\Attributecombinations
     {
         if ($parameter === null) {
-            $payload = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\Get();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\Get();
         }
         
         $result = $this->doRequest(
@@ -34,13 +46,17 @@ class AttributecombinationsEndpoint extends BaseEndpoint
         return \JacobDeKeizer\Ccv\Models\Attributecombinations\Resource\Attributecombinations::fromArray($result);
     }
     
-    public function update(int $id): \JacobDeKeizer\Ccv\Models\Attributecombinations\Attributecombinations\Patch
+    /**
+     * Patch a AttributeCombination. 100 per minute
+     * 
+     * @throws CcvShopException
+     */
+    public function update(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinations\Attributecombinations\Patch $model, bool $onlyFilled = true): void
     {
-        $result = $this->doRequest(
+        $this->doRequest(
             self::PATCH,
-            'attributecombinations/' . $id . '/'
+            'attributecombinations/' . $id . '/',
+            $model->toArray($onlyFilled)
         );
-        
-        return \JacobDeKeizer\Ccv\Models\Attributecombinations\Attributecombinations\Patch::fromArray($result);
     }
 }
