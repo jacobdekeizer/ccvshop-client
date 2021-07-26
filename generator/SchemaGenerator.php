@@ -9,6 +9,7 @@ use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;
 use JacobDeKeizer\CcvGenerator\Factories\EndpointClassGenerator;
 use JacobDeKeizer\CcvGenerator\File\FileHelper;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class SchemaGenerator
 {
@@ -64,6 +65,8 @@ class SchemaGenerator
                 }
             }
         }
+
+        $generator->createClientFile($endpoints);
     }
 
     private function createEndpointFile(EndpointClass $endpoint): void
@@ -99,6 +102,36 @@ class SchemaGenerator
         echo 'Write parameter ' . $path . PHP_EOL;
 
         $this->writeFileContentsWithCacheCheck($path, $parameterClass->toString());
+    }
+
+    /**
+     * @var EndpointClass[] $endpoints
+     */
+    private function createClientFile(array $endpoints): void
+    {
+        $codeWriter = new CodeWriter();
+        $codeWriter->indent();
+
+        foreach ($endpoints as $endpoint) {
+            $methodName = lcfirst(str_replace('Endpoint', '', $endpoint->getClassName()));
+            $namespacedClass = 'Endpoints\\' . $endpoint->getClassName();
+
+            $codeWriter->insertNewLine();
+            $codeWriter->openMethod(
+                sprintf('public function %s(): %s', $methodName, $namespacedClass)
+            );
+            $codeWriter->writeLine(sprintf('return new %s($this);', $namespacedClass));
+            $codeWriter->closeMethod();
+        }
+
+        $contents = file_get_contents(__DIR__ . './stubs/Client.php.stub');
+        $contents = str_replace('{{ ENDPOINT_METHODS_HERE }}', $codeWriter->content(), $contents);
+
+        FileHelper::fileForceContents(
+            $this->rootDir,
+            'Client.php',
+            $contents
+        );
     }
 
     private function writeFileContentsWithCacheCheck(string $path, string $contents): bool
