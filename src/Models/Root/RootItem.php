@@ -8,7 +8,8 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class RootItem implements Model
 {
-    use FromArray, ToArray;
+    use FromArray;
+    use ToArray;
 
     /**
      * @var string
@@ -114,4 +115,3 @@ class RootItem implements Model
         return $this;
     }
 }
-

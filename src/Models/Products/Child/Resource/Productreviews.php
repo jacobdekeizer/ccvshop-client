@@ -12,17 +12,17 @@ class Productreviews implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to collection of reviews.
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews[]|null Array with review items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Productreviews implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to collection of reviews.
      */
@@ -38,7 +38,7 @@ class Productreviews implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews[]|null Array with review items
      */
@@ -46,7 +46,7 @@ class Productreviews implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param string|null $href Link to collection of reviews.
      * @return self
@@ -57,7 +57,7 @@ class Productreviews implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews[]|null $collection Array with review items
      * @return self
@@ -72,14 +72,14 @@ class Productreviews implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Products\Resource\Productreviews::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

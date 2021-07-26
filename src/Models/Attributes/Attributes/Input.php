@@ -12,17 +12,17 @@ class Input implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Attribute name
      */
     private $name;
-    
+
     /**
      * @var string Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
      */
     private $type;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Attribute name
      */
@@ -38,7 +38,7 @@ class Input implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
      */
@@ -46,7 +46,7 @@ class Input implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @param string $name Attribute name
      * @return self
@@ -57,7 +57,7 @@ class Input implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $type Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
      * @return self

@@ -12,12 +12,12 @@ class Producttopropertygroups implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to collection of product property groups.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Producttopropertygroups implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to collection of product property groups.
      */
@@ -33,7 +33,7 @@ class Producttopropertygroups implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to collection of product property groups.
      * @return self

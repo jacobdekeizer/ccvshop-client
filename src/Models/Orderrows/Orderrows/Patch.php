@@ -12,22 +12,22 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var float|null Quantity of products.
      */
     private $count;
-    
+
     /**
      * @var float|null Row original price. Sellprice is calculated as price - discount.
      */
     private $price;
-    
+
     /**
      * @var float|null Row discount price. Sellprice is calculated as price - discount.
      */
     private $discount;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return float|null Quantity of products.
      */
@@ -43,7 +43,7 @@ class Patch implements Model
     {
         return $this->count;
     }
-    
+
     /**
      * @return float|null Row original price. Sellprice is calculated as price - discount.
      */
@@ -51,7 +51,7 @@ class Patch implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return float|null Row discount price. Sellprice is calculated as price - discount.
      */
@@ -59,7 +59,7 @@ class Patch implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @param float|null $count Quantity of products.
      * @return self
@@ -70,7 +70,7 @@ class Patch implements Model
         $this->propertyFilled('count');
         return $this;
     }
-    
+
     /**
      * @param float|null $price Row original price. Sellprice is calculated as price - discount.
      * @return self
@@ -81,7 +81,7 @@ class Patch implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param float|null $discount Row discount price. Sellprice is calculated as price - discount.
      * @return self

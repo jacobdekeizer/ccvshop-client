@@ -209,7 +209,7 @@ class ParameterClass
 
             $codeWriter->openMethod(sprintf(
                 'public function expand%s(bool $expand = true): self',
-                ucfirst($expandableField),
+                Str::studly($expandableField),
             ));
             $codeWriter->writeLine(sprintf('$this->expandField(\'%s\', $expand);', $expandableField));
             $codeWriter->writeLine('return $this;');
@@ -231,7 +231,7 @@ class ParameterClass
         $codeWriter->insertNewLine();
         $codeWriter->openMethod(sprintf(
             'public function orderBy%s(): self',
-            ucfirst($field) . ($ascending ? 'Asc' : 'Desc')
+            Str::studly($field) . ($ascending ? 'Asc' : 'Desc')
         ));
         $codeWriter->writeLine(sprintf(
             '$this->orderByField(\'%s\', %s);',

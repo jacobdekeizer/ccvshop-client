@@ -12,22 +12,22 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Unique product id
      */
     private $productId;
-    
+
     /**
      * @var int Unique id of the product property group
      */
     private $productPropertyId;
-    
+
     /**
      * @var string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
     private $value;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Unique product id
      */
@@ -43,7 +43,7 @@ class Post implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return int Unique id of the product property group
      */
@@ -51,7 +51,7 @@ class Post implements Model
     {
         return $this->productPropertyId;
     }
-    
+
     /**
      * @return string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
@@ -59,7 +59,7 @@ class Post implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @param int $productId Unique product id
      * @return self
@@ -70,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param int $productPropertyId Unique id of the product property group
      * @return self
@@ -81,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('productPropertyId');
         return $this;
     }
-    
+
     /**
      * @param string $value The value, an boolean when checkbox, an optionid when property type is option, string when else
      * @return self

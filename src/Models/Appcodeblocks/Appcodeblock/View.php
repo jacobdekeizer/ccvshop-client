@@ -12,22 +12,22 @@ class View implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Name of the view. Use this name in the app response to display this view.
      */
     private $name;
-    
+
     /**
      * @var string Data will be send to this endpoint when the user interacts with this codeblock's view.
      */
     private $endpoint;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Appcodeblocks\View\Element[] Array of elements in this view.
      */
     private $elements;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class View implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Name of the view. Use this name in the app response to display this view.
      */
@@ -43,7 +43,7 @@ class View implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string Data will be send to this endpoint when the user interacts with this codeblock's view.
      */
@@ -51,7 +51,7 @@ class View implements Model
     {
         return $this->endpoint;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Appcodeblocks\View\Element[] Array of elements in this view.
      */
@@ -59,7 +59,7 @@ class View implements Model
     {
         return $this->elements;
     }
-    
+
     /**
      * @param string $name Name of the view. Use this name in the app response to display this view.
      * @return self
@@ -70,7 +70,7 @@ class View implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $endpoint Data will be send to this endpoint when the user interacts with this codeblock's view.
      * @return self
@@ -81,7 +81,7 @@ class View implements Model
         $this->propertyFilled('endpoint');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Appcodeblocks\View\Element[] $elements Array of elements in this view.
      * @return self
@@ -96,14 +96,14 @@ class View implements Model
     {
         if ($key === 'elements') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Appcodeblocks\View\Element::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

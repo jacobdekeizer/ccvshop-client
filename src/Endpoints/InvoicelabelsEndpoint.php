@@ -10,7 +10,7 @@ class InvoicelabelsEndpoint extends BaseEndpoint
 {
     /**
      * Get all labels linked to this invoice. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromInvoice(int $id): \JacobDeKeizer\Ccv\Models\Invoicelabels\Collection\Invoicelabels
@@ -19,13 +19,13 @@ class InvoicelabelsEndpoint extends BaseEndpoint
             self::GET,
             'invoices/' . $id . '/invoicelabels/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Invoicelabels\Collection\Invoicelabels::fromArray($result);
     }
-    
+
     /**
      * Replaces all labels of this invoice with the new collection. An empty collection can be used to remove all labels. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function updateForInvoice(int $id, \JacobDeKeizer\Ccv\Models\Invoicelabels\Invoicelabels\Put $model, bool $onlyFilled = true): void

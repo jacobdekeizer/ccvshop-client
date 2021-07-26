@@ -12,12 +12,12 @@ class Products implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of products that have this condition.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Products implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of products that have this condition.
      */
@@ -33,7 +33,7 @@ class Products implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to collection of products that have this condition.
      * @return self

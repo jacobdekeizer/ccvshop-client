@@ -12,32 +12,32 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string The name of the PSP. This is how the App PSP is identified
      */
     private $name;
-    
+
     /**
      * @var string The description will be shown to the merchant above the settings in the webshop's backend.
      */
     private $description;
-    
+
     /**
      * @var string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
     private $icon;
-    
+
     /**
      * @var string This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
     private $endpoint;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[] Array of paymethods of the psp.
      */
     private $paymethods;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string The name of the PSP. This is how the App PSP is identified
      */
@@ -53,7 +53,7 @@ class Post implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string The description will be shown to the merchant above the settings in the webshop's backend.
      */
@@ -61,7 +61,7 @@ class Post implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
@@ -69,7 +69,7 @@ class Post implements Model
     {
         return $this->icon;
     }
-    
+
     /**
      * @return string This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
@@ -77,7 +77,7 @@ class Post implements Model
     {
         return $this->endpoint;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[] Array of paymethods of the psp.
      */
@@ -85,7 +85,7 @@ class Post implements Model
     {
         return $this->paymethods;
     }
-    
+
     /**
      * @param string $name The name of the PSP. This is how the App PSP is identified
      * @return self
@@ -96,7 +96,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $description The description will be shown to the merchant above the settings in the webshop's backend.
      * @return self
@@ -107,7 +107,7 @@ class Post implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param string|null $icon This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      * @return self
@@ -118,7 +118,7 @@ class Post implements Model
         $this->propertyFilled('icon');
         return $this;
     }
-    
+
     /**
      * @param string $endpoint This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      * @return self
@@ -129,7 +129,7 @@ class Post implements Model
         $this->propertyFilled('endpoint');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod[] $paymethods Array of paymethods of the psp.
      * @return self
@@ -144,14 +144,14 @@ class Post implements Model
     {
         if ($key === 'paymethods') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Paymethod::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

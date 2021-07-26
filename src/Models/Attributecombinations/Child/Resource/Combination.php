@@ -12,22 +12,22 @@ class Combination implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attribute Describes the attribute set.
      */
     private $attribute;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\AttributeValue Describes the attribute value in the attribute set.
      */
     private $attributeValue;
-    
+
     /**
      * @var float The extra price that is calculated when selecting this attribute value.
      */
     private $extraPrice;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Combination implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attribute Describes the attribute set.
      */
@@ -43,7 +43,7 @@ class Combination implements Model
     {
         return $this->attribute;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\AttributeValue Describes the attribute value in the attribute set.
      */
@@ -51,7 +51,7 @@ class Combination implements Model
     {
         return $this->attributeValue;
     }
-    
+
     /**
      * @return float The extra price that is calculated when selecting this attribute value.
      */
@@ -59,7 +59,7 @@ class Combination implements Model
     {
         return $this->extraPrice;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attribute $attribute Describes the attribute set.
      * @return self
@@ -70,7 +70,7 @@ class Combination implements Model
         $this->propertyFilled('attribute');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\AttributeValue $attributeValue Describes the attribute value in the attribute set.
      * @return self
@@ -81,7 +81,7 @@ class Combination implements Model
         $this->propertyFilled('attributeValue');
         return $this;
     }
-    
+
     /**
      * @param float $extraPrice The extra price that is calculated when selecting this attribute value.
      * @return self

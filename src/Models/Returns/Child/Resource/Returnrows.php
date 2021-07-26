@@ -12,12 +12,12 @@ class Returnrows implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to products that are included in this return.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Returnrows implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to products that are included in this return.
      */
@@ -33,7 +33,7 @@ class Returnrows implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to products that are included in this return.
      * @return self

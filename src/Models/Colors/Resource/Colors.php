@@ -12,37 +12,37 @@ class Colors implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Color Name
      */
     private $name;
-    
+
     /**
      * @var string The type of color. A 'color' will have a hex color code. Exceptions are transparent and multicolor.
      */
     private $type;
-    
+
     /**
      * @var string|null Hex color code. Exceptions are transparent and multicolor. Then this is null.
      */
     private $hex;
-    
+
     /**
      * @var int|null Position of color, used to sort.
      */
     private $position;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Colors implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -58,7 +58,7 @@ class Colors implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Colors implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Color Name
      */
@@ -74,7 +74,7 @@ class Colors implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string The type of color. A 'color' will have a hex color code. Exceptions are transparent and multicolor.
      */
@@ -82,7 +82,7 @@ class Colors implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string|null Hex color code. Exceptions are transparent and multicolor. Then this is null.
      */
@@ -90,7 +90,7 @@ class Colors implements Model
     {
         return $this->hex;
     }
-    
+
     /**
      * @return int|null Position of color, used to sort.
      */
@@ -98,7 +98,7 @@ class Colors implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Colors implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Colors implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Color Name
      * @return self
@@ -131,7 +131,7 @@ class Colors implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $type The type of color. A 'color' will have a hex color code. Exceptions are transparent and multicolor.
      * @return self
@@ -142,7 +142,7 @@ class Colors implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string|null $hex Hex color code. Exceptions are transparent and multicolor. Then this is null.
      * @return self
@@ -153,7 +153,7 @@ class Colors implements Model
         $this->propertyFilled('hex');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Position of color, used to sort.
      * @return self

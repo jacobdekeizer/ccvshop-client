@@ -12,17 +12,17 @@ class Productkeywords implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Product keyword
      */
     private $keyword;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productkeywords\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Productkeywords implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Product keyword
      */
@@ -38,7 +38,7 @@ class Productkeywords implements Model
     {
         return $this->keyword;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productkeywords\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -46,7 +46,7 @@ class Productkeywords implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $keyword Product keyword
      * @return self
@@ -57,7 +57,7 @@ class Productkeywords implements Model
         $this->propertyFilled('keyword');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productkeywords\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self

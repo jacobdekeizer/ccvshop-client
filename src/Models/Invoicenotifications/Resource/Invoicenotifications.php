@@ -12,37 +12,37 @@ class Invoicenotifications implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var int Unique id of the invoice
      */
     private $invoiceId;
-    
+
     /**
      * @var string The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      */
     private $type;
-    
+
     /**
      * @var string Createdate of this invoice notification in UTC
      */
     private $createDate;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Invoicenotifications\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Invoicenotifications implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -58,7 +58,7 @@ class Invoicenotifications implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Invoicenotifications implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Unique id of the invoice
      */
@@ -74,7 +74,7 @@ class Invoicenotifications implements Model
     {
         return $this->invoiceId;
     }
-    
+
     /**
      * @return string The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      */
@@ -82,7 +82,7 @@ class Invoicenotifications implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string Createdate of this invoice notification in UTC
      */
@@ -90,7 +90,7 @@ class Invoicenotifications implements Model
     {
         return $this->createDate;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Invoicenotifications\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -98,7 +98,7 @@ class Invoicenotifications implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Invoicenotifications implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Invoicenotifications implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $invoiceId Unique id of the invoice
      * @return self
@@ -131,7 +131,7 @@ class Invoicenotifications implements Model
         $this->propertyFilled('invoiceId');
         return $this;
     }
-    
+
     /**
      * @param string $type The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      * @return self
@@ -142,7 +142,7 @@ class Invoicenotifications implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string $createDate Createdate of this invoice notification in UTC
      * @return self
@@ -153,7 +153,7 @@ class Invoicenotifications implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Invoicenotifications\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

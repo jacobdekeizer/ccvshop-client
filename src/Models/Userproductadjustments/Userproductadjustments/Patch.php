@@ -12,22 +12,22 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var float|null Adjusted price for this user for this product.
      */
     private $price;
-    
+
     /**
      * @var float|null Adjusted discount price for this user for this product. Must be NULL if price is NULL too.
      */
     private $discount;
-    
+
     /**
      * @var bool|null If TRUE then this product won't be visible for this user.
      */
     private $hidden;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return float|null Adjusted price for this user for this product.
      */
@@ -43,7 +43,7 @@ class Patch implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return float|null Adjusted discount price for this user for this product. Must be NULL if price is NULL too.
      */
@@ -51,7 +51,7 @@ class Patch implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return bool|null If TRUE then this product won't be visible for this user.
      */
@@ -59,7 +59,7 @@ class Patch implements Model
     {
         return $this->hidden;
     }
-    
+
     /**
      * @param float|null $price Adjusted price for this user for this product.
      * @return self
@@ -70,7 +70,7 @@ class Patch implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param float|null $discount Adjusted discount price for this user for this product. Must be NULL if price is NULL too.
      * @return self
@@ -81,7 +81,7 @@ class Patch implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param bool|null $hidden If TRUE then this product won't be visible for this user.
      * @return self

@@ -12,97 +12,97 @@ class Merchant implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self.
      */
     private $href;
-    
+
     /**
      * @var string|null Gender, can be null.
      */
     private $gender;
-    
+
     /**
      * @var string|null First name
      */
     private $firstName;
-    
+
     /**
      * @var string|null Last name
      */
     private $lastName;
-    
+
     /**
      * @var string|null Full name
      */
     private $fullName;
-    
+
     /**
      * @var string|null Company name
      */
     private $company;
-    
+
     /**
      * @var string|null E-mail address
      */
     private $email;
-    
+
     /**
      * @var string|null Address line
      */
     private $addressLine;
-    
+
     /**
      * @var string|null Street name
      */
     private $street;
-    
+
     /**
      * @var string|null House number with possible suffix
      */
     private $housenumber;
-    
+
     /**
      * @var string|null Zipcode
      */
     private $zipcode;
-    
+
     /**
      * @var string|null City
      */
     private $city;
-    
+
     /**
      * @var string|null Country full
      */
     private $country;
-    
+
     /**
      * @var string|null Country in 2 characters.
      */
     private $countryCode;
-    
+
     /**
      * @var string|null Telephone number
      */
     private $telephone;
-    
+
     /**
      * @var string|null Tax number
      */
     private $taxNumber;
-    
+
     /**
      * @var string|null Chamber of Commerce number
      */
     private $cocNumber;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Merchant\Child\Entity\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -110,7 +110,7 @@ class Merchant implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self.
      */
@@ -118,7 +118,7 @@ class Merchant implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return string|null Gender, can be null.
      */
@@ -126,7 +126,7 @@ class Merchant implements Model
     {
         return $this->gender;
     }
-    
+
     /**
      * @return string|null First name
      */
@@ -134,7 +134,7 @@ class Merchant implements Model
     {
         return $this->firstName;
     }
-    
+
     /**
      * @return string|null Last name
      */
@@ -142,7 +142,7 @@ class Merchant implements Model
     {
         return $this->lastName;
     }
-    
+
     /**
      * @return string|null Full name
      */
@@ -150,7 +150,7 @@ class Merchant implements Model
     {
         return $this->fullName;
     }
-    
+
     /**
      * @return string|null Company name
      */
@@ -158,7 +158,7 @@ class Merchant implements Model
     {
         return $this->company;
     }
-    
+
     /**
      * @return string|null E-mail address
      */
@@ -166,7 +166,7 @@ class Merchant implements Model
     {
         return $this->email;
     }
-    
+
     /**
      * @return string|null Address line
      */
@@ -174,7 +174,7 @@ class Merchant implements Model
     {
         return $this->addressLine;
     }
-    
+
     /**
      * @return string|null Street name
      */
@@ -182,7 +182,7 @@ class Merchant implements Model
     {
         return $this->street;
     }
-    
+
     /**
      * @return string|null House number with possible suffix
      */
@@ -190,7 +190,7 @@ class Merchant implements Model
     {
         return $this->housenumber;
     }
-    
+
     /**
      * @return string|null Zipcode
      */
@@ -198,7 +198,7 @@ class Merchant implements Model
     {
         return $this->zipcode;
     }
-    
+
     /**
      * @return string|null City
      */
@@ -206,7 +206,7 @@ class Merchant implements Model
     {
         return $this->city;
     }
-    
+
     /**
      * @return string|null Country full
      */
@@ -214,7 +214,7 @@ class Merchant implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string|null Country in 2 characters.
      */
@@ -222,7 +222,7 @@ class Merchant implements Model
     {
         return $this->countryCode;
     }
-    
+
     /**
      * @return string|null Telephone number
      */
@@ -230,7 +230,7 @@ class Merchant implements Model
     {
         return $this->telephone;
     }
-    
+
     /**
      * @return string|null Tax number
      */
@@ -238,7 +238,7 @@ class Merchant implements Model
     {
         return $this->taxNumber;
     }
-    
+
     /**
      * @return string|null Chamber of Commerce number
      */
@@ -246,7 +246,7 @@ class Merchant implements Model
     {
         return $this->cocNumber;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Merchant\Child\Entity\ParentItem|null Contains link to parent resource.
      */
@@ -254,7 +254,7 @@ class Merchant implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self.
      * @return self
@@ -265,7 +265,7 @@ class Merchant implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param string|null $gender Gender, can be null.
      * @return self
@@ -276,7 +276,7 @@ class Merchant implements Model
         $this->propertyFilled('gender');
         return $this;
     }
-    
+
     /**
      * @param string|null $firstName First name
      * @return self
@@ -287,7 +287,7 @@ class Merchant implements Model
         $this->propertyFilled('firstName');
         return $this;
     }
-    
+
     /**
      * @param string|null $lastName Last name
      * @return self
@@ -298,7 +298,7 @@ class Merchant implements Model
         $this->propertyFilled('lastName');
         return $this;
     }
-    
+
     /**
      * @param string|null $fullName Full name
      * @return self
@@ -309,7 +309,7 @@ class Merchant implements Model
         $this->propertyFilled('fullName');
         return $this;
     }
-    
+
     /**
      * @param string|null $company Company name
      * @return self
@@ -320,7 +320,7 @@ class Merchant implements Model
         $this->propertyFilled('company');
         return $this;
     }
-    
+
     /**
      * @param string|null $email E-mail address
      * @return self
@@ -331,7 +331,7 @@ class Merchant implements Model
         $this->propertyFilled('email');
         return $this;
     }
-    
+
     /**
      * @param string|null $addressLine Address line
      * @return self
@@ -342,7 +342,7 @@ class Merchant implements Model
         $this->propertyFilled('addressLine');
         return $this;
     }
-    
+
     /**
      * @param string|null $street Street name
      * @return self
@@ -353,7 +353,7 @@ class Merchant implements Model
         $this->propertyFilled('street');
         return $this;
     }
-    
+
     /**
      * @param string|null $housenumber House number with possible suffix
      * @return self
@@ -364,7 +364,7 @@ class Merchant implements Model
         $this->propertyFilled('housenumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $zipcode Zipcode
      * @return self
@@ -375,7 +375,7 @@ class Merchant implements Model
         $this->propertyFilled('zipcode');
         return $this;
     }
-    
+
     /**
      * @param string|null $city City
      * @return self
@@ -386,7 +386,7 @@ class Merchant implements Model
         $this->propertyFilled('city');
         return $this;
     }
-    
+
     /**
      * @param string|null $country Country full
      * @return self
@@ -397,7 +397,7 @@ class Merchant implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string|null $countryCode Country in 2 characters.
      * @return self
@@ -408,7 +408,7 @@ class Merchant implements Model
         $this->propertyFilled('countryCode');
         return $this;
     }
-    
+
     /**
      * @param string|null $telephone Telephone number
      * @return self
@@ -419,7 +419,7 @@ class Merchant implements Model
         $this->propertyFilled('telephone');
         return $this;
     }
-    
+
     /**
      * @param string|null $taxNumber Tax number
      * @return self
@@ -430,7 +430,7 @@ class Merchant implements Model
         $this->propertyFilled('taxNumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $cocNumber Chamber of Commerce number
      * @return self
@@ -441,7 +441,7 @@ class Merchant implements Model
         $this->propertyFilled('cocNumber');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Merchant\Child\Entity\ParentItem|null $parent Contains link to parent resource.
      * @return self

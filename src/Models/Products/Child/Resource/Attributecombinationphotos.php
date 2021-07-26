@@ -12,17 +12,17 @@ class Attributecombinationphotos implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of attribute combination photo belonging to the combination
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Attributecombinationphotos implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of attribute combination photo belonging to the combination
      */
@@ -38,7 +38,7 @@ class Attributecombinationphotos implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Attributecombinationphotos implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param string $href Link to collection of attribute combination photo belonging to the combination
      * @return self
@@ -57,7 +57,7 @@ class Attributecombinationphotos implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto[] $collection Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Attributecombinationphotos implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Products\Resource\Attributecombinationphoto::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

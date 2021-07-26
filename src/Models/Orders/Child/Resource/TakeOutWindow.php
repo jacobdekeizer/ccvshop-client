@@ -12,17 +12,17 @@ class TakeOutWindow implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Start datetime of the take out slot in UTC.
      */
     private $start;
-    
+
     /**
      * @var string|null End datetime of the take out slot in UTC.
      */
     private $end;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class TakeOutWindow implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Start datetime of the take out slot in UTC.
      */
@@ -38,7 +38,7 @@ class TakeOutWindow implements Model
     {
         return $this->start;
     }
-    
+
     /**
      * @return string|null End datetime of the take out slot in UTC.
      */
@@ -46,7 +46,7 @@ class TakeOutWindow implements Model
     {
         return $this->end;
     }
-    
+
     /**
      * @param string|null $start Start datetime of the take out slot in UTC.
      * @return self
@@ -57,7 +57,7 @@ class TakeOutWindow implements Model
         $this->propertyFilled('start');
         return $this;
     }
-    
+
     /**
      * @param string|null $end End datetime of the take out slot in UTC.
      * @return self

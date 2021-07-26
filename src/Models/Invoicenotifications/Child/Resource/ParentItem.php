@@ -12,12 +12,12 @@ class ParentItem implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Collection of all invoice notifications of the invoice.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class ParentItem implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Collection of all invoice notifications of the invoice.
      */
@@ -33,7 +33,7 @@ class ParentItem implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Collection of all invoice notifications of the invoice.
      * @return self

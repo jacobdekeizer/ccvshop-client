@@ -12,12 +12,12 @@ class ParentItem implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Collection of all order notification of this order.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class ParentItem implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Collection of all order notification of this order.
      */
@@ -33,7 +33,7 @@ class ParentItem implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Collection of all order notification of this order.
      * @return self

@@ -12,92 +12,92 @@ class Deliveryaddress implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Gender, can be null.
      */
     private $gender;
-    
+
     /**
      * @var string|null Initials, optional
      */
     private $initials;
-    
+
     /**
      * @var string|null Full name
      */
     private $fullName;
-    
+
     /**
      * @var string|null Company name
      */
     private $company;
-    
+
     /**
      * @var string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
     private $addressLine1;
-    
+
     /**
      * @var string|null Address line 2. Note: see address_line_1.
      */
     private $addressLine2;
-    
+
     /**
      * @var string|null Street name.  Note: see address_line_1.
      */
     private $street;
-    
+
     /**
      * @var int|null House number.  Note: see address_line_1.
      */
     private $housenumber;
-    
+
     /**
      * @var string|null House number suffix.  Note: see address_line_1.
      */
     private $housenumberSuffix;
-    
+
     /**
      * @var string|null Zipcode
      */
     private $zipcode;
-    
+
     /**
      * @var string|null City
      */
     private $city;
-    
+
     /**
      * @var string|null Province or state
      */
     private $province;
-    
+
     /**
      * @var string|null Country full name.
      */
     private $country;
-    
+
     /**
      * @var string|null Country Alpha-2 code. See ISO 3166-1
      */
     private $countryCode;
-    
+
     /**
      * @var string|null Telephone number
      */
     private $telephone;
-    
+
     /**
      * @var string|null Mobile phone number
      */
     private $mobile;
-    
+
     /**
      * @var string|null Comment left for the recepient
      */
     private $comment;
-    
+
     /**
      * @return self
      */
@@ -105,7 +105,7 @@ class Deliveryaddress implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Gender, can be null.
      */
@@ -113,7 +113,7 @@ class Deliveryaddress implements Model
     {
         return $this->gender;
     }
-    
+
     /**
      * @return string|null Initials, optional
      */
@@ -121,7 +121,7 @@ class Deliveryaddress implements Model
     {
         return $this->initials;
     }
-    
+
     /**
      * @return string|null Full name
      */
@@ -129,7 +129,7 @@ class Deliveryaddress implements Model
     {
         return $this->fullName;
     }
-    
+
     /**
      * @return string|null Company name
      */
@@ -137,7 +137,7 @@ class Deliveryaddress implements Model
     {
         return $this->company;
     }
-    
+
     /**
      * @return string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
@@ -145,7 +145,7 @@ class Deliveryaddress implements Model
     {
         return $this->addressLine1;
     }
-    
+
     /**
      * @return string|null Address line 2. Note: see address_line_1.
      */
@@ -153,7 +153,7 @@ class Deliveryaddress implements Model
     {
         return $this->addressLine2;
     }
-    
+
     /**
      * @return string|null Street name.  Note: see address_line_1.
      */
@@ -161,7 +161,7 @@ class Deliveryaddress implements Model
     {
         return $this->street;
     }
-    
+
     /**
      * @return int|null House number.  Note: see address_line_1.
      */
@@ -169,7 +169,7 @@ class Deliveryaddress implements Model
     {
         return $this->housenumber;
     }
-    
+
     /**
      * @return string|null House number suffix.  Note: see address_line_1.
      */
@@ -177,7 +177,7 @@ class Deliveryaddress implements Model
     {
         return $this->housenumberSuffix;
     }
-    
+
     /**
      * @return string|null Zipcode
      */
@@ -185,7 +185,7 @@ class Deliveryaddress implements Model
     {
         return $this->zipcode;
     }
-    
+
     /**
      * @return string|null City
      */
@@ -193,7 +193,7 @@ class Deliveryaddress implements Model
     {
         return $this->city;
     }
-    
+
     /**
      * @return string|null Province or state
      */
@@ -201,7 +201,7 @@ class Deliveryaddress implements Model
     {
         return $this->province;
     }
-    
+
     /**
      * @return string|null Country full name.
      */
@@ -209,7 +209,7 @@ class Deliveryaddress implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string|null Country Alpha-2 code. See ISO 3166-1
      */
@@ -217,7 +217,7 @@ class Deliveryaddress implements Model
     {
         return $this->countryCode;
     }
-    
+
     /**
      * @return string|null Telephone number
      */
@@ -225,7 +225,7 @@ class Deliveryaddress implements Model
     {
         return $this->telephone;
     }
-    
+
     /**
      * @return string|null Mobile phone number
      */
@@ -233,7 +233,7 @@ class Deliveryaddress implements Model
     {
         return $this->mobile;
     }
-    
+
     /**
      * @return string|null Comment left for the recepient
      */
@@ -241,7 +241,7 @@ class Deliveryaddress implements Model
     {
         return $this->comment;
     }
-    
+
     /**
      * @param string|null $gender Gender, can be null.
      * @return self
@@ -252,7 +252,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('gender');
         return $this;
     }
-    
+
     /**
      * @param string|null $initials Initials, optional
      * @return self
@@ -263,7 +263,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('initials');
         return $this;
     }
-    
+
     /**
      * @param string|null $fullName Full name
      * @return self
@@ -274,7 +274,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('fullName');
         return $this;
     }
-    
+
     /**
      * @param string|null $company Company name
      * @return self
@@ -285,7 +285,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('company');
         return $this;
     }
-    
+
     /**
      * @param string|null $addressLine1 Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      * @return self
@@ -296,7 +296,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('addressLine1');
         return $this;
     }
-    
+
     /**
      * @param string|null $addressLine2 Address line 2. Note: see address_line_1.
      * @return self
@@ -307,7 +307,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('addressLine2');
         return $this;
     }
-    
+
     /**
      * @param string|null $street Street name.  Note: see address_line_1.
      * @return self
@@ -318,7 +318,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('street');
         return $this;
     }
-    
+
     /**
      * @param int|null $housenumber House number.  Note: see address_line_1.
      * @return self
@@ -329,7 +329,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('housenumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $housenumberSuffix House number suffix.  Note: see address_line_1.
      * @return self
@@ -340,7 +340,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('housenumberSuffix');
         return $this;
     }
-    
+
     /**
      * @param string|null $zipcode Zipcode
      * @return self
@@ -351,7 +351,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('zipcode');
         return $this;
     }
-    
+
     /**
      * @param string|null $city City
      * @return self
@@ -362,7 +362,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('city');
         return $this;
     }
-    
+
     /**
      * @param string|null $province Province or state
      * @return self
@@ -373,7 +373,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('province');
         return $this;
     }
-    
+
     /**
      * @param string|null $country Country full name.
      * @return self
@@ -384,7 +384,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string|null $countryCode Country Alpha-2 code. See ISO 3166-1
      * @return self
@@ -395,7 +395,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('countryCode');
         return $this;
     }
-    
+
     /**
      * @param string|null $telephone Telephone number
      * @return self
@@ -406,7 +406,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('telephone');
         return $this;
     }
-    
+
     /**
      * @param string|null $mobile Mobile phone number
      * @return self
@@ -417,7 +417,7 @@ class Deliveryaddress implements Model
         $this->propertyFilled('mobile');
         return $this;
     }
-    
+
     /**
      * @param string|null $comment Comment left for the recepient
      * @return self

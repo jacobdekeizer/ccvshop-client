@@ -65,12 +65,12 @@ class CodeWriter
 
     public function insertNewLine(): void
     {
-        $this->writeLine('');
+        $this->lines[] = '';
     }
 
     public function writeLine(string $line): void
     {
-        $this->lines[] = $this->currentIndentation . $line;
+        $this->lines[] = rtrim($this->currentIndentation . $line);
     }
 
     public function writeLines(array $lines): void
@@ -96,6 +96,6 @@ class CodeWriter
 
     public function content(): string
     {
-        return implode(PHP_EOL, $this->lines);
+        return implode("\n", $this->lines);
     }
 }

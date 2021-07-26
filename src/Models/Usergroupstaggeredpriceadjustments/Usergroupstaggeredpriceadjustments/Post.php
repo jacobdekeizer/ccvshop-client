@@ -12,27 +12,27 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Unique id of the product staggered price.
      */
     private $staggeredpriceId;
-    
+
     /**
      * @var int Unique id of the user group.
      */
     private $usergroupId;
-    
+
     /**
      * @var float|null Adjusted price for this user group for this product staggered price.
      */
     private $price;
-    
+
     /**
      * @var float|null Adjusted discount price for this user group for this product staggered price.
      */
     private $discount;
-    
+
     /**
      * @return self
      */
@@ -40,7 +40,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Unique id of the product staggered price.
      */
@@ -48,7 +48,7 @@ class Post implements Model
     {
         return $this->staggeredpriceId;
     }
-    
+
     /**
      * @return int Unique id of the user group.
      */
@@ -56,7 +56,7 @@ class Post implements Model
     {
         return $this->usergroupId;
     }
-    
+
     /**
      * @return float|null Adjusted price for this user group for this product staggered price.
      */
@@ -64,7 +64,7 @@ class Post implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return float|null Adjusted discount price for this user group for this product staggered price.
      */
@@ -72,7 +72,7 @@ class Post implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @param int $staggeredpriceId Unique id of the product staggered price.
      * @return self
@@ -83,7 +83,7 @@ class Post implements Model
         $this->propertyFilled('staggeredpriceId');
         return $this;
     }
-    
+
     /**
      * @param int $usergroupId Unique id of the user group.
      * @return self
@@ -94,7 +94,7 @@ class Post implements Model
         $this->propertyFilled('usergroupId');
         return $this;
     }
-    
+
     /**
      * @param float|null $price Adjusted price for this user group for this product staggered price.
      * @return self
@@ -105,7 +105,7 @@ class Post implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param float|null $discount Adjusted discount price for this user group for this product staggered price.
      * @return self

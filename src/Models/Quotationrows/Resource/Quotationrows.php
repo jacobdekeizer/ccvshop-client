@@ -12,182 +12,182 @@ class Quotationrows implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self.
      */
     private $href;
-    
+
     /**
      * @var int Quotation row Id
      */
     private $id;
-    
+
     /**
      * @var int Quotation Id.
      */
     private $quotationId;
-    
+
     /**
      * @var string Product type of this quotation row. If the type is a deposit then taxrate will always be 0%.
      */
     private $productType;
-    
+
     /**
      * @var string Product name.
      */
     private $productName;
-    
+
     /**
      * @var string Product number.
      */
     private $productNumber;
-    
+
     /**
      * @var string Product number from the attributecombination.
      */
     private $subProductNumber;
-    
+
     /**
      * @var string SKU number from the attributecombination.
      */
     private $subSkuNumber;
-    
+
     /**
      * @var string EAN number from the attributecombination.
      */
     private $subEanNumber;
-    
+
     /**
      * @var int|null Unique product id.
      */
     private $productId;
-    
+
     /**
      * @var string|null Link to product resource.
      */
     private $productHref;
-    
+
     /**
      * @var float Quantity of products.
      */
     private $count;
-    
+
     /**
      * @var float Product original price per unit.
      */
     private $price;
-    
+
     /**
      * @var float Product purchase price per unit.
      */
     private $productPurchasePrice;
-    
+
     /**
      * @var float Discount price per unit.
      */
     private $discount;
-    
+
     /**
      * @var bool Custom product price. If true, this price is differnt from the product price for this quotation row.
      */
     private $customPrice;
-    
+
     /**
      * @var float Tax percentage.
      */
     private $tax;
-    
+
     /**
      * @var string Product unit.
      */
     private $unit;
-    
+
     /**
      * @var float Product weight.
      */
     private $weight;
-    
+
     /**
      * @var string Memo description of product.
      */
     private $memo;
-    
+
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
     private $packageId;
-    
+
     /**
      * @var string Package name.
      */
     private $packageName;
-    
+
     /**
      * @var string Stocklocation of product.
      */
     private $stockLocation;
-    
+
     /**
      * @var string Product supplier.
      */
     private $supplier;
-    
+
     /**
      * @var float Product original price.
      */
     private $originalPrice;
-    
+
     /**
      * @var float Product orignal price and discount.
      */
     private $sellingPrice;
-    
+
     /**
      * @var float Product price without discount.
      */
     private $priceWithoutDiscount;
-    
+
     /**
      * @var float Product price without discount, with attributes.
      */
     private $priceWithoutDiscountWithAttributes;
-    
+
     /**
      * @var float Total quotation row price.
      */
     private $totalPrice;
-    
+
     /**
      * @var float|null Total price from attributes.
      */
     private $totalExtraOptionPrice;
-    
+
     /**
      * @var float Product price with attributes per unit.
      */
     private $priceWithAttributes;
-    
+
     /**
      * @var float Total product price with attributes.
      */
     private $totalPriceWithAttributes;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Attributes[] Collection of the chosen attribute options of this quotation row.
      */
     private $attributes;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Orderrow Contains link to orderrow resource. Only availabe when an order was created from this quotation.
      */
     private $orderrow;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\ParentItem Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -195,7 +195,7 @@ class Quotationrows implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self.
      */
@@ -203,7 +203,7 @@ class Quotationrows implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Quotation row Id
      */
@@ -211,7 +211,7 @@ class Quotationrows implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Quotation Id.
      */
@@ -219,7 +219,7 @@ class Quotationrows implements Model
     {
         return $this->quotationId;
     }
-    
+
     /**
      * @return string Product type of this quotation row. If the type is a deposit then taxrate will always be 0%.
      */
@@ -227,7 +227,7 @@ class Quotationrows implements Model
     {
         return $this->productType;
     }
-    
+
     /**
      * @return string Product name.
      */
@@ -235,7 +235,7 @@ class Quotationrows implements Model
     {
         return $this->productName;
     }
-    
+
     /**
      * @return string Product number.
      */
@@ -243,7 +243,7 @@ class Quotationrows implements Model
     {
         return $this->productNumber;
     }
-    
+
     /**
      * @return string Product number from the attributecombination.
      */
@@ -251,7 +251,7 @@ class Quotationrows implements Model
     {
         return $this->subProductNumber;
     }
-    
+
     /**
      * @return string SKU number from the attributecombination.
      */
@@ -259,7 +259,7 @@ class Quotationrows implements Model
     {
         return $this->subSkuNumber;
     }
-    
+
     /**
      * @return string EAN number from the attributecombination.
      */
@@ -267,7 +267,7 @@ class Quotationrows implements Model
     {
         return $this->subEanNumber;
     }
-    
+
     /**
      * @return int|null Unique product id.
      */
@@ -275,7 +275,7 @@ class Quotationrows implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return string|null Link to product resource.
      */
@@ -283,7 +283,7 @@ class Quotationrows implements Model
     {
         return $this->productHref;
     }
-    
+
     /**
      * @return float Quantity of products.
      */
@@ -291,7 +291,7 @@ class Quotationrows implements Model
     {
         return $this->count;
     }
-    
+
     /**
      * @return float Product original price per unit.
      */
@@ -299,7 +299,7 @@ class Quotationrows implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return float Product purchase price per unit.
      */
@@ -307,7 +307,7 @@ class Quotationrows implements Model
     {
         return $this->productPurchasePrice;
     }
-    
+
     /**
      * @return float Discount price per unit.
      */
@@ -315,7 +315,7 @@ class Quotationrows implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return bool Custom product price. If true, this price is differnt from the product price for this quotation row.
      */
@@ -323,7 +323,7 @@ class Quotationrows implements Model
     {
         return $this->customPrice;
     }
-    
+
     /**
      * @return float Tax percentage.
      */
@@ -331,7 +331,7 @@ class Quotationrows implements Model
     {
         return $this->tax;
     }
-    
+
     /**
      * @return string Product unit.
      */
@@ -339,7 +339,7 @@ class Quotationrows implements Model
     {
         return $this->unit;
     }
-    
+
     /**
      * @return float Product weight.
      */
@@ -347,7 +347,7 @@ class Quotationrows implements Model
     {
         return $this->weight;
     }
-    
+
     /**
      * @return string Memo description of product.
      */
@@ -355,7 +355,7 @@ class Quotationrows implements Model
     {
         return $this->memo;
     }
-    
+
     /**
      * @return int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
@@ -363,7 +363,7 @@ class Quotationrows implements Model
     {
         return $this->packageId;
     }
-    
+
     /**
      * @return string Package name.
      */
@@ -371,7 +371,7 @@ class Quotationrows implements Model
     {
         return $this->packageName;
     }
-    
+
     /**
      * @return string Stocklocation of product.
      */
@@ -379,7 +379,7 @@ class Quotationrows implements Model
     {
         return $this->stockLocation;
     }
-    
+
     /**
      * @return string Product supplier.
      */
@@ -387,7 +387,7 @@ class Quotationrows implements Model
     {
         return $this->supplier;
     }
-    
+
     /**
      * @return float Product original price.
      */
@@ -395,7 +395,7 @@ class Quotationrows implements Model
     {
         return $this->originalPrice;
     }
-    
+
     /**
      * @return float Product orignal price and discount.
      */
@@ -403,7 +403,7 @@ class Quotationrows implements Model
     {
         return $this->sellingPrice;
     }
-    
+
     /**
      * @return float Product price without discount.
      */
@@ -411,7 +411,7 @@ class Quotationrows implements Model
     {
         return $this->priceWithoutDiscount;
     }
-    
+
     /**
      * @return float Product price without discount, with attributes.
      */
@@ -419,7 +419,7 @@ class Quotationrows implements Model
     {
         return $this->priceWithoutDiscountWithAttributes;
     }
-    
+
     /**
      * @return float Total quotation row price.
      */
@@ -427,7 +427,7 @@ class Quotationrows implements Model
     {
         return $this->totalPrice;
     }
-    
+
     /**
      * @return float|null Total price from attributes.
      */
@@ -435,7 +435,7 @@ class Quotationrows implements Model
     {
         return $this->totalExtraOptionPrice;
     }
-    
+
     /**
      * @return float Product price with attributes per unit.
      */
@@ -443,7 +443,7 @@ class Quotationrows implements Model
     {
         return $this->priceWithAttributes;
     }
-    
+
     /**
      * @return float Total product price with attributes.
      */
@@ -451,7 +451,7 @@ class Quotationrows implements Model
     {
         return $this->totalPriceWithAttributes;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Attributes[] Collection of the chosen attribute options of this quotation row.
      */
@@ -459,7 +459,7 @@ class Quotationrows implements Model
     {
         return $this->attributes;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Orderrow Contains link to orderrow resource. Only availabe when an order was created from this quotation.
      */
@@ -467,7 +467,7 @@ class Quotationrows implements Model
     {
         return $this->orderrow;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\ParentItem Contains link to parent resource.
      */
@@ -475,7 +475,7 @@ class Quotationrows implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self.
      * @return self
@@ -486,7 +486,7 @@ class Quotationrows implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Quotation row Id
      * @return self
@@ -497,7 +497,7 @@ class Quotationrows implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $quotationId Quotation Id.
      * @return self
@@ -508,7 +508,7 @@ class Quotationrows implements Model
         $this->propertyFilled('quotationId');
         return $this;
     }
-    
+
     /**
      * @param string $productType Product type of this quotation row. If the type is a deposit then taxrate will always be 0%.
      * @return self
@@ -519,7 +519,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productType');
         return $this;
     }
-    
+
     /**
      * @param string $productName Product name.
      * @return self
@@ -530,7 +530,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productName');
         return $this;
     }
-    
+
     /**
      * @param string $productNumber Product number.
      * @return self
@@ -541,7 +541,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productNumber');
         return $this;
     }
-    
+
     /**
      * @param string $subProductNumber Product number from the attributecombination.
      * @return self
@@ -552,7 +552,7 @@ class Quotationrows implements Model
         $this->propertyFilled('subProductNumber');
         return $this;
     }
-    
+
     /**
      * @param string $subSkuNumber SKU number from the attributecombination.
      * @return self
@@ -563,7 +563,7 @@ class Quotationrows implements Model
         $this->propertyFilled('subSkuNumber');
         return $this;
     }
-    
+
     /**
      * @param string $subEanNumber EAN number from the attributecombination.
      * @return self
@@ -574,7 +574,7 @@ class Quotationrows implements Model
         $this->propertyFilled('subEanNumber');
         return $this;
     }
-    
+
     /**
      * @param int|null $productId Unique product id.
      * @return self
@@ -585,7 +585,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param string|null $productHref Link to product resource.
      * @return self
@@ -596,7 +596,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productHref');
         return $this;
     }
-    
+
     /**
      * @param float $count Quantity of products.
      * @return self
@@ -607,7 +607,7 @@ class Quotationrows implements Model
         $this->propertyFilled('count');
         return $this;
     }
-    
+
     /**
      * @param float $price Product original price per unit.
      * @return self
@@ -618,7 +618,7 @@ class Quotationrows implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param float $productPurchasePrice Product purchase price per unit.
      * @return self
@@ -629,7 +629,7 @@ class Quotationrows implements Model
         $this->propertyFilled('productPurchasePrice');
         return $this;
     }
-    
+
     /**
      * @param float $discount Discount price per unit.
      * @return self
@@ -640,7 +640,7 @@ class Quotationrows implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param bool $customPrice Custom product price. If true, this price is differnt from the product price for this quotation row.
      * @return self
@@ -651,7 +651,7 @@ class Quotationrows implements Model
         $this->propertyFilled('customPrice');
         return $this;
     }
-    
+
     /**
      * @param float $tax Tax percentage.
      * @return self
@@ -662,7 +662,7 @@ class Quotationrows implements Model
         $this->propertyFilled('tax');
         return $this;
     }
-    
+
     /**
      * @param string $unit Product unit.
      * @return self
@@ -673,7 +673,7 @@ class Quotationrows implements Model
         $this->propertyFilled('unit');
         return $this;
     }
-    
+
     /**
      * @param float $weight Product weight.
      * @return self
@@ -684,7 +684,7 @@ class Quotationrows implements Model
         $this->propertyFilled('weight');
         return $this;
     }
-    
+
     /**
      * @param string $memo Memo description of product.
      * @return self
@@ -695,7 +695,7 @@ class Quotationrows implements Model
         $this->propertyFilled('memo');
         return $this;
     }
-    
+
     /**
      * @param int|null $packageId Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      * @return self
@@ -706,7 +706,7 @@ class Quotationrows implements Model
         $this->propertyFilled('packageId');
         return $this;
     }
-    
+
     /**
      * @param string $packageName Package name.
      * @return self
@@ -717,7 +717,7 @@ class Quotationrows implements Model
         $this->propertyFilled('packageName');
         return $this;
     }
-    
+
     /**
      * @param string $stockLocation Stocklocation of product.
      * @return self
@@ -728,7 +728,7 @@ class Quotationrows implements Model
         $this->propertyFilled('stockLocation');
         return $this;
     }
-    
+
     /**
      * @param string $supplier Product supplier.
      * @return self
@@ -739,7 +739,7 @@ class Quotationrows implements Model
         $this->propertyFilled('supplier');
         return $this;
     }
-    
+
     /**
      * @param float $originalPrice Product original price.
      * @return self
@@ -750,7 +750,7 @@ class Quotationrows implements Model
         $this->propertyFilled('originalPrice');
         return $this;
     }
-    
+
     /**
      * @param float $sellingPrice Product orignal price and discount.
      * @return self
@@ -761,7 +761,7 @@ class Quotationrows implements Model
         $this->propertyFilled('sellingPrice');
         return $this;
     }
-    
+
     /**
      * @param float $priceWithoutDiscount Product price without discount.
      * @return self
@@ -772,7 +772,7 @@ class Quotationrows implements Model
         $this->propertyFilled('priceWithoutDiscount');
         return $this;
     }
-    
+
     /**
      * @param float $priceWithoutDiscountWithAttributes Product price without discount, with attributes.
      * @return self
@@ -783,7 +783,7 @@ class Quotationrows implements Model
         $this->propertyFilled('priceWithoutDiscountWithAttributes');
         return $this;
     }
-    
+
     /**
      * @param float $totalPrice Total quotation row price.
      * @return self
@@ -794,7 +794,7 @@ class Quotationrows implements Model
         $this->propertyFilled('totalPrice');
         return $this;
     }
-    
+
     /**
      * @param float|null $totalExtraOptionPrice Total price from attributes.
      * @return self
@@ -805,7 +805,7 @@ class Quotationrows implements Model
         $this->propertyFilled('totalExtraOptionPrice');
         return $this;
     }
-    
+
     /**
      * @param float $priceWithAttributes Product price with attributes per unit.
      * @return self
@@ -816,7 +816,7 @@ class Quotationrows implements Model
         $this->propertyFilled('priceWithAttributes');
         return $this;
     }
-    
+
     /**
      * @param float $totalPriceWithAttributes Total product price with attributes.
      * @return self
@@ -827,7 +827,7 @@ class Quotationrows implements Model
         $this->propertyFilled('totalPriceWithAttributes');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Attributes[] $attributes Collection of the chosen attribute options of this quotation row.
      * @return self
@@ -838,7 +838,7 @@ class Quotationrows implements Model
         $this->propertyFilled('attributes');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Orderrow $orderrow Contains link to orderrow resource. Only availabe when an order was created from this quotation.
      * @return self
@@ -849,7 +849,7 @@ class Quotationrows implements Model
         $this->propertyFilled('orderrow');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\ParentItem $parent Contains link to parent resource.
      * @return self
@@ -864,14 +864,14 @@ class Quotationrows implements Model
     {
         if ($key === 'attributes') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Quotationrows\Child\Resource\Attributes::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

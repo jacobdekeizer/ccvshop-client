@@ -12,12 +12,12 @@ class Dashboardblocks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of dashboard blocks.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Dashboardblocks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of dashboard blocks.
      */
@@ -33,7 +33,7 @@ class Dashboardblocks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to collection of dashboard blocks.
      * @return self

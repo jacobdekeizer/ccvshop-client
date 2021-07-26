@@ -12,37 +12,37 @@ class Appstorecategories implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null App store category name
      */
     private $name;
-    
+
     /**
      * @var string|null App store category description
      */
     private $description;
-    
+
     /**
      * @var int|null Position of the category
      */
     private $position;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Apps|null Apps linked to this attribute.
      */
     private $apps;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Appstorecategories implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -58,7 +58,7 @@ class Appstorecategories implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Appstorecategories implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null App store category name
      */
@@ -74,7 +74,7 @@ class Appstorecategories implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null App store category description
      */
@@ -82,7 +82,7 @@ class Appstorecategories implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return int|null Position of the category
      */
@@ -90,7 +90,7 @@ class Appstorecategories implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Apps|null Apps linked to this attribute.
      */
@@ -98,7 +98,7 @@ class Appstorecategories implements Model
     {
         return $this->apps;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Appstorecategories implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Appstorecategories implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name App store category name
      * @return self
@@ -131,7 +131,7 @@ class Appstorecategories implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $description App store category description
      * @return self
@@ -142,7 +142,7 @@ class Appstorecategories implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Position of the category
      * @return self
@@ -153,7 +153,7 @@ class Appstorecategories implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Apps|null $apps Apps linked to this attribute.
      * @return self

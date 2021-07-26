@@ -12,37 +12,37 @@ class Languages implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Display label of the language.
      */
     private $label;
-    
+
     /**
      * @var bool If active, it's visible in the webshop.
      */
     private $active;
-    
+
     /**
      * @var string Languages on which this language is based.
      */
     private $baseLanguage;
-    
+
     /**
      * @var string The iso two code of the language. If this a custom languege this will be an integer with 'c' as prefix.
      */
     private $isoCode;
-    
+
     /**
      * @var string A href to the associated flag of this language. This will be used in the webshop.
      */
     private $flagIcon;
-    
+
     /**
      * @var string Href to the collection of all languages.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Languages implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Display label of the language.
      */
@@ -58,7 +58,7 @@ class Languages implements Model
     {
         return $this->label;
     }
-    
+
     /**
      * @return bool If active, it's visible in the webshop.
      */
@@ -66,7 +66,7 @@ class Languages implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @return string Languages on which this language is based.
      */
@@ -74,7 +74,7 @@ class Languages implements Model
     {
         return $this->baseLanguage;
     }
-    
+
     /**
      * @return string The iso two code of the language. If this a custom languege this will be an integer with 'c' as prefix.
      */
@@ -82,7 +82,7 @@ class Languages implements Model
     {
         return $this->isoCode;
     }
-    
+
     /**
      * @return string A href to the associated flag of this language. This will be used in the webshop.
      */
@@ -90,7 +90,7 @@ class Languages implements Model
     {
         return $this->flagIcon;
     }
-    
+
     /**
      * @return string Href to the collection of all languages.
      */
@@ -98,7 +98,7 @@ class Languages implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $label Display label of the language.
      * @return self
@@ -109,7 +109,7 @@ class Languages implements Model
         $this->propertyFilled('label');
         return $this;
     }
-    
+
     /**
      * @param bool $active If active, it's visible in the webshop.
      * @return self
@@ -120,7 +120,7 @@ class Languages implements Model
         $this->propertyFilled('active');
         return $this;
     }
-    
+
     /**
      * @param string $baseLanguage Languages on which this language is based.
      * @return self
@@ -131,7 +131,7 @@ class Languages implements Model
         $this->propertyFilled('baseLanguage');
         return $this;
     }
-    
+
     /**
      * @param string $isoCode The iso two code of the language. If this a custom languege this will be an integer with 'c' as prefix.
      * @return self
@@ -142,7 +142,7 @@ class Languages implements Model
         $this->propertyFilled('isoCode');
         return $this;
     }
-    
+
     /**
      * @param string $flagIcon A href to the associated flag of this language. This will be used in the webshop.
      * @return self
@@ -153,7 +153,7 @@ class Languages implements Model
         $this->propertyFilled('flagIcon');
         return $this;
     }
-    
+
     /**
      * @param string $href Href to the collection of all languages.
      * @return self

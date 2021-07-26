@@ -12,32 +12,32 @@ class Brands implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Brand Name
      */
     private $name;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\Products|null Collection of products that have this brand.
      */
     private $products;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Brands implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -53,7 +53,7 @@ class Brands implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -61,7 +61,7 @@ class Brands implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Brand Name
      */
@@ -69,7 +69,7 @@ class Brands implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\Products|null Collection of products that have this brand.
      */
@@ -77,7 +77,7 @@ class Brands implements Model
     {
         return $this->products;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -85,7 +85,7 @@ class Brands implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -96,7 +96,7 @@ class Brands implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -107,7 +107,7 @@ class Brands implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Brand Name
      * @return self
@@ -118,7 +118,7 @@ class Brands implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\Products|null $products Collection of products that have this brand.
      * @return self
@@ -129,7 +129,7 @@ class Brands implements Model
         $this->propertyFilled('products');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Brands\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

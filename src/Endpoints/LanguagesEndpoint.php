@@ -10,7 +10,7 @@ class LanguagesEndpoint extends BaseEndpoint
 {
     /**
      * Get all available languages. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Languages\Collection\Languages
@@ -19,13 +19,13 @@ class LanguagesEndpoint extends BaseEndpoint
             self::GET,
             'languages/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Languages\Collection\Languages::fromArray($result);
     }
-    
+
     /**
      * Creates a new languages based upon an existing one. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Languages\Languages\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Languages\Resource\Languages
@@ -35,7 +35,7 @@ class LanguagesEndpoint extends BaseEndpoint
             'languages/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Languages\Resource\Languages::fromArray($result);
     }
 }

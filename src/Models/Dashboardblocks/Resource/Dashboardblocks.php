@@ -12,67 +12,67 @@ class Dashboardblocks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Id of this dashboard block.
      */
     private $id;
-    
+
     /**
      * @var string Link to this dashboard block.
      */
     private $href;
-    
+
     /**
      * @var string Type of data. It can either be fixed or relavite, where the latter the current data is compared to a previous timespan.
      */
     private $type;
-    
+
     /**
      * @var string Text color in Hex. Normally white on a dark background and black on a light background.
      */
     private $color;
-    
+
     /**
      * @var string Background color in Hex.
      */
     private $backgroundColor;
-    
+
     /**
      * @var string A translated value indicating the timespan of the value. Typically used as title. See details in timespan_details.
      */
     private $timespan;
-    
+
     /**
      * @var string A formatted value. This can be a percentage, an amount with currecy or a number. See details in value_details.
      */
     private $value;
-    
+
     /**
      * @var string A translated value describing the entity. See details in context_details.
      */
     private $context;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\TimespanDetails More details about timespan. You can use this if the main details don't suffice.
      */
     private $timespanDetails;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ValueDetails More details about value. You can use this if the main details don't suffice.
      */
     private $valueDetails;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ContextDetails More details about context. You can use this if the main details don't suffice.
      */
     private $contextDetails;
-    
+
     /**
      * @var string Link to parent dashboard.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -80,7 +80,7 @@ class Dashboardblocks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Id of this dashboard block.
      */
@@ -88,7 +88,7 @@ class Dashboardblocks implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Link to this dashboard block.
      */
@@ -96,7 +96,7 @@ class Dashboardblocks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return string Type of data. It can either be fixed or relavite, where the latter the current data is compared to a previous timespan.
      */
@@ -104,7 +104,7 @@ class Dashboardblocks implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string Text color in Hex. Normally white on a dark background and black on a light background.
      */
@@ -112,7 +112,7 @@ class Dashboardblocks implements Model
     {
         return $this->color;
     }
-    
+
     /**
      * @return string Background color in Hex.
      */
@@ -120,7 +120,7 @@ class Dashboardblocks implements Model
     {
         return $this->backgroundColor;
     }
-    
+
     /**
      * @return string A translated value indicating the timespan of the value. Typically used as title. See details in timespan_details.
      */
@@ -128,7 +128,7 @@ class Dashboardblocks implements Model
     {
         return $this->timespan;
     }
-    
+
     /**
      * @return string A formatted value. This can be a percentage, an amount with currecy or a number. See details in value_details.
      */
@@ -136,7 +136,7 @@ class Dashboardblocks implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @return string A translated value describing the entity. See details in context_details.
      */
@@ -144,7 +144,7 @@ class Dashboardblocks implements Model
     {
         return $this->context;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\TimespanDetails More details about timespan. You can use this if the main details don't suffice.
      */
@@ -152,7 +152,7 @@ class Dashboardblocks implements Model
     {
         return $this->timespanDetails;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ValueDetails More details about value. You can use this if the main details don't suffice.
      */
@@ -160,7 +160,7 @@ class Dashboardblocks implements Model
     {
         return $this->valueDetails;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ContextDetails More details about context. You can use this if the main details don't suffice.
      */
@@ -168,7 +168,7 @@ class Dashboardblocks implements Model
     {
         return $this->contextDetails;
     }
-    
+
     /**
      * @return string Link to parent dashboard.
      */
@@ -176,7 +176,7 @@ class Dashboardblocks implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param int $id Id of this dashboard block.
      * @return self
@@ -187,7 +187,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $href Link to this dashboard block.
      * @return self
@@ -198,7 +198,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param string $type Type of data. It can either be fixed or relavite, where the latter the current data is compared to a previous timespan.
      * @return self
@@ -209,7 +209,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string $color Text color in Hex. Normally white on a dark background and black on a light background.
      * @return self
@@ -220,7 +220,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('color');
         return $this;
     }
-    
+
     /**
      * @param string $backgroundColor Background color in Hex.
      * @return self
@@ -231,7 +231,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('backgroundColor');
         return $this;
     }
-    
+
     /**
      * @param string $timespan A translated value indicating the timespan of the value. Typically used as title. See details in timespan_details.
      * @return self
@@ -242,7 +242,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('timespan');
         return $this;
     }
-    
+
     /**
      * @param string $value A formatted value. This can be a percentage, an amount with currecy or a number. See details in value_details.
      * @return self
@@ -253,7 +253,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('value');
         return $this;
     }
-    
+
     /**
      * @param string $context A translated value describing the entity. See details in context_details.
      * @return self
@@ -264,7 +264,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('context');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\TimespanDetails $timespanDetails More details about timespan. You can use this if the main details don't suffice.
      * @return self
@@ -275,7 +275,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('timespanDetails');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ValueDetails $valueDetails More details about value. You can use this if the main details don't suffice.
      * @return self
@@ -286,7 +286,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('valueDetails');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Dashboardblocks\Child\Resource\ContextDetails $contextDetails More details about context. You can use this if the main details don't suffice.
      * @return self
@@ -297,7 +297,7 @@ class Dashboardblocks implements Model
         $this->propertyFilled('contextDetails');
         return $this;
     }
-    
+
     /**
      * @param string $parent Link to parent dashboard.
      * @return self

@@ -10,7 +10,7 @@ class CategoryproductlayoutsEndpoint extends BaseEndpoint
 {
     /**
      * Get one layout for products in a category. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Resource\Categoryproductlayouts
@@ -19,13 +19,13 @@ class CategoryproductlayoutsEndpoint extends BaseEndpoint
             self::GET,
             'categoryproductlayouts/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Resource\Categoryproductlayouts::fromArray($result);
     }
-    
+
     /**
      * Get all layout for products in a category. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Collection\Categoryproductlayouts
@@ -34,7 +34,7 @@ class CategoryproductlayoutsEndpoint extends BaseEndpoint
             self::GET,
             'categoryproductlayouts/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Collection\Categoryproductlayouts::fromArray($result);
     }
 }

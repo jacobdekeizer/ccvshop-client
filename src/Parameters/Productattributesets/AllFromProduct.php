@@ -14,7 +14,7 @@ class AllFromProduct implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @return self
      */
@@ -22,7 +22,7 @@ class AllFromProduct implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -31,34 +31,34 @@ class AllFromProduct implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->orderBy($this->getOrderBy());
     }
-    
+
     public function orderByAttributepositionAsc(): self
     {
         $this->orderByField('attributeposition', true);
         return $this;
     }
-    
+
     public function orderByAttributepositionDesc(): self
     {
         $this->orderByField('attributeposition', false);
         return $this;
     }
-    
+
     public function orderByPositionAsc(): self
     {
         $this->orderByField('position', true);
         return $this;
     }
-    
+
     public function orderByPositionDesc(): self
     {
         $this->orderByField('position', false);

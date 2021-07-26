@@ -10,7 +10,7 @@ class ApppspEndpoint extends BaseEndpoint
 {
     /**
      * Delete an App Payment Service Provider. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ApppspEndpoint extends BaseEndpoint
             'apppsp/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets a collection of all (but always one) App Payment Service Provider. Combination of webshop:id and App:id is unique. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromApp(int $id): \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp
@@ -32,13 +32,13 @@ class ApppspEndpoint extends BaseEndpoint
             self::GET,
             'apps/' . $id . '/apppsp/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp::fromArray($result);
     }
-    
+
     /**
      * Gets on App Payment Service Provider by Resource ID. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp
@@ -47,13 +47,13 @@ class ApppspEndpoint extends BaseEndpoint
             self::GET,
             'apppsp/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp::fromArray($result);
     }
-    
+
     /**
      * Gets a collection of all (but always one) App Payment Service Provider. Combination of webshop:id and App:id is unique. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp
@@ -62,13 +62,13 @@ class ApppspEndpoint extends BaseEndpoint
             self::GET,
             'apppsp/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp::fromArray($result);
     }
-    
+
     /**
      * Patches an existing App PSP. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Patch $model, bool $onlyFilled = true): void
@@ -79,10 +79,10 @@ class ApppspEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Creates a code block associated with an App. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForApp(int $id, \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp
@@ -92,7 +92,7 @@ class ApppspEndpoint extends BaseEndpoint
             'apps/' . $id . '/apppsp/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp::fromArray($result);
     }
 }

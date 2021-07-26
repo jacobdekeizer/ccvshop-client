@@ -12,22 +12,22 @@ class Condition implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to condition resource
      */
     private $href;
-    
+
     /**
      * @var int|null Condition Id
      */
     private $id;
-    
+
     /**
      * @var string|null Condition name
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Condition implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to condition resource
      */
@@ -43,7 +43,7 @@ class Condition implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Condition Id
      */
@@ -51,7 +51,7 @@ class Condition implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Condition name
      */
@@ -59,7 +59,7 @@ class Condition implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string|null $href Link to condition resource
      * @return self
@@ -70,7 +70,7 @@ class Condition implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Condition Id
      * @return self
@@ -81,7 +81,7 @@ class Condition implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Condition name
      * @return self

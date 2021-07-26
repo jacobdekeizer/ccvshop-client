@@ -12,12 +12,12 @@ class Ordermessages implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to Messages sent to the customer
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Ordermessages implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to Messages sent to the customer
      */
@@ -33,7 +33,7 @@ class Ordermessages implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to Messages sent to the customer
      * @return self

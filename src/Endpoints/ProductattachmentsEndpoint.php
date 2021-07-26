@@ -10,7 +10,7 @@ class ProductattachmentsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product attachment. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductattachmentsEndpoint extends BaseEndpoint
             'productattachments/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all attachments of this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productattachments\Collection\Productattachments
@@ -32,13 +32,13 @@ class ProductattachmentsEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/productattachments/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productattachments\Collection\Productattachments::fromArray($result);
     }
-    
+
     /**
      * Get one product attachment. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments
@@ -47,13 +47,13 @@ class ProductattachmentsEndpoint extends BaseEndpoint
             self::GET,
             'productattachments/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments::fromArray($result);
     }
-    
+
     /**
      * Patch a product attachment. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ProductattachmentsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Add an attachment to this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments
@@ -77,7 +77,7 @@ class ProductattachmentsEndpoint extends BaseEndpoint
             'products/' . $id . '/productattachments/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments::fromArray($result);
     }
 }

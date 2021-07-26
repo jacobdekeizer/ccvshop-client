@@ -12,12 +12,12 @@ class Psp implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to Payment Service Providers collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Psp implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to Payment Service Providers collection
      */
@@ -33,7 +33,7 @@ class Psp implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to Payment Service Providers collection
      * @return self

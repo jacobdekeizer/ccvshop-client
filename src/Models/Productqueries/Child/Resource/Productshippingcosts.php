@@ -12,32 +12,32 @@ class Productshippingcosts implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var float Indication of shipping costs if only one item would be baught and shipped to the default country.
      */
     private $costs;
-    
+
     /**
      * @var string|null This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
     private $defaultCountry;
-    
+
     /**
      * @var float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
     private $quantity;
-    
+
     /**
      * @var string Link to collection of product shipping costs.
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Productshippingcosts implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return float Indication of shipping costs if only one item would be baught and shipped to the default country.
      */
@@ -53,7 +53,7 @@ class Productshippingcosts implements Model
     {
         return $this->costs;
     }
-    
+
     /**
      * @return string|null This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
@@ -61,7 +61,7 @@ class Productshippingcosts implements Model
     {
         return $this->defaultCountry;
     }
-    
+
     /**
      * @return float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
@@ -69,7 +69,7 @@ class Productshippingcosts implements Model
     {
         return $this->quantity;
     }
-    
+
     /**
      * @return string Link to collection of product shipping costs.
      */
@@ -77,7 +77,7 @@ class Productshippingcosts implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] Array with collection items
      */
@@ -85,7 +85,7 @@ class Productshippingcosts implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param float $costs Indication of shipping costs if only one item would be baught and shipped to the default country.
      * @return self
@@ -96,7 +96,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('costs');
         return $this;
     }
-    
+
     /**
      * @param string|null $defaultCountry This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      * @return self
@@ -107,7 +107,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('defaultCountry');
         return $this;
     }
-    
+
     /**
      * @param float $quantity Quantity of items shipped. Default is 1. Can be changed with parameters.
      * @return self
@@ -118,7 +118,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('quantity');
         return $this;
     }
-    
+
     /**
      * @param string $href Link to collection of product shipping costs.
      * @return self
@@ -129,7 +129,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts[] $collection Array with collection items
      * @return self
@@ -144,14 +144,14 @@ class Productshippingcosts implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productshippingcosts::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

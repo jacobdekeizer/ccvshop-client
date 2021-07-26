@@ -12,107 +12,107 @@ class Billingaddress implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Gender, can be blank.
      */
     private $gender;
-    
+
     /**
      * @var string|null Initials, optional
      */
     private $initials;
-    
+
     /**
      * @var string|null First name
      */
     private $firstName;
-    
+
     /**
      * @var string|null Last name
      */
     private $lastName;
-    
+
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      */
     private $fullName;
-    
+
     /**
      * @var string|null Company name
      */
     private $company;
-    
+
     /**
      * @var string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
     private $addressLine1;
-    
+
     /**
      * @var string|null Address line 2. Note: see address_line_1.
      */
     private $addressLine2;
-    
+
     /**
      * @var string|null Street name. Note: see address_line_1.
      */
     private $street;
-    
+
     /**
      * @var int|null House number. Note: see address_line_1.
      */
     private $housenumber;
-    
+
     /**
      * @var string|null House number suffix. Note: see address_line_1.
      */
     private $housenumberSuffix;
-    
+
     /**
      * @var string|null Zipcode
      */
     private $zipcode;
-    
+
     /**
      * @var string|null City
      */
     private $city;
-    
+
     /**
      * @var string|null Province or state
      */
     private $province;
-    
+
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      */
     private $country;
-    
+
     /**
      * @var string|null Country Alpha-2 code. See ISO 3166-1
      */
     private $countryCode;
-    
+
     /**
      * @var string|null Telephone number
      */
     private $telephone;
-    
+
     /**
      * @var string|null Fax number
      */
     private $fax;
-    
+
     /**
      * @var string|null Mobile phone number
      */
     private $mobile;
-    
+
     /**
      * @var string|null Comment left for the merchant
      */
     private $comment;
-    
+
     /**
      * @return self
      */
@@ -120,7 +120,7 @@ class Billingaddress implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Gender, can be blank.
      */
@@ -128,7 +128,7 @@ class Billingaddress implements Model
     {
         return $this->gender;
     }
-    
+
     /**
      * @return string|null Initials, optional
      */
@@ -136,7 +136,7 @@ class Billingaddress implements Model
     {
         return $this->initials;
     }
-    
+
     /**
      * @return string|null First name
      */
@@ -144,7 +144,7 @@ class Billingaddress implements Model
     {
         return $this->firstName;
     }
-    
+
     /**
      * @return string|null Last name
      */
@@ -152,7 +152,7 @@ class Billingaddress implements Model
     {
         return $this->lastName;
     }
-    
+
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      */
@@ -160,7 +160,7 @@ class Billingaddress implements Model
     {
         return $this->fullName;
     }
-    
+
     /**
      * @return string|null Company name
      */
@@ -168,7 +168,7 @@ class Billingaddress implements Model
     {
         return $this->company;
     }
-    
+
     /**
      * @return string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
@@ -176,7 +176,7 @@ class Billingaddress implements Model
     {
         return $this->addressLine1;
     }
-    
+
     /**
      * @return string|null Address line 2. Note: see address_line_1.
      */
@@ -184,7 +184,7 @@ class Billingaddress implements Model
     {
         return $this->addressLine2;
     }
-    
+
     /**
      * @return string|null Street name. Note: see address_line_1.
      */
@@ -192,7 +192,7 @@ class Billingaddress implements Model
     {
         return $this->street;
     }
-    
+
     /**
      * @return int|null House number. Note: see address_line_1.
      */
@@ -200,7 +200,7 @@ class Billingaddress implements Model
     {
         return $this->housenumber;
     }
-    
+
     /**
      * @return string|null House number suffix. Note: see address_line_1.
      */
@@ -208,7 +208,7 @@ class Billingaddress implements Model
     {
         return $this->housenumberSuffix;
     }
-    
+
     /**
      * @return string|null Zipcode
      */
@@ -216,7 +216,7 @@ class Billingaddress implements Model
     {
         return $this->zipcode;
     }
-    
+
     /**
      * @return string|null City
      */
@@ -224,7 +224,7 @@ class Billingaddress implements Model
     {
         return $this->city;
     }
-    
+
     /**
      * @return string|null Province or state
      */
@@ -232,7 +232,7 @@ class Billingaddress implements Model
     {
         return $this->province;
     }
-    
+
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'country_code'.
      */
@@ -240,7 +240,7 @@ class Billingaddress implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string|null Country Alpha-2 code. See ISO 3166-1
      */
@@ -248,7 +248,7 @@ class Billingaddress implements Model
     {
         return $this->countryCode;
     }
-    
+
     /**
      * @return string|null Telephone number
      */
@@ -256,7 +256,7 @@ class Billingaddress implements Model
     {
         return $this->telephone;
     }
-    
+
     /**
      * @return string|null Fax number
      */
@@ -264,7 +264,7 @@ class Billingaddress implements Model
     {
         return $this->fax;
     }
-    
+
     /**
      * @return string|null Mobile phone number
      */
@@ -272,7 +272,7 @@ class Billingaddress implements Model
     {
         return $this->mobile;
     }
-    
+
     /**
      * @return string|null Comment left for the merchant
      */
@@ -280,7 +280,7 @@ class Billingaddress implements Model
     {
         return $this->comment;
     }
-    
+
     /**
      * @param string|null $gender Gender, can be blank.
      * @return self
@@ -291,7 +291,7 @@ class Billingaddress implements Model
         $this->propertyFilled('gender');
         return $this;
     }
-    
+
     /**
      * @param string|null $initials Initials, optional
      * @return self
@@ -302,7 +302,7 @@ class Billingaddress implements Model
         $this->propertyFilled('initials');
         return $this;
     }
-    
+
     /**
      * @param string|null $firstName First name
      * @return self
@@ -313,7 +313,7 @@ class Billingaddress implements Model
         $this->propertyFilled('firstName');
         return $this;
     }
-    
+
     /**
      * @param string|null $lastName Last name
      * @return self
@@ -324,7 +324,7 @@ class Billingaddress implements Model
         $this->propertyFilled('lastName');
         return $this;
     }
-    
+
     /**
      * @param string|null $fullName Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      * @return self
@@ -335,7 +335,7 @@ class Billingaddress implements Model
         $this->propertyFilled('fullName');
         return $this;
     }
-    
+
     /**
      * @param string|null $company Company name
      * @return self
@@ -346,7 +346,7 @@ class Billingaddress implements Model
         $this->propertyFilled('company');
         return $this;
     }
-    
+
     /**
      * @param string|null $addressLine1 Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      * @return self
@@ -357,7 +357,7 @@ class Billingaddress implements Model
         $this->propertyFilled('addressLine1');
         return $this;
     }
-    
+
     /**
      * @param string|null $addressLine2 Address line 2. Note: see address_line_1.
      * @return self
@@ -368,7 +368,7 @@ class Billingaddress implements Model
         $this->propertyFilled('addressLine2');
         return $this;
     }
-    
+
     /**
      * @param string|null $street Street name. Note: see address_line_1.
      * @return self
@@ -379,7 +379,7 @@ class Billingaddress implements Model
         $this->propertyFilled('street');
         return $this;
     }
-    
+
     /**
      * @param int|null $housenumber House number. Note: see address_line_1.
      * @return self
@@ -390,7 +390,7 @@ class Billingaddress implements Model
         $this->propertyFilled('housenumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $housenumberSuffix House number suffix. Note: see address_line_1.
      * @return self
@@ -401,7 +401,7 @@ class Billingaddress implements Model
         $this->propertyFilled('housenumberSuffix');
         return $this;
     }
-    
+
     /**
      * @param string|null $zipcode Zipcode
      * @return self
@@ -412,7 +412,7 @@ class Billingaddress implements Model
         $this->propertyFilled('zipcode');
         return $this;
     }
-    
+
     /**
      * @param string|null $city City
      * @return self
@@ -423,7 +423,7 @@ class Billingaddress implements Model
         $this->propertyFilled('city');
         return $this;
     }
-    
+
     /**
      * @param string|null $province Province or state
      * @return self
@@ -434,7 +434,7 @@ class Billingaddress implements Model
         $this->propertyFilled('province');
         return $this;
     }
-    
+
     /**
      * @param string|null $country Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
@@ -445,7 +445,7 @@ class Billingaddress implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string|null $countryCode Country Alpha-2 code. See ISO 3166-1
      * @return self
@@ -456,7 +456,7 @@ class Billingaddress implements Model
         $this->propertyFilled('countryCode');
         return $this;
     }
-    
+
     /**
      * @param string|null $telephone Telephone number
      * @return self
@@ -467,7 +467,7 @@ class Billingaddress implements Model
         $this->propertyFilled('telephone');
         return $this;
     }
-    
+
     /**
      * @param string|null $fax Fax number
      * @return self
@@ -478,7 +478,7 @@ class Billingaddress implements Model
         $this->propertyFilled('fax');
         return $this;
     }
-    
+
     /**
      * @param string|null $mobile Mobile phone number
      * @return self
@@ -489,7 +489,7 @@ class Billingaddress implements Model
         $this->propertyFilled('mobile');
         return $this;
     }
-    
+
     /**
      * @param string|null $comment Comment left for the merchant
      * @return self

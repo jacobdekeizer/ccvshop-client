@@ -12,27 +12,27 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Photo extension
      */
     private $fileType;
-    
+
     /**
      * @var string|null Alternative name
      */
     private $alt;
-    
+
     /**
      * @var bool|null Picture is the main photo
      */
     private $isMainphoto;
-    
+
     /**
      * @var string Attachment source base 64 encoded
      */
     private $source;
-    
+
     /**
      * @return self
      */
@@ -40,7 +40,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Photo extension
      */
@@ -48,7 +48,7 @@ class Post implements Model
     {
         return $this->fileType;
     }
-    
+
     /**
      * @return string|null Alternative name
      */
@@ -56,7 +56,7 @@ class Post implements Model
     {
         return $this->alt;
     }
-    
+
     /**
      * @return bool|null Picture is the main photo
      */
@@ -64,7 +64,7 @@ class Post implements Model
     {
         return $this->isMainphoto;
     }
-    
+
     /**
      * @return string Attachment source base 64 encoded
      */
@@ -72,7 +72,7 @@ class Post implements Model
     {
         return $this->source;
     }
-    
+
     /**
      * @param string $fileType Photo extension
      * @return self
@@ -83,7 +83,7 @@ class Post implements Model
         $this->propertyFilled('fileType');
         return $this;
     }
-    
+
     /**
      * @param string|null $alt Alternative name
      * @return self
@@ -94,7 +94,7 @@ class Post implements Model
         $this->propertyFilled('alt');
         return $this;
     }
-    
+
     /**
      * @param bool|null $isMainphoto Picture is the main photo
      * @return self
@@ -105,7 +105,7 @@ class Post implements Model
         $this->propertyFilled('isMainphoto');
         return $this;
     }
-    
+
     /**
      * @param string $source Attachment source base 64 encoded
      * @return self

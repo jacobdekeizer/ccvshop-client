@@ -12,12 +12,12 @@ class ParentItem implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to attribute combination
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class ParentItem implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to attribute combination
      */
@@ -33,7 +33,7 @@ class ParentItem implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to attribute combination
      * @return self

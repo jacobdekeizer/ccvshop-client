@@ -10,7 +10,7 @@ class ProductpropertiesEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product attachment. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductpropertiesEndpoint extends BaseEndpoint
             'productproperties/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all product properties that belongs too this product property group. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProductpropertygroup(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Collection\Productproperties
@@ -32,13 +32,13 @@ class ProductpropertiesEndpoint extends BaseEndpoint
             self::GET,
             'productpropertygroups/' . $id . '/productproperties/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productproperties\Collection\Productproperties::fromArray($result);
     }
-    
+
     /**
      * Get one product property. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties
@@ -47,13 +47,13 @@ class ProductpropertiesEndpoint extends BaseEndpoint
             self::GET,
             'productproperties/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties::fromArray($result);
     }
-    
+
     /**
      * Patch a product Product property group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ProductpropertiesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Create a new product property that belongs too a product property group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProductpropertygroup(int $id, \JacobDeKeizer\Ccv\Models\Productproperties\Productproperties\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties
@@ -77,7 +77,7 @@ class ProductpropertiesEndpoint extends BaseEndpoint
             'productpropertygroups/' . $id . '/productproperties/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Productproperties::fromArray($result);
     }
 }

@@ -12,17 +12,17 @@ class Translations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Unique identifier of the translation.
      */
     private $key;
-    
+
     /**
      * @var string The translated value for the current accept language. If an value is empty it will be restored to default.
      */
     private $value;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Translations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Unique identifier of the translation.
      */
@@ -38,7 +38,7 @@ class Translations implements Model
     {
         return $this->key;
     }
-    
+
     /**
      * @return string The translated value for the current accept language. If an value is empty it will be restored to default.
      */
@@ -46,7 +46,7 @@ class Translations implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @param string $key Unique identifier of the translation.
      * @return self
@@ -57,7 +57,7 @@ class Translations implements Model
         $this->propertyFilled('key');
         return $this;
     }
-    
+
     /**
      * @param string $value The translated value for the current accept language. If an value is empty it will be restored to default.
      * @return self

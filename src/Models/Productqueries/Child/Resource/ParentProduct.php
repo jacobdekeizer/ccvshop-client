@@ -12,12 +12,12 @@ class ParentProduct implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to the parent product
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class ParentProduct implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to the parent product
      */
@@ -33,7 +33,7 @@ class ParentProduct implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to the parent product
      * @return self

@@ -12,22 +12,22 @@ class AttributeValue implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Id of the attribute value.
      */
     private $id;
-    
+
     /**
      * @var string Name of the attribute value.
      */
     private $name;
-    
+
     /**
      * @var string Link of the attribute value.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class AttributeValue implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Id of the attribute value.
      */
@@ -43,7 +43,7 @@ class AttributeValue implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Name of the attribute value.
      */
@@ -51,7 +51,7 @@ class AttributeValue implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string Link of the attribute value.
      */
@@ -59,7 +59,7 @@ class AttributeValue implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int $id Id of the attribute value.
      * @return self
@@ -70,7 +70,7 @@ class AttributeValue implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $name Name of the attribute value.
      * @return self
@@ -81,7 +81,7 @@ class AttributeValue implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $href Link of the attribute value.
      * @return self

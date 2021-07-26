@@ -12,12 +12,12 @@ class Users implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to group users
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Users implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to group users
      */
@@ -33,7 +33,7 @@ class Users implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to group users
      * @return self

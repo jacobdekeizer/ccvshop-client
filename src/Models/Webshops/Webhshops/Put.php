@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int[] A collection of webshop_ids to which this product will be linked.
      */
     private $webshops;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int[] A collection of webshop_ids to which this product will be linked.
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->webshops;
     }
-    
+
     /**
      * @param int[] $webshops A collection of webshop_ids to which this product will be linked.
      * @return self

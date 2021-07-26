@@ -12,37 +12,37 @@ class Ordernotes implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Order note id
      */
     private $id;
-    
+
     /**
      * @var string|null The text of this note.
      */
     private $note;
-    
+
     /**
      * @var string|null Type of this note. External notes are visible for customers too.
      */
     private $type;
-    
+
     /**
      * @var string|null The create date of the note in UTC
      */
     private $createDate;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Ordernotes\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Ordernotes implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -58,7 +58,7 @@ class Ordernotes implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Order note id
      */
@@ -66,7 +66,7 @@ class Ordernotes implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null The text of this note.
      */
@@ -74,7 +74,7 @@ class Ordernotes implements Model
     {
         return $this->note;
     }
-    
+
     /**
      * @return string|null Type of this note. External notes are visible for customers too.
      */
@@ -82,7 +82,7 @@ class Ordernotes implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string|null The create date of the note in UTC
      */
@@ -90,7 +90,7 @@ class Ordernotes implements Model
     {
         return $this->createDate;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Ordernotes\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -98,7 +98,7 @@ class Ordernotes implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Ordernotes implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Order note id
      * @return self
@@ -120,7 +120,7 @@ class Ordernotes implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $note The text of this note.
      * @return self
@@ -131,7 +131,7 @@ class Ordernotes implements Model
         $this->propertyFilled('note');
         return $this;
     }
-    
+
     /**
      * @param string|null $type Type of this note. External notes are visible for customers too.
      * @return self
@@ -142,7 +142,7 @@ class Ordernotes implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string|null $createDate The create date of the note in UTC
      * @return self
@@ -153,7 +153,7 @@ class Ordernotes implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Ordernotes\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

@@ -12,12 +12,12 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
     private $active;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return bool Inactive variation are hidden in the webshop.
      */
@@ -33,7 +33,7 @@ class Patch implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @param bool $active Inactive variation are hidden in the webshop.
      * @return self

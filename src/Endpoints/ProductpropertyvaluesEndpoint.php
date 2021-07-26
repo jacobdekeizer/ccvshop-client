@@ -10,7 +10,7 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product property value. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
             'productpropertyvalues/' . $id . '/',
         );
     }
-    
+
     /**
      * Get one product property value. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues
@@ -32,13 +32,13 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
             self::GET,
             'productpropertyvalues/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues::fromArray($result);
     }
-    
+
     /**
      * Patch a product Product property value. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Patch $model, bool $onlyFilled = true): void
@@ -49,10 +49,10 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a product property value. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Productpropertyvalues\Productpropertyvalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues
@@ -62,7 +62,7 @@ class ProductpropertyvaluesEndpoint extends BaseEndpoint
             'productpropertyvalues/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productpropertyvalues\Resource\Productpropertyvalues::fromArray($result);
     }
 }

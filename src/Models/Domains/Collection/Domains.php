@@ -12,17 +12,17 @@ class Domains implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Domains\Entity\Domains[] Collection of the master domains.
      */
     private $items;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Domains implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -38,7 +38,7 @@ class Domains implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Domains\Entity\Domains[] Collection of the master domains.
      */
@@ -46,7 +46,7 @@ class Domains implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -57,7 +57,7 @@ class Domains implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Domains\Entity\Domains[] $items Collection of the master domains.
      * @return self
@@ -72,14 +72,14 @@ class Domains implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Domains\Entity\Domains::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

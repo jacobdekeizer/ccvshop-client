@@ -10,7 +10,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product xref. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             'producttocategories/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all products of this category. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromCategory(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
@@ -32,13 +32,13 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             self::GET,
             'categories/' . $id . '/producttocategories/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
     }
-    
+
     /**
      * Get one product xref. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories
@@ -47,13 +47,13 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             self::GET,
             'producttocategories/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories::fromArray($result);
     }
-    
+
     /**
      * Get all photos of this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
@@ -62,13 +62,13 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/producttocategories/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories::fromArray($result);
     }
-    
+
     /**
      * Patch a product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch $model, bool $onlyFilled = true): void
@@ -79,10 +79,10 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories
@@ -92,7 +92,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
             'producttocategories/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttocategories\Resource\Producttocategories::fromArray($result);
     }
 }

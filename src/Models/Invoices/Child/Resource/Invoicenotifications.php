@@ -12,12 +12,12 @@ class Invoicenotifications implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to the collection.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Invoicenotifications implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to the collection.
      */
@@ -33,7 +33,7 @@ class Invoicenotifications implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to the collection.
      * @return self

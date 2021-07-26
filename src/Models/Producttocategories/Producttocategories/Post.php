@@ -12,22 +12,22 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int|null Unique product position. When the position isn't filled the highest position will be used.
      */
     private $position;
-    
+
     /**
      * @var int Unique product id
      */
     private $productId;
-    
+
     /**
      * @var int Unique category id
      */
     private $categoryId;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int|null Unique product position. When the position isn't filled the highest position will be used.
      */
@@ -43,7 +43,7 @@ class Post implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return int Unique product id
      */
@@ -51,7 +51,7 @@ class Post implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return int Unique category id
      */
@@ -59,7 +59,7 @@ class Post implements Model
     {
         return $this->categoryId;
     }
-    
+
     /**
      * @param int|null $position Unique product position. When the position isn't filled the highest position will be used.
      * @return self
@@ -70,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param int $productId Unique product id
      * @return self
@@ -81,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param int $categoryId Unique category id
      * @return self

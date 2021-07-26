@@ -12,17 +12,17 @@ class Productrelevant implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of relevant products
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Productrelevant implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of relevant products
      */
@@ -38,7 +38,7 @@ class Productrelevant implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Productrelevant implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param string $href Link to collection of relevant products
      * @return self
@@ -57,7 +57,7 @@ class Productrelevant implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant[] $collection Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Productrelevant implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Products\Resource\Productrelevant::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

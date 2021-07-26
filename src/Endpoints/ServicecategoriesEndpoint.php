@@ -10,7 +10,7 @@ class ServicecategoriesEndpoint extends BaseEndpoint
 {
     /**
      * Gets one appstore categorie. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Servicecategories\Resource\Servicecategories
@@ -19,13 +19,13 @@ class ServicecategoriesEndpoint extends BaseEndpoint
             self::GET,
             'servicecategories/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Servicecategories\Resource\Servicecategories::fromArray($result);
     }
-    
+
     /**
      * Gets all appsstore categories. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Servicecategories\Collection\Servicecategories
@@ -34,7 +34,7 @@ class ServicecategoriesEndpoint extends BaseEndpoint
             self::GET,
             'servicecategories/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Servicecategories\Collection\Servicecategories::fromArray($result);
     }
 }

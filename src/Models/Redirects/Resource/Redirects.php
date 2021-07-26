@@ -12,37 +12,37 @@ class Redirects implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string If a visitor reuqests this url it will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
     private $sourceUrl;
-    
+
     /**
      * @var string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
     private $targetUrl;
-    
+
     /**
      * @var bool Inactive redirects will be ignored.
      */
     private $active;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Redirects\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Redirects implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -58,7 +58,7 @@ class Redirects implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Redirects implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string If a visitor reuqests this url it will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
@@ -74,7 +74,7 @@ class Redirects implements Model
     {
         return $this->sourceUrl;
     }
-    
+
     /**
      * @return string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
@@ -82,7 +82,7 @@ class Redirects implements Model
     {
         return $this->targetUrl;
     }
-    
+
     /**
      * @return bool Inactive redirects will be ignored.
      */
@@ -90,7 +90,7 @@ class Redirects implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Redirects\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -98,7 +98,7 @@ class Redirects implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Redirects implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Redirects implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $sourceUrl If a visitor reuqests this url it will be forwarded to target_url. This source_url will also be relative and must be unique.
      * @return self
@@ -131,7 +131,7 @@ class Redirects implements Model
         $this->propertyFilled('sourceUrl');
         return $this;
     }
-    
+
     /**
      * @param string $targetUrl Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      * @return self
@@ -142,7 +142,7 @@ class Redirects implements Model
         $this->propertyFilled('targetUrl');
         return $this;
     }
-    
+
     /**
      * @param bool $active Inactive redirects will be ignored.
      * @return self
@@ -153,7 +153,7 @@ class Redirects implements Model
         $this->propertyFilled('active');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Redirects\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

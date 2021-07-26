@@ -12,17 +12,17 @@ class Issuers implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string The ID of this issuer. When the consumer selects this issuser, this ID will be posts to /transactions
      */
     private $id;
-    
+
     /**
      * @var string The name of this issuer. This is the label displayed to the consumer.
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Issuers implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string The ID of this issuer. When the consumer selects this issuser, this ID will be posts to /transactions
      */
@@ -38,7 +38,7 @@ class Issuers implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string The name of this issuer. This is the label displayed to the consumer.
      */
@@ -46,7 +46,7 @@ class Issuers implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $id The ID of this issuer. When the consumer selects this issuser, this ID will be posts to /transactions
      * @return self
@@ -57,7 +57,7 @@ class Issuers implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $name The name of this issuer. This is the label displayed to the consumer.
      * @return self

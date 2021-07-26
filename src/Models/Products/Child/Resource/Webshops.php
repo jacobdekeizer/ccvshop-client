@@ -12,12 +12,12 @@ class Webshops implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to collection of webshops.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Webshops implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to collection of webshops.
      */
@@ -33,7 +33,7 @@ class Webshops implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to collection of webshops.
      * @return self

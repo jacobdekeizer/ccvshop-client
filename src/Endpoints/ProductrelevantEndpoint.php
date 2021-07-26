@@ -10,7 +10,7 @@ class ProductrelevantEndpoint extends BaseEndpoint
 {
     /**
      * Delete one relevant product. Note: this will not delete the product itsself. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductrelevantEndpoint extends BaseEndpoint
             'productrelevant/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all relevant products of this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant
@@ -31,18 +31,18 @@ class ProductrelevantEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Productrelevant\AllFromProduct();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productrelevant/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Collection\Productrelevant::fromArray($result);
     }
-    
+
     /**
      * Get one relevant product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant
@@ -51,13 +51,13 @@ class ProductrelevantEndpoint extends BaseEndpoint
             self::GET,
             'productrelevant/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant::fromArray($result);
     }
-    
+
     /**
      * Create a relevant product. Note: This will not create a new product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant
@@ -67,7 +67,7 @@ class ProductrelevantEndpoint extends BaseEndpoint
             'products/' . $id . '/productrelevant/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant::fromArray($result);
     }
 }

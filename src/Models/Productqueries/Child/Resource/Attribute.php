@@ -12,22 +12,22 @@ class Attribute implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Id of the attribute set.
      */
     private $id;
-    
+
     /**
      * @var string Name of the attribute set.
      */
     private $name;
-    
+
     /**
      * @var string Link of the attribute set.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Attribute implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Id of the attribute set.
      */
@@ -43,7 +43,7 @@ class Attribute implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Name of the attribute set.
      */
@@ -51,7 +51,7 @@ class Attribute implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string Link of the attribute set.
      */
@@ -59,7 +59,7 @@ class Attribute implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int $id Id of the attribute set.
      * @return self
@@ -70,7 +70,7 @@ class Attribute implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $name Name of the attribute set.
      * @return self
@@ -81,7 +81,7 @@ class Attribute implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string $href Link of the attribute set.
      * @return self

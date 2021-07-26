@@ -12,37 +12,37 @@ class Servicecategories implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Service category name
      */
     private $name;
-    
+
     /**
      * @var string|null Service category description
      */
     private $description;
-    
+
     /**
      * @var int|null Position of the category
      */
     private $position;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Services|null Services linked to this attribute.
      */
     private $services;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Servicecategories implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -58,7 +58,7 @@ class Servicecategories implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Servicecategories implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Service category name
      */
@@ -74,7 +74,7 @@ class Servicecategories implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Service category description
      */
@@ -82,7 +82,7 @@ class Servicecategories implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return int|null Position of the category
      */
@@ -90,7 +90,7 @@ class Servicecategories implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Services|null Services linked to this attribute.
      */
@@ -98,7 +98,7 @@ class Servicecategories implements Model
     {
         return $this->services;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Servicecategories implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Servicecategories implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Service category name
      * @return self
@@ -131,7 +131,7 @@ class Servicecategories implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $description Service category description
      * @return self
@@ -142,7 +142,7 @@ class Servicecategories implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Position of the category
      * @return self
@@ -153,7 +153,7 @@ class Servicecategories implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Services|null $services Services linked to this attribute.
      * @return self

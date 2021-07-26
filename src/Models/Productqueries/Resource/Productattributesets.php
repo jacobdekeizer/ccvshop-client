@@ -12,37 +12,37 @@ class Productattributesets implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Attributeset id
      */
     private $id;
-    
+
     /**
      * @var string Attributeset name
      */
     private $attributename;
-    
+
     /**
      * @var int Attributeset position
      */
     private $attributeposition;
-    
+
     /**
      * @var string Attributeset type
      */
     private $type;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Items[] Collection of attribute values
      */
     private $items;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Productattributesets implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Attributeset id
      */
@@ -58,7 +58,7 @@ class Productattributesets implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Attributeset name
      */
@@ -66,7 +66,7 @@ class Productattributesets implements Model
     {
         return $this->attributename;
     }
-    
+
     /**
      * @return int Attributeset position
      */
@@ -74,7 +74,7 @@ class Productattributesets implements Model
     {
         return $this->attributeposition;
     }
-    
+
     /**
      * @return string Attributeset type
      */
@@ -82,7 +82,7 @@ class Productattributesets implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Items[] Collection of attribute values
      */
@@ -90,7 +90,7 @@ class Productattributesets implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -98,7 +98,7 @@ class Productattributesets implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param int $id Attributeset id
      * @return self
@@ -109,7 +109,7 @@ class Productattributesets implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $attributename Attributeset name
      * @return self
@@ -120,7 +120,7 @@ class Productattributesets implements Model
         $this->propertyFilled('attributename');
         return $this;
     }
-    
+
     /**
      * @param int $attributeposition Attributeset position
      * @return self
@@ -131,7 +131,7 @@ class Productattributesets implements Model
         $this->propertyFilled('attributeposition');
         return $this;
     }
-    
+
     /**
      * @param string $type Attributeset type
      * @return self
@@ -142,7 +142,7 @@ class Productattributesets implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Items[] $items Collection of attribute values
      * @return self
@@ -153,7 +153,7 @@ class Productattributesets implements Model
         $this->propertyFilled('items');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self
@@ -168,14 +168,14 @@ class Productattributesets implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\Items::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

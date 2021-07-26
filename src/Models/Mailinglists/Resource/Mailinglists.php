@@ -12,32 +12,32 @@ class Mailinglists implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Mailinglist name
      */
     private $name;
-    
+
     /**
      * @var bool|null If mailinglist is deleteable
      */
     private $removeable;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Mailinglists\Child\Resource\Mailingaddresses|null List of the mailingaddresses
      */
     private $mailingaddresses;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Mailinglists implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -53,7 +53,7 @@ class Mailinglists implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -61,7 +61,7 @@ class Mailinglists implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Mailinglist name
      */
@@ -69,7 +69,7 @@ class Mailinglists implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return bool|null If mailinglist is deleteable
      */
@@ -77,7 +77,7 @@ class Mailinglists implements Model
     {
         return $this->removeable;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Mailinglists\Child\Resource\Mailingaddresses|null List of the mailingaddresses
      */
@@ -85,7 +85,7 @@ class Mailinglists implements Model
     {
         return $this->mailingaddresses;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -96,7 +96,7 @@ class Mailinglists implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -107,7 +107,7 @@ class Mailinglists implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Mailinglist name
      * @return self
@@ -118,7 +118,7 @@ class Mailinglists implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param bool|null $removeable If mailinglist is deleteable
      * @return self
@@ -129,7 +129,7 @@ class Mailinglists implements Model
         $this->propertyFilled('removeable');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Mailinglists\Child\Resource\Mailingaddresses|null $mailingaddresses List of the mailingaddresses
      * @return self

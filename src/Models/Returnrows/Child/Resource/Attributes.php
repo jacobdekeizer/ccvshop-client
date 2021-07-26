@@ -12,22 +12,22 @@ class Attributes implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Option name.
      */
     private $optionName;
-    
+
     /**
      * @var string|null Value name.
      */
     private $valueName;
-    
+
     /**
      * @var float|null Extra price added to the return row.
      */
     private $price;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Attributes implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Option name.
      */
@@ -43,7 +43,7 @@ class Attributes implements Model
     {
         return $this->optionName;
     }
-    
+
     /**
      * @return string|null Value name.
      */
@@ -51,7 +51,7 @@ class Attributes implements Model
     {
         return $this->valueName;
     }
-    
+
     /**
      * @return float|null Extra price added to the return row.
      */
@@ -59,7 +59,7 @@ class Attributes implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @param string|null $optionName Option name.
      * @return self
@@ -70,7 +70,7 @@ class Attributes implements Model
         $this->propertyFilled('optionName');
         return $this;
     }
-    
+
     /**
      * @param string|null $valueName Value name.
      * @return self
@@ -81,7 +81,7 @@ class Attributes implements Model
         $this->propertyFilled('valueName');
         return $this;
     }
-    
+
     /**
      * @param float|null $price Extra price added to the return row.
      * @return self

@@ -12,12 +12,12 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Name product property group.
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Name product property group.
      */
@@ -33,7 +33,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name Name product property group.
      * @return self

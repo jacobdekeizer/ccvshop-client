@@ -10,7 +10,7 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
 {
     /**
      * Delete a AttributeCombinationPhoto. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
             'attributecombinationphotos/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets all values for the attribute. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromAttributecombination(int $id): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Collection\Attributecombinationphotos
@@ -32,13 +32,13 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
             self::GET,
             'attributecombinations/' . $id . '/attributecombinationphotos/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Collection\Attributecombinationphotos::fromArray($result);
     }
-    
+
     /**
      * Gets a single Attribute Combination Photo. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto
@@ -47,13 +47,13 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
             self::GET,
             'attributecombinationphotos/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto::fromArray($result);
     }
-    
+
     /**
      * Patch a AttributeCombinationPhoto. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a Attribute combination photo. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForAttributecombination(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto
@@ -77,7 +77,7 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
             'attributecombinations/' . $id . '/attributecombinationphotos/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto::fromArray($result);
     }
 }

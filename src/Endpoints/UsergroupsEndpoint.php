@@ -10,7 +10,7 @@ class UsergroupsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a user group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class UsergroupsEndpoint extends BaseEndpoint
             'usergroups/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all user groups. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(\JacobDeKeizer\Ccv\Parameters\Usergroups\All $parameter = null): \JacobDeKeizer\Ccv\Models\Usergroups\Collection\Usergroups
@@ -31,18 +31,18 @@ class UsergroupsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Usergroups\All();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'usergroups/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Usergroups\Collection\Usergroups::fromArray($result);
     }
-    
+
     /**
      * Get one user group. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups
@@ -51,13 +51,13 @@ class UsergroupsEndpoint extends BaseEndpoint
             self::GET,
             'usergroups/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups::fromArray($result);
     }
-    
+
     /**
      * Patch a user group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): void
@@ -68,10 +68,10 @@ class UsergroupsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a user group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups
@@ -81,7 +81,7 @@ class UsergroupsEndpoint extends BaseEndpoint
             'usergroups/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups::fromArray($result);
     }
 }

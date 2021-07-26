@@ -10,7 +10,7 @@ class ReturnsEndpoint extends BaseEndpoint
 {
     /**
      * Get all returns of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(\JacobDeKeizer\Ccv\Parameters\Returns\All $parameter = null): \JacobDeKeizer\Ccv\Models\Returns\Collection\Returns
@@ -18,18 +18,18 @@ class ReturnsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Returns\All();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'returns/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Returns\Collection\Returns::fromArray($result);
     }
-    
+
     /**
      * Get one return object . 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Returns\Resource\Returns
@@ -38,7 +38,7 @@ class ReturnsEndpoint extends BaseEndpoint
             self::GET,
             'returns/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Returns\Resource\Returns::fromArray($result);
     }
 }

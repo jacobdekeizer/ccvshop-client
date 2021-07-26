@@ -10,7 +10,7 @@ class DashboardblocksEndpoint extends BaseEndpoint
 {
     /**
      * Get all dashboard blocks from a specific dashboard. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromDashboard(int $id): \JacobDeKeizer\Ccv\Models\Dashboardblocks\Collection\Dashboardblocks
@@ -19,13 +19,13 @@ class DashboardblocksEndpoint extends BaseEndpoint
             self::GET,
             'dashboards/' . $id . '/dashboardblocks/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Collection\Dashboardblocks::fromArray($result);
     }
-    
+
     /**
      * Get one dashboard block. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Dashboardblocks\Resource\Dashboardblocks
@@ -34,7 +34,7 @@ class DashboardblocksEndpoint extends BaseEndpoint
             self::GET,
             'dashboardblocks/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Dashboardblocks\Resource\Dashboardblocks::fromArray($result);
     }
 }

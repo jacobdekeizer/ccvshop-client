@@ -10,7 +10,7 @@ class ProductvideosEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product video. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductvideosEndpoint extends BaseEndpoint
             'productvideos/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all videos that belong to this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos
@@ -31,18 +31,18 @@ class ProductvideosEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProduct();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productvideos/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos::fromArray($result);
     }
-    
+
     /**
      * Get one product video. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos
@@ -51,13 +51,13 @@ class ProductvideosEndpoint extends BaseEndpoint
             self::GET,
             'productvideos/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos::fromArray($result);
     }
-    
+
     /**
      * Patch a product video. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Patch $model, bool $onlyFilled = true): void
@@ -68,10 +68,10 @@ class ProductvideosEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a video for this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos
@@ -81,7 +81,7 @@ class ProductvideosEndpoint extends BaseEndpoint
             'products/' . $id . '/productvideos/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos::fromArray($result);
     }
 }

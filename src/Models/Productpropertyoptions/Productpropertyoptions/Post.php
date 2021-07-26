@@ -12,17 +12,17 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Option name.
      */
     private $name;
-    
+
     /**
      * @var int|null Position of the option in the list.
      */
     private $position;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Option name.
      */
@@ -38,7 +38,7 @@ class Post implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return int|null Position of the option in the list.
      */
@@ -46,7 +46,7 @@ class Post implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @param string $name Option name.
      * @return self
@@ -57,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Position of the option in the list.
      * @return self

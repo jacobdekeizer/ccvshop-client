@@ -10,7 +10,7 @@ class DashboardsEndpoint extends BaseEndpoint
 {
     /**
      * Get all dashboards for this user. Each dashboard has a different name (ie location) with different blocks. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Dashboards\Collection\Dashboards
@@ -19,13 +19,13 @@ class DashboardsEndpoint extends BaseEndpoint
             self::GET,
             'dashboards/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Dashboards\Collection\Dashboards::fromArray($result);
     }
-    
+
     /**
      * Get one dashboard. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Dashboards\Resource\Dashboards
@@ -34,7 +34,7 @@ class DashboardsEndpoint extends BaseEndpoint
             self::GET,
             'dashboards/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Dashboards\Resource\Dashboards::fromArray($result);
     }
 }

@@ -12,27 +12,27 @@ class Productpropertyoptions implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Product Property option Id
      */
     private $id;
-    
+
     /**
      * @var string Option name.
      */
     private $name;
-    
+
     /**
      * @var int|null Position of the option in the list.
      */
     private $position;
-    
+
     /**
      * @return self
      */
@@ -40,7 +40,7 @@ class Productpropertyoptions implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -48,7 +48,7 @@ class Productpropertyoptions implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Product Property option Id
      */
@@ -56,7 +56,7 @@ class Productpropertyoptions implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Option name.
      */
@@ -64,7 +64,7 @@ class Productpropertyoptions implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return int|null Position of the option in the list.
      */
@@ -72,7 +72,7 @@ class Productpropertyoptions implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -83,7 +83,7 @@ class Productpropertyoptions implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Product Property option Id
      * @return self
@@ -94,7 +94,7 @@ class Productpropertyoptions implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $name Option name.
      * @return self
@@ -105,7 +105,7 @@ class Productpropertyoptions implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Position of the option in the list.
      * @return self

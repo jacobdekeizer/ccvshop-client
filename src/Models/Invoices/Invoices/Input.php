@@ -12,22 +12,22 @@ class Input implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      */
     private $status;
-    
+
     /**
      * @var string|null Date of when the payment link was send to the customer in UTC
      */
     private $paymentLinkSent;
-    
+
     /**
      * @var string|null A reference to the invoice number at a third party.
      */
     private $externalReference;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      */
@@ -43,7 +43,7 @@ class Input implements Model
     {
         return $this->status;
     }
-    
+
     /**
      * @return string|null Date of when the payment link was send to the customer in UTC
      */
@@ -51,7 +51,7 @@ class Input implements Model
     {
         return $this->paymentLinkSent;
     }
-    
+
     /**
      * @return string|null A reference to the invoice number at a third party.
      */
@@ -59,7 +59,7 @@ class Input implements Model
     {
         return $this->externalReference;
     }
-    
+
     /**
      * @param string|null $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
      * @return self
@@ -70,7 +70,7 @@ class Input implements Model
         $this->propertyFilled('status');
         return $this;
     }
-    
+
     /**
      * @param string|null $paymentLinkSent Date of when the payment link was send to the customer in UTC
      * @return self
@@ -81,7 +81,7 @@ class Input implements Model
         $this->propertyFilled('paymentLinkSent');
         return $this;
     }
-    
+
     /**
      * @param string|null $externalReference A reference to the invoice number at a third party.
      * @return self

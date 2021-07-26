@@ -12,12 +12,12 @@ class Quotationrows implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to products that are included in this quotation.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Quotationrows implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to products that are included in this quotation.
      */
@@ -33,7 +33,7 @@ class Quotationrows implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to products that are included in this quotation.
      * @return self

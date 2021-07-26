@@ -12,37 +12,37 @@ class Attributecombinationphoto implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Combination photo id
      */
     private $id;
-    
+
     /**
      * @var string|null Product photo alttext
      */
     private $alt;
-    
+
     /**
      * @var bool Combination photo marked as mainphoto
      */
     private $isMainphoto;
-    
+
     /**
      * @var string Combination photo deeplink
      */
     private $deeplink;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Attributecombinationphoto implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -58,7 +58,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Combination photo id
      */
@@ -66,7 +66,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Product photo alttext
      */
@@ -74,7 +74,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->alt;
     }
-    
+
     /**
      * @return bool Combination photo marked as mainphoto
      */
@@ -82,7 +82,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->isMainphoto;
     }
-    
+
     /**
      * @return string Combination photo deeplink
      */
@@ -90,7 +90,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->deeplink;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -98,7 +98,7 @@ class Attributecombinationphoto implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Attributecombinationphoto implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Combination photo id
      * @return self
@@ -120,7 +120,7 @@ class Attributecombinationphoto implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $alt Product photo alttext
      * @return self
@@ -131,7 +131,7 @@ class Attributecombinationphoto implements Model
         $this->propertyFilled('alt');
         return $this;
     }
-    
+
     /**
      * @param bool $isMainphoto Combination photo marked as mainphoto
      * @return self
@@ -142,7 +142,7 @@ class Attributecombinationphoto implements Model
         $this->propertyFilled('isMainphoto');
         return $this;
     }
-    
+
     /**
      * @param string $deeplink Combination photo deeplink
      * @return self
@@ -153,7 +153,7 @@ class Attributecombinationphoto implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

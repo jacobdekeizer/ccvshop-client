@@ -12,42 +12,42 @@ class Productrelevant implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
     private $childProductId;
-    
+
     /**
      * @var int Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
      */
     private $parentProductId;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ChildProduct|null The child product
      */
     private $childProduct;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentProduct|null The parent product
      */
     private $parentProduct;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Productrelevant implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -63,7 +63,7 @@ class Productrelevant implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -71,7 +71,7 @@ class Productrelevant implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
@@ -79,7 +79,7 @@ class Productrelevant implements Model
     {
         return $this->childProductId;
     }
-    
+
     /**
      * @return int Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
      */
@@ -87,7 +87,7 @@ class Productrelevant implements Model
     {
         return $this->parentProductId;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ChildProduct|null The child product
      */
@@ -95,7 +95,7 @@ class Productrelevant implements Model
     {
         return $this->childProduct;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentProduct|null The parent product
      */
@@ -103,7 +103,7 @@ class Productrelevant implements Model
     {
         return $this->parentProduct;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -111,7 +111,7 @@ class Productrelevant implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -122,7 +122,7 @@ class Productrelevant implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -133,7 +133,7 @@ class Productrelevant implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $childProductId Unique id of the child product. This is product will show on the parent product page as a relevant product.
      * @return self
@@ -144,7 +144,7 @@ class Productrelevant implements Model
         $this->propertyFilled('childProductId');
         return $this;
     }
-    
+
     /**
      * @param int $parentProductId Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
      * @return self
@@ -155,7 +155,7 @@ class Productrelevant implements Model
         $this->propertyFilled('parentProductId');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ChildProduct|null $childProduct The child product
      * @return self
@@ -166,7 +166,7 @@ class Productrelevant implements Model
         $this->propertyFilled('childProduct');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentProduct|null $parentProduct The parent product
      * @return self
@@ -177,7 +177,7 @@ class Productrelevant implements Model
         $this->propertyFilled('parentProduct');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productrelevant\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

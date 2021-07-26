@@ -16,12 +16,12 @@ class AllFromServicecategory implements Parameter
     use FromArray;
     use ExpandableFields;
     use SortableFields;
-    
+
     /**
      * @var string|null Title of the service.
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -29,7 +29,7 @@ class AllFromServicecategory implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -38,10 +38,10 @@ class AllFromServicecategory implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
@@ -49,7 +49,7 @@ class AllFromServicecategory implements Parameter
             ->expandFields($this->getExpandedFields())
             ->orderBy($this->getOrderBy());
     }
-    
+
     /**
      * @return string|null Title of the service.
      */
@@ -57,7 +57,7 @@ class AllFromServicecategory implements Parameter
     {
         return $this->name;
     }
-    
+
     /**
      * @param string|null $name Title of the service.
      * @return self
@@ -67,43 +67,43 @@ class AllFromServicecategory implements Parameter
         $this->name = $name;
         return $this;
     }
-    
+
     public function expandCategories(bool $expand = true): self
     {
         $this->expandField('categories', $expand);
         return $this;
     }
-    
+
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-    
+
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-    
+
     public function orderByNameAsc(): self
     {
         $this->orderByField('name', true);
         return $this;
     }
-    
+
     public function orderByNameDesc(): self
     {
         $this->orderByField('name', false);
         return $this;
     }
-    
+
     public function orderByDateAsc(): self
     {
         $this->orderByField('date', true);
         return $this;
     }
-    
+
     public function orderByDateDesc(): self
     {
         $this->orderByField('date', false);

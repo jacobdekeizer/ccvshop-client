@@ -12,62 +12,62 @@ class Services implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource.
      */
     private $id;
-    
+
     /**
      * @var string|null Service Name.
      */
     private $name;
-    
+
     /**
      * @var string|null App Name
      */
     private $modifiedDate;
-    
+
     /**
      * @var string|null The description of the service.
      */
     private $description;
-    
+
     /**
      * @var string|null Cover image.
      */
     private $cover;
-    
+
     /**
      * @var int|null The position of the service.
      */
     private $position;
-    
+
     /**
      * @var string[]|null Array with available screenshots.
      */
     private $screenshots;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Company|null The company whom provide the service.
      */
     private $company;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Categories|null Collection of categories.
      */
     private $categories;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Services\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -75,7 +75,7 @@ class Services implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -83,7 +83,7 @@ class Services implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource.
      */
@@ -91,7 +91,7 @@ class Services implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Service Name.
      */
@@ -99,7 +99,7 @@ class Services implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null App Name
      */
@@ -107,7 +107,7 @@ class Services implements Model
     {
         return $this->modifiedDate;
     }
-    
+
     /**
      * @return string|null The description of the service.
      */
@@ -115,7 +115,7 @@ class Services implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return string|null Cover image.
      */
@@ -123,7 +123,7 @@ class Services implements Model
     {
         return $this->cover;
     }
-    
+
     /**
      * @return int|null The position of the service.
      */
@@ -131,7 +131,7 @@ class Services implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return string[]|null Array with available screenshots.
      */
@@ -139,7 +139,7 @@ class Services implements Model
     {
         return $this->screenshots;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Company|null The company whom provide the service.
      */
@@ -147,7 +147,7 @@ class Services implements Model
     {
         return $this->company;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Categories|null Collection of categories.
      */
@@ -155,7 +155,7 @@ class Services implements Model
     {
         return $this->categories;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Services\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -163,7 +163,7 @@ class Services implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -174,7 +174,7 @@ class Services implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource.
      * @return self
@@ -185,7 +185,7 @@ class Services implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Service Name.
      * @return self
@@ -196,7 +196,7 @@ class Services implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $modifiedDate App Name
      * @return self
@@ -207,7 +207,7 @@ class Services implements Model
         $this->propertyFilled('modifiedDate');
         return $this;
     }
-    
+
     /**
      * @param string|null $description The description of the service.
      * @return self
@@ -218,7 +218,7 @@ class Services implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param string|null $cover Cover image.
      * @return self
@@ -229,7 +229,7 @@ class Services implements Model
         $this->propertyFilled('cover');
         return $this;
     }
-    
+
     /**
      * @param int|null $position The position of the service.
      * @return self
@@ -240,7 +240,7 @@ class Services implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param string[]|null $screenshots Array with available screenshots.
      * @return self
@@ -251,7 +251,7 @@ class Services implements Model
         $this->propertyFilled('screenshots');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Company|null $company The company whom provide the service.
      * @return self
@@ -262,7 +262,7 @@ class Services implements Model
         $this->propertyFilled('company');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Services\Child\Resource\Categories|null $categories Collection of categories.
      * @return self
@@ -273,7 +273,7 @@ class Services implements Model
         $this->propertyFilled('categories');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Services\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

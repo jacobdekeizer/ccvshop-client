@@ -12,17 +12,17 @@ class Products implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Product id
      */
     private $productId;
-    
+
     /**
      * @var string Url to product resource
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Products implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Product id
      */
@@ -38,7 +38,7 @@ class Products implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return string Url to product resource
      */
@@ -46,7 +46,7 @@ class Products implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int $productId Product id
      * @return self
@@ -57,7 +57,7 @@ class Products implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param string $href Url to product resource
      * @return self

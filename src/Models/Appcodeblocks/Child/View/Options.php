@@ -12,22 +12,22 @@ class Options implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var object|null Label of this options.
      */
     private $label;
-    
+
     /**
      * @var string|null Value of this options. This will be posted as value.
      */
     private $value;
-    
+
     /**
      * @var bool|null If true, this option is selected by default. Will be overwritten by the value of this element, if not null.
      */
     private $selected;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Options implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return object|null Label of this options.
      */
@@ -43,7 +43,7 @@ class Options implements Model
     {
         return $this->label;
     }
-    
+
     /**
      * @return string|null Value of this options. This will be posted as value.
      */
@@ -51,7 +51,7 @@ class Options implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @return bool|null If true, this option is selected by default. Will be overwritten by the value of this element, if not null.
      */
@@ -59,7 +59,7 @@ class Options implements Model
     {
         return $this->selected;
     }
-    
+
     /**
      * @param object|null $label Label of this options.
      * @return self
@@ -70,7 +70,7 @@ class Options implements Model
         $this->propertyFilled('label');
         return $this;
     }
-    
+
     /**
      * @param string|null $value Value of this options. This will be posted as value.
      * @return self
@@ -81,7 +81,7 @@ class Options implements Model
         $this->propertyFilled('value');
         return $this;
     }
-    
+
     /**
      * @param bool|null $selected If true, this option is selected by default. Will be overwritten by the value of this element, if not null.
      * @return self

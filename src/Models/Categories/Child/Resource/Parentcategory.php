@@ -12,17 +12,17 @@ class Parentcategory implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int|null Parent category Id
      */
     private $id;
-    
+
     /**
      * @var string|null Link to parent category
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Parentcategory implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int|null Parent category Id
      */
@@ -38,7 +38,7 @@ class Parentcategory implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Link to parent category
      */
@@ -46,7 +46,7 @@ class Parentcategory implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int|null $id Parent category Id
      * @return self
@@ -57,7 +57,7 @@ class Parentcategory implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $href Link to parent category
      * @return self

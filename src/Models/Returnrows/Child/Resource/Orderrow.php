@@ -12,12 +12,12 @@ class Orderrow implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to orderrow
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Orderrow implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to orderrow
      */
@@ -33,7 +33,7 @@ class Orderrow implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to orderrow
      * @return self

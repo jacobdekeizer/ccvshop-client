@@ -12,52 +12,52 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null A description of the attribute combination
      */
     private $note;
-    
+
     /**
      * @var float|null The stock of a product combination
      */
     private $stock;
-    
+
     /**
      * @var string|null The product number
      */
     private $productNumber;
-    
+
     /**
      * @var string|null The ean number
      */
     private $eanNumber;
-    
+
     /**
      * @var string|null The sku number
      */
     private $skuNumber;
-    
+
     /**
      * @var int|null Expected delivery time, number of days, weeks, months, quarters, years
      */
     private $deliveryTime;
-    
+
     /**
      * @var string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
     private $deliveryTimeType;
-    
+
     /**
      * @var string|null The delivery time default in text
      */
     private $deliveryDefaultText;
-    
+
     /**
      * @var bool|null Is active
      */
     private $active;
-    
+
     /**
      * @return self
      */
@@ -65,7 +65,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null A description of the attribute combination
      */
@@ -73,7 +73,7 @@ class Patch implements Model
     {
         return $this->note;
     }
-    
+
     /**
      * @return float|null The stock of a product combination
      */
@@ -81,7 +81,7 @@ class Patch implements Model
     {
         return $this->stock;
     }
-    
+
     /**
      * @return string|null The product number
      */
@@ -89,7 +89,7 @@ class Patch implements Model
     {
         return $this->productNumber;
     }
-    
+
     /**
      * @return string|null The ean number
      */
@@ -97,7 +97,7 @@ class Patch implements Model
     {
         return $this->eanNumber;
     }
-    
+
     /**
      * @return string|null The sku number
      */
@@ -105,7 +105,7 @@ class Patch implements Model
     {
         return $this->skuNumber;
     }
-    
+
     /**
      * @return int|null Expected delivery time, number of days, weeks, months, quarters, years
      */
@@ -113,7 +113,7 @@ class Patch implements Model
     {
         return $this->deliveryTime;
     }
-    
+
     /**
      * @return string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
@@ -121,7 +121,7 @@ class Patch implements Model
     {
         return $this->deliveryTimeType;
     }
-    
+
     /**
      * @return string|null The delivery time default in text
      */
@@ -129,7 +129,7 @@ class Patch implements Model
     {
         return $this->deliveryDefaultText;
     }
-    
+
     /**
      * @return bool|null Is active
      */
@@ -137,7 +137,7 @@ class Patch implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @param string|null $note A description of the attribute combination
      * @return self
@@ -148,7 +148,7 @@ class Patch implements Model
         $this->propertyFilled('note');
         return $this;
     }
-    
+
     /**
      * @param float|null $stock The stock of a product combination
      * @return self
@@ -159,7 +159,7 @@ class Patch implements Model
         $this->propertyFilled('stock');
         return $this;
     }
-    
+
     /**
      * @param string|null $productNumber The product number
      * @return self
@@ -170,7 +170,7 @@ class Patch implements Model
         $this->propertyFilled('productNumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $eanNumber The ean number
      * @return self
@@ -181,7 +181,7 @@ class Patch implements Model
         $this->propertyFilled('eanNumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $skuNumber The sku number
      * @return self
@@ -192,7 +192,7 @@ class Patch implements Model
         $this->propertyFilled('skuNumber');
         return $this;
     }
-    
+
     /**
      * @param int|null $deliveryTime Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
@@ -203,7 +203,7 @@ class Patch implements Model
         $this->propertyFilled('deliveryTime');
         return $this;
     }
-    
+
     /**
      * @param string|null $deliveryTimeType Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      * @return self
@@ -214,7 +214,7 @@ class Patch implements Model
         $this->propertyFilled('deliveryTimeType');
         return $this;
     }
-    
+
     /**
      * @param string|null $deliveryDefaultText The delivery time default in text
      * @return self
@@ -225,7 +225,7 @@ class Patch implements Model
         $this->propertyFilled('deliveryDefaultText');
         return $this;
     }
-    
+
     /**
      * @param bool|null $active Is active
      * @return self

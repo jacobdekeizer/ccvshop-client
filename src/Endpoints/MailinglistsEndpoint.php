@@ -10,7 +10,7 @@ class MailinglistsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a mailinglist. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class MailinglistsEndpoint extends BaseEndpoint
             'mailinglists/' . $id . '/',
         );
     }
-    
+
     /**
      * Get one mailinglist. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists
@@ -32,13 +32,13 @@ class MailinglistsEndpoint extends BaseEndpoint
             self::GET,
             'mailinglists/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists::fromArray($result);
     }
-    
+
     /**
      * Get all mailinglists of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Mailinglists\Collection\Mailinglists
@@ -47,13 +47,13 @@ class MailinglistsEndpoint extends BaseEndpoint
             self::GET,
             'mailinglists/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Mailinglists\Collection\Mailinglists::fromArray($result);
     }
-    
+
     /**
      * Patch a mailinglist. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class MailinglistsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a mailinglist. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Mailinglists\Mailinglists\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists
@@ -77,7 +77,7 @@ class MailinglistsEndpoint extends BaseEndpoint
             'mailinglists/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Mailinglists\Resource\Mailinglists::fromArray($result);
     }
 }

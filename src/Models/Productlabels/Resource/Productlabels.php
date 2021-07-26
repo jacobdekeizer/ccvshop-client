@@ -12,17 +12,17 @@ class Productlabels implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Resource Id of the label
      */
     private $labelId;
-    
+
     /**
      * @var string Link to parent
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Productlabels implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Resource Id of the label
      */
@@ -38,7 +38,7 @@ class Productlabels implements Model
     {
         return $this->labelId;
     }
-    
+
     /**
      * @return string Link to parent
      */
@@ -46,7 +46,7 @@ class Productlabels implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param int $labelId Resource Id of the label
      * @return self
@@ -57,7 +57,7 @@ class Productlabels implements Model
         $this->propertyFilled('labelId');
         return $this;
     }
-    
+
     /**
      * @param string $parent Link to parent
      * @return self

@@ -12,12 +12,12 @@ class Services implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to the services of this categorie
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Services implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to the services of this categorie
      */
@@ -33,7 +33,7 @@ class Services implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to the services of this categorie
      * @return self

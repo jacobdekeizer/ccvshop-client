@@ -10,7 +10,7 @@ class MerchantEndpoint extends BaseEndpoint
 {
     /**
      * Get merchant data associated with this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Merchant\Entity\Merchant
@@ -19,7 +19,7 @@ class MerchantEndpoint extends BaseEndpoint
             self::GET,
             'webshops/' . $id . '/merchant/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Merchant\Entity\Merchant::fromArray($result);
     }
 }

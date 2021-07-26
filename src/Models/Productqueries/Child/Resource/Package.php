@@ -12,17 +12,17 @@ class Package implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to package resource
      */
     private $href;
-    
+
     /**
      * @var int Package Id
      */
     private $id;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Package implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to package resource
      */
@@ -38,7 +38,7 @@ class Package implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Package Id
      */
@@ -46,7 +46,7 @@ class Package implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @param string $href Link to package resource
      * @return self
@@ -57,7 +57,7 @@ class Package implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Package Id
      * @return self

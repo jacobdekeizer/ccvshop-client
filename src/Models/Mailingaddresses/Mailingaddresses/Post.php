@@ -12,32 +12,32 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Name of mailingaddress owner
      */
     private $name;
-    
+
     /**
      * @var string|null Companyname of mailingaddress owner
      */
     private $companyname;
-    
+
     /**
      * @var string Mailingaddress
      */
     private $email;
-    
+
     /**
      * @var string Language of mailingaddress owner
      */
     private $language;
-    
+
     /**
      * @var bool|null Is mailingaddress enabled
      */
     private $enable;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Name of mailingaddress owner
      */
@@ -53,7 +53,7 @@ class Post implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Companyname of mailingaddress owner
      */
@@ -61,7 +61,7 @@ class Post implements Model
     {
         return $this->companyname;
     }
-    
+
     /**
      * @return string Mailingaddress
      */
@@ -69,7 +69,7 @@ class Post implements Model
     {
         return $this->email;
     }
-    
+
     /**
      * @return string Language of mailingaddress owner
      */
@@ -77,7 +77,7 @@ class Post implements Model
     {
         return $this->language;
     }
-    
+
     /**
      * @return bool|null Is mailingaddress enabled
      */
@@ -85,7 +85,7 @@ class Post implements Model
     {
         return $this->enable;
     }
-    
+
     /**
      * @param string $name Name of mailingaddress owner
      * @return self
@@ -96,7 +96,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $companyname Companyname of mailingaddress owner
      * @return self
@@ -107,7 +107,7 @@ class Post implements Model
         $this->propertyFilled('companyname');
         return $this;
     }
-    
+
     /**
      * @param string $email Mailingaddress
      * @return self
@@ -118,7 +118,7 @@ class Post implements Model
         $this->propertyFilled('email');
         return $this;
     }
-    
+
     /**
      * @param string $language Language of mailingaddress owner
      * @return self
@@ -129,7 +129,7 @@ class Post implements Model
         $this->propertyFilled('language');
         return $this;
     }
-    
+
     /**
      * @param bool|null $enable Is mailingaddress enabled
      * @return self

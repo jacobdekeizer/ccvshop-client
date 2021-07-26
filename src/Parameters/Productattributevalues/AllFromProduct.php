@@ -15,7 +15,7 @@ class AllFromProduct extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @return self
      */
@@ -23,7 +23,7 @@ class AllFromProduct extends PaginatedList implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -32,34 +32,34 @@ class AllFromProduct extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->orderBy($this->getOrderBy());
     }
-    
+
     public function orderByPositionAsc(): self
     {
         $this->orderByField('position', true);
         return $this;
     }
-    
+
     public function orderByPositionDesc(): self
     {
         $this->orderByField('position', false);
         return $this;
     }
-    
+
     public function orderByOptionpositionAsc(): self
     {
         $this->orderByField('optionposition', true);
         return $this;
     }
-    
+
     public function orderByOptionpositionDesc(): self
     {
         $this->orderByField('optionposition', false);

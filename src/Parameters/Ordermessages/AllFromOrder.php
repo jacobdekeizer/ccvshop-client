@@ -14,7 +14,7 @@ class AllFromOrder implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @return self
      */
@@ -22,7 +22,7 @@ class AllFromOrder implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -31,35 +31,35 @@ class AllFromOrder implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->orderBy($this->getOrderBy());
     }
-    
+
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-    
+
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-    
-    public function orderByCreate_dateAsc(): self
+
+    public function orderByCreateDateAsc(): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
-    
-    public function orderByCreate_dateDesc(): self
+
+    public function orderByCreateDateDesc(): self
     {
         $this->orderByField('create_date', false);
         return $this;

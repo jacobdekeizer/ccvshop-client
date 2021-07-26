@@ -12,32 +12,32 @@ class Ordermessages implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Order message id
      */
     private $id;
-    
+
     /**
      * @var string The content of the message.
      */
     private $message;
-    
+
     /**
      * @var string The create date of the note in UTC.
      */
     private $createDate;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Ordermessages\Child\Resource\ParentItem Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Ordermessages implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -53,7 +53,7 @@ class Ordermessages implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Order message id
      */
@@ -61,7 +61,7 @@ class Ordermessages implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string The content of the message.
      */
@@ -69,7 +69,7 @@ class Ordermessages implements Model
     {
         return $this->message;
     }
-    
+
     /**
      * @return string The create date of the note in UTC.
      */
@@ -77,7 +77,7 @@ class Ordermessages implements Model
     {
         return $this->createDate;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Ordermessages\Child\Resource\ParentItem Contains link to parent resource.
      */
@@ -85,7 +85,7 @@ class Ordermessages implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -96,7 +96,7 @@ class Ordermessages implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Order message id
      * @return self
@@ -107,7 +107,7 @@ class Ordermessages implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $message The content of the message.
      * @return self
@@ -118,7 +118,7 @@ class Ordermessages implements Model
         $this->propertyFilled('message');
         return $this;
     }
-    
+
     /**
      * @param string $createDate The create date of the note in UTC.
      * @return self
@@ -129,7 +129,7 @@ class Ordermessages implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Ordermessages\Child\Resource\ParentItem $parent Contains link to parent resource.
      * @return self

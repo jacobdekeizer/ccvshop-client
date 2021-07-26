@@ -10,7 +10,7 @@ class LabelsEndpoint extends BaseEndpoint
 {
     /**
      * Deletes this label and all the links to other resources. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class LabelsEndpoint extends BaseEndpoint
             'labels/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets all labels created by this api key. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Labels\Collection\Labels
@@ -32,13 +32,13 @@ class LabelsEndpoint extends BaseEndpoint
             self::GET,
             'labels/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Labels\Collection\Labels::fromArray($result);
     }
-    
+
     /**
      * Gets one label. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels
@@ -47,13 +47,13 @@ class LabelsEndpoint extends BaseEndpoint
             self::GET,
             'labels/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels::fromArray($result);
     }
-    
+
     /**
      * Edits an existing label. Note that this has no effects on the current links with other resources (like products). 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Labels\Labels\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class LabelsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Creates a new label. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Labels\Labels\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels
@@ -77,7 +77,7 @@ class LabelsEndpoint extends BaseEndpoint
             'labels/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels::fromArray($result);
     }
 }

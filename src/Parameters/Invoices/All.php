@@ -15,42 +15,42 @@ class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @var int|null Specific invoice number of an invoice.
      */
     private $invoicenumber;
-    
+
     /**
      * @var string|null Specific invoice number, combined with the invoice number prefix of an invoice.
      */
     private $invoicenumberFull;
-    
+
     /**
      * @var int|null Specific order number associated with an invoice.
      */
     private $ordernumber;
-    
+
     /**
      * @var string|null Specific order number, combined with the order number prefix of an invoice.
      */
     private $ordernumberFull;
-    
+
     /**
      * @var string|null Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
      */
     private $status;
-    
+
     /**
      * @var string|null Minimal create date of the invoices in the result.
      */
     private $minCreateDate;
-    
+
     /**
      * @var string|null Maximal create date of the invoices in the result.
      */
     private $maxCreateDate;
-    
+
     /**
      * @return self
      */
@@ -58,7 +58,7 @@ class All extends PaginatedList implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -67,10 +67,10 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
@@ -83,7 +83,7 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('maxCreateDate', $this->maxCreateDate)
             ->orderBy($this->getOrderBy());
     }
-    
+
     /**
      * @return int|null Specific invoice number of an invoice.
      */
@@ -91,7 +91,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->invoicenumber;
     }
-    
+
     /**
      * @return string|null Specific invoice number, combined with the invoice number prefix of an invoice.
      */
@@ -99,7 +99,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->invoicenumberFull;
     }
-    
+
     /**
      * @return int|null Specific order number associated with an invoice.
      */
@@ -107,7 +107,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->ordernumber;
     }
-    
+
     /**
      * @return string|null Specific order number, combined with the order number prefix of an invoice.
      */
@@ -115,7 +115,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->ordernumberFull;
     }
-    
+
     /**
      * @return string|null Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
      */
@@ -123,7 +123,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->status;
     }
-    
+
     /**
      * @return string|null Minimal create date of the invoices in the result.
      */
@@ -131,7 +131,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->minCreateDate;
     }
-    
+
     /**
      * @return string|null Maximal create date of the invoices in the result.
      */
@@ -139,7 +139,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->maxCreateDate;
     }
-    
+
     /**
      * @param int|null $invoicenumber Specific invoice number of an invoice.
      * @return self
@@ -149,7 +149,7 @@ class All extends PaginatedList implements Parameter
         $this->invoicenumber = $invoicenumber;
         return $this;
     }
-    
+
     /**
      * @param string|null $invoicenumberFull Specific invoice number, combined with the invoice number prefix of an invoice.
      * @return self
@@ -159,7 +159,7 @@ class All extends PaginatedList implements Parameter
         $this->invoicenumberFull = $invoicenumberFull;
         return $this;
     }
-    
+
     /**
      * @param int|null $ordernumber Specific order number associated with an invoice.
      * @return self
@@ -169,7 +169,7 @@ class All extends PaginatedList implements Parameter
         $this->ordernumber = $ordernumber;
         return $this;
     }
-    
+
     /**
      * @param string|null $ordernumberFull Specific order number, combined with the order number prefix of an invoice.
      * @return self
@@ -179,7 +179,7 @@ class All extends PaginatedList implements Parameter
         $this->ordernumberFull = $ordernumberFull;
         return $this;
     }
-    
+
     /**
      * @param string|null $status Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
      * @return self
@@ -189,7 +189,7 @@ class All extends PaginatedList implements Parameter
         $this->status = $status;
         return $this;
     }
-    
+
     /**
      * @param string|null $minCreateDate Minimal create date of the invoices in the result.
      * @return self
@@ -199,7 +199,7 @@ class All extends PaginatedList implements Parameter
         $this->minCreateDate = $minCreateDate;
         return $this;
     }
-    
+
     /**
      * @param string|null $maxCreateDate Maximal create date of the invoices in the result.
      * @return self
@@ -209,98 +209,98 @@ class All extends PaginatedList implements Parameter
         $this->maxCreateDate = $maxCreateDate;
         return $this;
     }
-    
+
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-    
+
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-    
+
     public function orderByInvoicenumberAsc(): self
     {
         $this->orderByField('invoicenumber', true);
         return $this;
     }
-    
+
     public function orderByInvoicenumberDesc(): self
     {
         $this->orderByField('invoicenumber', false);
         return $this;
     }
-    
+
     public function orderByOrdernumberAsc(): self
     {
         $this->orderByField('ordernumber', true);
         return $this;
     }
-    
+
     public function orderByOrdernumberDesc(): self
     {
         $this->orderByField('ordernumber', false);
         return $this;
     }
-    
-    public function orderByInvoicenumber_fullAsc(): self
+
+    public function orderByInvoicenumberFullAsc(): self
     {
         $this->orderByField('invoicenumber_full', true);
         return $this;
     }
-    
-    public function orderByInvoicenumber_fullDesc(): self
+
+    public function orderByInvoicenumberFullDesc(): self
     {
         $this->orderByField('invoicenumber_full', false);
         return $this;
     }
-    
-    public function orderByOrdernumber_fullAsc(): self
+
+    public function orderByOrdernumberFullAsc(): self
     {
         $this->orderByField('ordernumber_full', true);
         return $this;
     }
-    
-    public function orderByOrdernumber_fullDesc(): self
+
+    public function orderByOrdernumberFullDesc(): self
     {
         $this->orderByField('ordernumber_full', false);
         return $this;
     }
-    
-    public function orderByCreate_dateAsc(): self
+
+    public function orderByCreateDateAsc(): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
-    
-    public function orderByCreate_dateDesc(): self
+
+    public function orderByCreateDateDesc(): self
     {
         $this->orderByField('create_date', false);
         return $this;
     }
-    
+
     public function orderByStatusAsc(): self
     {
         $this->orderByField('status', true);
         return $this;
     }
-    
+
     public function orderByStatusDesc(): self
     {
         $this->orderByField('status', false);
         return $this;
     }
-    
-    public function orderByTotal_priceAsc(): self
+
+    public function orderByTotalPriceAsc(): self
     {
         $this->orderByField('total_price', true);
         return $this;
     }
-    
-    public function orderByTotal_priceDesc(): self
+
+    public function orderByTotalPriceDesc(): self
     {
         $this->orderByField('total_price', false);
         return $this;

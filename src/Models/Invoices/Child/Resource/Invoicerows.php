@@ -12,12 +12,12 @@ class Invoicerows implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to products that are included in this invoice.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Invoicerows implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to products that are included in this invoice.
      */
@@ -33,7 +33,7 @@ class Invoicerows implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to products that are included in this invoice.
      * @return self

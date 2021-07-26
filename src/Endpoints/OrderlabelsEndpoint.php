@@ -10,7 +10,7 @@ class OrderlabelsEndpoint extends BaseEndpoint
 {
     /**
      * Get all labels linked to this order. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromOrder(int $id): \JacobDeKeizer\Ccv\Models\Orderlabels\Collection\Orderlabels
@@ -19,13 +19,13 @@ class OrderlabelsEndpoint extends BaseEndpoint
             self::GET,
             'orders/' . $id . '/orderlabels/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Orderlabels\Collection\Orderlabels::fromArray($result);
     }
-    
+
     /**
      * Replaces all labels of this order with the new collection. An empty collection can be used to remove all labels. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function updateForOrder(int $id, \JacobDeKeizer\Ccv\Models\Orderlabels\Orderlabels\Put $model, bool $onlyFilled = true): void

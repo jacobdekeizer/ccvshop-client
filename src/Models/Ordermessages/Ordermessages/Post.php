@@ -12,12 +12,12 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string The content of the message.
      */
     private $message;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string The content of the message.
      */
@@ -33,7 +33,7 @@ class Post implements Model
     {
         return $this->message;
     }
-    
+
     /**
      * @param string $message The content of the message.
      * @return self

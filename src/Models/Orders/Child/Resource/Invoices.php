@@ -12,12 +12,12 @@ class Invoices implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to create a new invoice for this order.
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Invoices implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to create a new invoice for this order.
      */
@@ -33,7 +33,7 @@ class Invoices implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to create a new invoice for this order.
      * @return self

@@ -10,7 +10,7 @@ class ProductphotosEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product photo. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductphotosEndpoint extends BaseEndpoint
             'productphotos/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all photos of this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
@@ -31,18 +31,18 @@ class ProductphotosEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProduct();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productphotos/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos::fromArray($result);
     }
-    
+
     /**
      * Get one product photo. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
@@ -51,13 +51,13 @@ class ProductphotosEndpoint extends BaseEndpoint
             self::GET,
             'productphotos/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos::fromArray($result);
     }
-    
+
     /**
      * Patch a product photo. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch $model, bool $onlyFilled = true): void
@@ -68,10 +68,10 @@ class ProductphotosEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Add a photo to this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
@@ -81,13 +81,13 @@ class ProductphotosEndpoint extends BaseEndpoint
             'products/' . $id . '/productphotos/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos::fromArray($result);
     }
-    
+
     /**
      * Replace a product photo collection of an existing product. All existing photos will be deleted. With an empty collection you can achieve a DELETE ALL product photos. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function updateForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put $model, bool $onlyFilled = true): void

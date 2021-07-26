@@ -12,47 +12,47 @@ class Categorytreenode implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Category name
      */
     private $name;
-    
+
     /**
      * @var string|null Category description
      */
     private $description;
-    
+
     /**
      * @var int|null Category position
      */
     private $position;
-    
+
     /**
      * @var bool|null Category visible on website
      */
     private $showOnWebsite;
-    
+
     /**
      * @var string|null Deeplink to this resource
      */
     private $deeplink;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Categorytreenode[]|null Array with child categories. Child categories have the same properies as root categories
      */
     private $children;
-    
+
     /**
      * @return self
      */
@@ -60,7 +60,7 @@ class Categorytreenode implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -68,7 +68,7 @@ class Categorytreenode implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -76,7 +76,7 @@ class Categorytreenode implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Category name
      */
@@ -84,7 +84,7 @@ class Categorytreenode implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Category description
      */
@@ -92,7 +92,7 @@ class Categorytreenode implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return int|null Category position
      */
@@ -100,7 +100,7 @@ class Categorytreenode implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return bool|null Category visible on website
      */
@@ -108,7 +108,7 @@ class Categorytreenode implements Model
     {
         return $this->showOnWebsite;
     }
-    
+
     /**
      * @return string|null Deeplink to this resource
      */
@@ -116,7 +116,7 @@ class Categorytreenode implements Model
     {
         return $this->deeplink;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Categorytreenode[]|null Array with child categories. Child categories have the same properies as root categories
      */
@@ -124,7 +124,7 @@ class Categorytreenode implements Model
     {
         return $this->children;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -135,7 +135,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -146,7 +146,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Category name
      * @return self
@@ -157,7 +157,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $description Category description
      * @return self
@@ -168,7 +168,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Category position
      * @return self
@@ -179,7 +179,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnWebsite Category visible on website
      * @return self
@@ -190,7 +190,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('showOnWebsite');
         return $this;
     }
-    
+
     /**
      * @param string|null $deeplink Deeplink to this resource
      * @return self
@@ -201,7 +201,7 @@ class Categorytreenode implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Categorytreenode[]|null $children Array with child categories. Child categories have the same properies as root categories
      * @return self
@@ -216,14 +216,14 @@ class Categorytreenode implements Model
     {
         if ($key === 'children') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productproperties\Resource\Categorytreenode::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

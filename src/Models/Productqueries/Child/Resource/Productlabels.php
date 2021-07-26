@@ -12,12 +12,12 @@ class Productlabels implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of product labels
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Productlabels implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of product labels
      */
@@ -33,7 +33,7 @@ class Productlabels implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to collection of product labels
      * @return self

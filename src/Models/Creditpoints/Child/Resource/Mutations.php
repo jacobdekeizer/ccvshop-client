@@ -12,12 +12,12 @@ class Mutations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to mutation collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Mutations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to mutation collection
      */
@@ -33,7 +33,7 @@ class Mutations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to mutation collection
      * @return self

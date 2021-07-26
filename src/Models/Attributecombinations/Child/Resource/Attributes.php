@@ -12,12 +12,12 @@ class Attributes implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to collection of attributes belonging to the combination
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Attributes implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to collection of attributes belonging to the combination
      */
@@ -33,7 +33,7 @@ class Attributes implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to collection of attributes belonging to the combination
      * @return self

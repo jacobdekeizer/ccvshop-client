@@ -72,9 +72,9 @@ class EndpointClassGenerator
 
                         if ($descriptionTitle === 'Description:') {
                             $description = $descriptionValue;
-                        } else if ($descriptionTitle === 'Rate limit:') {
+                        } elseif ($descriptionTitle === 'Rate limit:') {
                             $rateLimit = $descriptionValue;
-                        } else if ($descriptionTitle === 'Content-Type:') {
+                        } elseif ($descriptionTitle === 'Content-Type:') {
                             $contentType = $descriptionCrawler->filter('a')->attr('href');
                         }
                     }
@@ -184,7 +184,7 @@ class EndpointClassGenerator
         }
 
         $suffix = $isSingular ? '' : 'For' . $fromName;
-        
+
         if ($httpMethod === 'DELETE') {
             return 'delete' . $suffix;
         }

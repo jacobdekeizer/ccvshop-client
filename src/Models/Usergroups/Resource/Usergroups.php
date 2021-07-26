@@ -12,47 +12,47 @@ class Usergroups implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
     private $default;
-    
+
     /**
      * @var string|null Group name
      */
     private $groupname;
-    
+
     /**
      * @var float|null Discount in percentage
      */
     private $discount;
-    
+
     /**
      * @var string If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
     private $productInCategoryDiscount;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Users|null Group users
      */
     private $users;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
     private $disabledpaymethods;
-    
+
     /**
      * @return self
      */
@@ -60,7 +60,7 @@ class Usergroups implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -68,7 +68,7 @@ class Usergroups implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -76,7 +76,7 @@ class Usergroups implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
@@ -84,7 +84,7 @@ class Usergroups implements Model
     {
         return $this->default;
     }
-    
+
     /**
      * @return string|null Group name
      */
@@ -92,7 +92,7 @@ class Usergroups implements Model
     {
         return $this->groupname;
     }
-    
+
     /**
      * @return float|null Discount in percentage
      */
@@ -100,7 +100,7 @@ class Usergroups implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return string If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
@@ -108,7 +108,7 @@ class Usergroups implements Model
     {
         return $this->productInCategoryDiscount;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Users|null Group users
      */
@@ -116,7 +116,7 @@ class Usergroups implements Model
     {
         return $this->users;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
@@ -124,7 +124,7 @@ class Usergroups implements Model
     {
         return $this->disabledpaymethods;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -135,7 +135,7 @@ class Usergroups implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -146,7 +146,7 @@ class Usergroups implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param bool|null $default True if the group is a default group. New users are automatically added to the standard group.
      * @return self
@@ -157,7 +157,7 @@ class Usergroups implements Model
         $this->propertyFilled('default');
         return $this;
     }
-    
+
     /**
      * @param string|null $groupname Group name
      * @return self
@@ -168,7 +168,7 @@ class Usergroups implements Model
         $this->propertyFilled('groupname');
         return $this;
     }
-    
+
     /**
      * @param float|null $discount Discount in percentage
      * @return self
@@ -179,7 +179,7 @@ class Usergroups implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param string $productInCategoryDiscount If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      * @return self
@@ -190,7 +190,7 @@ class Usergroups implements Model
         $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Users|null $users Group users
      * @return self
@@ -201,7 +201,7 @@ class Usergroups implements Model
         $this->propertyFilled('users');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Usergroups\Child\Resource\Disabledpaymethods|null $disabledpaymethods Contains link to disabledpaymethods collection resource.
      * @return self

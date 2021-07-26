@@ -12,17 +12,17 @@ class Takeoutslots implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots[] Array with takeout slots
      */
     private $items;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Takeoutslots implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -38,7 +38,7 @@ class Takeoutslots implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots[] Array with takeout slots
      */
@@ -46,7 +46,7 @@ class Takeoutslots implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -57,7 +57,7 @@ class Takeoutslots implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots[] $items Array with takeout slots
      * @return self
@@ -72,14 +72,14 @@ class Takeoutslots implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

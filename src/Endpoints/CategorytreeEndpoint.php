@@ -10,7 +10,7 @@ class CategorytreeEndpoint extends BaseEndpoint
 {
     /**
      * Get the complete tree. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytree
@@ -19,7 +19,7 @@ class CategorytreeEndpoint extends BaseEndpoint
             self::GET,
             'categorytree/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Categorytree\Resource\Categorytree::fromArray($result);
     }
 }

@@ -12,32 +12,32 @@ class ReturnStatus implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Id of the status.
      */
     private $id;
-    
+
     /**
      * @var string This status corresponse with the status in the return resource.
      */
     private $status;
-    
+
     /**
      * @var string The display name of this status. The merchant can adjust this.
      */
     private $statusName;
-    
+
     /**
      * @var string The text color in HEX code.
      */
     private $textColor;
-    
+
     /**
      * @var string The background color in HEX code.
      */
     private $backgroundColor;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class ReturnStatus implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Id of the status.
      */
@@ -53,7 +53,7 @@ class ReturnStatus implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string This status corresponse with the status in the return resource.
      */
@@ -61,7 +61,7 @@ class ReturnStatus implements Model
     {
         return $this->status;
     }
-    
+
     /**
      * @return string The display name of this status. The merchant can adjust this.
      */
@@ -69,7 +69,7 @@ class ReturnStatus implements Model
     {
         return $this->statusName;
     }
-    
+
     /**
      * @return string The text color in HEX code.
      */
@@ -77,7 +77,7 @@ class ReturnStatus implements Model
     {
         return $this->textColor;
     }
-    
+
     /**
      * @return string The background color in HEX code.
      */
@@ -85,7 +85,7 @@ class ReturnStatus implements Model
     {
         return $this->backgroundColor;
     }
-    
+
     /**
      * @param int $id Id of the status.
      * @return self
@@ -96,7 +96,7 @@ class ReturnStatus implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $status This status corresponse with the status in the return resource.
      * @return self
@@ -107,7 +107,7 @@ class ReturnStatus implements Model
         $this->propertyFilled('status');
         return $this;
     }
-    
+
     /**
      * @param string $statusName The display name of this status. The merchant can adjust this.
      * @return self
@@ -118,7 +118,7 @@ class ReturnStatus implements Model
         $this->propertyFilled('statusName');
         return $this;
     }
-    
+
     /**
      * @param string $textColor The text color in HEX code.
      * @return self
@@ -129,7 +129,7 @@ class ReturnStatus implements Model
         $this->propertyFilled('textColor');
         return $this;
     }
-    
+
     /**
      * @param string $backgroundColor The background color in HEX code.
      * @return self

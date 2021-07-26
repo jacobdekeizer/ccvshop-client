@@ -12,57 +12,57 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      */
     private $code;
-    
+
     /**
      * @var float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
     private $discount;
-    
+
     /**
      * @var string Discount type.
      */
     private $type;
-    
+
     /**
      * @var string Begin date coupon validity, UTC
      */
     private $begindate;
-    
+
     /**
      * @var string|null End date coupon validity, UTC
      */
     private $enddate;
-    
+
     /**
      * @var bool One time use. After usage this coupon will be removed.
      */
     private $onetimeuse;
-    
+
     /**
      * @var bool This coupon gives free shipping costs.
      */
     private $givesfreeshipping;
-    
+
     /**
      * @var float Minimum price of the order before this coupon can be used.
      */
     private $minimumprice;
-    
+
     /**
      * @var bool|null Product white list. If true, the discount will only used for selected products. If false, the discount is used for all products, excepts the selected ones.
      */
     private $productwhitelist;
-    
+
     /**
      * @var int[]|null Product id's for the product white/black list.
      */
     private $products;
-    
+
     /**
      * @return self
      */
@@ -70,7 +70,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      */
@@ -78,7 +78,7 @@ class Post implements Model
     {
         return $this->code;
     }
-    
+
     /**
      * @return float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
@@ -86,7 +86,7 @@ class Post implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return string Discount type.
      */
@@ -94,7 +94,7 @@ class Post implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string Begin date coupon validity, UTC
      */
@@ -102,7 +102,7 @@ class Post implements Model
     {
         return $this->begindate;
     }
-    
+
     /**
      * @return string|null End date coupon validity, UTC
      */
@@ -110,7 +110,7 @@ class Post implements Model
     {
         return $this->enddate;
     }
-    
+
     /**
      * @return bool One time use. After usage this coupon will be removed.
      */
@@ -118,7 +118,7 @@ class Post implements Model
     {
         return $this->onetimeuse;
     }
-    
+
     /**
      * @return bool This coupon gives free shipping costs.
      */
@@ -126,7 +126,7 @@ class Post implements Model
     {
         return $this->givesfreeshipping;
     }
-    
+
     /**
      * @return float Minimum price of the order before this coupon can be used.
      */
@@ -134,7 +134,7 @@ class Post implements Model
     {
         return $this->minimumprice;
     }
-    
+
     /**
      * @return bool|null Product white list. If true, the discount will only used for selected products. If false, the discount is used for all products, excepts the selected ones.
      */
@@ -142,7 +142,7 @@ class Post implements Model
     {
         return $this->productwhitelist;
     }
-    
+
     /**
      * @return int[]|null Product id's for the product white/black list.
      */
@@ -150,7 +150,7 @@ class Post implements Model
     {
         return $this->products;
     }
-    
+
     /**
      * @param string $code Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      * @return self
@@ -161,7 +161,7 @@ class Post implements Model
         $this->propertyFilled('code');
         return $this;
     }
-    
+
     /**
      * @param float $discount The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      * @return self
@@ -172,7 +172,7 @@ class Post implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param string $type Discount type.
      * @return self
@@ -183,7 +183,7 @@ class Post implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string $begindate Begin date coupon validity, UTC
      * @return self
@@ -194,7 +194,7 @@ class Post implements Model
         $this->propertyFilled('begindate');
         return $this;
     }
-    
+
     /**
      * @param string|null $enddate End date coupon validity, UTC
      * @return self
@@ -205,7 +205,7 @@ class Post implements Model
         $this->propertyFilled('enddate');
         return $this;
     }
-    
+
     /**
      * @param bool $onetimeuse One time use. After usage this coupon will be removed.
      * @return self
@@ -216,7 +216,7 @@ class Post implements Model
         $this->propertyFilled('onetimeuse');
         return $this;
     }
-    
+
     /**
      * @param bool $givesfreeshipping This coupon gives free shipping costs.
      * @return self
@@ -227,7 +227,7 @@ class Post implements Model
         $this->propertyFilled('givesfreeshipping');
         return $this;
     }
-    
+
     /**
      * @param float $minimumprice Minimum price of the order before this coupon can be used.
      * @return self
@@ -238,7 +238,7 @@ class Post implements Model
         $this->propertyFilled('minimumprice');
         return $this;
     }
-    
+
     /**
      * @param bool|null $productwhitelist Product white list. If true, the discount will only used for selected products. If false, the discount is used for all products, excepts the selected ones.
      * @return self
@@ -249,7 +249,7 @@ class Post implements Model
         $this->propertyFilled('productwhitelist');
         return $this;
     }
-    
+
     /**
      * @param int[]|null $products Product id's for the product white/black list.
      * @return self

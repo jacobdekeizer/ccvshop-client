@@ -12,42 +12,42 @@ class Productattachments implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Attachment id
      */
     private $id;
-    
+
     /**
      * @var string File name
      */
     private $filename;
-    
+
     /**
      * @var string Display name of the file.
      */
     private $displayname;
-    
+
     /**
      * @var int Position compared to other product attachments. Starting at 1.
      */
     private $position;
-    
+
     /**
      * @var string Deeplink to the file. This link will result in a file which can be downloaded.
      */
     private $deeplink;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Productattachments implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -63,7 +63,7 @@ class Productattachments implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Attachment id
      */
@@ -71,7 +71,7 @@ class Productattachments implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string File name
      */
@@ -79,7 +79,7 @@ class Productattachments implements Model
     {
         return $this->filename;
     }
-    
+
     /**
      * @return string Display name of the file.
      */
@@ -87,7 +87,7 @@ class Productattachments implements Model
     {
         return $this->displayname;
     }
-    
+
     /**
      * @return int Position compared to other product attachments. Starting at 1.
      */
@@ -95,7 +95,7 @@ class Productattachments implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return string Deeplink to the file. This link will result in a file which can be downloaded.
      */
@@ -103,7 +103,7 @@ class Productattachments implements Model
     {
         return $this->deeplink;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -111,7 +111,7 @@ class Productattachments implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -122,7 +122,7 @@ class Productattachments implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Attachment id
      * @return self
@@ -133,7 +133,7 @@ class Productattachments implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $filename File name
      * @return self
@@ -144,7 +144,7 @@ class Productattachments implements Model
         $this->propertyFilled('filename');
         return $this;
     }
-    
+
     /**
      * @param string $displayname Display name of the file.
      * @return self
@@ -155,7 +155,7 @@ class Productattachments implements Model
         $this->propertyFilled('displayname');
         return $this;
     }
-    
+
     /**
      * @param int $position Position compared to other product attachments. Starting at 1.
      * @return self
@@ -166,7 +166,7 @@ class Productattachments implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param string $deeplink Deeplink to the file. This link will result in a file which can be downloaded.
      * @return self
@@ -177,7 +177,7 @@ class Productattachments implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

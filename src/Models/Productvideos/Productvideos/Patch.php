@@ -12,22 +12,22 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Productvideo name
      */
     private $name;
-    
+
     /**
      * @var int|null Productvideo position.
      */
     private $position;
-    
+
     /**
      * @var string|null Productvideo embedcode
      */
     private $embedcode;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Productvideo name
      */
@@ -43,7 +43,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return int|null Productvideo position.
      */
@@ -51,7 +51,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return string|null Productvideo embedcode
      */
@@ -59,7 +59,7 @@ class Patch implements Model
     {
         return $this->embedcode;
     }
-    
+
     /**
      * @param string|null $name Productvideo name
      * @return self
@@ -70,7 +70,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Productvideo position.
      * @return self
@@ -81,7 +81,7 @@ class Patch implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param string|null $embedcode Productvideo embedcode
      * @return self

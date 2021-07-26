@@ -12,17 +12,17 @@ class LayoutOfProducts implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Category products layout Id
      */
     private $id;
-    
+
     /**
      * @var string Link to the layout of the products in this category resource
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class LayoutOfProducts implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Category products layout Id
      */
@@ -38,7 +38,7 @@ class LayoutOfProducts implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Link to the layout of the products in this category resource
      */
@@ -46,7 +46,7 @@ class LayoutOfProducts implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int $id Category products layout Id
      * @return self
@@ -57,7 +57,7 @@ class LayoutOfProducts implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $href Link to the layout of the products in this category resource
      * @return self

@@ -10,7 +10,7 @@ class DomainsEndpoint extends BaseEndpoint
 {
     /**
      * Get all domains for a specific webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Domains\Collection\Domains
@@ -19,7 +19,7 @@ class DomainsEndpoint extends BaseEndpoint
             self::GET,
             'webshops/' . $id . '/domains/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Domains\Collection\Domains::fromArray($result);
     }
 }

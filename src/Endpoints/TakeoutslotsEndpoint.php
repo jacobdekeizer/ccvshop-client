@@ -10,7 +10,7 @@ class TakeoutslotsEndpoint extends BaseEndpoint
 {
     /**
      * Get one slot. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots
@@ -19,13 +19,13 @@ class TakeoutslotsEndpoint extends BaseEndpoint
             self::GET,
             'takeoutslots/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Takeoutslots\Resource\Takeoutslots::fromArray($result);
     }
-    
+
     /**
      * Get all slots for this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(\JacobDeKeizer\Ccv\Parameters\Takeoutslots\All $parameter = null): \JacobDeKeizer\Ccv\Models\Takeoutslots\Collection\Takeoutslots
@@ -33,12 +33,12 @@ class TakeoutslotsEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Takeoutslots\All();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'takeoutslots/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Takeoutslots\Collection\Takeoutslots::fromArray($result);
     }
 }

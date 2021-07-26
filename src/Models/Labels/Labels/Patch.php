@@ -12,32 +12,32 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Uri to the image. These images will be shown as icons as 16x16.
      */
     private $imageLocation;
-    
+
     /**
      * @var string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
     private $tooltip;
-    
+
     /**
      * @var bool|null If TRUE this label will be added as filter on the product collection page.
      */
     private $showOnProducts;
-    
+
     /**
      * @var bool|null If TRUE this label will be added as filter on the order collection page.
      */
     private $showOnOrders;
-    
+
     /**
      * @var bool|null If TRUE this label will be added as filter on the invoice collection page.
      */
     private $showOnInvoices;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Uri to the image. These images will be shown as icons as 16x16.
      */
@@ -53,7 +53,7 @@ class Patch implements Model
     {
         return $this->imageLocation;
     }
-    
+
     /**
      * @return string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
@@ -61,7 +61,7 @@ class Patch implements Model
     {
         return $this->tooltip;
     }
-    
+
     /**
      * @return bool|null If TRUE this label will be added as filter on the product collection page.
      */
@@ -69,7 +69,7 @@ class Patch implements Model
     {
         return $this->showOnProducts;
     }
-    
+
     /**
      * @return bool|null If TRUE this label will be added as filter on the order collection page.
      */
@@ -77,7 +77,7 @@ class Patch implements Model
     {
         return $this->showOnOrders;
     }
-    
+
     /**
      * @return bool|null If TRUE this label will be added as filter on the invoice collection page.
      */
@@ -85,7 +85,7 @@ class Patch implements Model
     {
         return $this->showOnInvoices;
     }
-    
+
     /**
      * @param string|null $imageLocation Uri to the image. These images will be shown as icons as 16x16.
      * @return self
@@ -96,7 +96,7 @@ class Patch implements Model
         $this->propertyFilled('imageLocation');
         return $this;
     }
-    
+
     /**
      * @param string|null $tooltip Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      * @return self
@@ -107,7 +107,7 @@ class Patch implements Model
         $this->propertyFilled('tooltip');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnProducts If TRUE this label will be added as filter on the product collection page.
      * @return self
@@ -118,7 +118,7 @@ class Patch implements Model
         $this->propertyFilled('showOnProducts');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnOrders If TRUE this label will be added as filter on the order collection page.
      * @return self
@@ -129,7 +129,7 @@ class Patch implements Model
         $this->propertyFilled('showOnOrders');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnInvoices If TRUE this label will be added as filter on the invoice collection page.
      * @return self

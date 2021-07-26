@@ -12,22 +12,22 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All implements Parameter
 {
     use FromArray;
-    
+
     /**
      * @var int|null User Id, see resource /usergroups.
      */
     private $usergroupId;
-    
+
     /**
      * @var int|null Product Id,  see resource /products.
      */
     private $productId;
-    
+
     /**
      * @var int|null Product Staggeredprice Id,  see resource /productstaggeredprices.
      */
     private $staggeredpriceId;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class All implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -44,10 +44,10 @@ class All implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
@@ -55,7 +55,7 @@ class All implements Parameter
             ->addOptionalParameter('productId', $this->productId)
             ->addOptionalParameter('staggeredpriceId', $this->staggeredpriceId);
     }
-    
+
     /**
      * @return int|null User Id, see resource /usergroups.
      */
@@ -63,7 +63,7 @@ class All implements Parameter
     {
         return $this->usergroupId;
     }
-    
+
     /**
      * @return int|null Product Id,  see resource /products.
      */
@@ -71,7 +71,7 @@ class All implements Parameter
     {
         return $this->productId;
     }
-    
+
     /**
      * @return int|null Product Staggeredprice Id,  see resource /productstaggeredprices.
      */
@@ -79,7 +79,7 @@ class All implements Parameter
     {
         return $this->staggeredpriceId;
     }
-    
+
     /**
      * @param int|null $usergroupId User Id, see resource /usergroups.
      * @return self
@@ -89,7 +89,7 @@ class All implements Parameter
         $this->usergroupId = $usergroupId;
         return $this;
     }
-    
+
     /**
      * @param int|null $productId Product Id,  see resource /products.
      * @return self
@@ -99,7 +99,7 @@ class All implements Parameter
         $this->productId = $productId;
         return $this;
     }
-    
+
     /**
      * @param int|null $staggeredpriceId Product Staggeredprice Id,  see resource /productstaggeredprices.
      * @return self

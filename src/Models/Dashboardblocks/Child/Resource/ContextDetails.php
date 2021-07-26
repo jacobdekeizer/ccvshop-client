@@ -12,12 +12,12 @@ class ContextDetails implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string An internal name describing the context.
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class ContextDetails implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string An internal name describing the context.
      */
@@ -33,7 +33,7 @@ class ContextDetails implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name An internal name describing the context.
      * @return self

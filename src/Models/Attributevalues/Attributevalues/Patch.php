@@ -12,17 +12,17 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Attribute value name
      */
     private $name;
-    
+
     /**
      * @var float|null Default price of this attribute value
      */
     private $defaultPrice;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Attribute value name
      */
@@ -38,7 +38,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return float|null Default price of this attribute value
      */
@@ -46,7 +46,7 @@ class Patch implements Model
     {
         return $this->defaultPrice;
     }
-    
+
     /**
      * @param string|null $name Attribute value name
      * @return self
@@ -57,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param float|null $defaultPrice Default price of this attribute value
      * @return self

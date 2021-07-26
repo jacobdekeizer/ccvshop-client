@@ -12,17 +12,17 @@ class Disabledpaymethods implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int The id of the Payment Service Provider. This can be used to filter in the order resource.
      */
     private $id;
-    
+
     /**
      * @var string The Payment method, can be a sub brand of the psp. This can be empty.
      */
     private $method;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Disabledpaymethods implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int The id of the Payment Service Provider. This can be used to filter in the order resource.
      */
@@ -38,7 +38,7 @@ class Disabledpaymethods implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string The Payment method, can be a sub brand of the psp. This can be empty.
      */
@@ -46,7 +46,7 @@ class Disabledpaymethods implements Model
     {
         return $this->method;
     }
-    
+
     /**
      * @param int $id The id of the Payment Service Provider. This can be used to filter in the order resource.
      * @return self
@@ -57,7 +57,7 @@ class Disabledpaymethods implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $method The Payment method, can be a sub brand of the psp. This can be empty.
      * @return self

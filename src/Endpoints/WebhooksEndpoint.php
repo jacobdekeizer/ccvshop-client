@@ -10,7 +10,7 @@ class WebhooksEndpoint extends BaseEndpoint
 {
     /**
      * Deletes an existing web hook. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class WebhooksEndpoint extends BaseEndpoint
             'webhooks/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets one web hook. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks
@@ -32,13 +32,13 @@ class WebhooksEndpoint extends BaseEndpoint
             self::GET,
             'webhooks/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks::fromArray($result);
     }
-    
+
     /**
      * Gets all webhooks. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(\JacobDeKeizer\Ccv\Parameters\Webhooks\All $parameter = null): \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks
@@ -46,18 +46,18 @@ class WebhooksEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Webhooks\All();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'webhooks/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Webhooks\Collection\Webhooks::fromArray($result);
     }
-    
+
     /**
      * Updates an existing web hook. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Patch $model, bool $onlyFilled = true): void
@@ -68,10 +68,10 @@ class WebhooksEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Creates a web hook on given event. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks
@@ -81,7 +81,7 @@ class WebhooksEndpoint extends BaseEndpoint
             'webhooks/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Webhooks\Resource\Webhooks::fromArray($result);
     }
 }

@@ -12,32 +12,32 @@ class Creditpointmutations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var int|null The mutation amount of creditpoints
      */
     private $amount;
-    
+
     /**
      * @var string|null Contains the date of the last mutation
      */
     private $createDate;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Creditpointmutations\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Creditpointmutations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -53,7 +53,7 @@ class Creditpointmutations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -61,7 +61,7 @@ class Creditpointmutations implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int|null The mutation amount of creditpoints
      */
@@ -69,7 +69,7 @@ class Creditpointmutations implements Model
     {
         return $this->amount;
     }
-    
+
     /**
      * @return string|null Contains the date of the last mutation
      */
@@ -77,7 +77,7 @@ class Creditpointmutations implements Model
     {
         return $this->createDate;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Creditpointmutations\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -85,7 +85,7 @@ class Creditpointmutations implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -96,7 +96,7 @@ class Creditpointmutations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -107,7 +107,7 @@ class Creditpointmutations implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int|null $amount The mutation amount of creditpoints
      * @return self
@@ -118,7 +118,7 @@ class Creditpointmutations implements Model
         $this->propertyFilled('amount');
         return $this;
     }
-    
+
     /**
      * @param string|null $createDate Contains the date of the last mutation
      * @return self
@@ -129,7 +129,7 @@ class Creditpointmutations implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Creditpointmutations\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

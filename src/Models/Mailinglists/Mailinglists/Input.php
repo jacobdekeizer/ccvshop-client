@@ -12,12 +12,12 @@ class Input implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Name of mailinglist
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Name of mailinglist
      */
@@ -33,7 +33,7 @@ class Input implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name Name of mailinglist
      * @return self

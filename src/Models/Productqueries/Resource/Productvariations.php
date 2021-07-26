@@ -12,42 +12,42 @@ class Productvariations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Product variation id
      */
     private $id;
-    
+
     /**
      * @var int Product Id that is linked as variation.
      */
     private $productVariationId;
-    
+
     /**
      * @var string Href to the product that is linked as variation.
      */
     private $productVariationHref;
-    
+
     /**
      * @var bool If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
      */
     private $autoCreated;
-    
+
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
     private $active;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Productvariations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -63,7 +63,7 @@ class Productvariations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Product variation id
      */
@@ -71,7 +71,7 @@ class Productvariations implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Product Id that is linked as variation.
      */
@@ -79,7 +79,7 @@ class Productvariations implements Model
     {
         return $this->productVariationId;
     }
-    
+
     /**
      * @return string Href to the product that is linked as variation.
      */
@@ -87,7 +87,7 @@ class Productvariations implements Model
     {
         return $this->productVariationHref;
     }
-    
+
     /**
      * @return bool If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
      */
@@ -95,7 +95,7 @@ class Productvariations implements Model
     {
         return $this->autoCreated;
     }
-    
+
     /**
      * @return bool Inactive variation are hidden in the webshop.
      */
@@ -103,7 +103,7 @@ class Productvariations implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -111,7 +111,7 @@ class Productvariations implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -122,7 +122,7 @@ class Productvariations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Product variation id
      * @return self
@@ -133,7 +133,7 @@ class Productvariations implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $productVariationId Product Id that is linked as variation.
      * @return self
@@ -144,7 +144,7 @@ class Productvariations implements Model
         $this->propertyFilled('productVariationId');
         return $this;
     }
-    
+
     /**
      * @param string $productVariationHref Href to the product that is linked as variation.
      * @return self
@@ -155,7 +155,7 @@ class Productvariations implements Model
         $this->propertyFilled('productVariationHref');
         return $this;
     }
-    
+
     /**
      * @param bool $autoCreated If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
      * @return self
@@ -166,7 +166,7 @@ class Productvariations implements Model
         $this->propertyFilled('autoCreated');
         return $this;
     }
-    
+
     /**
      * @param bool $active Inactive variation are hidden in the webshop.
      * @return self
@@ -177,7 +177,7 @@ class Productvariations implements Model
         $this->propertyFilled('active');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self

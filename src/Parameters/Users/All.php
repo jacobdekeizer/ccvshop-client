@@ -15,12 +15,12 @@ class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @var string|null Options are pending or accepted.
      */
     private $approvalStatus;
-    
+
     /**
      * @return self
      */
@@ -28,7 +28,7 @@ class All extends PaginatedList implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -37,17 +37,17 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('approvalStatus', $this->approvalStatus)
             ->orderBy($this->getOrderBy());
     }
-    
+
     /**
      * @return string|null Options are pending or accepted.
      */
@@ -55,7 +55,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->approvalStatus;
     }
-    
+
     /**
      * @param string|null $approvalStatus Options are pending or accepted.
      * @return self
@@ -65,38 +65,38 @@ class All extends PaginatedList implements Parameter
         $this->approvalStatus = $approvalStatus;
         return $this;
     }
-    
+
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-    
+
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-    
-    public function orderByFirst_nameAsc(): self
+
+    public function orderByFirstNameAsc(): self
     {
         $this->orderByField('first_name', true);
         return $this;
     }
-    
-    public function orderByFirst_nameDesc(): self
+
+    public function orderByFirstNameDesc(): self
     {
         $this->orderByField('first_name', false);
         return $this;
     }
-    
-    public function orderByLast_nameAsc(): self
+
+    public function orderByLastNameAsc(): self
     {
         $this->orderByField('last_name', true);
         return $this;
     }
-    
-    public function orderByLast_nameDesc(): self
+
+    public function orderByLastNameDesc(): self
     {
         $this->orderByField('last_name', false);
         return $this;

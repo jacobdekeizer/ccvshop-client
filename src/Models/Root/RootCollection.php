@@ -8,7 +8,8 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class RootCollection implements Model
 {
-    use FromArray, ToArray;
+    use FromArray;
+    use ToArray;
 
     /**
      * @var RootItem[] Array with collection items
@@ -57,4 +58,3 @@ class RootCollection implements Model
         return $value;
     }
 }
-

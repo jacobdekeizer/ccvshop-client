@@ -12,17 +12,17 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All implements Parameter
 {
     use FromArray;
-    
+
     /**
      * @var int|null User Group Id, see resource /usergroups.
      */
     private $usergroupId;
-    
+
     /**
      * @var int|null Category Id,  see resource /categories.
      */
     private $categoryId;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class All implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -39,17 +39,17 @@ class All implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('usergroupId', $this->usergroupId)
             ->addOptionalParameter('categoryId', $this->categoryId);
     }
-    
+
     /**
      * @return int|null User Group Id, see resource /usergroups.
      */
@@ -57,7 +57,7 @@ class All implements Parameter
     {
         return $this->usergroupId;
     }
-    
+
     /**
      * @return int|null Category Id,  see resource /categories.
      */
@@ -65,7 +65,7 @@ class All implements Parameter
     {
         return $this->categoryId;
     }
-    
+
     /**
      * @param int|null $usergroupId User Group Id, see resource /usergroups.
      * @return self
@@ -75,7 +75,7 @@ class All implements Parameter
         $this->usergroupId = $usergroupId;
         return $this;
     }
-    
+
     /**
      * @param int|null $categoryId Category Id,  see resource /categories.
      * @return self

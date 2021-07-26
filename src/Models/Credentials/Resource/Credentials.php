@@ -12,27 +12,27 @@ class Credentials implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string Credential label
      */
     private $label;
-    
+
     /**
      * @var string|null Createdate of this credential
      */
     private $createdate;
-    
+
     /**
      * @return self
      */
@@ -40,7 +40,7 @@ class Credentials implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -48,7 +48,7 @@ class Credentials implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -56,7 +56,7 @@ class Credentials implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Credential label
      */
@@ -64,7 +64,7 @@ class Credentials implements Model
     {
         return $this->label;
     }
-    
+
     /**
      * @return string|null Createdate of this credential
      */
@@ -72,7 +72,7 @@ class Credentials implements Model
     {
         return $this->createdate;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -83,7 +83,7 @@ class Credentials implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -94,7 +94,7 @@ class Credentials implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $label Credential label
      * @return self
@@ -105,7 +105,7 @@ class Credentials implements Model
         $this->propertyFilled('label');
         return $this;
     }
-    
+
     /**
      * @param string|null $createdate Createdate of this credential
      * @return self

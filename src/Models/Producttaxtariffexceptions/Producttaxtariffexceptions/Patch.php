@@ -12,17 +12,17 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null ISO 2Code for the country of the tax tariff exception.
      */
     private $country;
-    
+
     /**
      * @var string|null The tax tariff of the exception
      */
     private $taxtariff;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null ISO 2Code for the country of the tax tariff exception.
      */
@@ -38,7 +38,7 @@ class Patch implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string|null The tax tariff of the exception
      */
@@ -46,7 +46,7 @@ class Patch implements Model
     {
         return $this->taxtariff;
     }
-    
+
     /**
      * @param string|null $country ISO 2Code for the country of the tax tariff exception.
      * @return self
@@ -57,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string|null $taxtariff The tax tariff of the exception
      * @return self

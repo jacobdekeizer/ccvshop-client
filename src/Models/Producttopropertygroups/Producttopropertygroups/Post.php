@@ -12,17 +12,17 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Unique product id
      */
     private $productId;
-    
+
     /**
      * @var int Unique id of the product property group
      */
     private $productPropertyGroupId;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Unique product id
      */
@@ -38,7 +38,7 @@ class Post implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return int Unique id of the product property group
      */
@@ -46,7 +46,7 @@ class Post implements Model
     {
         return $this->productPropertyGroupId;
     }
-    
+
     /**
      * @param int $productId Unique product id
      * @return self
@@ -57,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param int $productPropertyGroupId Unique id of the product property group
      * @return self

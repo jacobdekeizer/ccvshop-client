@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
     private $orderrows;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->orderrows;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input[] $orderrows Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      * @return self
@@ -48,14 +48,14 @@ class Put implements Model
     {
         if ($key === 'orderrows') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

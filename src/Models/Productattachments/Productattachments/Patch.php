@@ -12,17 +12,17 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Attachment name
      */
     private $displayname;
-    
+
     /**
      * @var int|null Attachment position
      */
     private $position;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Attachment name
      */
@@ -38,7 +38,7 @@ class Patch implements Model
     {
         return $this->displayname;
     }
-    
+
     /**
      * @return int|null Attachment position
      */
@@ -46,7 +46,7 @@ class Patch implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @param string|null $displayname Attachment name
      * @return self
@@ -57,7 +57,7 @@ class Patch implements Model
         $this->propertyFilled('displayname');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Attachment position
      * @return self

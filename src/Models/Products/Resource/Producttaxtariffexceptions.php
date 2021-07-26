@@ -12,37 +12,37 @@ class Producttaxtariffexceptions implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource.
      */
     private $id;
-    
+
     /**
      * @var int Unique id of the product
      */
     private $productId;
-    
+
     /**
      * @var string ISO 2Code for the country of the tax tariff exception.
      */
     private $country;
-    
+
     /**
      * @var string The tax tariff of the exception
      */
     private $taxtariff;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Producttaxtariffexceptions implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -58,7 +58,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource.
      */
@@ -66,7 +66,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Unique id of the product
      */
@@ -74,7 +74,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return string ISO 2Code for the country of the tax tariff exception.
      */
@@ -82,7 +82,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string The tax tariff of the exception
      */
@@ -90,7 +90,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->taxtariff;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null Contains link to parent product
      */
@@ -98,7 +98,7 @@ class Producttaxtariffexceptions implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Producttaxtariffexceptions implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource.
      * @return self
@@ -120,7 +120,7 @@ class Producttaxtariffexceptions implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $productId Unique id of the product
      * @return self
@@ -131,7 +131,7 @@ class Producttaxtariffexceptions implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param string $country ISO 2Code for the country of the tax tariff exception.
      * @return self
@@ -142,7 +142,7 @@ class Producttaxtariffexceptions implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string $taxtariff The tax tariff of the exception
      * @return self
@@ -153,7 +153,7 @@ class Producttaxtariffexceptions implements Model
         $this->propertyFilled('taxtariff');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\ParentItem|null $parent Contains link to parent product
      * @return self

@@ -12,42 +12,42 @@ class Productphotos implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Product photo id
      */
     private $id;
-    
+
     /**
      * @var string Product photo filename
      */
     private $filename;
-    
+
     /**
      * @var string|null Product photo alttext
      */
     private $alttext;
-    
+
     /**
      * @var bool Product photo marked as mainphoto
      */
     private $isMainphoto;
-    
+
     /**
      * @var string Product photo deeplink
      */
     private $deeplink;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Productphotos implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -63,7 +63,7 @@ class Productphotos implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Product photo id
      */
@@ -71,7 +71,7 @@ class Productphotos implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Product photo filename
      */
@@ -79,7 +79,7 @@ class Productphotos implements Model
     {
         return $this->filename;
     }
-    
+
     /**
      * @return string|null Product photo alttext
      */
@@ -87,7 +87,7 @@ class Productphotos implements Model
     {
         return $this->alttext;
     }
-    
+
     /**
      * @return bool Product photo marked as mainphoto
      */
@@ -95,7 +95,7 @@ class Productphotos implements Model
     {
         return $this->isMainphoto;
     }
-    
+
     /**
      * @return string Product photo deeplink
      */
@@ -103,7 +103,7 @@ class Productphotos implements Model
     {
         return $this->deeplink;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -111,7 +111,7 @@ class Productphotos implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -122,7 +122,7 @@ class Productphotos implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Product photo id
      * @return self
@@ -133,7 +133,7 @@ class Productphotos implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $filename Product photo filename
      * @return self
@@ -144,7 +144,7 @@ class Productphotos implements Model
         $this->propertyFilled('filename');
         return $this;
     }
-    
+
     /**
      * @param string|null $alttext Product photo alttext
      * @return self
@@ -155,7 +155,7 @@ class Productphotos implements Model
         $this->propertyFilled('alttext');
         return $this;
     }
-    
+
     /**
      * @param bool $isMainphoto Product photo marked as mainphoto
      * @return self
@@ -166,7 +166,7 @@ class Productphotos implements Model
         $this->propertyFilled('isMainphoto');
         return $this;
     }
-    
+
     /**
      * @param string $deeplink Product photo deeplink
      * @return self
@@ -177,7 +177,7 @@ class Productphotos implements Model
         $this->propertyFilled('deeplink');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

@@ -12,12 +12,12 @@ class Creditpointmutations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to creditpoinmutations collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Creditpointmutations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to creditpoinmutations collection
      */
@@ -33,7 +33,7 @@ class Creditpointmutations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to creditpoinmutations collection
      * @return self

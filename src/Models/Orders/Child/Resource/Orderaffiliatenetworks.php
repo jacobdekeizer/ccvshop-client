@@ -12,12 +12,12 @@ class Orderaffiliatenetworks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to affiliate of order
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Orderaffiliatenetworks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to affiliate of order
      */
@@ -33,7 +33,7 @@ class Orderaffiliatenetworks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string|null $href Link to affiliate of order
      * @return self

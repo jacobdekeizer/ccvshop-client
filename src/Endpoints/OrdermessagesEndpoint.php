@@ -10,7 +10,7 @@ class OrdermessagesEndpoint extends BaseEndpoint
 {
     /**
      * Delete one specific message. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class OrdermessagesEndpoint extends BaseEndpoint
             'ordermessages/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all messages from this order. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromOrder(int $id, \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrder $parameter = null): \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages
@@ -31,18 +31,18 @@ class OrdermessagesEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrder();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'orders/' . $id . '/ordermessages/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages::fromArray($result);
     }
-    
+
     /**
      * Get one specific message. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
@@ -51,13 +51,13 @@ class OrdermessagesEndpoint extends BaseEndpoint
             self::GET,
             'ordermessages/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages::fromArray($result);
     }
-    
+
     /**
      * Create a new order message. This message will also be emailed to the customer. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForOrder(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
@@ -67,7 +67,7 @@ class OrdermessagesEndpoint extends BaseEndpoint
             'orders/' . $id . '/ordermessages/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages::fromArray($result);
     }
 }

@@ -12,12 +12,12 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var bool Is the review approved for publishing.
      */
     private $approved;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return bool Is the review approved for publishing.
      */
@@ -33,7 +33,7 @@ class Patch implements Model
     {
         return $this->approved;
     }
-    
+
     /**
      * @param bool $approved Is the review approved for publishing.
      * @return self

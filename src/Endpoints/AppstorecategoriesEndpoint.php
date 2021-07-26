@@ -10,7 +10,7 @@ class AppstorecategoriesEndpoint extends BaseEndpoint
 {
     /**
      * Gets one appstore categorie. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Appstorecategories\Resource\Appstorecategories
@@ -19,13 +19,13 @@ class AppstorecategoriesEndpoint extends BaseEndpoint
             self::GET,
             'appstorecategories/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Appstorecategories\Resource\Appstorecategories::fromArray($result);
     }
-    
+
     /**
      * Gets all appsstore categories. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Appstorecategories\Collection\Appstorecategories
@@ -34,7 +34,7 @@ class AppstorecategoriesEndpoint extends BaseEndpoint
             self::GET,
             'appstorecategories/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Appstorecategories\Collection\Appstorecategories::fromArray($result);
     }
 }

@@ -12,12 +12,12 @@ class Input implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Package name. Used in the merchant's backend as display name. This does not support translations.
      */
     private $name;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Package name. Used in the merchant's backend as display name. This does not support translations.
      */
@@ -33,7 +33,7 @@ class Input implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name Package name. Used in the merchant's backend as display name. This does not support translations.
      * @return self

@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post[] Replaces all attributes at this row.
      */
     private $attributes;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post[] Replaces all attributes at this row.
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->attributes;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post[] $attributes Replaces all attributes at this row.
      * @return self
@@ -48,14 +48,14 @@ class Put implements Model
     {
         if ($key === 'attributes') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

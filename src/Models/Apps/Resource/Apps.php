@@ -12,102 +12,102 @@ class Apps implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null App Name
      */
     private $name;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\EurPrices|null The price of the app in Euros.
      */
     private $eurPrices;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ChfPrices|null The price of the app in CHF.
      */
     private $chfPrices;
-    
+
     /**
      * @var string|null The create date of the app.
      */
     private $createDate;
-    
+
     /**
      * @var string|null App Name
      */
     private $modifiedDate;
-    
+
     /**
      * @var string|null The description of the app.
      */
     private $description;
-    
+
     /**
      * @var string|null Cover image.
      */
     private $cover;
-    
+
     /**
      * @var string|null Logo image.
      */
     private $logo;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Developer|null The developer of this app.
      */
     private $developer;
-    
+
     /**
      * @var float|null The number how many times the app is installed.
      */
     private $numberOfInstallations;
-    
+
     /**
      * @var bool Marks if an app is installed in the webshop.
      */
     private $isInstalled;
-    
+
     /**
      * @var string[]|null Array with available languages.
      */
     private $availableLanguages;
-    
+
     /**
      * @var string[]|null Array with available photos.
      */
     private $photos;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Categories|null Collection of categories.
      */
     private $categories;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\CodeBlocks|null Child resource of this resource. Contains all the code blocks associated with this app.
      */
     private $codeBlocks;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Psp|null Child resource of this resource. Contains all the Payment Service Providers associated with this app.
      */
     private $psp;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -115,7 +115,7 @@ class Apps implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -123,7 +123,7 @@ class Apps implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -131,7 +131,7 @@ class Apps implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null App Name
      */
@@ -139,7 +139,7 @@ class Apps implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\EurPrices|null The price of the app in Euros.
      */
@@ -147,7 +147,7 @@ class Apps implements Model
     {
         return $this->eurPrices;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ChfPrices|null The price of the app in CHF.
      */
@@ -155,7 +155,7 @@ class Apps implements Model
     {
         return $this->chfPrices;
     }
-    
+
     /**
      * @return string|null The create date of the app.
      */
@@ -163,7 +163,7 @@ class Apps implements Model
     {
         return $this->createDate;
     }
-    
+
     /**
      * @return string|null App Name
      */
@@ -171,7 +171,7 @@ class Apps implements Model
     {
         return $this->modifiedDate;
     }
-    
+
     /**
      * @return string|null The description of the app.
      */
@@ -179,7 +179,7 @@ class Apps implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return string|null Cover image.
      */
@@ -187,7 +187,7 @@ class Apps implements Model
     {
         return $this->cover;
     }
-    
+
     /**
      * @return string|null Logo image.
      */
@@ -195,7 +195,7 @@ class Apps implements Model
     {
         return $this->logo;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Developer|null The developer of this app.
      */
@@ -203,7 +203,7 @@ class Apps implements Model
     {
         return $this->developer;
     }
-    
+
     /**
      * @return float|null The number how many times the app is installed.
      */
@@ -211,7 +211,7 @@ class Apps implements Model
     {
         return $this->numberOfInstallations;
     }
-    
+
     /**
      * @return bool Marks if an app is installed in the webshop.
      */
@@ -219,7 +219,7 @@ class Apps implements Model
     {
         return $this->isInstalled;
     }
-    
+
     /**
      * @return string[]|null Array with available languages.
      */
@@ -227,7 +227,7 @@ class Apps implements Model
     {
         return $this->availableLanguages;
     }
-    
+
     /**
      * @return string[]|null Array with available photos.
      */
@@ -235,7 +235,7 @@ class Apps implements Model
     {
         return $this->photos;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Categories|null Collection of categories.
      */
@@ -243,7 +243,7 @@ class Apps implements Model
     {
         return $this->categories;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\CodeBlocks|null Child resource of this resource. Contains all the code blocks associated with this app.
      */
@@ -251,7 +251,7 @@ class Apps implements Model
     {
         return $this->codeBlocks;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Psp|null Child resource of this resource. Contains all the Payment Service Providers associated with this app.
      */
@@ -259,7 +259,7 @@ class Apps implements Model
     {
         return $this->psp;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -267,7 +267,7 @@ class Apps implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -278,7 +278,7 @@ class Apps implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -289,7 +289,7 @@ class Apps implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name App Name
      * @return self
@@ -300,7 +300,7 @@ class Apps implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\EurPrices|null $eurPrices The price of the app in Euros.
      * @return self
@@ -311,7 +311,7 @@ class Apps implements Model
         $this->propertyFilled('eurPrices');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ChfPrices|null $chfPrices The price of the app in CHF.
      * @return self
@@ -322,7 +322,7 @@ class Apps implements Model
         $this->propertyFilled('chfPrices');
         return $this;
     }
-    
+
     /**
      * @param string|null $createDate The create date of the app.
      * @return self
@@ -333,7 +333,7 @@ class Apps implements Model
         $this->propertyFilled('createDate');
         return $this;
     }
-    
+
     /**
      * @param string|null $modifiedDate App Name
      * @return self
@@ -344,7 +344,7 @@ class Apps implements Model
         $this->propertyFilled('modifiedDate');
         return $this;
     }
-    
+
     /**
      * @param string|null $description The description of the app.
      * @return self
@@ -355,7 +355,7 @@ class Apps implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param string|null $cover Cover image.
      * @return self
@@ -366,7 +366,7 @@ class Apps implements Model
         $this->propertyFilled('cover');
         return $this;
     }
-    
+
     /**
      * @param string|null $logo Logo image.
      * @return self
@@ -377,7 +377,7 @@ class Apps implements Model
         $this->propertyFilled('logo');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Developer|null $developer The developer of this app.
      * @return self
@@ -388,7 +388,7 @@ class Apps implements Model
         $this->propertyFilled('developer');
         return $this;
     }
-    
+
     /**
      * @param float|null $numberOfInstallations The number how many times the app is installed.
      * @return self
@@ -399,7 +399,7 @@ class Apps implements Model
         $this->propertyFilled('numberOfInstallations');
         return $this;
     }
-    
+
     /**
      * @param bool $isInstalled Marks if an app is installed in the webshop.
      * @return self
@@ -410,7 +410,7 @@ class Apps implements Model
         $this->propertyFilled('isInstalled');
         return $this;
     }
-    
+
     /**
      * @param string[]|null $availableLanguages Array with available languages.
      * @return self
@@ -421,7 +421,7 @@ class Apps implements Model
         $this->propertyFilled('availableLanguages');
         return $this;
     }
-    
+
     /**
      * @param string[]|null $photos Array with available photos.
      * @return self
@@ -432,7 +432,7 @@ class Apps implements Model
         $this->propertyFilled('photos');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Categories|null $categories Collection of categories.
      * @return self
@@ -443,7 +443,7 @@ class Apps implements Model
         $this->propertyFilled('categories');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\CodeBlocks|null $codeBlocks Child resource of this resource. Contains all the code blocks associated with this app.
      * @return self
@@ -454,7 +454,7 @@ class Apps implements Model
         $this->propertyFilled('codeBlocks');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\Psp|null $psp Child resource of this resource. Contains all the Payment Service Providers associated with this app.
      * @return self
@@ -465,7 +465,7 @@ class Apps implements Model
         $this->propertyFilled('psp');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apps\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

@@ -12,22 +12,22 @@ class User implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int|null Unique id of the user. If null, no user was associated with this order
      */
     private $id;
-    
+
     /**
      * @var float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
      */
     private $discountPercentage;
-    
+
     /**
      * @var string|null Link to user associated with this order
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class User implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int|null Unique id of the user. If null, no user was associated with this order
      */
@@ -43,7 +43,7 @@ class User implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
      */
@@ -51,7 +51,7 @@ class User implements Model
     {
         return $this->discountPercentage;
     }
-    
+
     /**
      * @return string|null Link to user associated with this order
      */
@@ -59,7 +59,7 @@ class User implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int|null $id Unique id of the user. If null, no user was associated with this order
      * @return self
@@ -70,7 +70,7 @@ class User implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param float|null $discountPercentage Percentage of discount this use received on this order. This discount is already calculated in the prices
      * @return self
@@ -81,7 +81,7 @@ class User implements Model
         $this->propertyFilled('discountPercentage');
         return $this;
     }
-    
+
     /**
      * @param string|null $href Link to user associated with this order
      * @return self

@@ -12,17 +12,17 @@ class Productkeywords implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of product keywords
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productkeywords[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Productkeywords implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of product keywords
      */
@@ -38,7 +38,7 @@ class Productkeywords implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productkeywords[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Productkeywords implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param string $href Link to collection of product keywords
      * @return self
@@ -57,7 +57,7 @@ class Productkeywords implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productkeywords[] $collection Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Productkeywords implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Productkeywords::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

@@ -12,37 +12,37 @@ class Categoryproductlayouts implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string|null Layout name
      */
     private $name;
-    
+
     /**
      * @var bool|null If this layout has the option to define colors
      */
     private $hasColorScheme;
-    
+
     /**
      * @var bool|null If this layout has the option to show an order button
      */
     private $hasOrderButton;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Categoryproductlayouts implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -58,7 +58,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Layout name
      */
@@ -74,7 +74,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return bool|null If this layout has the option to define colors
      */
@@ -82,7 +82,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->hasColorScheme;
     }
-    
+
     /**
      * @return bool|null If this layout has the option to show an order button
      */
@@ -90,7 +90,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->hasOrderButton;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -98,7 +98,7 @@ class Categoryproductlayouts implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Categoryproductlayouts implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Categoryproductlayouts implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Layout name
      * @return self
@@ -131,7 +131,7 @@ class Categoryproductlayouts implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param bool|null $hasColorScheme If this layout has the option to define colors
      * @return self
@@ -142,7 +142,7 @@ class Categoryproductlayouts implements Model
         $this->propertyFilled('hasColorScheme');
         return $this;
     }
-    
+
     /**
      * @param bool|null $hasOrderButton If this layout has the option to show an order button
      * @return self
@@ -153,7 +153,7 @@ class Categoryproductlayouts implements Model
         $this->propertyFilled('hasOrderButton');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Categoryproductlayouts\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

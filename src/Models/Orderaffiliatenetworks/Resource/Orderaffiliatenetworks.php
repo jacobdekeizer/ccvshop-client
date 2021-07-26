@@ -12,27 +12,27 @@ class Orderaffiliatenetworks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self.
      */
     private $href;
-    
+
     /**
      * @var string|null Order affiliate network name.
      */
     private $name;
-    
+
     /**
      * @var string|null The transaction id of the affiliate network.
      */
     private $transactionId;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Child\Resource\ParentItem|null Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -40,7 +40,7 @@ class Orderaffiliatenetworks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self.
      */
@@ -48,7 +48,7 @@ class Orderaffiliatenetworks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return string|null Order affiliate network name.
      */
@@ -56,7 +56,7 @@ class Orderaffiliatenetworks implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null The transaction id of the affiliate network.
      */
@@ -64,7 +64,7 @@ class Orderaffiliatenetworks implements Model
     {
         return $this->transactionId;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Child\Resource\ParentItem|null Contains link to parent resource.
      */
@@ -72,7 +72,7 @@ class Orderaffiliatenetworks implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self.
      * @return self
@@ -83,7 +83,7 @@ class Orderaffiliatenetworks implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Order affiliate network name.
      * @return self
@@ -94,7 +94,7 @@ class Orderaffiliatenetworks implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $transactionId The transaction id of the affiliate network.
      * @return self
@@ -105,7 +105,7 @@ class Orderaffiliatenetworks implements Model
         $this->propertyFilled('transactionId');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Child\Resource\ParentItem|null $parent Contains link to parent resource.
      * @return self

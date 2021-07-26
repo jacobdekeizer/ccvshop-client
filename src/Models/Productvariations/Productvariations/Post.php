@@ -12,17 +12,17 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int Product Id that is linked as variation.
      */
     private $productVariationId;
-    
+
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
     private $active;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int Product Id that is linked as variation.
      */
@@ -38,7 +38,7 @@ class Post implements Model
     {
         return $this->productVariationId;
     }
-    
+
     /**
      * @return bool Inactive variation are hidden in the webshop.
      */
@@ -46,7 +46,7 @@ class Post implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @param int $productVariationId Product Id that is linked as variation.
      * @return self
@@ -57,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('productVariationId');
         return $this;
     }
-    
+
     /**
      * @param bool $active Inactive variation are hidden in the webshop.
      * @return self

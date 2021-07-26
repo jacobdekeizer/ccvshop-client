@@ -12,12 +12,12 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null The text of this note.
      */
     private $note;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null The text of this note.
      */
@@ -33,7 +33,7 @@ class Post implements Model
     {
         return $this->note;
     }
-    
+
     /**
      * @param string|null $note The text of this note.
      * @return self

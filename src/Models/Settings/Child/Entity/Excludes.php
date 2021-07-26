@@ -12,32 +12,32 @@ class Excludes implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Exclusion date
      */
     private $date;
-    
+
     /**
      * @var string Start time for the period
      */
     private $timefrom;
-    
+
     /**
      * @var string End time for the period
      */
     private $timetill;
-    
+
     /**
      * @var string Checkout type
      */
     private $checkouttype;
-    
+
     /**
      * @var int Capacity (maxiumum orders) for the slots based on the takeout period
      */
     private $capacity;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Excludes implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Exclusion date
      */
@@ -53,7 +53,7 @@ class Excludes implements Model
     {
         return $this->date;
     }
-    
+
     /**
      * @return string Start time for the period
      */
@@ -61,7 +61,7 @@ class Excludes implements Model
     {
         return $this->timefrom;
     }
-    
+
     /**
      * @return string End time for the period
      */
@@ -69,7 +69,7 @@ class Excludes implements Model
     {
         return $this->timetill;
     }
-    
+
     /**
      * @return string Checkout type
      */
@@ -77,7 +77,7 @@ class Excludes implements Model
     {
         return $this->checkouttype;
     }
-    
+
     /**
      * @return int Capacity (maxiumum orders) for the slots based on the takeout period
      */
@@ -85,7 +85,7 @@ class Excludes implements Model
     {
         return $this->capacity;
     }
-    
+
     /**
      * @param string $date Exclusion date
      * @return self
@@ -96,7 +96,7 @@ class Excludes implements Model
         $this->propertyFilled('date');
         return $this;
     }
-    
+
     /**
      * @param string $timefrom Start time for the period
      * @return self
@@ -107,7 +107,7 @@ class Excludes implements Model
         $this->propertyFilled('timefrom');
         return $this;
     }
-    
+
     /**
      * @param string $timetill End time for the period
      * @return self
@@ -118,7 +118,7 @@ class Excludes implements Model
         $this->propertyFilled('timetill');
         return $this;
     }
-    
+
     /**
      * @param string $checkouttype Checkout type
      * @return self
@@ -129,7 +129,7 @@ class Excludes implements Model
         $this->propertyFilled('checkouttype');
         return $this;
     }
-    
+
     /**
      * @param int $capacity Capacity (maxiumum orders) for the slots based on the takeout period
      * @return self

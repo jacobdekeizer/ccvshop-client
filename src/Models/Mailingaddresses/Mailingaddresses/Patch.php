@@ -12,32 +12,32 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Name of mailingaddress owner
      */
     private $name;
-    
+
     /**
      * @var string|null Companyname of mailingaddress owner
      */
     private $companyname;
-    
+
     /**
      * @var string|null Mailingaddress
      */
     private $email;
-    
+
     /**
      * @var string|null Language of mailingaddress owner
      */
     private $language;
-    
+
     /**
      * @var bool|null Is mailingaddress enabled
      */
     private $enable;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Name of mailingaddress owner
      */
@@ -53,7 +53,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Companyname of mailingaddress owner
      */
@@ -61,7 +61,7 @@ class Patch implements Model
     {
         return $this->companyname;
     }
-    
+
     /**
      * @return string|null Mailingaddress
      */
@@ -69,7 +69,7 @@ class Patch implements Model
     {
         return $this->email;
     }
-    
+
     /**
      * @return string|null Language of mailingaddress owner
      */
@@ -77,7 +77,7 @@ class Patch implements Model
     {
         return $this->language;
     }
-    
+
     /**
      * @return bool|null Is mailingaddress enabled
      */
@@ -85,7 +85,7 @@ class Patch implements Model
     {
         return $this->enable;
     }
-    
+
     /**
      * @param string|null $name Name of mailingaddress owner
      * @return self
@@ -96,7 +96,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $companyname Companyname of mailingaddress owner
      * @return self
@@ -107,7 +107,7 @@ class Patch implements Model
         $this->propertyFilled('companyname');
         return $this;
     }
-    
+
     /**
      * @param string|null $email Mailingaddress
      * @return self
@@ -118,7 +118,7 @@ class Patch implements Model
         $this->propertyFilled('email');
         return $this;
     }
-    
+
     /**
      * @param string|null $language Language of mailingaddress owner
      * @return self
@@ -129,7 +129,7 @@ class Patch implements Model
         $this->propertyFilled('language');
         return $this;
     }
-    
+
     /**
      * @param bool|null $enable Is mailingaddress enabled
      * @return self

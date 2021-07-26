@@ -12,22 +12,22 @@ class Productshippingcosts implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] Array with collection items
      */
     private $items;
-    
+
     /**
      * @var float|null Optional value of the parameter.
      */
     private $quantity;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Productshippingcosts implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -43,7 +43,7 @@ class Productshippingcosts implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] Array with collection items
      */
@@ -51,7 +51,7 @@ class Productshippingcosts implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @return float|null Optional value of the parameter.
      */
@@ -59,7 +59,7 @@ class Productshippingcosts implements Model
     {
         return $this->quantity;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -70,7 +70,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts[] $items Array with collection items
      * @return self
@@ -81,7 +81,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('items');
         return $this;
     }
-    
+
     /**
      * @param float|null $quantity Optional value of the parameter.
      * @return self
@@ -96,14 +96,14 @@ class Productshippingcosts implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productshippingcosts\Resource\Productshippingcosts::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

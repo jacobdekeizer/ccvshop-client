@@ -12,22 +12,22 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string When a visitor requests this url, he will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
     private $sourceUrl;
-    
+
     /**
      * @var string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
     private $targetUrl;
-    
+
     /**
      * @var bool Inactive redirects will be ignored.
      */
     private $active;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string When a visitor requests this url, he will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
@@ -43,7 +43,7 @@ class Post implements Model
     {
         return $this->sourceUrl;
     }
-    
+
     /**
      * @return string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
@@ -51,7 +51,7 @@ class Post implements Model
     {
         return $this->targetUrl;
     }
-    
+
     /**
      * @return bool Inactive redirects will be ignored.
      */
@@ -59,7 +59,7 @@ class Post implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @param string $sourceUrl When a visitor requests this url, he will be forwarded to target_url. This source_url will also be relative and must be unique.
      * @return self
@@ -70,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('sourceUrl');
         return $this;
     }
-    
+
     /**
      * @param string $targetUrl Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      * @return self
@@ -81,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('targetUrl');
         return $this;
     }
-    
+
     /**
      * @param bool $active Inactive redirects will be ignored.
      * @return self

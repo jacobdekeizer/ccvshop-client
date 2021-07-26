@@ -13,7 +13,7 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class AllFromQuotation extends PaginatedList implements Parameter
 {
     use FromArray;
-    
+
     /**
      * @return self
      */
@@ -21,7 +21,7 @@ class AllFromQuotation extends PaginatedList implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -30,10 +30,10 @@ class AllFromQuotation extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())

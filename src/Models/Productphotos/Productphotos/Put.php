@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post[] Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      */
     private $productphotos;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post[] Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->productphotos;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post[] $productphotos Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      * @return self
@@ -48,14 +48,14 @@ class Put implements Model
     {
         if ($key === 'productphotos') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

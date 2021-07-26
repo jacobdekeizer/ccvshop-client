@@ -12,312 +12,312 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Product number
      */
     private $productnumber;
-    
+
     /**
      * @var bool|null Active product?
      */
     private $active;
-    
+
     /**
      * @var string|null EAN (European Article Number)
      */
     private $eannumber;
-    
+
     /**
      * @var string|null Manufacturer Product Number
      */
     private $mpnnumber;
-    
+
     /**
      * @var string|null Product name
      */
     private $name;
-    
+
     /**
      * @var string|null Product short description
      */
     private $shortdescription;
-    
+
     /**
      * @var string|null Product description
      */
     private $description;
-    
+
     /**
      * @var float|null Deprecated. VAT rate of product in percentage.
      */
     private $vatrate;
-    
+
     /**
      * @var string|null The tax tariff of the product
      */
     private $taxtariff;
-    
+
     /**
      * @var float|null Original price of the product, before discounts
      */
     private $price;
-    
+
     /**
      * @var float|null Discount on the product. Price - Discount = Sell price
      */
     private $discount;
-    
+
     /**
      * @var float|null Purchase price ex. VAT off this product.
      */
     private $purchaseprice;
-    
+
     /**
      * @var float|null This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      */
     private $containerDepositPrice;
-    
+
     /**
      * @var float|null This price will be added to the total price as a safety deposit (in Dutch: Borg).
      */
     private $safetyDepositPrice;
-    
+
     /**
      * @var int|null Custom creditpoints for this product
      */
     private $creditPointsCustom;
-    
+
     /**
      * @var string|null The unit in which this product is sold (ie 'per piece')
      */
     private $unit;
-    
+
     /**
      * @var bool|null This product has stock
      */
     private $stockenabled;
-    
+
     /**
      * @var string|null If the stock amount is linked to the product of the attribute combination
      */
     private $stocktype;
-    
+
     /**
      * @var float|null The quantity in stock for this product
      */
     private $stock;
-    
+
     /**
      * @var string|null The location of the product's stock
      */
     private $stocklocation;
-    
+
     /**
      * @var string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      */
     private $orderingWithoutStock;
-    
+
     /**
      * @var float|null Weight of the product in kilograms
      */
     private $weight;
-    
+
     /**
      * @var string|null Deprecated. Product brand. Please use brand_id.
      */
     private $brand;
-    
+
     /**
      * @var int|null Id of the brand, the brand id are available in the resource brands
      */
     private $brandId;
-    
+
     /**
      * @var int|null Id of the condition, the condition id are available in the resource conditions
      */
     private $conditionId;
-    
+
     /**
      * @var int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
      */
     private $colorId;
-    
+
     /**
      * @var string|null Deprecated. Product condition. Please use condition_id.
      */
     private $condition;
-    
+
     /**
      * @var string|null Main category of this product for exports and searches. This does not influence the category structure.
      */
     private $maincategory;
-    
+
     /**
      * @var string|null Sub category of this product for exports and searches. This does not influence the category structure.
      */
     private $subcategory;
-    
+
     /**
      * @var int|null Package id of this product
      */
     private $packageId;
-    
+
     /**
      * @var string|null Metatag Description
      */
     private $metaDescription;
-    
+
     /**
      * @var string|null Metatag Keywords
      */
     private $metaKeywords;
-    
+
     /**
      * @var string|null Page title
      */
     private $pageTitle;
-    
+
     /**
      * @var bool|null Metatag robots: No-Index
      */
     private $noIndex;
-    
+
     /**
      * @var bool|null Metatag robots: No-Follow
      */
     private $noFollow;
-    
+
     /**
      * @var string|null SEO Alias of this resource
      */
     private $alias;
-    
+
     /**
      * @var string|null Specification link
      */
     private $specs;
-    
+
     /**
      * @var int|null Number of decimals that can be used in amounts
      */
     private $decimalAmount;
-    
+
     /**
      * @var float|null Minimal order amount
      */
     private $minimalOrderAmount;
-    
+
     /**
      * @var int|null Expected delivery time, number of days, weeks, months, quarters, years
      */
     private $stockDeliveryNumber;
-    
+
     /**
      * @var string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
     private $stockDeliveryType;
-    
+
     /**
      * @var string|null This field will be showed as the standard delivery text
      */
     private $stockDeliveryStandard;
-    
+
     /**
      * @var bool|null Show the product in the window offers
      */
     private $showInTemplate;
-    
+
     /**
      * @var bool|null Show the product as a offer at the beginpage or offer element
      */
     private $showOnBeginpage;
-    
+
     /**
      * @var bool|null Show the product in the facebook shop when available
      */
     private $showOnFacebook;
-    
+
     /**
      * @var string|null Show order/offer button Y=show QUOTATION=offer button N=No button
      */
     private $showOrderButton;
-    
+
     /**
      * @var int|null Product Layout 1=Standard layout, 2=Quick order, 3=Split layout, 4=Tab Layout
      */
     private $productLayout;
-    
+
     /**
      * @var string|null The photo description size
      */
     private $photoSize;
-    
+
     /**
      * @var string|null Hide the product when it has not any categories. YES=Hide, NO_DIRECTLINK=No, the product can be found by direct url, NO_SEARCHRESULTS=No, Product can be found in the searchresults
      */
     private $hideWithoutCategory;
-    
+
     /**
      * @var string|null Internal memo for internal purpose only
      */
     private $memo;
-    
+
     /**
      * @var int|null Id of the supplier, the supplier id are available in the resource suppliers
      */
     private $supplierId;
-    
+
     /**
      * @var bool|null Enable / disable fixed staggered prices
      */
     private $fixedStaggeredPrices;
-    
+
     /**
      * @var bool|null Enable / disable Marktplaats.
      */
     private $marktplaatsActive;
-    
+
     /**
      * @var string|null The status for this advertisement
      */
     private $marktplaatsStatus;
-    
+
     /**
      * @var float|null Cost per click in euro cents
      */
     private $marktplaatsCpc;
-    
+
     /**
      * @var float|null Daily budget for this advertisement in euro cents
      */
     private $marktplaatsDailyBudget;
-    
+
     /**
      * @var float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      */
     private $marktplaatsTotalBudget;
-    
+
     /**
      * @var int|null The Marktplaats category Id
      */
     private $marktplaatsCategoryId;
-    
+
     /**
      * @var string|null The price type
      */
     private $marktplaatsPriceType;
-    
+
     /**
      * @var string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      */
     private $googleShoppingCategory;
-    
+
     /**
      * @var bool|null Is this product included in the export feed
      */
     private $isIncludedForExportFeed;
-    
+
     /**
      * @return self
      */
@@ -325,7 +325,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Product number
      */
@@ -333,7 +333,7 @@ class Patch implements Model
     {
         return $this->productnumber;
     }
-    
+
     /**
      * @return bool|null Active product?
      */
@@ -341,7 +341,7 @@ class Patch implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @return string|null EAN (European Article Number)
      */
@@ -349,7 +349,7 @@ class Patch implements Model
     {
         return $this->eannumber;
     }
-    
+
     /**
      * @return string|null Manufacturer Product Number
      */
@@ -357,7 +357,7 @@ class Patch implements Model
     {
         return $this->mpnnumber;
     }
-    
+
     /**
      * @return string|null Product name
      */
@@ -365,7 +365,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Product short description
      */
@@ -373,7 +373,7 @@ class Patch implements Model
     {
         return $this->shortdescription;
     }
-    
+
     /**
      * @return string|null Product description
      */
@@ -381,7 +381,7 @@ class Patch implements Model
     {
         return $this->description;
     }
-    
+
     /**
      * @return float|null Deprecated. VAT rate of product in percentage.
      */
@@ -389,7 +389,7 @@ class Patch implements Model
     {
         return $this->vatrate;
     }
-    
+
     /**
      * @return string|null The tax tariff of the product
      */
@@ -397,7 +397,7 @@ class Patch implements Model
     {
         return $this->taxtariff;
     }
-    
+
     /**
      * @return float|null Original price of the product, before discounts
      */
@@ -405,7 +405,7 @@ class Patch implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return float|null Discount on the product. Price - Discount = Sell price
      */
@@ -413,7 +413,7 @@ class Patch implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return float|null Purchase price ex. VAT off this product.
      */
@@ -421,7 +421,7 @@ class Patch implements Model
     {
         return $this->purchaseprice;
     }
-    
+
     /**
      * @return float|null This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      */
@@ -429,7 +429,7 @@ class Patch implements Model
     {
         return $this->containerDepositPrice;
     }
-    
+
     /**
      * @return float|null This price will be added to the total price as a safety deposit (in Dutch: Borg).
      */
@@ -437,7 +437,7 @@ class Patch implements Model
     {
         return $this->safetyDepositPrice;
     }
-    
+
     /**
      * @return int|null Custom creditpoints for this product
      */
@@ -445,7 +445,7 @@ class Patch implements Model
     {
         return $this->creditPointsCustom;
     }
-    
+
     /**
      * @return string|null The unit in which this product is sold (ie 'per piece')
      */
@@ -453,7 +453,7 @@ class Patch implements Model
     {
         return $this->unit;
     }
-    
+
     /**
      * @return bool|null This product has stock
      */
@@ -461,7 +461,7 @@ class Patch implements Model
     {
         return $this->stockenabled;
     }
-    
+
     /**
      * @return string|null If the stock amount is linked to the product of the attribute combination
      */
@@ -469,7 +469,7 @@ class Patch implements Model
     {
         return $this->stocktype;
     }
-    
+
     /**
      * @return float|null The quantity in stock for this product
      */
@@ -477,7 +477,7 @@ class Patch implements Model
     {
         return $this->stock;
     }
-    
+
     /**
      * @return string|null The location of the product's stock
      */
@@ -485,7 +485,7 @@ class Patch implements Model
     {
         return $this->stocklocation;
     }
-    
+
     /**
      * @return string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      */
@@ -493,7 +493,7 @@ class Patch implements Model
     {
         return $this->orderingWithoutStock;
     }
-    
+
     /**
      * @return float|null Weight of the product in kilograms
      */
@@ -501,7 +501,7 @@ class Patch implements Model
     {
         return $this->weight;
     }
-    
+
     /**
      * @return string|null Deprecated. Product brand. Please use brand_id.
      */
@@ -509,7 +509,7 @@ class Patch implements Model
     {
         return $this->brand;
     }
-    
+
     /**
      * @return int|null Id of the brand, the brand id are available in the resource brands
      */
@@ -517,7 +517,7 @@ class Patch implements Model
     {
         return $this->brandId;
     }
-    
+
     /**
      * @return int|null Id of the condition, the condition id are available in the resource conditions
      */
@@ -525,7 +525,7 @@ class Patch implements Model
     {
         return $this->conditionId;
     }
-    
+
     /**
      * @return int|null Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
      */
@@ -533,7 +533,7 @@ class Patch implements Model
     {
         return $this->colorId;
     }
-    
+
     /**
      * @return string|null Deprecated. Product condition. Please use condition_id.
      */
@@ -541,7 +541,7 @@ class Patch implements Model
     {
         return $this->condition;
     }
-    
+
     /**
      * @return string|null Main category of this product for exports and searches. This does not influence the category structure.
      */
@@ -549,7 +549,7 @@ class Patch implements Model
     {
         return $this->maincategory;
     }
-    
+
     /**
      * @return string|null Sub category of this product for exports and searches. This does not influence the category structure.
      */
@@ -557,7 +557,7 @@ class Patch implements Model
     {
         return $this->subcategory;
     }
-    
+
     /**
      * @return int|null Package id of this product
      */
@@ -565,7 +565,7 @@ class Patch implements Model
     {
         return $this->packageId;
     }
-    
+
     /**
      * @return string|null Metatag Description
      */
@@ -573,7 +573,7 @@ class Patch implements Model
     {
         return $this->metaDescription;
     }
-    
+
     /**
      * @return string|null Metatag Keywords
      */
@@ -581,7 +581,7 @@ class Patch implements Model
     {
         return $this->metaKeywords;
     }
-    
+
     /**
      * @return string|null Page title
      */
@@ -589,7 +589,7 @@ class Patch implements Model
     {
         return $this->pageTitle;
     }
-    
+
     /**
      * @return bool|null Metatag robots: No-Index
      */
@@ -597,7 +597,7 @@ class Patch implements Model
     {
         return $this->noIndex;
     }
-    
+
     /**
      * @return bool|null Metatag robots: No-Follow
      */
@@ -605,7 +605,7 @@ class Patch implements Model
     {
         return $this->noFollow;
     }
-    
+
     /**
      * @return string|null SEO Alias of this resource
      */
@@ -613,7 +613,7 @@ class Patch implements Model
     {
         return $this->alias;
     }
-    
+
     /**
      * @return string|null Specification link
      */
@@ -621,7 +621,7 @@ class Patch implements Model
     {
         return $this->specs;
     }
-    
+
     /**
      * @return int|null Number of decimals that can be used in amounts
      */
@@ -629,7 +629,7 @@ class Patch implements Model
     {
         return $this->decimalAmount;
     }
-    
+
     /**
      * @return float|null Minimal order amount
      */
@@ -637,7 +637,7 @@ class Patch implements Model
     {
         return $this->minimalOrderAmount;
     }
-    
+
     /**
      * @return int|null Expected delivery time, number of days, weeks, months, quarters, years
      */
@@ -645,7 +645,7 @@ class Patch implements Model
     {
         return $this->stockDeliveryNumber;
     }
-    
+
     /**
      * @return string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
@@ -653,7 +653,7 @@ class Patch implements Model
     {
         return $this->stockDeliveryType;
     }
-    
+
     /**
      * @return string|null This field will be showed as the standard delivery text
      */
@@ -661,7 +661,7 @@ class Patch implements Model
     {
         return $this->stockDeliveryStandard;
     }
-    
+
     /**
      * @return bool|null Show the product in the window offers
      */
@@ -669,7 +669,7 @@ class Patch implements Model
     {
         return $this->showInTemplate;
     }
-    
+
     /**
      * @return bool|null Show the product as a offer at the beginpage or offer element
      */
@@ -677,7 +677,7 @@ class Patch implements Model
     {
         return $this->showOnBeginpage;
     }
-    
+
     /**
      * @return bool|null Show the product in the facebook shop when available
      */
@@ -685,7 +685,7 @@ class Patch implements Model
     {
         return $this->showOnFacebook;
     }
-    
+
     /**
      * @return string|null Show order/offer button Y=show QUOTATION=offer button N=No button
      */
@@ -693,7 +693,7 @@ class Patch implements Model
     {
         return $this->showOrderButton;
     }
-    
+
     /**
      * @return int|null Product Layout 1=Standard layout, 2=Quick order, 3=Split layout, 4=Tab Layout
      */
@@ -701,7 +701,7 @@ class Patch implements Model
     {
         return $this->productLayout;
     }
-    
+
     /**
      * @return string|null The photo description size
      */
@@ -709,7 +709,7 @@ class Patch implements Model
     {
         return $this->photoSize;
     }
-    
+
     /**
      * @return string|null Hide the product when it has not any categories. YES=Hide, NO_DIRECTLINK=No, the product can be found by direct url, NO_SEARCHRESULTS=No, Product can be found in the searchresults
      */
@@ -717,7 +717,7 @@ class Patch implements Model
     {
         return $this->hideWithoutCategory;
     }
-    
+
     /**
      * @return string|null Internal memo for internal purpose only
      */
@@ -725,7 +725,7 @@ class Patch implements Model
     {
         return $this->memo;
     }
-    
+
     /**
      * @return int|null Id of the supplier, the supplier id are available in the resource suppliers
      */
@@ -733,7 +733,7 @@ class Patch implements Model
     {
         return $this->supplierId;
     }
-    
+
     /**
      * @return bool|null Enable / disable fixed staggered prices
      */
@@ -741,7 +741,7 @@ class Patch implements Model
     {
         return $this->fixedStaggeredPrices;
     }
-    
+
     /**
      * @return bool|null Enable / disable Marktplaats.
      */
@@ -749,7 +749,7 @@ class Patch implements Model
     {
         return $this->marktplaatsActive;
     }
-    
+
     /**
      * @return string|null The status for this advertisement
      */
@@ -757,7 +757,7 @@ class Patch implements Model
     {
         return $this->marktplaatsStatus;
     }
-    
+
     /**
      * @return float|null Cost per click in euro cents
      */
@@ -765,7 +765,7 @@ class Patch implements Model
     {
         return $this->marktplaatsCpc;
     }
-    
+
     /**
      * @return float|null Daily budget for this advertisement in euro cents
      */
@@ -773,7 +773,7 @@ class Patch implements Model
     {
         return $this->marktplaatsDailyBudget;
     }
-    
+
     /**
      * @return float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      */
@@ -781,7 +781,7 @@ class Patch implements Model
     {
         return $this->marktplaatsTotalBudget;
     }
-    
+
     /**
      * @return int|null The Marktplaats category Id
      */
@@ -789,7 +789,7 @@ class Patch implements Model
     {
         return $this->marktplaatsCategoryId;
     }
-    
+
     /**
      * @return string|null The price type
      */
@@ -797,7 +797,7 @@ class Patch implements Model
     {
         return $this->marktplaatsPriceType;
     }
-    
+
     /**
      * @return string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      */
@@ -805,7 +805,7 @@ class Patch implements Model
     {
         return $this->googleShoppingCategory;
     }
-    
+
     /**
      * @return bool|null Is this product included in the export feed
      */
@@ -813,7 +813,7 @@ class Patch implements Model
     {
         return $this->isIncludedForExportFeed;
     }
-    
+
     /**
      * @param string|null $productnumber Product number
      * @return self
@@ -824,7 +824,7 @@ class Patch implements Model
         $this->propertyFilled('productnumber');
         return $this;
     }
-    
+
     /**
      * @param bool|null $active Active product?
      * @return self
@@ -835,7 +835,7 @@ class Patch implements Model
         $this->propertyFilled('active');
         return $this;
     }
-    
+
     /**
      * @param string|null $eannumber EAN (European Article Number)
      * @return self
@@ -846,7 +846,7 @@ class Patch implements Model
         $this->propertyFilled('eannumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $mpnnumber Manufacturer Product Number
      * @return self
@@ -857,7 +857,7 @@ class Patch implements Model
         $this->propertyFilled('mpnnumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Product name
      * @return self
@@ -868,7 +868,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $shortdescription Product short description
      * @return self
@@ -879,7 +879,7 @@ class Patch implements Model
         $this->propertyFilled('shortdescription');
         return $this;
     }
-    
+
     /**
      * @param string|null $description Product description
      * @return self
@@ -890,7 +890,7 @@ class Patch implements Model
         $this->propertyFilled('description');
         return $this;
     }
-    
+
     /**
      * @param float|null $vatrate Deprecated. VAT rate of product in percentage.
      * @return self
@@ -901,7 +901,7 @@ class Patch implements Model
         $this->propertyFilled('vatrate');
         return $this;
     }
-    
+
     /**
      * @param string|null $taxtariff The tax tariff of the product
      * @return self
@@ -912,7 +912,7 @@ class Patch implements Model
         $this->propertyFilled('taxtariff');
         return $this;
     }
-    
+
     /**
      * @param float|null $price Original price of the product, before discounts
      * @return self
@@ -923,7 +923,7 @@ class Patch implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param float|null $discount Discount on the product. Price - Discount = Sell price
      * @return self
@@ -934,7 +934,7 @@ class Patch implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param float|null $purchaseprice Purchase price ex. VAT off this product.
      * @return self
@@ -945,7 +945,7 @@ class Patch implements Model
         $this->propertyFilled('purchaseprice');
         return $this;
     }
-    
+
     /**
      * @param float|null $containerDepositPrice This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      * @return self
@@ -956,7 +956,7 @@ class Patch implements Model
         $this->propertyFilled('containerDepositPrice');
         return $this;
     }
-    
+
     /**
      * @param float|null $safetyDepositPrice This price will be added to the total price as a safety deposit (in Dutch: Borg).
      * @return self
@@ -967,7 +967,7 @@ class Patch implements Model
         $this->propertyFilled('safetyDepositPrice');
         return $this;
     }
-    
+
     /**
      * @param int|null $creditPointsCustom Custom creditpoints for this product
      * @return self
@@ -978,7 +978,7 @@ class Patch implements Model
         $this->propertyFilled('creditPointsCustom');
         return $this;
     }
-    
+
     /**
      * @param string|null $unit The unit in which this product is sold (ie 'per piece')
      * @return self
@@ -989,7 +989,7 @@ class Patch implements Model
         $this->propertyFilled('unit');
         return $this;
     }
-    
+
     /**
      * @param bool|null $stockenabled This product has stock
      * @return self
@@ -1000,7 +1000,7 @@ class Patch implements Model
         $this->propertyFilled('stockenabled');
         return $this;
     }
-    
+
     /**
      * @param string|null $stocktype If the stock amount is linked to the product of the attribute combination
      * @return self
@@ -1011,7 +1011,7 @@ class Patch implements Model
         $this->propertyFilled('stocktype');
         return $this;
     }
-    
+
     /**
      * @param float|null $stock The quantity in stock for this product
      * @return self
@@ -1022,7 +1022,7 @@ class Patch implements Model
         $this->propertyFilled('stock');
         return $this;
     }
-    
+
     /**
      * @param string|null $stocklocation The location of the product's stock
      * @return self
@@ -1033,7 +1033,7 @@ class Patch implements Model
         $this->propertyFilled('stocklocation');
         return $this;
     }
-    
+
     /**
      * @param string|null $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      * @return self
@@ -1044,7 +1044,7 @@ class Patch implements Model
         $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
-    
+
     /**
      * @param float|null $weight Weight of the product in kilograms
      * @return self
@@ -1055,7 +1055,7 @@ class Patch implements Model
         $this->propertyFilled('weight');
         return $this;
     }
-    
+
     /**
      * @param string|null $brand Deprecated. Product brand. Please use brand_id.
      * @return self
@@ -1066,7 +1066,7 @@ class Patch implements Model
         $this->propertyFilled('brand');
         return $this;
     }
-    
+
     /**
      * @param int|null $brandId Id of the brand, the brand id are available in the resource brands
      * @return self
@@ -1077,7 +1077,7 @@ class Patch implements Model
         $this->propertyFilled('brandId');
         return $this;
     }
-    
+
     /**
      * @param int|null $conditionId Id of the condition, the condition id are available in the resource conditions
      * @return self
@@ -1088,7 +1088,7 @@ class Patch implements Model
         $this->propertyFilled('conditionId');
         return $this;
     }
-    
+
     /**
      * @param int|null $colorId Id of the color, the color id are available in the resource colors. If NULL then the product won't have a color.
      * @return self
@@ -1099,7 +1099,7 @@ class Patch implements Model
         $this->propertyFilled('colorId');
         return $this;
     }
-    
+
     /**
      * @param string|null $condition Deprecated. Product condition. Please use condition_id.
      * @return self
@@ -1110,7 +1110,7 @@ class Patch implements Model
         $this->propertyFilled('condition');
         return $this;
     }
-    
+
     /**
      * @param string|null $maincategory Main category of this product for exports and searches. This does not influence the category structure.
      * @return self
@@ -1121,7 +1121,7 @@ class Patch implements Model
         $this->propertyFilled('maincategory');
         return $this;
     }
-    
+
     /**
      * @param string|null $subcategory Sub category of this product for exports and searches. This does not influence the category structure.
      * @return self
@@ -1132,7 +1132,7 @@ class Patch implements Model
         $this->propertyFilled('subcategory');
         return $this;
     }
-    
+
     /**
      * @param int|null $packageId Package id of this product
      * @return self
@@ -1143,7 +1143,7 @@ class Patch implements Model
         $this->propertyFilled('packageId');
         return $this;
     }
-    
+
     /**
      * @param string|null $metaDescription Metatag Description
      * @return self
@@ -1154,7 +1154,7 @@ class Patch implements Model
         $this->propertyFilled('metaDescription');
         return $this;
     }
-    
+
     /**
      * @param string|null $metaKeywords Metatag Keywords
      * @return self
@@ -1165,7 +1165,7 @@ class Patch implements Model
         $this->propertyFilled('metaKeywords');
         return $this;
     }
-    
+
     /**
      * @param string|null $pageTitle Page title
      * @return self
@@ -1176,7 +1176,7 @@ class Patch implements Model
         $this->propertyFilled('pageTitle');
         return $this;
     }
-    
+
     /**
      * @param bool|null $noIndex Metatag robots: No-Index
      * @return self
@@ -1187,7 +1187,7 @@ class Patch implements Model
         $this->propertyFilled('noIndex');
         return $this;
     }
-    
+
     /**
      * @param bool|null $noFollow Metatag robots: No-Follow
      * @return self
@@ -1198,7 +1198,7 @@ class Patch implements Model
         $this->propertyFilled('noFollow');
         return $this;
     }
-    
+
     /**
      * @param string|null $alias SEO Alias of this resource
      * @return self
@@ -1209,7 +1209,7 @@ class Patch implements Model
         $this->propertyFilled('alias');
         return $this;
     }
-    
+
     /**
      * @param string|null $specs Specification link
      * @return self
@@ -1220,7 +1220,7 @@ class Patch implements Model
         $this->propertyFilled('specs');
         return $this;
     }
-    
+
     /**
      * @param int|null $decimalAmount Number of decimals that can be used in amounts
      * @return self
@@ -1231,7 +1231,7 @@ class Patch implements Model
         $this->propertyFilled('decimalAmount');
         return $this;
     }
-    
+
     /**
      * @param float|null $minimalOrderAmount Minimal order amount
      * @return self
@@ -1242,7 +1242,7 @@ class Patch implements Model
         $this->propertyFilled('minimalOrderAmount');
         return $this;
     }
-    
+
     /**
      * @param int|null $stockDeliveryNumber Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
@@ -1253,7 +1253,7 @@ class Patch implements Model
         $this->propertyFilled('stockDeliveryNumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $stockDeliveryType Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      * @return self
@@ -1264,7 +1264,7 @@ class Patch implements Model
         $this->propertyFilled('stockDeliveryType');
         return $this;
     }
-    
+
     /**
      * @param string|null $stockDeliveryStandard This field will be showed as the standard delivery text
      * @return self
@@ -1275,7 +1275,7 @@ class Patch implements Model
         $this->propertyFilled('stockDeliveryStandard');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showInTemplate Show the product in the window offers
      * @return self
@@ -1286,7 +1286,7 @@ class Patch implements Model
         $this->propertyFilled('showInTemplate');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnBeginpage Show the product as a offer at the beginpage or offer element
      * @return self
@@ -1297,7 +1297,7 @@ class Patch implements Model
         $this->propertyFilled('showOnBeginpage');
         return $this;
     }
-    
+
     /**
      * @param bool|null $showOnFacebook Show the product in the facebook shop when available
      * @return self
@@ -1308,7 +1308,7 @@ class Patch implements Model
         $this->propertyFilled('showOnFacebook');
         return $this;
     }
-    
+
     /**
      * @param string|null $showOrderButton Show order/offer button Y=show QUOTATION=offer button N=No button
      * @return self
@@ -1319,7 +1319,7 @@ class Patch implements Model
         $this->propertyFilled('showOrderButton');
         return $this;
     }
-    
+
     /**
      * @param int|null $productLayout Product Layout 1=Standard layout, 2=Quick order, 3=Split layout, 4=Tab Layout
      * @return self
@@ -1330,7 +1330,7 @@ class Patch implements Model
         $this->propertyFilled('productLayout');
         return $this;
     }
-    
+
     /**
      * @param string|null $photoSize The photo description size
      * @return self
@@ -1341,7 +1341,7 @@ class Patch implements Model
         $this->propertyFilled('photoSize');
         return $this;
     }
-    
+
     /**
      * @param string|null $hideWithoutCategory Hide the product when it has not any categories. YES=Hide, NO_DIRECTLINK=No, the product can be found by direct url, NO_SEARCHRESULTS=No, Product can be found in the searchresults
      * @return self
@@ -1352,7 +1352,7 @@ class Patch implements Model
         $this->propertyFilled('hideWithoutCategory');
         return $this;
     }
-    
+
     /**
      * @param string|null $memo Internal memo for internal purpose only
      * @return self
@@ -1363,7 +1363,7 @@ class Patch implements Model
         $this->propertyFilled('memo');
         return $this;
     }
-    
+
     /**
      * @param int|null $supplierId Id of the supplier, the supplier id are available in the resource suppliers
      * @return self
@@ -1374,7 +1374,7 @@ class Patch implements Model
         $this->propertyFilled('supplierId');
         return $this;
     }
-    
+
     /**
      * @param bool|null $fixedStaggeredPrices Enable / disable fixed staggered prices
      * @return self
@@ -1385,7 +1385,7 @@ class Patch implements Model
         $this->propertyFilled('fixedStaggeredPrices');
         return $this;
     }
-    
+
     /**
      * @param bool|null $marktplaatsActive Enable / disable Marktplaats.
      * @return self
@@ -1396,7 +1396,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsActive');
         return $this;
     }
-    
+
     /**
      * @param string|null $marktplaatsStatus The status for this advertisement
      * @return self
@@ -1407,7 +1407,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsStatus');
         return $this;
     }
-    
+
     /**
      * @param float|null $marktplaatsCpc Cost per click in euro cents
      * @return self
@@ -1418,7 +1418,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsCpc');
         return $this;
     }
-    
+
     /**
      * @param float|null $marktplaatsDailyBudget Daily budget for this advertisement in euro cents
      * @return self
@@ -1429,7 +1429,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsDailyBudget');
         return $this;
     }
-    
+
     /**
      * @param float|null $marktplaatsTotalBudget Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      * @return self
@@ -1440,7 +1440,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsTotalBudget');
         return $this;
     }
-    
+
     /**
      * @param int|null $marktplaatsCategoryId The Marktplaats category Id
      * @return self
@@ -1451,7 +1451,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsCategoryId');
         return $this;
     }
-    
+
     /**
      * @param string|null $marktplaatsPriceType The price type
      * @return self
@@ -1462,7 +1462,7 @@ class Patch implements Model
         $this->propertyFilled('marktplaatsPriceType');
         return $this;
     }
-    
+
     /**
      * @param string|null $googleShoppingCategory Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      * @return self
@@ -1473,7 +1473,7 @@ class Patch implements Model
         $this->propertyFilled('googleShoppingCategory');
         return $this;
     }
-    
+
     /**
      * @param bool|null $isIncludedForExportFeed Is this product included in the export feed
      * @return self

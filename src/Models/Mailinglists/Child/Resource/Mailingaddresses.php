@@ -12,12 +12,12 @@ class Mailingaddresses implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to mailingaddresses collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Mailingaddresses implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to mailingaddresses collection
      */
@@ -33,7 +33,7 @@ class Mailingaddresses implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to mailingaddresses collection
      * @return self

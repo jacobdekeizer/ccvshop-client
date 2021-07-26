@@ -10,7 +10,7 @@ class AppcodeblocksEndpoint extends BaseEndpoint
 {
     /**
      * Deletes a code block associated with an App. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class AppcodeblocksEndpoint extends BaseEndpoint
             'appcodeblocks/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets all app code blocks associated with this resource id. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromApp(int $id): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\Appcodeblocks
@@ -32,13 +32,13 @@ class AppcodeblocksEndpoint extends BaseEndpoint
             self::GET,
             'apps/' . $id . '/appcodeblocks/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\Appcodeblocks::fromArray($result);
     }
-    
+
     /**
      * Gets one app code block associated with this resource id. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks
@@ -47,13 +47,13 @@ class AppcodeblocksEndpoint extends BaseEndpoint
             self::GET,
             'appcodeblocks/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks::fromArray($result);
     }
-    
+
     /**
      * Creates a code block associated with an App. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForApp(int $id, \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblocks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks
@@ -63,7 +63,7 @@ class AppcodeblocksEndpoint extends BaseEndpoint
             'apps/' . $id . '/appcodeblocks/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks::fromArray($result);
     }
 }

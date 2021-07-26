@@ -10,7 +10,7 @@ class PaymethodsEndpoint extends BaseEndpoint
 {
     /**
      * Get all paymethods that are activated in the webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Paymethods\Collection\Paymethods
@@ -19,7 +19,7 @@ class PaymethodsEndpoint extends BaseEndpoint
             self::GET,
             'paymethods/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Paymethods\Collection\Paymethods::fromArray($result);
     }
 }

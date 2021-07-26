@@ -15,42 +15,42 @@ class All extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
-    
+
     /**
      * @var int|null Specific quotation number of an quotation.
      */
     private $quotationnumber;
-    
+
     /**
      * @var string|null Specific quotation number, combined with the quotation number prefix of an quotation.
      */
     private $quotationnumberFull;
-    
+
     /**
      * @var int|null Specific order number associated with an quotation.
      */
     private $ordernumber;
-    
+
     /**
      * @var string|null Specific order number, combined with the order number prefix of an quotation.
      */
     private $ordernumberFull;
-    
+
     /**
      * @var string|null Specific quotation status of the quotation in the result. (open, requested, send, accepted, concept).
      */
     private $status;
-    
+
     /**
      * @var string|null Minimal create date of the quotation in the result.
      */
     private $minCreateDate;
-    
+
     /**
      * @var string|null Maximal create date of the quotation in the result.
      */
     private $maxCreateDate;
-    
+
     /**
      * @return self
      */
@@ -58,7 +58,7 @@ class All extends PaginatedList implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -67,10 +67,10 @@ class All extends PaginatedList implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
@@ -83,7 +83,7 @@ class All extends PaginatedList implements Parameter
             ->addOptionalParameter('maxCreateDate', $this->maxCreateDate)
             ->orderBy($this->getOrderBy());
     }
-    
+
     /**
      * @return int|null Specific quotation number of an quotation.
      */
@@ -91,7 +91,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->quotationnumber;
     }
-    
+
     /**
      * @return string|null Specific quotation number, combined with the quotation number prefix of an quotation.
      */
@@ -99,7 +99,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->quotationnumberFull;
     }
-    
+
     /**
      * @return int|null Specific order number associated with an quotation.
      */
@@ -107,7 +107,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->ordernumber;
     }
-    
+
     /**
      * @return string|null Specific order number, combined with the order number prefix of an quotation.
      */
@@ -115,7 +115,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->ordernumberFull;
     }
-    
+
     /**
      * @return string|null Specific quotation status of the quotation in the result. (open, requested, send, accepted, concept).
      */
@@ -123,7 +123,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->status;
     }
-    
+
     /**
      * @return string|null Minimal create date of the quotation in the result.
      */
@@ -131,7 +131,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->minCreateDate;
     }
-    
+
     /**
      * @return string|null Maximal create date of the quotation in the result.
      */
@@ -139,7 +139,7 @@ class All extends PaginatedList implements Parameter
     {
         return $this->maxCreateDate;
     }
-    
+
     /**
      * @param int|null $quotationnumber Specific quotation number of an quotation.
      * @return self
@@ -149,7 +149,7 @@ class All extends PaginatedList implements Parameter
         $this->quotationnumber = $quotationnumber;
         return $this;
     }
-    
+
     /**
      * @param string|null $quotationnumberFull Specific quotation number, combined with the quotation number prefix of an quotation.
      * @return self
@@ -159,7 +159,7 @@ class All extends PaginatedList implements Parameter
         $this->quotationnumberFull = $quotationnumberFull;
         return $this;
     }
-    
+
     /**
      * @param int|null $ordernumber Specific order number associated with an quotation.
      * @return self
@@ -169,7 +169,7 @@ class All extends PaginatedList implements Parameter
         $this->ordernumber = $ordernumber;
         return $this;
     }
-    
+
     /**
      * @param string|null $ordernumberFull Specific order number, combined with the order number prefix of an quotation.
      * @return self
@@ -179,7 +179,7 @@ class All extends PaginatedList implements Parameter
         $this->ordernumberFull = $ordernumberFull;
         return $this;
     }
-    
+
     /**
      * @param string|null $status Specific quotation status of the quotation in the result. (open, requested, send, accepted, concept).
      * @return self
@@ -189,7 +189,7 @@ class All extends PaginatedList implements Parameter
         $this->status = $status;
         return $this;
     }
-    
+
     /**
      * @param string|null $minCreateDate Minimal create date of the quotation in the result.
      * @return self
@@ -199,7 +199,7 @@ class All extends PaginatedList implements Parameter
         $this->minCreateDate = $minCreateDate;
         return $this;
     }
-    
+
     /**
      * @param string|null $maxCreateDate Maximal create date of the quotation in the result.
      * @return self
@@ -209,98 +209,98 @@ class All extends PaginatedList implements Parameter
         $this->maxCreateDate = $maxCreateDate;
         return $this;
     }
-    
+
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);
         return $this;
     }
-    
+
     public function orderByIdDesc(): self
     {
         $this->orderByField('id', false);
         return $this;
     }
-    
+
     public function orderByQuotationnumberAsc(): self
     {
         $this->orderByField('quotationnumber', true);
         return $this;
     }
-    
+
     public function orderByQuotationnumberDesc(): self
     {
         $this->orderByField('quotationnumber', false);
         return $this;
     }
-    
+
     public function orderByOrdernumberAsc(): self
     {
         $this->orderByField('ordernumber', true);
         return $this;
     }
-    
+
     public function orderByOrdernumberDesc(): self
     {
         $this->orderByField('ordernumber', false);
         return $this;
     }
-    
-    public function orderByQuotationnumber_fullAsc(): self
+
+    public function orderByQuotationnumberFullAsc(): self
     {
         $this->orderByField('quotationnumber_full', true);
         return $this;
     }
-    
-    public function orderByQuotationnumber_fullDesc(): self
+
+    public function orderByQuotationnumberFullDesc(): self
     {
         $this->orderByField('quotationnumber_full', false);
         return $this;
     }
-    
-    public function orderByOrdernumber_fullAsc(): self
+
+    public function orderByOrdernumberFullAsc(): self
     {
         $this->orderByField('ordernumber_full', true);
         return $this;
     }
-    
-    public function orderByOrdernumber_fullDesc(): self
+
+    public function orderByOrdernumberFullDesc(): self
     {
         $this->orderByField('ordernumber_full', false);
         return $this;
     }
-    
-    public function orderByCreate_dateAsc(): self
+
+    public function orderByCreateDateAsc(): self
     {
         $this->orderByField('create_date', true);
         return $this;
     }
-    
-    public function orderByCreate_dateDesc(): self
+
+    public function orderByCreateDateDesc(): self
     {
         $this->orderByField('create_date', false);
         return $this;
     }
-    
+
     public function orderByStatusAsc(): self
     {
         $this->orderByField('status', true);
         return $this;
     }
-    
+
     public function orderByStatusDesc(): self
     {
         $this->orderByField('status', false);
         return $this;
     }
-    
-    public function orderByTotal_priceAsc(): self
+
+    public function orderByTotalPriceAsc(): self
     {
         $this->orderByField('total_price', true);
         return $this;
     }
-    
-    public function orderByTotal_priceDesc(): self
+
+    public function orderByTotalPriceDesc(): self
     {
         $this->orderByField('total_price', false);
         return $this;

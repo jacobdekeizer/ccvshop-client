@@ -12,12 +12,12 @@ class CodeBlocks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to code block collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class CodeBlocks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to code block collection
      */
@@ -33,7 +33,7 @@ class CodeBlocks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to code block collection
      * @return self

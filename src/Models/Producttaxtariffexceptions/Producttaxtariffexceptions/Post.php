@@ -12,17 +12,17 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string ISO 2Code for the country of the tax tariff exception.
      */
     private $country;
-    
+
     /**
      * @var string The tax tariff of the exception
      */
     private $taxtariff;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string ISO 2Code for the country of the tax tariff exception.
      */
@@ -38,7 +38,7 @@ class Post implements Model
     {
         return $this->country;
     }
-    
+
     /**
      * @return string The tax tariff of the exception
      */
@@ -46,7 +46,7 @@ class Post implements Model
     {
         return $this->taxtariff;
     }
-    
+
     /**
      * @param string $country ISO 2Code for the country of the tax tariff exception.
      * @return self
@@ -57,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('country');
         return $this;
     }
-    
+
     /**
      * @param string $taxtariff The tax tariff of the exception
      * @return self

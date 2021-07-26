@@ -10,7 +10,7 @@ class ProductvariationsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a variation. Variations created based on product number are marked as auto_created and can't be deleted. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductvariationsEndpoint extends BaseEndpoint
             'productvariations/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all variations from this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productvariations\Collection\Productvariations
@@ -32,13 +32,13 @@ class ProductvariationsEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/productvariations/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvariations\Collection\Productvariations::fromArray($result);
     }
-    
+
     /**
      * Get a single variation. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations
@@ -47,13 +47,13 @@ class ProductvariationsEndpoint extends BaseEndpoint
             self::GET,
             'productvariations/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations::fromArray($result);
     }
-    
+
     /**
      * Update an exisiting variation. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ProductvariationsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Add a new variation to this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations
@@ -77,7 +77,7 @@ class ProductvariationsEndpoint extends BaseEndpoint
             'products/' . $id . '/productvariations/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations::fromArray($result);
     }
 }

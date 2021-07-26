@@ -12,17 +12,17 @@ class ChfPrices implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var float|null One time costs
      */
     private $oneTimeCosts;
-    
+
     /**
      * @var float|null Monthly time costs
      */
     private $monthlyCosts;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class ChfPrices implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return float|null One time costs
      */
@@ -38,7 +38,7 @@ class ChfPrices implements Model
     {
         return $this->oneTimeCosts;
     }
-    
+
     /**
      * @return float|null Monthly time costs
      */
@@ -46,7 +46,7 @@ class ChfPrices implements Model
     {
         return $this->monthlyCosts;
     }
-    
+
     /**
      * @param float|null $oneTimeCosts One time costs
      * @return self
@@ -57,7 +57,7 @@ class ChfPrices implements Model
         $this->propertyFilled('oneTimeCosts');
         return $this;
     }
-    
+
     /**
      * @param float|null $monthlyCosts Monthly time costs
      * @return self

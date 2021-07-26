@@ -10,7 +10,7 @@ class ConditionsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a Condition. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ConditionsEndpoint extends BaseEndpoint
             'conditions/' . $id . '/',
         );
     }
-    
+
     /**
      * Get one condition. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions
@@ -32,13 +32,13 @@ class ConditionsEndpoint extends BaseEndpoint
             self::GET,
             'conditions/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions::fromArray($result);
     }
-    
+
     /**
      * Get all conditions of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Conditions\Collection\Conditions
@@ -47,13 +47,13 @@ class ConditionsEndpoint extends BaseEndpoint
             self::GET,
             'conditions/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Conditions\Collection\Conditions::fromArray($result);
     }
-    
+
     /**
      * Patch a Condition. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ConditionsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a condition. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions
@@ -77,7 +77,7 @@ class ConditionsEndpoint extends BaseEndpoint
             'conditions/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions::fromArray($result);
     }
 }

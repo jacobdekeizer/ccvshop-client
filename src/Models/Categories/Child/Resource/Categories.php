@@ -12,12 +12,12 @@ class Categories implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to subcategory collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Categories implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to subcategory collection
      */
@@ -33,7 +33,7 @@ class Categories implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to subcategory collection
      * @return self

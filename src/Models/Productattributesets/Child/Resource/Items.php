@@ -12,37 +12,37 @@ class Items implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to attribute values
      */
     private $href;
-    
+
     /**
      * @var int Product 2 attribute ID
      */
     private $id;
-    
+
     /**
      * @var string Option value name
      */
     private $optionsname;
-    
+
     /**
      * @var float Extra price of this attribute value
      */
     private $price;
-    
+
     /**
      * @var bool Deprecated. Attribute option value enable. Value is always true.
      */
     private $enable;
-    
+
     /**
      * @var int Position starting from 1
      */
     private $position;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Items implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to attribute values
      */
@@ -58,7 +58,7 @@ class Items implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Product 2 attribute ID
      */
@@ -66,7 +66,7 @@ class Items implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Option value name
      */
@@ -74,7 +74,7 @@ class Items implements Model
     {
         return $this->optionsname;
     }
-    
+
     /**
      * @return float Extra price of this attribute value
      */
@@ -82,7 +82,7 @@ class Items implements Model
     {
         return $this->price;
     }
-    
+
     /**
      * @return bool Deprecated. Attribute option value enable. Value is always true.
      */
@@ -90,7 +90,7 @@ class Items implements Model
     {
         return $this->enable;
     }
-    
+
     /**
      * @return int Position starting from 1
      */
@@ -98,7 +98,7 @@ class Items implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @param string|null $href Link to attribute values
      * @return self
@@ -109,7 +109,7 @@ class Items implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Product 2 attribute ID
      * @return self
@@ -120,7 +120,7 @@ class Items implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $optionsname Option value name
      * @return self
@@ -131,7 +131,7 @@ class Items implements Model
         $this->propertyFilled('optionsname');
         return $this;
     }
-    
+
     /**
      * @param float $price Extra price of this attribute value
      * @return self
@@ -142,7 +142,7 @@ class Items implements Model
         $this->propertyFilled('price');
         return $this;
     }
-    
+
     /**
      * @param bool $enable Deprecated. Attribute option value enable. Value is always true.
      * @return self
@@ -153,7 +153,7 @@ class Items implements Model
         $this->propertyFilled('enable');
         return $this;
     }
-    
+
     /**
      * @param int $position Position starting from 1
      * @return self

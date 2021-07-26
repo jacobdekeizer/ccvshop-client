@@ -12,32 +12,32 @@ class Company implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null E-mail of the service.
      */
     private $email;
-    
+
     /**
      * @var string|null Website of the service.
      */
     private $website;
-    
+
     /**
      * @var string|null Website name of the service.
      */
     private $websitename;
-    
+
     /**
      * @var string|null Phonenumber of the service.
      */
     private $phone;
-    
+
     /**
      * @var string|null Company name whom provide the service.
      */
     private $company;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Company implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null E-mail of the service.
      */
@@ -53,7 +53,7 @@ class Company implements Model
     {
         return $this->email;
     }
-    
+
     /**
      * @return string|null Website of the service.
      */
@@ -61,7 +61,7 @@ class Company implements Model
     {
         return $this->website;
     }
-    
+
     /**
      * @return string|null Website name of the service.
      */
@@ -69,7 +69,7 @@ class Company implements Model
     {
         return $this->websitename;
     }
-    
+
     /**
      * @return string|null Phonenumber of the service.
      */
@@ -77,7 +77,7 @@ class Company implements Model
     {
         return $this->phone;
     }
-    
+
     /**
      * @return string|null Company name whom provide the service.
      */
@@ -85,7 +85,7 @@ class Company implements Model
     {
         return $this->company;
     }
-    
+
     /**
      * @param string|null $email E-mail of the service.
      * @return self
@@ -96,7 +96,7 @@ class Company implements Model
         $this->propertyFilled('email');
         return $this;
     }
-    
+
     /**
      * @param string|null $website Website of the service.
      * @return self
@@ -107,7 +107,7 @@ class Company implements Model
         $this->propertyFilled('website');
         return $this;
     }
-    
+
     /**
      * @param string|null $websitename Website name of the service.
      * @return self
@@ -118,7 +118,7 @@ class Company implements Model
         $this->propertyFilled('websitename');
         return $this;
     }
-    
+
     /**
      * @param string|null $phone Phonenumber of the service.
      * @return self
@@ -129,7 +129,7 @@ class Company implements Model
         $this->propertyFilled('phone');
         return $this;
     }
-    
+
     /**
      * @param string|null $company Company name whom provide the service.
      * @return self

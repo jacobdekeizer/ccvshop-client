@@ -12,32 +12,32 @@ class Domains implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var string The name of the Domain
      */
     private $domainname;
-    
+
     /**
      * @var bool Secure Sockets Layer certificate is installed for this domain and ssl traffic is supported on this domain
      */
     private $ssldomain;
-    
+
     /**
      * @var string|null Language of the Domain and what language will be displayed on the front-end of the website. When domains are not set by language the type will be null
      */
     private $language;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Domains\Child\Entity\ParentItem|null Parent resource of this resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class Domains implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -53,7 +53,7 @@ class Domains implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return string The name of the Domain
      */
@@ -61,7 +61,7 @@ class Domains implements Model
     {
         return $this->domainname;
     }
-    
+
     /**
      * @return bool Secure Sockets Layer certificate is installed for this domain and ssl traffic is supported on this domain
      */
@@ -69,7 +69,7 @@ class Domains implements Model
     {
         return $this->ssldomain;
     }
-    
+
     /**
      * @return string|null Language of the Domain and what language will be displayed on the front-end of the website. When domains are not set by language the type will be null
      */
@@ -77,7 +77,7 @@ class Domains implements Model
     {
         return $this->language;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Domains\Child\Entity\ParentItem|null Parent resource of this resource.
      */
@@ -85,7 +85,7 @@ class Domains implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -96,7 +96,7 @@ class Domains implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param string $domainname The name of the Domain
      * @return self
@@ -107,7 +107,7 @@ class Domains implements Model
         $this->propertyFilled('domainname');
         return $this;
     }
-    
+
     /**
      * @param bool $ssldomain Secure Sockets Layer certificate is installed for this domain and ssl traffic is supported on this domain
      * @return self
@@ -118,7 +118,7 @@ class Domains implements Model
         $this->propertyFilled('ssldomain');
         return $this;
     }
-    
+
     /**
      * @param string|null $language Language of the Domain and what language will be displayed on the front-end of the website. When domains are not set by language the type will be null
      * @return self
@@ -129,7 +129,7 @@ class Domains implements Model
         $this->propertyFilled('language');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Domains\Child\Entity\ParentItem|null $parent Parent resource of this resource.
      * @return self

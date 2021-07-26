@@ -12,102 +12,102 @@ class Attributecombinations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string A description of the attribute combination
      */
     private $note;
-    
+
     /**
      * @var int Unique product id of the resource
      */
     private $productId;
-    
+
     /**
      * @var float The stock of a product combination
      */
     private $stock;
-    
+
     /**
      * @var float The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
      */
     private $nettoExtraPrice;
-    
+
     /**
      * @var string Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
      */
     private $orderingWithoutStock;
-    
+
     /**
      * @var string The product number
      */
     private $productNumber;
-    
+
     /**
      * @var string The ean number
      */
     private $eanNumber;
-    
+
     /**
      * @var string The sku number
      */
     private $skuNumber;
-    
+
     /**
      * @var int Expected delivery time, number of days, weeks, months, quarters, years
      */
     private $deliveryTime;
-    
+
     /**
      * @var string Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
     private $deliveryTimeType;
-    
+
     /**
      * @var string The delivery time default in text
      */
     private $deliveryDefaultText;
-    
+
     /**
      * @var bool If this combination is active. Inactive combinations can not be selected by the customer.
      */
     private $active;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
      */
     private $combination;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributecombinationphotos Attribute combination photos
      */
     private $attributecombinationphotos;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributes Collection of attributes
      */
     private $attributes;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributevalues Collection of  attributevalues
      */
     private $attributevalues;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\ParentItem Contains link to parent resource.
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -115,7 +115,7 @@ class Attributecombinations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -123,7 +123,7 @@ class Attributecombinations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -131,7 +131,7 @@ class Attributecombinations implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string A description of the attribute combination
      */
@@ -139,7 +139,7 @@ class Attributecombinations implements Model
     {
         return $this->note;
     }
-    
+
     /**
      * @return int Unique product id of the resource
      */
@@ -147,7 +147,7 @@ class Attributecombinations implements Model
     {
         return $this->productId;
     }
-    
+
     /**
      * @return float The stock of a product combination
      */
@@ -155,7 +155,7 @@ class Attributecombinations implements Model
     {
         return $this->stock;
     }
-    
+
     /**
      * @return float The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
      */
@@ -163,7 +163,7 @@ class Attributecombinations implements Model
     {
         return $this->nettoExtraPrice;
     }
-    
+
     /**
      * @return string Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
      */
@@ -171,7 +171,7 @@ class Attributecombinations implements Model
     {
         return $this->orderingWithoutStock;
     }
-    
+
     /**
      * @return string The product number
      */
@@ -179,7 +179,7 @@ class Attributecombinations implements Model
     {
         return $this->productNumber;
     }
-    
+
     /**
      * @return string The ean number
      */
@@ -187,7 +187,7 @@ class Attributecombinations implements Model
     {
         return $this->eanNumber;
     }
-    
+
     /**
      * @return string The sku number
      */
@@ -195,7 +195,7 @@ class Attributecombinations implements Model
     {
         return $this->skuNumber;
     }
-    
+
     /**
      * @return int Expected delivery time, number of days, weeks, months, quarters, years
      */
@@ -203,7 +203,7 @@ class Attributecombinations implements Model
     {
         return $this->deliveryTime;
     }
-    
+
     /**
      * @return string Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
@@ -211,7 +211,7 @@ class Attributecombinations implements Model
     {
         return $this->deliveryTimeType;
     }
-    
+
     /**
      * @return string The delivery time default in text
      */
@@ -219,7 +219,7 @@ class Attributecombinations implements Model
     {
         return $this->deliveryDefaultText;
     }
-    
+
     /**
      * @return bool If this combination is active. Inactive combinations can not be selected by the customer.
      */
@@ -227,7 +227,7 @@ class Attributecombinations implements Model
     {
         return $this->active;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Combination[] Collection of attribute values that combined create this attribute combination.
      */
@@ -235,7 +235,7 @@ class Attributecombinations implements Model
     {
         return $this->combination;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributecombinationphotos Attribute combination photos
      */
@@ -243,7 +243,7 @@ class Attributecombinations implements Model
     {
         return $this->attributecombinationphotos;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributes Collection of attributes
      */
@@ -251,7 +251,7 @@ class Attributecombinations implements Model
     {
         return $this->attributes;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributevalues Collection of  attributevalues
      */
@@ -259,7 +259,7 @@ class Attributecombinations implements Model
     {
         return $this->attributevalues;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\ParentItem Contains link to parent resource.
      */
@@ -267,7 +267,7 @@ class Attributecombinations implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -278,7 +278,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -289,7 +289,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $note A description of the attribute combination
      * @return self
@@ -300,7 +300,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('note');
         return $this;
     }
-    
+
     /**
      * @param int $productId Unique product id of the resource
      * @return self
@@ -311,7 +311,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('productId');
         return $this;
     }
-    
+
     /**
      * @param float $stock The stock of a product combination
      * @return self
@@ -322,7 +322,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('stock');
         return $this;
     }
-    
+
     /**
      * @param float $nettoExtraPrice The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
      * @return self
@@ -333,7 +333,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('nettoExtraPrice');
         return $this;
     }
-    
+
     /**
      * @param string $orderingWithoutStock Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
      * @return self
@@ -344,7 +344,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
-    
+
     /**
      * @param string $productNumber The product number
      * @return self
@@ -355,7 +355,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('productNumber');
         return $this;
     }
-    
+
     /**
      * @param string $eanNumber The ean number
      * @return self
@@ -366,7 +366,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('eanNumber');
         return $this;
     }
-    
+
     /**
      * @param string $skuNumber The sku number
      * @return self
@@ -377,7 +377,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('skuNumber');
         return $this;
     }
-    
+
     /**
      * @param int $deliveryTime Expected delivery time, number of days, weeks, months, quarters, years
      * @return self
@@ -388,7 +388,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('deliveryTime');
         return $this;
     }
-    
+
     /**
      * @param string $deliveryTimeType Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      * @return self
@@ -399,7 +399,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('deliveryTimeType');
         return $this;
     }
-    
+
     /**
      * @param string $deliveryDefaultText The delivery time default in text
      * @return self
@@ -410,7 +410,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('deliveryDefaultText');
         return $this;
     }
-    
+
     /**
      * @param bool $active If this combination is active. Inactive combinations can not be selected by the customer.
      * @return self
@@ -421,7 +421,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('active');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Combination[] $combination Collection of attribute values that combined create this attribute combination.
      * @return self
@@ -432,7 +432,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('combination');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributecombinationphotos $attributecombinationphotos Attribute combination photos
      * @return self
@@ -443,7 +443,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('attributecombinationphotos');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributes $attributes Collection of attributes
      * @return self
@@ -454,7 +454,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('attributes');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Attributevalues $attributevalues Collection of  attributevalues
      * @return self
@@ -465,7 +465,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('attributevalues');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\ParentItem $parent Contains link to parent resource.
      * @return self
@@ -480,14 +480,14 @@ class Attributecombinations implements Model
     {
         if ($key === 'combination') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Attributecombinations\Child\Resource\Combination::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

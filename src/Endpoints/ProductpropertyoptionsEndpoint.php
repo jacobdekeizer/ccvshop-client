@@ -10,7 +10,7 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a Product property option. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
             'productpropertyoptions/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all product property options that belong to this property. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProductproperty(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Collection\Productpropertyoptions
@@ -32,13 +32,13 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
             self::GET,
             'productproperties/' . $id . '/productpropertyoptions/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Collection\Productpropertyoptions::fromArray($result);
     }
-    
+
     /**
      * Get one Product property option. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions
@@ -47,13 +47,13 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
             self::GET,
             'productpropertyoptions/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions::fromArray($result);
     }
-    
+
     /**
      * Patch a product Product property option. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a product property options that belong to this property. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProductproperty(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions
@@ -77,7 +77,7 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
             'productproperties/' . $id . '/productpropertyoptions/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions::fromArray($result);
     }
 }

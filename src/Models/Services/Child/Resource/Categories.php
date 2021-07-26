@@ -12,12 +12,12 @@ class Categories implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Services\Resource\Servicecategories[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Categories implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Services\Resource\Servicecategories[] Array with collection items
      */
@@ -33,7 +33,7 @@ class Categories implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Services\Resource\Servicecategories[] $collection Array with collection items
      * @return self
@@ -48,14 +48,14 @@ class Categories implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Services\Resource\Servicecategories::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

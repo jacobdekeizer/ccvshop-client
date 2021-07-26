@@ -10,7 +10,7 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
 {
     /**
      * Delete a staggered price row. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
             'productstaggeredprices/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all straggered price rows of a product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productstaggeredprices\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Collection\Productstaggeredprices
@@ -31,18 +31,18 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Productstaggeredprices\AllFromProduct();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'products/' . $id . '/productstaggeredprices/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Collection\Productstaggeredprices::fromArray($result);
     }
-    
+
     /**
      * Get one staggered price row. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices
@@ -51,13 +51,13 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
             self::GET,
             'productstaggeredprices/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices::fromArray($result);
     }
-    
+
     /**
      * Patch a staggered price row. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Productstaggeredprices\Input $model, bool $onlyFilled = true): void
@@ -68,10 +68,10 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a staggered price row for this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Productstaggeredprices\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices
@@ -81,7 +81,7 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
             'products/' . $id . '/productstaggeredprices/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices::fromArray($result);
     }
 }

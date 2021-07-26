@@ -12,12 +12,12 @@ class Disabledpaymethods implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to disabledpaymethods collection
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Disabledpaymethods implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to disabledpaymethods collection
      */
@@ -33,7 +33,7 @@ class Disabledpaymethods implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to disabledpaymethods collection
      * @return self

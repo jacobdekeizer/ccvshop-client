@@ -12,32 +12,32 @@ class ValueDetails implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var float The absolute number of this block. If the block is a relative block then it's the differnce between timespans.
      */
     private $value;
-    
+
     /**
      * @var float If the block is a relative block and type is percentage then a percentage will be calculated comparing it to the previous timespan.
      */
     private $percentage;
-    
+
     /**
      * @var string The representation of the number
      */
     private $type;
-    
+
     /**
      * @var float The value of the previous timespan.
      */
     private $previous;
-    
+
     /**
      * @var float The value of the current timespan.
      */
     private $current;
-    
+
     /**
      * @return self
      */
@@ -45,7 +45,7 @@ class ValueDetails implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return float The absolute number of this block. If the block is a relative block then it's the differnce between timespans.
      */
@@ -53,7 +53,7 @@ class ValueDetails implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @return float If the block is a relative block and type is percentage then a percentage will be calculated comparing it to the previous timespan.
      */
@@ -61,7 +61,7 @@ class ValueDetails implements Model
     {
         return $this->percentage;
     }
-    
+
     /**
      * @return string The representation of the number
      */
@@ -69,7 +69,7 @@ class ValueDetails implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return float The value of the previous timespan.
      */
@@ -77,7 +77,7 @@ class ValueDetails implements Model
     {
         return $this->previous;
     }
-    
+
     /**
      * @return float The value of the current timespan.
      */
@@ -85,7 +85,7 @@ class ValueDetails implements Model
     {
         return $this->current;
     }
-    
+
     /**
      * @param float $value The absolute number of this block. If the block is a relative block then it's the differnce between timespans.
      * @return self
@@ -96,7 +96,7 @@ class ValueDetails implements Model
         $this->propertyFilled('value');
         return $this;
     }
-    
+
     /**
      * @param float $percentage If the block is a relative block and type is percentage then a percentage will be calculated comparing it to the previous timespan.
      * @return self
@@ -107,7 +107,7 @@ class ValueDetails implements Model
         $this->propertyFilled('percentage');
         return $this;
     }
-    
+
     /**
      * @param string $type The representation of the number
      * @return self
@@ -118,7 +118,7 @@ class ValueDetails implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param float $previous The value of the previous timespan.
      * @return self
@@ -129,7 +129,7 @@ class ValueDetails implements Model
         $this->propertyFilled('previous');
         return $this;
     }
-    
+
     /**
      * @param float $current The value of the current timespan.
      * @return self

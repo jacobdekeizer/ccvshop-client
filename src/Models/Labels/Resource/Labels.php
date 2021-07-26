@@ -12,42 +12,42 @@ class Labels implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int|null Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string Uri to the image. These images will be shown as icons as 16x16.
      */
     private $imageLocation;
-    
+
     /**
      * @var string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
     private $tooltip;
-    
+
     /**
      * @var bool If TRUE this label will be added as filter on the product collection page.
      */
     private $showOnProducts;
-    
+
     /**
      * @var bool If TRUE this label will be added as filter on the order collection page.
      */
     private $showOnOrders;
-    
+
     /**
      * @var bool If TRUE this label will be added as filter on the invoice collection page.
      */
     private $showOnInvoices;
-    
+
     /**
      * @var string Href to this resource
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Labels implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int|null Unique id of the resource
      */
@@ -63,7 +63,7 @@ class Labels implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Uri to the image. These images will be shown as icons as 16x16.
      */
@@ -71,7 +71,7 @@ class Labels implements Model
     {
         return $this->imageLocation;
     }
-    
+
     /**
      * @return string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
@@ -79,7 +79,7 @@ class Labels implements Model
     {
         return $this->tooltip;
     }
-    
+
     /**
      * @return bool If TRUE this label will be added as filter on the product collection page.
      */
@@ -87,7 +87,7 @@ class Labels implements Model
     {
         return $this->showOnProducts;
     }
-    
+
     /**
      * @return bool If TRUE this label will be added as filter on the order collection page.
      */
@@ -95,7 +95,7 @@ class Labels implements Model
     {
         return $this->showOnOrders;
     }
-    
+
     /**
      * @return bool If TRUE this label will be added as filter on the invoice collection page.
      */
@@ -103,7 +103,7 @@ class Labels implements Model
     {
         return $this->showOnInvoices;
     }
-    
+
     /**
      * @return string Href to this resource
      */
@@ -111,7 +111,7 @@ class Labels implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param int|null $id Unique id of the resource
      * @return self
@@ -122,7 +122,7 @@ class Labels implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $imageLocation Uri to the image. These images will be shown as icons as 16x16.
      * @return self
@@ -133,7 +133,7 @@ class Labels implements Model
         $this->propertyFilled('imageLocation');
         return $this;
     }
-    
+
     /**
      * @param string|null $tooltip Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      * @return self
@@ -144,7 +144,7 @@ class Labels implements Model
         $this->propertyFilled('tooltip');
         return $this;
     }
-    
+
     /**
      * @param bool $showOnProducts If TRUE this label will be added as filter on the product collection page.
      * @return self
@@ -155,7 +155,7 @@ class Labels implements Model
         $this->propertyFilled('showOnProducts');
         return $this;
     }
-    
+
     /**
      * @param bool $showOnOrders If TRUE this label will be added as filter on the order collection page.
      * @return self
@@ -166,7 +166,7 @@ class Labels implements Model
         $this->propertyFilled('showOnOrders');
         return $this;
     }
-    
+
     /**
      * @param bool $showOnInvoices If TRUE this label will be added as filter on the invoice collection page.
      * @return self
@@ -177,7 +177,7 @@ class Labels implements Model
         $this->propertyFilled('showOnInvoices');
         return $this;
     }
-    
+
     /**
      * @param string $href Href to this resource
      * @return self

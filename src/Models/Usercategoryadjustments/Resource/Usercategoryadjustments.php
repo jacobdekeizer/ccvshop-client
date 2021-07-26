@@ -12,42 +12,42 @@ class Usercategoryadjustments implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource.
      */
     private $id;
-    
+
     /**
      * @var int Unique id of the category.
      */
     private $categoryId;
-    
+
     /**
      * @var int Unique id of the user.
      */
     private $userId;
-    
+
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
     private $discount;
-    
+
     /**
      * @var bool If TRUE then this categoy and its products won't be visible for this user.
      */
     private $hidden;
-    
+
     /**
      * @var bool If TRUE this adjustment will be inherited by all sub categories of this one.
      */
     private $includeSubCategories;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Usercategoryadjustments implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -63,7 +63,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource.
      */
@@ -71,7 +71,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return int Unique id of the category.
      */
@@ -79,7 +79,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->categoryId;
     }
-    
+
     /**
      * @return int Unique id of the user.
      */
@@ -87,7 +87,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->userId;
     }
-    
+
     /**
      * @return int|null Adjusted discount percentage that is applied to all products in this category.
      */
@@ -95,7 +95,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->discount;
     }
-    
+
     /**
      * @return bool If TRUE then this categoy and its products won't be visible for this user.
      */
@@ -103,7 +103,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->hidden;
     }
-    
+
     /**
      * @return bool If TRUE this adjustment will be inherited by all sub categories of this one.
      */
@@ -111,7 +111,7 @@ class Usercategoryadjustments implements Model
     {
         return $this->includeSubCategories;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -122,7 +122,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource.
      * @return self
@@ -133,7 +133,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param int $categoryId Unique id of the category.
      * @return self
@@ -144,7 +144,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('categoryId');
         return $this;
     }
-    
+
     /**
      * @param int $userId Unique id of the user.
      * @return self
@@ -155,7 +155,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('userId');
         return $this;
     }
-    
+
     /**
      * @param int|null $discount Adjusted discount percentage that is applied to all products in this category.
      * @return self
@@ -166,7 +166,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('discount');
         return $this;
     }
-    
+
     /**
      * @param bool $hidden If TRUE then this categoy and its products won't be visible for this user.
      * @return self
@@ -177,7 +177,7 @@ class Usercategoryadjustments implements Model
         $this->propertyFilled('hidden');
         return $this;
     }
-    
+
     /**
      * @param bool $includeSubCategories If TRUE this adjustment will be inherited by all sub categories of this one.
      * @return self

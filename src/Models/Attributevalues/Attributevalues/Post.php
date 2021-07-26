@@ -12,17 +12,17 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Attribute value name
      */
     private $name;
-    
+
     /**
      * @var float Default price of this attribute value
      */
     private $defaultPrice;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Attribute value name
      */
@@ -38,7 +38,7 @@ class Post implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return float Default price of this attribute value
      */
@@ -46,7 +46,7 @@ class Post implements Model
     {
         return $this->defaultPrice;
     }
-    
+
     /**
      * @param string $name Attribute value name
      * @return self
@@ -57,7 +57,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param float $defaultPrice Default price of this attribute value
      * @return self

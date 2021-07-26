@@ -10,7 +10,7 @@ class PackagesEndpoint extends BaseEndpoint
 {
     /**
      * Get one package. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages
@@ -19,13 +19,13 @@ class PackagesEndpoint extends BaseEndpoint
             self::GET,
             'packages/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages::fromArray($result);
     }
-    
+
     /**
      * Get all packages of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Packages\Collection\Packages
@@ -34,13 +34,13 @@ class PackagesEndpoint extends BaseEndpoint
             self::GET,
             'packages/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Packages\Collection\Packages::fromArray($result);
     }
-    
+
     /**
      * Patches an existing product package. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Packages\Packages\Input $model, bool $onlyFilled = true): void
@@ -51,10 +51,10 @@ class PackagesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Creates a new product package. Sent price calculation can be change in merchant's backend. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Packages\Packages\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages
@@ -64,7 +64,7 @@ class PackagesEndpoint extends BaseEndpoint
             'packages/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages::fromArray($result);
     }
 }

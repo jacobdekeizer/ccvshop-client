@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int[] Replaces all labels of this invoice with the new collection. An empty collection can be used to remove all labels.
      */
     private $labels;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int[] Replaces all labels of this invoice with the new collection. An empty collection can be used to remove all labels.
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->labels;
     }
-    
+
     /**
      * @param int[] $labels Replaces all labels of this invoice with the new collection. An empty collection can be used to remove all labels.
      * @return self

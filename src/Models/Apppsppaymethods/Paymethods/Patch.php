@@ -12,42 +12,42 @@ class Patch implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null The ID of this paymethod. This will be posted to the app.
      */
     private $id;
-    
+
     /**
      * @var string|null Display name of this paymethod. This will be shown in the checkout.
      */
     private $name;
-    
+
     /**
      * @var string|null Location of the icon. This must be a HTTPS (secured) connection.
      */
     private $icon;
-    
+
     /**
      * @var string|null The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      */
     private $type;
-    
+
     /**
      * @var string[]|null This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      */
     private $currencies;
-    
+
     /**
      * @var string[]|null These additional customer fields will be shown as required during the order chechout.
      */
     private $requiredFields;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Paymethods\Issuers[]|null Collection of Issuers
      */
     private $issuers;
-    
+
     /**
      * @return self
      */
@@ -55,7 +55,7 @@ class Patch implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null The ID of this paymethod. This will be posted to the app.
      */
@@ -63,7 +63,7 @@ class Patch implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string|null Display name of this paymethod. This will be shown in the checkout.
      */
@@ -71,7 +71,7 @@ class Patch implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return string|null Location of the icon. This must be a HTTPS (secured) connection.
      */
@@ -79,7 +79,7 @@ class Patch implements Model
     {
         return $this->icon;
     }
-    
+
     /**
      * @return string|null The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      */
@@ -87,7 +87,7 @@ class Patch implements Model
     {
         return $this->type;
     }
-    
+
     /**
      * @return string[]|null This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      */
@@ -95,7 +95,7 @@ class Patch implements Model
     {
         return $this->currencies;
     }
-    
+
     /**
      * @return string[]|null These additional customer fields will be shown as required during the order chechout.
      */
@@ -103,7 +103,7 @@ class Patch implements Model
     {
         return $this->requiredFields;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Paymethods\Issuers[]|null Collection of Issuers
      */
@@ -111,7 +111,7 @@ class Patch implements Model
     {
         return $this->issuers;
     }
-    
+
     /**
      * @param string|null $id The ID of this paymethod. This will be posted to the app.
      * @return self
@@ -122,7 +122,7 @@ class Patch implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string|null $name Display name of this paymethod. This will be shown in the checkout.
      * @return self
@@ -133,7 +133,7 @@ class Patch implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param string|null $icon Location of the icon. This must be a HTTPS (secured) connection.
      * @return self
@@ -144,7 +144,7 @@ class Patch implements Model
         $this->propertyFilled('icon');
         return $this;
     }
-    
+
     /**
      * @param string|null $type The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      * @return self
@@ -155,7 +155,7 @@ class Patch implements Model
         $this->propertyFilled('type');
         return $this;
     }
-    
+
     /**
      * @param string[]|null $currencies This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      * @return self
@@ -166,7 +166,7 @@ class Patch implements Model
         $this->propertyFilled('currencies');
         return $this;
     }
-    
+
     /**
      * @param string[]|null $requiredFields These additional customer fields will be shown as required during the order chechout.
      * @return self
@@ -177,7 +177,7 @@ class Patch implements Model
         $this->propertyFilled('requiredFields');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Paymethods\Issuers[]|null $issuers Collection of Issuers
      * @return self
@@ -192,14 +192,14 @@ class Patch implements Model
     {
         if ($key === 'issuers') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Child\Paymethods\Issuers::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

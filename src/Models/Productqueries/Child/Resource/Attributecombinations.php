@@ -12,17 +12,17 @@ class Attributecombinations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of attribute combination
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Attributecombinations[] Array with collection items
      */
     private $collection;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Attributecombinations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of attribute combination
      */
@@ -38,7 +38,7 @@ class Attributecombinations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Attributecombinations[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Attributecombinations implements Model
     {
         return $this->collection;
     }
-    
+
     /**
      * @param string $href Link to collection of attribute combination
      * @return self
@@ -57,7 +57,7 @@ class Attributecombinations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Attributecombinations[] $collection Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Attributecombinations implements Model
     {
         if ($key === 'collection') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Productqueries\Resource\Attributecombinations::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

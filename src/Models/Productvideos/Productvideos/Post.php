@@ -12,22 +12,22 @@ class Post implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Productvideo name
      */
     private $name;
-    
+
     /**
      * @var int|null Productvideo position. When the position isn't filled the highest position will be used.
      */
     private $position;
-    
+
     /**
      * @var string Productvideo embedcode
      */
     private $embedcode;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Post implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Productvideo name
      */
@@ -43,7 +43,7 @@ class Post implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return int|null Productvideo position. When the position isn't filled the highest position will be used.
      */
@@ -51,7 +51,7 @@ class Post implements Model
     {
         return $this->position;
     }
-    
+
     /**
      * @return string Productvideo embedcode
      */
@@ -59,7 +59,7 @@ class Post implements Model
     {
         return $this->embedcode;
     }
-    
+
     /**
      * @param string $name Productvideo name
      * @return self
@@ -70,7 +70,7 @@ class Post implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param int|null $position Productvideo position. When the position isn't filled the highest position will be used.
      * @return self
@@ -81,7 +81,7 @@ class Post implements Model
         $this->propertyFilled('position');
         return $this;
     }
-    
+
     /**
      * @param string $embedcode Productvideo embedcode
      * @return self

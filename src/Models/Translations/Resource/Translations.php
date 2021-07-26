@@ -12,22 +12,22 @@ class Translations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Unique identifier
      */
     private $key;
-    
+
     /**
      * @var string The translated value.
      */
     private $value;
-    
+
     /**
      * @var bool If this value differs from default.
      */
     private $customValue;
-    
+
     /**
      * @return self
      */
@@ -35,7 +35,7 @@ class Translations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Unique identifier
      */
@@ -43,7 +43,7 @@ class Translations implements Model
     {
         return $this->key;
     }
-    
+
     /**
      * @return string The translated value.
      */
@@ -51,7 +51,7 @@ class Translations implements Model
     {
         return $this->value;
     }
-    
+
     /**
      * @return bool If this value differs from default.
      */
@@ -59,7 +59,7 @@ class Translations implements Model
     {
         return $this->customValue;
     }
-    
+
     /**
      * @param string $key Unique identifier
      * @return self
@@ -70,7 +70,7 @@ class Translations implements Model
         $this->propertyFilled('key');
         return $this;
     }
-    
+
     /**
      * @param string $value The translated value.
      * @return self
@@ -81,7 +81,7 @@ class Translations implements Model
         $this->propertyFilled('value');
         return $this;
     }
-    
+
     /**
      * @param bool $customValue If this value differs from default.
      * @return self

@@ -10,7 +10,7 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
 {
     /**
      * Get all disabled paymethods for this user group. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromUsergroup(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
@@ -19,13 +19,13 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
             self::GET,
             'usergroups/' . $id . '/disabledpaymethods/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods::fromArray($result);
     }
-    
+
     /**
      * Get all disabled paymethods for this user. The result will be empty if the user belongs to a group. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromUser(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
@@ -34,13 +34,13 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
             self::GET,
             'users/' . $id . '/disabledpaymethods/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods::fromArray($result);
     }
-    
+
     /**
      * Change the disabled paymethods for an user group. Paymethods that are enabled in the webshop but are omitted here are visible for the user during the checkout. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function updateForUsergroup(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void
@@ -51,10 +51,10 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Change the disabled paymethods for an user. Paymethods that are enabled in the webshop but are omitted here are visible for the user during the checkout. Gives an exception if the user belongs to a group. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function updateForUser(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void

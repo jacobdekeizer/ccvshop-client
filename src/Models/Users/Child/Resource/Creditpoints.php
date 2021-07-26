@@ -12,12 +12,12 @@ class Creditpoints implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to creditpoint
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Creditpoints implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to creditpoint
      */
@@ -33,7 +33,7 @@ class Creditpoints implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to creditpoint
      * @return self

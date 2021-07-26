@@ -12,37 +12,37 @@ class Affiliatenetworks implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string|null Link to self
      */
     private $href;
-    
+
     /**
      * @var int Unique id of the resource
      */
     private $id;
-    
+
     /**
      * @var string Affiliate network name
      */
     private $name;
-    
+
     /**
      * @var int Cookie TTL time in minutes until cookie expires.
      */
     private $cookieTtl;
-    
+
     /**
      * @var bool True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
     private $deduplicate;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Child\Resource\ParentItem|null Parent resource of this resource
      */
     private $parent;
-    
+
     /**
      * @return self
      */
@@ -50,7 +50,7 @@ class Affiliatenetworks implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string|null Link to self
      */
@@ -58,7 +58,7 @@ class Affiliatenetworks implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return int Unique id of the resource
      */
@@ -66,7 +66,7 @@ class Affiliatenetworks implements Model
     {
         return $this->id;
     }
-    
+
     /**
      * @return string Affiliate network name
      */
@@ -74,7 +74,7 @@ class Affiliatenetworks implements Model
     {
         return $this->name;
     }
-    
+
     /**
      * @return int Cookie TTL time in minutes until cookie expires.
      */
@@ -82,7 +82,7 @@ class Affiliatenetworks implements Model
     {
         return $this->cookieTtl;
     }
-    
+
     /**
      * @return bool True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
@@ -90,7 +90,7 @@ class Affiliatenetworks implements Model
     {
         return $this->deduplicate;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Child\Resource\ParentItem|null Parent resource of this resource
      */
@@ -98,7 +98,7 @@ class Affiliatenetworks implements Model
     {
         return $this->parent;
     }
-    
+
     /**
      * @param string|null $href Link to self
      * @return self
@@ -109,7 +109,7 @@ class Affiliatenetworks implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param int $id Unique id of the resource
      * @return self
@@ -120,7 +120,7 @@ class Affiliatenetworks implements Model
         $this->propertyFilled('id');
         return $this;
     }
-    
+
     /**
      * @param string $name Affiliate network name
      * @return self
@@ -131,7 +131,7 @@ class Affiliatenetworks implements Model
         $this->propertyFilled('name');
         return $this;
     }
-    
+
     /**
      * @param int $cookieTtl Cookie TTL time in minutes until cookie expires.
      * @return self
@@ -142,7 +142,7 @@ class Affiliatenetworks implements Model
         $this->propertyFilled('cookieTtl');
         return $this;
     }
-    
+
     /**
      * @param bool $deduplicate True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      * @return self
@@ -153,7 +153,7 @@ class Affiliatenetworks implements Model
         $this->propertyFilled('deduplicate');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Child\Resource\ParentItem|null $parent Parent resource of this resource
      * @return self

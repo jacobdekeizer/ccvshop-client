@@ -10,7 +10,7 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
 {
     /**
      * Delete a product tax tariff exception. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
             'producttaxtariffexceptions/' . $id . '/',
         );
     }
-    
+
     /**
      * Get all tax tariff exceptions for this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Collection\Producttaxtariffexceptions
@@ -32,13 +32,13 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/producttaxtariffexceptions/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Collection\Producttaxtariffexceptions::fromArray($result);
     }
-    
+
     /**
      * Get one tax tariff exception. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Resource\Producttaxtariffexceptions
@@ -47,13 +47,13 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
             self::GET,
             'producttaxtariffexceptions/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Resource\Producttaxtariffexceptions::fromArray($result);
     }
-    
+
     /**
      * Patch a product tax tariff exception. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Producttaxtariffexceptions\Patch $model, bool $onlyFilled = true): void
@@ -64,10 +64,10 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Add a tax tariff exception to this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Producttaxtariffexceptions\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Resource\Producttaxtariffexceptions
@@ -77,7 +77,7 @@ class ProducttaxtariffexceptionsEndpoint extends BaseEndpoint
             'products/' . $id . '/producttaxtariffexceptions/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Producttaxtariffexceptions\Resource\Producttaxtariffexceptions::fromArray($result);
     }
 }

@@ -12,187 +12,187 @@ class Input implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Billingaddress|null Billing address info
      */
     private $billingaddress;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Deliveryaddress|null Shipping address info
      */
     private $deliveryaddress;
-    
+
     /**
      * @var string|null E-mail address
      */
     private $email;
-    
+
     /**
      * @var string|null Defines if this user is a consumer (b2c) or business (b2b) customer.
      */
     private $customertype;
-    
+
     /**
      * @var string|null Bankaccount number, within EU mostly IBAN will be used instead.
      */
     private $bankaccount;
-    
+
     /**
      * @var string|null Bank name
      */
     private $bankname;
-    
+
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'bankaccount'.
      */
     private $bank;
-    
+
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'bankname'.
      */
     private $tenname;
-    
+
     /**
      * @var string|null International Bank Account Number, if empty bankaccount could be used.
      */
     private $iban;
-    
+
     /**
      * @var string|null Bank Identifier Code. Used in combination with IBAN.
      */
     private $bic;
-    
+
     /**
      * @var string|null Customer reference. Could be used as customer number in some cases.
      */
     private $reference;
-    
+
     /**
      * @var string|null Customer reservation number.
      */
     private $reservationnumber;
-    
+
     /**
      * @var string|null Customer's income
      */
     private $income;
-    
+
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'branch'.
      */
     private $branche;
-    
+
     /**
      * @var string|null Customer's branch. Mostly used with company info.
      */
     private $branch;
-    
+
     /**
      * @var string|null Website of the customer
      */
     private $website;
-    
+
     /**
      * @var string|null Club's city
      */
     private $clubcity;
-    
+
     /**
      * @var string|null Club's comment
      */
     private $clubcomment;
-    
+
     /**
      * @var string|null Club's name
      */
     private $clubname;
-    
+
     /**
      * @var string|null Deprecated. Fair of the customer. See 'Fair'
      */
     private $beurs;
-    
+
     /**
      * @var string|null Deprecated. Booth of the customer. See 'Booth'
      */
     private $stand;
-    
+
     /**
      * @var string|null Fair of the customer.
      */
     private $fair;
-    
+
     /**
      * @var string|null Booth of the customer.
      */
     private $booth;
-    
+
     /**
      * @var string|null Car brand
      */
     private $carbrand;
-    
+
     /**
      * @var string|null Car type
      */
     private $cartype;
-    
+
     /**
      * @var string|null Car weight
      */
     private $carweight;
-    
+
     /**
      * @var string|null Birthdate of the customer
      */
     private $birthdate;
-    
+
     /**
      * @var string|null Birth time of the customer
      */
     private $birthtime;
-    
+
     /**
      * @var string|null Birth place of the customer
      */
     private $birthplace;
-    
+
     /**
      * @var string|null Card number
      */
     private $cardnumber;
-    
+
     /**
      * @var string|null BTW number
      */
     private $btw;
-    
+
     /**
      * @var string|null Chamber of Commerce number
      */
     private $kvk;
-    
+
     /**
      * @var string|null Name of the cost centre
      */
     private $costcentre;
-    
+
     /**
      * @var string|null How did the customer find you
      */
     private $findus;
-    
+
     /**
      * @var string|null SSN number
      */
     private $ssnnumber;
-    
+
     /**
      * @var string|null ZZP number
      */
     private $zzppass;
-    
+
     /**
      * @return self
      */
@@ -200,7 +200,7 @@ class Input implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Billingaddress|null Billing address info
      */
@@ -208,7 +208,7 @@ class Input implements Model
     {
         return $this->billingaddress;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Deliveryaddress|null Shipping address info
      */
@@ -216,7 +216,7 @@ class Input implements Model
     {
         return $this->deliveryaddress;
     }
-    
+
     /**
      * @return string|null E-mail address
      */
@@ -224,7 +224,7 @@ class Input implements Model
     {
         return $this->email;
     }
-    
+
     /**
      * @return string|null Defines if this user is a consumer (b2c) or business (b2b) customer.
      */
@@ -232,7 +232,7 @@ class Input implements Model
     {
         return $this->customertype;
     }
-    
+
     /**
      * @return string|null Bankaccount number, within EU mostly IBAN will be used instead.
      */
@@ -240,7 +240,7 @@ class Input implements Model
     {
         return $this->bankaccount;
     }
-    
+
     /**
      * @return string|null Bank name
      */
@@ -248,7 +248,7 @@ class Input implements Model
     {
         return $this->bankname;
     }
-    
+
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'bankaccount'.
      */
@@ -256,7 +256,7 @@ class Input implements Model
     {
         return $this->bank;
     }
-    
+
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'bankname'.
      */
@@ -264,7 +264,7 @@ class Input implements Model
     {
         return $this->tenname;
     }
-    
+
     /**
      * @return string|null International Bank Account Number, if empty bankaccount could be used.
      */
@@ -272,7 +272,7 @@ class Input implements Model
     {
         return $this->iban;
     }
-    
+
     /**
      * @return string|null Bank Identifier Code. Used in combination with IBAN.
      */
@@ -280,7 +280,7 @@ class Input implements Model
     {
         return $this->bic;
     }
-    
+
     /**
      * @return string|null Customer reference. Could be used as customer number in some cases.
      */
@@ -288,7 +288,7 @@ class Input implements Model
     {
         return $this->reference;
     }
-    
+
     /**
      * @return string|null Customer reservation number.
      */
@@ -296,7 +296,7 @@ class Input implements Model
     {
         return $this->reservationnumber;
     }
-    
+
     /**
      * @return string|null Customer's income
      */
@@ -304,7 +304,7 @@ class Input implements Model
     {
         return $this->income;
     }
-    
+
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'branch'.
      */
@@ -312,7 +312,7 @@ class Input implements Model
     {
         return $this->branche;
     }
-    
+
     /**
      * @return string|null Customer's branch. Mostly used with company info.
      */
@@ -320,7 +320,7 @@ class Input implements Model
     {
         return $this->branch;
     }
-    
+
     /**
      * @return string|null Website of the customer
      */
@@ -328,7 +328,7 @@ class Input implements Model
     {
         return $this->website;
     }
-    
+
     /**
      * @return string|null Club's city
      */
@@ -336,7 +336,7 @@ class Input implements Model
     {
         return $this->clubcity;
     }
-    
+
     /**
      * @return string|null Club's comment
      */
@@ -344,7 +344,7 @@ class Input implements Model
     {
         return $this->clubcomment;
     }
-    
+
     /**
      * @return string|null Club's name
      */
@@ -352,7 +352,7 @@ class Input implements Model
     {
         return $this->clubname;
     }
-    
+
     /**
      * @return string|null Deprecated. Fair of the customer. See 'Fair'
      */
@@ -360,7 +360,7 @@ class Input implements Model
     {
         return $this->beurs;
     }
-    
+
     /**
      * @return string|null Deprecated. Booth of the customer. See 'Booth'
      */
@@ -368,7 +368,7 @@ class Input implements Model
     {
         return $this->stand;
     }
-    
+
     /**
      * @return string|null Fair of the customer.
      */
@@ -376,7 +376,7 @@ class Input implements Model
     {
         return $this->fair;
     }
-    
+
     /**
      * @return string|null Booth of the customer.
      */
@@ -384,7 +384,7 @@ class Input implements Model
     {
         return $this->booth;
     }
-    
+
     /**
      * @return string|null Car brand
      */
@@ -392,7 +392,7 @@ class Input implements Model
     {
         return $this->carbrand;
     }
-    
+
     /**
      * @return string|null Car type
      */
@@ -400,7 +400,7 @@ class Input implements Model
     {
         return $this->cartype;
     }
-    
+
     /**
      * @return string|null Car weight
      */
@@ -408,7 +408,7 @@ class Input implements Model
     {
         return $this->carweight;
     }
-    
+
     /**
      * @return string|null Birthdate of the customer
      */
@@ -416,7 +416,7 @@ class Input implements Model
     {
         return $this->birthdate;
     }
-    
+
     /**
      * @return string|null Birth time of the customer
      */
@@ -424,7 +424,7 @@ class Input implements Model
     {
         return $this->birthtime;
     }
-    
+
     /**
      * @return string|null Birth place of the customer
      */
@@ -432,7 +432,7 @@ class Input implements Model
     {
         return $this->birthplace;
     }
-    
+
     /**
      * @return string|null Card number
      */
@@ -440,7 +440,7 @@ class Input implements Model
     {
         return $this->cardnumber;
     }
-    
+
     /**
      * @return string|null BTW number
      */
@@ -448,7 +448,7 @@ class Input implements Model
     {
         return $this->btw;
     }
-    
+
     /**
      * @return string|null Chamber of Commerce number
      */
@@ -456,7 +456,7 @@ class Input implements Model
     {
         return $this->kvk;
     }
-    
+
     /**
      * @return string|null Name of the cost centre
      */
@@ -464,7 +464,7 @@ class Input implements Model
     {
         return $this->costcentre;
     }
-    
+
     /**
      * @return string|null How did the customer find you
      */
@@ -472,7 +472,7 @@ class Input implements Model
     {
         return $this->findus;
     }
-    
+
     /**
      * @return string|null SSN number
      */
@@ -480,7 +480,7 @@ class Input implements Model
     {
         return $this->ssnnumber;
     }
-    
+
     /**
      * @return string|null ZZP number
      */
@@ -488,7 +488,7 @@ class Input implements Model
     {
         return $this->zzppass;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Billingaddress|null $billingaddress Billing address info
      * @return self
@@ -499,7 +499,7 @@ class Input implements Model
         $this->propertyFilled('billingaddress');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Orders\Child\Personalinfo\Deliveryaddress|null $deliveryaddress Shipping address info
      * @return self
@@ -510,7 +510,7 @@ class Input implements Model
         $this->propertyFilled('deliveryaddress');
         return $this;
     }
-    
+
     /**
      * @param string|null $email E-mail address
      * @return self
@@ -521,7 +521,7 @@ class Input implements Model
         $this->propertyFilled('email');
         return $this;
     }
-    
+
     /**
      * @param string|null $customertype Defines if this user is a consumer (b2c) or business (b2b) customer.
      * @return self
@@ -532,7 +532,7 @@ class Input implements Model
         $this->propertyFilled('customertype');
         return $this;
     }
-    
+
     /**
      * @param string|null $bankaccount Bankaccount number, within EU mostly IBAN will be used instead.
      * @return self
@@ -543,7 +543,7 @@ class Input implements Model
         $this->propertyFilled('bankaccount');
         return $this;
     }
-    
+
     /**
      * @param string|null $bankname Bank name
      * @return self
@@ -554,7 +554,7 @@ class Input implements Model
         $this->propertyFilled('bankname');
         return $this;
     }
-    
+
     /**
      * @param string|null $bank Deprecated. This field will no longer be used. Please use 'bankaccount'.
      * @return self
@@ -565,7 +565,7 @@ class Input implements Model
         $this->propertyFilled('bank');
         return $this;
     }
-    
+
     /**
      * @param string|null $tenname Deprecated. This field will no longer be used. Please use 'bankname'.
      * @return self
@@ -576,7 +576,7 @@ class Input implements Model
         $this->propertyFilled('tenname');
         return $this;
     }
-    
+
     /**
      * @param string|null $iban International Bank Account Number, if empty bankaccount could be used.
      * @return self
@@ -587,7 +587,7 @@ class Input implements Model
         $this->propertyFilled('iban');
         return $this;
     }
-    
+
     /**
      * @param string|null $bic Bank Identifier Code. Used in combination with IBAN.
      * @return self
@@ -598,7 +598,7 @@ class Input implements Model
         $this->propertyFilled('bic');
         return $this;
     }
-    
+
     /**
      * @param string|null $reference Customer reference. Could be used as customer number in some cases.
      * @return self
@@ -609,7 +609,7 @@ class Input implements Model
         $this->propertyFilled('reference');
         return $this;
     }
-    
+
     /**
      * @param string|null $reservationnumber Customer reservation number.
      * @return self
@@ -620,7 +620,7 @@ class Input implements Model
         $this->propertyFilled('reservationnumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $income Customer's income
      * @return self
@@ -631,7 +631,7 @@ class Input implements Model
         $this->propertyFilled('income');
         return $this;
     }
-    
+
     /**
      * @param string|null $branche Deprecated. This field will no longer be used. Please use 'branch'.
      * @return self
@@ -642,7 +642,7 @@ class Input implements Model
         $this->propertyFilled('branche');
         return $this;
     }
-    
+
     /**
      * @param string|null $branch Customer's branch. Mostly used with company info.
      * @return self
@@ -653,7 +653,7 @@ class Input implements Model
         $this->propertyFilled('branch');
         return $this;
     }
-    
+
     /**
      * @param string|null $website Website of the customer
      * @return self
@@ -664,7 +664,7 @@ class Input implements Model
         $this->propertyFilled('website');
         return $this;
     }
-    
+
     /**
      * @param string|null $clubcity Club's city
      * @return self
@@ -675,7 +675,7 @@ class Input implements Model
         $this->propertyFilled('clubcity');
         return $this;
     }
-    
+
     /**
      * @param string|null $clubcomment Club's comment
      * @return self
@@ -686,7 +686,7 @@ class Input implements Model
         $this->propertyFilled('clubcomment');
         return $this;
     }
-    
+
     /**
      * @param string|null $clubname Club's name
      * @return self
@@ -697,7 +697,7 @@ class Input implements Model
         $this->propertyFilled('clubname');
         return $this;
     }
-    
+
     /**
      * @param string|null $beurs Deprecated. Fair of the customer. See 'Fair'
      * @return self
@@ -708,7 +708,7 @@ class Input implements Model
         $this->propertyFilled('beurs');
         return $this;
     }
-    
+
     /**
      * @param string|null $stand Deprecated. Booth of the customer. See 'Booth'
      * @return self
@@ -719,7 +719,7 @@ class Input implements Model
         $this->propertyFilled('stand');
         return $this;
     }
-    
+
     /**
      * @param string|null $fair Fair of the customer.
      * @return self
@@ -730,7 +730,7 @@ class Input implements Model
         $this->propertyFilled('fair');
         return $this;
     }
-    
+
     /**
      * @param string|null $booth Booth of the customer.
      * @return self
@@ -741,7 +741,7 @@ class Input implements Model
         $this->propertyFilled('booth');
         return $this;
     }
-    
+
     /**
      * @param string|null $carbrand Car brand
      * @return self
@@ -752,7 +752,7 @@ class Input implements Model
         $this->propertyFilled('carbrand');
         return $this;
     }
-    
+
     /**
      * @param string|null $cartype Car type
      * @return self
@@ -763,7 +763,7 @@ class Input implements Model
         $this->propertyFilled('cartype');
         return $this;
     }
-    
+
     /**
      * @param string|null $carweight Car weight
      * @return self
@@ -774,7 +774,7 @@ class Input implements Model
         $this->propertyFilled('carweight');
         return $this;
     }
-    
+
     /**
      * @param string|null $birthdate Birthdate of the customer
      * @return self
@@ -785,7 +785,7 @@ class Input implements Model
         $this->propertyFilled('birthdate');
         return $this;
     }
-    
+
     /**
      * @param string|null $birthtime Birth time of the customer
      * @return self
@@ -796,7 +796,7 @@ class Input implements Model
         $this->propertyFilled('birthtime');
         return $this;
     }
-    
+
     /**
      * @param string|null $birthplace Birth place of the customer
      * @return self
@@ -807,7 +807,7 @@ class Input implements Model
         $this->propertyFilled('birthplace');
         return $this;
     }
-    
+
     /**
      * @param string|null $cardnumber Card number
      * @return self
@@ -818,7 +818,7 @@ class Input implements Model
         $this->propertyFilled('cardnumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $btw BTW number
      * @return self
@@ -829,7 +829,7 @@ class Input implements Model
         $this->propertyFilled('btw');
         return $this;
     }
-    
+
     /**
      * @param string|null $kvk Chamber of Commerce number
      * @return self
@@ -840,7 +840,7 @@ class Input implements Model
         $this->propertyFilled('kvk');
         return $this;
     }
-    
+
     /**
      * @param string|null $costcentre Name of the cost centre
      * @return self
@@ -851,7 +851,7 @@ class Input implements Model
         $this->propertyFilled('costcentre');
         return $this;
     }
-    
+
     /**
      * @param string|null $findus How did the customer find you
      * @return self
@@ -862,7 +862,7 @@ class Input implements Model
         $this->propertyFilled('findus');
         return $this;
     }
-    
+
     /**
      * @param string|null $ssnnumber SSN number
      * @return self
@@ -873,7 +873,7 @@ class Input implements Model
         $this->propertyFilled('ssnnumber');
         return $this;
     }
-    
+
     /**
      * @param string|null $zzppass ZZP number
      * @return self

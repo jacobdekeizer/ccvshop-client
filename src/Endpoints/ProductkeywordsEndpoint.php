@@ -10,7 +10,7 @@ class ProductkeywordsEndpoint extends BaseEndpoint
 {
     /**
      * Delete all keywords from this product. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function deleteForProduct(int $id): void
@@ -20,10 +20,10 @@ class ProductkeywordsEndpoint extends BaseEndpoint
             'products/' . $id . '/productkeywords/',
         );
     }
-    
+
     /**
      * Get all keywords for this product. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords
@@ -32,13 +32,13 @@ class ProductkeywordsEndpoint extends BaseEndpoint
             self::GET,
             'products/' . $id . '/productkeywords/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords::fromArray($result);
     }
-    
+
     /**
      * Post a product keyword. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords
@@ -48,7 +48,7 @@ class ProductkeywordsEndpoint extends BaseEndpoint
             'products/' . $id . '/productkeywords/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords::fromArray($result);
     }
 }

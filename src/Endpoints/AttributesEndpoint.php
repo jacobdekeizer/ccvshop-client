@@ -10,7 +10,7 @@ class AttributesEndpoint extends BaseEndpoint
 {
     /**
      * Delete an attribute. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function delete(int $id): void
@@ -20,10 +20,10 @@ class AttributesEndpoint extends BaseEndpoint
             'attributes/' . $id . '/',
         );
     }
-    
+
     /**
      * Gets all values for the attribute. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function allFromAttributecombination(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
@@ -32,13 +32,13 @@ class AttributesEndpoint extends BaseEndpoint
             self::GET,
             'attributecombinations/' . $id . '/attributes/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes::fromArray($result);
     }
-    
+
     /**
      * Gets all attributes of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
@@ -47,13 +47,13 @@ class AttributesEndpoint extends BaseEndpoint
             self::GET,
             'attributes/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes::fromArray($result);
     }
-    
+
     /**
      * Gets one attribute. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes
@@ -62,13 +62,13 @@ class AttributesEndpoint extends BaseEndpoint
             self::GET,
             'attributes/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes::fromArray($result);
     }
-    
+
     /**
      * Patch an attribute. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): void
@@ -79,10 +79,10 @@ class AttributesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post an attribute. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes
@@ -92,7 +92,7 @@ class AttributesEndpoint extends BaseEndpoint
             'attributes/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes::fromArray($result);
     }
 }

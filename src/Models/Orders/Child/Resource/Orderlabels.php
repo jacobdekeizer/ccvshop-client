@@ -12,12 +12,12 @@ class Orderlabels implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to collection of order labels
      */
     private $href;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Orderlabels implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to collection of order labels
      */
@@ -33,7 +33,7 @@ class Orderlabels implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @param string $href Link to collection of order labels
      * @return self

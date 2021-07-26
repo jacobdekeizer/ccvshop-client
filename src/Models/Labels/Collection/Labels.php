@@ -12,17 +12,17 @@ class Labels implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels[] Array with collection items
      */
     private $items;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Labels implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -38,7 +38,7 @@ class Labels implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Labels implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -57,7 +57,7 @@ class Labels implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels[] $items Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Labels implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

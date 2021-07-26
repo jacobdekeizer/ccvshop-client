@@ -12,12 +12,12 @@ use JacobDeKeizer\Ccv\Traits\FromArray;
 class All implements Parameter
 {
     use FromArray;
-    
+
     /**
      * @var string|null A hex code, multicolor, transparent to filter that color.
      */
     private $color;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class All implements Parameter
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return self
      */
@@ -34,16 +34,16 @@ class All implements Parameter
         if ($url === null) {
             return null;
         }
-        
+
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-    
+
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
             ->addOptionalParameter('color', $this->color);
     }
-    
+
     /**
      * @return string|null A hex code, multicolor, transparent to filter that color.
      */
@@ -51,7 +51,7 @@ class All implements Parameter
     {
         return $this->color;
     }
-    
+
     /**
      * @param string|null $color A hex code, multicolor, transparent to filter that color.
      * @return self

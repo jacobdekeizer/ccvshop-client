@@ -12,12 +12,12 @@ class View implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblock\View[] Collection of views
      */
     private $views;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class View implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblock\View[] Collection of views
      */
@@ -33,7 +33,7 @@ class View implements Model
     {
         return $this->views;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblock\View[] $views Collection of views
      * @return self
@@ -48,14 +48,14 @@ class View implements Model
     {
         if ($key === 'views') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblock\View::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }

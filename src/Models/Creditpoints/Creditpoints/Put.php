@@ -12,12 +12,12 @@ class Put implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var int The current amount of creditpoints of a user
      */
     private $amount;
-    
+
     /**
      * @return self
      */
@@ -25,7 +25,7 @@ class Put implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return int The current amount of creditpoints of a user
      */
@@ -33,7 +33,7 @@ class Put implements Model
     {
         return $this->amount;
     }
-    
+
     /**
      * @param int $amount The current amount of creditpoints of a user
      * @return self

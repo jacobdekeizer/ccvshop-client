@@ -10,7 +10,7 @@ class OrdersEndpoint extends BaseEndpoint
 {
     /**
      * Get all orders of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function all(\JacobDeKeizer\Ccv\Parameters\Orders\All $parameter = null): \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders
@@ -18,18 +18,18 @@ class OrdersEndpoint extends BaseEndpoint
         if ($parameter === null) {
             $parameter = new \JacobDeKeizer\Ccv\Parameters\Orders\All();
         }
-        
+
         $result = $this->doRequest(
             self::GET,
             'orders/' . $parameter->toBuilder()->toQueryString()
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Orders\Collection\Orders::fromArray($result);
     }
-    
+
     /**
      * Get one order of this webshop. 150 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function get(int $id): \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders
@@ -38,13 +38,13 @@ class OrdersEndpoint extends BaseEndpoint
             self::GET,
             'orders/' . $id . '/'
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($result);
     }
-    
+
     /**
      * Patch an existing order. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function update(int $id, \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch $model, bool $onlyFilled = true): void
@@ -55,10 +55,10 @@ class OrdersEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
     }
-    
+
     /**
      * Post a new order. 100 per minute
-     * 
+     *
      * @throws CcvShopException
      */
     public function create(\JacobDeKeizer\Ccv\Models\Orders\Orders\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders
@@ -68,7 +68,7 @@ class OrdersEndpoint extends BaseEndpoint
             'orders/',
             $model->toArray($onlyFilled)
         );
-        
+
         return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($result);
     }
 }

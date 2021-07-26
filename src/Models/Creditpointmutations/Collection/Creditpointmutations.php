@@ -12,17 +12,17 @@ class Creditpointmutations implements Model
 {
     use FromArray;
     use ToArray;
-    
+
     /**
      * @var string Link to self
      */
     private $href;
-    
+
     /**
      * @var \JacobDeKeizer\Ccv\Models\Creditpointmutations\Resource\Creditpointmutations[] Array with collection items
      */
     private $items;
-    
+
     /**
      * @return self
      */
@@ -30,7 +30,7 @@ class Creditpointmutations implements Model
     {
         return self::createFromArray($data);
     }
-    
+
     /**
      * @return string Link to self
      */
@@ -38,7 +38,7 @@ class Creditpointmutations implements Model
     {
         return $this->href;
     }
-    
+
     /**
      * @return \JacobDeKeizer\Ccv\Models\Creditpointmutations\Resource\Creditpointmutations[] Array with collection items
      */
@@ -46,7 +46,7 @@ class Creditpointmutations implements Model
     {
         return $this->items;
     }
-    
+
     /**
      * @param string $href Link to self
      * @return self
@@ -57,7 +57,7 @@ class Creditpointmutations implements Model
         $this->propertyFilled('href');
         return $this;
     }
-    
+
     /**
      * @param \JacobDeKeizer\Ccv\Models\Creditpointmutations\Resource\Creditpointmutations[] $items Array with collection items
      * @return self
@@ -72,14 +72,14 @@ class Creditpointmutations implements Model
     {
         if ($key === 'items') {
             $items = [];
-            
+
             foreach ($value as $item) {
                 $items[] = \JacobDeKeizer\Ccv\Models\Creditpointmutations\Resource\Creditpointmutations::fromArray($item);
             }
-            
+
             return $items;
         }
-        
+
         return $value;
     }
 }
