@@ -26,10 +26,10 @@ class CategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function get(int $id, \JacobDeKeizer\Ccv\Parameters\Categories\Get $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
+    public function allFromCategories(int $id, \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\Get();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategories();
         }
         
         $result = $this->doRequest(
@@ -93,7 +93,7 @@ class CategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Categories\Categories\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
+    public function create(\JacobDeKeizer\Ccv\Models\Categories\Categories\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Categories\Resource\Categories
     {
         $result = $this->doRequest(
             self::POST,
@@ -101,6 +101,6 @@ class CategoriesEndpoint extends BaseEndpoint
             $model->toArray($onlyFilled)
         );
         
-        return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);
+        return \JacobDeKeizer\Ccv\Models\Categories\Resource\Categories::fromArray($result);
     }
 }

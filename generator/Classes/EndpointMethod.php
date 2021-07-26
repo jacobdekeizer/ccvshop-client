@@ -282,9 +282,8 @@ class EndpointMethod
             return null;
         }
 
-        // try fallback
-        //
-        //
+        // try fallback e.g.
+        // \JacobDeKeizer\Ccv\Models\Languages\Languages\Post -> \JacobDeKeizer\Ccv\Models\Languages\Resource\Languages
         $namespaceParts = explode('\\', $this->model->getNamespacedClass());
 
         $count = count($namespaceParts);

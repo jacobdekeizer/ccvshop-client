@@ -58,7 +58,7 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function get(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
+    public function allFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
     {
         $result = $this->doRequest(
             self::GET,

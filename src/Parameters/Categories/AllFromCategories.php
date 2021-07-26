@@ -10,7 +10,7 @@ use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class Get extends PaginatedList implements Parameter
+class AllFromCategories extends PaginatedList implements Parameter
 {
     use FromArray;
     

@@ -165,7 +165,7 @@ class EndpointClassGenerator
 
         $origin = $parts[0];
 
-        $isSingular = $origin === $title;
+        $isSingular = count($parts) <= 3;
 
         $suffix = $isSingular ? '' : 'From' . Str::studly($origin);
 
