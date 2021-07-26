@@ -60,12 +60,14 @@ class OrdermessagesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): void
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'orders/' . $id . '/ordermessages/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages::fromArray($result);
     }
 }

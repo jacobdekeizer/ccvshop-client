@@ -49,9 +49,14 @@ class Patch implements Model
     private $description;
     
     /**
-     * @var float|null VAT rate of product in percentage
+     * @var float|null Deprecated. VAT rate of product in percentage.
      */
     private $vatrate;
+    
+    /**
+     * @var string|null The tax tariff of the product
+     */
+    private $taxtariff;
     
     /**
      * @var float|null Original price of the product, before discounts
@@ -378,11 +383,19 @@ class Patch implements Model
     }
     
     /**
-     * @return float|null VAT rate of product in percentage
+     * @return float|null Deprecated. VAT rate of product in percentage.
      */
     public function getVatrate(): ?float
     {
         return $this->vatrate;
+    }
+    
+    /**
+     * @return string|null The tax tariff of the product
+     */
+    public function getTaxtariff(): ?string
+    {
+        return $this->taxtariff;
     }
     
     /**
@@ -879,13 +892,24 @@ class Patch implements Model
     }
     
     /**
-     * @param float|null $vatrate VAT rate of product in percentage
+     * @param float|null $vatrate Deprecated. VAT rate of product in percentage.
      * @return self
      */
     public function setVatrate(?float $vatrate): self
     {
         $this->vatrate = $vatrate;
         $this->propertyFilled('vatrate');
+        return $this;
+    }
+    
+    /**
+     * @param string|null $taxtariff The tax tariff of the product
+     * @return self
+     */
+    public function setTaxtariff(?string $taxtariff): self
+    {
+        $this->taxtariff = $taxtariff;
+        $this->propertyFilled('taxtariff');
         return $this;
     }
     

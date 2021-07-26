@@ -70,12 +70,14 @@ class LabelsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Labels\Labels\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Labels\Labels\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'labels/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Labels\Resource\Labels::fromArray($result);
     }
 }

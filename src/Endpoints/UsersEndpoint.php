@@ -93,12 +93,14 @@ class UsersEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Users\Users\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Users\Users\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Users\Resource\Users
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'users/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Users\Resource\Users::fromArray($result);
     }
 }

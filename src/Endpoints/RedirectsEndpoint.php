@@ -70,12 +70,14 @@ class RedirectsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Redirects\Redirects\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Redirects\Redirects\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Redirects\Resource\Redirects
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'redirects/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Redirects\Resource\Redirects::fromArray($result);
     }
 }

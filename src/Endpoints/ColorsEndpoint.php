@@ -47,12 +47,14 @@ class ColorsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Colors\Colors\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Colors\Colors\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'colors/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Colors\Resource\Colors::fromArray($result);
     }
 }

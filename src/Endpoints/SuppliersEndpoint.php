@@ -70,12 +70,14 @@ class SuppliersEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'suppliers/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Suppliers\Resource\Suppliers::fromArray($result);
     }
 }

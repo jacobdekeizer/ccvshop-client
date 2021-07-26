@@ -19,6 +19,8 @@ class EndpointMethod
 
     private $properties;
 
+    private $parent;
+
     private $model;
 
     private $parameter;
@@ -32,6 +34,7 @@ class EndpointMethod
         string $description,
         string $route,
         array $properties,
+        EndpointClass $parent,
         ?ModelClass $model = null,
         ?ParameterClass $parameter = null
     ) {
@@ -40,6 +43,7 @@ class EndpointMethod
         $this->description = $description;
         $this->route = $route;
         $this->properties = $properties;
+        $this->parent = $parent;
         $this->model = $model;
         $this->parameter = $parameter;
     }
@@ -56,8 +60,13 @@ class EndpointMethod
 
     public function write(CodeWriter $codeWriter): void
     {
-        if ($this->isCreateOrUpdate()) {
-            $this->writeCreateOrUpdate($codeWriter);
+        if ($this->isUpdate()) {
+            $this->writeUpdate($codeWriter);
+            return;
+        }
+
+        if ($this->isCreate()) {
+            $this->writeCreate($codeWriter);
             return;
         }
 
@@ -89,7 +98,35 @@ class EndpointMethod
         $codeWriter->closeMethod();
     }
 
-    private function writeCreateOrUpdate(CodeWriter $codeWriter): void
+    private function writeCreate(CodeWriter $codeWriter): void
+    {
+        $returnModel = $this->findReturnModelClassOfCreateMethod();
+
+        if ($returnModel === null) {
+            $this->writeUpdate($codeWriter);
+            return;
+        }
+
+        $this->writeMethod($codeWriter, $returnModel);
+
+        $this->writeParameter($codeWriter);
+
+        $codeWriter->writeLine('$result = $this->doRequest(');
+        $codeWriter->indent();
+        $codeWriter->writeLine('self::' . $this->httpMethod . ',');
+        $codeWriter->writeLine($this->getParameterizedUrl() . ',');
+        $codeWriter->writeLine('$model->toArray($onlyFilled)');
+        $codeWriter->outdent();
+        $codeWriter->writeLine(');');
+
+        $codeWriter->insertNewLine();
+
+        $codeWriter->writeLine('return ' . $returnModel . '::fromArray($result);');
+
+        $codeWriter->closeMethod();
+    }
+
+    private function writeUpdate(CodeWriter $codeWriter): void
     {
         $this->writeMethod($codeWriter, 'void');
 
@@ -152,7 +189,17 @@ class EndpointMethod
 
     private function isCreateOrUpdate(): bool
     {
-        return $this->httpMethod === 'PATCH' || $this->httpMethod === 'POST' || $this->httpMethod === 'PUT';
+        return $this->isCreate() || $this->isUpdate();
+    }
+
+    private function isCreate(): bool
+    {
+        return $this->httpMethod === 'POST';
+    }
+
+    private function isUpdate(): bool
+    {
+        return $this->httpMethod === 'PATCH' || $this->httpMethod === 'PUT';
     }
 
     private function isDelete(): bool
@@ -219,5 +266,34 @@ class EndpointMethod
     private function addSeparator(string $content): string
     {
         return $content === '' ? '' : ', ';
+    }
+
+    private function findReturnModelClassOfCreateMethod(): ?string
+    {
+        $methodName = 'get';
+
+        foreach ($this->parent->getEndpointMethods() as $endpointMethod) {
+            if ($endpointMethod->methodName === $methodName) {
+                return $endpointMethod->getModel()->getNamespacedClass();
+            }
+        }
+
+        if ($this->model === null) {
+            return null;
+        }
+
+        // try fallback
+        //
+        //
+        $namespaceParts = explode('\\', $this->model->getNamespacedClass());
+
+        $count = count($namespaceParts);
+
+        $resourceName = $namespaceParts[$count - 2];
+
+        $namespaceParts[$count - 2] = 'Resource';
+        $namespaceParts[$count - 1] = $resourceName;
+
+        return implode('\\', $namespaceParts);
     }
 }

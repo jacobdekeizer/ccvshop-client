@@ -93,12 +93,14 @@ class CategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Categories\Categories\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Categories\Categories\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'categories/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories::fromArray($result);
     }
 }

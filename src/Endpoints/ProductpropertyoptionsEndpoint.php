@@ -70,12 +70,14 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProductproperties(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Post $model, bool $onlyFilled = true): void
+    public function createFromProductproperties(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'productproperties/' . $id . '/productpropertyoptions/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions::fromArray($result);
     }
 }

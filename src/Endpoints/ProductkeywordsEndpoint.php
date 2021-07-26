@@ -41,12 +41,14 @@ class ProductkeywordsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productkeywords/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords::fromArray($result);
     }
 }

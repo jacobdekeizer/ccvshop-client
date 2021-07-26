@@ -74,12 +74,14 @@ class UserproductadjustmentsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Userproductadjustments\Userproductadjustments\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Userproductadjustments\Userproductadjustments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Userproductadjustments\Resource\Userproductadjustments
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'userproductadjustments/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Userproductadjustments\Resource\Userproductadjustments::fromArray($result);
     }
 }

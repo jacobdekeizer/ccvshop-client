@@ -70,12 +70,14 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromAttributecombinations(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Post $model, bool $onlyFilled = true): void
+    public function createFromAttributecombinations(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'attributecombinations/' . $id . '/attributecombinationphotos/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto::fromArray($result);
     }
 }

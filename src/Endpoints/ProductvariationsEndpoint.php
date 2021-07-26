@@ -70,12 +70,14 @@ class ProductvariationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productvariations/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations::fromArray($result);
     }
 }

@@ -56,12 +56,14 @@ class AppcodeblocksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromApps(int $id, \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblocks\Post $model, bool $onlyFilled = true): void
+    public function createFromApps(int $id, \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblocks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'apps/' . $id . '/appcodeblocks/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks::fromArray($result);
     }
 }

@@ -74,12 +74,14 @@ class ProductstaggeredpricesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Productstaggeredprices\Input $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Productstaggeredprices\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productstaggeredprices/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productstaggeredprices\Resource\Productstaggeredprices::fromArray($result);
     }
 }

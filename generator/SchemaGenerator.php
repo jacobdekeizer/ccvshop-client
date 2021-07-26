@@ -54,11 +54,6 @@ class SchemaGenerator
         foreach ($endpoints as $endpoint) {
             $generator->createEndpointFile($endpoint);
 
-//            if ($endpoint->getTitle() === 'Productqueries') {
-//                var_dump($endpoint);
-//                die();
-//            }
-
             foreach ($endpoint->getEndpointMethods() as $endpointMethod) {
                 if ($model = $endpointMethod->getModel()) {
                     $generator->createModelFile($model);

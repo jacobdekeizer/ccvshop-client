@@ -74,12 +74,14 @@ class UsergroupstaggeredpriceadjustmentsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Usergroupstaggeredpriceadjustments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Resource\Usergroupstaggeredpriceadjustments
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'usergroupstaggeredpriceadjustments/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Usergroupstaggeredpriceadjustments\Resource\Usergroupstaggeredpriceadjustments::fromArray($result);
     }
 }

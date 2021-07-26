@@ -507,6 +507,12 @@ class AllFromBrands extends PaginatedList implements Parameter
         return $this;
     }
     
+    public function expandProducttaxtariffexceptions(bool $expand = true): self
+    {
+        $this->expandField('producttaxtariffexceptions', $expand);
+        return $this;
+    }
+    
     public function orderByIdAsc(): self
     {
         $this->orderByField('id', true);

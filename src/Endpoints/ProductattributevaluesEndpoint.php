@@ -74,12 +74,14 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productattributevalues/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues::fromArray($result);
     }
 }

@@ -93,12 +93,14 @@ class MailingaddressesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromMailinglists(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post $model, bool $onlyFilled = true): void
+    public function createFromMailinglists(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'mailinglists/' . $id . '/mailingaddresses/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses::fromArray($result);
     }
 }

@@ -61,12 +61,14 @@ class OrdersEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Orders\Orders\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Orders\Orders\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'orders/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Orders\Resource\Orders::fromArray($result);
     }
 }

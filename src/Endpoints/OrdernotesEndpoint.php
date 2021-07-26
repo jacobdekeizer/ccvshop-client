@@ -56,12 +56,14 @@ class OrdernotesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): void
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'orders/' . $id . '/ordernotes/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes::fromArray($result);
     }
 }

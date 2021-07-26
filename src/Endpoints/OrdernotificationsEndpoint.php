@@ -43,12 +43,14 @@ class OrdernotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input $model, bool $onlyFilled = true): void
+    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'orders/' . $id . '/ordernotifications/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications::fromArray($result);
     }
 }

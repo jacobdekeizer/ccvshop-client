@@ -79,9 +79,14 @@ class Products implements Model
     private $description;
     
     /**
-     * @var float VAT rate of product in percentage
+     * @var float Deprecated. VAT rate of product in percentage.
      */
     private $vatrate;
+    
+    /**
+     * @var string The tax tariff of the product
+     */
+    private $taxtariff;
     
     /**
      * @var float Original price of the product, before discounts
@@ -384,6 +389,11 @@ class Products implements Model
     private $productvideos;
     
     /**
+     * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttaxtariffexceptions|null Product tax tariff exceptions
+     */
+    private $producttaxtariffexceptions;
+    
+    /**
      * @var \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
      */
     private $productattachments;
@@ -546,11 +556,19 @@ class Products implements Model
     }
     
     /**
-     * @return float VAT rate of product in percentage
+     * @return float Deprecated. VAT rate of product in percentage.
      */
     public function getVatrate(): float
     {
         return $this->vatrate;
+    }
+    
+    /**
+     * @return string The tax tariff of the product
+     */
+    public function getTaxtariff(): string
+    {
+        return $this->taxtariff;
     }
     
     /**
@@ -1034,6 +1052,14 @@ class Products implements Model
     }
     
     /**
+     * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttaxtariffexceptions|null Product tax tariff exceptions
+     */
+    public function getProducttaxtariffexceptions(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttaxtariffexceptions
+    {
+        return $this->producttaxtariffexceptions;
+    }
+    
+    /**
      * @return \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments|null Product attachments
      */
     public function getProductattachments(): ?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Productattachments
@@ -1257,13 +1283,24 @@ class Products implements Model
     }
     
     /**
-     * @param float $vatrate VAT rate of product in percentage
+     * @param float $vatrate Deprecated. VAT rate of product in percentage.
      * @return self
      */
     public function setVatrate(float $vatrate): self
     {
         $this->vatrate = $vatrate;
         $this->propertyFilled('vatrate');
+        return $this;
+    }
+    
+    /**
+     * @param string $taxtariff The tax tariff of the product
+     * @return self
+     */
+    public function setTaxtariff(string $taxtariff): self
+    {
+        $this->taxtariff = $taxtariff;
+        $this->propertyFilled('taxtariff');
         return $this;
     }
     
@@ -1924,6 +1961,17 @@ class Products implements Model
     {
         $this->productvideos = $productvideos;
         $this->propertyFilled('productvideos');
+        return $this;
+    }
+    
+    /**
+     * @param \JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttaxtariffexceptions|null $producttaxtariffexceptions Product tax tariff exceptions
+     * @return self
+     */
+    public function setProducttaxtariffexceptions(?\JacobDeKeizer\Ccv\Models\Products\Child\Resource\Producttaxtariffexceptions $producttaxtariffexceptions): self
+    {
+        $this->producttaxtariffexceptions = $producttaxtariffexceptions;
+        $this->propertyFilled('producttaxtariffexceptions');
         return $this;
     }
     

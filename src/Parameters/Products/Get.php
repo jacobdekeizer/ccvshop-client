@@ -118,4 +118,10 @@ class Get implements Parameter
         $this->expandField('productvideos', $expand);
         return $this;
     }
+    
+    public function expandProducttaxtariffexceptions(bool $expand = true): self
+    {
+        $this->expandField('producttaxtariffexceptions', $expand);
+        return $this;
+    }
 }

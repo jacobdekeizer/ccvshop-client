@@ -70,12 +70,14 @@ class AffiliatenetworksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Affiliatenetworks\Affiliatenetworks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Resource\Affiliatenetworks
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'affiliatenetworks/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Affiliatenetworks\Resource\Affiliatenetworks::fromArray($result);
     }
 }

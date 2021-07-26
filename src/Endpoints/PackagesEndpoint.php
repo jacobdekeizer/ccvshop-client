@@ -57,12 +57,14 @@ class PackagesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Packages\Packages\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Packages\Packages\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'packages/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Packages\Resource\Packages::fromArray($result);
     }
 }

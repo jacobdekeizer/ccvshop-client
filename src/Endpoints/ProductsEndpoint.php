@@ -173,12 +173,14 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Products\Products\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Products\Products\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Products\Resource\Products
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Products\Resource\Products::fromArray($result);
     }
 }

@@ -139,6 +139,7 @@ class EndpointClassGenerator
                     $description . ' ' . $rateLimit,
                     $path,
                     $properties,
+                    $endpoint,
                     $modelClass,
                     $parameter->hasContent() ? $parameter : null
                 ));
@@ -170,7 +171,7 @@ class EndpointClassGenerator
 
         if ($httpMethod === 'GET') {
             if ($isSingular) {
-                return 'get';
+                return 'get' . $suffix;
             }
 
             return 'all' . $suffix;

@@ -85,12 +85,14 @@ class AttributesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'attributes/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Attributes\Resource\Attributes::fromArray($result);
     }
 }

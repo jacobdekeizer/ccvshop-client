@@ -73,13 +73,15 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Webshops\Resource\Webshops
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/webshops/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Webshops\Resource\Webshops::fromArray($result);
     }
     
     /**

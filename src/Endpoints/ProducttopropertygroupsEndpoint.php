@@ -56,12 +56,14 @@ class ProducttopropertygroupsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Producttopropertygroups\Producttopropertygroups\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Producttopropertygroups\Producttopropertygroups\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Resource\Producttopropertygroups
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'producttopropertygroups/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Resource\Producttopropertygroups::fromArray($result);
     }
 }

@@ -70,12 +70,14 @@ class ProductattachmentsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productattachments/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments::fromArray($result);
     }
 }

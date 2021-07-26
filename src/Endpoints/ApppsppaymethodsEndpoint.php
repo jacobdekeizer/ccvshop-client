@@ -70,12 +70,14 @@ class ApppsppaymethodsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromApppsp(int $id, \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod $model, bool $onlyFilled = true): void
+    public function createFromApppsp(int $id, \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'apppsp/' . $id . '/apppsppaymethods/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Apppsppaymethods\Apppsp\Paymethod::fromArray($result);
     }
 }

@@ -41,13 +41,15 @@ class OrderrowattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrderrows(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post $model, bool $onlyFilled = true): void
+    public function createFromOrderrows(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'orderrows/' . $id . '/orderrowattributevalues/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues::fromArray($result);
     }
     
     /**

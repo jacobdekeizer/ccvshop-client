@@ -74,12 +74,14 @@ class UsergroupsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Usergroups\Usergroups\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'usergroups/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Usergroups\Resource\Usergroups::fromArray($result);
     }
 }

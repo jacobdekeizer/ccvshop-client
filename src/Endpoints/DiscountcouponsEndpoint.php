@@ -60,12 +60,14 @@ class DiscountcouponsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Discountcoupons\Discountcoupons\Post $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Discountcoupons\Discountcoupons\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Discountcoupons\Resource\Discountcoupons
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'discountcoupons/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Discountcoupons\Resource\Discountcoupons::fromArray($result);
     }
 }

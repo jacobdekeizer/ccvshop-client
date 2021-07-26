@@ -70,12 +70,14 @@ class BrandsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Brands\Brands\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Brands\Brands\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Brands\Resource\Brands
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'brands/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Brands\Resource\Brands::fromArray($result);
     }
 }

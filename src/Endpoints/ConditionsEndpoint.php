@@ -70,12 +70,14 @@ class ConditionsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function create(\JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input $model, bool $onlyFilled = true): void
+    public function create(\JacobDeKeizer\Ccv\Models\Conditions\Conditions\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'conditions/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Conditions\Resource\Conditions::fromArray($result);
     }
 }

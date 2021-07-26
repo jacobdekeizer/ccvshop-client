@@ -60,12 +60,14 @@ class ProductrelevantEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post $model, bool $onlyFilled = true): void
+    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productrelevant\Productrelevant\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'products/' . $id . '/productrelevant/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Productrelevant\Resource\Productrelevant::fromArray($result);
     }
 }

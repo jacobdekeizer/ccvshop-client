@@ -43,12 +43,14 @@ class InvoicenotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromInvoices(int $id, \JacobDeKeizer\Ccv\Models\Invoicenotifications\Invoicenotifications\Input $model, bool $onlyFilled = true): void
+    public function createFromInvoices(int $id, \JacobDeKeizer\Ccv\Models\Invoicenotifications\Invoicenotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Invoicenotifications\Resource\Invoicenotifications
     {
-        $this->doRequest(
+        $result = $this->doRequest(
             self::POST,
             'invoices/' . $id . '/invoicenotifications/',
             $model->toArray($onlyFilled)
         );
+        
+        return \JacobDeKeizer\Ccv\Models\Invoicenotifications\Resource\Invoicenotifications::fromArray($result);
     }
 }
