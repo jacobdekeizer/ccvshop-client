@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Factories;
 
+use Doctrine\Inflector\CachedWordInflector;
+use Doctrine\Inflector\Inflector;
+use Doctrine\Inflector\Rules\English;
+use Doctrine\Inflector\RulesetInflector;
 use Exception;
 use JacobDeKeizer\Ccv\Support\Str;
 use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
@@ -167,7 +171,9 @@ class EndpointClassGenerator
 
         $isSingular = count($parts) <= 3;
 
-        $suffix = $isSingular ? '' : 'From' . Str::studly($origin);
+        $fromName = self::getInflector()->singularize(Str::studly($origin));
+
+        $suffix = $isSingular ? '' : 'From' . $fromName;
 
         if ($httpMethod === 'GET') {
             if ($isSingular) {
@@ -176,6 +182,8 @@ class EndpointClassGenerator
 
             return 'all' . $suffix;
         }
+
+        $suffix = $isSingular ? '' : 'For' . $fromName;
         
         if ($httpMethod === 'DELETE') {
             return 'delete' . $suffix;
@@ -237,5 +245,17 @@ class EndpointClassGenerator
             'description' => trim($description),
             'type' => $type . '|null',
         ]));
+    }
+
+    private static function getInflector(): Inflector
+    {
+        return new Inflector(
+            new CachedWordInflector(new RulesetInflector(
+                English\Rules::getSingularRuleset()
+            )),
+            new CachedWordInflector(new RulesetInflector(
+                English\Rules::getPluralRuleset()
+            ))
+        );
     }
 }

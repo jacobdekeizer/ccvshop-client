@@ -26,10 +26,10 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributevalues\Collection\Productattributevalues
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributevalues\AllFromProduct();
         }
         
         $result = $this->doRequest(
@@ -74,7 +74,7 @@ class ProductattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattributevalues\Resource\Productattributevalues
     {
         $result = $this->doRequest(
             self::POST,

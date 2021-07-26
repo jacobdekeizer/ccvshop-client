@@ -26,7 +26,7 @@ class AppcodeblocksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromApps(int $id): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\Appcodeblocks
+    public function allFromApp(int $id): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Collection\Appcodeblocks
     {
         $result = $this->doRequest(
             self::GET,
@@ -56,7 +56,7 @@ class AppcodeblocksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromApps(int $id, \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblocks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks
+    public function createForApp(int $id, \JacobDeKeizer\Ccv\Models\Appcodeblocks\Appcodeblocks\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Appcodeblocks\Resource\Appcodeblocks
     {
         $result = $this->doRequest(
             self::POST,

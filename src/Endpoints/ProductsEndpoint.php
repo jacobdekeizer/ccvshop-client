@@ -26,10 +26,10 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromBrands(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    public function allFromBrand(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrand $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrands();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromBrand();
         }
         
         $result = $this->doRequest(
@@ -45,10 +45,10 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromWebshops(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    public function allFromWebshop(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshop $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshops();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromWebshop();
         }
         
         $result = $this->doRequest(
@@ -102,10 +102,10 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromCategories(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    public function allFromCategory(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategory $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCategory();
         }
         
         $result = $this->doRequest(
@@ -121,10 +121,10 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromConditions(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    public function allFromCondition(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromCondition $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromConditions();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromCondition();
         }
         
         $result = $this->doRequest(
@@ -140,10 +140,10 @@ class ProductsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromSuppliers(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
+    public function allFromSupplier(int $id, \JacobDeKeizer\Ccv\Parameters\Products\AllFromSupplier $parameter = null): \JacobDeKeizer\Ccv\Models\Products\Collection\Products
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromSuppliers();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Products\AllFromSupplier();
         }
         
         $result = $this->doRequest(

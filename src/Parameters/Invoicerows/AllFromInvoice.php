@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Orderrows;
+namespace JacobDeKeizer\Ccv\Parameters\Invoicerows;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
@@ -10,7 +10,7 @@ use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromOrders extends PaginatedList implements Parameter
+class AllFromInvoice extends PaginatedList implements Parameter
 {
     use FromArray;
     

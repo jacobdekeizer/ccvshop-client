@@ -26,10 +26,10 @@ class OrdermessagesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromOrders(int $id, \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages
+    public function allFromOrder(int $id, \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrder $parameter = null): \JacobDeKeizer\Ccv\Models\Ordermessages\Collection\Ordermessages
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrders();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Ordermessages\AllFromOrder();
         }
         
         $result = $this->doRequest(
@@ -60,7 +60,7 @@ class OrdermessagesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
+    public function createForOrder(int $id, \JacobDeKeizer\Ccv\Models\Ordermessages\Ordermessages\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordermessages\Resource\Ordermessages
     {
         $result = $this->doRequest(
             self::POST,

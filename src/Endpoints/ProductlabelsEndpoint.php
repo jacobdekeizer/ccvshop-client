@@ -13,7 +13,7 @@ class ProductlabelsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productlabels\Collection\Productlabels
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productlabels\Collection\Productlabels
     {
         $result = $this->doRequest(
             self::GET,
@@ -28,7 +28,7 @@ class ProductlabelsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productlabels\Productlabels\Put $model, bool $onlyFilled = true): void
+    public function updateForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productlabels\Productlabels\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

@@ -13,7 +13,7 @@ class CreditpointsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromUsers(int $id): \JacobDeKeizer\Ccv\Models\Creditpoints\Resource\Creditpoints
+    public function allFromUser(int $id): \JacobDeKeizer\Ccv\Models\Creditpoints\Resource\Creditpoints
     {
         $result = $this->doRequest(
             self::GET,
@@ -28,7 +28,7 @@ class CreditpointsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromUsers(int $id, \JacobDeKeizer\Ccv\Models\Creditpoints\Creditpoints\Put $model, bool $onlyFilled = true): void
+    public function updateForUser(int $id, \JacobDeKeizer\Ccv\Models\Creditpoints\Creditpoints\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

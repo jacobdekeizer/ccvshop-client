@@ -13,10 +13,10 @@ class OrderrowsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromOrders(int $id, \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
+    public function allFromOrder(int $id, \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrder $parameter = null): \JacobDeKeizer\Ccv\Models\Orderrows\Collection\Orderrows
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrders();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orderrows\AllFromOrder();
         }
         
         $result = $this->doRequest(
@@ -61,7 +61,7 @@ class OrderrowsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put $model, bool $onlyFilled = true): void
+    public function updateForOrder(int $id, \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

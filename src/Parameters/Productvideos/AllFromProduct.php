@@ -10,7 +10,7 @@ use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromProduct implements Parameter
 {
     use FromArray;
     use SortableFields;

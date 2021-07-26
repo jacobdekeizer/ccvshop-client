@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Productstaggeredprices;
+namespace JacobDeKeizer\Ccv\Parameters\Productrelevant;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
-use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromProduct extends PaginatedList implements Parameter
 {
     use FromArray;
-    use SortableFields;
     
     /**
      * @return self
@@ -38,30 +37,5 @@ class AllFromProducts implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->orderBy($this->getOrderBy());
-    }
-    
-    public function orderByQuantityAsc(): self
-    {
-        $this->orderByField('quantity', true);
-        return $this;
-    }
-    
-    public function orderByQuantityDesc(): self
-    {
-        $this->orderByField('quantity', false);
-        return $this;
-    }
-    
-    public function orderByPriceAsc(): self
-    {
-        $this->orderByField('price', true);
-        return $this;
-    }
-    
-    public function orderByPriceDesc(): self
-    {
-        $this->orderByField('price', false);
-        return $this;
     }
 }

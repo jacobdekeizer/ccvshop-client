@@ -13,7 +13,7 @@ class ProductkeywordsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function deleteFromProducts(int $id): void
+    public function deleteForProduct(int $id): void
     {
         $this->doRequest(
             self::DELETE,
@@ -26,7 +26,7 @@ class ProductkeywordsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productkeywords\Collection\Productkeywords
     {
         $result = $this->doRequest(
             self::GET,
@@ -41,7 +41,7 @@ class ProductkeywordsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productkeywords\Productkeywords\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productkeywords\Resource\Productkeywords
     {
         $result = $this->doRequest(
             self::POST,

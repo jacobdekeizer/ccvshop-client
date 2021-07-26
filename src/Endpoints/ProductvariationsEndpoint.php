@@ -26,7 +26,7 @@ class ProductvariationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productvariations\Collection\Productvariations
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productvariations\Collection\Productvariations
     {
         $result = $this->doRequest(
             self::GET,
@@ -70,7 +70,7 @@ class ProductvariationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productvariations\Productvariations\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvariations\Resource\Productvariations
     {
         $result = $this->doRequest(
             self::POST,

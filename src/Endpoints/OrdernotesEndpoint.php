@@ -26,7 +26,7 @@ class OrdernotesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes
+    public function allFromOrder(int $id): \JacobDeKeizer\Ccv\Models\Ordernotes\Collection\Ordernotes
     {
         $result = $this->doRequest(
             self::GET,
@@ -56,7 +56,7 @@ class OrdernotesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
+    public function createForOrder(int $id, \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotes\Resource\Ordernotes
     {
         $result = $this->doRequest(
             self::POST,

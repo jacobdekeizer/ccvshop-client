@@ -13,10 +13,10 @@ class CreditpointmutationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromUsers(int $id, \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers $parameter = null): \JacobDeKeizer\Ccv\Models\Creditpointmutations\Collection\Creditpointmutations
+    public function allFromUser(int $id, \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUser $parameter = null): \JacobDeKeizer\Ccv\Models\Creditpointmutations\Collection\Creditpointmutations
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUsers();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Creditpointmutations\AllFromUser();
         }
         
         $result = $this->doRequest(

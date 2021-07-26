@@ -13,10 +13,10 @@ class ReturnrowsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromReturns(int $id, \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns $parameter = null): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
+    public function allFromReturn(int $id, \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturn $parameter = null): \JacobDeKeizer\Ccv\Models\Returnrows\Collection\Returnrows
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturns();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Returnrows\AllFromReturn();
         }
         
         $result = $this->doRequest(

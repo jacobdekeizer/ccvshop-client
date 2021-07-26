@@ -13,10 +13,10 @@ class AppsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromAppstorecategories(int $id, \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategories $parameter = null): \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps
+    public function allFromAppstorecategory(int $id, \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategory $parameter = null): \JacobDeKeizer\Ccv\Models\Apps\Collection\Apps
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategory();
         }
         
         $result = $this->doRequest(

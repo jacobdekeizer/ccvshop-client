@@ -26,10 +26,10 @@ class CategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromCategories(int $id, \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategories $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
+    public function allFromCategory(int $id, \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategory $parameter = null): \JacobDeKeizer\Ccv\Models\Categories\Collection\Categories
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Categories\AllFromCategory();
         }
         
         $result = $this->doRequest(

@@ -13,10 +13,10 @@ class ProductshippingcostsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productshippingcosts\Collection\Productshippingcosts
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productshippingcosts\Collection\Productshippingcosts
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productshippingcosts\AllFromProduct();
         }
         
         $result = $this->doRequest(

@@ -13,10 +13,10 @@ class ServicesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromServicecategories(int $id, \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
+    public function allFromServicecategory(int $id, \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategory $parameter = null): \JacobDeKeizer\Ccv\Models\Services\Collection\Services
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategories();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Services\AllFromServicecategory();
         }
         
         $result = $this->doRequest(

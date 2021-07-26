@@ -26,10 +26,10 @@ class MailingaddressesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromMailinglists(int $id, \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
+    public function allFromMailinglist(int $id, \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglist $parameter = null): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Collection\Mailingaddresses
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglists();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Mailingaddresses\AllFromMailinglist();
         }
         
         $result = $this->doRequest(
@@ -93,7 +93,7 @@ class MailingaddressesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromMailinglists(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses
+    public function createForMailinglist(int $id, \JacobDeKeizer\Ccv\Models\Mailingaddresses\Mailingaddresses\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Mailingaddresses\Resource\Mailingaddresses
     {
         $result = $this->doRequest(
             self::POST,

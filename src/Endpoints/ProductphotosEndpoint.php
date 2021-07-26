@@ -26,10 +26,10 @@ class ProductphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productphotos\Collection\Productphotos
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productphotos\AllFromProduct();
         }
         
         $result = $this->doRequest(
@@ -74,7 +74,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productphotos\Resource\Productphotos
     {
         $result = $this->doRequest(
             self::POST,
@@ -90,7 +90,7 @@ class ProductphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put $model, bool $onlyFilled = true): void
+    public function updateForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

@@ -26,7 +26,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromCategories(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
+    public function allFromCategory(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
     {
         $result = $this->doRequest(
             self::GET,
@@ -56,7 +56,7 @@ class ProducttocategoriesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Producttocategories\Collection\Producttocategories
     {
         $result = $this->doRequest(
             self::GET,

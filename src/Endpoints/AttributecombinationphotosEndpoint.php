@@ -26,7 +26,7 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Collection\Attributecombinationphotos
+    public function allFromAttributecombination(int $id): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Collection\Attributecombinationphotos
     {
         $result = $this->doRequest(
             self::GET,
@@ -70,7 +70,7 @@ class AttributecombinationphotosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromAttributecombinations(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto
+    public function createForAttributecombination(int $id, \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Attributecombinationphotos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributecombinationphotos\Resource\Attributecombinationphoto
     {
         $result = $this->doRequest(
             self::POST,

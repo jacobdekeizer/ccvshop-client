@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Categories;
+namespace JacobDeKeizer\Ccv\Parameters\Creditpointmutations;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
-use JacobDeKeizer\Ccv\Parameters\PaginatedList;
+use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromCategories extends PaginatedList implements Parameter
+class AllFromUser implements Parameter
 {
     use FromArray;
+    use SortableFields;
     
     /**
      * @return self
@@ -37,5 +38,18 @@ class AllFromCategories extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
+            ->orderBy($this->getOrderBy());
+    }
+    
+    public function orderByCreate_dateAsc(): self
+    {
+        $this->orderByField('create_date', true);
+        return $this;
+    }
+    
+    public function orderByCreate_dateDesc(): self
+    {
+        $this->orderByField('create_date', false);
+        return $this;
     }
 }

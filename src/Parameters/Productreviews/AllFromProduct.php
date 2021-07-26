@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Users;
+namespace JacobDeKeizer\Ccv\Parameters\Productreviews;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
@@ -11,15 +11,15 @@ use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromUsergroups extends PaginatedList implements Parameter
+class AllFromProduct extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
     
     /**
-     * @var string|null Options are pending or accepted.
+     * @var bool|null Get reviews that are either approved (true) or unapproved (false).
      */
-    private $approvalStatus;
+    private $approved;
     
     /**
      * @return self
@@ -44,25 +44,25 @@ class AllFromUsergroups extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('approvalStatus', $this->approvalStatus)
+            ->addOptionalParameter('approved', $this->approved)
             ->orderBy($this->getOrderBy());
     }
     
     /**
-     * @return string|null Options are pending or accepted.
+     * @return bool|null Get reviews that are either approved (true) or unapproved (false).
      */
-    public function getApprovalStatus(): ?string
+    public function getApproved(): ?bool
     {
-        return $this->approvalStatus;
+        return $this->approved;
     }
     
     /**
-     * @param string|null $approvalStatus Options are pending or accepted.
+     * @param bool|null $approved Get reviews that are either approved (true) or unapproved (false).
      * @return self
      */
-    public function setApprovalStatus(?string $approvalStatus): self
+    public function setApproved(?bool $approved): self
     {
-        $this->approvalStatus = $approvalStatus;
+        $this->approved = $approved;
         return $this;
     }
     
@@ -78,27 +78,27 @@ class AllFromUsergroups extends PaginatedList implements Parameter
         return $this;
     }
     
-    public function orderByFirst_nameAsc(): self
+    public function orderByPointsAsc(): self
     {
-        $this->orderByField('first_name', true);
+        $this->orderByField('points', true);
         return $this;
     }
     
-    public function orderByFirst_nameDesc(): self
+    public function orderByPointsDesc(): self
     {
-        $this->orderByField('first_name', false);
+        $this->orderByField('points', false);
         return $this;
     }
     
-    public function orderByLast_nameAsc(): self
+    public function orderByCreatedateAsc(): self
     {
-        $this->orderByField('last_name', true);
+        $this->orderByField('createdate', true);
         return $this;
     }
     
-    public function orderByLast_nameDesc(): self
+    public function orderByCreatedateDesc(): self
     {
-        $this->orderByField('last_name', false);
+        $this->orderByField('createdate', false);
         return $this;
     }
 }

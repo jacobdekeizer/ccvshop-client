@@ -26,7 +26,7 @@ class ProducttopropertygroupsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Collection\Producttopropertygroups
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Producttopropertygroups\Collection\Producttopropertygroups
     {
         $result = $this->doRequest(
             self::GET,

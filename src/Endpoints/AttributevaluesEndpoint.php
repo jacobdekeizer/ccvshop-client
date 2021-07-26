@@ -26,7 +26,7 @@ class AttributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
+    public function allFromAttributecombination(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
         $result = $this->doRequest(
             self::GET,
@@ -56,7 +56,7 @@ class AttributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromAttributes(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
+    public function allFromAttribute(int $id): \JacobDeKeizer\Ccv\Models\Attributevalues\Collection\Attributevalues
     {
         $result = $this->doRequest(
             self::GET,
@@ -85,7 +85,7 @@ class AttributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromAttributes(int $id, \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues
+    public function createForAttribute(int $id, \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Attributevalues\Resource\Attributevalues
     {
         $result = $this->doRequest(
             self::POST,

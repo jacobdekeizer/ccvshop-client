@@ -13,7 +13,7 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromUsergroups(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
+    public function allFromUsergroup(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
     {
         $result = $this->doRequest(
             self::GET,
@@ -28,7 +28,7 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromUsers(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
+    public function allFromUser(int $id): \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Collection\Disabledpaymethods
     {
         $result = $this->doRequest(
             self::GET,
@@ -43,7 +43,7 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromUsergroups(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void
+    public function updateForUsergroup(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,
@@ -57,7 +57,7 @@ class DisabledpaymethodsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromUsers(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void
+    public function updateForUser(int $id, \JacobDeKeizer\Ccv\Models\Disabledpaymethods\Disabledpaymethods\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

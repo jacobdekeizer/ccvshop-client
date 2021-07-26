@@ -13,7 +13,7 @@ class MerchantEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Merchant\Entity\Merchant
+    public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Merchant\Entity\Merchant
     {
         $result = $this->doRequest(
             self::GET,

@@ -13,7 +13,7 @@ class InvoicenotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromInvoices(int $id): \JacobDeKeizer\Ccv\Models\Invoicenotifications\Collection\Invoicenotifications
+    public function allFromInvoice(int $id): \JacobDeKeizer\Ccv\Models\Invoicenotifications\Collection\Invoicenotifications
     {
         $result = $this->doRequest(
             self::GET,
@@ -43,7 +43,7 @@ class InvoicenotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromInvoices(int $id, \JacobDeKeizer\Ccv\Models\Invoicenotifications\Invoicenotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Invoicenotifications\Resource\Invoicenotifications
+    public function createForInvoice(int $id, \JacobDeKeizer\Ccv\Models\Invoicenotifications\Invoicenotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Invoicenotifications\Resource\Invoicenotifications
     {
         $result = $this->doRequest(
             self::POST,

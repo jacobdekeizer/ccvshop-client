@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Productattributevalues;
+namespace JacobDeKeizer\Ccv\Parameters\Productattributesets;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
-use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts extends PaginatedList implements Parameter
+class AllFromProduct implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -42,6 +41,18 @@ class AllFromProducts extends PaginatedList implements Parameter
             ->orderBy($this->getOrderBy());
     }
     
+    public function orderByAttributepositionAsc(): self
+    {
+        $this->orderByField('attributeposition', true);
+        return $this;
+    }
+    
+    public function orderByAttributepositionDesc(): self
+    {
+        $this->orderByField('attributeposition', false);
+        return $this;
+    }
+    
     public function orderByPositionAsc(): self
     {
         $this->orderByField('position', true);
@@ -51,18 +62,6 @@ class AllFromProducts extends PaginatedList implements Parameter
     public function orderByPositionDesc(): self
     {
         $this->orderByField('position', false);
-        return $this;
-    }
-    
-    public function orderByOptionpositionAsc(): self
-    {
-        $this->orderByField('optionposition', true);
-        return $this;
-    }
-    
-    public function orderByOptionpositionDesc(): self
-    {
-        $this->orderByField('optionposition', false);
         return $this;
     }
 }

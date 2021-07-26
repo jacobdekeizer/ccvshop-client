@@ -13,7 +13,7 @@ class DomainsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Domains\Collection\Domains
+    public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Domains\Collection\Domains
     {
         $result = $this->doRequest(
             self::GET,

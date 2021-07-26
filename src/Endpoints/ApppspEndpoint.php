@@ -26,7 +26,7 @@ class ApppspEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromApps(int $id): \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp
+    public function allFromApp(int $id): \JacobDeKeizer\Ccv\Models\Apppsp\Collection\Apppsp
     {
         $result = $this->doRequest(
             self::GET,
@@ -85,7 +85,7 @@ class ApppspEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromApps(int $id, \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp
+    public function createForApp(int $id, \JacobDeKeizer\Ccv\Models\Apppsp\Apppsp\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Apppsp\Resource\Apppsp
     {
         $result = $this->doRequest(
             self::POST,

@@ -13,10 +13,10 @@ class ProductreviewsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productreviews\Collection\Productreviews
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productreviews\AllFromProduct();
         }
         
         $result = $this->doRequest(
@@ -80,7 +80,7 @@ class ProductreviewsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productreviews\Resource\Productreviews
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productreviews\Productreviews\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productreviews\Resource\Productreviews
     {
         $result = $this->doRequest(
             self::POST,

@@ -2,17 +2,21 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Invoicerows;
+namespace JacobDeKeizer\Ccv\Parameters\Productshippingcosts;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
-use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromInvoices extends PaginatedList implements Parameter
+class AllFromProduct implements Parameter
 {
     use FromArray;
+    
+    /**
+     * @var float|null Quantity of products used to calculate shipping costs.
+     */
+    private $quantity;
     
     /**
      * @return self
@@ -37,5 +41,24 @@ class AllFromInvoices extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
+            ->addOptionalParameter('quantity', $this->quantity);
+    }
+    
+    /**
+     * @return float|null Quantity of products used to calculate shipping costs.
+     */
+    public function getQuantity(): ?float
+    {
+        return $this->quantity;
+    }
+    
+    /**
+     * @param float|null $quantity Quantity of products used to calculate shipping costs.
+     * @return self
+     */
+    public function setQuantity(?float $quantity): self
+    {
+        $this->quantity = $quantity;
+        return $this;
     }
 }

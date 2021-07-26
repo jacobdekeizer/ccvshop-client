@@ -13,10 +13,10 @@ class QuotationrowsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromQuotations(int $id, \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations $parameter = null): \JacobDeKeizer\Ccv\Models\Quotationrows\Collection\Quotationrows
+    public function allFromQuotation(int $id, \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotation $parameter = null): \JacobDeKeizer\Ccv\Models\Quotationrows\Collection\Quotationrows
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotations();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Quotationrows\AllFromQuotation();
         }
         
         $result = $this->doRequest(

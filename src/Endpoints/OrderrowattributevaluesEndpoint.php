@@ -41,7 +41,7 @@ class OrderrowattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrderrows(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues
+    public function createForOrderrow(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Resource\Orderrowattributevalues
     {
         $result = $this->doRequest(
             self::POST,
@@ -57,7 +57,7 @@ class OrderrowattributevaluesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromOrderrows(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Put $model, bool $onlyFilled = true): void
+    public function updateForOrderrow(int $id, \JacobDeKeizer\Ccv\Models\Orderrowattributevalues\Orderrowattributevalues\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

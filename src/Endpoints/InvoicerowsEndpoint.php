@@ -13,10 +13,10 @@ class InvoicerowsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromInvoices(int $id, \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices $parameter = null): \JacobDeKeizer\Ccv\Models\Invoicerows\Collection\Invoicerows
+    public function allFromInvoice(int $id, \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoice $parameter = null): \JacobDeKeizer\Ccv\Models\Invoicerows\Collection\Invoicerows
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoices();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Invoicerows\AllFromInvoice();
         }
         
         $result = $this->doRequest(

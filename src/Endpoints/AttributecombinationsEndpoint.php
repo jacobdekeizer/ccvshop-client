@@ -13,10 +13,10 @@ class AttributecombinationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Collection\Attributecombinations
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Attributecombinations\Collection\Attributecombinations
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Attributecombinations\AllFromProduct();
         }
         
         $result = $this->doRequest(

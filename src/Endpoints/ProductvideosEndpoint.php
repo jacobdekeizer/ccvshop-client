@@ -26,10 +26,10 @@ class ProductvideosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productvideos\Collection\Productvideos
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productvideos\AllFromProduct();
         }
         
         $result = $this->doRequest(
@@ -74,7 +74,7 @@ class ProductvideosEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productvideos\Productvideos\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productvideos\Resource\Productvideos
     {
         $result = $this->doRequest(
             self::POST,

@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Attributecombinations;
+namespace JacobDeKeizer\Ccv\Parameters\Quotationrows;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
-use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromQuotation extends PaginatedList implements Parameter
 {
     use FromArray;
-    use ExpandableFields;
     
     /**
      * @return self
@@ -38,12 +37,5 @@ class AllFromProducts implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->expandFields($this->getExpandedFields());
-    }
-    
-    public function expandAttributecombinationphotos(bool $expand = true): self
-    {
-        $this->expandField('attributecombinationphotos', $expand);
-        return $this;
     }
 }

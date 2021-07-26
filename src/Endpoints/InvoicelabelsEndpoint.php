@@ -13,7 +13,7 @@ class InvoicelabelsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromInvoices(int $id): \JacobDeKeizer\Ccv\Models\Invoicelabels\Collection\Invoicelabels
+    public function allFromInvoice(int $id): \JacobDeKeizer\Ccv\Models\Invoicelabels\Collection\Invoicelabels
     {
         $result = $this->doRequest(
             self::GET,
@@ -28,7 +28,7 @@ class InvoicelabelsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromInvoices(int $id, \JacobDeKeizer\Ccv\Models\Invoicelabels\Invoicelabels\Put $model, bool $onlyFilled = true): void
+    public function updateForInvoice(int $id, \JacobDeKeizer\Ccv\Models\Invoicelabels\Invoicelabels\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

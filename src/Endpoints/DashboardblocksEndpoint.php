@@ -13,7 +13,7 @@ class DashboardblocksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromDashboards(int $id): \JacobDeKeizer\Ccv\Models\Dashboardblocks\Collection\Dashboardblocks
+    public function allFromDashboard(int $id): \JacobDeKeizer\Ccv\Models\Dashboardblocks\Collection\Dashboardblocks
     {
         $result = $this->doRequest(
             self::GET,

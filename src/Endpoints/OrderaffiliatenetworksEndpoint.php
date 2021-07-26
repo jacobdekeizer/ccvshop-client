@@ -13,10 +13,10 @@ class OrderaffiliatenetworksEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromOrders(int $id, \JacobDeKeizer\Ccv\Parameters\Orderaffiliatenetworks\AllFromOrders $parameter = null): \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Collection\Orderaffiliatenetworks
+    public function allFromOrder(int $id, \JacobDeKeizer\Ccv\Parameters\Orderaffiliatenetworks\AllFromOrder $parameter = null): \JacobDeKeizer\Ccv\Models\Orderaffiliatenetworks\Collection\Orderaffiliatenetworks
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orderaffiliatenetworks\AllFromOrders();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Orderaffiliatenetworks\AllFromOrder();
         }
         
         $result = $this->doRequest(

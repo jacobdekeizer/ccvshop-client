@@ -12,7 +12,7 @@ use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromWebshops extends PaginatedList implements Parameter
+class AllFromWebshop extends PaginatedList implements Parameter
 {
     use FromArray;
     use ExpandableFields;

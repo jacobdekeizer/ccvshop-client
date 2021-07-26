@@ -2,25 +2,24 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Services;
+namespace JacobDeKeizer\Ccv\Parameters\Users;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
-use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromServicecategories implements Parameter
+class AllFromUsergroup extends PaginatedList implements Parameter
 {
     use FromArray;
-    use ExpandableFields;
     use SortableFields;
     
     /**
-     * @var string|null Title of the service.
+     * @var string|null Options are pending or accepted.
      */
-    private $name;
+    private $approvalStatus;
     
     /**
      * @return self
@@ -45,32 +44,25 @@ class AllFromServicecategories implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('name', $this->name)
-            ->expandFields($this->getExpandedFields())
+            ->addOptionalParameter('approvalStatus', $this->approvalStatus)
             ->orderBy($this->getOrderBy());
     }
     
     /**
-     * @return string|null Title of the service.
+     * @return string|null Options are pending or accepted.
      */
-    public function getName(): ?string
+    public function getApprovalStatus(): ?string
     {
-        return $this->name;
+        return $this->approvalStatus;
     }
     
     /**
-     * @param string|null $name Title of the service.
+     * @param string|null $approvalStatus Options are pending or accepted.
      * @return self
      */
-    public function setName(?string $name): self
+    public function setApprovalStatus(?string $approvalStatus): self
     {
-        $this->name = $name;
-        return $this;
-    }
-    
-    public function expandCategories(bool $expand = true): self
-    {
-        $this->expandField('categories', $expand);
+        $this->approvalStatus = $approvalStatus;
         return $this;
     }
     
@@ -86,27 +78,27 @@ class AllFromServicecategories implements Parameter
         return $this;
     }
     
-    public function orderByNameAsc(): self
+    public function orderByFirst_nameAsc(): self
     {
-        $this->orderByField('name', true);
+        $this->orderByField('first_name', true);
         return $this;
     }
     
-    public function orderByNameDesc(): self
+    public function orderByFirst_nameDesc(): self
     {
-        $this->orderByField('name', false);
+        $this->orderByField('first_name', false);
         return $this;
     }
     
-    public function orderByDateAsc(): self
+    public function orderByLast_nameAsc(): self
     {
-        $this->orderByField('date', true);
+        $this->orderByField('last_name', true);
         return $this;
     }
     
-    public function orderByDateDesc(): self
+    public function orderByLast_nameDesc(): self
     {
-        $this->orderByField('date', false);
+        $this->orderByField('last_name', false);
         return $this;
     }
 }

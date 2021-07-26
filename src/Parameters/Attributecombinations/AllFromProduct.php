@@ -2,21 +2,18 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Productshippingcosts;
+namespace JacobDeKeizer\Ccv\Parameters\Attributecombinations;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromProduct implements Parameter
 {
     use FromArray;
-    
-    /**
-     * @var float|null Quantity of products used to calculate shipping costs.
-     */
-    private $quantity;
+    use ExpandableFields;
     
     /**
      * @return self
@@ -41,24 +38,12 @@ class AllFromProducts implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('quantity', $this->quantity);
+            ->expandFields($this->getExpandedFields());
     }
     
-    /**
-     * @return float|null Quantity of products used to calculate shipping costs.
-     */
-    public function getQuantity(): ?float
+    public function expandAttributecombinationphotos(bool $expand = true): self
     {
-        return $this->quantity;
-    }
-    
-    /**
-     * @param float|null $quantity Quantity of products used to calculate shipping costs.
-     * @return self
-     */
-    public function setQuantity(?float $quantity): self
-    {
-        $this->quantity = $quantity;
+        $this->expandField('attributecombinationphotos', $expand);
         return $this;
     }
 }

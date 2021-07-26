@@ -13,7 +13,7 @@ class OrdernotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromOrders(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications
+    public function allFromOrder(int $id): \JacobDeKeizer\Ccv\Models\Ordernotifications\Collection\Ordernotifications
     {
         $result = $this->doRequest(
             self::GET,
@@ -43,7 +43,7 @@ class OrdernotificationsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications
+    public function createForOrder(int $id, \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Ordernotifications\Resource\Ordernotifications
     {
         $result = $this->doRequest(
             self::POST,

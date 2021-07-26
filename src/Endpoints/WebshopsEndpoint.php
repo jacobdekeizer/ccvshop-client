@@ -13,7 +13,7 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
     {
         $result = $this->doRequest(
             self::GET,
@@ -58,7 +58,7 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
+    public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Webshops\Collection\Webshops
     {
         $result = $this->doRequest(
             self::GET,
@@ -73,7 +73,7 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Webshops\Resource\Webshops
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Webshops\Resource\Webshops
     {
         $result = $this->doRequest(
             self::POST,
@@ -89,7 +89,7 @@ class WebshopsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Put $model, bool $onlyFilled = true): void
+    public function updateForProduct(int $id, \JacobDeKeizer\Ccv\Models\Webshops\Webhshops\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

@@ -26,7 +26,7 @@ class ProductattachmentsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id): \JacobDeKeizer\Ccv\Models\Productattachments\Collection\Productattachments
+    public function allFromProduct(int $id): \JacobDeKeizer\Ccv\Models\Productattachments\Collection\Productattachments
     {
         $result = $this->doRequest(
             self::GET,
@@ -70,7 +70,7 @@ class ProductattachmentsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProducts(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments
+    public function createForProduct(int $id, \JacobDeKeizer\Ccv\Models\Productattachments\Productattachments\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productattachments\Resource\Productattachments
     {
         $result = $this->doRequest(
             self::POST,

@@ -26,7 +26,7 @@ class AttributesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromAttributecombinations(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
+    public function allFromAttributecombination(int $id): \JacobDeKeizer\Ccv\Models\Attributes\Collection\Attributes
     {
         $result = $this->doRequest(
             self::GET,

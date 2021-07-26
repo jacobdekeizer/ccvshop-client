@@ -26,7 +26,7 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProductproperties(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Collection\Productpropertyoptions
+    public function allFromProductproperty(int $id): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Collection\Productpropertyoptions
     {
         $result = $this->doRequest(
             self::GET,
@@ -70,7 +70,7 @@ class ProductpropertyoptionsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromProductproperties(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions
+    public function createForProductproperty(int $id, \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Productpropertyoptions\Post $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Productpropertyoptions\Resource\Productpropertyoptions
     {
         $result = $this->doRequest(
             self::POST,

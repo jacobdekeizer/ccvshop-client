@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Productphotos;
+namespace JacobDeKeizer\Ccv\Parameters\Productattributevalues;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
+use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts implements Parameter
+class AllFromProduct extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;
@@ -41,27 +42,27 @@ class AllFromProducts implements Parameter
             ->orderBy($this->getOrderBy());
     }
     
-    public function orderByIdAsc(): self
+    public function orderByPositionAsc(): self
     {
-        $this->orderByField('id', true);
+        $this->orderByField('position', true);
         return $this;
     }
     
-    public function orderByIdDesc(): self
+    public function orderByPositionDesc(): self
     {
-        $this->orderByField('id', false);
+        $this->orderByField('position', false);
         return $this;
     }
     
-    public function orderByIsmainphotoAsc(): self
+    public function orderByOptionpositionAsc(): self
     {
-        $this->orderByField('ismainphoto', true);
+        $this->orderByField('optionposition', true);
         return $this;
     }
     
-    public function orderByIsmainphotoDesc(): self
+    public function orderByOptionpositionDesc(): self
     {
-        $this->orderByField('ismainphoto', false);
+        $this->orderByField('optionposition', false);
         return $this;
     }
 }

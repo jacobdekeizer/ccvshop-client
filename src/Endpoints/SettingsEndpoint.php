@@ -13,7 +13,7 @@ class SettingsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromWebshops(int $id): \JacobDeKeizer\Ccv\Models\Settings\Entity\Settings
+    public function allFromWebshop(int $id): \JacobDeKeizer\Ccv\Models\Settings\Entity\Settings
     {
         $result = $this->doRequest(
             self::GET,
@@ -28,7 +28,7 @@ class SettingsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function updateFromWebshops(int $id, \JacobDeKeizer\Ccv\Models\Settings\Settings\Put $model, bool $onlyFilled = true): void
+    public function updateForWebshop(int $id, \JacobDeKeizer\Ccv\Models\Settings\Settings\Put $model, bool $onlyFilled = true): void
     {
         $this->doRequest(
             self::PUT,

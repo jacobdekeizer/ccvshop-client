@@ -11,7 +11,7 @@ use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromMailinglists extends PaginatedList implements Parameter
+class AllFromMailinglist extends PaginatedList implements Parameter
 {
     use FromArray;
     use SortableFields;

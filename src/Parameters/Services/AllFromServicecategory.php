@@ -2,24 +2,25 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\Ccv\Parameters\Productreviews;
+namespace JacobDeKeizer\Ccv\Parameters\Services;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
 use JacobDeKeizer\Ccv\Factories\QueryParametersArrayFactory;
+use JacobDeKeizer\Ccv\Parameters\Concerns\ExpandableFields;
 use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
-use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 
-class AllFromProducts extends PaginatedList implements Parameter
+class AllFromServicecategory implements Parameter
 {
     use FromArray;
+    use ExpandableFields;
     use SortableFields;
     
     /**
-     * @var bool|null Get reviews that are either approved (true) or unapproved (false).
+     * @var string|null Title of the service.
      */
-    private $approved;
+    private $name;
     
     /**
      * @return self
@@ -44,25 +45,32 @@ class AllFromProducts extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('approved', $this->approved)
+            ->addOptionalParameter('name', $this->name)
+            ->expandFields($this->getExpandedFields())
             ->orderBy($this->getOrderBy());
     }
     
     /**
-     * @return bool|null Get reviews that are either approved (true) or unapproved (false).
+     * @return string|null Title of the service.
      */
-    public function getApproved(): ?bool
+    public function getName(): ?string
     {
-        return $this->approved;
+        return $this->name;
     }
     
     /**
-     * @param bool|null $approved Get reviews that are either approved (true) or unapproved (false).
+     * @param string|null $name Title of the service.
      * @return self
      */
-    public function setApproved(?bool $approved): self
+    public function setName(?string $name): self
     {
-        $this->approved = $approved;
+        $this->name = $name;
+        return $this;
+    }
+    
+    public function expandCategories(bool $expand = true): self
+    {
+        $this->expandField('categories', $expand);
         return $this;
     }
     
@@ -78,27 +86,27 @@ class AllFromProducts extends PaginatedList implements Parameter
         return $this;
     }
     
-    public function orderByPointsAsc(): self
+    public function orderByNameAsc(): self
     {
-        $this->orderByField('points', true);
+        $this->orderByField('name', true);
         return $this;
     }
     
-    public function orderByPointsDesc(): self
+    public function orderByNameDesc(): self
     {
-        $this->orderByField('points', false);
+        $this->orderByField('name', false);
         return $this;
     }
     
-    public function orderByCreatedateAsc(): self
+    public function orderByDateAsc(): self
     {
-        $this->orderByField('createdate', true);
+        $this->orderByField('date', true);
         return $this;
     }
     
-    public function orderByCreatedateDesc(): self
+    public function orderByDateDesc(): self
     {
-        $this->orderByField('createdate', false);
+        $this->orderByField('date', false);
         return $this;
     }
 }

@@ -26,10 +26,10 @@ class UsersEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromUsergroups(int $id, \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
+    public function allFromUsergroup(int $id, \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroup $parameter = null): \JacobDeKeizer\Ccv\Models\Users\Collection\Users
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroups();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Users\AllFromUsergroup();
         }
         
         $result = $this->doRequest(

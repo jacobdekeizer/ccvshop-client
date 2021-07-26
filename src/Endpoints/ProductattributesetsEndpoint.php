@@ -13,10 +13,10 @@ class ProductattributesetsEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function allFromProducts(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributesets\AllFromProducts $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributesets\Collection\Productattributesets
+    public function allFromProduct(int $id, \JacobDeKeizer\Ccv\Parameters\Productattributesets\AllFromProduct $parameter = null): \JacobDeKeizer\Ccv\Models\Productattributesets\Collection\Productattributesets
     {
         if ($parameter === null) {
-            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributesets\AllFromProducts();
+            $parameter = new \JacobDeKeizer\Ccv\Parameters\Productattributesets\AllFromProduct();
         }
         
         $result = $this->doRequest(

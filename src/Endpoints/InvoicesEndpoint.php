@@ -61,7 +61,7 @@ class InvoicesEndpoint extends BaseEndpoint
      * 
      * @throws CcvShopException
      */
-    public function createFromOrders(int $id, \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices
+    public function createForOrder(int $id, \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input $model, bool $onlyFilled = true): \JacobDeKeizer\Ccv\Models\Invoices\Resource\Invoices
     {
         $result = $this->doRequest(
             self::POST,
