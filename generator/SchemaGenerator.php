@@ -7,7 +7,7 @@ namespace JacobDeKeizer\CcvGenerator;
 use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
 use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;
-use JacobDeKeizer\CcvGenerator\Factories\EndpointClassGenerator;
+use JacobDeKeizer\CcvGenerator\Factories\EndpointClassFactory;
 use JacobDeKeizer\CcvGenerator\File\FileHelper;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
@@ -50,7 +50,7 @@ class SchemaGenerator
         $generator->removeOldEndpoints();
         $generator->removeOldParameters();
 
-        $endpoints = EndpointClassGenerator::make("https://demo.ccvshop.nl/API/Docs/");
+        $endpoints = EndpointClassFactory::make("https://demo.ccvshop.nl/API/Docs/");
 
         foreach ($endpoints as $endpoint) {
             $generator->createEndpointFile($endpoint);
