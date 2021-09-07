@@ -78,5 +78,5 @@ class Client
     {
         return new Endpoints\RootEndpoint($this);
     }
-{{ ENDPOINT_METHODS_HERE }}
+    {{ ENDPOINT_METHODS_HERE }}
 }

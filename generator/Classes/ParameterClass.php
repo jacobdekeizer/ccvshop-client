@@ -184,7 +184,7 @@ class ParameterClass
             $codeWriter->writeLine(
                 sprintf(
                     '->addOptionalParameter(\'%s\', $this->%s)%s',
-                    $this->properties[$i]->getName(),
+                    Str::snake($this->properties[$i]->getName()),
                     $this->properties[$i]->getName(),
                     $i === $propertiesCount - 1 && !$hasExpandableFields && !$hasSortableFields ? ';' : ''
                 )

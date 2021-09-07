@@ -44,7 +44,7 @@ class All extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('approvalStatus', $this->approvalStatus)
+            ->addOptionalParameter('approval_status', $this->approvalStatus)
             ->orderBy($this->getOrderBy());
     }
 

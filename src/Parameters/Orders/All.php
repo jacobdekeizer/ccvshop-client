@@ -91,14 +91,14 @@ class All extends PaginatedList implements Parameter
         return (parent::toBuilder())
             ->addOptionalParameter('ordernumber', $this->ordernumber)
             ->addOptionalParameter('status', $this->status)
-            ->addOptionalParameter('isPaid', $this->isPaid)
-            ->addOptionalParameter('deliverDate', $this->deliverDate)
-            ->addOptionalParameter('takeOutDate', $this->takeOutDate)
-            ->addOptionalParameter('minCreateDate', $this->minCreateDate)
-            ->addOptionalParameter('maxCreateDate', $this->maxCreateDate)
-            ->addOptionalParameter('isCompleted', $this->isCompleted)
-            ->addOptionalParameter('paymethodId', $this->paymethodId)
-            ->addOptionalParameter('transactionId', $this->transactionId)
+            ->addOptionalParameter('is_paid', $this->isPaid)
+            ->addOptionalParameter('deliver_date', $this->deliverDate)
+            ->addOptionalParameter('take_out_date', $this->takeOutDate)
+            ->addOptionalParameter('min_create_date', $this->minCreateDate)
+            ->addOptionalParameter('max_create_date', $this->maxCreateDate)
+            ->addOptionalParameter('is_completed', $this->isCompleted)
+            ->addOptionalParameter('paymethod_id', $this->paymethodId)
+            ->addOptionalParameter('transaction_id', $this->transactionId)
             ->orderBy($this->getOrderBy());
     }
 

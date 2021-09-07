@@ -42,7 +42,7 @@ class All extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('customValue', $this->customValue);
+            ->addOptionalParameter('custom_value', $this->customValue);
     }
 
     /**

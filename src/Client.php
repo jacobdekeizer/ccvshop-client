@@ -78,6 +78,7 @@ class Client
     {
         return new Endpoints\RootEndpoint($this);
     }
+    
     public function affiliatenetworks(): Endpoints\AffiliatenetworksEndpoint
     {
         return new Endpoints\AffiliatenetworksEndpoint($this);
@@ -196,6 +197,11 @@ class Client
     public function domains(): Endpoints\DomainsEndpoint
     {
         return new Endpoints\DomainsEndpoint($this);
+    }
+
+    public function geozonecountries(): Endpoints\GeozonecountriesEndpoint
+    {
+        return new Endpoints\GeozonecountriesEndpoint($this);
     }
 
     public function invoicelabels(): Endpoints\InvoicelabelsEndpoint

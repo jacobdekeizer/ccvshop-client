@@ -14,7 +14,7 @@ class Input implements Model
     use ToArray;
 
     /**
-     * @var string|null Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @var string|null Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
     private $status;
 
@@ -37,7 +37,7 @@ class Input implements Model
     }
 
     /**
-     * @return string|null Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @return string|null Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
     public function getStatus(): ?string
     {
@@ -61,7 +61,7 @@ class Input implements Model
     }
 
     /**
-     * @param string|null $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @param string|null $status Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      * @return self
      */
     public function setStatus(?string $status): self

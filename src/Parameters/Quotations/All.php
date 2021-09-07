@@ -75,12 +75,12 @@ class All extends PaginatedList implements Parameter
     {
         return (parent::toBuilder())
             ->addOptionalParameter('quotationnumber', $this->quotationnumber)
-            ->addOptionalParameter('quotationnumberFull', $this->quotationnumberFull)
+            ->addOptionalParameter('quotationnumber_full', $this->quotationnumberFull)
             ->addOptionalParameter('ordernumber', $this->ordernumber)
-            ->addOptionalParameter('ordernumberFull', $this->ordernumberFull)
+            ->addOptionalParameter('ordernumber_full', $this->ordernumberFull)
             ->addOptionalParameter('status', $this->status)
-            ->addOptionalParameter('minCreateDate', $this->minCreateDate)
-            ->addOptionalParameter('maxCreateDate', $this->maxCreateDate)
+            ->addOptionalParameter('min_create_date', $this->minCreateDate)
+            ->addOptionalParameter('max_create_date', $this->maxCreateDate)
             ->orderBy($this->getOrderBy());
     }
 

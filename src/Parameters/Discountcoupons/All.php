@@ -64,10 +64,10 @@ class All extends PaginatedList implements Parameter
     public function toBuilder(): QueryParameterBuilder
     {
         return (parent::toBuilder())
-            ->addOptionalParameter('minBegindate', $this->minBegindate)
-            ->addOptionalParameter('maxBegindate', $this->maxBegindate)
-            ->addOptionalParameter('minEnddate', $this->minEnddate)
-            ->addOptionalParameter('maxEnddate', $this->maxEnddate)
+            ->addOptionalParameter('min_begindate', $this->minBegindate)
+            ->addOptionalParameter('max_begindate', $this->maxBegindate)
+            ->addOptionalParameter('min_enddate', $this->minEnddate)
+            ->addOptionalParameter('max_enddate', $this->maxEnddate)
             ->addOptionalParameter('onetimeuse', $this->onetimeuse)
             ->orderBy($this->getOrderBy());
     }

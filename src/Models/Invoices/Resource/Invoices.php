@@ -59,7 +59,7 @@ class Invoices implements Model
     private $createDate;
 
     /**
-     * @var string Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @var string Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
     private $status;
 
@@ -294,7 +294,7 @@ class Invoices implements Model
     }
 
     /**
-     * @return string Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @return string Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
     public function getStatus(): string
     {
@@ -641,7 +641,7 @@ class Invoices implements Model
     }
 
     /**
-     * @param string $status Status of the invoice. 1. paid. 2. upaid. 3. reimbursed.
+     * @param string $status Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      * @return self
      */
     public function setStatus(string $status): self
