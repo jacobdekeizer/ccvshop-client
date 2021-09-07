@@ -15,7 +15,6 @@ trait ToArray
     private $filledProperties;
     private $ignoredProperties = [
         'filledProperties',
-        'onlyFilledProperties',
         'ignoredProperties',
     ];
 
