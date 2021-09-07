@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Contracts;
 
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
