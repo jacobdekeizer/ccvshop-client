@@ -37,7 +37,7 @@ $client->setPrivateKey('private_key');
 | Endpoint | Main usage |
 | --- | --- |
 | root | [List supported endpoints](#root-endpoint) |
-| apps | [Set app to installed](#apps) |
+| apps | [Manage apps](#apps) |
 | attributes | [Manage attributes](#attributes) |
 | attributevalues | [Manage attribute values](#attribute-values) |
 | categories | [Manage categories](#categories) |
@@ -56,7 +56,7 @@ $client->setPrivateKey('private_key');
 
 ## Root endpoint
 
-This endpoint returns the supported endpoints for your CCV Shop.
+This endpoint returns the supported endpoints for your CCV Shop api keys.
 
 ```php
 $result = $client->root()->all();
@@ -75,12 +75,12 @@ You can optionally filter, expand or sort.
 In the example below, we're filtering by name, expanding categories and sorting by date.
 
 ```php
-$parameters = (new \JacobDeKeizer\Ccv\Parameters\Apps\All())
+$parameters = (new \JacobDeKeizer\Ccv\Parameters\Apps\AllFromAppstorecategory())
     ->setName('FooBar')
     ->expandCategories()
     ->orderByDateAsc();
 
-$apps = $client->apps()->allForStoreCategory(11, $parameters);
+$apps = $client->apps()->allFromAppstorecategory(11, $parameters);
 
 foreach ($apps->getItems() as $app) {
     var_dump($app->getName());
@@ -135,7 +135,7 @@ $client->attributes()->all();
 ### Get all attribute combinations
 
 ```php
-$client->attributes()->allCombinationsFor(1234);
+$client->attributes()->allFromAttributecombination(1234);
 ```
 
 ### Create attribute
@@ -170,22 +170,16 @@ $client->attributes()->delete(1234);
 $client->attributevalues()->get(1234);
 ```
 
-### Get all attribute values
-
-```php
-$client->attributevalues()->all();
-```
-
 ### Get all attribute values for attribute
 
 ```php
-$client->attributevalues()->allForAttribute(1234);
+$client->attributevalues()->allFromAttribute(1234);
 ```
 
 ### Get all attribute values for combination
 
 ```php
-$client->attributevalues()->allForCombination(1234);
+$client->attributevalues()->allFromAttributecombination(1234);
 ```
 
 ### Create attribute value
@@ -195,7 +189,7 @@ $create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
     ->setName('Bar')
     ->setDefaultPrice(0);
 
-$client->attributevalues()->create(1234, $create);
+$client->attributevalues()->createForAttribute(1234, $create);
 ```
 
 ### Update attribute value
@@ -219,7 +213,7 @@ $client->attributevalues()->delete(1234);
 ### Get all child categories of a category
 
 ```php
-$categories = $client->categories()->allForCategory(1);
+$categories = $client->categories()->allFromCategory(1);
 ```
 
 ### Get all categories
@@ -304,7 +298,7 @@ $invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
     ->setStatus(2);
     //->set..
    
-$client->invoices()->create(123, $invoice);
+$client->invoices()->createForOrder(123, $invoice);
 ```
 
 ## Orders
@@ -339,23 +333,23 @@ do {
         $order->getCustomer()->getBillingaddress()->getTelephone();
         $order->getCustomer()->getEmail();
 
-        $orderrows = $client->orderrows()->all($order->getId());
+        $orderRows = $client->orderrows()->allFromOrder($order->getId());
         
-        var_dump($orderrows);
+        var_dump($orderRows);
         
-        foreach ($orderrows->getItems() as $orderrow) {
-            var_dump($orderrow);
+        foreach ($orderRows->getItems() as $orderRow) {
+            var_dump($orderRow);
 
-            $orderrow->getId();
-            $orderrow->getCount();
-            $orderrow->getPrice();
-            $orderrow->getProductId();
-            $orderrow->getProductName();
-            $orderrow->getPriceWithoutDiscount();
-            $orderrow->getDiscount();
-            $orderrow->getStockLocation();
-            $orderrow->getWeight();
-            $orderrow->getSubEanNumber();
+            $orderRow->getId();
+            $orderRow->getCount();
+            $orderRow->getPrice();
+            $orderRow->getProductId();
+            $orderRow->getProductName();
+            $orderRow->getPriceWithoutDiscount();
+            $orderRow->getDiscount();
+            $orderRow->getStockLocation();
+            $orderRow->getWeight();
+            $orderRow->getSubEanNumber();
         }
     }
 
@@ -403,12 +397,12 @@ $client->orders()->create($order);
 ```php
 $orderId = 123456;
 
-$parameter = (new \JacobDeKeizer\Ccv\Parameters\OrderRows\All()) // optional parameter
+$parameter = (new \JacobDeKeizer\Ccv\Parameters\OrderRows\AllFromOrder()) // optional parameter
     ->setStart(10);
 
-$orderRows = $client->orderrows()->all($orderId, $parameter);
+$orderRows = $client->orderrows()->allFromOrder($orderId, $parameter);
 
-$nextParameter = \JacobDeKeizer\Ccv\Parameters\OrderRows\All::fromUrl($orderRows->getNext());
+$nextParameter = \JacobDeKeizer\Ccv\Parameters\OrderRows\AllFromOrder::fromUrl($orderRows->getNext());
 ```
 
 ### Get order row
@@ -444,7 +438,7 @@ $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
             // ->set..
     ]);
 
-$client->orderrows()->replace($orderId, $newOrderrows);
+$client->orderrows()->updateForOrder($orderId, $newOrderrows);
 ```
 
 ## Order notes
@@ -454,7 +448,7 @@ Order notes are for internal use only; they will not be seen by customers.
 ### Get all order notes for order
 
 ```php
-$notes = $client->ordernotes()->all(123);
+$notes = $client->ordernotes()->allFromOrder(123);
 ```
 
 ### Get order note
@@ -469,13 +463,13 @@ $note = $client->ordernotes()->get(123456);
 $ordernote = (new \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post())
     ->setNote('this note will not be seen by the customer');
 
-$client->ordernotes()->create(123, $ordernote);
+$client->ordernotes()->createForOrder(123, $ordernote);
 ```
 
 ### Delete order note
 
 ```php
-$note = $client->ordernotes()->delete(123456);
+$client->ordernotes()->delete(123456);
 ```
 
 ## Order notifications
@@ -483,7 +477,7 @@ $note = $client->ordernotes()->delete(123456);
 ### Get all order notifications for order
 
 ```php
-$notifications = $client->ordernotifications()->all(123);
+$notifications = $client->ordernotifications()->allFromOrder(123);
 ```
 
 ### Get order notification
@@ -498,7 +492,7 @@ $notification = $client->ordernotifications()->get(123456);
 $ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input())
     ->setType('customer_paymentlink');
 
-$client->ordernotifications()->create(123, $ordernotification);
+$client->ordernotifications()->createForOrder(123, $ordernotification);
 ```
 
 ## Packages
@@ -655,10 +649,10 @@ $client->products()->delete(1234);
 $client->productattributevalues()->get(1234);
 ```
 
-### Get all product attribute values for product
+### Get all product attribute values from a product
 
 ```php
-$client->productattributevalues()->allForProduct(1234);
+$client->productattributevalues()->allFromProduct(1234);
 ```
 
 ### Create product attribute values
@@ -668,7 +662,7 @@ $post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributeva
     ->setPrice(2);
     // ->set...
 
-$client->productattributevalues()->create(1234, $post);
+$client->productattributevalues()->createForProduct(1234, $post);
 ```
 
 ### Update product attribute values
@@ -704,7 +698,7 @@ $client->productphotos()->delete(1234);
 ### Get all photos for product
 
 ```php
-$client->productphotos()->allForProduct(1234);
+$client->productphotos()->allFromProduct(1234);
 ```
 
 ### Update product photo
@@ -726,7 +720,7 @@ $post = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
     ->setFileType('png');
     // ->set...
 
-$client->productphotos()->create(1234, $post);
+$client->productphotos()->createForProduct(1234, $post);
 ```
 
 ### Replace all product photos
@@ -746,7 +740,7 @@ $productPhoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post
 $put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
     ->setProductphotos([$productPhoto1, $productPhoto2]);
 
-$client->productphotos()->replace(1234, $put);
+$client->productphotos()->updateForProduct(1234, $put);
 ```
 
 ## Product categories
@@ -771,13 +765,13 @@ $client->producttocategories()->get(123);
 ### Get product to category references by product
 
 ```php
-$client->producttocategories()->allForProduct(123);
+$client->producttocategories()->allFromProduct(123);
 ```
 
 ### Get product to category references by category
 
 ```php
-$client->producttocategories()->allForCategory(123);
+$client->producttocategories()->allFromCategory(123);
 ```
 
 ### Delete product to category by reference
@@ -815,13 +809,13 @@ $client->producttocategories()->get(123);
 ### Get product to category references by product
 
 ```php
-$client->producttocategories()->allForProduct(123);
+$client->producttocategories()->allFromProduct(123);
 ```
 
 ### Get product to category references by category
 
 ```php
-$client->producttocategories()->allForCategory(123);
+$client->producttocategories()->allFromCategory(123);
 ```
 
 ### Delete product to category by reference
