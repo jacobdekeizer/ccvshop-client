@@ -78,7 +78,7 @@ class Client
     {
         return new Endpoints\RootEndpoint($this);
     }
-    
+
     public function affiliatenetworks(): Endpoints\AffiliatenetworksEndpoint
     {
         return new Endpoints\AffiliatenetworksEndpoint($this);
