@@ -17,7 +17,7 @@ use JacobDeKeizer\CcvGenerator\Properties\IntegerProperty;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use Symfony\Component\DomCrawler\Crawler;
 
-class EndpointClassGenerator
+class EndpointClassFactory
 {
     /**
      * @return EndpointClass[]
