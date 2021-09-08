@@ -1,5 +1,10 @@
 # Change log
 
+## v1.0.0
+
+- All endpoints, models and parameters are now automatically generated.
+- Some methods have been renamed, look at the examples in the readme for your specific methods.
+
 ## v0.18.0
 
 - Added order notes endpoint
