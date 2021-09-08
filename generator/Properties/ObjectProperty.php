@@ -6,15 +6,9 @@ namespace JacobDeKeizer\CcvGenerator\Properties;
 
 class ObjectProperty extends Property
 {
-    /**
-     * @var bool
-     */
-    private $nullable;
+    private bool $nullable;
 
-    /**
-     * @var string
-     */
-    private $objectClass;
+    private string $objectClass;
 
     public function __construct(bool $nullable, string $objectClass, string $name, string $description, bool $required)
     {

@@ -10,12 +10,12 @@ use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class EndpointClass
 {
-    private $title;
+    private string $title;
 
     /**
      * @var EndpointMethod[]
      */
-    private $endpointMethods;
+    private array $endpointMethods;
 
     /**
      * @param EndpointMethod[] $endpointMethods

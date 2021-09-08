@@ -9,8 +9,9 @@ class CodeWriter
     public const INDENTATION = '    ';
 
     /** @var string[] */
-    private $lines = [];
-    private $currentIndentation = '';
+    private array $lines = [];
+
+    private string $currentIndentation = '';
 
     public function startPhpFile(string $namespace): void
     {

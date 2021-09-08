@@ -11,7 +11,7 @@ use JacobDeKeizer\Ccv\Parameters\Concerns\SortableFields;
 use JacobDeKeizer\Ccv\Parameters\PaginatedList;
 use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 use JacobDeKeizer\Ccv\Traits\FromArray;
-use JacobDeKeizer\CcvGenerator\Php;
+use JacobDeKeizer\CcvGenerator\Constants\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
@@ -19,17 +19,17 @@ use JacobDeKeizer\CcvGenerator\Writers\PropertiesWriter;
 
 class ParameterClass
 {
-    private $namespace;
+    private string $namespace;
 
-    private $name;
+    private string $name;
 
-    private $properties;
+    private array $properties;
 
-    private $sortableFields;
+    private array $sortableFields;
 
-    private $expandableFields;
+    private array $expandableFields;
 
-    private $paginated;
+    private bool $paginated;
 
     /**
      * @param Property[] $properties

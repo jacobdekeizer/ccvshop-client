@@ -13,7 +13,7 @@ class ModelClassFactory
     /**
      * @var array<string, ModelClass>
      */
-    private static $MEMORY = [];
+    private static array $MEMORY = [];
 
     public static function make(string $url, string $namespacePrefix): ModelClass
     {

@@ -6,10 +6,7 @@ namespace JacobDeKeizer\CcvGenerator\Properties;
 
 class BoolProperty extends Property
 {
-    /**
-     * @var bool
-     */
-    private $nullable;
+    private bool $nullable;
 
     public function __construct(bool $nullable, string $name, string $description, bool $required)
     {

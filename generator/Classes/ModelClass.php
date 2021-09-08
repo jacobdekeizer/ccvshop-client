@@ -7,7 +7,7 @@ namespace JacobDeKeizer\CcvGenerator\Classes;
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Traits\FromArray;
 use JacobDeKeizer\Ccv\Traits\ToArray;
-use JacobDeKeizer\CcvGenerator\Php;
+use JacobDeKeizer\CcvGenerator\Constants\Php;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
@@ -15,25 +15,19 @@ use JacobDeKeizer\CcvGenerator\Writers\PropertiesWriter;
 
 class ModelClass
 {
-    /**
-     * @var string
-     */
-    private $namespace;
+    private string $namespace;
 
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
     /**
      * @var Property[]
      */
-    private $properties;
+    private array $properties;
 
     /**
      * @var ModelClass[]
      */
-    private $classes;
+    private array $classes;
 
     public function __construct(string $namespace, string $name, array $properties = [], array $classes = [])
     {

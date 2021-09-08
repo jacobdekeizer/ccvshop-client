@@ -9,15 +9,9 @@ use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class ArrayProperty extends Property
 {
-    /**
-     * @var bool
-     */
-    private $nullable;
+    private bool $nullable;
 
-    /**
-     * @var string
-     */
-    private $arrayType;
+    private Property $arrayType;
 
     public function __construct(bool $nullable, Property $arrayType, string $name, string $description, bool $required)
     {

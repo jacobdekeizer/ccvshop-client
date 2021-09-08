@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\CcvGenerator;
+namespace JacobDeKeizer\CcvGenerator\Constants;
 
 class Php
 {

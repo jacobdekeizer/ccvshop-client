@@ -4,27 +4,18 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
-use JacobDeKeizer\CcvGenerator\Php;
+use JacobDeKeizer\CcvGenerator\Constants\Php;
 use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 abstract class Property
 {
     protected const INDENT = Php::INDENTATION;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
-    /**
-     * @var string
-     */
-    protected $description;
+    protected string $description;
 
-    /**
-     * @var bool
-     */
-    protected $required;
+    protected bool $required;
 
     public function __construct(string $name, string $description, bool $required)
     {

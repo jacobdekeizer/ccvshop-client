@@ -34,7 +34,7 @@
     "doctrine/inflector": "^2.0"
   },
   "scripts": {
-    "generate": "JacobDeKeizer\\CcvGenerator\\SchemaGenerator::generateAll",
+    "generate": "@php generator/generate.php",
     "phpcs": "phpcs --standard=PSR12 --exclude=Generic.Files.LineLength ./src ./generator",
     "phpcbf": "phpcbf --standard=PSR12 --exclude=Generic.Files.LineLength ./src ./generator"
   }

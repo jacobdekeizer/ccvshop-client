@@ -9,21 +9,21 @@ use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class EndpointMethod
 {
-    private $httpMethod;
+    private string $httpMethod;
 
-    private $methodName;
+    private string $methodName;
 
-    private $description;
+    private string $description;
 
-    private $route;
+    private string $route;
 
-    private $properties;
+    private array $properties;
 
-    private $parent;
+    private EndpointClass $parent;
 
-    private $model;
+    private ?ModelClass $model;
 
-    private $parameter;
+    private ?ParameterClass $parameter;
 
     /**
      * @param Property[] $properties

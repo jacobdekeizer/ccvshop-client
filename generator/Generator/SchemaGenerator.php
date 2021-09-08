@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace JacobDeKeizer\CcvGenerator;
+namespace JacobDeKeizer\CcvGenerator\Generator;
 
-include_once 'vendor/symfony/polyfill-php80/bootstrap.php';
 use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
 use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;
@@ -28,19 +27,18 @@ class SchemaGenerator
         'PaginatedList.php',
     ];
 
-    /**
-     * @var string
-     */
-    private $rootDir;
+    private string $srcDir;
 
     /**
      * @var array<string, bool>
      */
-    private $writtenPaths = [];
+    private array $writtenPaths = [];
 
     public function __construct()
     {
-        $this->rootDir = $this->normalizePath(str_replace('generator', 'src', __DIR__));
+        $this->srcDir = $this->normalizePath(
+            str_replace('generator/Generator', 'src', $this->normalizePath(__DIR__))
+        );
     }
 
     public static function generateAll(): void
@@ -125,11 +123,11 @@ class SchemaGenerator
             $codeWriter->closeMethod();
         }
 
-        $contents = file_get_contents(__DIR__ . './stubs/Client.php.stub');
+        $contents = file_get_contents(__DIR__ . '/../stubs/Client.php.stub');
         $contents = str_replace('{{ ENDPOINT_METHODS_HERE }}', $codeWriter->content(), $contents);
 
         FileHelper::fileForceContents(
-            $this->rootDir,
+            $this->srcDir,
             'Client.php',
             $contents
         );
@@ -144,7 +142,7 @@ class SchemaGenerator
         $this->writtenPaths[$path] = true;
 
         FileHelper::fileForceContents(
-            $this->rootDir,
+            $this->srcDir,
             $path,
             $contents
         );
@@ -159,16 +157,16 @@ class SchemaGenerator
 
     private function removeOldModels(): void
     {
-        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Models/*', self::MANUAL_MODELS_DIRS);
+        FileHelper::removeDirectoryWithContentsGlob($this->srcDir . '/Models/*', self::MANUAL_MODELS_DIRS);
     }
 
     private function removeOldEndpoints(): void
     {
-        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Endpoints/*', self::MANUAL_ENDPOINTS);
+        FileHelper::removeDirectoryWithContentsGlob($this->srcDir . '/Endpoints/*', self::MANUAL_ENDPOINTS);
     }
 
     private function removeOldParameters(): void
     {
-        FileHelper::removeDirectoryWithContentsGlob($this->rootDir . '/Parameters/*', self::MANUAL_PARAMETERS);
+        FileHelper::removeDirectoryWithContentsGlob($this->srcDir . '/Parameters/*', self::MANUAL_PARAMETERS);
     }
 }
