@@ -123,7 +123,7 @@ class SchemaGenerator
             $codeWriter->closeMethod();
         }
 
-        $contents = file_get_contents(__DIR__ . '/../stubs/Client.php.stub');
+        $contents = file_get_contents(__DIR__ . '/../Stubs/Client.php.stub');
         $contents = str_replace('{{ ENDPOINT_METHODS_HERE }}', $codeWriter->content(), $contents);
 
         FileHelper::fileForceContents(
