@@ -144,6 +144,7 @@ $client->attributes()->allFromAttributecombination(1234);
 $attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
     ->setName('Foo')
     ->setType('option_menu_required');
+    
 $client->attributes()->create($attribute);
 ```
 
@@ -153,6 +154,7 @@ $client->attributes()->create($attribute);
 $attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
     ->setName('Foo')
     ->setType('option_menu_required');
+    
 $client->attributes()->update(1234, $attribute);
 ```
 

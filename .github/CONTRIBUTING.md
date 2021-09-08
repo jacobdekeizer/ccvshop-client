@@ -2,29 +2,19 @@
 
 Contributions are welcome.
 
-## Generate new models
+## Generated code
 
-This package can automatically generate models for new API endpoints.
+This package automatically generates the API endpoints with their required models and parameters.
+To fix errors within endpoints, models or parameters, you have to fix the generator code.
+The generator code can be found in the `generator` folder.
 
-On the [documentation page](https://demo.ccvshop.nl/API/Docs/) you can find the Content-Type of each API endpoint.
-When you click on the Content-Type URL, you can copy the schema URL endpoint like in the code below.
-This URL will automatically generate the required models for the new API endpoint.
-
-You have to add this new URL to the `\JacobDeKeizer\CcvGenerator\SchemaGenerator::generateAll()` method 
-with a namespace prefix that is the same as the endpoint name.
-
-This namespace prefix is necessary because the models can differ between endpoints.
-```php
-$generator->generate('/API/Schema/vnd.verto.webshop.resource.collection.orders.v1.json', 'Orders');
-```
-
-Generate the models: `composer generate`
+To generate the client run: `composer generate`
 
 ## Documentation
 
-Before submitting a pull request, please add the endpoint the [README.md](../README.md)
-under *Implemented endpoints* and add a section in the appropriate place with all the methods
-the endpoint offers.
+Not all endpoints are documented, feel free to make a PR to document an endpoint.
+Add the new endpoint to the [README.md](../README.md) under *Implemented endpoints*
+and add a section in the appropriate place with all the methods the endpoint offers.
 
 ## Code sniffer
 
