@@ -68,6 +68,7 @@ class Productstaggeredprices implements Model
         $this->propertyFilled('collection');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'collection') {

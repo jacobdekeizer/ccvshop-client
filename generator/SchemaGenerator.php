@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace JacobDeKeizer\CcvGenerator;
 
+include_once 'vendor/symfony/polyfill-php80/bootstrap.php';
 use JacobDeKeizer\CcvGenerator\Classes\EndpointClass;
 use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Classes\ParameterClass;

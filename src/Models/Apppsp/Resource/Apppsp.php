@@ -212,6 +212,7 @@ class Apppsp implements Model
         $this->propertyFilled('parent');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'paymethods') {

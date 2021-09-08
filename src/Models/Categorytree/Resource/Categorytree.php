@@ -68,6 +68,7 @@ class Categorytree implements Model
         $this->propertyFilled('rootCategories');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'root_categories') {

@@ -572,6 +572,7 @@ class Settings implements Model
         $this->propertyFilled('parent');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'quotation_status') {

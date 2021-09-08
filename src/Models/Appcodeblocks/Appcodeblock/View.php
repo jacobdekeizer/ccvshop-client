@@ -92,6 +92,7 @@ class View implements Model
         $this->propertyFilled('elements');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'elements') {

@@ -44,6 +44,7 @@ class Put implements Model
         $this->propertyFilled('disabledPaymethods');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'disabled_paymethods') {

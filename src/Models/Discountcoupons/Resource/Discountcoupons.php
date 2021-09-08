@@ -308,6 +308,7 @@ class Discountcoupons implements Model
         $this->propertyFilled('products');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'products') {

@@ -188,6 +188,7 @@ class Paymethod implements Model
         $this->propertyFilled('issuers');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'issuers') {

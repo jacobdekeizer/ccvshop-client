@@ -212,6 +212,7 @@ class Element implements Model
         $this->propertyFilled('action');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'options') {

@@ -44,6 +44,7 @@ class Put implements Model
         $this->propertyFilled('productphotos');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'productphotos') {

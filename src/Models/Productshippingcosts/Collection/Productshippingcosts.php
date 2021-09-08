@@ -92,6 +92,7 @@ class Productshippingcosts implements Model
         $this->propertyFilled('quantity');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {

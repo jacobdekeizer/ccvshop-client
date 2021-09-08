@@ -140,6 +140,7 @@ class Geozonecountries implements Model
         $this->propertyFilled('tariffs');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'tariffs') {

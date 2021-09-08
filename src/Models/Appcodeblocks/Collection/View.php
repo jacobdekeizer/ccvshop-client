@@ -44,6 +44,7 @@ class View implements Model
         $this->propertyFilled('views');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'views') {

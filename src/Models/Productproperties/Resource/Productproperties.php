@@ -260,6 +260,7 @@ class Productproperties implements Model
         $this->propertyFilled('children');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'children') {

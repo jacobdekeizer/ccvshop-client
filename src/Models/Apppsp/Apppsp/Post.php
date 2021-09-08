@@ -140,6 +140,7 @@ class Post implements Model
         $this->propertyFilled('paymethods');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'paymethods') {

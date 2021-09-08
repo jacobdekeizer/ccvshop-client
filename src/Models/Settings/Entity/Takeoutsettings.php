@@ -164,6 +164,7 @@ class Takeoutsettings implements Model
         $this->propertyFilled('excludes');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'periods') {

@@ -188,6 +188,7 @@ class Translations implements Model
         $this->propertyFilled('items');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'items') {

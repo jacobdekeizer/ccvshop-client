@@ -44,6 +44,7 @@ class Input implements Model
         $this->propertyFilled('translations');
         return $this;
     }
+
     protected function convertFromArrayData(string $key, $value)
     {
         if ($key === 'translations') {

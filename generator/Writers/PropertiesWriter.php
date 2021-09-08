@@ -47,6 +47,7 @@ class PropertiesWriter
             return;
         }
 
+        $codeWriter->insertNewLine();
         $codeWriter->openMethod('protected function convertFromArrayData(string $key, $value)');
 
         foreach ($properties as $property) {
