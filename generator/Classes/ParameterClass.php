@@ -172,35 +172,38 @@ class ParameterClass
         $codeWriter->writeLine('return self::fromArray(QueryParametersArrayFactory::fromUrl($url));');
         $codeWriter->closeMethod();
 
-        $codeWriter->insertNewLine();
-
-        $codeWriter->openMethod('public function toBuilder(): QueryParameterBuilder');
-        $codeWriter->writeLine('return (parent::toBuilder())');
-        $codeWriter->indent();
-
         $propertiesCount = count($this->properties);
 
-        for ($i = 0; $i < $propertiesCount; $i++) {
-            $codeWriter->writeLine(
-                sprintf(
-                    '->addOptionalParameter(\'%s\', $this->%s)%s',
-                    Str::snake($this->properties[$i]->getName()),
-                    $this->properties[$i]->getName(),
-                    $i === $propertiesCount - 1 && !$hasExpandableFields && !$hasSortableFields ? ';' : ''
-                )
-            );
-        }
+        if ($propertiesCount > 0 || $hasExpandableFields || $hasSortableFields) {
+            $codeWriter->insertNewLine();
 
-        if ($hasExpandableFields) {
-            $codeWriter->writeLine('->expandFields($this->getExpandedFields())' . ($hasSortableFields ? '' : ';'));
-        }
+            $codeWriter->openMethod('public function toBuilder(): QueryParameterBuilder');
+            $codeWriter->writeLine('return (parent::toBuilder())');
+            $codeWriter->indent();
 
-        if ($hasSortableFields) {
-            $codeWriter->writeLine('->orderBy($this->getOrderBy());');
-        }
 
-        $codeWriter->outdent();
-        $codeWriter->closeMethod();
+            for ($i = 0; $i < $propertiesCount; $i++) {
+                $codeWriter->writeLine(
+                    sprintf(
+                        '->addOptionalParameter(\'%s\', $this->%s)%s',
+                        Str::snake($this->properties[$i]->getName()),
+                        $this->properties[$i]->getName(),
+                        $i === $propertiesCount - 1 && !$hasExpandableFields && !$hasSortableFields ? ';' : ''
+                    )
+                );
+            }
+
+            if ($hasExpandableFields) {
+                $codeWriter->writeLine('->expandFields($this->getExpandedFields())' . ($hasSortableFields ? '' : ';'));
+            }
+
+            if ($hasSortableFields) {
+                $codeWriter->writeLine('->orderBy($this->getOrderBy());');
+            }
+
+            $codeWriter->outdent();
+            $codeWriter->closeMethod();
+        }
 
         PropertiesWriter::writeMethods($codeWriter, $this->properties, false);
 

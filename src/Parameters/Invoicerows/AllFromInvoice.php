@@ -33,9 +33,4 @@ class AllFromInvoice extends PaginatedList implements Parameter
 
         return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
-
-    public function toBuilder(): QueryParameterBuilder
-    {
-        return (parent::toBuilder())
-    }
 }
