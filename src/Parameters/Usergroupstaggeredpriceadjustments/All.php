@@ -53,7 +53,7 @@ class All implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->addOptionalParameter('usergroup_id', $this->usergroupId)
             ->addOptionalParameter('product_id', $this->productId)
             ->addOptionalParameter('staggeredprice_id', $this->staggeredpriceId);

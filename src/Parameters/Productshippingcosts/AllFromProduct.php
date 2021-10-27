@@ -43,7 +43,7 @@ class AllFromProduct implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->addOptionalParameter('quantity', $this->quantity);
     }
 

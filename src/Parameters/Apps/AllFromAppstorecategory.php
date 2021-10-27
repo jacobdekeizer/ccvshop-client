@@ -47,7 +47,7 @@ class AllFromAppstorecategory implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->addOptionalParameter('name', $this->name)
             ->expandFields($this->getExpandedFields())
             ->orderBy($this->getOrderBy());

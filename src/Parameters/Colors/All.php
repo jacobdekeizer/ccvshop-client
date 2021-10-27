@@ -43,7 +43,7 @@ class All implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->addOptionalParameter('color', $this->color);
     }
 

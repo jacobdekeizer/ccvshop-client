@@ -40,7 +40,7 @@ class Get implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->expandFields($this->getExpandedFields());
     }
 

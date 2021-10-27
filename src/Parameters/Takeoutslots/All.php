@@ -48,7 +48,7 @@ class All implements Parameter
 
     public function toBuilder(): QueryParameterBuilder
     {
-        return (parent::toBuilder())
+        return (new QueryParameterBuilder())
             ->addOptionalParameter('date', $this->date)
             ->addOptionalParameter('type', $this->type);
     }

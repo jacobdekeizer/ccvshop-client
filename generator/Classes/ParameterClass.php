@@ -140,6 +140,8 @@ class ParameterClass
             $this->paginated ? ' extends PaginatedList' : ''
         ));
 
+        $hasParentBuilder = $this->paginated;
+
         $codeWriter->useClass('FromArray');
 
         if ($hasExpandableFields) {
@@ -178,7 +180,10 @@ class ParameterClass
             $codeWriter->insertNewLine();
 
             $codeWriter->openMethod('public function toBuilder(): QueryParameterBuilder');
-            $codeWriter->writeLine('return (parent::toBuilder())');
+            $codeWriter->writeLine(sprintf(
+                'return (%s)',
+                $hasParentBuilder ? 'parent::toBuilder()' : 'new QueryParameterBuilder()'
+            ));
             $codeWriter->indent();
 
 
