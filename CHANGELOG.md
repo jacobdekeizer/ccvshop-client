@@ -2,8 +2,8 @@
 
 ## v1.0.0
 
-- All endpoints, models and parameters are now automatically generated.
-- Some methods have been renamed, look at the examples in the readme for your specific methods.
+- All endpoints, models and parameters are now added and automatically generated.
+- Method names and namespaces have been renamed, look at the examples in the readme for your code.
 
 ## v0.18.0
 
