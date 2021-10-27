@@ -56,7 +56,7 @@ $client->setPrivateKey('private_key');
 
 ## Root endpoint
 
-This endpoint returns the supported endpoints for your CCV Shop api keys.
+This endpoint returns the supported endpoints for your CCV Shop API keys.
 
 ```php
 $result = $client->root()->all();
@@ -91,7 +91,7 @@ foreach ($apps->getItems() as $app) {
 
 This will get all apps associated with the current public and private key.
 
-The `All` parameter object mentioned above can be used with this method as well.
+You can use the `\JacobDeKeizer\Ccv\Parameters\Apps\All` parameter to filter the results, like above.
 
 ```php
 $apps = $client->apps()->all();
@@ -112,7 +112,7 @@ var_dump($app->getName());
 ### Update an app
 For example set the app to installed
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Apps\Apps\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Apps\Patch\Patch())
     ->setIsInstalled(true);
 
 $client->apps()->update(12345, $patch);
@@ -141,7 +141,7 @@ $client->attributes()->allFromAttributecombination(1234);
 ### Create attribute
 
 ```php
-$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+$attribute = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Attributes\Input\Input())
     ->setName('Foo')
     ->setType('option_menu_required');
     
@@ -151,7 +151,7 @@ $client->attributes()->create($attribute);
 ### Update attribute
 
 ```php
-$attribute = (new \JacobDeKeizer\Ccv\Models\Attributes\Attributes\Input())
+$attribute = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Attributes\Input\Input())
     ->setName('Foo')
     ->setType('option_menu_required');
     
@@ -187,7 +187,7 @@ $client->attributevalues()->allFromAttributecombination(1234);
 ### Create attribute value
 
 ```php
-$create = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Post())
+$create = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Attributevalues\Post\Post())
     ->setName('Bar')
     ->setDefaultPrice(0);
 
@@ -197,7 +197,7 @@ $client->attributevalues()->createForAttribute(1234, $create);
 ### Update attribute value
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Attributevalues\Attributevalues\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Attributevalues\Patch\Patch())
     ->setName('Bar')
     ->setDefaultPrice(0);
 
@@ -243,7 +243,7 @@ $category->getDescription();
 
 ```php
 $client->categories()->create(
-    (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Post())
+    (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Categories\Post\Post())
         ->setName('foo bar')
 );
 ```
@@ -251,7 +251,7 @@ $client->categories()->create(
 ### Update category
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Categories\Categories\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Categories\Patch\Patch())
     ->setName('foo bar');
 
 $client->categories()->update(1, $patch);
@@ -286,7 +286,7 @@ $invoice = $client->invoices()->get(123456);
 ### Update invoice
 
 ```php
-$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+$invoice = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Invoices\Input\Input())
     ->setStatus(1);
     // ->set...
 
@@ -296,7 +296,7 @@ $client->invoices()->update(123456, $invoice);
 ### Create invoice
 
 ```php
-$invoice = (new \JacobDeKeizer\Ccv\Models\Invoices\Invoices\Input())
+$invoice = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Invoices\Input\Input())
     ->setStatus(2);
     //->set..
    
@@ -371,10 +371,10 @@ $order = $client->orders()->get(123456);
 For example update the order status and the customer email
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Patch())
+$patch = (new  \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Patch\Patch())
     ->setStatus(6)
     ->setCustomer(
-        (new \JacobDeKeizer\Ccv\Models\Orders\Personalinfo\Input)
+        (new \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Input())
             ->setEmail('example@example.com')
     );
     // ->set...
@@ -385,7 +385,7 @@ $client->orders()->update(123456, $patch);
 ### Create order
 
 ```php
-$order = (new \JacobDeKeizer\Ccv\Models\Orders\Orders\Post())
+$order = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Post\Post())
     ->setInvoicenumber(123456);
     //->set..
    
@@ -417,7 +417,7 @@ $orderRow = $client->orderrows()->get(336401521);
 Order must not be completed to update orderrows
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrows\Patch\Patch())
     ->setCount(1)
     ->setDiscount(20)
     ->setPrice(100);
@@ -430,9 +430,9 @@ $client->orderrows()->update(123456, $patch);
 ```php
 $orderId = 123456;
 
-$newOrderrows = (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrows\Put())
+$newOrderrows = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrows\Put\Put())
     ->setOrderrows([
-        (new \JacobDeKeizer\Ccv\Models\Orderrows\Orderrow\Input())
+        (new \JacobDeKeizer\Ccv\Models\Internal\Entity\Orderrow\Input\Input)
             ->setProductId(12345)
             ->setCount(1)
             ->setPrice(100)
@@ -462,7 +462,7 @@ $note = $client->ordernotes()->get(123456);
 ### Create order note
 
 ```php
-$ordernote = (new \JacobDeKeizer\Ccv\Models\Ordernotes\Ordernotes\Post())
+$ordernote = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Ordernotes\Post\Post())
     ->setNote('this note will not be seen by the customer');
 
 $client->ordernotes()->createForOrder(123, $ordernote);
@@ -491,7 +491,7 @@ $notification = $client->ordernotifications()->get(123456);
 ### Create order notification
 
 ```php
-$ordernotification = (new \JacobDeKeizer\Ccv\Models\Ordernotifications\Ordernotifications\Input())
+$ordernotification = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Ordernotifications\Input\Input())
     ->setType('customer_paymentlink');
 
 $client->ordernotifications()->createForOrder(123, $ordernotification);
@@ -515,7 +515,7 @@ $package = $client->packages()->get(12345);
 
 ```php
 $client->packages()->create(
-    (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+    (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Packages\Input\Input())
         ->setName('foobar')
 );
 ```
@@ -523,7 +523,7 @@ $client->packages()->create(
 ### Update package
 
 ```php
-$input = (new \JacobDeKeizer\Ccv\Models\Packages\Packages\Input())
+$input = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Packages\Input\Input())
     ->setName('baz boo');
 
 $client->packages()->update(12345, $input);
@@ -599,7 +599,7 @@ $product = $client->products()->get(1234);
 
 ```php
 // see the code and documentation for all available methods
-$patch = (new \JacobDeKeizer\Ccv\Models\Products\Products\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Products\Patch\Patch())
         ->setDiscount(4.99)
         ->setPrice(100)
         ->setProductnumber('my_number')
@@ -614,14 +614,18 @@ $patch = (new \JacobDeKeizer\Ccv\Models\Products\Products\Patch())
 $client->products()->update(1234, $patch);
 
 // or only update stock
-$client->products()->update(1234, (new \JacobDeKeizer\Ccv\Models\Products\Products\Patch())->setStock(99));
+$client->products()->update(
+    1234,
+    (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Products\Patch\Patch())
+        ->setStock(99)
+);
 ```
 
 ### Create product
 
 ```php
 // see the code and documentation for all available methods
-$product = (new \JacobDeKeizer\Ccv\Models\Products\Products\Post())
+$product = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Products\Post\Post())
     ->setDiscount(4.99)
     ->setPrice(100)
     ->setProductnumber('my_number')
@@ -660,7 +664,7 @@ $client->productattributevalues()->allFromProduct(1234);
 ### Create product attribute values
 
 ```php
-$post = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Post())
+$post = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productattributevalues\Post\Post())
     ->setPrice(2);
     // ->set...
 
@@ -670,7 +674,7 @@ $client->productattributevalues()->createForProduct(1234, $post);
 ### Update product attribute values
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Productattributevalues\Productattributevalues\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productattributevalues\Patch\Patch())
     ->setPrice(2);
     // ->set...
 
@@ -706,7 +710,7 @@ $client->productphotos()->allFromProduct(1234);
 ### Update product photo
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Patch\Patch())
     ->setAlttext('text')
     ->setIsMainphoto(true);
 
@@ -717,7 +721,7 @@ $client->productphotos()->update(1234, $patch);
 
 ```php
 // see the code and documentation for all available methods
-$post = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$post = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post())
     ->setSource(base64_encode(file_get_contents('photo.png')))
     ->setFileType('png');
     // ->set...
@@ -729,17 +733,17 @@ $client->productphotos()->createForProduct(1234, $post);
 
 ```php
 // see the code and documentation for all available methods
-$productPhoto1 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$productPhoto1 = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post())
     ->setSource(base64_encode(file_get_contents('photo1.png')))
     ->setFileType('png');
     // ->set...
 
-$productPhoto2 = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Post())
+$productPhoto2 = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post())
     ->setSource(base64_encode(file_get_contents('photo2.jpg')))
     ->setFileType('jpg');
     // ->set...
 
-$put = (new \JacobDeKeizer\Ccv\Models\Productphotos\Productphotos\Put())
+$put = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Put\Put)
     ->setProductphotos([$productPhoto1, $productPhoto2]);
 
 $client->productphotos()->updateForProduct(1234, $put);
@@ -750,7 +754,7 @@ $client->productphotos()->updateForProduct(1234, $put);
 ### Create product to category reference
 
 ```php
-$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+$post = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Producttocategories\Post\Post())
     ->setProductId(123)
     ->setCategoryId(456)
     ->setPosition(null);
@@ -785,7 +789,7 @@ $client->producttocategories()->delete(123);
 ### Update product to category reference
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Producttocategories\Patch\Patch())
     ->setPosition(1);
 
 $client->producttocategories()->update(123, $patch);
@@ -794,7 +798,7 @@ $client->producttocategories()->update(123, $patch);
 ### Create product to category reference
 
 ```php
-$post = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Post())
+$post = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Producttocategories\Post\Post())
     ->setProductId(123)
     ->setCategoryId(456)
     ->setPosition(null);
@@ -829,7 +833,7 @@ $client->producttocategories()->delete(123);
 ### Update product to category reference
 
 ```php
-$patch = (new \JacobDeKeizer\Ccv\Models\Producttocategories\Producttocategories\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Producttocategories\Patch\Patch())
     ->setPosition(1);
 
 $client->producttocategories()->update(123, $patch);
@@ -853,7 +857,7 @@ $supplier = $client->suppliers()->get(12345);
 
 ```php
 $client->suppliers()->create(
-    (new \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input())
+    (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Suppliers\Input\Input())
         ->setName('foobar')
 );
 ```
@@ -861,7 +865,7 @@ $client->suppliers()->create(
 ### Update supplier
 
 ```php
-$input = (new \JacobDeKeizer\Ccv\Models\Suppliers\Suppliers\Input())
+$input = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Suppliers\Input\Input())
     ->setName('bazboo');
 
 $client->suppliers()->update(12345, $input);
@@ -895,7 +899,7 @@ $webhook = $client->webhooks()->get(12345);
 ### Create a webhook
 
 ```php
-$webhook = (new \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Post())
+$webhook = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Webhooks\Post\Post())
     ->setEvent('foo.bar')
     ->setAddress('https://example.com/foo.bar')
     ->setIsActive(true);
@@ -910,7 +914,7 @@ var_dump($createdWebhook->getId());
 In this example, the webhook will be disabled.
 
 ```php
-$webhook = (new \JacobDeKeizer\Ccv\Models\Webhooks\Webhooks\Patch())
+$webhook = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Webhooks\Patch\Patch())
                 ->setIsActive(false);
 
 $client->webhooks()->update(12345, $webhook);

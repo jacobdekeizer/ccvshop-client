@@ -133,7 +133,7 @@ class EndpointClassFactory
                     }
                 );
 
-                $modelClass = $contentType ? ModelClassFactory::make($contentType, $endpoint->getTitle()) : null;
+                $modelClass = $contentType ? ModelClassFactory::make($contentType) : null;
 
                 $parameter->setPaginated($modelClass && $modelClass->hasProperty('next'));
 

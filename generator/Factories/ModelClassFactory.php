@@ -15,26 +15,21 @@ class ModelClassFactory
      */
     private static array $MEMORY = [];
 
-    public static function make(string $url, string $namespacePrefix): ModelClass
+    public static function make(string $url): ModelClass
     {
-        $key = $namespacePrefix . $url;
-
-        if (isset(self::$MEMORY[$key])) {
-            return self::$MEMORY[$key];
+        if (isset(self::$MEMORY[$url])) {
+            return self::$MEMORY[$url];
         }
 
         $object = json_decode(file_get_contents('https://demo.ccvshop.nl' . $url), true);
 
         $pathParts = self::makePathParts($url);
 
-        $modelClass = new ModelClass(
-            self::makeNamespace($pathParts, $namespacePrefix),
-            $pathParts[count($pathParts) - 1],
-        );
+        $modelClass = new ModelClass(self::makeNamespace($pathParts), $pathParts[count($pathParts) - 1]);
 
-        self::$MEMORY[$key] = $modelClass;
+        self::$MEMORY[$url] = $modelClass;
 
-        [$properties, $classes] = self::makePropertiesAndClasses($pathParts, $object, $namespacePrefix);
+        [$properties, $classes] = self::makePropertiesAndClasses($pathParts, $object);
 
         $modelClass->setProperties($properties);
         $modelClass->setClasses($classes);
@@ -42,7 +37,7 @@ class ModelClassFactory
         return $modelClass;
     }
 
-    private static function makePropertiesAndClasses(array $pathParts, array $object, string $namespacePrefix): array
+    private static function makePropertiesAndClasses(array $pathParts, array $object): array
     {
         /** @var Property[] $properties */
         $properties = [];
@@ -50,22 +45,15 @@ class ModelClassFactory
         /** @var ModelClass[] $classes */
         $classes = [];
 
-        $makeObject = static function (
-            string $propertyName,
-            array &$property
-        ) use (
-            $pathParts,
-            &$classes,
-            $namespacePrefix
-        ) {
-            $childPhpClass = self::makeChildObject(Str::studly($propertyName), $pathParts, $property, $namespacePrefix);
+        $makeObject = static function (string $propertyName, array &$property) use ($pathParts, &$classes) {
+            $childPhpClass = self::makeChildObject(Str::studly($propertyName), $pathParts, $property);
 
             $classes[] = $childPhpClass;
             $property['phpClass'] = $childPhpClass;
         };
 
-        $makeRef = static function (array &$item) use (&$classes, $namespacePrefix) {
-            $childPhpClass = self::make($item['$ref'], $namespacePrefix);
+        $makeRef = static function (array &$item) use (&$classes) {
+            $childPhpClass = self::make($item['$ref']);
 
             $classes[] = $childPhpClass;
             $item['phpClass'] = $childPhpClass;
@@ -108,22 +96,19 @@ class ModelClassFactory
         return [$properties, $classes];
     }
 
-    private static function makeChildObject(
-        string $className,
-        array $pathParts,
-        array $object,
-        string $namespacePrefix
-    ): ModelClass {
+    private static function makeChildObject(string $className, array $pathParts, array $object): ModelClass
+    {
         if (isset($object['$ref'])) {
-            return self::make($object['$ref'], $namespacePrefix);
+            return self::make($object['$ref']);
         } else {
             $childObjectParts = $pathParts;
-            $childObjectParts[count($childObjectParts) - 1] = $className;
 
-            [$childProperties, $childClasses] = self::makePropertiesAndClasses($pathParts, $object, $namespacePrefix);
+            [$childProperties, $childClasses] = self::makePropertiesAndClasses($pathParts, $object);
+
+            $childObjectParts[] = 'Child';
 
             return new ModelClass(
-                self::makeNamespace($childObjectParts, $namespacePrefix . '\Child'),
+                self::makeNamespace($childObjectParts),
                 $className,
                 $childProperties,
                 $childClasses
@@ -131,25 +116,23 @@ class ModelClassFactory
         }
     }
 
-    private static function makeNamespace(array $pathParts, string $namespacePrefix): string
+    private static function makeNamespace(array $pathParts): string
     {
-        return sprintf('JacobDeKeizer\Ccv\Models\%s\%s', $namespacePrefix, $pathParts[0]);
+        return sprintf('JacobDeKeizer\Ccv\Models\%s', implode('\\', $pathParts));
     }
 
     /**
      * @param string $schemaUrl https://demo.ccvshop.nl/API/Schema/internal.resource.orders.post.v1.json
-     * @return array [ Orders, Post ]
+     * @return array [ Internal, Resource, Orders, Post ]
      */
     private static function makePathParts(string $schemaUrl): array
     {
         $schemaUrl = str_replace('/API/Schema/', '', $schemaUrl);
+
         $parts = explode('.', $schemaUrl);
 
-        $count = count($parts);
+        $parts = array_slice($parts, 0, -2);
 
-        return [
-            Str::studly($parts[$count - 4]),
-            Str::studly($parts[$count - 3]),
-        ];
+        return array_map(static fn(string $part): string => Str::studly($part), $parts);
     }
 }
