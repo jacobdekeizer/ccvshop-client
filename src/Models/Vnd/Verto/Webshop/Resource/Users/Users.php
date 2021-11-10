@@ -78,7 +78,7 @@ class Users implements Model
 
     public static function fromArray(array $data): static
     {
-        return self::createFromArray($data);
+        return static::createFromArray($data);
     }
 
     /**

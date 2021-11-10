@@ -119,7 +119,7 @@ class ModelClass
         $codeWriter->insertNewLine();
 
         $codeWriter->openMethod('public static function fromArray(array $data): static');
-        $codeWriter->writeLine('return self::createFromArray($data);');
+        $codeWriter->writeLine('return static::createFromArray($data);');
         $codeWriter->closeMethod();
 
         PropertiesWriter::writeMethods($codeWriter, $this->properties);
