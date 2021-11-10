@@ -106,10 +106,7 @@ class Quotations implements Model
      */
     private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\Quotationrows $quotationrows;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

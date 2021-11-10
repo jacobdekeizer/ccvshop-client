@@ -56,10 +56,7 @@ class Element implements Model
      */
     private ?string $action;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

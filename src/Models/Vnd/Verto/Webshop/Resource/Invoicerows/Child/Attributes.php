@@ -31,10 +31,7 @@ class Attributes implements Model
      */
     private ?float $price;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

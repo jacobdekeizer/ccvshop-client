@@ -41,10 +41,7 @@ class Creditpoints implements Model
      */
     private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\Mutations $mutations;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

@@ -31,10 +31,7 @@ class User implements Model
      */
     private ?string $href;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

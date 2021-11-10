@@ -36,10 +36,7 @@ class Credentials implements Model
      */
     private ?string $createdate;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

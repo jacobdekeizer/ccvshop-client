@@ -76,10 +76,7 @@ class Users implements Model
      */
     private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\ParentItem $parent;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

@@ -26,10 +26,7 @@ class TakeOutWindow implements Model
      */
     private ?string $end;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

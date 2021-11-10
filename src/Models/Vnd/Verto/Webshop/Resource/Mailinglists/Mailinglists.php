@@ -41,10 +41,7 @@ class Mailinglists implements Model
      */
     private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailinglists\Child\Mailingaddresses $mailingaddresses;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

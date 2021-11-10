@@ -116,10 +116,7 @@ class Billingaddress implements Model
      */
     private ?string $comment;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

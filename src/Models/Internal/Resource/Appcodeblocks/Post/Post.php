@@ -36,10 +36,7 @@ class Post implements Model
      */
     private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View $interactiveContent;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

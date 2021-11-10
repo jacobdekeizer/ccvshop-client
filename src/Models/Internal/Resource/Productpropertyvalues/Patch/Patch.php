@@ -21,10 +21,7 @@ class Patch implements Model
      */
     private string $value;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

@@ -118,10 +118,7 @@ class ModelClass
 
         $codeWriter->insertNewLine();
 
-        $codeWriter->writeMultilineDocblock([
-            '@return self'
-        ]);
-        $codeWriter->openMethod('public static function fromArray(array $data): Model');
+        $codeWriter->openMethod('public static function fromArray(array $data): static');
         $codeWriter->writeLine('return self::createFromArray($data);');
         $codeWriter->closeMethod();
 

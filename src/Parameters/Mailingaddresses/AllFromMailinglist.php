@@ -19,24 +19,18 @@ class AllFromMailinglist extends PaginatedList implements Parameter
     use FromArray;
     use SortableFields;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Parameter
+    public static function fromArray(array $data): static
     {
-        return self::createFromArray($data);
+        return static::createFromArray($data);
     }
 
-    /**
-     * @return self
-     */
-    public static function fromUrl(?string $url): ?self
+    public static function fromUrl(?string $url): ?static
     {
         if ($url === null) {
             return null;
         }
 
-        return self::fromArray(QueryParametersArrayFactory::fromUrl($url));
+        return static::fromArray(QueryParametersArrayFactory::fromUrl($url));
     }
 
     public function toBuilder(): QueryParameterBuilder

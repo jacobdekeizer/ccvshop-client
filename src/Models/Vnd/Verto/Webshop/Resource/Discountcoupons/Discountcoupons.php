@@ -76,10 +76,7 @@ class Discountcoupons implements Model
      */
     private ?array $products;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

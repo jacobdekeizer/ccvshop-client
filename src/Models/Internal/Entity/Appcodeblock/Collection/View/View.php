@@ -21,10 +21,7 @@ class View implements Model
      */
     private array $views;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

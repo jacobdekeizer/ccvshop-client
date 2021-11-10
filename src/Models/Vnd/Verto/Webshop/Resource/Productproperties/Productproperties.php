@@ -66,10 +66,7 @@ class Productproperties implements Model
      */
     private ?array $children;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

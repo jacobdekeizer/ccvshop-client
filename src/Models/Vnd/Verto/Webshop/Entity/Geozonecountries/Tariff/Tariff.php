@@ -26,10 +26,7 @@ class Tariff implements Model
      */
     private float $percentage;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

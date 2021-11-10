@@ -21,10 +21,7 @@ class Put implements Model
      */
     private int $amount;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

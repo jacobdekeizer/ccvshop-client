@@ -31,10 +31,7 @@ class Post implements Model
      */
     private bool $active;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

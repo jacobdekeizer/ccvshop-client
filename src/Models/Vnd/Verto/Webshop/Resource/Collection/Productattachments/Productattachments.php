@@ -26,10 +26,7 @@ class Productattachments implements Model
      */
     private array $items;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

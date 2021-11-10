@@ -21,10 +21,7 @@ class Input implements Model
      */
     private array $translations;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

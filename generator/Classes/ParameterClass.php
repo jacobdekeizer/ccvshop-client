@@ -156,22 +156,20 @@ class ParameterClass
 
         $codeWriter->insertNewLine();
 
-        $codeWriter->writeMultilineDocblock(['@return self']);
-        $codeWriter->openMethod('public static function fromArray(array $data): Parameter');
-        $codeWriter->writeLine('return self::createFromArray($data);');
+        $codeWriter->openMethod('public static function fromArray(array $data): static');
+        $codeWriter->writeLine('return static::createFromArray($data);');
         $codeWriter->closeMethod();
 
         $codeWriter->insertNewLine();
 
-        $codeWriter->writeMultilineDocblock(['@return self']);
-        $codeWriter->openMethod('public static function fromUrl(?string $url): ?self');
+        $codeWriter->openMethod('public static function fromUrl(?string $url): ?static');
         $codeWriter->writeLine('if ($url === null) {');
         $codeWriter->indent();
         $codeWriter->writeLine('return null;');
         $codeWriter->outdent();
         $codeWriter->writeLine('}');
         $codeWriter->insertNewLine();
-        $codeWriter->writeLine('return self::fromArray(QueryParametersArrayFactory::fromUrl($url));');
+        $codeWriter->writeLine('return static::fromArray(QueryParametersArrayFactory::fromUrl($url));');
         $codeWriter->closeMethod();
 
         $propertiesCount = count($this->properties);

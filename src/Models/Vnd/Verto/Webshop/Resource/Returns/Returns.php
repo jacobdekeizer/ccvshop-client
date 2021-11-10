@@ -126,10 +126,7 @@ class Returns implements Model
      */
     private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\Returnrows $returnrows;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

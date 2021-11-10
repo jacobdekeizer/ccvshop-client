@@ -41,10 +41,7 @@ class Dashboards implements Model
      */
     private string $parent;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

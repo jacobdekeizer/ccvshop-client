@@ -26,10 +26,7 @@ class StockLevelWarnings implements Model
      */
     private ?int $highThreshold;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

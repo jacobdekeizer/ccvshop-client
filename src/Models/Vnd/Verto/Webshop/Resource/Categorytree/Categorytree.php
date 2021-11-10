@@ -26,10 +26,7 @@ class Categorytree implements Model
      */
     private array $rootCategories;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

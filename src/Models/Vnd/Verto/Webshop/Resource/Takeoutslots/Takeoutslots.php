@@ -51,10 +51,7 @@ class Takeoutslots implements Model
      */
     private int $countReservation;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }

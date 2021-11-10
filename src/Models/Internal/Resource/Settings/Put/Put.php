@@ -36,10 +36,7 @@ class Put implements Model
      */
     private ?string $webshopDisabledText;
 
-    /**
-     * @return self
-     */
-    public static function fromArray(array $data): Model
+    public static function fromArray(array $data): static
     {
         return self::createFromArray($data);
     }
