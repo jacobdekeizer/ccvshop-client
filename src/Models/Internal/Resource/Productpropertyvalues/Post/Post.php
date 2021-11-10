@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var int Unique product id
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Unique id of the product property group
      */
-    private $productPropertyId;
+    private int $productPropertyId;
 
     /**
      * @var string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
-    private $value;
+    private string $value;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setProductPropertyId(int $productPropertyId): self
     {
         $this->productPropertyId = $productPropertyId;
-        $this->propertyFilled('productPropertyId');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 }

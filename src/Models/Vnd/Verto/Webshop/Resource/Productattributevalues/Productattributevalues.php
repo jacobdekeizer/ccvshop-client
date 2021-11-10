@@ -19,52 +19,52 @@ class Productattributevalues implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int Product 2 attribute ID
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Attribute Id
      */
-    private $optionid;
+    private int $optionid;
 
     /**
      * @var string Attribute Name
      */
-    private $optionname;
+    private string $optionname;
 
     /**
      * @var int Attribute Position
      */
-    private $optionposition;
+    private int $optionposition;
 
     /**
      * @var int Option value id
      */
-    private $optionvalueId;
+    private int $optionvalueId;
 
     /**
      * @var string Option value name
      */
-    private $optionvalueName;
+    private string $optionvalueName;
 
     /**
      * @var float Position starting from 1.
      */
-    private $position;
+    private float $position;
 
     /**
      * @var float Extra price for this attribute
      */
-    private $price;
+    private float $price;
 
     /**
      * @var bool Deprecated. Attribute option value enable. Value is always true.
      */
-    private $enable;
+    private bool $enable;
 
     /**
      * @return self
@@ -162,7 +162,6 @@ class Productattributevalues implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -173,7 +172,6 @@ class Productattributevalues implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -184,7 +182,6 @@ class Productattributevalues implements Model
     public function setOptionid(int $optionid): self
     {
         $this->optionid = $optionid;
-        $this->propertyFilled('optionid');
         return $this;
     }
 
@@ -195,7 +192,6 @@ class Productattributevalues implements Model
     public function setOptionname(string $optionname): self
     {
         $this->optionname = $optionname;
-        $this->propertyFilled('optionname');
         return $this;
     }
 
@@ -206,7 +202,6 @@ class Productattributevalues implements Model
     public function setOptionposition(int $optionposition): self
     {
         $this->optionposition = $optionposition;
-        $this->propertyFilled('optionposition');
         return $this;
     }
 
@@ -217,7 +212,6 @@ class Productattributevalues implements Model
     public function setOptionvalueId(int $optionvalueId): self
     {
         $this->optionvalueId = $optionvalueId;
-        $this->propertyFilled('optionvalueId');
         return $this;
     }
 
@@ -228,7 +222,6 @@ class Productattributevalues implements Model
     public function setOptionvalueName(string $optionvalueName): self
     {
         $this->optionvalueName = $optionvalueName;
-        $this->propertyFilled('optionvalueName');
         return $this;
     }
 
@@ -239,7 +232,6 @@ class Productattributevalues implements Model
     public function setPosition(float $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -250,7 +242,6 @@ class Productattributevalues implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -262,7 +253,6 @@ class Productattributevalues implements Model
     public function setEnable(bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 }

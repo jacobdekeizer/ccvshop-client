@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var int The current amount of creditpoints of a user
      */
-    private $amount;
+    private int $amount;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setAmount(int $amount): self
     {
         $this->amount = $amount;
-        $this->propertyFilled('amount');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Returnrows implements Model
     /**
      * @var string Link to products that are included in this return.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Returnrows implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

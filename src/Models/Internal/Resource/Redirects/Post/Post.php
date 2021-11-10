@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var string When a visitor requests this url, he will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
-    private $sourceUrl;
+    private string $sourceUrl;
 
     /**
      * @var string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
-    private $targetUrl;
+    private string $targetUrl;
 
     /**
      * @var bool Inactive redirects will be ignored.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setSourceUrl(string $sourceUrl): self
     {
         $this->sourceUrl = $sourceUrl;
-        $this->propertyFilled('sourceUrl');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setTargetUrl(string $targetUrl): self
     {
         $this->targetUrl = $targetUrl;
-        $this->propertyFilled('targetUrl');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 }

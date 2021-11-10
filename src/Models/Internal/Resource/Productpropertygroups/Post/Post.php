@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var string Name product property group.
      */
-    private $name;
+    private string $name;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

@@ -19,112 +19,112 @@ class Returns implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Return id.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null Prefix of the specific return number of the return. Automatically generated when the return is created.
      */
-    private $returnnumberPrefix;
+    private ?string $returnnumberPrefix;
 
     /**
      * @var int Return number, automatically generated when the return is created.
      */
-    private $returnnumber;
+    private int $returnnumber;
 
     /**
      * @var string Unique return number, Full return number as displayed in shop. With dash if the prefix is available.
      */
-    private $returnnumberFull;
+    private string $returnnumberFull;
 
     /**
      * @var string|null Prefix of the specific order number of the order that this return is created from. automatically generated when the return is created.
      */
-    private $ordernumberPrefix;
+    private ?string $ordernumberPrefix;
 
     /**
      * @var int Order number of the order that this return is created from, automatically generated when the return is created.
      */
-    private $ordernumber;
+    private int $ordernumber;
 
     /**
      * @var string Unique order number, Full ordernumber of the order that this return is created from as displayed in shop. With dash if the prefix is available.
      */
-    private $ordernumberFull;
+    private string $ordernumberFull;
 
     /**
      * @var string Createdate of this invoice in UTC.
      */
-    private $createDate;
+    private string $createDate;
 
     /**
      * @var string Status of the return. 1. New. 2. Processing. 3. Custom 1. 4. Custom 2. 5. Custom 3. 6. Canceled. 7. Completed. 8. Credited.
      */
-    private $status;
+    private string $status;
 
     /**
      * @var string The display name of the return status.
      */
-    private $statusName;
+    private string $statusName;
 
     /**
      * @var string Action of the return. These are configured through the settings.
      */
-    private $actionName;
+    private string $actionName;
 
     /**
      * @var string Reason of the return. These are configured through the settings.
      */
-    private $reasonName;
+    private string $reasonName;
 
     /**
      * @var float Total price inc tax.
      */
-    private $totalPriceIncTax;
+    private float $totalPriceIncTax;
 
     /**
      * @var float Total price excl tax.
      */
-    private $totalPriceExcTax;
+    private float $totalPriceExcTax;
 
     /**
      * @var float Total price.
      */
-    private $totalPrice;
+    private float $totalPrice;
 
     /**
      * @var float Total tax amount.
      */
-    private $totalTax;
+    private float $totalTax;
 
     /**
      * @var string ISO 4217 Currency Code.
      */
-    private $currency;
+    private string $currency;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\User Link to possible user resource associated with this return.
      */
-    private $user;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\User $user;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo Describes personal information of the customer.
      */
-    private $customer;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer;
 
     /**
      * @var string Link to the order associated with this return.
      */
-    private $order;
+    private string $order;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\Returnrows Products that are included in this return.
      */
-    private $returnrows;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\Returnrows $returnrows;
 
     /**
      * @return self
@@ -317,7 +317,6 @@ class Returns implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -328,7 +327,6 @@ class Returns implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -339,7 +337,6 @@ class Returns implements Model
     public function setReturnnumberPrefix(?string $returnnumberPrefix): self
     {
         $this->returnnumberPrefix = $returnnumberPrefix;
-        $this->propertyFilled('returnnumberPrefix');
         return $this;
     }
 
@@ -350,7 +347,6 @@ class Returns implements Model
     public function setReturnnumber(int $returnnumber): self
     {
         $this->returnnumber = $returnnumber;
-        $this->propertyFilled('returnnumber');
         return $this;
     }
 
@@ -361,7 +357,6 @@ class Returns implements Model
     public function setReturnnumberFull(string $returnnumberFull): self
     {
         $this->returnnumberFull = $returnnumberFull;
-        $this->propertyFilled('returnnumberFull');
         return $this;
     }
 
@@ -372,7 +367,6 @@ class Returns implements Model
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
-        $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
 
@@ -383,7 +377,6 @@ class Returns implements Model
     public function setOrdernumber(int $ordernumber): self
     {
         $this->ordernumber = $ordernumber;
-        $this->propertyFilled('ordernumber');
         return $this;
     }
 
@@ -394,7 +387,6 @@ class Returns implements Model
     public function setOrdernumberFull(string $ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
-        $this->propertyFilled('ordernumberFull');
         return $this;
     }
 
@@ -405,7 +397,6 @@ class Returns implements Model
     public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -416,7 +407,6 @@ class Returns implements Model
     public function setStatus(string $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -427,7 +417,6 @@ class Returns implements Model
     public function setStatusName(string $statusName): self
     {
         $this->statusName = $statusName;
-        $this->propertyFilled('statusName');
         return $this;
     }
 
@@ -438,7 +427,6 @@ class Returns implements Model
     public function setActionName(string $actionName): self
     {
         $this->actionName = $actionName;
-        $this->propertyFilled('actionName');
         return $this;
     }
 
@@ -449,7 +437,6 @@ class Returns implements Model
     public function setReasonName(string $reasonName): self
     {
         $this->reasonName = $reasonName;
-        $this->propertyFilled('reasonName');
         return $this;
     }
 
@@ -460,7 +447,6 @@ class Returns implements Model
     public function setTotalPriceIncTax(float $totalPriceIncTax): self
     {
         $this->totalPriceIncTax = $totalPriceIncTax;
-        $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
 
@@ -471,7 +457,6 @@ class Returns implements Model
     public function setTotalPriceExcTax(float $totalPriceExcTax): self
     {
         $this->totalPriceExcTax = $totalPriceExcTax;
-        $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
 
@@ -482,7 +467,6 @@ class Returns implements Model
     public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
-        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -493,7 +477,6 @@ class Returns implements Model
     public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
-        $this->propertyFilled('totalTax');
         return $this;
     }
 
@@ -504,7 +487,6 @@ class Returns implements Model
     public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
-        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -515,7 +497,6 @@ class Returns implements Model
     public function setUser(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\User $user): self
     {
         $this->user = $user;
-        $this->propertyFilled('user');
         return $this;
     }
 
@@ -526,7 +507,6 @@ class Returns implements Model
     public function setCustomer(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer): self
     {
         $this->customer = $customer;
-        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -537,7 +517,6 @@ class Returns implements Model
     public function setOrder(string $order): self
     {
         $this->order = $order;
-        $this->propertyFilled('order');
         return $this;
     }
 
@@ -548,7 +527,6 @@ class Returns implements Model
     public function setReturnrows(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returns\Child\Returnrows $returnrows): self
     {
         $this->returnrows = $returnrows;
-        $this->propertyFilled('returnrows');
         return $this;
     }
 }

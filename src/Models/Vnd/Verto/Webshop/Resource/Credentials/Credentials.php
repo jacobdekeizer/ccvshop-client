@@ -19,22 +19,22 @@ class Credentials implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Credential label
      */
-    private $label;
+    private string $label;
 
     /**
      * @var string|null Createdate of this credential
      */
-    private $createdate;
+    private ?string $createdate;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Credentials implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Credentials implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Credentials implements Model
     public function setLabel(string $label): self
     {
         $this->label = $label;
-        $this->propertyFilled('label');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Credentials implements Model
     public function setCreatedate(?string $createdate): self
     {
         $this->createdate = $createdate;
-        $this->propertyFilled('createdate');
         return $this;
     }
 }

@@ -19,12 +19,12 @@ class Productreviews implements Model
     /**
      * @var string|null Link to collection of reviews.
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews[]|null Array with review items
      */
-    private $collection;
+    private ?array $collection;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Productreviews implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Productreviews implements Model
     public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews ...$collection): self
     {
         $this->collection = $collection;
-        $this->propertyFilled('collection');
         return $this;
     }
 }

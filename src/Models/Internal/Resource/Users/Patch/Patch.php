@@ -19,42 +19,42 @@ class Patch implements Model
     /**
      * @var string|null Username must be unique within the webshop.
      */
-    private $username;
+    private ?string $username;
 
     /**
      * @var string|null Password of this user
      */
-    private $password;
+    private ?string $password;
 
     /**
      * @var string|null Deprecated. Password encryption type. Only use this if you're instructed to change this value.
      */
-    private $encryption;
+    private ?string $encryption;
 
     /**
      * @var int|null User group id
      */
-    private $groupId;
+    private ?int $groupId;
 
     /**
      * @var bool|null Status of the user. Disabled users can't log in.
      */
-    private $status;
+    private ?bool $status;
 
     /**
      * @var string|null Approval status of the user. Pending users are waiting on acceptance or rejection. Only users with status pending can be patched. Rejected users will be notified and the user will be deleted.
      */
-    private $approvalStatus;
+    private ?string $approvalStatus;
 
     /**
      * @var string|null If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      */
-    private $productInCategoryDiscount;
+    private ?string $productInCategoryDiscount;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo|null Describes personal information of the user
      */
-    private $userinfo;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo;
 
     /**
      * @return self
@@ -136,7 +136,6 @@ class Patch implements Model
     public function setUsername(?string $username): self
     {
         $this->username = $username;
-        $this->propertyFilled('username');
         return $this;
     }
 
@@ -147,7 +146,6 @@ class Patch implements Model
     public function setPassword(?string $password): self
     {
         $this->password = $password;
-        $this->propertyFilled('password');
         return $this;
     }
 
@@ -159,7 +157,6 @@ class Patch implements Model
     public function setEncryption(?string $encryption): self
     {
         $this->encryption = $encryption;
-        $this->propertyFilled('encryption');
         return $this;
     }
 
@@ -170,7 +167,6 @@ class Patch implements Model
     public function setGroupId(?int $groupId): self
     {
         $this->groupId = $groupId;
-        $this->propertyFilled('groupId');
         return $this;
     }
 
@@ -181,7 +177,6 @@ class Patch implements Model
     public function setStatus(?bool $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -192,7 +187,6 @@ class Patch implements Model
     public function setApprovalStatus(?string $approvalStatus): self
     {
         $this->approvalStatus = $approvalStatus;
-        $this->propertyFilled('approvalStatus');
         return $this;
     }
 
@@ -203,7 +197,6 @@ class Patch implements Model
     public function setProductInCategoryDiscount(?string $productInCategoryDiscount): self
     {
         $this->productInCategoryDiscount = $productInCategoryDiscount;
-        $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
 
@@ -214,7 +207,6 @@ class Patch implements Model
     public function setUserinfo(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo): self
     {
         $this->userinfo = $userinfo;
-        $this->propertyFilled('userinfo');
         return $this;
     }
 }

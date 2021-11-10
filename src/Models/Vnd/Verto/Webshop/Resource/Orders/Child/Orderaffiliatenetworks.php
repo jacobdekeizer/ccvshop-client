@@ -19,7 +19,7 @@ class Orderaffiliatenetworks implements Model
     /**
      * @var string|null Link to affiliate of order
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Orderaffiliatenetworks implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

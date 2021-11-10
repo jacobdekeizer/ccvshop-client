@@ -19,32 +19,32 @@ class Takeoutsettings implements Model
     /**
      * @var int|null Takeout slot interval (in minutes)
      */
-    private $deliveryinterval;
+    private ?int $deliveryinterval;
 
     /**
      * @var int|null Order in advance (in days). This determines the last available slot (current date and time + orderinadvance)
      */
-    private $orderinadvance;
+    private ?int $orderinadvance;
 
     /**
      * @var int|null Preparationtime (in minutes). This is used to determine the first available slot (current date and time + preperation time).
      */
-    private $preparationtime;
+    private ?int $preparationtime;
 
     /**
      * @var bool|null Allow the customer to choose a takeout slot
      */
-    private $allowselection;
+    private ?bool $allowselection;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods[]|null Time periods. These are used to generate slots.
      */
-    private $periods;
+    private ?array $periods;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes[]|null Exclusions from normal time periods. No slots will be generated for these excluded dates and times
      */
-    private $excludes;
+    private ?array $excludes;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Takeoutsettings implements Model
     public function setDeliveryinterval(?int $deliveryinterval): self
     {
         $this->deliveryinterval = $deliveryinterval;
-        $this->propertyFilled('deliveryinterval');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Takeoutsettings implements Model
     public function setOrderinadvance(?int $orderinadvance): self
     {
         $this->orderinadvance = $orderinadvance;
-        $this->propertyFilled('orderinadvance');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Takeoutsettings implements Model
     public function setPreparationtime(?int $preparationtime): self
     {
         $this->preparationtime = $preparationtime;
-        $this->propertyFilled('preparationtime');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Takeoutsettings implements Model
     public function setAllowselection(?bool $allowselection): self
     {
         $this->allowselection = $allowselection;
-        $this->propertyFilled('allowselection');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Takeoutsettings implements Model
     public function setPeriods(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods ...$periods): self
     {
         $this->periods = $periods;
-        $this->propertyFilled('periods');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Takeoutsettings implements Model
     public function setExcludes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes ...$excludes): self
     {
         $this->excludes = $excludes;
-        $this->propertyFilled('excludes');
         return $this;
     }
 }

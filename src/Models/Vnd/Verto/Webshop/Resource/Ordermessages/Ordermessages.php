@@ -19,27 +19,27 @@ class Ordermessages implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Order message id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string The content of the message.
      */
-    private $message;
+    private string $message;
 
     /**
      * @var string The create date of the note in UTC.
      */
-    private $createDate;
+    private string $createDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Ordermessages\Child\ParentItem Contains link to parent resource.
      */
-    private $parent;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Ordermessages\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Ordermessages implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Ordermessages implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Ordermessages implements Model
     public function setMessage(string $message): self
     {
         $this->message = $message;
-        $this->propertyFilled('message');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Ordermessages implements Model
     public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Ordermessages implements Model
     public function setParent(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Ordermessages\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

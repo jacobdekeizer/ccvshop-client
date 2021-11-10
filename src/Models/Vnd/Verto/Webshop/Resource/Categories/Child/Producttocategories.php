@@ -19,7 +19,7 @@ class Producttocategories implements Model
     /**
      * @var string|null Link to collection of category products
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Producttocategories implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

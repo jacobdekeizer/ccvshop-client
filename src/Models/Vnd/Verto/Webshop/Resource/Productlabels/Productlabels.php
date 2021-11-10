@@ -19,12 +19,12 @@ class Productlabels implements Model
     /**
      * @var int Resource Id of the label
      */
-    private $labelId;
+    private int $labelId;
 
     /**
      * @var string Link to parent
      */
-    private $parent;
+    private string $parent;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Productlabels implements Model
     public function setLabelId(int $labelId): self
     {
         $this->labelId = $labelId;
-        $this->propertyFilled('labelId');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Productlabels implements Model
     public function setParent(string $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

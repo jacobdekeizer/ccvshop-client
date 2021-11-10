@@ -19,17 +19,17 @@ class Uploads implements Model
     /**
      * @var string Description of the kind of upload
      */
-    private $uploadDescription;
+    private string $uploadDescription;
 
     /**
      * @var string File name of the uploaded file.
      */
-    private $fileName;
+    private string $fileName;
 
     /**
      * @var string Deeplink to the file.
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Uploads implements Model
     public function setUploadDescription(string $uploadDescription): self
     {
         $this->uploadDescription = $uploadDescription;
-        $this->propertyFilled('uploadDescription');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Uploads implements Model
     public function setFileName(string $fileName): self
     {
         $this->fileName = $fileName;
-        $this->propertyFilled('fileName');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Uploads implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 }

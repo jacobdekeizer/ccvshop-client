@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
-    private $childProductId;
+    private int $childProductId;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setChildProductId(int $childProductId): self
     {
         $this->childProductId = $childProductId;
-        $this->propertyFilled('childProductId');
         return $this;
     }
 }

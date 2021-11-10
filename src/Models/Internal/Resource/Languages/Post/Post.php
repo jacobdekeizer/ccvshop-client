@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var string Display label of the language.
      */
-    private $label;
+    private string $label;
 
     /**
      * @var string Languages on which this language is based.
      */
-    private $baseLanguage;
+    private string $baseLanguage;
 
     /**
      * @var string A href to the associated flag of this language. This will be used in the webshop.
      */
-    private $flagIcon;
+    private string $flagIcon;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setLabel(string $label): self
     {
         $this->label = $label;
-        $this->propertyFilled('label');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setBaseLanguage(string $baseLanguage): self
     {
         $this->baseLanguage = $baseLanguage;
-        $this->propertyFilled('baseLanguage');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setFlagIcon(string $flagIcon): self
     {
         $this->flagIcon = $flagIcon;
-        $this->propertyFilled('flagIcon');
         return $this;
     }
 }

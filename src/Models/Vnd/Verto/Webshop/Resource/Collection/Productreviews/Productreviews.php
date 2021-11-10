@@ -19,37 +19,37 @@ class Productreviews implements Model
     /**
      * @var int Offset of the set
      */
-    private $start;
+    private int $start;
 
     /**
      * @var int Size of the set
      */
-    private $size;
+    private int $size;
 
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string|null Link to the first set of the collection
      */
-    private $first;
+    private ?string $first;
 
     /**
      * @var string|null Link to the previous set of the collection
      */
-    private $previous;
+    private ?string $previous;
 
     /**
      * @var string|null Link to the next set of the collection
      */
-    private $next;
+    private ?string $next;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews[] Array with collection items
      */
-    private $items;
+    private array $items;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productreviews implements Model
     public function setStart(int $start): self
     {
         $this->start = $start;
-        $this->propertyFilled('start');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productreviews implements Model
     public function setSize(int $size): self
     {
         $this->size = $size;
-        $this->propertyFilled('size');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productreviews implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productreviews implements Model
     public function setFirst(?string $first): self
     {
         $this->first = $first;
-        $this->propertyFilled('first');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productreviews implements Model
     public function setPrevious(?string $previous): self
     {
         $this->previous = $previous;
-        $this->propertyFilled('previous');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productreviews implements Model
     public function setNext(?string $next): self
     {
         $this->next = $next;
-        $this->propertyFilled('next');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productreviews implements Model
     public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
 }

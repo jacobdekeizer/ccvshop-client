@@ -19,27 +19,27 @@ class Patch implements Model
     /**
      * @var string|null Uri to the image. These images will be shown as icons as 16x16.
      */
-    private $imageLocation;
+    private ?string $imageLocation;
 
     /**
      * @var string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
-    private $tooltip;
+    private ?string $tooltip;
 
     /**
      * @var bool|null If TRUE this label will be added as filter on the product collection page.
      */
-    private $showOnProducts;
+    private ?bool $showOnProducts;
 
     /**
      * @var bool|null If TRUE this label will be added as filter on the order collection page.
      */
-    private $showOnOrders;
+    private ?bool $showOnOrders;
 
     /**
      * @var bool|null If TRUE this label will be added as filter on the invoice collection page.
      */
-    private $showOnInvoices;
+    private ?bool $showOnInvoices;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Patch implements Model
     public function setImageLocation(?string $imageLocation): self
     {
         $this->imageLocation = $imageLocation;
-        $this->propertyFilled('imageLocation');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Patch implements Model
     public function setTooltip(?string $tooltip): self
     {
         $this->tooltip = $tooltip;
-        $this->propertyFilled('tooltip');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Patch implements Model
     public function setShowOnProducts(?bool $showOnProducts): self
     {
         $this->showOnProducts = $showOnProducts;
-        $this->propertyFilled('showOnProducts');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Patch implements Model
     public function setShowOnOrders(?bool $showOnOrders): self
     {
         $this->showOnOrders = $showOnOrders;
-        $this->propertyFilled('showOnOrders');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Patch implements Model
     public function setShowOnInvoices(?bool $showOnInvoices): self
     {
         $this->showOnInvoices = $showOnInvoices;
-        $this->propertyFilled('showOnInvoices');
         return $this;
     }
 }

@@ -19,27 +19,27 @@ class Company implements Model
     /**
      * @var string|null E-mail of the service.
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @var string|null Website of the service.
      */
-    private $website;
+    private ?string $website;
 
     /**
      * @var string|null Website name of the service.
      */
-    private $websitename;
+    private ?string $websitename;
 
     /**
      * @var string|null Phonenumber of the service.
      */
-    private $phone;
+    private ?string $phone;
 
     /**
      * @var string|null Company name whom provide the service.
      */
-    private $company;
+    private ?string $company;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Company implements Model
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Company implements Model
     public function setWebsite(?string $website): self
     {
         $this->website = $website;
-        $this->propertyFilled('website');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Company implements Model
     public function setWebsitename(?string $websitename): self
     {
         $this->websitename = $websitename;
-        $this->propertyFilled('websitename');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Company implements Model
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
-        $this->propertyFilled('phone');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Company implements Model
     public function setCompany(?string $company): self
     {
         $this->company = $company;
-        $this->propertyFilled('company');
         return $this;
     }
 }

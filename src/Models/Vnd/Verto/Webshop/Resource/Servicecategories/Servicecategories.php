@@ -19,32 +19,32 @@ class Servicecategories implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Service category name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Service category description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var int|null Position of the category
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Servicecategories\Child\Services|null Services linked to this attribute.
      */
-    private $services;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Servicecategories\Child\Services $services;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Servicecategories implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Servicecategories implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Servicecategories implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Servicecategories implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Servicecategories implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Servicecategories implements Model
     public function setServices(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Servicecategories\Child\Services $services): self
     {
         $this->services = $services;
-        $this->propertyFilled('services');
         return $this;
     }
 }

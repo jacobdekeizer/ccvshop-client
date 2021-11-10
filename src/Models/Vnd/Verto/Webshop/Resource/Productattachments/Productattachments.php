@@ -19,37 +19,37 @@ class Productattachments implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Attachment id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string File name
      */
-    private $filename;
+    private string $filename;
 
     /**
      * @var string Display name of the file.
      */
-    private $displayname;
+    private string $displayname;
 
     /**
      * @var int Position compared to other product attachments. Starting at 1.
      */
-    private $position;
+    private int $position;
 
     /**
      * @var string Deeplink to the file. This link will result in a file which can be downloaded.
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattachments\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattachments\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productattachments implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productattachments implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productattachments implements Model
     public function setFilename(string $filename): self
     {
         $this->filename = $filename;
-        $this->propertyFilled('filename');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productattachments implements Model
     public function setDisplayname(string $displayname): self
     {
         $this->displayname = $displayname;
-        $this->propertyFilled('displayname');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productattachments implements Model
     public function setPosition(int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productattachments implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productattachments implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattachments\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

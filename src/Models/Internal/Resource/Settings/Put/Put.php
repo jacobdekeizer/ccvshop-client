@@ -19,22 +19,22 @@ class Put implements Model
     /**
      * @var string[]|null Array with available languages of the webshop. Putting this will change the active languages.
      */
-    private $languages;
+    private ?array $languages;
 
     /**
      * @var bool|null If the webshop is disabled a notice will be shown to visitors.
      */
-    private $webshopEnabled;
+    private ?bool $webshopEnabled;
 
     /**
      * @var string|null If the webshop is disabled a notice will be shown to visitors. This is the title of the notice.
      */
-    private $webshopDisabledTitle;
+    private ?string $webshopDisabledTitle;
 
     /**
      * @var string|null If the webshop is disabled a notice will be shown to visitors. This is the body of the notice.
      */
-    private $webshopDisabledText;
+    private ?string $webshopDisabledText;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Put implements Model
     public function setLanguages(?array $languages): self
     {
         $this->languages = $languages;
-        $this->propertyFilled('languages');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Put implements Model
     public function setWebshopEnabled(?bool $webshopEnabled): self
     {
         $this->webshopEnabled = $webshopEnabled;
-        $this->propertyFilled('webshopEnabled');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Put implements Model
     public function setWebshopDisabledTitle(?string $webshopDisabledTitle): self
     {
         $this->webshopDisabledTitle = $webshopDisabledTitle;
-        $this->propertyFilled('webshopDisabledTitle');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Put implements Model
     public function setWebshopDisabledText(?string $webshopDisabledText): self
     {
         $this->webshopDisabledText = $webshopDisabledText;
-        $this->propertyFilled('webshopDisabledText');
         return $this;
     }
 }

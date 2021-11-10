@@ -19,97 +19,97 @@ class Apps implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null App Name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\EurPrices|null The price of the app in Euros.
      */
-    private $eurPrices;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\EurPrices $eurPrices;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ChfPrices|null The price of the app in CHF.
      */
-    private $chfPrices;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ChfPrices $chfPrices;
 
     /**
      * @var string|null The create date of the app.
      */
-    private $createDate;
+    private ?string $createDate;
 
     /**
      * @var string|null App Name
      */
-    private $modifiedDate;
+    private ?string $modifiedDate;
 
     /**
      * @var string|null The description of the app.
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string|null Cover image.
      */
-    private $cover;
+    private ?string $cover;
 
     /**
      * @var string|null Logo image.
      */
-    private $logo;
+    private ?string $logo;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Developer|null The developer of this app.
      */
-    private $developer;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Developer $developer;
 
     /**
      * @var float|null The number how many times the app is installed.
      */
-    private $numberOfInstallations;
+    private ?float $numberOfInstallations;
 
     /**
      * @var bool Marks if an app is installed in the webshop.
      */
-    private $isInstalled;
+    private bool $isInstalled;
 
     /**
      * @var string[]|null Array with available languages.
      */
-    private $availableLanguages;
+    private ?array $availableLanguages;
 
     /**
      * @var string[]|null Array with available photos.
      */
-    private $photos;
+    private ?array $photos;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Categories|null Collection of categories.
      */
-    private $categories;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Categories $categories;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\CodeBlocks|null Child resource of this resource. Contains all the code blocks associated with this app.
      */
-    private $codeBlocks;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\CodeBlocks $codeBlocks;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Psp|null Child resource of this resource. Contains all the Payment Service Providers associated with this app.
      */
-    private $psp;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Psp $psp;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -278,7 +278,6 @@ class Apps implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -289,7 +288,6 @@ class Apps implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -300,7 +298,6 @@ class Apps implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -311,7 +308,6 @@ class Apps implements Model
     public function setEurPrices(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\EurPrices $eurPrices): self
     {
         $this->eurPrices = $eurPrices;
-        $this->propertyFilled('eurPrices');
         return $this;
     }
 
@@ -322,7 +318,6 @@ class Apps implements Model
     public function setChfPrices(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ChfPrices $chfPrices): self
     {
         $this->chfPrices = $chfPrices;
-        $this->propertyFilled('chfPrices');
         return $this;
     }
 
@@ -333,7 +328,6 @@ class Apps implements Model
     public function setCreateDate(?string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -344,7 +338,6 @@ class Apps implements Model
     public function setModifiedDate(?string $modifiedDate): self
     {
         $this->modifiedDate = $modifiedDate;
-        $this->propertyFilled('modifiedDate');
         return $this;
     }
 
@@ -355,7 +348,6 @@ class Apps implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -366,7 +358,6 @@ class Apps implements Model
     public function setCover(?string $cover): self
     {
         $this->cover = $cover;
-        $this->propertyFilled('cover');
         return $this;
     }
 
@@ -377,7 +368,6 @@ class Apps implements Model
     public function setLogo(?string $logo): self
     {
         $this->logo = $logo;
-        $this->propertyFilled('logo');
         return $this;
     }
 
@@ -388,7 +378,6 @@ class Apps implements Model
     public function setDeveloper(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Developer $developer): self
     {
         $this->developer = $developer;
-        $this->propertyFilled('developer');
         return $this;
     }
 
@@ -399,7 +388,6 @@ class Apps implements Model
     public function setNumberOfInstallations(?float $numberOfInstallations): self
     {
         $this->numberOfInstallations = $numberOfInstallations;
-        $this->propertyFilled('numberOfInstallations');
         return $this;
     }
 
@@ -410,7 +398,6 @@ class Apps implements Model
     public function setIsInstalled(bool $isInstalled): self
     {
         $this->isInstalled = $isInstalled;
-        $this->propertyFilled('isInstalled');
         return $this;
     }
 
@@ -421,7 +408,6 @@ class Apps implements Model
     public function setAvailableLanguages(?array $availableLanguages): self
     {
         $this->availableLanguages = $availableLanguages;
-        $this->propertyFilled('availableLanguages');
         return $this;
     }
 
@@ -432,7 +418,6 @@ class Apps implements Model
     public function setPhotos(?array $photos): self
     {
         $this->photos = $photos;
-        $this->propertyFilled('photos');
         return $this;
     }
 
@@ -443,7 +428,6 @@ class Apps implements Model
     public function setCategories(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Categories $categories): self
     {
         $this->categories = $categories;
-        $this->propertyFilled('categories');
         return $this;
     }
 
@@ -454,7 +438,6 @@ class Apps implements Model
     public function setCodeBlocks(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\CodeBlocks $codeBlocks): self
     {
         $this->codeBlocks = $codeBlocks;
-        $this->propertyFilled('codeBlocks');
         return $this;
     }
 
@@ -465,7 +448,6 @@ class Apps implements Model
     public function setPsp(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\Psp $psp): self
     {
         $this->psp = $psp;
-        $this->propertyFilled('psp');
         return $this;
     }
 
@@ -476,7 +458,6 @@ class Apps implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

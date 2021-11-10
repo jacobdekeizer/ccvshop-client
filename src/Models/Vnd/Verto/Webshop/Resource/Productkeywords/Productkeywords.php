@@ -19,12 +19,12 @@ class Productkeywords implements Model
     /**
      * @var string Product keyword
      */
-    private $keyword;
+    private string $keyword;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productkeywords\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productkeywords\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Productkeywords implements Model
     public function setKeyword(string $keyword): self
     {
         $this->keyword = $keyword;
-        $this->propertyFilled('keyword');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Productkeywords implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productkeywords\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

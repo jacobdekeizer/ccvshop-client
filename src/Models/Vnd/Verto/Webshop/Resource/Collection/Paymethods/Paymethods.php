@@ -19,12 +19,12 @@ class Paymethods implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Paymethods\Paymethods[] Array with collection items
      */
-    private $items;
+    private array $items;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Paymethods implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Paymethods implements Model
     public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Paymethods\Paymethods ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
 }

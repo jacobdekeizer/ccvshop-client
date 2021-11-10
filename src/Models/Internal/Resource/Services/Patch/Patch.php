@@ -19,7 +19,7 @@ class Patch implements Model
     /**
      * @var bool Marks if an service is installed in the webshop.
      */
-    private $isInstalled;
+    private bool $isInstalled;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Patch implements Model
     public function setIsInstalled(bool $isInstalled): self
     {
         $this->isInstalled = $isInstalled;
-        $this->propertyFilled('isInstalled');
         return $this;
     }
 }

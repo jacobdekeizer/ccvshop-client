@@ -19,27 +19,27 @@ class Creditpointmutations implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var int|null The mutation amount of creditpoints
      */
-    private $amount;
+    private ?int $amount;
 
     /**
      * @var string|null Contains the date of the last mutation
      */
-    private $createDate;
+    private ?string $createDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpointmutations\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpointmutations\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Creditpointmutations implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Creditpointmutations implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Creditpointmutations implements Model
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
-        $this->propertyFilled('amount');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Creditpointmutations implements Model
     public function setCreateDate(?string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Creditpointmutations implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpointmutations\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
-    private $placeholder;
+    private string $placeholder;
 
     /**
      * @var string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
-    private $value;
+    private ?string $value;
 
     /**
      * @var string|null This is the title of the app code block. When empty the app name will be used.
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
-    private $interactiveContent;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View $interactiveContent;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Post implements Model
     public function setPlaceholder(string $placeholder): self
     {
         $this->placeholder = $placeholder;
-        $this->propertyFilled('placeholder');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Post implements Model
     public function setValue(?string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Post implements Model
     public function setTitle(?string $title): self
     {
         $this->title = $title;
-        $this->propertyFilled('title');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Post implements Model
     public function setInteractiveContent(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View $interactiveContent): self
     {
         $this->interactiveContent = $interactiveContent;
-        $this->propertyFilled('interactiveContent');
         return $this;
     }
 }

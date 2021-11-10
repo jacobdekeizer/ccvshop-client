@@ -19,77 +19,77 @@ class Input implements Model
     /**
      * @var string|null Product type of this orderrow. If the type is a deposit then VAT will always be 0%. If not included then product will be the default.
      */
-    private $productType;
+    private ?string $productType;
 
     /**
      * @var bool|null Default: true. When true and when the product has a deposit price (either container or safety) these additional order rows will automatically be created.
      */
-    private $autoCreateDepositRows;
+    private ?bool $autoCreateDepositRows;
 
     /**
      * @var int|null Unique product id. If provided product data will be used to create an order row.
      */
-    private $productId;
+    private ?int $productId;
 
     /**
      * @var string|null Product name. Only used if product_id is empty
      */
-    private $productName;
+    private ?string $productName;
 
     /**
      * @var string|null Product number. Only used if product_id is empty
      */
-    private $productNumber;
+    private ?string $productNumber;
 
     /**
      * @var float Quantity of products
      */
-    private $count;
+    private float $count;
 
     /**
      * @var float|null Product sell price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Product purchase price. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $productPurchasePrice;
+    private ?float $productPurchasePrice;
 
     /**
      * @var float|null Discount. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var float|null Tax percentage. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $tax;
+    private ?float $tax;
 
     /**
      * @var string|null Product unit. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $unit;
+    private ?string $unit;
 
     /**
      * @var float|null Product weight. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $weight;
+    private ?float $weight;
 
     /**
      * @var string|null Memo description of product. Should be included if product_id is null. If product_id is provided this value will used instead of the product data.
      */
-    private $memo;
+    private ?string $memo;
 
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. Required if product_id is empty. See /:version/packages/
      */
-    private $packageId;
+    private ?int $packageId;
 
     /**
      * @var float|null This should be filled if this order rows has an attribute combination. The associated attributes value with this id will be added to this row.
      */
-    private $attributeCombinationId;
+    private ?float $attributeCombinationId;
 
     /**
      * @return self
@@ -226,7 +226,6 @@ class Input implements Model
     public function setProductType(?string $productType): self
     {
         $this->productType = $productType;
-        $this->propertyFilled('productType');
         return $this;
     }
 
@@ -237,7 +236,6 @@ class Input implements Model
     public function setAutoCreateDepositRows(?bool $autoCreateDepositRows): self
     {
         $this->autoCreateDepositRows = $autoCreateDepositRows;
-        $this->propertyFilled('autoCreateDepositRows');
         return $this;
     }
 
@@ -248,7 +246,6 @@ class Input implements Model
     public function setProductId(?int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -259,7 +256,6 @@ class Input implements Model
     public function setProductName(?string $productName): self
     {
         $this->productName = $productName;
-        $this->propertyFilled('productName');
         return $this;
     }
 
@@ -270,7 +266,6 @@ class Input implements Model
     public function setProductNumber(?string $productNumber): self
     {
         $this->productNumber = $productNumber;
-        $this->propertyFilled('productNumber');
         return $this;
     }
 
@@ -281,7 +276,6 @@ class Input implements Model
     public function setCount(float $count): self
     {
         $this->count = $count;
-        $this->propertyFilled('count');
         return $this;
     }
 
@@ -292,7 +286,6 @@ class Input implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -303,7 +296,6 @@ class Input implements Model
     public function setProductPurchasePrice(?float $productPurchasePrice): self
     {
         $this->productPurchasePrice = $productPurchasePrice;
-        $this->propertyFilled('productPurchasePrice');
         return $this;
     }
 
@@ -314,7 +306,6 @@ class Input implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -325,7 +316,6 @@ class Input implements Model
     public function setTax(?float $tax): self
     {
         $this->tax = $tax;
-        $this->propertyFilled('tax');
         return $this;
     }
 
@@ -336,7 +326,6 @@ class Input implements Model
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
-        $this->propertyFilled('unit');
         return $this;
     }
 
@@ -347,7 +336,6 @@ class Input implements Model
     public function setWeight(?float $weight): self
     {
         $this->weight = $weight;
-        $this->propertyFilled('weight');
         return $this;
     }
 
@@ -358,7 +346,6 @@ class Input implements Model
     public function setMemo(?string $memo): self
     {
         $this->memo = $memo;
-        $this->propertyFilled('memo');
         return $this;
     }
 
@@ -369,7 +356,6 @@ class Input implements Model
     public function setPackageId(?int $packageId): self
     {
         $this->packageId = $packageId;
-        $this->propertyFilled('packageId');
         return $this;
     }
 
@@ -380,7 +366,6 @@ class Input implements Model
     public function setAttributeCombinationId(?float $attributeCombinationId): self
     {
         $this->attributeCombinationId = $attributeCombinationId;
-        $this->propertyFilled('attributeCombinationId');
         return $this;
     }
 }

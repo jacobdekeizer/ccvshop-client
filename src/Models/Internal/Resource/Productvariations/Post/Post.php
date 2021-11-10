@@ -19,12 +19,12 @@ class Post implements Model
     /**
      * @var int Product Id that is linked as variation.
      */
-    private $productVariationId;
+    private int $productVariationId;
 
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Post implements Model
     public function setProductVariationId(int $productVariationId): self
     {
         $this->productVariationId = $productVariationId;
-        $this->propertyFilled('productVariationId');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Post implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 }

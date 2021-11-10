@@ -22,7 +22,7 @@ class AllFromProduct extends PaginatedList implements Parameter
     /**
      * @var bool|null Get reviews that are either approved (true) or unapproved (false).
      */
-    private $approved;
+    private ?bool $approved = null;
 
     /**
      * @return self

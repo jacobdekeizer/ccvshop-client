@@ -19,42 +19,42 @@ class Apppsp implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique ID of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string The name of the PSP. This is how the App PSP is identified in the backend of the merchant.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string The description will be shown to the merchant above the settings in the webshop's backend.
      */
-    private $description;
+    private string $description;
 
     /**
      * @var string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
-    private $icon;
+    private ?string $icon;
 
     /**
      * @var string This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
-    private $endpoint;
+    private string $endpoint;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod[] Array of paymethods of the PSP.
      */
-    private $paymethods;
+    private array $paymethods;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Child\ParentItem|null App
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Apppsp implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Apppsp implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Apppsp implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Apppsp implements Model
     public function setDescription(string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Apppsp implements Model
     public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
-        $this->propertyFilled('icon');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Apppsp implements Model
     public function setEndpoint(string $endpoint): self
     {
         $this->endpoint = $endpoint;
-        $this->propertyFilled('endpoint');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Apppsp implements Model
     public function setPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod ...$paymethods): self
     {
         $this->paymethods = $paymethods;
-        $this->propertyFilled('paymethods');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Apppsp implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

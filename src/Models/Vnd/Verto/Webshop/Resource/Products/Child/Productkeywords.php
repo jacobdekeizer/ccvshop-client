@@ -19,12 +19,12 @@ class Productkeywords implements Model
     /**
      * @var string Link to collection of product keywords
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productkeywords\Productkeywords[] Array with collection items
      */
-    private $collection;
+    private array $collection;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Productkeywords implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Productkeywords implements Model
     public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productkeywords\Productkeywords ...$collection): self
     {
         $this->collection = $collection;
-        $this->propertyFilled('collection');
         return $this;
     }
 }

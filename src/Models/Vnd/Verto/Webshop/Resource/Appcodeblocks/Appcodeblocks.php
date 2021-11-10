@@ -19,42 +19,42 @@ class Appcodeblocks implements Model
     /**
      * @var string|null Link to self.
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Unique id of the app associated with this code block.
      */
-    private $appId;
+    private int $appId;
 
     /**
      * @var string The placeholder describes the location where the code block will be placed in the webshop. header: value will be placed in the &lt;head&gt; of each frontend page. footer: value will be place just above the &lt;/body&gt; of each frontend page.
      */
-    private $placeholder;
+    private string $placeholder;
 
     /**
      * @var string|null This is the title of the app code block. When empty the app name will be used.
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @var string|null This is the static contents of the code block. This is an alternative to the interactive content of the property 'interactive_content'. This value is displayed on the place holder 'as is'.
      */
-    private $value;
+    private ?string $value;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View|null This is the interactive content as an alternative to the static content of the property 'value'. With this content the app can interact with the user. For more info see the documentation on Code blocks.
      */
-    private $interactiveContent;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View $interactiveContent;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appcodeblocks\Child\ParentItem|null App
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appcodeblocks\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Appcodeblocks implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Appcodeblocks implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Appcodeblocks implements Model
     public function setAppId(int $appId): self
     {
         $this->appId = $appId;
-        $this->propertyFilled('appId');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Appcodeblocks implements Model
     public function setPlaceholder(string $placeholder): self
     {
         $this->placeholder = $placeholder;
-        $this->propertyFilled('placeholder');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Appcodeblocks implements Model
     public function setTitle(?string $title): self
     {
         $this->title = $title;
-        $this->propertyFilled('title');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Appcodeblocks implements Model
     public function setValue(?string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Appcodeblocks implements Model
     public function setInteractiveContent(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\Collection\View\View $interactiveContent): self
     {
         $this->interactiveContent = $interactiveContent;
-        $this->propertyFilled('interactiveContent');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Appcodeblocks implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appcodeblocks\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -19,12 +19,12 @@ class LayoutOfProducts implements Model
     /**
      * @var int Category products layout Id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Link to the layout of the products in this category resource
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class LayoutOfProducts implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class LayoutOfProducts implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

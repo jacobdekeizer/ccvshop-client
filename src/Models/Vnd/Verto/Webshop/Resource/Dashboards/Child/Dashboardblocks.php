@@ -19,7 +19,7 @@ class Dashboardblocks implements Model
     /**
      * @var string Link to collection of dashboard blocks.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Dashboardblocks implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

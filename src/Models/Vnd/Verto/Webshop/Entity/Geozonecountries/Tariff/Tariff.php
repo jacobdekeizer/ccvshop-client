@@ -19,12 +19,12 @@ class Tariff implements Model
     /**
      * @var string Tax tariff type.
      */
-    private $type;
+    private string $type;
 
     /**
      * @var float Tax percentage.
      */
-    private $percentage;
+    private float $percentage;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Tariff implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Tariff implements Model
     public function setPercentage(float $percentage): self
     {
         $this->percentage = $percentage;
-        $this->propertyFilled('percentage');
         return $this;
     }
 }

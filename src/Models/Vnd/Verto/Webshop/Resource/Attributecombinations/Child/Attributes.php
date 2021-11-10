@@ -19,7 +19,7 @@ class Attributes implements Model
     /**
      * @var string|null Link to collection of attributes belonging to the combination
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Attributes implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

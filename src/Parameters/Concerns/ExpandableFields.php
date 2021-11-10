@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Parameters\Concerns;
 
 trait ExpandableFields
 {
     /** @var array<string, bool> */
-    private $expand = [];
+    private array $expand = [];
 
     /**
      * Setter for the from array method

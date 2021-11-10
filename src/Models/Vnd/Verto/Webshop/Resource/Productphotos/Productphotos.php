@@ -19,37 +19,37 @@ class Productphotos implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Product photo id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Product photo filename
      */
-    private $filename;
+    private string $filename;
 
     /**
      * @var string|null Product photo alttext
      */
-    private $alttext;
+    private ?string $alttext;
 
     /**
      * @var bool Product photo marked as mainphoto
      */
-    private $isMainphoto;
+    private bool $isMainphoto;
 
     /**
      * @var string Product photo deeplink
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productphotos\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productphotos\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productphotos implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productphotos implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productphotos implements Model
     public function setFilename(string $filename): self
     {
         $this->filename = $filename;
-        $this->propertyFilled('filename');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productphotos implements Model
     public function setAlttext(?string $alttext): self
     {
         $this->alttext = $alttext;
-        $this->propertyFilled('alttext');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productphotos implements Model
     public function setIsMainphoto(bool $isMainphoto): self
     {
         $this->isMainphoto = $isMainphoto;
-        $this->propertyFilled('isMainphoto');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productphotos implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productphotos implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productphotos\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

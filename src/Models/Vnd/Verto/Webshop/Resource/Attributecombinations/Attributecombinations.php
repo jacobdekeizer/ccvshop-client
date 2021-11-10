@@ -19,97 +19,97 @@ class Attributecombinations implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string A description of the attribute combination
      */
-    private $note;
+    private string $note;
 
     /**
      * @var int Unique product id of the resource
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var float The stock of a product combination
      */
-    private $stock;
+    private float $stock;
 
     /**
      * @var float The summ of all extra prices of the attribute values which build up this combination. This can also be a negative number.
      */
-    private $nettoExtraPrice;
+    private float $nettoExtraPrice;
 
     /**
      * @var string Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting. See the resource /webshop/:id/settings -> ordering_without_stock.
      */
-    private $orderingWithoutStock;
+    private string $orderingWithoutStock;
 
     /**
      * @var string The product number
      */
-    private $productNumber;
+    private string $productNumber;
 
     /**
      * @var string The ean number
      */
-    private $eanNumber;
+    private string $eanNumber;
 
     /**
      * @var string The sku number
      */
-    private $skuNumber;
+    private string $skuNumber;
 
     /**
      * @var int Expected delivery time, number of days, weeks, months, quarters, years
      */
-    private $deliveryTime;
+    private int $deliveryTime;
 
     /**
      * @var string Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
-    private $deliveryTimeType;
+    private string $deliveryTimeType;
 
     /**
      * @var string The delivery time default in text
      */
-    private $deliveryDefaultText;
+    private string $deliveryDefaultText;
 
     /**
      * @var bool If this combination is active. Inactive combinations can not be selected by the customer.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination[] Collection of attribute values that combined create this attribute combination.
      */
-    private $combination;
+    private array $combination;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributecombinationphotos Attribute combination photos
      */
-    private $attributecombinationphotos;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributecombinationphotos $attributecombinationphotos;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributes Collection of attributes
      */
-    private $attributes;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributes $attributes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributevalues Collection of  attributevalues
      */
-    private $attributevalues;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributevalues $attributevalues;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\ParentItem Contains link to parent resource.
      */
-    private $parent;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -278,7 +278,6 @@ class Attributecombinations implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -289,7 +288,6 @@ class Attributecombinations implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -300,7 +298,6 @@ class Attributecombinations implements Model
     public function setNote(string $note): self
     {
         $this->note = $note;
-        $this->propertyFilled('note');
         return $this;
     }
 
@@ -311,7 +308,6 @@ class Attributecombinations implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -322,7 +318,6 @@ class Attributecombinations implements Model
     public function setStock(float $stock): self
     {
         $this->stock = $stock;
-        $this->propertyFilled('stock');
         return $this;
     }
 
@@ -333,7 +328,6 @@ class Attributecombinations implements Model
     public function setNettoExtraPrice(float $nettoExtraPrice): self
     {
         $this->nettoExtraPrice = $nettoExtraPrice;
-        $this->propertyFilled('nettoExtraPrice');
         return $this;
     }
 
@@ -344,7 +338,6 @@ class Attributecombinations implements Model
     public function setOrderingWithoutStock(string $orderingWithoutStock): self
     {
         $this->orderingWithoutStock = $orderingWithoutStock;
-        $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
 
@@ -355,7 +348,6 @@ class Attributecombinations implements Model
     public function setProductNumber(string $productNumber): self
     {
         $this->productNumber = $productNumber;
-        $this->propertyFilled('productNumber');
         return $this;
     }
 
@@ -366,7 +358,6 @@ class Attributecombinations implements Model
     public function setEanNumber(string $eanNumber): self
     {
         $this->eanNumber = $eanNumber;
-        $this->propertyFilled('eanNumber');
         return $this;
     }
 
@@ -377,7 +368,6 @@ class Attributecombinations implements Model
     public function setSkuNumber(string $skuNumber): self
     {
         $this->skuNumber = $skuNumber;
-        $this->propertyFilled('skuNumber');
         return $this;
     }
 
@@ -388,7 +378,6 @@ class Attributecombinations implements Model
     public function setDeliveryTime(int $deliveryTime): self
     {
         $this->deliveryTime = $deliveryTime;
-        $this->propertyFilled('deliveryTime');
         return $this;
     }
 
@@ -399,7 +388,6 @@ class Attributecombinations implements Model
     public function setDeliveryTimeType(string $deliveryTimeType): self
     {
         $this->deliveryTimeType = $deliveryTimeType;
-        $this->propertyFilled('deliveryTimeType');
         return $this;
     }
 
@@ -410,7 +398,6 @@ class Attributecombinations implements Model
     public function setDeliveryDefaultText(string $deliveryDefaultText): self
     {
         $this->deliveryDefaultText = $deliveryDefaultText;
-        $this->propertyFilled('deliveryDefaultText');
         return $this;
     }
 
@@ -421,7 +408,6 @@ class Attributecombinations implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 
@@ -432,7 +418,6 @@ class Attributecombinations implements Model
     public function setCombination(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination ...$combination): self
     {
         $this->combination = $combination;
-        $this->propertyFilled('combination');
         return $this;
     }
 
@@ -443,7 +428,6 @@ class Attributecombinations implements Model
     public function setAttributecombinationphotos(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributecombinationphotos $attributecombinationphotos): self
     {
         $this->attributecombinationphotos = $attributecombinationphotos;
-        $this->propertyFilled('attributecombinationphotos');
         return $this;
     }
 
@@ -454,7 +438,6 @@ class Attributecombinations implements Model
     public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributes $attributes): self
     {
         $this->attributes = $attributes;
-        $this->propertyFilled('attributes');
         return $this;
     }
 
@@ -465,7 +448,6 @@ class Attributecombinations implements Model
     public function setAttributevalues(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attributevalues $attributevalues): self
     {
         $this->attributevalues = $attributevalues;
-        $this->propertyFilled('attributevalues');
         return $this;
     }
 
@@ -476,7 +458,6 @@ class Attributecombinations implements Model
     public function setParent(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

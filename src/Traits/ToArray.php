@@ -9,37 +9,24 @@ use JacobDeKeizer\Ccv\Support\Str;
 
 trait ToArray
 {
-    /**
-     * @var string[]
-     */
-    private $filledProperties;
-    private $ignoredProperties = [
-        'filledProperties',
-        'ignoredProperties',
-    ];
-
     public function toArray(bool $onlyFilledProperties = true): array
     {
         $data = [];
 
-        $properties = get_object_vars($this);
+        $reflectionClass = new \ReflectionClass($this);
 
-        foreach ($properties as $key => $value) {
-            if (in_array($key, $this->ignoredProperties)) {
+        foreach ($reflectionClass->getProperties() as $property) {
+            $property->setAccessible(true);
+
+            $isInitialized = $property->isInitialized($this);
+
+            if ($onlyFilledProperties && !$isInitialized) {
                 continue;
             }
 
-            $snakeKey = Str::snake($key);
+            $value = $isInitialized ? $property->getValue($this) : $property->getDefaultValue();
 
-            if ($this->removeFromToArrayData($snakeKey)) {
-                continue;
-            }
-
-            if ($onlyFilledProperties && !in_array($snakeKey, $this->filledProperties)) {
-                continue;
-            }
-
-            $value = $this->convertToArrayData($snakeKey, $value);
+            $snakeKey = Str::snake($property->name);
 
             if (is_array($value)) {
                 $value = array_map(static function ($val) use ($onlyFilledProperties) {
@@ -57,20 +44,5 @@ trait ToArray
         }
 
         return $data;
-    }
-
-    final protected function propertyFilled(string $key): void
-    {
-        $this->filledProperties[] = Str::snake($key);
-    }
-
-    protected function removeFromToArrayData(string $key): bool
-    {
-        return false;
-    }
-
-    protected function convertToArrayData(string $key, $value)
-    {
-        return $value;
     }
 }

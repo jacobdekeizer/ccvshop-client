@@ -19,12 +19,12 @@ class All implements Parameter
     /**
      * @var string|null End date for the timeslots in Y-m-d format. if no date is chosen all available timeslots will be returned.
      */
-    private $date;
+    private ?string $date = null;
 
     /**
      * @var string|null The deliverytype, deliver or pickup. if no type is chosen both deliver and pickup slots are returned.
      */
-    private $type;
+    private ?string $type = null;
 
     /**
      * @return self

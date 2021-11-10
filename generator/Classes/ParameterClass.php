@@ -152,7 +152,7 @@ class ParameterClass
             $codeWriter->useClass('SortableFields');
         }
 
-        PropertiesWriter::writeProperties($codeWriter, $this->properties);
+        PropertiesWriter::writeProperties($codeWriter, $this->properties, true);
 
         $codeWriter->insertNewLine();
 
@@ -210,7 +210,7 @@ class ParameterClass
             $codeWriter->closeMethod();
         }
 
-        PropertiesWriter::writeMethods($codeWriter, $this->properties, false);
+        PropertiesWriter::writeMethods($codeWriter, $this->properties);
 
         foreach ($this->expandableFields as $expandableField) {
             $codeWriter->insertNewLine();

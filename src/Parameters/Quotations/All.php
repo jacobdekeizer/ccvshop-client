@@ -22,37 +22,37 @@ class All extends PaginatedList implements Parameter
     /**
      * @var int|null Specific quotation number of an quotation.
      */
-    private $quotationnumber;
+    private ?int $quotationnumber = null;
 
     /**
      * @var string|null Specific quotation number, combined with the quotation number prefix of an quotation.
      */
-    private $quotationnumberFull;
+    private ?string $quotationnumberFull = null;
 
     /**
      * @var int|null Specific order number associated with an quotation.
      */
-    private $ordernumber;
+    private ?int $ordernumber = null;
 
     /**
      * @var string|null Specific order number, combined with the order number prefix of an quotation.
      */
-    private $ordernumberFull;
+    private ?string $ordernumberFull = null;
 
     /**
      * @var string|null Specific quotation status of the quotation in the result. (open, requested, send, accepted, concept).
      */
-    private $status;
+    private ?string $status = null;
 
     /**
      * @var string|null Minimal create date of the quotation in the result.
      */
-    private $minCreateDate;
+    private ?string $minCreateDate = null;
 
     /**
      * @var string|null Maximal create date of the quotation in the result.
      */
-    private $maxCreateDate;
+    private ?string $maxCreateDate = null;
 
     /**
      * @return self

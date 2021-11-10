@@ -19,27 +19,27 @@ class Post implements Model
     /**
      * @var string|null Review createdate. If not included the current datetime will be used.
      */
-    private $createdate;
+    private ?string $createdate;
 
     /**
      * @var string Name of the reviewer.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var int Number of points for the review.
      */
-    private $points;
+    private int $points;
 
     /**
      * @var string Description of the review.
      */
-    private $content;
+    private string $content;
 
     /**
      * @var bool|null Is the review approved for publishing. If this property is not included in the payload the webshop's default will be used.
      */
-    private $approved;
+    private ?bool $approved;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Post implements Model
     public function setCreatedate(?string $createdate): self
     {
         $this->createdate = $createdate;
-        $this->propertyFilled('createdate');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Post implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Post implements Model
     public function setPoints(int $points): self
     {
         $this->points = $points;
-        $this->propertyFilled('points');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Post implements Model
     public function setContent(string $content): self
     {
         $this->content = $content;
-        $this->propertyFilled('content');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Post implements Model
     public function setApproved(?bool $approved): self
     {
         $this->approved = $approved;
-        $this->propertyFilled('approved');
         return $this;
     }
 }

@@ -22,37 +22,37 @@ class All extends PaginatedList implements Parameter
     /**
      * @var int|null Specific invoice number of an invoice.
      */
-    private $invoicenumber;
+    private ?int $invoicenumber = null;
 
     /**
      * @var string|null Specific invoice number, combined with the invoice number prefix of an invoice.
      */
-    private $invoicenumberFull;
+    private ?string $invoicenumberFull = null;
 
     /**
      * @var int|null Specific order number associated with an invoice.
      */
-    private $ordernumber;
+    private ?int $ordernumber = null;
 
     /**
      * @var string|null Specific order number, combined with the order number prefix of an invoice.
      */
-    private $ordernumberFull;
+    private ?string $ordernumberFull = null;
 
     /**
      * @var string|null Specific invoice status of the invoices in the result. (paid, unpaid, reimbursed).
      */
-    private $status;
+    private ?string $status = null;
 
     /**
      * @var string|null Minimal create date of the invoices in the result.
      */
-    private $minCreateDate;
+    private ?string $minCreateDate = null;
 
     /**
      * @var string|null Maximal create date of the invoices in the result.
      */
-    private $maxCreateDate;
+    private ?string $maxCreateDate = null;
 
     /**
      * @return self

@@ -19,22 +19,22 @@ class Patch implements Model
     /**
      * @var int|null Attribute option position
      */
-    private $optionposition;
+    private ?int $optionposition;
 
     /**
      * @var int|null Attribute option value position
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var float|null Attribute option value price
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var bool|null Deprecated. Attribute option value enable. Value is always true.
      */
-    private $enable;
+    private ?bool $enable;
 
     /**
      * @return self
@@ -84,7 +84,6 @@ class Patch implements Model
     public function setOptionposition(?int $optionposition): self
     {
         $this->optionposition = $optionposition;
-        $this->propertyFilled('optionposition');
         return $this;
     }
 
@@ -95,7 +94,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -106,7 +104,6 @@ class Patch implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -118,7 +115,6 @@ class Patch implements Model
     public function setEnable(?bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 }

@@ -19,47 +19,47 @@ class Patch implements Model
     /**
      * @var string|null A description of the attribute combination
      */
-    private $note;
+    private ?string $note;
 
     /**
      * @var float|null The stock of a product combination
      */
-    private $stock;
+    private ?float $stock;
 
     /**
      * @var string|null The product number
      */
-    private $productNumber;
+    private ?string $productNumber;
 
     /**
      * @var string|null The ean number
      */
-    private $eanNumber;
+    private ?string $eanNumber;
 
     /**
      * @var string|null The sku number
      */
-    private $skuNumber;
+    private ?string $skuNumber;
 
     /**
      * @var int|null Expected delivery time, number of days, weeks, months, quarters, years
      */
-    private $deliveryTime;
+    private ?int $deliveryTime;
 
     /**
      * @var string|null Expected delivery type days, weeks, months, quarters, years, outofstock, temporarilysoldout, ordered, onrequest, unknown
      */
-    private $deliveryTimeType;
+    private ?string $deliveryTimeType;
 
     /**
      * @var string|null The delivery time default in text
      */
-    private $deliveryDefaultText;
+    private ?string $deliveryDefaultText;
 
     /**
      * @var bool|null Is active
      */
-    private $active;
+    private ?bool $active;
 
     /**
      * @return self
@@ -148,7 +148,6 @@ class Patch implements Model
     public function setNote(?string $note): self
     {
         $this->note = $note;
-        $this->propertyFilled('note');
         return $this;
     }
 
@@ -159,7 +158,6 @@ class Patch implements Model
     public function setStock(?float $stock): self
     {
         $this->stock = $stock;
-        $this->propertyFilled('stock');
         return $this;
     }
 
@@ -170,7 +168,6 @@ class Patch implements Model
     public function setProductNumber(?string $productNumber): self
     {
         $this->productNumber = $productNumber;
-        $this->propertyFilled('productNumber');
         return $this;
     }
 
@@ -181,7 +178,6 @@ class Patch implements Model
     public function setEanNumber(?string $eanNumber): self
     {
         $this->eanNumber = $eanNumber;
-        $this->propertyFilled('eanNumber');
         return $this;
     }
 
@@ -192,7 +188,6 @@ class Patch implements Model
     public function setSkuNumber(?string $skuNumber): self
     {
         $this->skuNumber = $skuNumber;
-        $this->propertyFilled('skuNumber');
         return $this;
     }
 
@@ -203,7 +198,6 @@ class Patch implements Model
     public function setDeliveryTime(?int $deliveryTime): self
     {
         $this->deliveryTime = $deliveryTime;
-        $this->propertyFilled('deliveryTime');
         return $this;
     }
 
@@ -214,7 +208,6 @@ class Patch implements Model
     public function setDeliveryTimeType(?string $deliveryTimeType): self
     {
         $this->deliveryTimeType = $deliveryTimeType;
-        $this->propertyFilled('deliveryTimeType');
         return $this;
     }
 
@@ -225,7 +218,6 @@ class Patch implements Model
     public function setDeliveryDefaultText(?string $deliveryDefaultText): self
     {
         $this->deliveryDefaultText = $deliveryDefaultText;
-        $this->propertyFilled('deliveryDefaultText');
         return $this;
     }
 
@@ -236,7 +228,6 @@ class Patch implements Model
     public function setActive(?bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 }

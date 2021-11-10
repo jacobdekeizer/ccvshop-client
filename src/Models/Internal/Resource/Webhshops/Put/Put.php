@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var int[] A collection of webshop_ids to which this product will be linked.
      */
-    private $webshops;
+    private array $webshops;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setWebshops(array $webshops): self
     {
         $this->webshops = $webshops;
-        $this->propertyFilled('webshops');
         return $this;
     }
 }

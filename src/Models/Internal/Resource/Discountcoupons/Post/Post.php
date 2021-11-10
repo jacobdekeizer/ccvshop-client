@@ -19,52 +19,52 @@ class Post implements Model
     /**
      * @var string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      */
-    private $code;
+    private string $code;
 
     /**
      * @var float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
-    private $discount;
+    private float $discount;
 
     /**
      * @var string Discount type.
      */
-    private $type;
+    private string $type;
 
     /**
      * @var string Begin date coupon validity, UTC
      */
-    private $begindate;
+    private string $begindate;
 
     /**
      * @var string|null End date coupon validity, UTC
      */
-    private $enddate;
+    private ?string $enddate;
 
     /**
      * @var bool One time use. After usage this coupon will be removed.
      */
-    private $onetimeuse;
+    private bool $onetimeuse;
 
     /**
      * @var bool This coupon gives free shipping costs.
      */
-    private $givesfreeshipping;
+    private bool $givesfreeshipping;
 
     /**
      * @var float Minimum price of the order before this coupon can be used.
      */
-    private $minimumprice;
+    private float $minimumprice;
 
     /**
      * @var bool|null Product white list. If true, the discount will only used for selected products. If false, the discount is used for all products, excepts the selected ones.
      */
-    private $productwhitelist;
+    private ?bool $productwhitelist;
 
     /**
      * @var int[]|null Product id's for the product white/black list.
      */
-    private $products;
+    private ?array $products;
 
     /**
      * @return self
@@ -161,7 +161,6 @@ class Post implements Model
     public function setCode(string $code): self
     {
         $this->code = $code;
-        $this->propertyFilled('code');
         return $this;
     }
 
@@ -172,7 +171,6 @@ class Post implements Model
     public function setDiscount(float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -183,7 +181,6 @@ class Post implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -194,7 +191,6 @@ class Post implements Model
     public function setBegindate(string $begindate): self
     {
         $this->begindate = $begindate;
-        $this->propertyFilled('begindate');
         return $this;
     }
 
@@ -205,7 +201,6 @@ class Post implements Model
     public function setEnddate(?string $enddate): self
     {
         $this->enddate = $enddate;
-        $this->propertyFilled('enddate');
         return $this;
     }
 
@@ -216,7 +211,6 @@ class Post implements Model
     public function setOnetimeuse(bool $onetimeuse): self
     {
         $this->onetimeuse = $onetimeuse;
-        $this->propertyFilled('onetimeuse');
         return $this;
     }
 
@@ -227,7 +221,6 @@ class Post implements Model
     public function setGivesfreeshipping(bool $givesfreeshipping): self
     {
         $this->givesfreeshipping = $givesfreeshipping;
-        $this->propertyFilled('givesfreeshipping');
         return $this;
     }
 
@@ -238,7 +231,6 @@ class Post implements Model
     public function setMinimumprice(float $minimumprice): self
     {
         $this->minimumprice = $minimumprice;
-        $this->propertyFilled('minimumprice');
         return $this;
     }
 
@@ -249,7 +241,6 @@ class Post implements Model
     public function setProductwhitelist(?bool $productwhitelist): self
     {
         $this->productwhitelist = $productwhitelist;
-        $this->propertyFilled('productwhitelist');
         return $this;
     }
 
@@ -260,7 +251,6 @@ class Post implements Model
     public function setProducts(?array $products): self
     {
         $this->products = $products;
-        $this->propertyFilled('products');
         return $this;
     }
 }

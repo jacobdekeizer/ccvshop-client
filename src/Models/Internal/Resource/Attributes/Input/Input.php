@@ -19,12 +19,12 @@ class Input implements Model
     /**
      * @var string Attribute name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus are like option menus, but no attribute combinations will be created. Note, you can only change between the required and non-required version.
      */
-    private $type;
+    private string $type;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Input implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Input implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 }

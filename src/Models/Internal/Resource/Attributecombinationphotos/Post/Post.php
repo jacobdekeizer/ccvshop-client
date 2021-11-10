@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var string Photo extension
      */
-    private $fileType;
+    private string $fileType;
 
     /**
      * @var string|null Alternative name
      */
-    private $alt;
+    private ?string $alt;
 
     /**
      * @var bool|null Picture is the main photo
      */
-    private $isMainphoto;
+    private ?bool $isMainphoto;
 
     /**
      * @var string Attachment source base 64 encoded
      */
-    private $source;
+    private string $source;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Post implements Model
     public function setFileType(string $fileType): self
     {
         $this->fileType = $fileType;
-        $this->propertyFilled('fileType');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Post implements Model
     public function setAlt(?string $alt): self
     {
         $this->alt = $alt;
-        $this->propertyFilled('alt');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Post implements Model
     public function setIsMainphoto(?bool $isMainphoto): self
     {
         $this->isMainphoto = $isMainphoto;
-        $this->propertyFilled('isMainphoto');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Post implements Model
     public function setSource(string $source): self
     {
         $this->source = $source;
-        $this->propertyFilled('source');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods[] Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
      */
-    private $disabledPaymethods;
+    private array $disabledPaymethods;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setDisabledPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods ...$disabledPaymethods): self
     {
         $this->disabledPaymethods = $disabledPaymethods;
-        $this->propertyFilled('disabledPaymethods');
         return $this;
     }
 }

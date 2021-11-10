@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var int|null Unique product position. When the position isn't filled the highest position will be used.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var int Unique product id
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Unique category id
      */
-    private $categoryId;
+    private int $categoryId;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setCategoryId(int $categoryId): self
     {
         $this->categoryId = $categoryId;
-        $this->propertyFilled('categoryId');
         return $this;
     }
 }

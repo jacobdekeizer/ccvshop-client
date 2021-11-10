@@ -19,7 +19,7 @@ class Creditpoints implements Model
     /**
      * @var string Link to creditpoint
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Creditpoints implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

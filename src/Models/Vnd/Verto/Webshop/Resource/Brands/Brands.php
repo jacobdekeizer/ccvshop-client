@@ -19,27 +19,27 @@ class Brands implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Brand Name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\Products|null Collection of products that have this brand.
      */
-    private $products;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\Products $products;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Brands implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Brands implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Brands implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Brands implements Model
     public function setProducts(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\Products $products): self
     {
         $this->products = $products;
-        $this->propertyFilled('products');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Brands implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Brands\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

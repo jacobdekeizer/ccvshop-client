@@ -22,27 +22,27 @@ class All extends PaginatedList implements Parameter
     /**
      * @var string|null Minimal begin date of the coupons in the result.
      */
-    private $minBegindate;
+    private ?string $minBegindate = null;
 
     /**
      * @var string|null Maximal begin date of the coupons in the result.
      */
-    private $maxBegindate;
+    private ?string $maxBegindate = null;
 
     /**
      * @var string|null Minimal end date of the coupons in the result.
      */
-    private $minEnddate;
+    private ?string $minEnddate = null;
 
     /**
      * @var string|null Maximal end date of the coupons in the result.
      */
-    private $maxEnddate;
+    private ?string $maxEnddate = null;
 
     /**
      * @var bool|null Show coupons that can only be used once. If false it will only show coupons that can be used multiple times.
      */
-    private $onetimeuse;
+    private ?bool $onetimeuse = null;
 
     /**
      * @return self

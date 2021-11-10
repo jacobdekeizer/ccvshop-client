@@ -11,18 +11,18 @@ class PropertiesWriter
     /**
      * @param Property[] $properties
      */
-    public static function writeProperties(CodeWriter $codeWriter, array $properties): void
+    public static function writeProperties(CodeWriter $codeWriter, array $properties, bool $initialize = false): void
     {
         foreach ($properties as $property) {
             $codeWriter->insertNewLine();
-            $property->writeProperty($codeWriter);
+            $property->writeProperty($codeWriter, $initialize);
         }
     }
 
     /**
      * @param Property[] $properties
      */
-    public static function writeMethods(CodeWriter $codeWriter, array $properties, bool $setPropertyFilled = true): void
+    public static function writeMethods(CodeWriter $codeWriter, array $properties): void
     {
         foreach ($properties as $property) {
             $codeWriter->insertNewLine();
@@ -31,7 +31,7 @@ class PropertiesWriter
 
         foreach ($properties as $property) {
             $codeWriter->insertNewLine();
-            $property->writeSetter($codeWriter, $setPropertyFilled);
+            $property->writeSetter($codeWriter);
         }
     }
 }

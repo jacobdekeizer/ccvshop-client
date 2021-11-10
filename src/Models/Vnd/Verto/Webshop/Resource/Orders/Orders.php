@@ -19,302 +19,302 @@ class Orders implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Order id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null Prefix of the specific order number of the order. Automatically generated when the order is completed. This will be null when 'is_completed' is false.
      */
-    private $ordernumberPrefix;
+    private ?string $ordernumberPrefix;
 
     /**
      * @var int|null Order number, automatically generated when the order is completed. This will be null when 'is_completed' is false.
      */
-    private $ordernumber;
+    private ?int $ordernumber;
 
     /**
      * @var string|null Unique order number, Full order number as displayed in shop. With dash if the prefix is available. This will be null when 'is_completed' is false.
      */
-    private $ordernumberFull;
+    private ?string $ordernumberFull;
 
     /**
      * @var int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      */
-    private $invoicenumber;
+    private ?int $invoicenumber;
 
     /**
      * @var string|null The most recent transaction id. Transaction Ids are normally provided by external Payment Service Providers. If an order has multiple transaction, this value is overwritten. If it has no transactions or if the PSP doens't provide an Id this is NULL.
      */
-    private $transactionId;
+    private ?string $transactionId;
 
     /**
      * @var string Createdate of this order in UTC
      */
-    private $createDate;
+    private string $createDate;
 
     /**
      * @var string This is the deliver method the customer has chosen during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      */
-    private $deliverMethod;
+    private string $deliverMethod;
 
     /**
      * @var string|null Delivery date in UTC. In case of take out, see take_out_slot.
      */
-    private $deliverDate;
+    private ?string $deliverDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\TakeOutWindow Contains info on the window chosen by the the customer during the checkout. Will only be filled if delivery_method is delivery or pickup.
      */
-    private $takeOutWindow;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\TakeOutWindow $takeOutWindow;
 
     /**
      * @var bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
      */
-    private $isPlatformSale;
+    private ?bool $isPlatformSale;
 
     /**
      * @var string Language in which this order was ordered
      */
-    private $orderedinlng;
+    private string $orderedinlng;
 
     /**
      * @var int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      */
-    private $status;
+    private ?int $status;
 
     /**
      * @var bool|null If status is null 'is_completed' will be false. If false, the order hasn't been completed by the customer.
      */
-    private $isCompleted;
+    private ?bool $isCompleted;
 
     /**
      * @var string|null Link to the shopping basket, only available when 'is_completed' is false.
      */
-    private $basketHref;
+    private ?string $basketHref;
 
     /**
      * @var string|null Link to the checkout page, only available when 'is_completed' is false. If the shop has the regular checkout, this will be the basket_href.
      */
-    private $checkoutHref;
+    private ?string $checkoutHref;
 
     /**
      * @var bool If the order is marked as paid
      */
-    private $paid;
+    private bool $paid;
 
     /**
      * @var bool If the order's safety deposit is returned to the customer.
      */
-    private $safetyDepositReturned;
+    private bool $safetyDepositReturned;
 
     /**
      * @var int Paymethod Id of the order. Corresponse with the resource paymethods.
      */
-    private $paymethodId;
+    private int $paymethodId;
 
     /**
      * @var string Paymethod of the order.
      */
-    private $paymethod;
+    private string $paymethod;
 
     /**
      * @var string This is similar to paymethod, but with a more human readable translation.
      */
-    private $paymethodLabel;
+    private string $paymethodLabel;
 
     /**
      * @var bool If taxes are calculated in the total price. If false, all taxes will be hidden.
      */
-    private $taxesIncluded;
+    private bool $taxesIncluded;
 
     /**
      * @var bool If order row prices contain taxes. Use this field to choose between an inc. VAT order and an ex. VAT order.
      */
-    private $orderRowTaxesIncluded;
+    private bool $orderRowTaxesIncluded;
 
     /**
      * @var bool If shippingcosts are included in the total tax amount
      */
-    private $shippingTaxesIncluded;
+    private bool $shippingTaxesIncluded;
 
     /**
      * @var float Tax percentage of the shipping costs
      */
-    private $shippingTaxPercentage;
+    private float $shippingTaxPercentage;
 
     /**
      * @var bool Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      */
-    private $isIntraCommunityOrder;
+    private bool $isIntraCommunityOrder;
 
     /**
      * @var float Total orderrow price
      */
-    private $totalOrderrowPrice;
+    private float $totalOrderrowPrice;
 
     /**
      * @var float Total shipping costs
      */
-    private $totalShipping;
+    private float $totalShipping;
 
     /**
      * @var float Total discount
      */
-    private $totalDiscounts;
+    private float $totalDiscounts;
 
     /**
      * @var float Total price
      */
-    private $totalPrice;
+    private float $totalPrice;
 
     /**
      * @var string ISO 4217 Currency Code
      */
-    private $currency;
+    private string $currency;
 
     /**
      * @var float Total tax amount
      */
-    private $totalTax;
+    private float $totalTax;
 
     /**
      * @var float Total weight of the order in kilograms
      */
-    private $totalWeight;
+    private float $totalWeight;
 
     /**
      * @var string Payment option name
      */
-    private $extraPaymentOption;
+    private string $extraPaymentOption;
 
     /**
      * @var float|null Payment option price
      */
-    private $extraPaymentOptionPrice;
+    private ?float $extraPaymentOptionPrice;
 
     /**
      * @var bool If shipping was free with this payment option
      */
-    private $extraPaymentOptionNoSentprice;
+    private bool $extraPaymentOptionNoSentprice;
 
     /**
      * @var bool If this order will be paid on pickup with this payment option
      */
-    private $extraPaymentOptionPayOnPickup;
+    private bool $extraPaymentOptionPayOnPickup;
 
     /**
      * @var float Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
      */
-    private $extraPrice;
+    private float $extraPrice;
 
     /**
      * @var float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'
      */
-    private $paymethodCosts;
+    private float $paymethodCosts;
 
     /**
      * @var float The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'
      */
-    private $creditPointDiscount;
+    private float $creditPointDiscount;
 
     /**
      * @var float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      */
-    private $extraCosts;
+    private float $extraCosts;
 
     /**
      * @var string Description of the extra costs. This is visible on the invoice.
      */
-    private $extraCostsDescription;
+    private string $extraCostsDescription;
 
     /**
      * @var string Track & Trace code
      */
-    private $trackAndTraceCode;
+    private string $trackAndTraceCode;
 
     /**
      * @var string|null Track & Trace Carrier. This value represents the shipping service.
      */
-    private $trackAndTraceCarrier;
+    private ?string $trackAndTraceCarrier;
 
     /**
      * @var string Track & Trace deeplink. This links to the shipping carrier status page.
      */
-    private $trackAndTraceDeeplink;
+    private string $trackAndTraceDeeplink;
 
     /**
      * @var string|null The reservation number for an order. This may be visible on the invoice
      */
-    private $reservationnumber;
+    private ?string $reservationnumber;
 
     /**
      * @var string|null The delivery option the customer selected, when PG or PGE is chosen the property pickup_address is filled with the pickup address. DHDLE may be applicable to German users who ordered using the DHL Checkout.
      */
-    private $deliveryOption;
+    private ?string $deliveryOption;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\User Link to possible user resource associated with this order
      */
-    private $user;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\User $user;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Discountcoupon Link to possible discount coupon associated with this order
      */
-    private $discountcoupon;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Discountcoupon $discountcoupon;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo|null Describes personal information of the customer
      */
-    private $customer;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer;
 
     /**
      * @var object|null The pickup address that the customer selected
      */
-    private $pickupAddress;
+    private ?object $pickupAddress;
 
     /**
      * @var string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
      */
-    private $packingSlipDeeplink;
+    private ?string $packingSlipDeeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderrows Products that are ordered with this order
      */
-    private $orderrows;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderrows $orderrows;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotes Notes added to this order
      */
-    private $ordernotes;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotes $ordernotes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordermessages Messages sent to the customer
      */
-    private $ordermessages;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordermessages $ordermessages;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotifications Order notifications are used to send e-mails of the different types. For instance, an order's invoice can be sent to the customer. GET will return all previous notifications created by the API. For now, notifications created automatically or by the merchant will not show up in the collections.
      */
-    private $ordernotifications;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotifications $ordernotifications;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderaffiliatenetworks Affilate networks
      */
-    private $orderaffiliatenetworks;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderaffiliatenetworks $orderaffiliatenetworks;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderlabels|null Order labels
      */
-    private $orderlabels;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderlabels $orderlabels;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Invoices Invoices used for creating a new invoice.
      */
-    private $invoices;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Invoices $invoices;
 
     /**
      * @return self
@@ -812,7 +812,6 @@ class Orders implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -823,7 +822,6 @@ class Orders implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -834,7 +832,6 @@ class Orders implements Model
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
-        $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
 
@@ -845,7 +842,6 @@ class Orders implements Model
     public function setOrdernumber(?int $ordernumber): self
     {
         $this->ordernumber = $ordernumber;
-        $this->propertyFilled('ordernumber');
         return $this;
     }
 
@@ -856,7 +852,6 @@ class Orders implements Model
     public function setOrdernumberFull(?string $ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
-        $this->propertyFilled('ordernumberFull');
         return $this;
     }
 
@@ -867,7 +862,6 @@ class Orders implements Model
     public function setInvoicenumber(?int $invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
-        $this->propertyFilled('invoicenumber');
         return $this;
     }
 
@@ -878,7 +872,6 @@ class Orders implements Model
     public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
-        $this->propertyFilled('transactionId');
         return $this;
     }
 
@@ -889,7 +882,6 @@ class Orders implements Model
     public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -900,7 +892,6 @@ class Orders implements Model
     public function setDeliverMethod(string $deliverMethod): self
     {
         $this->deliverMethod = $deliverMethod;
-        $this->propertyFilled('deliverMethod');
         return $this;
     }
 
@@ -911,7 +902,6 @@ class Orders implements Model
     public function setDeliverDate(?string $deliverDate): self
     {
         $this->deliverDate = $deliverDate;
-        $this->propertyFilled('deliverDate');
         return $this;
     }
 
@@ -922,7 +912,6 @@ class Orders implements Model
     public function setTakeOutWindow(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\TakeOutWindow $takeOutWindow): self
     {
         $this->takeOutWindow = $takeOutWindow;
-        $this->propertyFilled('takeOutWindow');
         return $this;
     }
 
@@ -933,7 +922,6 @@ class Orders implements Model
     public function setIsPlatformSale(?bool $isPlatformSale): self
     {
         $this->isPlatformSale = $isPlatformSale;
-        $this->propertyFilled('isPlatformSale');
         return $this;
     }
 
@@ -944,7 +932,6 @@ class Orders implements Model
     public function setOrderedinlng(string $orderedinlng): self
     {
         $this->orderedinlng = $orderedinlng;
-        $this->propertyFilled('orderedinlng');
         return $this;
     }
 
@@ -955,7 +942,6 @@ class Orders implements Model
     public function setStatus(?int $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -966,7 +952,6 @@ class Orders implements Model
     public function setIsCompleted(?bool $isCompleted): self
     {
         $this->isCompleted = $isCompleted;
-        $this->propertyFilled('isCompleted');
         return $this;
     }
 
@@ -977,7 +962,6 @@ class Orders implements Model
     public function setBasketHref(?string $basketHref): self
     {
         $this->basketHref = $basketHref;
-        $this->propertyFilled('basketHref');
         return $this;
     }
 
@@ -988,7 +972,6 @@ class Orders implements Model
     public function setCheckoutHref(?string $checkoutHref): self
     {
         $this->checkoutHref = $checkoutHref;
-        $this->propertyFilled('checkoutHref');
         return $this;
     }
 
@@ -999,7 +982,6 @@ class Orders implements Model
     public function setPaid(bool $paid): self
     {
         $this->paid = $paid;
-        $this->propertyFilled('paid');
         return $this;
     }
 
@@ -1010,7 +992,6 @@ class Orders implements Model
     public function setSafetyDepositReturned(bool $safetyDepositReturned): self
     {
         $this->safetyDepositReturned = $safetyDepositReturned;
-        $this->propertyFilled('safetyDepositReturned');
         return $this;
     }
 
@@ -1021,7 +1002,6 @@ class Orders implements Model
     public function setPaymethodId(int $paymethodId): self
     {
         $this->paymethodId = $paymethodId;
-        $this->propertyFilled('paymethodId');
         return $this;
     }
 
@@ -1032,7 +1012,6 @@ class Orders implements Model
     public function setPaymethod(string $paymethod): self
     {
         $this->paymethod = $paymethod;
-        $this->propertyFilled('paymethod');
         return $this;
     }
 
@@ -1043,7 +1022,6 @@ class Orders implements Model
     public function setPaymethodLabel(string $paymethodLabel): self
     {
         $this->paymethodLabel = $paymethodLabel;
-        $this->propertyFilled('paymethodLabel');
         return $this;
     }
 
@@ -1054,7 +1032,6 @@ class Orders implements Model
     public function setTaxesIncluded(bool $taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
-        $this->propertyFilled('taxesIncluded');
         return $this;
     }
 
@@ -1065,7 +1042,6 @@ class Orders implements Model
     public function setOrderRowTaxesIncluded(bool $orderRowTaxesIncluded): self
     {
         $this->orderRowTaxesIncluded = $orderRowTaxesIncluded;
-        $this->propertyFilled('orderRowTaxesIncluded');
         return $this;
     }
 
@@ -1076,7 +1052,6 @@ class Orders implements Model
     public function setShippingTaxesIncluded(bool $shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
-        $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
 
@@ -1087,7 +1062,6 @@ class Orders implements Model
     public function setShippingTaxPercentage(float $shippingTaxPercentage): self
     {
         $this->shippingTaxPercentage = $shippingTaxPercentage;
-        $this->propertyFilled('shippingTaxPercentage');
         return $this;
     }
 
@@ -1098,7 +1072,6 @@ class Orders implements Model
     public function setIsIntraCommunityOrder(bool $isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
-        $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
 
@@ -1109,7 +1082,6 @@ class Orders implements Model
     public function setTotalOrderrowPrice(float $totalOrderrowPrice): self
     {
         $this->totalOrderrowPrice = $totalOrderrowPrice;
-        $this->propertyFilled('totalOrderrowPrice');
         return $this;
     }
 
@@ -1120,7 +1092,6 @@ class Orders implements Model
     public function setTotalShipping(float $totalShipping): self
     {
         $this->totalShipping = $totalShipping;
-        $this->propertyFilled('totalShipping');
         return $this;
     }
 
@@ -1131,7 +1102,6 @@ class Orders implements Model
     public function setTotalDiscounts(float $totalDiscounts): self
     {
         $this->totalDiscounts = $totalDiscounts;
-        $this->propertyFilled('totalDiscounts');
         return $this;
     }
 
@@ -1142,7 +1112,6 @@ class Orders implements Model
     public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
-        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -1153,7 +1122,6 @@ class Orders implements Model
     public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
-        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -1164,7 +1132,6 @@ class Orders implements Model
     public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
-        $this->propertyFilled('totalTax');
         return $this;
     }
 
@@ -1175,7 +1142,6 @@ class Orders implements Model
     public function setTotalWeight(float $totalWeight): self
     {
         $this->totalWeight = $totalWeight;
-        $this->propertyFilled('totalWeight');
         return $this;
     }
 
@@ -1186,7 +1152,6 @@ class Orders implements Model
     public function setExtraPaymentOption(string $extraPaymentOption): self
     {
         $this->extraPaymentOption = $extraPaymentOption;
-        $this->propertyFilled('extraPaymentOption');
         return $this;
     }
 
@@ -1197,7 +1162,6 @@ class Orders implements Model
     public function setExtraPaymentOptionPrice(?float $extraPaymentOptionPrice): self
     {
         $this->extraPaymentOptionPrice = $extraPaymentOptionPrice;
-        $this->propertyFilled('extraPaymentOptionPrice');
         return $this;
     }
 
@@ -1208,7 +1172,6 @@ class Orders implements Model
     public function setExtraPaymentOptionNoSentprice(bool $extraPaymentOptionNoSentprice): self
     {
         $this->extraPaymentOptionNoSentprice = $extraPaymentOptionNoSentprice;
-        $this->propertyFilled('extraPaymentOptionNoSentprice');
         return $this;
     }
 
@@ -1219,7 +1182,6 @@ class Orders implements Model
     public function setExtraPaymentOptionPayOnPickup(bool $extraPaymentOptionPayOnPickup): self
     {
         $this->extraPaymentOptionPayOnPickup = $extraPaymentOptionPayOnPickup;
-        $this->propertyFilled('extraPaymentOptionPayOnPickup');
         return $this;
     }
 
@@ -1231,7 +1193,6 @@ class Orders implements Model
     public function setExtraPrice(float $extraPrice): self
     {
         $this->extraPrice = $extraPrice;
-        $this->propertyFilled('extraPrice');
         return $this;
     }
 
@@ -1242,7 +1203,6 @@ class Orders implements Model
     public function setPaymethodCosts(float $paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
-        $this->propertyFilled('paymethodCosts');
         return $this;
     }
 
@@ -1253,7 +1213,6 @@ class Orders implements Model
     public function setCreditPointDiscount(float $creditPointDiscount): self
     {
         $this->creditPointDiscount = $creditPointDiscount;
-        $this->propertyFilled('creditPointDiscount');
         return $this;
     }
 
@@ -1264,7 +1223,6 @@ class Orders implements Model
     public function setExtraCosts(float $extraCosts): self
     {
         $this->extraCosts = $extraCosts;
-        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -1275,7 +1233,6 @@ class Orders implements Model
     public function setExtraCostsDescription(string $extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
-        $this->propertyFilled('extraCostsDescription');
         return $this;
     }
 
@@ -1286,7 +1243,6 @@ class Orders implements Model
     public function setTrackAndTraceCode(string $trackAndTraceCode): self
     {
         $this->trackAndTraceCode = $trackAndTraceCode;
-        $this->propertyFilled('trackAndTraceCode');
         return $this;
     }
 
@@ -1297,7 +1253,6 @@ class Orders implements Model
     public function setTrackAndTraceCarrier(?string $trackAndTraceCarrier): self
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
-        $this->propertyFilled('trackAndTraceCarrier');
         return $this;
     }
 
@@ -1308,7 +1263,6 @@ class Orders implements Model
     public function setTrackAndTraceDeeplink(string $trackAndTraceDeeplink): self
     {
         $this->trackAndTraceDeeplink = $trackAndTraceDeeplink;
-        $this->propertyFilled('trackAndTraceDeeplink');
         return $this;
     }
 
@@ -1319,7 +1273,6 @@ class Orders implements Model
     public function setReservationnumber(?string $reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
-        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -1330,7 +1283,6 @@ class Orders implements Model
     public function setDeliveryOption(?string $deliveryOption): self
     {
         $this->deliveryOption = $deliveryOption;
-        $this->propertyFilled('deliveryOption');
         return $this;
     }
 
@@ -1341,7 +1293,6 @@ class Orders implements Model
     public function setUser(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\User $user): self
     {
         $this->user = $user;
-        $this->propertyFilled('user');
         return $this;
     }
 
@@ -1352,7 +1303,6 @@ class Orders implements Model
     public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Discountcoupon $discountcoupon): self
     {
         $this->discountcoupon = $discountcoupon;
-        $this->propertyFilled('discountcoupon');
         return $this;
     }
 
@@ -1363,7 +1313,6 @@ class Orders implements Model
     public function setCustomer(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer): self
     {
         $this->customer = $customer;
-        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -1374,7 +1323,6 @@ class Orders implements Model
     public function setPickupAddress(?object $pickupAddress): self
     {
         $this->pickupAddress = $pickupAddress;
-        $this->propertyFilled('pickupAddress');
         return $this;
     }
 
@@ -1385,7 +1333,6 @@ class Orders implements Model
     public function setPackingSlipDeeplink(?string $packingSlipDeeplink): self
     {
         $this->packingSlipDeeplink = $packingSlipDeeplink;
-        $this->propertyFilled('packingSlipDeeplink');
         return $this;
     }
 
@@ -1396,7 +1343,6 @@ class Orders implements Model
     public function setOrderrows(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderrows $orderrows): self
     {
         $this->orderrows = $orderrows;
-        $this->propertyFilled('orderrows');
         return $this;
     }
 
@@ -1407,7 +1353,6 @@ class Orders implements Model
     public function setOrdernotes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotes $ordernotes): self
     {
         $this->ordernotes = $ordernotes;
-        $this->propertyFilled('ordernotes');
         return $this;
     }
 
@@ -1418,7 +1363,6 @@ class Orders implements Model
     public function setOrdermessages(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordermessages $ordermessages): self
     {
         $this->ordermessages = $ordermessages;
-        $this->propertyFilled('ordermessages');
         return $this;
     }
 
@@ -1429,7 +1373,6 @@ class Orders implements Model
     public function setOrdernotifications(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Ordernotifications $ordernotifications): self
     {
         $this->ordernotifications = $ordernotifications;
-        $this->propertyFilled('ordernotifications');
         return $this;
     }
 
@@ -1440,7 +1383,6 @@ class Orders implements Model
     public function setOrderaffiliatenetworks(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderaffiliatenetworks $orderaffiliatenetworks): self
     {
         $this->orderaffiliatenetworks = $orderaffiliatenetworks;
-        $this->propertyFilled('orderaffiliatenetworks');
         return $this;
     }
 
@@ -1451,7 +1393,6 @@ class Orders implements Model
     public function setOrderlabels(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Orderlabels $orderlabels): self
     {
         $this->orderlabels = $orderlabels;
-        $this->propertyFilled('orderlabels');
         return $this;
     }
 
@@ -1462,7 +1403,6 @@ class Orders implements Model
     public function setInvoices(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\Invoices $invoices): self
     {
         $this->invoices = $invoices;
-        $this->propertyFilled('invoices');
         return $this;
     }
 }

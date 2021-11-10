@@ -19,12 +19,12 @@ class Post implements Model
     /**
      * @var int Unique product id
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Unique id of the product property group
      */
-    private $productPropertyGroupId;
+    private int $productPropertyGroupId;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Post implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Post implements Model
     public function setProductPropertyGroupId(int $productPropertyGroupId): self
     {
         $this->productPropertyGroupId = $productPropertyGroupId;
-        $this->propertyFilled('productPropertyGroupId');
         return $this;
     }
 }

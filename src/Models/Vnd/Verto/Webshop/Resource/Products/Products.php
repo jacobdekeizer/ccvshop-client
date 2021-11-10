@@ -19,432 +19,432 @@ class Products implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var bool Indicates if (true) this product is active or (false) inactive.
      */
-    private $isActive;
+    private bool $isActive;
 
     /**
      * @var string Create date of product in UTC
      */
-    private $createdate;
+    private string $createdate;
 
     /**
      * @var string Last modify date of product in UTC
      */
-    private $modifydate;
+    private string $modifydate;
 
     /**
      * @var string Product number
      */
-    private $productnumber;
+    private string $productnumber;
 
     /**
      * @var string EAN (European Article Number)
      */
-    private $eannumber;
+    private string $eannumber;
 
     /**
      * @var string Manufacturer Product Number
      */
-    private $mpnnumber;
+    private string $mpnnumber;
 
     /**
      * @var bool Indicates if (true) this product is managed in a multishop or (false) is a single webshop product. Multishop products can't be fully editted.
      */
-    private $isMultishopProduct;
+    private bool $isMultishopProduct;
 
     /**
      * @var string|null Href to this system's product. This is only available with the proper api credentials.
      */
-    private $multishopHref;
+    private ?string $multishopHref;
 
     /**
      * @var string Product name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string Product short description
      */
-    private $shortdescription;
+    private string $shortdescription;
 
     /**
      * @var string|null Product description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var float Deprecated. VAT rate of product in percentage.
      */
-    private $vatrate;
+    private float $vatrate;
 
     /**
      * @var string The tax tariff of the product
      */
-    private $taxtariff;
+    private string $taxtariff;
 
     /**
      * @var float Original price of the product, before discounts
      */
-    private $price;
+    private float $price;
 
     /**
      * @var float Discount on the product. Price - Discount = Sell price
      */
-    private $discount;
+    private float $discount;
 
     /**
      * @var float Purchase price ex. VAT off this product.
      */
-    private $purchaseprice;
+    private float $purchaseprice;
 
     /**
      * @var float This price will be added to the total price as a container deposit (in Dutch: Statiegeld).
      */
-    private $containerDepositPrice;
+    private float $containerDepositPrice;
 
     /**
      * @var float This price will be added to the total price as a safety deposit (in Dutch: Borg).
      */
-    private $safetyDepositPrice;
+    private float $safetyDepositPrice;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productshippingcosts Describes the bases shipping costs and a link to shipping costs per country.
      */
-    private $productshippingcosts;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productshippingcosts $productshippingcosts;
 
     /**
      * @var int|null Custom creditpoints for this product
      */
-    private $creditPointsCustom;
+    private ?int $creditPointsCustom;
 
     /**
      * @var int|null Calculated creditpoints for this product
      */
-    private $creditPointsCalculated;
+    private ?int $creditPointsCalculated;
 
     /**
      * @var string|null The unit in which this product is sold (ie 'per piece')
      */
-    private $unit;
+    private ?string $unit;
 
     /**
      * @var bool|null This product has stock
      */
-    private $stockenabled;
+    private ?bool $stockenabled;
 
     /**
      * @var string|null If the stock amount is linked to the product of the attribute combination
      */
-    private $stocktype;
+    private ?string $stocktype;
 
     /**
      * @var float|null The quantity in stock for this product
      */
-    private $stock;
+    private ?float $stock;
 
     /**
      * @var string The location of the product's stock
      */
-    private $stocklocation;
+    private string $stocklocation;
 
     /**
      * @var string|null Allow or dissallow ordering of this product when there is no stock. The default option 'global_setting' means the global webshop setting 'Starting point > My web shop > Settings > Ordering process & stock > Stock Options Allow the sale of more products than in stock' will be used for this product.
      */
-    private $orderingWithoutStock;
+    private ?string $orderingWithoutStock;
 
     /**
      * @var float Weight of the product in kilograms
      */
-    private $weight;
+    private float $weight;
 
     /**
      * @var string|null The main categorie of this product.
      */
-    private $maincategory;
+    private ?string $maincategory;
 
     /**
      * @var string The sub categorie of this product.
      */
-    private $subcategory;
+    private string $subcategory;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Brand|null Brand resource
      */
-    private $brand;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Brand $brand;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Condition|null Condition resource
      */
-    private $condition;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Condition $condition;
 
     /**
      * @var object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      */
-    private $color;
+    private ?object $color;
 
     /**
      * @var string|null Link to mainphoto
      */
-    private $productmainphoto;
+    private ?string $productmainphoto;
 
     /**
      * @var string Metatag Description
      */
-    private $metaDescription;
+    private string $metaDescription;
 
     /**
      * @var string Metatag Keywords
      */
-    private $metaKeywords;
+    private string $metaKeywords;
 
     /**
      * @var string Page title
      */
-    private $pageTitle;
+    private string $pageTitle;
 
     /**
      * @var bool Metatag robots: No-Index
      */
-    private $noIndex;
+    private bool $noIndex;
 
     /**
      * @var bool Metatag robots: No-Follow
      */
-    private $noFollow;
+    private bool $noFollow;
 
     /**
      * @var string SEO Alias of this resource
      */
-    private $alias;
+    private string $alias;
 
     /**
      * @var string Deeplink to this resource
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @var string|null Specification link
      */
-    private $specs;
+    private ?string $specs;
 
     /**
      * @var int Number of decimals that can be used in amounts
      */
-    private $decimalAmount;
+    private int $decimalAmount;
 
     /**
      * @var float Minimal order amount
      */
-    private $minimalOrderAmount;
+    private float $minimalOrderAmount;
 
     /**
      * @var int Expected delivery time, number of days, weeks, months, quarters, years
      */
-    private $stockDeliveryNumber;
+    private int $stockDeliveryNumber;
 
     /**
      * @var string Expected delivery type
      */
-    private $stockDeliveryType;
+    private string $stockDeliveryType;
 
     /**
      * @var string This field will be showed as the standard delivery text
      */
-    private $stockDeliveryStandard;
+    private string $stockDeliveryStandard;
 
     /**
      * @var bool Show the product in the window offers
      */
-    private $showInTemplate;
+    private bool $showInTemplate;
 
     /**
      * @var bool Show the product as a offer at the beginpage or offer element
      */
-    private $showOnBeginpage;
+    private bool $showOnBeginpage;
 
     /**
      * @var bool Show the product in the facebook shop when available
      */
-    private $showOnFacebook;
+    private bool $showOnFacebook;
 
     /**
      * @var string Show order/offer button.  Y=show   QUOTATION=offer button   N=No button
      */
-    private $showOrderButton;
+    private string $showOrderButton;
 
     /**
      * @var int Product Layout   1=Standard layout,   2=Quick order,   3=Split layout,   4=Tab Layout
      */
-    private $productLayout;
+    private int $productLayout;
 
     /**
      * @var string The photo description size
      */
-    private $photoSize;
+    private string $photoSize;
 
     /**
      * @var string Hide the products without categories.   YES=Hide,   NO_DIRECTLINK=No, the product can be found by direct url,   NO_SEARCHRESULTS=No, Product can be found in the searchresults
      */
-    private $hideWithoutCategory;
+    private string $hideWithoutCategory;
 
     /**
      * @var string Internal memo for internal purpose only
      */
-    private $memo;
+    private string $memo;
 
     /**
      * @var bool|null Enable / disable Marktplaats.
      */
-    private $marktplaatsActive;
+    private ?bool $marktplaatsActive;
 
     /**
      * @var string|null The status for this advertisement
      */
-    private $marktplaatsStatus;
+    private ?string $marktplaatsStatus;
 
     /**
      * @var float|null Cost per click in euro cents
      */
-    private $marktplaatsCpc;
+    private ?float $marktplaatsCpc;
 
     /**
      * @var float|null Daily budget for this advertisement in euro cents
      */
-    private $marktplaatsDailyBudget;
+    private ?float $marktplaatsDailyBudget;
 
     /**
      * @var float|null Total budget for this advertisement in euro cents. You can use 0 euro cents for a infinite total budget or 5000 euro cents as minimum.
      */
-    private $marktplaatsTotalBudget;
+    private ?float $marktplaatsTotalBudget;
 
     /**
      * @var int|null The Marktplaats category Id
      */
-    private $marktplaatsCategoryId;
+    private ?int $marktplaatsCategoryId;
 
     /**
      * @var string|null The price type
      */
-    private $marktplaatsPriceType;
+    private ?string $marktplaatsPriceType;
 
     /**
      * @var string|null Google Shopping Category. Corresponds with the values given by Google. See: https://support.google.com/merchants/answer/160081#sel_csv
      */
-    private $googleShoppingCategory;
+    private ?string $googleShoppingCategory;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Package|null Package of this product.
      */
-    private $package;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Package $package;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Supplier|null Supplier resource
      */
-    private $supplier;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Supplier $supplier;
 
     /**
      * @var bool|null Is this product included in the export feed
      */
-    private $isIncludedForExportFeed;
+    private ?bool $isIncludedForExportFeed;
 
     /**
      * @var bool Fixed staggered prices enabled
      */
-    private $fixedStaggeredPrices;
+    private bool $fixedStaggeredPrices;
 
     /**
      * @var bool Is this product visible in the webshop
      */
-    private $isVisible;
+    private bool $isVisible;
 
     /**
      * @var bool Can this product be ordered in the webshop
      */
-    private $canBeOrdered;
+    private bool $canBeOrdered;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productlabels|null Product labels
      */
-    private $productlabels;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productlabels $productlabels;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productphotos|null Product photos
      */
-    private $productphotos;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productphotos $productphotos;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvariations|null Product variations
      */
-    private $productvariations;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvariations $productvariations;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvideos|null Product videos
      */
-    private $productvideos;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvideos $productvideos;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttaxtariffexceptions|null Product tax tariff exceptions
      */
-    private $producttaxtariffexceptions;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttaxtariffexceptions $producttaxtariffexceptions;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattachments|null Product attachments
      */
-    private $productattachments;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattachments $productattachments;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productkeywords|null These keyswords are used for the tagcloud and internal search engine on the webshop
      */
-    private $productkeywords;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productkeywords $productkeywords;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productrelevant|null Relevant product
      */
-    private $productrelevant;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productrelevant $productrelevant;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattributesets|null Attribute sets
      */
-    private $productattributesets;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattributesets $productattributesets;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productstaggeredprices|null Product staggered prices
      */
-    private $productstaggeredprices;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productstaggeredprices $productstaggeredprices;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttocategories|null Product categories
      */
-    private $producttocategories;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttocategories $producttocategories;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productreviews|null Product reviews
      */
-    private $productreviews;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productreviews $productreviews;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Webshops|null Collection of webshops in which this product is connected. Empty if this is not a multishop product.
      */
-    private $webshops;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Webshops $webshops;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Attributecombinations|null Attribute combination
      */
-    private $attributecombinations;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Attributecombinations $attributecombinations;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttopropertygroups|null Collection of product property groups.
      */
-    private $producttopropertygroups;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttopropertygroups $producttopropertygroups;
 
     /**
      * @return self
@@ -1150,7 +1150,6 @@ class Products implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -1161,7 +1160,6 @@ class Products implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -1172,7 +1170,6 @@ class Products implements Model
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
-        $this->propertyFilled('isActive');
         return $this;
     }
 
@@ -1183,7 +1180,6 @@ class Products implements Model
     public function setCreatedate(string $createdate): self
     {
         $this->createdate = $createdate;
-        $this->propertyFilled('createdate');
         return $this;
     }
 
@@ -1194,7 +1190,6 @@ class Products implements Model
     public function setModifydate(string $modifydate): self
     {
         $this->modifydate = $modifydate;
-        $this->propertyFilled('modifydate');
         return $this;
     }
 
@@ -1205,7 +1200,6 @@ class Products implements Model
     public function setProductnumber(string $productnumber): self
     {
         $this->productnumber = $productnumber;
-        $this->propertyFilled('productnumber');
         return $this;
     }
 
@@ -1216,7 +1210,6 @@ class Products implements Model
     public function setEannumber(string $eannumber): self
     {
         $this->eannumber = $eannumber;
-        $this->propertyFilled('eannumber');
         return $this;
     }
 
@@ -1227,7 +1220,6 @@ class Products implements Model
     public function setMpnnumber(string $mpnnumber): self
     {
         $this->mpnnumber = $mpnnumber;
-        $this->propertyFilled('mpnnumber');
         return $this;
     }
 
@@ -1238,7 +1230,6 @@ class Products implements Model
     public function setIsMultishopProduct(bool $isMultishopProduct): self
     {
         $this->isMultishopProduct = $isMultishopProduct;
-        $this->propertyFilled('isMultishopProduct');
         return $this;
     }
 
@@ -1249,7 +1240,6 @@ class Products implements Model
     public function setMultishopHref(?string $multishopHref): self
     {
         $this->multishopHref = $multishopHref;
-        $this->propertyFilled('multishopHref');
         return $this;
     }
 
@@ -1260,7 +1250,6 @@ class Products implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -1271,7 +1260,6 @@ class Products implements Model
     public function setShortdescription(string $shortdescription): self
     {
         $this->shortdescription = $shortdescription;
-        $this->propertyFilled('shortdescription');
         return $this;
     }
 
@@ -1282,7 +1270,6 @@ class Products implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -1294,7 +1281,6 @@ class Products implements Model
     public function setVatrate(float $vatrate): self
     {
         $this->vatrate = $vatrate;
-        $this->propertyFilled('vatrate');
         return $this;
     }
 
@@ -1305,7 +1291,6 @@ class Products implements Model
     public function setTaxtariff(string $taxtariff): self
     {
         $this->taxtariff = $taxtariff;
-        $this->propertyFilled('taxtariff');
         return $this;
     }
 
@@ -1316,7 +1301,6 @@ class Products implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -1327,7 +1311,6 @@ class Products implements Model
     public function setDiscount(float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -1338,7 +1321,6 @@ class Products implements Model
     public function setPurchaseprice(float $purchaseprice): self
     {
         $this->purchaseprice = $purchaseprice;
-        $this->propertyFilled('purchaseprice');
         return $this;
     }
 
@@ -1349,7 +1331,6 @@ class Products implements Model
     public function setContainerDepositPrice(float $containerDepositPrice): self
     {
         $this->containerDepositPrice = $containerDepositPrice;
-        $this->propertyFilled('containerDepositPrice');
         return $this;
     }
 
@@ -1360,7 +1341,6 @@ class Products implements Model
     public function setSafetyDepositPrice(float $safetyDepositPrice): self
     {
         $this->safetyDepositPrice = $safetyDepositPrice;
-        $this->propertyFilled('safetyDepositPrice');
         return $this;
     }
 
@@ -1371,7 +1351,6 @@ class Products implements Model
     public function setProductshippingcosts(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productshippingcosts $productshippingcosts): self
     {
         $this->productshippingcosts = $productshippingcosts;
-        $this->propertyFilled('productshippingcosts');
         return $this;
     }
 
@@ -1382,7 +1361,6 @@ class Products implements Model
     public function setCreditPointsCustom(?int $creditPointsCustom): self
     {
         $this->creditPointsCustom = $creditPointsCustom;
-        $this->propertyFilled('creditPointsCustom');
         return $this;
     }
 
@@ -1393,7 +1371,6 @@ class Products implements Model
     public function setCreditPointsCalculated(?int $creditPointsCalculated): self
     {
         $this->creditPointsCalculated = $creditPointsCalculated;
-        $this->propertyFilled('creditPointsCalculated');
         return $this;
     }
 
@@ -1404,7 +1381,6 @@ class Products implements Model
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
-        $this->propertyFilled('unit');
         return $this;
     }
 
@@ -1415,7 +1391,6 @@ class Products implements Model
     public function setStockenabled(?bool $stockenabled): self
     {
         $this->stockenabled = $stockenabled;
-        $this->propertyFilled('stockenabled');
         return $this;
     }
 
@@ -1426,7 +1401,6 @@ class Products implements Model
     public function setStocktype(?string $stocktype): self
     {
         $this->stocktype = $stocktype;
-        $this->propertyFilled('stocktype');
         return $this;
     }
 
@@ -1437,7 +1411,6 @@ class Products implements Model
     public function setStock(?float $stock): self
     {
         $this->stock = $stock;
-        $this->propertyFilled('stock');
         return $this;
     }
 
@@ -1448,7 +1421,6 @@ class Products implements Model
     public function setStocklocation(string $stocklocation): self
     {
         $this->stocklocation = $stocklocation;
-        $this->propertyFilled('stocklocation');
         return $this;
     }
 
@@ -1459,7 +1431,6 @@ class Products implements Model
     public function setOrderingWithoutStock(?string $orderingWithoutStock): self
     {
         $this->orderingWithoutStock = $orderingWithoutStock;
-        $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
 
@@ -1470,7 +1441,6 @@ class Products implements Model
     public function setWeight(float $weight): self
     {
         $this->weight = $weight;
-        $this->propertyFilled('weight');
         return $this;
     }
 
@@ -1481,7 +1451,6 @@ class Products implements Model
     public function setMaincategory(?string $maincategory): self
     {
         $this->maincategory = $maincategory;
-        $this->propertyFilled('maincategory');
         return $this;
     }
 
@@ -1492,7 +1461,6 @@ class Products implements Model
     public function setSubcategory(string $subcategory): self
     {
         $this->subcategory = $subcategory;
-        $this->propertyFilled('subcategory');
         return $this;
     }
 
@@ -1503,7 +1471,6 @@ class Products implements Model
     public function setBrand(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Brand $brand): self
     {
         $this->brand = $brand;
-        $this->propertyFilled('brand');
         return $this;
     }
 
@@ -1514,7 +1481,6 @@ class Products implements Model
     public function setCondition(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Condition $condition): self
     {
         $this->condition = $condition;
-        $this->propertyFilled('condition');
         return $this;
     }
 
@@ -1525,7 +1491,6 @@ class Products implements Model
     public function setColor(?object $color): self
     {
         $this->color = $color;
-        $this->propertyFilled('color');
         return $this;
     }
 
@@ -1536,7 +1501,6 @@ class Products implements Model
     public function setProductmainphoto(?string $productmainphoto): self
     {
         $this->productmainphoto = $productmainphoto;
-        $this->propertyFilled('productmainphoto');
         return $this;
     }
 
@@ -1547,7 +1511,6 @@ class Products implements Model
     public function setMetaDescription(string $metaDescription): self
     {
         $this->metaDescription = $metaDescription;
-        $this->propertyFilled('metaDescription');
         return $this;
     }
 
@@ -1558,7 +1521,6 @@ class Products implements Model
     public function setMetaKeywords(string $metaKeywords): self
     {
         $this->metaKeywords = $metaKeywords;
-        $this->propertyFilled('metaKeywords');
         return $this;
     }
 
@@ -1569,7 +1531,6 @@ class Products implements Model
     public function setPageTitle(string $pageTitle): self
     {
         $this->pageTitle = $pageTitle;
-        $this->propertyFilled('pageTitle');
         return $this;
     }
 
@@ -1580,7 +1541,6 @@ class Products implements Model
     public function setNoIndex(bool $noIndex): self
     {
         $this->noIndex = $noIndex;
-        $this->propertyFilled('noIndex');
         return $this;
     }
 
@@ -1591,7 +1551,6 @@ class Products implements Model
     public function setNoFollow(bool $noFollow): self
     {
         $this->noFollow = $noFollow;
-        $this->propertyFilled('noFollow');
         return $this;
     }
 
@@ -1602,7 +1561,6 @@ class Products implements Model
     public function setAlias(string $alias): self
     {
         $this->alias = $alias;
-        $this->propertyFilled('alias');
         return $this;
     }
 
@@ -1613,7 +1571,6 @@ class Products implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -1624,7 +1581,6 @@ class Products implements Model
     public function setSpecs(?string $specs): self
     {
         $this->specs = $specs;
-        $this->propertyFilled('specs');
         return $this;
     }
 
@@ -1635,7 +1591,6 @@ class Products implements Model
     public function setDecimalAmount(int $decimalAmount): self
     {
         $this->decimalAmount = $decimalAmount;
-        $this->propertyFilled('decimalAmount');
         return $this;
     }
 
@@ -1646,7 +1601,6 @@ class Products implements Model
     public function setMinimalOrderAmount(float $minimalOrderAmount): self
     {
         $this->minimalOrderAmount = $minimalOrderAmount;
-        $this->propertyFilled('minimalOrderAmount');
         return $this;
     }
 
@@ -1657,7 +1611,6 @@ class Products implements Model
     public function setStockDeliveryNumber(int $stockDeliveryNumber): self
     {
         $this->stockDeliveryNumber = $stockDeliveryNumber;
-        $this->propertyFilled('stockDeliveryNumber');
         return $this;
     }
 
@@ -1668,7 +1621,6 @@ class Products implements Model
     public function setStockDeliveryType(string $stockDeliveryType): self
     {
         $this->stockDeliveryType = $stockDeliveryType;
-        $this->propertyFilled('stockDeliveryType');
         return $this;
     }
 
@@ -1679,7 +1631,6 @@ class Products implements Model
     public function setStockDeliveryStandard(string $stockDeliveryStandard): self
     {
         $this->stockDeliveryStandard = $stockDeliveryStandard;
-        $this->propertyFilled('stockDeliveryStandard');
         return $this;
     }
 
@@ -1690,7 +1641,6 @@ class Products implements Model
     public function setShowInTemplate(bool $showInTemplate): self
     {
         $this->showInTemplate = $showInTemplate;
-        $this->propertyFilled('showInTemplate');
         return $this;
     }
 
@@ -1701,7 +1651,6 @@ class Products implements Model
     public function setShowOnBeginpage(bool $showOnBeginpage): self
     {
         $this->showOnBeginpage = $showOnBeginpage;
-        $this->propertyFilled('showOnBeginpage');
         return $this;
     }
 
@@ -1712,7 +1661,6 @@ class Products implements Model
     public function setShowOnFacebook(bool $showOnFacebook): self
     {
         $this->showOnFacebook = $showOnFacebook;
-        $this->propertyFilled('showOnFacebook');
         return $this;
     }
 
@@ -1723,7 +1671,6 @@ class Products implements Model
     public function setShowOrderButton(string $showOrderButton): self
     {
         $this->showOrderButton = $showOrderButton;
-        $this->propertyFilled('showOrderButton');
         return $this;
     }
 
@@ -1734,7 +1681,6 @@ class Products implements Model
     public function setProductLayout(int $productLayout): self
     {
         $this->productLayout = $productLayout;
-        $this->propertyFilled('productLayout');
         return $this;
     }
 
@@ -1745,7 +1691,6 @@ class Products implements Model
     public function setPhotoSize(string $photoSize): self
     {
         $this->photoSize = $photoSize;
-        $this->propertyFilled('photoSize');
         return $this;
     }
 
@@ -1756,7 +1701,6 @@ class Products implements Model
     public function setHideWithoutCategory(string $hideWithoutCategory): self
     {
         $this->hideWithoutCategory = $hideWithoutCategory;
-        $this->propertyFilled('hideWithoutCategory');
         return $this;
     }
 
@@ -1767,7 +1711,6 @@ class Products implements Model
     public function setMemo(string $memo): self
     {
         $this->memo = $memo;
-        $this->propertyFilled('memo');
         return $this;
     }
 
@@ -1778,7 +1721,6 @@ class Products implements Model
     public function setMarktplaatsActive(?bool $marktplaatsActive): self
     {
         $this->marktplaatsActive = $marktplaatsActive;
-        $this->propertyFilled('marktplaatsActive');
         return $this;
     }
 
@@ -1789,7 +1731,6 @@ class Products implements Model
     public function setMarktplaatsStatus(?string $marktplaatsStatus): self
     {
         $this->marktplaatsStatus = $marktplaatsStatus;
-        $this->propertyFilled('marktplaatsStatus');
         return $this;
     }
 
@@ -1800,7 +1741,6 @@ class Products implements Model
     public function setMarktplaatsCpc(?float $marktplaatsCpc): self
     {
         $this->marktplaatsCpc = $marktplaatsCpc;
-        $this->propertyFilled('marktplaatsCpc');
         return $this;
     }
 
@@ -1811,7 +1751,6 @@ class Products implements Model
     public function setMarktplaatsDailyBudget(?float $marktplaatsDailyBudget): self
     {
         $this->marktplaatsDailyBudget = $marktplaatsDailyBudget;
-        $this->propertyFilled('marktplaatsDailyBudget');
         return $this;
     }
 
@@ -1822,7 +1761,6 @@ class Products implements Model
     public function setMarktplaatsTotalBudget(?float $marktplaatsTotalBudget): self
     {
         $this->marktplaatsTotalBudget = $marktplaatsTotalBudget;
-        $this->propertyFilled('marktplaatsTotalBudget');
         return $this;
     }
 
@@ -1833,7 +1771,6 @@ class Products implements Model
     public function setMarktplaatsCategoryId(?int $marktplaatsCategoryId): self
     {
         $this->marktplaatsCategoryId = $marktplaatsCategoryId;
-        $this->propertyFilled('marktplaatsCategoryId');
         return $this;
     }
 
@@ -1844,7 +1781,6 @@ class Products implements Model
     public function setMarktplaatsPriceType(?string $marktplaatsPriceType): self
     {
         $this->marktplaatsPriceType = $marktplaatsPriceType;
-        $this->propertyFilled('marktplaatsPriceType');
         return $this;
     }
 
@@ -1855,7 +1791,6 @@ class Products implements Model
     public function setGoogleShoppingCategory(?string $googleShoppingCategory): self
     {
         $this->googleShoppingCategory = $googleShoppingCategory;
-        $this->propertyFilled('googleShoppingCategory');
         return $this;
     }
 
@@ -1866,7 +1801,6 @@ class Products implements Model
     public function setPackage(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Package $package): self
     {
         $this->package = $package;
-        $this->propertyFilled('package');
         return $this;
     }
 
@@ -1877,7 +1811,6 @@ class Products implements Model
     public function setSupplier(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Supplier $supplier): self
     {
         $this->supplier = $supplier;
-        $this->propertyFilled('supplier');
         return $this;
     }
 
@@ -1888,7 +1821,6 @@ class Products implements Model
     public function setIsIncludedForExportFeed(?bool $isIncludedForExportFeed): self
     {
         $this->isIncludedForExportFeed = $isIncludedForExportFeed;
-        $this->propertyFilled('isIncludedForExportFeed');
         return $this;
     }
 
@@ -1899,7 +1831,6 @@ class Products implements Model
     public function setFixedStaggeredPrices(bool $fixedStaggeredPrices): self
     {
         $this->fixedStaggeredPrices = $fixedStaggeredPrices;
-        $this->propertyFilled('fixedStaggeredPrices');
         return $this;
     }
 
@@ -1910,7 +1841,6 @@ class Products implements Model
     public function setIsVisible(bool $isVisible): self
     {
         $this->isVisible = $isVisible;
-        $this->propertyFilled('isVisible');
         return $this;
     }
 
@@ -1921,7 +1851,6 @@ class Products implements Model
     public function setCanBeOrdered(bool $canBeOrdered): self
     {
         $this->canBeOrdered = $canBeOrdered;
-        $this->propertyFilled('canBeOrdered');
         return $this;
     }
 
@@ -1932,7 +1861,6 @@ class Products implements Model
     public function setProductlabels(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productlabels $productlabels): self
     {
         $this->productlabels = $productlabels;
-        $this->propertyFilled('productlabels');
         return $this;
     }
 
@@ -1943,7 +1871,6 @@ class Products implements Model
     public function setProductphotos(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productphotos $productphotos): self
     {
         $this->productphotos = $productphotos;
-        $this->propertyFilled('productphotos');
         return $this;
     }
 
@@ -1954,7 +1881,6 @@ class Products implements Model
     public function setProductvariations(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvariations $productvariations): self
     {
         $this->productvariations = $productvariations;
-        $this->propertyFilled('productvariations');
         return $this;
     }
 
@@ -1965,7 +1891,6 @@ class Products implements Model
     public function setProductvideos(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productvideos $productvideos): self
     {
         $this->productvideos = $productvideos;
-        $this->propertyFilled('productvideos');
         return $this;
     }
 
@@ -1976,7 +1901,6 @@ class Products implements Model
     public function setProducttaxtariffexceptions(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttaxtariffexceptions $producttaxtariffexceptions): self
     {
         $this->producttaxtariffexceptions = $producttaxtariffexceptions;
-        $this->propertyFilled('producttaxtariffexceptions');
         return $this;
     }
 
@@ -1987,7 +1911,6 @@ class Products implements Model
     public function setProductattachments(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattachments $productattachments): self
     {
         $this->productattachments = $productattachments;
-        $this->propertyFilled('productattachments');
         return $this;
     }
 
@@ -1998,7 +1921,6 @@ class Products implements Model
     public function setProductkeywords(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productkeywords $productkeywords): self
     {
         $this->productkeywords = $productkeywords;
-        $this->propertyFilled('productkeywords');
         return $this;
     }
 
@@ -2009,7 +1931,6 @@ class Products implements Model
     public function setProductrelevant(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productrelevant $productrelevant): self
     {
         $this->productrelevant = $productrelevant;
-        $this->propertyFilled('productrelevant');
         return $this;
     }
 
@@ -2020,7 +1941,6 @@ class Products implements Model
     public function setProductattributesets(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productattributesets $productattributesets): self
     {
         $this->productattributesets = $productattributesets;
-        $this->propertyFilled('productattributesets');
         return $this;
     }
 
@@ -2031,7 +1951,6 @@ class Products implements Model
     public function setProductstaggeredprices(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productstaggeredprices $productstaggeredprices): self
     {
         $this->productstaggeredprices = $productstaggeredprices;
-        $this->propertyFilled('productstaggeredprices');
         return $this;
     }
 
@@ -2042,7 +1961,6 @@ class Products implements Model
     public function setProducttocategories(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttocategories $producttocategories): self
     {
         $this->producttocategories = $producttocategories;
-        $this->propertyFilled('producttocategories');
         return $this;
     }
 
@@ -2053,7 +1971,6 @@ class Products implements Model
     public function setProductreviews(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Productreviews $productreviews): self
     {
         $this->productreviews = $productreviews;
-        $this->propertyFilled('productreviews');
         return $this;
     }
 
@@ -2064,7 +1981,6 @@ class Products implements Model
     public function setWebshops(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Webshops $webshops): self
     {
         $this->webshops = $webshops;
-        $this->propertyFilled('webshops');
         return $this;
     }
 
@@ -2075,7 +1991,6 @@ class Products implements Model
     public function setAttributecombinations(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Attributecombinations $attributecombinations): self
     {
         $this->attributecombinations = $attributecombinations;
-        $this->propertyFilled('attributecombinations');
         return $this;
     }
 
@@ -2086,7 +2001,6 @@ class Products implements Model
     public function setProducttopropertygroups(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Producttopropertygroups $producttopropertygroups): self
     {
         $this->producttopropertygroups = $producttopropertygroups;
-        $this->propertyFilled('producttopropertygroups');
         return $this;
     }
 }

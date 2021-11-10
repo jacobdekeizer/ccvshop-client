@@ -19,12 +19,12 @@ class Categorytree implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode[] Array with root categories.
      */
-    private $rootCategories;
+    private array $rootCategories;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Categorytree implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Categorytree implements Model
     public function setRootCategories(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$rootCategories): self
     {
         $this->rootCategories = $rootCategories;
-        $this->propertyFilled('rootCategories');
         return $this;
     }
 }

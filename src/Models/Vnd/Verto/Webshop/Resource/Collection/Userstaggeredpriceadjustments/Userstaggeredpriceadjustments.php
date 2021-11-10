@@ -19,12 +19,12 @@ class Userstaggeredpriceadjustments implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Userstaggeredpriceadjustments\Userstaggeredpriceadjustments[] Array with collection items
      */
-    private $items;
+    private array $items;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Userstaggeredpriceadjustments implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Userstaggeredpriceadjustments implements Model
     public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Userstaggeredpriceadjustments\Userstaggeredpriceadjustments ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
 }

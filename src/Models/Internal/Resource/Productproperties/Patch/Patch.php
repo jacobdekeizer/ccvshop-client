@@ -19,32 +19,32 @@ class Patch implements Model
     /**
      * @var int|null Product Property parent Id
      */
-    private $parent;
+    private ?int $parent;
 
     /**
      * @var string|null Property name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Property description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var int|null Property position
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var string|null Base64 encoded Property icon
      */
-    private $icon;
+    private ?string $icon;
 
     /**
      * @var string|null The property type
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Patch implements Model
     public function setParent(?int $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Patch implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Patch implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Patch implements Model
     public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
-        $this->propertyFilled('icon');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Patch implements Model
     public function setType(?string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 }

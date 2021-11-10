@@ -19,32 +19,32 @@ class Producttaxtariffexceptions implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Unique id of the product
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var string ISO 2Code for the country of the tax tariff exception.
      */
-    private $country;
+    private string $country;
 
     /**
      * @var string The tax tariff of the exception
      */
-    private $taxtariff;
+    private string $taxtariff;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttaxtariffexceptions\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttaxtariffexceptions\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Producttaxtariffexceptions implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Producttaxtariffexceptions implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Producttaxtariffexceptions implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Producttaxtariffexceptions implements Model
     public function setCountry(string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Producttaxtariffexceptions implements Model
     public function setTaxtariff(string $taxtariff): self
     {
         $this->taxtariff = $taxtariff;
-        $this->propertyFilled('taxtariff');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Producttaxtariffexceptions implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttaxtariffexceptions\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

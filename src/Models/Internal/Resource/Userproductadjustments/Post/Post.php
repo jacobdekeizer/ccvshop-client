@@ -19,27 +19,27 @@ class Post implements Model
     /**
      * @var int Unique id of the product.
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Unique id of the user.
      */
-    private $userId;
+    private int $userId;
 
     /**
      * @var float|null Adjusted price for this user for this product.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Adjusted discount price for this user for this product. Must be NULL if price is NULL too.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var bool|null If TRUE then this product won't be visible for this user. Default is false
      */
-    private $hidden;
+    private ?bool $hidden;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Post implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Post implements Model
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
-        $this->propertyFilled('userId');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Post implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Post implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Post implements Model
     public function setHidden(?bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 }

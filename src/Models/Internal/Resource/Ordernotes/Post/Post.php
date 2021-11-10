@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var string|null The text of this note.
      */
-    private $note;
+    private ?string $note;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setNote(?string $note): self
     {
         $this->note = $note;
-        $this->propertyFilled('note');
         return $this;
     }
 }

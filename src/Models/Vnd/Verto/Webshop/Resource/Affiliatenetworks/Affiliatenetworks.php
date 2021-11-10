@@ -19,32 +19,32 @@ class Affiliatenetworks implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Affiliate network name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var int Cookie TTL time in minutes until cookie expires.
      */
-    private $cookieTtl;
+    private int $cookieTtl;
 
     /**
      * @var bool True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
-    private $deduplicate;
+    private bool $deduplicate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Affiliatenetworks\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Affiliatenetworks\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Affiliatenetworks implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Affiliatenetworks implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Affiliatenetworks implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Affiliatenetworks implements Model
     public function setCookieTtl(int $cookieTtl): self
     {
         $this->cookieTtl = $cookieTtl;
-        $this->propertyFilled('cookieTtl');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Affiliatenetworks implements Model
     public function setDeduplicate(bool $deduplicate): self
     {
         $this->deduplicate = $deduplicate;
-        $this->propertyFilled('deduplicate');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Affiliatenetworks implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Affiliatenetworks\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var string Product photo attachment display name
      */
-    private $displayname;
+    private string $displayname;
 
     /**
      * @var string Attachment full name (ie. picture.png)
      */
-    private $filename;
+    private string $filename;
 
     /**
      * @var string Attachment source base 64 encoded
      */
-    private $source;
+    private string $source;
 
     /**
      * @var int|null Attachment position. When the position isn't filled the highest position will be used.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Post implements Model
     public function setDisplayname(string $displayname): self
     {
         $this->displayname = $displayname;
-        $this->propertyFilled('displayname');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Post implements Model
     public function setFilename(string $filename): self
     {
         $this->filename = $filename;
-        $this->propertyFilled('filename');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Post implements Model
     public function setSource(string $source): self
     {
         $this->source = $source;
-        $this->propertyFilled('source');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Post implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

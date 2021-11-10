@@ -19,12 +19,12 @@ class Disabledpaymethods implements Model
     /**
      * @var int The id of the Payment Service Provider. This can be used to filter in the order resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string The Payment method, can be a sub brand of the psp. This can be empty.
      */
-    private $method;
+    private string $method;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Disabledpaymethods implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Disabledpaymethods implements Model
     public function setMethod(string $method): self
     {
         $this->method = $method;
-        $this->propertyFilled('method');
         return $this;
     }
 }

@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var int Unique id of the product staggered price.
      */
-    private $staggeredpriceId;
+    private int $staggeredpriceId;
 
     /**
      * @var int Unique id of the user.
      */
-    private $userId;
+    private int $userId;
 
     /**
      * @var float|null Adjusted price for this user for this product staggered price.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Adjusted discount price for this user for this product staggered price.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Post implements Model
     public function setStaggeredpriceId(int $staggeredpriceId): self
     {
         $this->staggeredpriceId = $staggeredpriceId;
-        $this->propertyFilled('staggeredpriceId');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Post implements Model
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
-        $this->propertyFilled('userId');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Post implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Post implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 }

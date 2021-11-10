@@ -19,17 +19,17 @@ class Productshippingcosts implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts[] Array with collection items
      */
-    private $items;
+    private array $items;
 
     /**
      * @var float|null Optional value of the parameter.
      */
-    private $quantity;
+    private ?float $quantity;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Productshippingcosts implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Productshippingcosts implements Model
     public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Productshippingcosts implements Model
     public function setQuantity(?float $quantity): self
     {
         $this->quantity = $quantity;
-        $this->propertyFilled('quantity');
         return $this;
     }
 }

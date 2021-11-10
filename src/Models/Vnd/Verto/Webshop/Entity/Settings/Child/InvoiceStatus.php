@@ -19,27 +19,27 @@ class InvoiceStatus implements Model
     /**
      * @var int Id of the status.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string This status corresponse with the status in the invoice resource.
      */
-    private $status;
+    private string $status;
 
     /**
      * @var string The display name of this status. The merchant can adjust this.
      */
-    private $statusName;
+    private string $statusName;
 
     /**
      * @var string The text color in HEX code.
      */
-    private $textColor;
+    private string $textColor;
 
     /**
      * @var string The background color in HEX code.
      */
-    private $backgroundColor;
+    private string $backgroundColor;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class InvoiceStatus implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class InvoiceStatus implements Model
     public function setStatus(string $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class InvoiceStatus implements Model
     public function setStatusName(string $statusName): self
     {
         $this->statusName = $statusName;
-        $this->propertyFilled('statusName');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class InvoiceStatus implements Model
     public function setTextColor(string $textColor): self
     {
         $this->textColor = $textColor;
-        $this->propertyFilled('textColor');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class InvoiceStatus implements Model
     public function setBackgroundColor(string $backgroundColor): self
     {
         $this->backgroundColor = $backgroundColor;
-        $this->propertyFilled('backgroundColor');
         return $this;
     }
 }

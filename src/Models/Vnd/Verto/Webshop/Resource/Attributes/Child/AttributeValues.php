@@ -19,7 +19,7 @@ class AttributeValues implements Model
     /**
      * @var string Link to the values of this attribute
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class AttributeValues implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

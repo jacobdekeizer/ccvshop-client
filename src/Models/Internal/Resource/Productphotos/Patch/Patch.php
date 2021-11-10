@@ -19,12 +19,12 @@ class Patch implements Model
     /**
      * @var string|null Photo alt text
      */
-    private $alttext;
+    private ?string $alttext;
 
     /**
      * @var bool|null Product photo marked as mainphoto
      */
-    private $isMainphoto;
+    private ?bool $isMainphoto;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Patch implements Model
     public function setAlttext(?string $alttext): self
     {
         $this->alttext = $alttext;
-        $this->propertyFilled('alttext');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Patch implements Model
     public function setIsMainphoto(?bool $isMainphoto): self
     {
         $this->isMainphoto = $isMainphoto;
-        $this->propertyFilled('isMainphoto');
         return $this;
     }
 }

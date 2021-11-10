@@ -19,7 +19,7 @@ class Patch implements Model
     /**
      * @var bool Is the review approved for publishing.
      */
-    private $approved;
+    private bool $approved;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Patch implements Model
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
-        $this->propertyFilled('approved');
         return $this;
     }
 }

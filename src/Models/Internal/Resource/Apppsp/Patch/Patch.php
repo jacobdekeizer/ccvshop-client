@@ -19,27 +19,27 @@ class Patch implements Model
     /**
      * @var string|null The name of the PSP. This is how the App PSP is identified
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null The description will be shown to the merchant above the settings in the webshop's backend.
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string|null This is an icon of the PSP that will be shown to the merchant above the settings in the webshop's backend. This is optional and may be empty.
      */
-    private $icon;
+    private ?string $icon;
 
     /**
      * @var string|null This is the endpoint of the PSP. All API calls made from the webshop will be made to this endpoint.
      */
-    private $endpoint;
+    private ?string $endpoint;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod[]|null Array of paymethods of the psp.
      */
-    private $paymethods;
+    private ?array $paymethods;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Patch implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Patch implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Patch implements Model
     public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
-        $this->propertyFilled('icon');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Patch implements Model
     public function setEndpoint(?string $endpoint): self
     {
         $this->endpoint = $endpoint;
-        $this->propertyFilled('endpoint');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Patch implements Model
     public function setPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod ...$paymethods): self
     {
         $this->paymethods = $paymethods;
-        $this->propertyFilled('paymethods');
         return $this;
     }
 }

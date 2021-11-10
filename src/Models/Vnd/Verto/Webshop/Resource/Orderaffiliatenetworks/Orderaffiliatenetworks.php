@@ -19,22 +19,22 @@ class Orderaffiliatenetworks implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string|null Order affiliate network name.
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null The transaction id of the affiliate network.
      */
-    private $transactionId;
+    private ?string $transactionId;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderaffiliatenetworks\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderaffiliatenetworks\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Orderaffiliatenetworks implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Orderaffiliatenetworks implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Orderaffiliatenetworks implements Model
     public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
-        $this->propertyFilled('transactionId');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Orderaffiliatenetworks implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderaffiliatenetworks\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

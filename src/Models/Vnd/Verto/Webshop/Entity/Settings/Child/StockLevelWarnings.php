@@ -19,12 +19,12 @@ class StockLevelWarnings implements Model
     /**
      * @var int|null The lower threshold for product stock. If the stock is less than this it's considered 'red'. Value will be null if stock is disabled.
      */
-    private $lowThreshold;
+    private ?int $lowThreshold;
 
     /**
      * @var int|null The upper threshold for product stock. If the stock is more than this it's considered 'green'. Value will be null if stock is disabled.
      */
-    private $highThreshold;
+    private ?int $highThreshold;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class StockLevelWarnings implements Model
     public function setLowThreshold(?int $lowThreshold): self
     {
         $this->lowThreshold = $lowThreshold;
-        $this->propertyFilled('lowThreshold');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class StockLevelWarnings implements Model
     public function setHighThreshold(?int $highThreshold): self
     {
         $this->highThreshold = $highThreshold;
-        $this->propertyFilled('highThreshold');
         return $this;
     }
 }

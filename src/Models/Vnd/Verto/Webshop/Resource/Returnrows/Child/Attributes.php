@@ -19,17 +19,17 @@ class Attributes implements Model
     /**
      * @var string|null Option name.
      */
-    private $optionName;
+    private ?string $optionName;
 
     /**
      * @var string|null Value name.
      */
-    private $valueName;
+    private ?string $valueName;
 
     /**
      * @var float|null Extra price added to the return row.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Attributes implements Model
     public function setOptionName(?string $optionName): self
     {
         $this->optionName = $optionName;
-        $this->propertyFilled('optionName');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Attributes implements Model
     public function setValueName(?string $valueName): self
     {
         $this->valueName = $valueName;
-        $this->propertyFilled('valueName');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Attributes implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 }

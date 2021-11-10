@@ -19,127 +19,127 @@ class Patch implements Model
     /**
      * @var int|null Invoice number of the order. This can be alter in the backend. This will be null when 'is_completed' is false.
      */
-    private $invoicenumber;
+    private ?int $invoicenumber;
 
     /**
      * @var bool|null If the order is marked as paid.
      */
-    private $paid;
+    private ?bool $paid;
 
     /**
      * @var bool|null If the order's safety deposit is returned to the customer.
      */
-    private $safetyDepositReturned;
+    private ?bool $safetyDepositReturned;
 
     /**
      * @var float|null Total shipping costs. If this order already has a value for this field, it will be overwritten.
      */
-    private $totalShipping;
+    private ?float $totalShipping;
 
     /**
      * @var float|null Extra price added to the order as an additional fee for paymethod costs. If this order already has a value for this field, it will be overwritten.
      */
-    private $paymethodCosts;
+    private ?float $paymethodCosts;
 
     /**
      * @var float|null Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero. If this order already has a value for this property, it will be overwritten.
      */
-    private $extraCosts;
+    private ?float $extraCosts;
 
     /**
      * @var string|null Description of the extra costs. This is visible on the invoice and only if extra_costs is not zero. If extra_costs is supplied, it's advised to fill this property.
      */
-    private $extraCostsDescription;
+    private ?string $extraCostsDescription;
 
     /**
      * @var bool|null If taxes are calculated in the total price. If false, all taxes will be hidden.
      */
-    private $taxesIncluded;
+    private ?bool $taxesIncluded;
 
     /**
      * @var bool|null If order row prices contain taxes. Use this property to choose between an inc. VAT order and an ex. VAT order.
      */
-    private $orderRowTaxesIncluded;
+    private ?bool $orderRowTaxesIncluded;
 
     /**
      * @var bool|null If shippingcosts are included in the total tax amount.
      */
-    private $shippingTaxesIncluded;
+    private ?bool $shippingTaxesIncluded;
 
     /**
      * @var bool|null Indicates if the order is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all order rows.
      */
-    private $isIntraCommunityOrder;
+    private ?bool $isIntraCommunityOrder;
 
     /**
      * @var string|null ISO 4217 Currency Code
      */
-    private $currency;
+    private ?string $currency;
 
     /**
      * @var bool|null Indicates that the order was placed via an external platform. Per EU tax regulations, this means that tax on all order rows must be 0%.
      */
-    private $isPlatformSale;
+    private ?bool $isPlatformSale;
 
     /**
      * @var string|null Language in which this order was ordered
      */
-    private $orderedinlng;
+    private ?string $orderedinlng;
 
     /**
      * @var int|null Status of the order. 1. New 2. In process 3. Wait for manufacturer 4. Wait for payment 5. Sent 6. Delivered 7. Completed 8. Cancelled 9. Wait for supplier 10. Is being packaged 11. Ready to be collected 12. Is being assembled 13. Backorder 14. Reserved
      */
-    private $status;
+    private ?int $status;
 
     /**
      * @var string|null When the boolean 'mail' is set, the note will be appended to the email which is send to the customer.
      */
-    private $note;
+    private ?string $note;
 
     /**
      * @var string|null Track and Trace Code, supplied by shipping party. When the boolean 'mail' is set, the Track and Trace Code can be appended to the email which is send to the customer.
      */
-    private $trackAndTraceCode;
+    private ?string $trackAndTraceCode;
 
     /**
      * @var string|null Track & Trace Carrier. This value represents the shipping service.
      */
-    private $trackAndTraceCarrier;
+    private ?string $trackAndTraceCarrier;
 
     /**
      * @var bool|null If TRUE, notify the customer of the status change. Also see 'note' and 'track_and_trace_code'.
      */
-    private $mail;
+    private ?bool $mail;
 
     /**
      * @var string|null Delivery date in UTC
      */
-    private $deliverDate;
+    private ?string $deliverDate;
 
     /**
      * @var string|null This is the deliver method the customer chooses during checkout. Shipping implies using a postal service. Delivery and Pickup are considered take out options. Delivery implies personal delivery by the webshop. Pickup implies that the customer will pick up the order at the store location. If available the moment of deliver or pickup is in the field deliver_date.
      */
-    private $deliverMethod;
+    private ?string $deliverMethod;
 
     /**
      * @var int|null Id for the takeout slot. If takeoutslot is used then deliver_method must be deliver or pickup
      */
-    private $takeoutslot;
+    private ?int $takeoutslot;
 
     /**
      * @var string|null The reservation number for an order. This may be visible on the invoice
      */
-    private $reservationnumber;
+    private ?string $reservationnumber;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Input|null Describes personal information of the customer
      */
-    private $customer;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Input $customer;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Orderrow\Input\Input[]|null Describes a collection of order rows. Replaces all old order rows with the new orders rows. This will result in a recalculation of the order. If a product_id is provided the properties will be populated with product data. If you wish to overrule this data just add the property to the payload.
      */
-    private $orderrows;
+    private ?array $orderrows;
 
     /**
      * @return self
@@ -356,7 +356,6 @@ class Patch implements Model
     public function setInvoicenumber(?int $invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
-        $this->propertyFilled('invoicenumber');
         return $this;
     }
 
@@ -367,7 +366,6 @@ class Patch implements Model
     public function setPaid(?bool $paid): self
     {
         $this->paid = $paid;
-        $this->propertyFilled('paid');
         return $this;
     }
 
@@ -378,7 +376,6 @@ class Patch implements Model
     public function setSafetyDepositReturned(?bool $safetyDepositReturned): self
     {
         $this->safetyDepositReturned = $safetyDepositReturned;
-        $this->propertyFilled('safetyDepositReturned');
         return $this;
     }
 
@@ -389,7 +386,6 @@ class Patch implements Model
     public function setTotalShipping(?float $totalShipping): self
     {
         $this->totalShipping = $totalShipping;
-        $this->propertyFilled('totalShipping');
         return $this;
     }
 
@@ -400,7 +396,6 @@ class Patch implements Model
     public function setPaymethodCosts(?float $paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
-        $this->propertyFilled('paymethodCosts');
         return $this;
     }
 
@@ -411,7 +406,6 @@ class Patch implements Model
     public function setExtraCosts(?float $extraCosts): self
     {
         $this->extraCosts = $extraCosts;
-        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -422,7 +416,6 @@ class Patch implements Model
     public function setExtraCostsDescription(?string $extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
-        $this->propertyFilled('extraCostsDescription');
         return $this;
     }
 
@@ -433,7 +426,6 @@ class Patch implements Model
     public function setTaxesIncluded(?bool $taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
-        $this->propertyFilled('taxesIncluded');
         return $this;
     }
 
@@ -444,7 +436,6 @@ class Patch implements Model
     public function setOrderRowTaxesIncluded(?bool $orderRowTaxesIncluded): self
     {
         $this->orderRowTaxesIncluded = $orderRowTaxesIncluded;
-        $this->propertyFilled('orderRowTaxesIncluded');
         return $this;
     }
 
@@ -455,7 +446,6 @@ class Patch implements Model
     public function setShippingTaxesIncluded(?bool $shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
-        $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
 
@@ -466,7 +456,6 @@ class Patch implements Model
     public function setIsIntraCommunityOrder(?bool $isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
-        $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
 
@@ -477,7 +466,6 @@ class Patch implements Model
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
-        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -488,7 +476,6 @@ class Patch implements Model
     public function setIsPlatformSale(?bool $isPlatformSale): self
     {
         $this->isPlatformSale = $isPlatformSale;
-        $this->propertyFilled('isPlatformSale');
         return $this;
     }
 
@@ -499,7 +486,6 @@ class Patch implements Model
     public function setOrderedinlng(?string $orderedinlng): self
     {
         $this->orderedinlng = $orderedinlng;
-        $this->propertyFilled('orderedinlng');
         return $this;
     }
 
@@ -510,7 +496,6 @@ class Patch implements Model
     public function setStatus(?int $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -521,7 +506,6 @@ class Patch implements Model
     public function setNote(?string $note): self
     {
         $this->note = $note;
-        $this->propertyFilled('note');
         return $this;
     }
 
@@ -532,7 +516,6 @@ class Patch implements Model
     public function setTrackAndTraceCode(?string $trackAndTraceCode): self
     {
         $this->trackAndTraceCode = $trackAndTraceCode;
-        $this->propertyFilled('trackAndTraceCode');
         return $this;
     }
 
@@ -543,7 +526,6 @@ class Patch implements Model
     public function setTrackAndTraceCarrier(?string $trackAndTraceCarrier): self
     {
         $this->trackAndTraceCarrier = $trackAndTraceCarrier;
-        $this->propertyFilled('trackAndTraceCarrier');
         return $this;
     }
 
@@ -554,7 +536,6 @@ class Patch implements Model
     public function setMail(?bool $mail): self
     {
         $this->mail = $mail;
-        $this->propertyFilled('mail');
         return $this;
     }
 
@@ -565,7 +546,6 @@ class Patch implements Model
     public function setDeliverDate(?string $deliverDate): self
     {
         $this->deliverDate = $deliverDate;
-        $this->propertyFilled('deliverDate');
         return $this;
     }
 
@@ -576,7 +556,6 @@ class Patch implements Model
     public function setDeliverMethod(?string $deliverMethod): self
     {
         $this->deliverMethod = $deliverMethod;
-        $this->propertyFilled('deliverMethod');
         return $this;
     }
 
@@ -587,7 +566,6 @@ class Patch implements Model
     public function setTakeoutslot(?int $takeoutslot): self
     {
         $this->takeoutslot = $takeoutslot;
-        $this->propertyFilled('takeoutslot');
         return $this;
     }
 
@@ -598,7 +576,6 @@ class Patch implements Model
     public function setReservationnumber(?string $reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
-        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -609,7 +586,6 @@ class Patch implements Model
     public function setCustomer(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Input $customer): self
     {
         $this->customer = $customer;
-        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -620,7 +596,6 @@ class Patch implements Model
     public function setOrderrows(\JacobDeKeizer\Ccv\Models\Internal\Entity\Orderrow\Input\Input ...$orderrows): self
     {
         $this->orderrows = $orderrows;
-        $this->propertyFilled('orderrows');
         return $this;
     }
 }

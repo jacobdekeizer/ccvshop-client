@@ -19,27 +19,27 @@ class Marktplaatscategories implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Marktplaats category name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null The marktplaats category name of the parent of this category
      */
-    private $parentName;
+    private ?string $parentName;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Marktplaatscategories\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Marktplaatscategories\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Marktplaatscategories implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Marktplaatscategories implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Marktplaatscategories implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Marktplaatscategories implements Model
     public function setParentName(?string $parentName): self
     {
         $this->parentName = $parentName;
-        $this->propertyFilled('parentName');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Marktplaatscategories implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Marktplaatscategories\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -20,22 +20,22 @@ class All extends PaginatedList implements Parameter
     /**
      * @var string|null Number of the product.
      */
-    private $productnumber;
+    private ?string $productnumber = null;
 
     /**
      * @var string|null EAN (European Article Numbering) of the product.
      */
-    private $eannumber;
+    private ?string $eannumber = null;
 
     /**
      * @var string|null MPN (Manufacturer Part Number) of the product.
      */
-    private $mpnnumber;
+    private ?string $mpnnumber = null;
 
     /**
      * @var string|null SKU (Stock Keeping Unit ) of the product.
      */
-    private $skunumber;
+    private ?string $skunumber = null;
 
     /**
      * @return self

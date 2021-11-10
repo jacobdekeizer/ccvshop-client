@@ -19,17 +19,17 @@ class Patch implements Model
     /**
      * @var string|null Affiliate network name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var int|null Cookie TTL time in minutes until cookie expires.
      */
-    private $cookieTtl;
+    private ?int $cookieTtl;
 
     /**
      * @var bool|null True: When multiple affiliate networks active, set only latest affiliate network. false: Use all affiliate networks.
      */
-    private $deduplicate;
+    private ?bool $deduplicate;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Patch implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Patch implements Model
     public function setCookieTtl(?int $cookieTtl): self
     {
         $this->cookieTtl = $cookieTtl;
-        $this->propertyFilled('cookieTtl');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Patch implements Model
     public function setDeduplicate(?bool $deduplicate): self
     {
         $this->deduplicate = $deduplicate;
-        $this->propertyFilled('deduplicate');
         return $this;
     }
 }

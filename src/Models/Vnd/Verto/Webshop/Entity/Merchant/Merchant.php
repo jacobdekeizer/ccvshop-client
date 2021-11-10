@@ -19,92 +19,92 @@ class Merchant implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string|null Gender, can be null.
      */
-    private $gender;
+    private ?string $gender;
 
     /**
      * @var string|null First name
      */
-    private $firstName;
+    private ?string $firstName;
 
     /**
      * @var string|null Last name
      */
-    private $lastName;
+    private ?string $lastName;
 
     /**
      * @var string|null Full name
      */
-    private $fullName;
+    private ?string $fullName;
 
     /**
      * @var string|null Company name
      */
-    private $company;
+    private ?string $company;
 
     /**
      * @var string|null E-mail address
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @var string|null Address line
      */
-    private $addressLine;
+    private ?string $addressLine;
 
     /**
      * @var string|null Street name
      */
-    private $street;
+    private ?string $street;
 
     /**
      * @var string|null House number with possible suffix
      */
-    private $housenumber;
+    private ?string $housenumber;
 
     /**
      * @var string|null Zipcode
      */
-    private $zipcode;
+    private ?string $zipcode;
 
     /**
      * @var string|null City
      */
-    private $city;
+    private ?string $city;
 
     /**
      * @var string|null Country full
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @var string|null Country in 2 characters.
      */
-    private $countryCode;
+    private ?string $countryCode;
 
     /**
      * @var string|null Telephone number
      */
-    private $telephone;
+    private ?string $telephone;
 
     /**
      * @var string|null Tax number
      */
-    private $taxNumber;
+    private ?string $taxNumber;
 
     /**
      * @var string|null Chamber of Commerce number
      */
-    private $cocNumber;
+    private ?string $cocNumber;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Merchant\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Merchant\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -265,7 +265,6 @@ class Merchant implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -276,7 +275,6 @@ class Merchant implements Model
     public function setGender(?string $gender): self
     {
         $this->gender = $gender;
-        $this->propertyFilled('gender');
         return $this;
     }
 
@@ -287,7 +285,6 @@ class Merchant implements Model
     public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
-        $this->propertyFilled('firstName');
         return $this;
     }
 
@@ -298,7 +295,6 @@ class Merchant implements Model
     public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
-        $this->propertyFilled('lastName');
         return $this;
     }
 
@@ -309,7 +305,6 @@ class Merchant implements Model
     public function setFullName(?string $fullName): self
     {
         $this->fullName = $fullName;
-        $this->propertyFilled('fullName');
         return $this;
     }
 
@@ -320,7 +315,6 @@ class Merchant implements Model
     public function setCompany(?string $company): self
     {
         $this->company = $company;
-        $this->propertyFilled('company');
         return $this;
     }
 
@@ -331,7 +325,6 @@ class Merchant implements Model
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -342,7 +335,6 @@ class Merchant implements Model
     public function setAddressLine(?string $addressLine): self
     {
         $this->addressLine = $addressLine;
-        $this->propertyFilled('addressLine');
         return $this;
     }
 
@@ -353,7 +345,6 @@ class Merchant implements Model
     public function setStreet(?string $street): self
     {
         $this->street = $street;
-        $this->propertyFilled('street');
         return $this;
     }
 
@@ -364,7 +355,6 @@ class Merchant implements Model
     public function setHousenumber(?string $housenumber): self
     {
         $this->housenumber = $housenumber;
-        $this->propertyFilled('housenumber');
         return $this;
     }
 
@@ -375,7 +365,6 @@ class Merchant implements Model
     public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
-        $this->propertyFilled('zipcode');
         return $this;
     }
 
@@ -386,7 +375,6 @@ class Merchant implements Model
     public function setCity(?string $city): self
     {
         $this->city = $city;
-        $this->propertyFilled('city');
         return $this;
     }
 
@@ -397,7 +385,6 @@ class Merchant implements Model
     public function setCountry(?string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 
@@ -408,7 +395,6 @@ class Merchant implements Model
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
-        $this->propertyFilled('countryCode');
         return $this;
     }
 
@@ -419,7 +405,6 @@ class Merchant implements Model
     public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
-        $this->propertyFilled('telephone');
         return $this;
     }
 
@@ -430,7 +415,6 @@ class Merchant implements Model
     public function setTaxNumber(?string $taxNumber): self
     {
         $this->taxNumber = $taxNumber;
-        $this->propertyFilled('taxNumber');
         return $this;
     }
 
@@ -441,7 +425,6 @@ class Merchant implements Model
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
-        $this->propertyFilled('cocNumber');
         return $this;
     }
 
@@ -452,7 +435,6 @@ class Merchant implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Merchant\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

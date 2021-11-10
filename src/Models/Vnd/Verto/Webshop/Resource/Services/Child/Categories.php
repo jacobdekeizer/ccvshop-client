@@ -19,7 +19,7 @@ class Categories implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Servicecategories\Servicecategories[] Array with collection items
      */
-    private $collection;
+    private array $collection;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Categories implements Model
     public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Servicecategories\Servicecategories ...$collection): self
     {
         $this->collection = $collection;
-        $this->propertyFilled('collection');
         return $this;
     }
 }

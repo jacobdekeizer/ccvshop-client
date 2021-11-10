@@ -19,22 +19,22 @@ class Productpropertygroups implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Product Property Group Id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Group name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string|null Link to productproperties
      */
-    private $productproperties;
+    private ?string $productproperties;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Productpropertygroups implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Productpropertygroups implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Productpropertygroups implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Productpropertygroups implements Model
     public function setProductproperties(?string $productproperties): self
     {
         $this->productproperties = $productproperties;
-        $this->propertyFilled('productproperties');
         return $this;
     }
 }

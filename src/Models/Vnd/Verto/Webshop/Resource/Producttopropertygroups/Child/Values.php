@@ -19,7 +19,7 @@ class Values implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues[] Array with collection items
      */
-    private $collection;
+    private array $collection;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Values implements Model
     public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues ...$collection): self
     {
         $this->collection = $collection;
-        $this->propertyFilled('collection');
         return $this;
     }
 }

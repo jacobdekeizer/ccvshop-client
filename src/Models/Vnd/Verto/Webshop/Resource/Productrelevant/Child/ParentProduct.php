@@ -19,7 +19,7 @@ class ParentProduct implements Model
     /**
      * @var string|null Link to the parent product
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class ParentProduct implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Products implements Model
     /**
      * @var string Link to collection of products that have this supplier.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Products implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

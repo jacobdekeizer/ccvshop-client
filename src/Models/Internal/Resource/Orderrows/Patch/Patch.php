@@ -19,17 +19,17 @@ class Patch implements Model
     /**
      * @var float|null Quantity of products.
      */
-    private $count;
+    private ?float $count;
 
     /**
      * @var float|null Row original price. Sellprice is calculated as price - discount.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Row discount price. Sellprice is calculated as price - discount.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Patch implements Model
     public function setCount(?float $count): self
     {
         $this->count = $count;
-        $this->propertyFilled('count');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Patch implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Patch implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 }

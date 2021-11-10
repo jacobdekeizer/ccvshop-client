@@ -19,37 +19,37 @@ class Producttocategories implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var int|null Position of product in category
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var int|null Unique id of the product
      */
-    private $productId;
+    private ?int $productId;
 
     /**
      * @var int|null Unique id of the category
      */
-    private $categoryId;
+    private ?int $categoryId;
 
     /**
      * @var string|null Link to product
      */
-    private $productHref;
+    private ?string $productHref;
 
     /**
      * @var string|null Link to category
      */
-    private $categoryHref;
+    private ?string $categoryHref;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Producttocategories implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Producttocategories implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Producttocategories implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Producttocategories implements Model
     public function setProductId(?int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Producttocategories implements Model
     public function setCategoryId(?int $categoryId): self
     {
         $this->categoryId = $categoryId;
-        $this->propertyFilled('categoryId');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Producttocategories implements Model
     public function setProductHref(?string $productHref): self
     {
         $this->productHref = $productHref;
-        $this->propertyFilled('productHref');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Producttocategories implements Model
     public function setCategoryHref(?string $categoryHref): self
     {
         $this->categoryHref = $categoryHref;
-        $this->propertyFilled('categoryHref');
         return $this;
     }
 }

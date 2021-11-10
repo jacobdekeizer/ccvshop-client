@@ -19,42 +19,42 @@ class Usergroups implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
-    private $default;
+    private ?bool $default;
 
     /**
      * @var string|null Group name
      */
-    private $groupname;
+    private ?string $groupname;
 
     /**
      * @var float|null Discount in percentage
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var string If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
-    private $productInCategoryDiscount;
+    private string $productInCategoryDiscount;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Users|null Group users
      */
-    private $users;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Users $users;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
-    private $disabledpaymethods;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Disabledpaymethods $disabledpaymethods;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Usergroups implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Usergroups implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Usergroups implements Model
     public function setDefault(?bool $default): self
     {
         $this->default = $default;
-        $this->propertyFilled('default');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Usergroups implements Model
     public function setGroupname(?string $groupname): self
     {
         $this->groupname = $groupname;
-        $this->propertyFilled('groupname');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Usergroups implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Usergroups implements Model
     public function setProductInCategoryDiscount(string $productInCategoryDiscount): self
     {
         $this->productInCategoryDiscount = $productInCategoryDiscount;
-        $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Usergroups implements Model
     public function setUsers(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Users $users): self
     {
         $this->users = $users;
-        $this->propertyFilled('users');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Usergroups implements Model
     public function setDisabledpaymethods(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Usergroups\Child\Disabledpaymethods $disabledpaymethods): self
     {
         $this->disabledpaymethods = $disabledpaymethods;
-        $this->propertyFilled('disabledpaymethods');
         return $this;
     }
 }

@@ -19,12 +19,12 @@ class Patch implements Model
     /**
      * @var string|null Uri that will be called once the WebHook event is triggered.
      */
-    private $address;
+    private ?string $address;
 
     /**
      * @var bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
-    private $isActive;
+    private ?bool $isActive;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Patch implements Model
     public function setAddress(?string $address): self
     {
         $this->address = $address;
-        $this->propertyFilled('address');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Patch implements Model
     public function setIsActive(?bool $isActive): self
     {
         $this->isActive = $isActive;
-        $this->propertyFilled('isActive');
         return $this;
     }
 }

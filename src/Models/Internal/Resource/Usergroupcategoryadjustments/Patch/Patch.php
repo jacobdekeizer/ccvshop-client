@@ -19,17 +19,17 @@ class Patch implements Model
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
-    private $discount;
+    private ?int $discount;
 
     /**
      * @var bool|null If TRUE then this categoy and its products won't be visible for this user group.
      */
-    private $hidden;
+    private ?bool $hidden;
 
     /**
      * @var bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
-    private $includeSubCategories;
+    private ?bool $includeSubCategories;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Patch implements Model
     public function setDiscount(?int $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Patch implements Model
     public function setHidden(?bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Patch implements Model
     public function setIncludeSubCategories(?bool $includeSubCategories): self
     {
         $this->includeSubCategories = $includeSubCategories;
-        $this->propertyFilled('includeSubCategories');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var int The unique ID of this webshop. Note that this webshop needs to be connected to the multishop system to work.
      */
-    private $webshopId;
+    private int $webshopId;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setWebshopId(int $webshopId): self
     {
         $this->webshopId = $webshopId;
-        $this->propertyFilled('webshopId');
         return $this;
     }
 }

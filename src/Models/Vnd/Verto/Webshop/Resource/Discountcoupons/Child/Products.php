@@ -19,12 +19,12 @@ class Products implements Model
     /**
      * @var int Product id
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var string Url to product resource
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Products implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Products implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

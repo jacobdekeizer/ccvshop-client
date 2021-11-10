@@ -19,37 +19,37 @@ class Discountcoupon implements Model
     /**
      * @var string Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *.
      */
-    private $code;
+    private string $code;
 
     /**
      * @var float The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
-    private $discount;
+    private float $discount;
 
     /**
      * @var string|null Discount type.
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @var string|null End date coupon validity, UTC.
      */
-    private $enddate;
+    private ?string $enddate;
 
     /**
      * @var bool|null One time use. After usage this coupon will be removed.
      */
-    private $onetimeuse;
+    private ?bool $onetimeuse;
 
     /**
      * @var bool This coupon gives free shipping costs.
      */
-    private $givesfreeshipping;
+    private bool $givesfreeshipping;
 
     /**
      * @var float|null Minimum price of the order before this coupon can be used.
      */
-    private $minimumprice;
+    private ?float $minimumprice;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Discountcoupon implements Model
     public function setCode(string $code): self
     {
         $this->code = $code;
-        $this->propertyFilled('code');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Discountcoupon implements Model
     public function setDiscount(float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Discountcoupon implements Model
     public function setType(?string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Discountcoupon implements Model
     public function setEnddate(?string $enddate): self
     {
         $this->enddate = $enddate;
-        $this->propertyFilled('enddate');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Discountcoupon implements Model
     public function setOnetimeuse(?bool $onetimeuse): self
     {
         $this->onetimeuse = $onetimeuse;
-        $this->propertyFilled('onetimeuse');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Discountcoupon implements Model
     public function setGivesfreeshipping(bool $givesfreeshipping): self
     {
         $this->givesfreeshipping = $givesfreeshipping;
-        $this->propertyFilled('givesfreeshipping');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Discountcoupon implements Model
     public function setMinimumprice(?float $minimumprice): self
     {
         $this->minimumprice = $minimumprice;
-        $this->propertyFilled('minimumprice');
         return $this;
     }
 }

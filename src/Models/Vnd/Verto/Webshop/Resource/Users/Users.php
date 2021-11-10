@@ -19,62 +19,62 @@ class Users implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int User id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Username must be unique within the webshop.
      */
-    private $username;
+    private string $username;
 
     /**
      * @var int|null Group id
      */
-    private $groupId;
+    private ?int $groupId;
 
     /**
      * @var bool Status of the user. Disabled users can't log in.
      */
-    private $status;
+    private bool $status;
 
     /**
      * @var string Approval status of the user. Pending users are waiting on acceptance or rejection.
      */
-    private $approvalStatus;
+    private string $approvalStatus;
 
     /**
      * @var string If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest
      */
-    private $productInCategoryDiscount;
+    private string $productInCategoryDiscount;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo Describes personal information of the user
      */
-    private $userinfo;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpoints|null Contains link to creditpoint resource.
      */
-    private $creditpoints;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpoints $creditpoints;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpointmutations|null Contains link to creditpoinmutations collection resource.
      */
-    private $creditpointmutations;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpointmutations $creditpointmutations;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Disabledpaymethods|null Contains link to disabledpaymethods collection resource.
      */
-    private $disabledpaymethods;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Disabledpaymethods $disabledpaymethods;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -187,7 +187,6 @@ class Users implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -198,7 +197,6 @@ class Users implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -209,7 +207,6 @@ class Users implements Model
     public function setUsername(string $username): self
     {
         $this->username = $username;
-        $this->propertyFilled('username');
         return $this;
     }
 
@@ -220,7 +217,6 @@ class Users implements Model
     public function setGroupId(?int $groupId): self
     {
         $this->groupId = $groupId;
-        $this->propertyFilled('groupId');
         return $this;
     }
 
@@ -231,7 +227,6 @@ class Users implements Model
     public function setStatus(bool $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -242,7 +237,6 @@ class Users implements Model
     public function setApprovalStatus(string $approvalStatus): self
     {
         $this->approvalStatus = $approvalStatus;
-        $this->propertyFilled('approvalStatus');
         return $this;
     }
 
@@ -253,7 +247,6 @@ class Users implements Model
     public function setProductInCategoryDiscount(string $productInCategoryDiscount): self
     {
         $this->productInCategoryDiscount = $productInCategoryDiscount;
-        $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
 
@@ -264,7 +257,6 @@ class Users implements Model
     public function setUserinfo(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo): self
     {
         $this->userinfo = $userinfo;
-        $this->propertyFilled('userinfo');
         return $this;
     }
 
@@ -275,7 +267,6 @@ class Users implements Model
     public function setCreditpoints(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpoints $creditpoints): self
     {
         $this->creditpoints = $creditpoints;
-        $this->propertyFilled('creditpoints');
         return $this;
     }
 
@@ -286,7 +277,6 @@ class Users implements Model
     public function setCreditpointmutations(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Creditpointmutations $creditpointmutations): self
     {
         $this->creditpointmutations = $creditpointmutations;
-        $this->propertyFilled('creditpointmutations');
         return $this;
     }
 
@@ -297,7 +287,6 @@ class Users implements Model
     public function setDisabledpaymethods(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\Disabledpaymethods $disabledpaymethods): self
     {
         $this->disabledpaymethods = $disabledpaymethods;
-        $this->propertyFilled('disabledpaymethods');
         return $this;
     }
 
@@ -308,7 +297,6 @@ class Users implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Users\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

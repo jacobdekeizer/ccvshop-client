@@ -19,37 +19,37 @@ class Attributes implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Attribute name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var int|null Deprecated. Use property 'type' instead. Type of attribute. 1. Pulldown with Attribute values. 2. Text field (optional). 3. Text field (required). 4. Pulldown with Attribute values (required). 5. Additional menu. 6.Additional menu (required)
      */
-    private $attributeType;
+    private ?int $attributeType;
 
     /**
      * @var string|null Attribute type. Option menu is a dropdown menu where items can be selected. Text is an inputfield. Additional menus will not be used to calculate attribute combinations.
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\AttributeValues|null Values linked to this attribute. This collection is empty with attribute_type 'text' and 'text_required'.
      */
-    private $attributeValues;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\AttributeValues $attributeValues;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -123,7 +123,6 @@ class Attributes implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -134,7 +133,6 @@ class Attributes implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -145,7 +143,6 @@ class Attributes implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -157,7 +154,6 @@ class Attributes implements Model
     public function setAttributeType(?int $attributeType): self
     {
         $this->attributeType = $attributeType;
-        $this->propertyFilled('attributeType');
         return $this;
     }
 
@@ -168,7 +164,6 @@ class Attributes implements Model
     public function setType(?string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -179,7 +174,6 @@ class Attributes implements Model
     public function setAttributeValues(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\AttributeValues $attributeValues): self
     {
         $this->attributeValues = $attributeValues;
-        $this->propertyFilled('attributeValues');
         return $this;
     }
 
@@ -190,7 +184,6 @@ class Attributes implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

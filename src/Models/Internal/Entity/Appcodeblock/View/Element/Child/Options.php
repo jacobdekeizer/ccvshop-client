@@ -19,17 +19,17 @@ class Options implements Model
     /**
      * @var object|null Label of this options.
      */
-    private $label;
+    private ?object $label;
 
     /**
      * @var string|null Value of this options. This will be posted as value.
      */
-    private $value;
+    private ?string $value;
 
     /**
      * @var bool|null If true, this option is selected by default. Will be overwritten by the value of this element, if not null.
      */
-    private $selected;
+    private ?bool $selected;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Options implements Model
     public function setLabel(?object $label): self
     {
         $this->label = $label;
-        $this->propertyFilled('label');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Options implements Model
     public function setValue(?string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Options implements Model
     public function setSelected(?bool $selected): self
     {
         $this->selected = $selected;
-        $this->propertyFilled('selected');
         return $this;
     }
 }

@@ -19,32 +19,32 @@ class Attributecombinationphoto implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Combination photo id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null Product photo alttext
      */
-    private $alt;
+    private ?string $alt;
 
     /**
      * @var bool Combination photo marked as mainphoto
      */
-    private $isMainphoto;
+    private bool $isMainphoto;
 
     /**
      * @var string Combination photo deeplink
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinationphoto\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinationphoto\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Attributecombinationphoto implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Attributecombinationphoto implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Attributecombinationphoto implements Model
     public function setAlt(?string $alt): self
     {
         $this->alt = $alt;
-        $this->propertyFilled('alt');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Attributecombinationphoto implements Model
     public function setIsMainphoto(bool $isMainphoto): self
     {
         $this->isMainphoto = $isMainphoto;
-        $this->propertyFilled('isMainphoto');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Attributecombinationphoto implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Attributecombinationphoto implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinationphoto\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

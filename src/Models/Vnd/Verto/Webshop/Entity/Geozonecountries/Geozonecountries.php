@@ -19,27 +19,27 @@ class Geozonecountries implements Model
     /**
      * @var string Name of the country.
      */
-    private $country;
+    private string $country;
 
     /**
      * @var string Country code.
      */
-    private $code;
+    private string $code;
 
     /**
      * @var int Unique identifier for the geozone this country is a part of.
      */
-    private $geozoneId;
+    private int $geozoneId;
 
     /**
      * @var string Name of the geozone this country is a part of.
      */
-    private $geozoneName;
+    private string $geozoneName;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff[] Collection of the geozone countries.
      */
-    private $tariffs;
+    private array $tariffs;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Geozonecountries implements Model
     public function setCountry(string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Geozonecountries implements Model
     public function setCode(string $code): self
     {
         $this->code = $code;
-        $this->propertyFilled('code');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Geozonecountries implements Model
     public function setGeozoneId(int $geozoneId): self
     {
         $this->geozoneId = $geozoneId;
-        $this->propertyFilled('geozoneId');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Geozonecountries implements Model
     public function setGeozoneName(string $geozoneName): self
     {
         $this->geozoneName = $geozoneName;
-        $this->propertyFilled('geozoneName');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Geozonecountries implements Model
     public function setTariffs(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff ...$tariffs): self
     {
         $this->tariffs = $tariffs;
-        $this->propertyFilled('tariffs');
         return $this;
     }
 }

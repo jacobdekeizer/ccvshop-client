@@ -19,37 +19,37 @@ class Takeoutslots implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Slot Capacity
      */
-    private $capacity;
+    private int $capacity;
 
     /**
      * @var string Start datetime
      */
-    private $datetimefrom;
+    private string $datetimefrom;
 
     /**
      * @var string End datetime
      */
-    private $datetimetill;
+    private string $datetimetill;
 
     /**
      * @var string Checkout type
      */
-    private $checkouttype;
+    private string $checkouttype;
 
     /**
      * @var int Number of reservations
      */
-    private $countReservation;
+    private int $countReservation;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Takeoutslots implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Takeoutslots implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Takeoutslots implements Model
     public function setCapacity(int $capacity): self
     {
         $this->capacity = $capacity;
-        $this->propertyFilled('capacity');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Takeoutslots implements Model
     public function setDatetimefrom(string $datetimefrom): self
     {
         $this->datetimefrom = $datetimefrom;
-        $this->propertyFilled('datetimefrom');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Takeoutslots implements Model
     public function setDatetimetill(string $datetimetill): self
     {
         $this->datetimetill = $datetimetill;
-        $this->propertyFilled('datetimetill');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Takeoutslots implements Model
     public function setCheckouttype(string $checkouttype): self
     {
         $this->checkouttype = $checkouttype;
-        $this->propertyFilled('checkouttype');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Takeoutslots implements Model
     public function setCountReservation(int $countReservation): self
     {
         $this->countReservation = $countReservation;
-        $this->propertyFilled('countReservation');
         return $this;
     }
 }

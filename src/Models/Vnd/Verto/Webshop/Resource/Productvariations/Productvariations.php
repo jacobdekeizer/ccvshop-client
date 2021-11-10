@@ -19,37 +19,37 @@ class Productvariations implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Product variation id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Product Id that is linked as variation.
      */
-    private $productVariationId;
+    private int $productVariationId;
 
     /**
      * @var string Href to the product that is linked as variation.
      */
-    private $productVariationHref;
+    private string $productVariationHref;
 
     /**
      * @var bool If variations are created on product number, then these are marked as 'auto_created'. These can't be deleted, only deactived.
      */
-    private $autoCreated;
+    private bool $autoCreated;
 
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvariations\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvariations\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productvariations implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productvariations implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productvariations implements Model
     public function setProductVariationId(int $productVariationId): self
     {
         $this->productVariationId = $productVariationId;
-        $this->propertyFilled('productVariationId');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productvariations implements Model
     public function setProductVariationHref(string $productVariationHref): self
     {
         $this->productVariationHref = $productVariationHref;
-        $this->propertyFilled('productVariationHref');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productvariations implements Model
     public function setAutoCreated(bool $autoCreated): self
     {
         $this->autoCreated = $autoCreated;
-        $this->propertyFilled('autoCreated');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productvariations implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productvariations implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvariations\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

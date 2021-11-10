@@ -19,27 +19,27 @@ class ValueDetails implements Model
     /**
      * @var float The absolute number of this block. If the block is a relative block then it's the differnce between timespans.
      */
-    private $value;
+    private float $value;
 
     /**
      * @var float If the block is a relative block and type is percentage then a percentage will be calculated comparing it to the previous timespan.
      */
-    private $percentage;
+    private float $percentage;
 
     /**
      * @var string The representation of the number
      */
-    private $type;
+    private string $type;
 
     /**
      * @var float The value of the previous timespan.
      */
-    private $previous;
+    private float $previous;
 
     /**
      * @var float The value of the current timespan.
      */
-    private $current;
+    private float $current;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class ValueDetails implements Model
     public function setValue(float $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class ValueDetails implements Model
     public function setPercentage(float $percentage): self
     {
         $this->percentage = $percentage;
-        $this->propertyFilled('percentage');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class ValueDetails implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class ValueDetails implements Model
     public function setPrevious(float $previous): self
     {
         $this->previous = $previous;
-        $this->propertyFilled('previous');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class ValueDetails implements Model
     public function setCurrent(float $current): self
     {
         $this->current = $current;
-        $this->propertyFilled('current');
         return $this;
     }
 }

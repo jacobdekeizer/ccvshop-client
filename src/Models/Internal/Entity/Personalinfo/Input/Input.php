@@ -19,182 +19,182 @@ class Input implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Billingaddress|null Billing address info
      */
-    private $billingaddress;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Billingaddress $billingaddress;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Deliveryaddress|null Shipping address info
      */
-    private $deliveryaddress;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Deliveryaddress $deliveryaddress;
 
     /**
      * @var string|null E-mail address
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @var string|null Defines if this user is a consumer (b2c) or business (b2b) customer.
      */
-    private $customertype;
+    private ?string $customertype;
 
     /**
      * @var string|null Bankaccount number, within EU mostly IBAN will be used instead.
      */
-    private $bankaccount;
+    private ?string $bankaccount;
 
     /**
      * @var string|null Bank name
      */
-    private $bankname;
+    private ?string $bankname;
 
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'bankaccount'.
      */
-    private $bank;
+    private ?string $bank;
 
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'bankname'.
      */
-    private $tenname;
+    private ?string $tenname;
 
     /**
      * @var string|null International Bank Account Number, if empty bankaccount could be used.
      */
-    private $iban;
+    private ?string $iban;
 
     /**
      * @var string|null Bank Identifier Code. Used in combination with IBAN.
      */
-    private $bic;
+    private ?string $bic;
 
     /**
      * @var string|null Customer reference. Could be used as customer number in some cases.
      */
-    private $reference;
+    private ?string $reference;
 
     /**
      * @var string|null Customer reservation number.
      */
-    private $reservationnumber;
+    private ?string $reservationnumber;
 
     /**
      * @var string|null Customer's income
      */
-    private $income;
+    private ?string $income;
 
     /**
      * @var string|null Deprecated. This field will no longer be used. Please use 'branch'.
      */
-    private $branche;
+    private ?string $branche;
 
     /**
      * @var string|null Customer's branch. Mostly used with company info.
      */
-    private $branch;
+    private ?string $branch;
 
     /**
      * @var string|null Website of the customer
      */
-    private $website;
+    private ?string $website;
 
     /**
      * @var string|null Club's city
      */
-    private $clubcity;
+    private ?string $clubcity;
 
     /**
      * @var string|null Club's comment
      */
-    private $clubcomment;
+    private ?string $clubcomment;
 
     /**
      * @var string|null Club's name
      */
-    private $clubname;
+    private ?string $clubname;
 
     /**
      * @var string|null Deprecated. Fair of the customer. See 'Fair'
      */
-    private $beurs;
+    private ?string $beurs;
 
     /**
      * @var string|null Deprecated. Booth of the customer. See 'Booth'
      */
-    private $stand;
+    private ?string $stand;
 
     /**
      * @var string|null Fair of the customer.
      */
-    private $fair;
+    private ?string $fair;
 
     /**
      * @var string|null Booth of the customer.
      */
-    private $booth;
+    private ?string $booth;
 
     /**
      * @var string|null Car brand
      */
-    private $carbrand;
+    private ?string $carbrand;
 
     /**
      * @var string|null Car type
      */
-    private $cartype;
+    private ?string $cartype;
 
     /**
      * @var string|null Car weight
      */
-    private $carweight;
+    private ?string $carweight;
 
     /**
      * @var string|null Birthdate of the customer
      */
-    private $birthdate;
+    private ?string $birthdate;
 
     /**
      * @var string|null Birth time of the customer
      */
-    private $birthtime;
+    private ?string $birthtime;
 
     /**
      * @var string|null Birth place of the customer
      */
-    private $birthplace;
+    private ?string $birthplace;
 
     /**
      * @var string|null Card number
      */
-    private $cardnumber;
+    private ?string $cardnumber;
 
     /**
      * @var string|null BTW number
      */
-    private $btw;
+    private ?string $btw;
 
     /**
      * @var string|null Chamber of Commerce number
      */
-    private $kvk;
+    private ?string $kvk;
 
     /**
      * @var string|null Name of the cost centre
      */
-    private $costcentre;
+    private ?string $costcentre;
 
     /**
      * @var string|null How did the customer find you
      */
-    private $findus;
+    private ?string $findus;
 
     /**
      * @var string|null SSN number
      */
-    private $ssnnumber;
+    private ?string $ssnnumber;
 
     /**
      * @var string|null ZZP number
      */
-    private $zzppass;
+    private ?string $zzppass;
 
     /**
      * @return self
@@ -504,7 +504,6 @@ class Input implements Model
     public function setBillingaddress(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Billingaddress $billingaddress): self
     {
         $this->billingaddress = $billingaddress;
-        $this->propertyFilled('billingaddress');
         return $this;
     }
 
@@ -515,7 +514,6 @@ class Input implements Model
     public function setDeliveryaddress(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Child\Deliveryaddress $deliveryaddress): self
     {
         $this->deliveryaddress = $deliveryaddress;
-        $this->propertyFilled('deliveryaddress');
         return $this;
     }
 
@@ -526,7 +524,6 @@ class Input implements Model
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -537,7 +534,6 @@ class Input implements Model
     public function setCustomertype(?string $customertype): self
     {
         $this->customertype = $customertype;
-        $this->propertyFilled('customertype');
         return $this;
     }
 
@@ -548,7 +544,6 @@ class Input implements Model
     public function setBankaccount(?string $bankaccount): self
     {
         $this->bankaccount = $bankaccount;
-        $this->propertyFilled('bankaccount');
         return $this;
     }
 
@@ -559,7 +554,6 @@ class Input implements Model
     public function setBankname(?string $bankname): self
     {
         $this->bankname = $bankname;
-        $this->propertyFilled('bankname');
         return $this;
     }
 
@@ -571,7 +565,6 @@ class Input implements Model
     public function setBank(?string $bank): self
     {
         $this->bank = $bank;
-        $this->propertyFilled('bank');
         return $this;
     }
 
@@ -583,7 +576,6 @@ class Input implements Model
     public function setTenname(?string $tenname): self
     {
         $this->tenname = $tenname;
-        $this->propertyFilled('tenname');
         return $this;
     }
 
@@ -594,7 +586,6 @@ class Input implements Model
     public function setIban(?string $iban): self
     {
         $this->iban = $iban;
-        $this->propertyFilled('iban');
         return $this;
     }
 
@@ -605,7 +596,6 @@ class Input implements Model
     public function setBic(?string $bic): self
     {
         $this->bic = $bic;
-        $this->propertyFilled('bic');
         return $this;
     }
 
@@ -616,7 +606,6 @@ class Input implements Model
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
-        $this->propertyFilled('reference');
         return $this;
     }
 
@@ -627,7 +616,6 @@ class Input implements Model
     public function setReservationnumber(?string $reservationnumber): self
     {
         $this->reservationnumber = $reservationnumber;
-        $this->propertyFilled('reservationnumber');
         return $this;
     }
 
@@ -638,7 +626,6 @@ class Input implements Model
     public function setIncome(?string $income): self
     {
         $this->income = $income;
-        $this->propertyFilled('income');
         return $this;
     }
 
@@ -650,7 +637,6 @@ class Input implements Model
     public function setBranche(?string $branche): self
     {
         $this->branche = $branche;
-        $this->propertyFilled('branche');
         return $this;
     }
 
@@ -661,7 +647,6 @@ class Input implements Model
     public function setBranch(?string $branch): self
     {
         $this->branch = $branch;
-        $this->propertyFilled('branch');
         return $this;
     }
 
@@ -672,7 +657,6 @@ class Input implements Model
     public function setWebsite(?string $website): self
     {
         $this->website = $website;
-        $this->propertyFilled('website');
         return $this;
     }
 
@@ -683,7 +667,6 @@ class Input implements Model
     public function setClubcity(?string $clubcity): self
     {
         $this->clubcity = $clubcity;
-        $this->propertyFilled('clubcity');
         return $this;
     }
 
@@ -694,7 +677,6 @@ class Input implements Model
     public function setClubcomment(?string $clubcomment): self
     {
         $this->clubcomment = $clubcomment;
-        $this->propertyFilled('clubcomment');
         return $this;
     }
 
@@ -705,7 +687,6 @@ class Input implements Model
     public function setClubname(?string $clubname): self
     {
         $this->clubname = $clubname;
-        $this->propertyFilled('clubname');
         return $this;
     }
 
@@ -717,7 +698,6 @@ class Input implements Model
     public function setBeurs(?string $beurs): self
     {
         $this->beurs = $beurs;
-        $this->propertyFilled('beurs');
         return $this;
     }
 
@@ -729,7 +709,6 @@ class Input implements Model
     public function setStand(?string $stand): self
     {
         $this->stand = $stand;
-        $this->propertyFilled('stand');
         return $this;
     }
 
@@ -740,7 +719,6 @@ class Input implements Model
     public function setFair(?string $fair): self
     {
         $this->fair = $fair;
-        $this->propertyFilled('fair');
         return $this;
     }
 
@@ -751,7 +729,6 @@ class Input implements Model
     public function setBooth(?string $booth): self
     {
         $this->booth = $booth;
-        $this->propertyFilled('booth');
         return $this;
     }
 
@@ -762,7 +739,6 @@ class Input implements Model
     public function setCarbrand(?string $carbrand): self
     {
         $this->carbrand = $carbrand;
-        $this->propertyFilled('carbrand');
         return $this;
     }
 
@@ -773,7 +749,6 @@ class Input implements Model
     public function setCartype(?string $cartype): self
     {
         $this->cartype = $cartype;
-        $this->propertyFilled('cartype');
         return $this;
     }
 
@@ -784,7 +759,6 @@ class Input implements Model
     public function setCarweight(?string $carweight): self
     {
         $this->carweight = $carweight;
-        $this->propertyFilled('carweight');
         return $this;
     }
 
@@ -795,7 +769,6 @@ class Input implements Model
     public function setBirthdate(?string $birthdate): self
     {
         $this->birthdate = $birthdate;
-        $this->propertyFilled('birthdate');
         return $this;
     }
 
@@ -806,7 +779,6 @@ class Input implements Model
     public function setBirthtime(?string $birthtime): self
     {
         $this->birthtime = $birthtime;
-        $this->propertyFilled('birthtime');
         return $this;
     }
 
@@ -817,7 +789,6 @@ class Input implements Model
     public function setBirthplace(?string $birthplace): self
     {
         $this->birthplace = $birthplace;
-        $this->propertyFilled('birthplace');
         return $this;
     }
 
@@ -828,7 +799,6 @@ class Input implements Model
     public function setCardnumber(?string $cardnumber): self
     {
         $this->cardnumber = $cardnumber;
-        $this->propertyFilled('cardnumber');
         return $this;
     }
 
@@ -839,7 +809,6 @@ class Input implements Model
     public function setBtw(?string $btw): self
     {
         $this->btw = $btw;
-        $this->propertyFilled('btw');
         return $this;
     }
 
@@ -850,7 +819,6 @@ class Input implements Model
     public function setKvk(?string $kvk): self
     {
         $this->kvk = $kvk;
-        $this->propertyFilled('kvk');
         return $this;
     }
 
@@ -861,7 +829,6 @@ class Input implements Model
     public function setCostcentre(?string $costcentre): self
     {
         $this->costcentre = $costcentre;
-        $this->propertyFilled('costcentre');
         return $this;
     }
 
@@ -872,7 +839,6 @@ class Input implements Model
     public function setFindus(?string $findus): self
     {
         $this->findus = $findus;
-        $this->propertyFilled('findus');
         return $this;
     }
 
@@ -883,7 +849,6 @@ class Input implements Model
     public function setSsnnumber(?string $ssnnumber): self
     {
         $this->ssnnumber = $ssnnumber;
-        $this->propertyFilled('ssnnumber');
         return $this;
     }
 
@@ -894,7 +859,6 @@ class Input implements Model
     public function setZzppass(?string $zzppass): self
     {
         $this->zzppass = $zzppass;
-        $this->propertyFilled('zzppass');
         return $this;
     }
 }

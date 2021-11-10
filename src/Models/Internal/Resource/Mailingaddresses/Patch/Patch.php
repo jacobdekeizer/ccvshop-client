@@ -19,27 +19,27 @@ class Patch implements Model
     /**
      * @var string|null Name of mailingaddress owner
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Companyname of mailingaddress owner
      */
-    private $companyname;
+    private ?string $companyname;
 
     /**
      * @var string|null Mailingaddress
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @var string|null Language of mailingaddress owner
      */
-    private $language;
+    private ?string $language;
 
     /**
      * @var bool|null Is mailingaddress enabled
      */
-    private $enable;
+    private ?bool $enable;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Patch implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Patch implements Model
     public function setCompanyname(?string $companyname): self
     {
         $this->companyname = $companyname;
-        $this->propertyFilled('companyname');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Patch implements Model
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Patch implements Model
     public function setLanguage(?string $language): self
     {
         $this->language = $language;
-        $this->propertyFilled('language');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Patch implements Model
     public function setEnable(?bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 }

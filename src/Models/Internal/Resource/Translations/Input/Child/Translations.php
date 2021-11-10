@@ -19,12 +19,12 @@ class Translations implements Model
     /**
      * @var string Unique identifier of the translation.
      */
-    private $key;
+    private string $key;
 
     /**
      * @var string The translated value for the current accept language. If an value is empty it will be restored to default.
      */
-    private $value;
+    private string $value;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Translations implements Model
     public function setKey(string $key): self
     {
         $this->key = $key;
-        $this->propertyFilled('key');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Translations implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 }

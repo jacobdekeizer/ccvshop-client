@@ -19,32 +19,32 @@ class Productattributesets implements Model
     /**
      * @var int Attributeset id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Attributeset name
      */
-    private $attributename;
+    private string $attributename;
 
     /**
      * @var int Attributeset position
      */
-    private $attributeposition;
+    private int $attributeposition;
 
     /**
      * @var string Attributeset type
      */
-    private $type;
+    private string $type;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items[] Collection of attribute values
      */
-    private $items;
+    private array $items;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Productattributesets implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Productattributesets implements Model
     public function setAttributename(string $attributename): self
     {
         $this->attributename = $attributename;
-        $this->propertyFilled('attributename');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Productattributesets implements Model
     public function setAttributeposition(int $attributeposition): self
     {
         $this->attributeposition = $attributeposition;
-        $this->propertyFilled('attributeposition');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Productattributesets implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Productattributesets implements Model
     public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Productattributesets implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

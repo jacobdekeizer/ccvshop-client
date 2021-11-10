@@ -19,32 +19,32 @@ class Orderrowattributevalues implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int|null Order row attribute value Id
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Name of the option (attribute)
      */
-    private $optionName;
+    private ?string $optionName;
 
     /**
      * @var string|null Name of the attribute value
      */
-    private $valueName;
+    private ?string $valueName;
 
     /**
      * @var float|null Extra price added to the order row.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Orderrowattributevalues implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Orderrowattributevalues implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Orderrowattributevalues implements Model
     public function setOptionName(?string $optionName): self
     {
         $this->optionName = $optionName;
-        $this->propertyFilled('optionName');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Orderrowattributevalues implements Model
     public function setValueName(?string $valueName): self
     {
         $this->valueName = $valueName;
-        $this->propertyFilled('valueName');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Orderrowattributevalues implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Orderrowattributevalues implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

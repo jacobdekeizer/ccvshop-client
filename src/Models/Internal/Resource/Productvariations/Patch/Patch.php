@@ -19,7 +19,7 @@ class Patch implements Model
     /**
      * @var bool Inactive variation are hidden in the webshop.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Patch implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 }

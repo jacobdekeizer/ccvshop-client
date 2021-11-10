@@ -19,62 +19,62 @@ class Dashboardblocks implements Model
     /**
      * @var int Id of this dashboard block.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Link to this dashboard block.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string Type of data. It can either be fixed or relavite, where the latter the current data is compared to a previous timespan.
      */
-    private $type;
+    private string $type;
 
     /**
      * @var string Text color in Hex. Normally white on a dark background and black on a light background.
      */
-    private $color;
+    private string $color;
 
     /**
      * @var string Background color in Hex.
      */
-    private $backgroundColor;
+    private string $backgroundColor;
 
     /**
      * @var string A translated value indicating the timespan of the value. Typically used as title. See details in timespan_details.
      */
-    private $timespan;
+    private string $timespan;
 
     /**
      * @var string A formatted value. This can be a percentage, an amount with currecy or a number. See details in value_details.
      */
-    private $value;
+    private string $value;
 
     /**
      * @var string A translated value describing the entity. See details in context_details.
      */
-    private $context;
+    private string $context;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\TimespanDetails More details about timespan. You can use this if the main details don't suffice.
      */
-    private $timespanDetails;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\TimespanDetails $timespanDetails;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ValueDetails More details about value. You can use this if the main details don't suffice.
      */
-    private $valueDetails;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ValueDetails $valueDetails;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ContextDetails More details about context. You can use this if the main details don't suffice.
      */
-    private $contextDetails;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ContextDetails $contextDetails;
 
     /**
      * @var string Link to parent dashboard.
      */
-    private $parent;
+    private string $parent;
 
     /**
      * @return self
@@ -187,7 +187,6 @@ class Dashboardblocks implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -198,7 +197,6 @@ class Dashboardblocks implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -209,7 +207,6 @@ class Dashboardblocks implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -220,7 +217,6 @@ class Dashboardblocks implements Model
     public function setColor(string $color): self
     {
         $this->color = $color;
-        $this->propertyFilled('color');
         return $this;
     }
 
@@ -231,7 +227,6 @@ class Dashboardblocks implements Model
     public function setBackgroundColor(string $backgroundColor): self
     {
         $this->backgroundColor = $backgroundColor;
-        $this->propertyFilled('backgroundColor');
         return $this;
     }
 
@@ -242,7 +237,6 @@ class Dashboardblocks implements Model
     public function setTimespan(string $timespan): self
     {
         $this->timespan = $timespan;
-        $this->propertyFilled('timespan');
         return $this;
     }
 
@@ -253,7 +247,6 @@ class Dashboardblocks implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -264,7 +257,6 @@ class Dashboardblocks implements Model
     public function setContext(string $context): self
     {
         $this->context = $context;
-        $this->propertyFilled('context');
         return $this;
     }
 
@@ -275,7 +267,6 @@ class Dashboardblocks implements Model
     public function setTimespanDetails(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\TimespanDetails $timespanDetails): self
     {
         $this->timespanDetails = $timespanDetails;
-        $this->propertyFilled('timespanDetails');
         return $this;
     }
 
@@ -286,7 +277,6 @@ class Dashboardblocks implements Model
     public function setValueDetails(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ValueDetails $valueDetails): self
     {
         $this->valueDetails = $valueDetails;
-        $this->propertyFilled('valueDetails');
         return $this;
     }
 
@@ -297,7 +287,6 @@ class Dashboardblocks implements Model
     public function setContextDetails(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboardblocks\Child\ContextDetails $contextDetails): self
     {
         $this->contextDetails = $contextDetails;
-        $this->propertyFilled('contextDetails');
         return $this;
     }
 
@@ -308,7 +297,6 @@ class Dashboardblocks implements Model
     public function setParent(string $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

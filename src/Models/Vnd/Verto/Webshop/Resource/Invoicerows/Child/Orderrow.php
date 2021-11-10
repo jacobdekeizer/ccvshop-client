@@ -19,7 +19,7 @@ class Orderrow implements Model
     /**
      * @var string Link to orderrow
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Orderrow implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

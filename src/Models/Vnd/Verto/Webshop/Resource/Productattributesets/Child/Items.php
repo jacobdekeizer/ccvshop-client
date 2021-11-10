@@ -19,32 +19,32 @@ class Items implements Model
     /**
      * @var string|null Link to attribute values
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int Product 2 attribute ID
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Option value name
      */
-    private $optionsname;
+    private string $optionsname;
 
     /**
      * @var float Extra price of this attribute value
      */
-    private $price;
+    private float $price;
 
     /**
      * @var bool Deprecated. Attribute option value enable. Value is always true.
      */
-    private $enable;
+    private bool $enable;
 
     /**
      * @var int Position starting from 1
      */
-    private $position;
+    private int $position;
 
     /**
      * @return self
@@ -110,7 +110,6 @@ class Items implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -121,7 +120,6 @@ class Items implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -132,7 +130,6 @@ class Items implements Model
     public function setOptionsname(string $optionsname): self
     {
         $this->optionsname = $optionsname;
-        $this->propertyFilled('optionsname');
         return $this;
     }
 
@@ -143,7 +140,6 @@ class Items implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -155,7 +151,6 @@ class Items implements Model
     public function setEnable(bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 
@@ -166,7 +161,6 @@ class Items implements Model
     public function setPosition(int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

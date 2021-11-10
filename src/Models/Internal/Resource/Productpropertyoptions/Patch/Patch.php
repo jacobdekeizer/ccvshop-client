@@ -19,12 +19,12 @@ class Patch implements Model
     /**
      * @var string Option name.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var int|null Position of the option in the list.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Patch implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

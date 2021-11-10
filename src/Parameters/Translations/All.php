@@ -20,7 +20,7 @@ class All extends PaginatedList implements Parameter
     /**
      * @var bool|null If false only show keys that don't differ from the default value.
      */
-    private $customValue;
+    private ?bool $customValue = null;
 
     /**
      * @return self

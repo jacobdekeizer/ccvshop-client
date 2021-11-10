@@ -19,37 +19,37 @@ class Labels implements Model
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string Uri to the image. These images will be shown as icons as 16x16.
      */
-    private $imageLocation;
+    private string $imageLocation;
 
     /**
      * @var string|null Descriptive label that will be shown as tooltip of the image. Also as label in the filters.
      */
-    private $tooltip;
+    private ?string $tooltip;
 
     /**
      * @var bool If TRUE this label will be added as filter on the product collection page.
      */
-    private $showOnProducts;
+    private bool $showOnProducts;
 
     /**
      * @var bool If TRUE this label will be added as filter on the order collection page.
      */
-    private $showOnOrders;
+    private bool $showOnOrders;
 
     /**
      * @var bool If TRUE this label will be added as filter on the invoice collection page.
      */
-    private $showOnInvoices;
+    private bool $showOnInvoices;
 
     /**
      * @var string Href to this resource
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Labels implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Labels implements Model
     public function setImageLocation(string $imageLocation): self
     {
         $this->imageLocation = $imageLocation;
-        $this->propertyFilled('imageLocation');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Labels implements Model
     public function setTooltip(?string $tooltip): self
     {
         $this->tooltip = $tooltip;
-        $this->propertyFilled('tooltip');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Labels implements Model
     public function setShowOnProducts(bool $showOnProducts): self
     {
         $this->showOnProducts = $showOnProducts;
-        $this->propertyFilled('showOnProducts');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Labels implements Model
     public function setShowOnOrders(bool $showOnOrders): self
     {
         $this->showOnOrders = $showOnOrders;
-        $this->propertyFilled('showOnOrders');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Labels implements Model
     public function setShowOnInvoices(bool $showOnInvoices): self
     {
         $this->showOnInvoices = $showOnInvoices;
-        $this->propertyFilled('showOnInvoices');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Labels implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

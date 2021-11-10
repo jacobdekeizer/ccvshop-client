@@ -19,7 +19,7 @@ class Ordermessages implements Model
     /**
      * @var string Link to Messages sent to the customer
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Ordermessages implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

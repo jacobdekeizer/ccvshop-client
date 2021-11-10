@@ -19,17 +19,17 @@ class Productshippingcosts implements Model
     /**
      * @var float Indication of shipping costs if the quantity of items would be baught and shipped to this country.
      */
-    private $costs;
+    private float $costs;
 
     /**
      * @var float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
-    private $quantity;
+    private float $quantity;
 
     /**
      * @var string This is the country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
-    private $country;
+    private string $country;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Productshippingcosts implements Model
     public function setCosts(float $costs): self
     {
         $this->costs = $costs;
-        $this->propertyFilled('costs');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Productshippingcosts implements Model
     public function setQuantity(float $quantity): self
     {
         $this->quantity = $quantity;
-        $this->propertyFilled('quantity');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Productshippingcosts implements Model
     public function setCountry(string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 }

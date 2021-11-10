@@ -19,37 +19,37 @@ class Producttopropertygroups implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var int|null Unique id of the product
      */
-    private $productId;
+    private ?int $productId;
 
     /**
      * @var int|null Unique id of the product property group
      */
-    private $productPropertyGroupId;
+    private ?int $productPropertyGroupId;
 
     /**
      * @var string|null Link to product
      */
-    private $productHref;
+    private ?string $productHref;
 
     /**
      * @var string|null Link to Product Property Group
      */
-    private $productPropertyGroupHref;
+    private ?string $productPropertyGroupHref;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttopropertygroups\Child\Values|null Product values
      */
-    private $values;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttopropertygroups\Child\Values $values;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Producttopropertygroups implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Producttopropertygroups implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Producttopropertygroups implements Model
     public function setProductId(?int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Producttopropertygroups implements Model
     public function setProductPropertyGroupId(?int $productPropertyGroupId): self
     {
         $this->productPropertyGroupId = $productPropertyGroupId;
-        $this->propertyFilled('productPropertyGroupId');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Producttopropertygroups implements Model
     public function setProductHref(?string $productHref): self
     {
         $this->productHref = $productHref;
-        $this->propertyFilled('productHref');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Producttopropertygroups implements Model
     public function setProductPropertyGroupHref(?string $productPropertyGroupHref): self
     {
         $this->productPropertyGroupHref = $productPropertyGroupHref;
-        $this->propertyFilled('productPropertyGroupHref');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Producttopropertygroups implements Model
     public function setValues(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttopropertygroups\Child\Values $values): self
     {
         $this->values = $values;
-        $this->propertyFilled('values');
         return $this;
     }
 }

@@ -19,17 +19,17 @@ class Supplier implements Model
     /**
      * @var string|null Link to supplier resource
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Supplier Id
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Supplier name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Supplier implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Supplier implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Supplier implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

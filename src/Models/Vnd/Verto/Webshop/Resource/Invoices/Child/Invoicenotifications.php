@@ -19,7 +19,7 @@ class Invoicenotifications implements Model
     /**
      * @var string Link to the collection.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Invoicenotifications implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

@@ -19,42 +19,42 @@ class Productreviews implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int The ID of the product the review refers to.
      */
-    private $productid;
+    private int $productid;
 
     /**
      * @var string|null Review createdate.
      */
-    private $createdate;
+    private ?string $createdate;
 
     /**
      * @var string The contents of the review.
      */
-    private $content;
+    private string $content;
 
     /**
      * @var int Amount of points the reviewer has awarded.
      */
-    private $points;
+    private int $points;
 
     /**
      * @var string The reviewer's name.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var bool Is the review approved for publishing.
      */
-    private $approved;
+    private bool $approved;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Productreviews implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Productreviews implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Productreviews implements Model
     public function setProductid(int $productid): self
     {
         $this->productid = $productid;
-        $this->propertyFilled('productid');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Productreviews implements Model
     public function setCreatedate(?string $createdate): self
     {
         $this->createdate = $createdate;
-        $this->propertyFilled('createdate');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Productreviews implements Model
     public function setContent(string $content): self
     {
         $this->content = $content;
-        $this->propertyFilled('content');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Productreviews implements Model
     public function setPoints(int $points): self
     {
         $this->points = $points;
-        $this->propertyFilled('points');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Productreviews implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Productreviews implements Model
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
-        $this->propertyFilled('approved');
         return $this;
     }
 }

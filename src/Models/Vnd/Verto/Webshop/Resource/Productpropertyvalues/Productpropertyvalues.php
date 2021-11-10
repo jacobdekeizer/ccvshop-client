@@ -19,27 +19,27 @@ class Productpropertyvalues implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Property value Id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Product Id
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Property Id
      */
-    private $productPropertyId;
+    private int $productPropertyId;
 
     /**
      * @var string Value of Product property value
      */
-    private $value;
+    private string $value;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Productpropertyvalues implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Productpropertyvalues implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Productpropertyvalues implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Productpropertyvalues implements Model
     public function setProductPropertyId(int $productPropertyId): self
     {
         $this->productPropertyId = $productPropertyId;
-        $this->propertyFilled('productPropertyId');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Productpropertyvalues implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 }

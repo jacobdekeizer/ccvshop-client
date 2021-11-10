@@ -19,17 +19,17 @@ class Patch implements Model
     /**
      * @var string|null Productvideo name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var int|null Productvideo position.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var string|null Productvideo embedcode
      */
-    private $embedcode;
+    private ?string $embedcode;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Patch implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Patch implements Model
     public function setEmbedcode(?string $embedcode): self
     {
         $this->embedcode = $embedcode;
-        $this->propertyFilled('embedcode');
         return $this;
     }
 }

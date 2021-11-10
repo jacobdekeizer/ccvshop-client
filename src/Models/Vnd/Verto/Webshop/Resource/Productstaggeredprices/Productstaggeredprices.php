@@ -19,37 +19,37 @@ class Productstaggeredprices implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Staggered price id
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var float|null Number of products
      */
-    private $quantity;
+    private ?float $quantity;
 
     /**
      * @var float|null Price of products
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Discount of products
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var float|null Sellprice of products
      */
-    private $sellprice;
+    private ?float $sellprice;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productstaggeredprices\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productstaggeredprices\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productstaggeredprices implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productstaggeredprices implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productstaggeredprices implements Model
     public function setQuantity(?float $quantity): self
     {
         $this->quantity = $quantity;
-        $this->propertyFilled('quantity');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productstaggeredprices implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productstaggeredprices implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productstaggeredprices implements Model
     public function setSellprice(?float $sellprice): self
     {
         $this->sellprice = $sellprice;
-        $this->propertyFilled('sellprice');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productstaggeredprices implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productstaggeredprices\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

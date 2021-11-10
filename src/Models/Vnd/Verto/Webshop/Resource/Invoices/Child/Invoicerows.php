@@ -19,7 +19,7 @@ class Invoicerows implements Model
     /**
      * @var string Link to products that are included in this invoice.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Invoicerows implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

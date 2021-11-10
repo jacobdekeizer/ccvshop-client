@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var string Photo extension
      */
-    private $fileType;
+    private string $fileType;
 
     /**
      * @var string|null Photo alt text
      */
-    private $alttext;
+    private ?string $alttext;
 
     /**
      * @var string Base64 encode image source. Do not include the base64 metadata. Example: remove: 'data:image/png;base64,' from the string
      */
-    private $source;
+    private string $source;
 
     /**
      * @var bool|null Product photo marked as mainphoto. Products without a mainphoto will not show a photo in categories.
      */
-    private $isMainphoto;
+    private ?bool $isMainphoto;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Post implements Model
     public function setFileType(string $fileType): self
     {
         $this->fileType = $fileType;
-        $this->propertyFilled('fileType');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Post implements Model
     public function setAlttext(?string $alttext): self
     {
         $this->alttext = $alttext;
-        $this->propertyFilled('alttext');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Post implements Model
     public function setSource(string $source): self
     {
         $this->source = $source;
-        $this->propertyFilled('source');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Post implements Model
     public function setIsMainphoto(?bool $isMainphoto): self
     {
         $this->isMainphoto = $isMainphoto;
-        $this->propertyFilled('isMainphoto');
         return $this;
     }
 }

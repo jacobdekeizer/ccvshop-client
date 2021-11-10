@@ -19,92 +19,92 @@ class Quotations implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Quotation id.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null Prefix of the specific quotation number of the quotation. Automatically generated when the quotation is created.
      */
-    private $quotationnumberPrefix;
+    private ?string $quotationnumberPrefix;
 
     /**
      * @var int Quotation number, automatically generated when the quotation is created.
      */
-    private $quotationnumber;
+    private int $quotationnumber;
 
     /**
      * @var string Unique quotation number, Full quotation number as displayed in shop. With dash if the prefix is available.
      */
-    private $quotationnumberFull;
+    private string $quotationnumberFull;
 
     /**
      * @var string|null Prefix of the specific order number of the order that was created from this quotation. automatically generated when the order is created.
      */
-    private $ordernumberPrefix;
+    private ?string $ordernumberPrefix;
 
     /**
      * @var int Order number of the order that was created from this quotation, automatically generated when the order is created.
      */
-    private $ordernumber;
+    private int $ordernumber;
 
     /**
      * @var string Unique order number, Full ordernumber of the order that was created from this quotation as displayed in shop. With dash if the prefix is available.
      */
-    private $ordernumberFull;
+    private string $ordernumberFull;
 
     /**
      * @var string Createdate of this quotation in UTC.
      */
-    private $createDate;
+    private string $createDate;
 
     /**
      * @var string Status of the quotation. 1. Open. 2. Requested. 3. Send. 4. Accepted. 5. Concept. A concept quotation is a quotation that is created, but not yet saved. Thats also why concept quotations aren't visible for the merchant.
      */
-    private $status;
+    private string $status;
 
     /**
      * @var string The display name of the quotation status.
      */
-    private $statusName;
+    private string $statusName;
 
     /**
      * @var float Total price inc tax.
      */
-    private $totalPriceIncTax;
+    private float $totalPriceIncTax;
 
     /**
      * @var float Total price excl tax.
      */
-    private $totalPriceExcTax;
+    private float $totalPriceExcTax;
 
     /**
      * @var float Total price.
      */
-    private $totalPrice;
+    private float $totalPrice;
 
     /**
      * @var float Total tax amount.
      */
-    private $totalTax;
+    private float $totalTax;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\User Link to possible user resource associated with this quotation.
      */
-    private $user;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\User $user;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo Describes personal information of the customer.
      */
-    private $customer;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\Quotationrows Products that are included in this quotation.
      */
-    private $quotationrows;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\Quotationrows $quotationrows;
 
     /**
      * @return self
@@ -265,7 +265,6 @@ class Quotations implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -276,7 +275,6 @@ class Quotations implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -287,7 +285,6 @@ class Quotations implements Model
     public function setQuotationnumberPrefix(?string $quotationnumberPrefix): self
     {
         $this->quotationnumberPrefix = $quotationnumberPrefix;
-        $this->propertyFilled('quotationnumberPrefix');
         return $this;
     }
 
@@ -298,7 +295,6 @@ class Quotations implements Model
     public function setQuotationnumber(int $quotationnumber): self
     {
         $this->quotationnumber = $quotationnumber;
-        $this->propertyFilled('quotationnumber');
         return $this;
     }
 
@@ -309,7 +305,6 @@ class Quotations implements Model
     public function setQuotationnumberFull(string $quotationnumberFull): self
     {
         $this->quotationnumberFull = $quotationnumberFull;
-        $this->propertyFilled('quotationnumberFull');
         return $this;
     }
 
@@ -320,7 +315,6 @@ class Quotations implements Model
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
-        $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
 
@@ -331,7 +325,6 @@ class Quotations implements Model
     public function setOrdernumber(int $ordernumber): self
     {
         $this->ordernumber = $ordernumber;
-        $this->propertyFilled('ordernumber');
         return $this;
     }
 
@@ -342,7 +335,6 @@ class Quotations implements Model
     public function setOrdernumberFull(string $ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
-        $this->propertyFilled('ordernumberFull');
         return $this;
     }
 
@@ -353,7 +345,6 @@ class Quotations implements Model
     public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -364,7 +355,6 @@ class Quotations implements Model
     public function setStatus(string $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -375,7 +365,6 @@ class Quotations implements Model
     public function setStatusName(string $statusName): self
     {
         $this->statusName = $statusName;
-        $this->propertyFilled('statusName');
         return $this;
     }
 
@@ -386,7 +375,6 @@ class Quotations implements Model
     public function setTotalPriceIncTax(float $totalPriceIncTax): self
     {
         $this->totalPriceIncTax = $totalPriceIncTax;
-        $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
 
@@ -397,7 +385,6 @@ class Quotations implements Model
     public function setTotalPriceExcTax(float $totalPriceExcTax): self
     {
         $this->totalPriceExcTax = $totalPriceExcTax;
-        $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
 
@@ -408,7 +395,6 @@ class Quotations implements Model
     public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
-        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -419,7 +405,6 @@ class Quotations implements Model
     public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
-        $this->propertyFilled('totalTax');
         return $this;
     }
 
@@ -430,7 +415,6 @@ class Quotations implements Model
     public function setUser(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\User $user): self
     {
         $this->user = $user;
-        $this->propertyFilled('user');
         return $this;
     }
 
@@ -441,7 +425,6 @@ class Quotations implements Model
     public function setCustomer(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer): self
     {
         $this->customer = $customer;
-        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -452,7 +435,6 @@ class Quotations implements Model
     public function setQuotationrows(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotations\Child\Quotationrows $quotationrows): self
     {
         $this->quotationrows = $quotationrows;
-        $this->propertyFilled('quotationrows');
         return $this;
     }
 }

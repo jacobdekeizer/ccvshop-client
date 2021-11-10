@@ -19,42 +19,42 @@ class Categorytreenode implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Category name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Category description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var int|null Category position
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var bool|null Category visible on website
      */
-    private $showOnWebsite;
+    private ?bool $showOnWebsite;
 
     /**
      * @var string|null Deeplink to this resource
      */
-    private $deeplink;
+    private ?string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode[]|null Array with child categories. Child categories have the same properies as root categories
      */
-    private $children;
+    private ?array $children;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Categorytreenode implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Categorytreenode implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Categorytreenode implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Categorytreenode implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Categorytreenode implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Categorytreenode implements Model
     public function setShowOnWebsite(?bool $showOnWebsite): self
     {
         $this->showOnWebsite = $showOnWebsite;
-        $this->propertyFilled('showOnWebsite');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Categorytreenode implements Model
     public function setDeeplink(?string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Categorytreenode implements Model
     public function setChildren(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$children): self
     {
         $this->children = $children;
-        $this->propertyFilled('children');
         return $this;
     }
 }

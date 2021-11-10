@@ -19,7 +19,7 @@ class All implements Parameter
     /**
      * @var string|null A hex code, multicolor, transparent to filter that color.
      */
-    private $color;
+    private ?string $color = null;
 
     /**
      * @return self

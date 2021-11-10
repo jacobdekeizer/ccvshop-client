@@ -19,22 +19,22 @@ class Developer implements Model
     /**
      * @var int|null Id of the developer.
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null E-mail address of the developer.
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @var string|null Website of the developer.
      */
-    private $website;
+    private ?string $website;
 
     /**
      * @var string|null Full name of the developer.
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Developer implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Developer implements Model
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Developer implements Model
     public function setWebsite(?string $website): self
     {
         $this->website = $website;
-        $this->propertyFilled('website');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Developer implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

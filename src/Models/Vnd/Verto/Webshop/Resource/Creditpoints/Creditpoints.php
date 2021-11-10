@@ -19,27 +19,27 @@ class Creditpoints implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var string|null The amount of available creditpoints
      */
-    private $amount;
+    private ?string $amount;
 
     /**
      * @var string|null Contains the date of the last mutation
      */
-    private $lastMutationDate;
+    private ?string $lastMutationDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\ParentItem $parent;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\Mutations|null Contains link to mutation resource.
      */
-    private $mutations;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\Mutations $mutations;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Creditpoints implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Creditpoints implements Model
     public function setAmount(?string $amount): self
     {
         $this->amount = $amount;
-        $this->propertyFilled('amount');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Creditpoints implements Model
     public function setLastMutationDate(?string $lastMutationDate): self
     {
         $this->lastMutationDate = $lastMutationDate;
-        $this->propertyFilled('lastMutationDate');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Creditpoints implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Creditpoints implements Model
     public function setMutations(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Creditpoints\Child\Mutations $mutations): self
     {
         $this->mutations = $mutations;
-        $this->propertyFilled('mutations');
         return $this;
     }
 }

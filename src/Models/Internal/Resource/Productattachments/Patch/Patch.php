@@ -19,12 +19,12 @@ class Patch implements Model
     /**
      * @var string|null Attachment name
      */
-    private $displayname;
+    private ?string $displayname;
 
     /**
      * @var int|null Attachment position
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Patch implements Model
     public function setDisplayname(?string $displayname): self
     {
         $this->displayname = $displayname;
-        $this->propertyFilled('displayname');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

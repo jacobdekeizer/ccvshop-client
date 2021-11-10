@@ -19,52 +19,52 @@ class Paymethod implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string The resource id of this paymethod. This will be used in the API with GET/PATCH/DELETE calls..
      */
-    private $resourceId;
+    private string $resourceId;
 
     /**
      * @var string The ID of this paymethod. This will be posted to the app.
      */
-    private $id;
+    private string $id;
 
     /**
      * @var string Display name of this paymethod. This will be shown in the checkout.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string Location of the icon. This must be a HTTPS (secured) connection.
      */
-    private $icon;
+    private string $icon;
 
     /**
      * @var string|null The moment when the transaction will be posted to the app, either before the sale (presale) or after (postsale). Please consult the App Developer Manual for more information.
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @var string[]|null This limits this paymethod to certain currencies. For instances, iDEAL is only available for EUR. If this paymethod is available for all currencies, leave this empty.
      */
-    private $currencies;
+    private ?array $currencies;
 
     /**
      * @var string[]|null These additional customer fields will be shown as required during the order chechout.
      */
-    private $requiredFields;
+    private ?array $requiredFields;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers[]|null Collection of Issuers
      */
-    private $issuers;
+    private ?array $issuers;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -161,7 +161,6 @@ class Paymethod implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -172,7 +171,6 @@ class Paymethod implements Model
     public function setResourceId(string $resourceId): self
     {
         $this->resourceId = $resourceId;
-        $this->propertyFilled('resourceId');
         return $this;
     }
 
@@ -183,7 +181,6 @@ class Paymethod implements Model
     public function setId(string $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -194,7 +191,6 @@ class Paymethod implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -205,7 +201,6 @@ class Paymethod implements Model
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
-        $this->propertyFilled('icon');
         return $this;
     }
 
@@ -216,7 +211,6 @@ class Paymethod implements Model
     public function setType(?string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -227,7 +221,6 @@ class Paymethod implements Model
     public function setCurrencies(?array $currencies): self
     {
         $this->currencies = $currencies;
-        $this->propertyFilled('currencies');
         return $this;
     }
 
@@ -238,7 +231,6 @@ class Paymethod implements Model
     public function setRequiredFields(?array $requiredFields): self
     {
         $this->requiredFields = $requiredFields;
-        $this->propertyFilled('requiredFields');
         return $this;
     }
 
@@ -249,7 +241,6 @@ class Paymethod implements Model
     public function setIssuers(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers ...$issuers): self
     {
         $this->issuers = $issuers;
-        $this->propertyFilled('issuers');
         return $this;
     }
 
@@ -260,7 +251,6 @@ class Paymethod implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

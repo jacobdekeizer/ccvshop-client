@@ -19,27 +19,27 @@ class Post implements Model
     /**
      * @var int Unique id of the category.
      */
-    private $categoryId;
+    private int $categoryId;
 
     /**
      * @var int Unique id of the user.
      */
-    private $userId;
+    private int $userId;
 
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
-    private $discount;
+    private ?int $discount;
 
     /**
      * @var bool|null If TRUE then this categoy and its products won't be visible for this user.
      */
-    private $hidden;
+    private ?bool $hidden;
 
     /**
      * @var bool|null If TRUE this adjustment will be inherited by all sub categories of this one.
      */
-    private $includeSubCategories;
+    private ?bool $includeSubCategories;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Post implements Model
     public function setCategoryId(int $categoryId): self
     {
         $this->categoryId = $categoryId;
-        $this->propertyFilled('categoryId');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Post implements Model
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
-        $this->propertyFilled('userId');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Post implements Model
     public function setDiscount(?int $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Post implements Model
     public function setHidden(?bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Post implements Model
     public function setIncludeSubCategories(?bool $includeSubCategories): self
     {
         $this->includeSubCategories = $includeSubCategories;
-        $this->propertyFilled('includeSubCategories');
         return $this;
     }
 }

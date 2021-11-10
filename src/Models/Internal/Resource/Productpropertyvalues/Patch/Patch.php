@@ -19,7 +19,7 @@ class Patch implements Model
     /**
      * @var string The value, an boolean when checkbox, an optionid when property type is option, string when else
      */
-    private $value;
+    private string $value;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Patch implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var int[] Replaces all labels of this order with the new collection. An empty collection can be used to remove all labels.
      */
-    private $labels;
+    private array $labels;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setLabels(array $labels): self
     {
         $this->labels = $labels;
-        $this->propertyFilled('labels');
         return $this;
     }
 }

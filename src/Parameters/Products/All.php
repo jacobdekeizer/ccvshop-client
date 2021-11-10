@@ -24,82 +24,82 @@ class All extends PaginatedList implements Parameter
     /**
      * @var string|null Number of the product.
      */
-    private $productnumber;
+    private ?string $productnumber = null;
 
     /**
      * @var string|null EAN (European Article Numbering) of the product.
      */
-    private $eannumber;
+    private ?string $eannumber = null;
 
     /**
      * @var string|null MPN (Manufacturer Part Number) of the product.
      */
-    private $mpnnumber;
+    private ?string $mpnnumber = null;
 
     /**
      * @var string|null Specific part (min 3 char.) of productname with a LIKE matching method. Encode according to RFC 3986.
      */
-    private $productname;
+    private ?string $productname = null;
 
     /**
      * @var float|null Minimal price of the products in the result.
      */
-    private $minprice;
+    private ?float $minprice = null;
 
     /**
      * @var float|null Maximal price of the products in the result.
      */
-    private $maxprice;
+    private ?float $maxprice = null;
 
     /**
      * @var float|null Minimal discount of the products in the result.
      */
-    private $mindiscount;
+    private ?float $mindiscount = null;
 
     /**
      * @var float|null Maximal discount of the products in the result.
      */
-    private $maxdiscount;
+    private ?float $maxdiscount = null;
 
     /**
      * @var float|null Minimal sell price (price - discount) of the products in the result.
      */
-    private $minsellprice;
+    private ?float $minsellprice = null;
 
     /**
      * @var float|null Maximal sell price (price - discount) of the products in the result.
      */
-    private $maxsellprice;
+    private ?float $maxsellprice = null;
 
     /**
      * @var int|null Specific stock of the products in the result.
      */
-    private $stock;
+    private ?int $stock = null;
 
     /**
      * @var float|null Minimal stock of the products in the result.
      */
-    private $minstock;
+    private ?float $minstock = null;
 
     /**
      * @var float|null Maximal stock of the products in the result.
      */
-    private $maxstock;
+    private ?float $maxstock = null;
 
     /**
      * @var float|null Quantity used to calculate shipping costs.
      */
-    private $quantity;
+    private ?float $quantity = null;
 
     /**
      * @var string|null A hex code, multicolor, transparent or null to filter products with that color. NULL will filter products without a color.
      */
-    private $color;
+    private ?string $color = null;
 
     /**
      * @var bool|null When true show only active products. When false show inactive products. Omit to view both.
      */
-    private $active;
+    private ?bool $active = null;
 
     /**
      * @return self

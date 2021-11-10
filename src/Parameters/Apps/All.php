@@ -23,7 +23,7 @@ class All implements Parameter
     /**
      * @var string|null Title of the app.
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @return self

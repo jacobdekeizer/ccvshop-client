@@ -19,17 +19,17 @@ class Translations implements Model
     /**
      * @var string Unique identifier
      */
-    private $key;
+    private string $key;
 
     /**
      * @var string The translated value.
      */
-    private $value;
+    private string $value;
 
     /**
      * @var bool If this value differs from default.
      */
-    private $customValue;
+    private bool $customValue;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Translations implements Model
     public function setKey(string $key): self
     {
         $this->key = $key;
-        $this->propertyFilled('key');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Translations implements Model
     public function setValue(string $value): self
     {
         $this->value = $value;
-        $this->propertyFilled('value');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Translations implements Model
     public function setCustomValue(bool $customValue): self
     {
         $this->customValue = $customValue;
-        $this->propertyFilled('customValue');
         return $this;
     }
 }

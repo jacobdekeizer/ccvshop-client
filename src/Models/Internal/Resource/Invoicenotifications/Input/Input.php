@@ -19,7 +19,7 @@ class Input implements Model
     /**
      * @var string The prefix determines the destination (customer). The second part determines the document. These correspond with the backend option a merchant has.
      */
-    private $type;
+    private string $type;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Input implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 }

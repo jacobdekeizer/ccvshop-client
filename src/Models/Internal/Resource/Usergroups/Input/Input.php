@@ -19,22 +19,22 @@ class Input implements Model
     /**
      * @var string|null Group name
      */
-    private $groupname;
+    private ?string $groupname;
 
     /**
      * @var float|null Discount in percentage
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var bool|null True if the group is a default group. New users are automatically added to the standard group.
      */
-    private $default;
+    private ?bool $default;
 
     /**
      * @var string|null If B2B is enabled and this usergroup has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      */
-    private $productInCategoryDiscount;
+    private ?string $productInCategoryDiscount;
 
     /**
      * @return self
@@ -83,7 +83,6 @@ class Input implements Model
     public function setGroupname(?string $groupname): self
     {
         $this->groupname = $groupname;
-        $this->propertyFilled('groupname');
         return $this;
     }
 
@@ -94,7 +93,6 @@ class Input implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -105,7 +103,6 @@ class Input implements Model
     public function setDefault(?bool $default): self
     {
         $this->default = $default;
-        $this->propertyFilled('default');
         return $this;
     }
 
@@ -116,7 +113,6 @@ class Input implements Model
     public function setProductInCategoryDiscount(?string $productInCategoryDiscount): self
     {
         $this->productInCategoryDiscount = $productInCategoryDiscount;
-        $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
 }

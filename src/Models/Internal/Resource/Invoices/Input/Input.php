@@ -19,17 +19,17 @@ class Input implements Model
     /**
      * @var string|null Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
-    private $status;
+    private ?string $status;
 
     /**
      * @var string|null Date of when the payment link was send to the customer in UTC
      */
-    private $paymentLinkSent;
+    private ?string $paymentLinkSent;
 
     /**
      * @var string|null A reference to the invoice number at a third party.
      */
-    private $externalReference;
+    private ?string $externalReference;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Input implements Model
     public function setStatus(?string $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Input implements Model
     public function setPaymentLinkSent(?string $paymentLinkSent): self
     {
         $this->paymentLinkSent = $paymentLinkSent;
-        $this->propertyFilled('paymentLinkSent');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Input implements Model
     public function setExternalReference(?string $externalReference): self
     {
         $this->externalReference = $externalReference;
-        $this->propertyFilled('externalReference');
         return $this;
     }
 }

@@ -19,32 +19,32 @@ class Redirects implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string If a visitor reuqests this url it will be forwarded to target_url. This source_url will also be relative and must be unique.
      */
-    private $sourceUrl;
+    private string $sourceUrl;
 
     /**
      * @var string Visitor will be forwarded to this url, which can be relative or absolute. It can also be a different domain.
      */
-    private $targetUrl;
+    private string $targetUrl;
 
     /**
      * @var bool Inactive redirects will be ignored.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Redirects\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Redirects\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Redirects implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Redirects implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Redirects implements Model
     public function setSourceUrl(string $sourceUrl): self
     {
         $this->sourceUrl = $sourceUrl;
-        $this->propertyFilled('sourceUrl');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Redirects implements Model
     public function setTargetUrl(string $targetUrl): self
     {
         $this->targetUrl = $targetUrl;
-        $this->propertyFilled('targetUrl');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Redirects implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Redirects implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Redirects\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -19,7 +19,7 @@ class Input implements Model
     /**
      * @var string Name of mailinglist
      */
-    private $name;
+    private string $name;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Input implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

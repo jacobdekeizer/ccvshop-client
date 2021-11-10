@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post[] Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      */
-    private $productphotos;
+    private array $productphotos;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setProductphotos(\JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post ...$productphotos): self
     {
         $this->productphotos = $productphotos;
-        $this->propertyFilled('productphotos');
         return $this;
     }
 }

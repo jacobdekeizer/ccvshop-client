@@ -23,7 +23,7 @@ class All implements Parameter
     /**
      * @var string|null Title of the service.
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @return self

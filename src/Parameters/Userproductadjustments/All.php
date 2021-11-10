@@ -19,12 +19,12 @@ class All implements Parameter
     /**
      * @var int|null User Id, see resource /users.
      */
-    private $userId;
+    private ?int $userId = null;
 
     /**
      * @var int|null Product Id,  see resource /products.
      */
-    private $productId;
+    private ?int $productId = null;
 
     /**
      * @return self

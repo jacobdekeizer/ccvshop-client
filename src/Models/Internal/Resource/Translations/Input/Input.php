@@ -19,7 +19,7 @@ class Input implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations[] Collection of translations.
      */
-    private $translations;
+    private array $translations;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Input implements Model
     public function setTranslations(\JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations ...$translations): self
     {
         $this->translations = $translations;
-        $this->propertyFilled('translations');
         return $this;
     }
 }

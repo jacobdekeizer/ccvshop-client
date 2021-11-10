@@ -19,162 +19,162 @@ class Categories implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Category name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Category description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string|null Category description photo size.
      */
-    private $descriptionPhotoSize;
+    private ?string $descriptionPhotoSize;
 
     /**
      * @var string|null Category description photo position
      */
-    private $descriptionPhotoPosition;
+    private ?string $descriptionPhotoPosition;
 
     /**
      * @var string|null Category description photo
      */
-    private $descriptionPhoto;
+    private ?string $descriptionPhoto;
 
     /**
      * @var string|null Category description on the bottom of the page
      */
-    private $descriptionBottom;
+    private ?string $descriptionBottom;
 
     /**
      * @var string|null Search keywords
      */
-    private $searchwords;
+    private ?string $searchwords;
 
     /**
      * @var string|null Link to the photo.
      */
-    private $photo;
+    private ?string $photo;
 
     /**
      * @var bool|null Show a larger photo on mouseover.
      */
-    private $showBigPhoto;
+    private ?bool $showBigPhoto;
 
     /**
      * @var bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
-    private $productphotoInCanvas;
+    private ?bool $productphotoInCanvas;
 
     /**
      * @var bool|null Show the product order button.
      */
-    private $showOrderbutton;
+    private ?bool $showOrderbutton;
 
     /**
      * @var string|null The order in which the products are sorted in this category
      */
-    private $orderby;
+    private ?string $orderby;
 
     /**
      * @var int|null Number of items per page
      */
-    private $itemsPerPage;
+    private ?int $itemsPerPage;
 
     /**
      * @var int|null Category position
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\LayoutOfProducts|null Layout of the products in this category
      */
-    private $layoutOfProducts;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\LayoutOfProducts $layoutOfProducts;
 
     /**
      * @var int|null The layout id of the sub categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
-    private $layoutOfCategoriesId;
+    private ?int $layoutOfCategoriesId;
 
     /**
      * @var bool|null Category visible on website
      */
-    private $showOnWebsite;
+    private ?bool $showOnWebsite;
 
     /**
      * @var int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
-    private $color;
+    private ?int $color;
 
     /**
      * @var int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
-    private $colorAlternative;
+    private ?int $colorAlternative;
 
     /**
      * @var string|null Metatag Description
      */
-    private $metaDescription;
+    private ?string $metaDescription;
 
     /**
      * @var string|null Metatag Keywords
      */
-    private $metaKeywords;
+    private ?string $metaKeywords;
 
     /**
      * @var string|null Page title
      */
-    private $pageTitle;
+    private ?string $pageTitle;
 
     /**
      * @var bool|null Metatag robots: No-Index
      */
-    private $noIndex;
+    private ?bool $noIndex;
 
     /**
      * @var bool|null Metatag robots: No-Follow
      */
-    private $noFollow;
+    private ?bool $noFollow;
 
     /**
      * @var string|null SEO Alias of this resource
      */
-    private $alias;
+    private ?string $alias;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Producttocategories|null Category products
      */
-    private $producttocategories;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Producttocategories $producttocategories;
 
     /**
      * @var string|null Deeplink to this resource
      */
-    private $deeplink;
+    private ?string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Categories|null Children categories of this category
      */
-    private $categories;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Categories $categories;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Parentcategory|null Parent category
      */
-    private $parentcategory;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Parentcategory $parentcategory;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -447,7 +447,6 @@ class Categories implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -458,7 +457,6 @@ class Categories implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -469,7 +467,6 @@ class Categories implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -480,7 +477,6 @@ class Categories implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -491,7 +487,6 @@ class Categories implements Model
     public function setDescriptionPhotoSize(?string $descriptionPhotoSize): self
     {
         $this->descriptionPhotoSize = $descriptionPhotoSize;
-        $this->propertyFilled('descriptionPhotoSize');
         return $this;
     }
 
@@ -502,7 +497,6 @@ class Categories implements Model
     public function setDescriptionPhotoPosition(?string $descriptionPhotoPosition): self
     {
         $this->descriptionPhotoPosition = $descriptionPhotoPosition;
-        $this->propertyFilled('descriptionPhotoPosition');
         return $this;
     }
 
@@ -513,7 +507,6 @@ class Categories implements Model
     public function setDescriptionPhoto(?string $descriptionPhoto): self
     {
         $this->descriptionPhoto = $descriptionPhoto;
-        $this->propertyFilled('descriptionPhoto');
         return $this;
     }
 
@@ -524,7 +517,6 @@ class Categories implements Model
     public function setDescriptionBottom(?string $descriptionBottom): self
     {
         $this->descriptionBottom = $descriptionBottom;
-        $this->propertyFilled('descriptionBottom');
         return $this;
     }
 
@@ -535,7 +527,6 @@ class Categories implements Model
     public function setSearchwords(?string $searchwords): self
     {
         $this->searchwords = $searchwords;
-        $this->propertyFilled('searchwords');
         return $this;
     }
 
@@ -546,7 +537,6 @@ class Categories implements Model
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
-        $this->propertyFilled('photo');
         return $this;
     }
 
@@ -557,7 +547,6 @@ class Categories implements Model
     public function setShowBigPhoto(?bool $showBigPhoto): self
     {
         $this->showBigPhoto = $showBigPhoto;
-        $this->propertyFilled('showBigPhoto');
         return $this;
     }
 
@@ -568,7 +557,6 @@ class Categories implements Model
     public function setProductphotoInCanvas(?bool $productphotoInCanvas): self
     {
         $this->productphotoInCanvas = $productphotoInCanvas;
-        $this->propertyFilled('productphotoInCanvas');
         return $this;
     }
 
@@ -579,7 +567,6 @@ class Categories implements Model
     public function setShowOrderbutton(?bool $showOrderbutton): self
     {
         $this->showOrderbutton = $showOrderbutton;
-        $this->propertyFilled('showOrderbutton');
         return $this;
     }
 
@@ -590,7 +577,6 @@ class Categories implements Model
     public function setOrderby(?string $orderby): self
     {
         $this->orderby = $orderby;
-        $this->propertyFilled('orderby');
         return $this;
     }
 
@@ -601,7 +587,6 @@ class Categories implements Model
     public function setItemsPerPage(?int $itemsPerPage): self
     {
         $this->itemsPerPage = $itemsPerPage;
-        $this->propertyFilled('itemsPerPage');
         return $this;
     }
 
@@ -612,7 +597,6 @@ class Categories implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -623,7 +607,6 @@ class Categories implements Model
     public function setLayoutOfProducts(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\LayoutOfProducts $layoutOfProducts): self
     {
         $this->layoutOfProducts = $layoutOfProducts;
-        $this->propertyFilled('layoutOfProducts');
         return $this;
     }
 
@@ -634,7 +617,6 @@ class Categories implements Model
     public function setLayoutOfCategoriesId(?int $layoutOfCategoriesId): self
     {
         $this->layoutOfCategoriesId = $layoutOfCategoriesId;
-        $this->propertyFilled('layoutOfCategoriesId');
         return $this;
     }
 
@@ -645,7 +627,6 @@ class Categories implements Model
     public function setShowOnWebsite(?bool $showOnWebsite): self
     {
         $this->showOnWebsite = $showOnWebsite;
-        $this->propertyFilled('showOnWebsite');
         return $this;
     }
 
@@ -656,7 +637,6 @@ class Categories implements Model
     public function setColor(?int $color): self
     {
         $this->color = $color;
-        $this->propertyFilled('color');
         return $this;
     }
 
@@ -667,7 +647,6 @@ class Categories implements Model
     public function setColorAlternative(?int $colorAlternative): self
     {
         $this->colorAlternative = $colorAlternative;
-        $this->propertyFilled('colorAlternative');
         return $this;
     }
 
@@ -678,7 +657,6 @@ class Categories implements Model
     public function setMetaDescription(?string $metaDescription): self
     {
         $this->metaDescription = $metaDescription;
-        $this->propertyFilled('metaDescription');
         return $this;
     }
 
@@ -689,7 +667,6 @@ class Categories implements Model
     public function setMetaKeywords(?string $metaKeywords): self
     {
         $this->metaKeywords = $metaKeywords;
-        $this->propertyFilled('metaKeywords');
         return $this;
     }
 
@@ -700,7 +677,6 @@ class Categories implements Model
     public function setPageTitle(?string $pageTitle): self
     {
         $this->pageTitle = $pageTitle;
-        $this->propertyFilled('pageTitle');
         return $this;
     }
 
@@ -711,7 +687,6 @@ class Categories implements Model
     public function setNoIndex(?bool $noIndex): self
     {
         $this->noIndex = $noIndex;
-        $this->propertyFilled('noIndex');
         return $this;
     }
 
@@ -722,7 +697,6 @@ class Categories implements Model
     public function setNoFollow(?bool $noFollow): self
     {
         $this->noFollow = $noFollow;
-        $this->propertyFilled('noFollow');
         return $this;
     }
 
@@ -733,7 +707,6 @@ class Categories implements Model
     public function setAlias(?string $alias): self
     {
         $this->alias = $alias;
-        $this->propertyFilled('alias');
         return $this;
     }
 
@@ -744,7 +717,6 @@ class Categories implements Model
     public function setProducttocategories(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Producttocategories $producttocategories): self
     {
         $this->producttocategories = $producttocategories;
-        $this->propertyFilled('producttocategories');
         return $this;
     }
 
@@ -755,7 +727,6 @@ class Categories implements Model
     public function setDeeplink(?string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -766,7 +737,6 @@ class Categories implements Model
     public function setCategories(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Categories $categories): self
     {
         $this->categories = $categories;
-        $this->propertyFilled('categories');
         return $this;
     }
 
@@ -777,7 +747,6 @@ class Categories implements Model
     public function setParentcategory(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\Parentcategory $parentcategory): self
     {
         $this->parentcategory = $parentcategory;
-        $this->propertyFilled('parentcategory');
         return $this;
     }
 
@@ -788,7 +757,6 @@ class Categories implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categories\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

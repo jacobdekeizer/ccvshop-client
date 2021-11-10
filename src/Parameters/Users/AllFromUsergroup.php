@@ -22,7 +22,7 @@ class AllFromUsergroup extends PaginatedList implements Parameter
     /**
      * @var string|null Options are pending or accepted.
      */
-    private $approvalStatus;
+    private ?string $approvalStatus = null;
 
     /**
      * @return self

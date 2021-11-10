@@ -19,7 +19,7 @@ class Patch implements Model
     /**
      * @var int|null Unique product position.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Patch implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

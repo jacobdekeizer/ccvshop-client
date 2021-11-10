@@ -19,7 +19,7 @@ class AllFromProduct implements Parameter
     /**
      * @var float|null Quantity of products used to calculate shipping costs.
      */
-    private $quantity;
+    private ?float $quantity = null;
 
     /**
      * @return self

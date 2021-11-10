@@ -19,7 +19,7 @@ class Quotationrows implements Model
     /**
      * @var string|null Link to products that are included in this quotation.
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Quotationrows implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

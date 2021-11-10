@@ -19,32 +19,32 @@ class Categoryproductlayouts implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Layout name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var bool|null If this layout has the option to define colors
      */
-    private $hasColorScheme;
+    private ?bool $hasColorScheme;
 
     /**
      * @var bool|null If this layout has the option to show an order button
      */
-    private $hasOrderButton;
+    private ?bool $hasOrderButton;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categoryproductlayouts\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categoryproductlayouts\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Categoryproductlayouts implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Categoryproductlayouts implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Categoryproductlayouts implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Categoryproductlayouts implements Model
     public function setHasColorScheme(?bool $hasColorScheme): self
     {
         $this->hasColorScheme = $hasColorScheme;
-        $this->propertyFilled('hasColorScheme');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Categoryproductlayouts implements Model
     public function setHasOrderButton(?bool $hasOrderButton): self
     {
         $this->hasOrderButton = $hasOrderButton;
-        $this->propertyFilled('hasOrderButton');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Categoryproductlayouts implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categoryproductlayouts\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

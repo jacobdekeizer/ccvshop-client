@@ -19,17 +19,17 @@ class Combination implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attribute Describes the attribute set.
      */
-    private $attribute;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attribute $attribute;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\AttributeValue Describes the attribute value in the attribute set.
      */
-    private $attributeValue;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\AttributeValue $attributeValue;
 
     /**
      * @var float The extra price that is calculated when selecting this attribute value.
      */
-    private $extraPrice;
+    private float $extraPrice;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Combination implements Model
     public function setAttribute(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Attribute $attribute): self
     {
         $this->attribute = $attribute;
-        $this->propertyFilled('attribute');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Combination implements Model
     public function setAttributeValue(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\AttributeValue $attributeValue): self
     {
         $this->attributeValue = $attributeValue;
-        $this->propertyFilled('attributeValue');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Combination implements Model
     public function setExtraPrice(float $extraPrice): self
     {
         $this->extraPrice = $extraPrice;
-        $this->propertyFilled('extraPrice');
         return $this;
     }
 }

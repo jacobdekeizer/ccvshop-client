@@ -19,7 +19,7 @@ class View implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View[] Collection of views
      */
-    private $views;
+    private array $views;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class View implements Model
     public function setViews(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View ...$views): self
     {
         $this->views = $views;
-        $this->propertyFilled('views');
         return $this;
     }
 }

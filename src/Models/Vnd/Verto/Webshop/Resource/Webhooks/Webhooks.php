@@ -19,42 +19,42 @@ class Webhooks implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Create date of the WebHook in UTC.
      */
-    private $createdate;
+    private string $createdate;
 
     /**
      * @var string Event name, on which WebHook is triggered.
      */
-    private $event;
+    private string $event;
 
     /**
      * @var string Uri that will be called once the WebHook event is triggered.
      */
-    private $address;
+    private string $address;
 
     /**
      * @var string The secret key associated with this event. This key will be used to calculate a hash.
      */
-    private $key;
+    private string $key;
 
     /**
      * @var bool True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
-    private $isActive;
+    private bool $isActive;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webhooks\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webhooks\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -135,7 +135,6 @@ class Webhooks implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -146,7 +145,6 @@ class Webhooks implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -157,7 +155,6 @@ class Webhooks implements Model
     public function setCreatedate(string $createdate): self
     {
         $this->createdate = $createdate;
-        $this->propertyFilled('createdate');
         return $this;
     }
 
@@ -168,7 +165,6 @@ class Webhooks implements Model
     public function setEvent(string $event): self
     {
         $this->event = $event;
-        $this->propertyFilled('event');
         return $this;
     }
 
@@ -179,7 +175,6 @@ class Webhooks implements Model
     public function setAddress(string $address): self
     {
         $this->address = $address;
-        $this->propertyFilled('address');
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Webhooks implements Model
     public function setKey(string $key): self
     {
         $this->key = $key;
-        $this->propertyFilled('key');
         return $this;
     }
 
@@ -201,7 +195,6 @@ class Webhooks implements Model
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
-        $this->propertyFilled('isActive');
         return $this;
     }
 
@@ -212,7 +205,6 @@ class Webhooks implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webhooks\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -22,37 +22,37 @@ class All extends PaginatedList implements Parameter
     /**
      * @var int|null Specific return number of an return.
      */
-    private $returnnumber;
+    private ?int $returnnumber = null;
 
     /**
      * @var string|null Specific return number, combined with the return number prefix of a return.
      */
-    private $returnnumberFull;
+    private ?string $returnnumberFull = null;
 
     /**
      * @var int|null Specific order number associated with a return.
      */
-    private $ordernumber;
+    private ?int $ordernumber = null;
 
     /**
      * @var string|null Specific order number, combined with the order number prefix of a return.
      */
-    private $ordernumberFull;
+    private ?string $ordernumberFull = null;
 
     /**
      * @var string|null Specific rma status of the returns in the result. (paid, unpaid, reimbursed).
      */
-    private $status;
+    private ?string $status = null;
 
     /**
      * @var string|null Minimal create date of the returns in the result.
      */
-    private $minCreateDate;
+    private ?string $minCreateDate = null;
 
     /**
      * @var string|null Maximal create date of the returns in the result.
      */
-    private $maxCreateDate;
+    private ?string $maxCreateDate = null;
 
     /**
      * @return self

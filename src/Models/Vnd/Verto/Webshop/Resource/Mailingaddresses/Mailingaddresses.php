@@ -19,52 +19,52 @@ class Mailingaddresses implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Name of the e-mail address owner
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null Company name
      */
-    private $companyname;
+    private ?string $companyname;
 
     /**
      * @var string E-mail address
      */
-    private $email;
+    private string $email;
 
     /**
      * @var string|null Languagecode (nl, de, uk etc) to send language specific mails
      */
-    private $language;
+    private ?string $language;
 
     /**
      * @var int|null Mailinglist id
      */
-    private $mailinglistId;
+    private ?int $mailinglistId;
 
     /**
      * @var bool Is mailingaddress enabled
      */
-    private $enable;
+    private bool $enable;
 
     /**
      * @var string|null The create date of mailingaddress, UTC
      */
-    private $createDate;
+    private ?string $createDate;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailingaddresses\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailingaddresses\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -161,7 +161,6 @@ class Mailingaddresses implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -172,7 +171,6 @@ class Mailingaddresses implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -183,7 +181,6 @@ class Mailingaddresses implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -194,7 +191,6 @@ class Mailingaddresses implements Model
     public function setCompanyname(?string $companyname): self
     {
         $this->companyname = $companyname;
-        $this->propertyFilled('companyname');
         return $this;
     }
 
@@ -205,7 +201,6 @@ class Mailingaddresses implements Model
     public function setEmail(string $email): self
     {
         $this->email = $email;
-        $this->propertyFilled('email');
         return $this;
     }
 
@@ -216,7 +211,6 @@ class Mailingaddresses implements Model
     public function setLanguage(?string $language): self
     {
         $this->language = $language;
-        $this->propertyFilled('language');
         return $this;
     }
 
@@ -227,7 +221,6 @@ class Mailingaddresses implements Model
     public function setMailinglistId(?int $mailinglistId): self
     {
         $this->mailinglistId = $mailinglistId;
-        $this->propertyFilled('mailinglistId');
         return $this;
     }
 
@@ -238,7 +231,6 @@ class Mailingaddresses implements Model
     public function setEnable(bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 
@@ -249,7 +241,6 @@ class Mailingaddresses implements Model
     public function setCreateDate(?string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -260,7 +251,6 @@ class Mailingaddresses implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailingaddresses\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

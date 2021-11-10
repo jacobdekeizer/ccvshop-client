@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var string Event name, on which WebHook is triggered.
      */
-    private $event;
+    private string $event;
 
     /**
      * @var string Uri that will be called once the WebHook event is triggered.
      */
-    private $address;
+    private string $address;
 
     /**
      * @var bool|null True if the WebHook is active. Disabled WebHooks will not be triggered.
      */
-    private $isActive;
+    private ?bool $isActive;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setEvent(string $event): self
     {
         $this->event = $event;
-        $this->propertyFilled('event');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setAddress(string $address): self
     {
         $this->address = $address;
-        $this->propertyFilled('address');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setIsActive(?bool $isActive): self
     {
         $this->isActive = $isActive;
-        $this->propertyFilled('isActive');
         return $this;
     }
 }

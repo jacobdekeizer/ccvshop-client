@@ -19,27 +19,27 @@ class Excludes implements Model
     /**
      * @var string Exclusion date
      */
-    private $date;
+    private string $date;
 
     /**
      * @var string Start time for the period
      */
-    private $timefrom;
+    private string $timefrom;
 
     /**
      * @var string End time for the period
      */
-    private $timetill;
+    private string $timetill;
 
     /**
      * @var string Checkout type
      */
-    private $checkouttype;
+    private string $checkouttype;
 
     /**
      * @var int Capacity (maxiumum orders) for the slots based on the takeout period
      */
-    private $capacity;
+    private int $capacity;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Excludes implements Model
     public function setDate(string $date): self
     {
         $this->date = $date;
-        $this->propertyFilled('date');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Excludes implements Model
     public function setTimefrom(string $timefrom): self
     {
         $this->timefrom = $timefrom;
-        $this->propertyFilled('timefrom');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Excludes implements Model
     public function setTimetill(string $timetill): self
     {
         $this->timetill = $timetill;
-        $this->propertyFilled('timetill');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Excludes implements Model
     public function setCheckouttype(string $checkouttype): self
     {
         $this->checkouttype = $checkouttype;
-        $this->propertyFilled('checkouttype');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Excludes implements Model
     public function setCapacity(int $capacity): self
     {
         $this->capacity = $capacity;
-        $this->propertyFilled('capacity');
         return $this;
     }
 }

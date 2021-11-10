@@ -19,12 +19,12 @@ class TakeOutWindow implements Model
     /**
      * @var string|null Start datetime of the take out slot in UTC.
      */
-    private $start;
+    private ?string $start;
 
     /**
      * @var string|null End datetime of the take out slot in UTC.
      */
-    private $end;
+    private ?string $end;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class TakeOutWindow implements Model
     public function setStart(?string $start): self
     {
         $this->start = $start;
-        $this->propertyFilled('start');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class TakeOutWindow implements Model
     public function setEnd(?string $end): self
     {
         $this->end = $end;
-        $this->propertyFilled('end');
         return $this;
     }
 }

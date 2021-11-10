@@ -19,17 +19,17 @@ class Input implements Model
     /**
      * @var float Number of products. Maximum percission is 3 (ie x.xxx).
      */
-    private $quantity;
+    private float $quantity;
 
     /**
      * @var float Price of products
      */
-    private $price;
+    private float $price;
 
     /**
      * @var float Discount of products
      */
-    private $discount;
+    private float $discount;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Input implements Model
     public function setQuantity(float $quantity): self
     {
         $this->quantity = $quantity;
-        $this->propertyFilled('quantity');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Input implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Input implements Model
     public function setDiscount(float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 }

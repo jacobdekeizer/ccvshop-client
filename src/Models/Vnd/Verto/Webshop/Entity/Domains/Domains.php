@@ -19,27 +19,27 @@ class Domains implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var string The name of the Domain
      */
-    private $domainname;
+    private string $domainname;
 
     /**
      * @var bool Secure Sockets Layer certificate is installed for this domain and ssl traffic is supported on this domain
      */
-    private $ssldomain;
+    private bool $ssldomain;
 
     /**
      * @var string|null Language of the Domain and what language will be displayed on the front-end of the website. When domains are not set by language the type will be null
      */
-    private $language;
+    private ?string $language;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Child\ParentItem|null Parent resource of this resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Domains implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Domains implements Model
     public function setDomainname(string $domainname): self
     {
         $this->domainname = $domainname;
-        $this->propertyFilled('domainname');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Domains implements Model
     public function setSsldomain(bool $ssldomain): self
     {
         $this->ssldomain = $ssldomain;
-        $this->propertyFilled('ssldomain');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Domains implements Model
     public function setLanguage(?string $language): self
     {
         $this->language = $language;
-        $this->propertyFilled('language');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Domains implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

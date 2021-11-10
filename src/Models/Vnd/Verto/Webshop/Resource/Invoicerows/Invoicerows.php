@@ -19,182 +19,182 @@ class Invoicerows implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Invoice row Id.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Id of the invoice associated with this row.
      */
-    private $invoiceId;
+    private string $invoiceId;
 
     /**
      * @var string Product type of this invoice row. If the type is a deposit then taxrate will always be 0%.
      */
-    private $productType;
+    private string $productType;
 
     /**
      * @var string Product name.
      */
-    private $productName;
+    private string $productName;
 
     /**
      * @var string Product number.
      */
-    private $productNumber;
+    private string $productNumber;
 
     /**
      * @var string Product number from the attributecombination.
      */
-    private $subProductNumber;
+    private string $subProductNumber;
 
     /**
      * @var string SKU number from the attributecombination.
      */
-    private $subSkuNumber;
+    private string $subSkuNumber;
 
     /**
      * @var string EAN number from the attributecombination.
      */
-    private $subEanNumber;
+    private string $subEanNumber;
 
     /**
      * @var int|null Unique product id.
      */
-    private $productId;
+    private ?int $productId;
 
     /**
      * @var string|null Link to product resource.
      */
-    private $productHref;
+    private ?string $productHref;
 
     /**
      * @var float Quantity of products.
      */
-    private $count;
+    private float $count;
 
     /**
      * @var float Product original price per unit.
      */
-    private $price;
+    private float $price;
 
     /**
      * @var float Product purchase price per unit.
      */
-    private $productPurchasePrice;
+    private float $productPurchasePrice;
 
     /**
      * @var float Discount price per unit.
      */
-    private $discount;
+    private float $discount;
 
     /**
      * @var bool Custom product price. If true, this price is differnt from the product price for this invoice row.
      */
-    private $customPrice;
+    private bool $customPrice;
 
     /**
      * @var float Tax percentage.
      */
-    private $tax;
+    private float $tax;
 
     /**
      * @var string Product unit.
      */
-    private $unit;
+    private string $unit;
 
     /**
      * @var float Product weight.
      */
-    private $weight;
+    private float $weight;
 
     /**
      * @var string Memo description of product.
      */
-    private $memo;
+    private string $memo;
 
     /**
      * @var int|null Package id. Depending on this ID, different shippingcosts will be calculated. See /:version/packages/. When value is null no shopping costs will be calculated.
      */
-    private $packageId;
+    private ?int $packageId;
 
     /**
      * @var string Package name.
      */
-    private $packageName;
+    private string $packageName;
 
     /**
      * @var string Stocklocation of product.
      */
-    private $stockLocation;
+    private string $stockLocation;
 
     /**
      * @var string Product supplier.
      */
-    private $supplier;
+    private string $supplier;
 
     /**
      * @var float Discount of user.
      */
-    private $userDiscount;
+    private float $userDiscount;
 
     /**
      * @var float Product original price.
      */
-    private $originalPrice;
+    private float $originalPrice;
 
     /**
      * @var float Product orignal price and discount.
      */
-    private $sellingPrice;
+    private float $sellingPrice;
 
     /**
      * @var float Product price without discount.
      */
-    private $priceWithoutDiscount;
+    private float $priceWithoutDiscount;
 
     /**
      * @var float Product price without discount, with attributes.
      */
-    private $priceWithoutDiscountWithAttributes;
+    private float $priceWithoutDiscountWithAttributes;
 
     /**
      * @var float Total invoice row price.
      */
-    private $totalPrice;
+    private float $totalPrice;
 
     /**
      * @var float|null Total price from attributes.
      */
-    private $totalExtraOptionPrice;
+    private ?float $totalExtraOptionPrice;
 
     /**
      * @var float Product price with attributes per unit.
      */
-    private $priceWithAttributes;
+    private float $priceWithAttributes;
 
     /**
      * @var float Total product price with attributes.
      */
-    private $totalPriceWithAttributes;
+    private float $totalPriceWithAttributes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes[] Collection of the chosen attribute options of this invoice row.
      */
-    private $attributes;
+    private array $attributes;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Orderrow Contains link to orderrow resource. Only availabe when an order was created from this quotation.
      */
-    private $orderrow;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Orderrow $orderrow;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\ParentItem Contains link to parent resource.
      */
-    private $parent;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -499,7 +499,6 @@ class Invoicerows implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -510,7 +509,6 @@ class Invoicerows implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -521,7 +519,6 @@ class Invoicerows implements Model
     public function setInvoiceId(string $invoiceId): self
     {
         $this->invoiceId = $invoiceId;
-        $this->propertyFilled('invoiceId');
         return $this;
     }
 
@@ -532,7 +529,6 @@ class Invoicerows implements Model
     public function setProductType(string $productType): self
     {
         $this->productType = $productType;
-        $this->propertyFilled('productType');
         return $this;
     }
 
@@ -543,7 +539,6 @@ class Invoicerows implements Model
     public function setProductName(string $productName): self
     {
         $this->productName = $productName;
-        $this->propertyFilled('productName');
         return $this;
     }
 
@@ -554,7 +549,6 @@ class Invoicerows implements Model
     public function setProductNumber(string $productNumber): self
     {
         $this->productNumber = $productNumber;
-        $this->propertyFilled('productNumber');
         return $this;
     }
 
@@ -565,7 +559,6 @@ class Invoicerows implements Model
     public function setSubProductNumber(string $subProductNumber): self
     {
         $this->subProductNumber = $subProductNumber;
-        $this->propertyFilled('subProductNumber');
         return $this;
     }
 
@@ -576,7 +569,6 @@ class Invoicerows implements Model
     public function setSubSkuNumber(string $subSkuNumber): self
     {
         $this->subSkuNumber = $subSkuNumber;
-        $this->propertyFilled('subSkuNumber');
         return $this;
     }
 
@@ -587,7 +579,6 @@ class Invoicerows implements Model
     public function setSubEanNumber(string $subEanNumber): self
     {
         $this->subEanNumber = $subEanNumber;
-        $this->propertyFilled('subEanNumber');
         return $this;
     }
 
@@ -598,7 +589,6 @@ class Invoicerows implements Model
     public function setProductId(?int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -609,7 +599,6 @@ class Invoicerows implements Model
     public function setProductHref(?string $productHref): self
     {
         $this->productHref = $productHref;
-        $this->propertyFilled('productHref');
         return $this;
     }
 
@@ -620,7 +609,6 @@ class Invoicerows implements Model
     public function setCount(float $count): self
     {
         $this->count = $count;
-        $this->propertyFilled('count');
         return $this;
     }
 
@@ -631,7 +619,6 @@ class Invoicerows implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -642,7 +629,6 @@ class Invoicerows implements Model
     public function setProductPurchasePrice(float $productPurchasePrice): self
     {
         $this->productPurchasePrice = $productPurchasePrice;
-        $this->propertyFilled('productPurchasePrice');
         return $this;
     }
 
@@ -653,7 +639,6 @@ class Invoicerows implements Model
     public function setDiscount(float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -664,7 +649,6 @@ class Invoicerows implements Model
     public function setCustomPrice(bool $customPrice): self
     {
         $this->customPrice = $customPrice;
-        $this->propertyFilled('customPrice');
         return $this;
     }
 
@@ -675,7 +659,6 @@ class Invoicerows implements Model
     public function setTax(float $tax): self
     {
         $this->tax = $tax;
-        $this->propertyFilled('tax');
         return $this;
     }
 
@@ -686,7 +669,6 @@ class Invoicerows implements Model
     public function setUnit(string $unit): self
     {
         $this->unit = $unit;
-        $this->propertyFilled('unit');
         return $this;
     }
 
@@ -697,7 +679,6 @@ class Invoicerows implements Model
     public function setWeight(float $weight): self
     {
         $this->weight = $weight;
-        $this->propertyFilled('weight');
         return $this;
     }
 
@@ -708,7 +689,6 @@ class Invoicerows implements Model
     public function setMemo(string $memo): self
     {
         $this->memo = $memo;
-        $this->propertyFilled('memo');
         return $this;
     }
 
@@ -719,7 +699,6 @@ class Invoicerows implements Model
     public function setPackageId(?int $packageId): self
     {
         $this->packageId = $packageId;
-        $this->propertyFilled('packageId');
         return $this;
     }
 
@@ -730,7 +709,6 @@ class Invoicerows implements Model
     public function setPackageName(string $packageName): self
     {
         $this->packageName = $packageName;
-        $this->propertyFilled('packageName');
         return $this;
     }
 
@@ -741,7 +719,6 @@ class Invoicerows implements Model
     public function setStockLocation(string $stockLocation): self
     {
         $this->stockLocation = $stockLocation;
-        $this->propertyFilled('stockLocation');
         return $this;
     }
 
@@ -752,7 +729,6 @@ class Invoicerows implements Model
     public function setSupplier(string $supplier): self
     {
         $this->supplier = $supplier;
-        $this->propertyFilled('supplier');
         return $this;
     }
 
@@ -763,7 +739,6 @@ class Invoicerows implements Model
     public function setUserDiscount(float $userDiscount): self
     {
         $this->userDiscount = $userDiscount;
-        $this->propertyFilled('userDiscount');
         return $this;
     }
 
@@ -774,7 +749,6 @@ class Invoicerows implements Model
     public function setOriginalPrice(float $originalPrice): self
     {
         $this->originalPrice = $originalPrice;
-        $this->propertyFilled('originalPrice');
         return $this;
     }
 
@@ -785,7 +759,6 @@ class Invoicerows implements Model
     public function setSellingPrice(float $sellingPrice): self
     {
         $this->sellingPrice = $sellingPrice;
-        $this->propertyFilled('sellingPrice');
         return $this;
     }
 
@@ -796,7 +769,6 @@ class Invoicerows implements Model
     public function setPriceWithoutDiscount(float $priceWithoutDiscount): self
     {
         $this->priceWithoutDiscount = $priceWithoutDiscount;
-        $this->propertyFilled('priceWithoutDiscount');
         return $this;
     }
 
@@ -807,7 +779,6 @@ class Invoicerows implements Model
     public function setPriceWithoutDiscountWithAttributes(float $priceWithoutDiscountWithAttributes): self
     {
         $this->priceWithoutDiscountWithAttributes = $priceWithoutDiscountWithAttributes;
-        $this->propertyFilled('priceWithoutDiscountWithAttributes');
         return $this;
     }
 
@@ -818,7 +789,6 @@ class Invoicerows implements Model
     public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
-        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -829,7 +799,6 @@ class Invoicerows implements Model
     public function setTotalExtraOptionPrice(?float $totalExtraOptionPrice): self
     {
         $this->totalExtraOptionPrice = $totalExtraOptionPrice;
-        $this->propertyFilled('totalExtraOptionPrice');
         return $this;
     }
 
@@ -840,7 +809,6 @@ class Invoicerows implements Model
     public function setPriceWithAttributes(float $priceWithAttributes): self
     {
         $this->priceWithAttributes = $priceWithAttributes;
-        $this->propertyFilled('priceWithAttributes');
         return $this;
     }
 
@@ -851,7 +819,6 @@ class Invoicerows implements Model
     public function setTotalPriceWithAttributes(float $totalPriceWithAttributes): self
     {
         $this->totalPriceWithAttributes = $totalPriceWithAttributes;
-        $this->propertyFilled('totalPriceWithAttributes');
         return $this;
     }
 
@@ -862,7 +829,6 @@ class Invoicerows implements Model
     public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes ...$attributes): self
     {
         $this->attributes = $attributes;
-        $this->propertyFilled('attributes');
         return $this;
     }
 
@@ -873,7 +839,6 @@ class Invoicerows implements Model
     public function setOrderrow(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Orderrow $orderrow): self
     {
         $this->orderrow = $orderrow;
-        $this->propertyFilled('orderrow');
         return $this;
     }
 
@@ -884,7 +849,6 @@ class Invoicerows implements Model
     public function setParent(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

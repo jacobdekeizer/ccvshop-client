@@ -19,37 +19,37 @@ class Productvideos implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Product video id
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Product video productid
      */
-    private $productid;
+    private int $productid;
 
     /**
      * @var string|null Product video name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var int Product video position
      */
-    private $position;
+    private int $position;
 
     /**
      * @var string Product video embed code
      */
-    private $embedcode;
+    private string $embedcode;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvideos\Child\ParentItem|null Contains link to parent product
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvideos\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productvideos implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productvideos implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productvideos implements Model
     public function setProductid(int $productid): self
     {
         $this->productid = $productid;
-        $this->propertyFilled('productid');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productvideos implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productvideos implements Model
     public function setPosition(int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productvideos implements Model
     public function setEmbedcode(string $embedcode): self
     {
         $this->embedcode = $embedcode;
-        $this->propertyFilled('embedcode');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productvideos implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productvideos\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

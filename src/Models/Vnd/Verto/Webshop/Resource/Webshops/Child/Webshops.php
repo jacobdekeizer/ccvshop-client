@@ -19,7 +19,7 @@ class Webshops implements Model
     /**
      * @var string|null Link to collection of webshops that are linked to this multishop system. If this resource is not a multishop system, this collection will be empty.
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Webshops implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

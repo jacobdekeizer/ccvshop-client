@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var string The content of the message.
      */
-    private $message;
+    private string $message;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setMessage(string $message): self
     {
         $this->message = $message;
-        $this->propertyFilled('message');
         return $this;
     }
 }

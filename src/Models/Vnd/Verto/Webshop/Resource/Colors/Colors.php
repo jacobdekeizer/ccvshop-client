@@ -19,32 +19,32 @@ class Colors implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Color Name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string The type of color. A 'color' will have a hex color code. Exceptions are transparent and multicolor.
      */
-    private $type;
+    private string $type;
 
     /**
      * @var string|null Hex color code. Exceptions are transparent and multicolor. Then this is null.
      */
-    private $hex;
+    private ?string $hex;
 
     /**
      * @var int|null Position of color, used to sort.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Colors implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Colors implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Colors implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Colors implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Colors implements Model
     public function setHex(?string $hex): self
     {
         $this->hex = $hex;
-        $this->propertyFilled('hex');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Colors implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 }

@@ -19,12 +19,12 @@ class Post implements Model
     /**
      * @var string Color name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string Hex color code (#000000). Must be unique.
      */
-    private $hex;
+    private string $hex;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Post implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Post implements Model
     public function setHex(string $hex): self
     {
         $this->hex = $hex;
-        $this->propertyFilled('hex');
         return $this;
     }
 }

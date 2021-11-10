@@ -19,17 +19,17 @@ class View implements Model
     /**
      * @var string Name of the view. Use this name in the app response to display this view.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string Data will be send to this endpoint when the user interacts with this codeblock's view.
      */
-    private $endpoint;
+    private string $endpoint;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element[] Array of elements in this view.
      */
-    private $elements;
+    private array $elements;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class View implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class View implements Model
     public function setEndpoint(string $endpoint): self
     {
         $this->endpoint = $endpoint;
-        $this->propertyFilled('endpoint');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class View implements Model
     public function setElements(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element ...$elements): self
     {
         $this->elements = $elements;
-        $this->propertyFilled('elements');
         return $this;
     }
 }

@@ -19,12 +19,12 @@ class Parentcategory implements Model
     /**
      * @var int|null Parent category Id
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Link to parent category
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Parentcategory implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Parentcategory implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

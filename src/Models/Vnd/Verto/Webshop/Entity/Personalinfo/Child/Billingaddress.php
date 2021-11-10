@@ -19,102 +19,102 @@ class Billingaddress implements Model
     /**
      * @var string|null Gender, can be blank.
      */
-    private $gender;
+    private ?string $gender;
 
     /**
      * @var string|null Initials, optional
      */
-    private $initials;
+    private ?string $initials;
 
     /**
      * @var string|null First name
      */
-    private $firstName;
+    private ?string $firstName;
 
     /**
      * @var string|null Last name
      */
-    private $lastName;
+    private ?string $lastName;
 
     /**
      * @var string|null Full name
      */
-    private $fullName;
+    private ?string $fullName;
 
     /**
      * @var string|null Company name
      */
-    private $company;
+    private ?string $company;
 
     /**
      * @var string|null Address line 1. Either use address_line_1 and address_line_2 or street and housenumber.
      */
-    private $addressLine1;
+    private ?string $addressLine1;
 
     /**
      * @var string|null Address line 2. Note: see address_line_1.
      */
-    private $addressLine2;
+    private ?string $addressLine2;
 
     /**
      * @var string|null Street name.  Note: see address_line_1.
      */
-    private $street;
+    private ?string $street;
 
     /**
      * @var int|null House number.  Note: see address_line_1.
      */
-    private $housenumber;
+    private ?int $housenumber;
 
     /**
      * @var string|null House number suffix.  Note: see address_line_1.
      */
-    private $housenumberSuffix;
+    private ?string $housenumberSuffix;
 
     /**
      * @var string|null Zipcode
      */
-    private $zipcode;
+    private ?string $zipcode;
 
     /**
      * @var string|null City
      */
-    private $city;
+    private ?string $city;
 
     /**
      * @var string|null Province or state
      */
-    private $province;
+    private ?string $province;
 
     /**
      * @var string|null Country full name.
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @var string|null Country Alpha-2 code. See ISO 3166-1
      */
-    private $countryCode;
+    private ?string $countryCode;
 
     /**
      * @var string|null Telephone number
      */
-    private $telephone;
+    private ?string $telephone;
 
     /**
      * @var string|null Fax number
      */
-    private $fax;
+    private ?string $fax;
 
     /**
      * @var string|null Mobile phone number
      */
-    private $mobile;
+    private ?string $mobile;
 
     /**
      * @var string|null Comment left for the merchant
      */
-    private $comment;
+    private ?string $comment;
 
     /**
      * @return self
@@ -291,7 +291,6 @@ class Billingaddress implements Model
     public function setGender(?string $gender): self
     {
         $this->gender = $gender;
-        $this->propertyFilled('gender');
         return $this;
     }
 
@@ -302,7 +301,6 @@ class Billingaddress implements Model
     public function setInitials(?string $initials): self
     {
         $this->initials = $initials;
-        $this->propertyFilled('initials');
         return $this;
     }
 
@@ -313,7 +311,6 @@ class Billingaddress implements Model
     public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
-        $this->propertyFilled('firstName');
         return $this;
     }
 
@@ -324,7 +321,6 @@ class Billingaddress implements Model
     public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
-        $this->propertyFilled('lastName');
         return $this;
     }
 
@@ -335,7 +331,6 @@ class Billingaddress implements Model
     public function setFullName(?string $fullName): self
     {
         $this->fullName = $fullName;
-        $this->propertyFilled('fullName');
         return $this;
     }
 
@@ -346,7 +341,6 @@ class Billingaddress implements Model
     public function setCompany(?string $company): self
     {
         $this->company = $company;
-        $this->propertyFilled('company');
         return $this;
     }
 
@@ -357,7 +351,6 @@ class Billingaddress implements Model
     public function setAddressLine1(?string $addressLine1): self
     {
         $this->addressLine1 = $addressLine1;
-        $this->propertyFilled('addressLine1');
         return $this;
     }
 
@@ -368,7 +361,6 @@ class Billingaddress implements Model
     public function setAddressLine2(?string $addressLine2): self
     {
         $this->addressLine2 = $addressLine2;
-        $this->propertyFilled('addressLine2');
         return $this;
     }
 
@@ -379,7 +371,6 @@ class Billingaddress implements Model
     public function setStreet(?string $street): self
     {
         $this->street = $street;
-        $this->propertyFilled('street');
         return $this;
     }
 
@@ -390,7 +381,6 @@ class Billingaddress implements Model
     public function setHousenumber(?int $housenumber): self
     {
         $this->housenumber = $housenumber;
-        $this->propertyFilled('housenumber');
         return $this;
     }
 
@@ -401,7 +391,6 @@ class Billingaddress implements Model
     public function setHousenumberSuffix(?string $housenumberSuffix): self
     {
         $this->housenumberSuffix = $housenumberSuffix;
-        $this->propertyFilled('housenumberSuffix');
         return $this;
     }
 
@@ -412,7 +401,6 @@ class Billingaddress implements Model
     public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
-        $this->propertyFilled('zipcode');
         return $this;
     }
 
@@ -423,7 +411,6 @@ class Billingaddress implements Model
     public function setCity(?string $city): self
     {
         $this->city = $city;
-        $this->propertyFilled('city');
         return $this;
     }
 
@@ -434,7 +421,6 @@ class Billingaddress implements Model
     public function setProvince(?string $province): self
     {
         $this->province = $province;
-        $this->propertyFilled('province');
         return $this;
     }
 
@@ -445,7 +431,6 @@ class Billingaddress implements Model
     public function setCountry(?string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 
@@ -456,7 +441,6 @@ class Billingaddress implements Model
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
-        $this->propertyFilled('countryCode');
         return $this;
     }
 
@@ -467,7 +451,6 @@ class Billingaddress implements Model
     public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
-        $this->propertyFilled('telephone');
         return $this;
     }
 
@@ -478,7 +461,6 @@ class Billingaddress implements Model
     public function setFax(?string $fax): self
     {
         $this->fax = $fax;
-        $this->propertyFilled('fax');
         return $this;
     }
 
@@ -489,7 +471,6 @@ class Billingaddress implements Model
     public function setMobile(?string $mobile): self
     {
         $this->mobile = $mobile;
-        $this->propertyFilled('mobile');
         return $this;
     }
 
@@ -500,7 +481,6 @@ class Billingaddress implements Model
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
-        $this->propertyFilled('comment');
         return $this;
     }
 }

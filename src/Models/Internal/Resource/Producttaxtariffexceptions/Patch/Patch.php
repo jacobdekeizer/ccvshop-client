@@ -19,12 +19,12 @@ class Patch implements Model
     /**
      * @var string|null ISO 2Code for the country of the tax tariff exception.
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @var string|null The tax tariff of the exception
      */
-    private $taxtariff;
+    private ?string $taxtariff;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Patch implements Model
     public function setCountry(?string $country): self
     {
         $this->country = $country;
-        $this->propertyFilled('country');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Patch implements Model
     public function setTaxtariff(?string $taxtariff): self
     {
         $this->taxtariff = $taxtariff;
-        $this->propertyFilled('taxtariff');
         return $this;
     }
 }

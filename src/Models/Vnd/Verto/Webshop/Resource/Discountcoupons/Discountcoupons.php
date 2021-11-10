@@ -19,62 +19,62 @@ class Discountcoupons implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique ID of Resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Unique coupon code. Valid characters are: A-Z, a-z, 0-9 and # - $ & _ *
      */
-    private $code;
+    private ?string $code;
 
     /**
      * @var float|null The amount of discount this coupon gives. Depending on the type it can be a percentage or a fixed discount.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var string|null Discount type
      */
-    private $type;
+    private ?string $type;
 
     /**
      * @var string|null Begin date coupon validity, UTC
      */
-    private $begindate;
+    private ?string $begindate;
 
     /**
      * @var string|null End date coupon validity, UTC
      */
-    private $enddate;
+    private ?string $enddate;
 
     /**
      * @var bool|null One time use. After usage this coupon will be removed.
      */
-    private $onetimeuse;
+    private ?bool $onetimeuse;
 
     /**
      * @var bool|null This coupon gives free shipping costs.
      */
-    private $givesfreeshipping;
+    private ?bool $givesfreeshipping;
 
     /**
      * @var float|null Minimum price of the order before this coupon can be used.
      */
-    private $minimumprice;
+    private ?float $minimumprice;
 
     /**
      * @var bool|null Product white list. If true, the discount will only used for selected products. If false, the discount is used for all products, excepts the selected ones.
      */
-    private $productwhitelist;
+    private ?bool $productwhitelist;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products[]|null Array with product items
      */
-    private $products;
+    private ?array $products;
 
     /**
      * @return self
@@ -187,7 +187,6 @@ class Discountcoupons implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -198,7 +197,6 @@ class Discountcoupons implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -209,7 +207,6 @@ class Discountcoupons implements Model
     public function setCode(?string $code): self
     {
         $this->code = $code;
-        $this->propertyFilled('code');
         return $this;
     }
 
@@ -220,7 +217,6 @@ class Discountcoupons implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -231,7 +227,6 @@ class Discountcoupons implements Model
     public function setType(?string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -242,7 +237,6 @@ class Discountcoupons implements Model
     public function setBegindate(?string $begindate): self
     {
         $this->begindate = $begindate;
-        $this->propertyFilled('begindate');
         return $this;
     }
 
@@ -253,7 +247,6 @@ class Discountcoupons implements Model
     public function setEnddate(?string $enddate): self
     {
         $this->enddate = $enddate;
-        $this->propertyFilled('enddate');
         return $this;
     }
 
@@ -264,7 +257,6 @@ class Discountcoupons implements Model
     public function setOnetimeuse(?bool $onetimeuse): self
     {
         $this->onetimeuse = $onetimeuse;
-        $this->propertyFilled('onetimeuse');
         return $this;
     }
 
@@ -275,7 +267,6 @@ class Discountcoupons implements Model
     public function setGivesfreeshipping(?bool $givesfreeshipping): self
     {
         $this->givesfreeshipping = $givesfreeshipping;
-        $this->propertyFilled('givesfreeshipping');
         return $this;
     }
 
@@ -286,7 +277,6 @@ class Discountcoupons implements Model
     public function setMinimumprice(?float $minimumprice): self
     {
         $this->minimumprice = $minimumprice;
-        $this->propertyFilled('minimumprice');
         return $this;
     }
 
@@ -297,7 +287,6 @@ class Discountcoupons implements Model
     public function setProductwhitelist(?bool $productwhitelist): self
     {
         $this->productwhitelist = $productwhitelist;
-        $this->propertyFilled('productwhitelist');
         return $this;
     }
 
@@ -308,7 +297,6 @@ class Discountcoupons implements Model
     public function setProducts(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products ...$products): self
     {
         $this->products = $products;
-        $this->propertyFilled('products');
         return $this;
     }
 }

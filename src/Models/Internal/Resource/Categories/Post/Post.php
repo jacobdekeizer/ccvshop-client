@@ -19,142 +19,142 @@ class Post implements Model
     /**
      * @var string Category name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string|null Category description
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string|null Category description on the bottom of the page
      */
-    private $descriptionBottom;
+    private ?string $descriptionBottom;
 
     /**
      * @var string|null Description photo position. Required when the description photo source is not empty.
      */
-    private $descriptionPhotoPosition;
+    private ?string $descriptionPhotoPosition;
 
     /**
      * @var string|null Description photo size. Required when the description photo source is not empty.
      */
-    private $descriptionPhotoSize;
+    private ?string $descriptionPhotoSize;
 
     /**
      * @var string|null Base64 encode image source. if the source is send empty the current photo will be deleted. If the source is not empty the description photo file type, size and position are required.
      */
-    private $descriptionPhotoSource;
+    private ?string $descriptionPhotoSource;
 
     /**
      * @var string|null File extension jpg,gif,png etc. Required when the description photo source is not empty.
      */
-    private $descriptionPhotoFileType;
+    private ?string $descriptionPhotoFileType;
 
     /**
      * @var string|null Search keywords
      */
-    private $searchwords;
+    private ?string $searchwords;
 
     /**
      * @var int|null The unique Id of the layout of the products in this category. A list of the layouts is available in the resource categoryproductlayouts
      */
-    private $layoutOfProductsId;
+    private ?int $layoutOfProductsId;
 
     /**
      * @var int|null Color scheme number. Only used in certain category layouts.1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
-    private $color;
+    private ?int $color;
 
     /**
      * @var int|null Alternative color scheme. Only used in certain category layouts. 1: Blue. 2: Yellow. 3: Gray. 4: Green. 5: Orange. 6: Purple. 7: Red.
      */
-    private $colorAlternative;
+    private ?int $colorAlternative;
 
     /**
      * @var int|null The layout id of the categories in this category. 1: Images with category name. 2: List with category names. 3: Images with sliding category name.4: Images in enlarging blocks.5: Large images with sliding category name. 2001: ProTOM lay-out SubCategory1.sub.tpl. 2002: ProTOM lay-out SubCategory2.sub.tpl.
      */
-    private $layoutOfCategoriesId;
+    private ?int $layoutOfCategoriesId;
 
     /**
      * @var string|null Base 64 encode image source. If the source is send empty the current photo will be deleted.
      */
-    private $photoSource;
+    private ?string $photoSource;
 
     /**
      * @var string|null Photo extension.
      */
-    private $photoFileType;
+    private ?string $photoFileType;
 
     /**
      * @var bool|null Show a larger photo on mouseover.
      */
-    private $showBigPhoto;
+    private ?bool $showBigPhoto;
 
     /**
      * @var bool|null Product photos will be zoomed in and cropped onto a canvas. Only used in certain category layouts.
      */
-    private $productphotoInCanvas;
+    private ?bool $productphotoInCanvas;
 
     /**
      * @var bool|null Show the product order button.
      */
-    private $showOrderbutton;
+    private ?bool $showOrderbutton;
 
     /**
      * @var string|null The order in which the products are sorted in this category
      */
-    private $orderby;
+    private ?string $orderby;
 
     /**
      * @var int|null Number of items per page
      */
-    private $itemsPerPage;
+    private ?int $itemsPerPage;
 
     /**
      * @var int|null Category position. When the position isn't filled the highest position will be used.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var bool|null Category visible on website
      */
-    private $showOnWebsite;
+    private ?bool $showOnWebsite;
 
     /**
      * @var int|null Category parent id
      */
-    private $parentcategoryId;
+    private ?int $parentcategoryId;
 
     /**
      * @var string|null Metatag Description
      */
-    private $metaDescription;
+    private ?string $metaDescription;
 
     /**
      * @var string|null Metatag Keywords
      */
-    private $metaKeywords;
+    private ?string $metaKeywords;
 
     /**
      * @var string|null Page title
      */
-    private $pageTitle;
+    private ?string $pageTitle;
 
     /**
      * @var bool|null Metatag robots: No-Index
      */
-    private $noIndex;
+    private ?bool $noIndex;
 
     /**
      * @var bool|null Metatag robots: No-Follow
      */
-    private $noFollow;
+    private ?bool $noFollow;
 
     /**
      * @var string|null SEO Alias of this resource
      */
-    private $alias;
+    private ?string $alias;
 
     /**
      * @return self
@@ -395,7 +395,6 @@ class Post implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -406,7 +405,6 @@ class Post implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -417,7 +415,6 @@ class Post implements Model
     public function setDescriptionBottom(?string $descriptionBottom): self
     {
         $this->descriptionBottom = $descriptionBottom;
-        $this->propertyFilled('descriptionBottom');
         return $this;
     }
 
@@ -428,7 +425,6 @@ class Post implements Model
     public function setDescriptionPhotoPosition(?string $descriptionPhotoPosition): self
     {
         $this->descriptionPhotoPosition = $descriptionPhotoPosition;
-        $this->propertyFilled('descriptionPhotoPosition');
         return $this;
     }
 
@@ -439,7 +435,6 @@ class Post implements Model
     public function setDescriptionPhotoSize(?string $descriptionPhotoSize): self
     {
         $this->descriptionPhotoSize = $descriptionPhotoSize;
-        $this->propertyFilled('descriptionPhotoSize');
         return $this;
     }
 
@@ -450,7 +445,6 @@ class Post implements Model
     public function setDescriptionPhotoSource(?string $descriptionPhotoSource): self
     {
         $this->descriptionPhotoSource = $descriptionPhotoSource;
-        $this->propertyFilled('descriptionPhotoSource');
         return $this;
     }
 
@@ -461,7 +455,6 @@ class Post implements Model
     public function setDescriptionPhotoFileType(?string $descriptionPhotoFileType): self
     {
         $this->descriptionPhotoFileType = $descriptionPhotoFileType;
-        $this->propertyFilled('descriptionPhotoFileType');
         return $this;
     }
 
@@ -472,7 +465,6 @@ class Post implements Model
     public function setSearchwords(?string $searchwords): self
     {
         $this->searchwords = $searchwords;
-        $this->propertyFilled('searchwords');
         return $this;
     }
 
@@ -483,7 +475,6 @@ class Post implements Model
     public function setLayoutOfProductsId(?int $layoutOfProductsId): self
     {
         $this->layoutOfProductsId = $layoutOfProductsId;
-        $this->propertyFilled('layoutOfProductsId');
         return $this;
     }
 
@@ -494,7 +485,6 @@ class Post implements Model
     public function setColor(?int $color): self
     {
         $this->color = $color;
-        $this->propertyFilled('color');
         return $this;
     }
 
@@ -505,7 +495,6 @@ class Post implements Model
     public function setColorAlternative(?int $colorAlternative): self
     {
         $this->colorAlternative = $colorAlternative;
-        $this->propertyFilled('colorAlternative');
         return $this;
     }
 
@@ -516,7 +505,6 @@ class Post implements Model
     public function setLayoutOfCategoriesId(?int $layoutOfCategoriesId): self
     {
         $this->layoutOfCategoriesId = $layoutOfCategoriesId;
-        $this->propertyFilled('layoutOfCategoriesId');
         return $this;
     }
 
@@ -527,7 +515,6 @@ class Post implements Model
     public function setPhotoSource(?string $photoSource): self
     {
         $this->photoSource = $photoSource;
-        $this->propertyFilled('photoSource');
         return $this;
     }
 
@@ -538,7 +525,6 @@ class Post implements Model
     public function setPhotoFileType(?string $photoFileType): self
     {
         $this->photoFileType = $photoFileType;
-        $this->propertyFilled('photoFileType');
         return $this;
     }
 
@@ -549,7 +535,6 @@ class Post implements Model
     public function setShowBigPhoto(?bool $showBigPhoto): self
     {
         $this->showBigPhoto = $showBigPhoto;
-        $this->propertyFilled('showBigPhoto');
         return $this;
     }
 
@@ -560,7 +545,6 @@ class Post implements Model
     public function setProductphotoInCanvas(?bool $productphotoInCanvas): self
     {
         $this->productphotoInCanvas = $productphotoInCanvas;
-        $this->propertyFilled('productphotoInCanvas');
         return $this;
     }
 
@@ -571,7 +555,6 @@ class Post implements Model
     public function setShowOrderbutton(?bool $showOrderbutton): self
     {
         $this->showOrderbutton = $showOrderbutton;
-        $this->propertyFilled('showOrderbutton');
         return $this;
     }
 
@@ -582,7 +565,6 @@ class Post implements Model
     public function setOrderby(?string $orderby): self
     {
         $this->orderby = $orderby;
-        $this->propertyFilled('orderby');
         return $this;
     }
 
@@ -593,7 +575,6 @@ class Post implements Model
     public function setItemsPerPage(?int $itemsPerPage): self
     {
         $this->itemsPerPage = $itemsPerPage;
-        $this->propertyFilled('itemsPerPage');
         return $this;
     }
 
@@ -604,7 +585,6 @@ class Post implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -615,7 +595,6 @@ class Post implements Model
     public function setShowOnWebsite(?bool $showOnWebsite): self
     {
         $this->showOnWebsite = $showOnWebsite;
-        $this->propertyFilled('showOnWebsite');
         return $this;
     }
 
@@ -626,7 +605,6 @@ class Post implements Model
     public function setParentcategoryId(?int $parentcategoryId): self
     {
         $this->parentcategoryId = $parentcategoryId;
-        $this->propertyFilled('parentcategoryId');
         return $this;
     }
 
@@ -637,7 +615,6 @@ class Post implements Model
     public function setMetaDescription(?string $metaDescription): self
     {
         $this->metaDescription = $metaDescription;
-        $this->propertyFilled('metaDescription');
         return $this;
     }
 
@@ -648,7 +625,6 @@ class Post implements Model
     public function setMetaKeywords(?string $metaKeywords): self
     {
         $this->metaKeywords = $metaKeywords;
-        $this->propertyFilled('metaKeywords');
         return $this;
     }
 
@@ -659,7 +635,6 @@ class Post implements Model
     public function setPageTitle(?string $pageTitle): self
     {
         $this->pageTitle = $pageTitle;
-        $this->propertyFilled('pageTitle');
         return $this;
     }
 
@@ -670,7 +645,6 @@ class Post implements Model
     public function setNoIndex(?bool $noIndex): self
     {
         $this->noIndex = $noIndex;
-        $this->propertyFilled('noIndex');
         return $this;
     }
 
@@ -681,7 +655,6 @@ class Post implements Model
     public function setNoFollow(?bool $noFollow): self
     {
         $this->noFollow = $noFollow;
-        $this->propertyFilled('noFollow');
         return $this;
     }
 
@@ -692,7 +665,6 @@ class Post implements Model
     public function setAlias(?string $alias): self
     {
         $this->alias = $alias;
-        $this->propertyFilled('alias');
         return $this;
     }
 }

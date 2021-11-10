@@ -19,17 +19,17 @@ class Patch implements Model
     /**
      * @var float|null Adjusted price for this user for this product.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Adjusted discount price for this user for this product. Must be NULL if price is NULL too.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var bool|null If TRUE then this product won't be visible for this user.
      */
-    private $hidden;
+    private ?bool $hidden;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Patch implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Patch implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Patch implements Model
     public function setHidden(?bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 }

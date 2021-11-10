@@ -19,27 +19,27 @@ class Mailinglists implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int|null Unique id of the resource
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Mailinglist name
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var bool|null If mailinglist is deleteable
      */
-    private $removeable;
+    private ?bool $removeable;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailinglists\Child\Mailingaddresses|null List of the mailingaddresses
      */
-    private $mailingaddresses;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailinglists\Child\Mailingaddresses $mailingaddresses;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Mailinglists implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Mailinglists implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Mailinglists implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Mailinglists implements Model
     public function setRemoveable(?bool $removeable): self
     {
         $this->removeable = $removeable;
-        $this->propertyFilled('removeable');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Mailinglists implements Model
     public function setMailingaddresses(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Mailinglists\Child\Mailingaddresses $mailingaddresses): self
     {
         $this->mailingaddresses = $mailingaddresses;
-        $this->propertyFilled('mailingaddresses');
         return $this;
     }
 }

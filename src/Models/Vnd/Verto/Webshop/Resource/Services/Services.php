@@ -19,57 +19,57 @@ class Services implements Model
     /**
      * @var string|null Link to self
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @var int|null Unique id of the resource.
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string|null Service Name.
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var string|null App Name
      */
-    private $modifiedDate;
+    private ?string $modifiedDate;
 
     /**
      * @var string|null The description of the service.
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string|null Cover image.
      */
-    private $cover;
+    private ?string $cover;
 
     /**
      * @var int|null The position of the service.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var string[]|null Array with available screenshots.
      */
-    private $screenshots;
+    private ?array $screenshots;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Company|null The company whom provide the service.
      */
-    private $company;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Company $company;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Categories|null Collection of categories.
      */
-    private $categories;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Categories $categories;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -174,7 +174,6 @@ class Services implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -185,7 +184,6 @@ class Services implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -196,7 +194,6 @@ class Services implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -207,7 +204,6 @@ class Services implements Model
     public function setModifiedDate(?string $modifiedDate): self
     {
         $this->modifiedDate = $modifiedDate;
-        $this->propertyFilled('modifiedDate');
         return $this;
     }
 
@@ -218,7 +214,6 @@ class Services implements Model
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -229,7 +224,6 @@ class Services implements Model
     public function setCover(?string $cover): self
     {
         $this->cover = $cover;
-        $this->propertyFilled('cover');
         return $this;
     }
 
@@ -240,7 +234,6 @@ class Services implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -251,7 +244,6 @@ class Services implements Model
     public function setScreenshots(?array $screenshots): self
     {
         $this->screenshots = $screenshots;
-        $this->propertyFilled('screenshots');
         return $this;
     }
 
@@ -262,7 +254,6 @@ class Services implements Model
     public function setCompany(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Company $company): self
     {
         $this->company = $company;
-        $this->propertyFilled('company');
         return $this;
     }
 
@@ -273,7 +264,6 @@ class Services implements Model
     public function setCategories(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\Categories $categories): self
     {
         $this->categories = $categories;
-        $this->propertyFilled('categories');
         return $this;
     }
 
@@ -284,7 +274,6 @@ class Services implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Services\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

@@ -19,17 +19,17 @@ class TimespanDetails implements Model
     /**
      * @var string The period used by this timespan. If the timespan is 'none', it can be custom with specific dates.
      */
-    private $period;
+    private string $period;
 
     /**
      * @var string|null If timespane is 'none', this will indicate the specific date from.
      */
-    private $dateFrom;
+    private ?string $dateFrom;
 
     /**
      * @var string|null If timespane is 'none', this will indicate the specific date to.
      */
-    private $dateTo;
+    private ?string $dateTo;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class TimespanDetails implements Model
     public function setPeriod(string $period): self
     {
         $this->period = $period;
-        $this->propertyFilled('period');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class TimespanDetails implements Model
     public function setDateFrom(?string $dateFrom): self
     {
         $this->dateFrom = $dateFrom;
-        $this->propertyFilled('dateFrom');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class TimespanDetails implements Model
     public function setDateTo(?string $dateTo): self
     {
         $this->dateTo = $dateTo;
-        $this->propertyFilled('dateTo');
         return $this;
     }
 }

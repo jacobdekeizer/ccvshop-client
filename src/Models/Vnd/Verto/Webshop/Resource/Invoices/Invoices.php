@@ -19,202 +19,202 @@ class Invoices implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Invoice id.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null Prefix of the specific invoice number of the invoice. Automatically generated when the invoice is created.
      */
-    private $invoicenumberPrefix;
+    private ?string $invoicenumberPrefix;
 
     /**
      * @var int Invoice number, automatically generated when the invoice is created.
      */
-    private $invoicenumber;
+    private int $invoicenumber;
 
     /**
      * @var string Unique invoice number, Full invoicenumber as displayed in shop. With dash if the prefix is available.
      */
-    private $invoicenumberFull;
+    private string $invoicenumberFull;
 
     /**
      * @var string|null Prefix of the specific order number of the order that this invoice is part of. automatically generated when the invoice is created.
      */
-    private $ordernumberPrefix;
+    private ?string $ordernumberPrefix;
 
     /**
      * @var int Order number of the order that this invoice is part of, automatically generated when the invoice is created.
      */
-    private $ordernumber;
+    private int $ordernumber;
 
     /**
      * @var string Unique order number, Full ordernumber of the order that this invoice is part of as displayed in shop. With dash if the prefix is available.
      */
-    private $ordernumberFull;
+    private string $ordernumberFull;
 
     /**
      * @var string Createdate of this invoice in UTC.
      */
-    private $createDate;
+    private string $createDate;
 
     /**
      * @var string Status of the invoice. 1. paid. 2. unpaid. 3. reimbursed.
      */
-    private $status;
+    private string $status;
 
     /**
      * @var string The display name of the invoice status.
      */
-    private $statusName;
+    private string $statusName;
 
     /**
      * @var string Type defines if it either an debit or credit invoice.
      */
-    private $type;
+    private string $type;
 
     /**
      * @var string|null Date of when the payment link was send to the customer in UTC.
      */
-    private $paymentLinkSent;
+    private ?string $paymentLinkSent;
 
     /**
      * @var bool If true, then taxes are calculated in the total price. If false, all taxes will be hidden.
      */
-    private $taxesIncluded;
+    private bool $taxesIncluded;
 
     /**
      * @var bool If true, invoice row prices contain taxes.
      */
-    private $invoiceRowTaxesIncluded;
+    private bool $invoiceRowTaxesIncluded;
 
     /**
      * @var bool Indicates if the invoice is marked as 'intra-Community'. Intra-Community sales have 0% VAT on all invoice rows.
      */
-    private $isIntraCommunityOrder;
+    private bool $isIntraCommunityOrder;
 
     /**
      * @var bool If true, then shippingcosts are included in the total tax amount.
      */
-    private $shippingTaxesIncluded;
+    private bool $shippingTaxesIncluded;
 
     /**
      * @var float Tax percentage of the shipping costs.
      */
-    private $shippingTaxPercentage;
+    private float $shippingTaxPercentage;
 
     /**
      * @var float Total shipping costs.
      */
-    private $totalShipping;
+    private float $totalShipping;
 
     /**
      * @var float Total discount on the invoice. This includes the discount of coupons if available.
      */
-    private $totalDiscounts;
+    private float $totalDiscounts;
 
     /**
      * @var float Total price inc tax.
      */
-    private $totalPriceIncTax;
+    private float $totalPriceIncTax;
 
     /**
      * @var float Total price excl tax.
      */
-    private $totalPriceExcTax;
+    private float $totalPriceExcTax;
 
     /**
      * @var float Total price.
      */
-    private $totalPrice;
+    private float $totalPrice;
 
     /**
      * @var float Total tax amount on the invoice.
      */
-    private $totalTax;
+    private float $totalTax;
 
     /**
      * @var string ISO 4217 Currency Code.
      */
-    private $currency;
+    private string $currency;
 
     /**
      * @var string Payment option name.
      */
-    private $extraPaymentOption;
+    private string $extraPaymentOption;
 
     /**
      * @var float|null Payment option price.
      */
-    private $extraPaymentOptionPrice;
+    private ?float $extraPaymentOptionPrice;
 
     /**
      * @var float Extra price added to the order as an additional fee for paymethod costs. Use this field instead of 'extra_price'.
      */
-    private $paymethodCosts;
+    private float $paymethodCosts;
 
     /**
      * @var float|null The discount from turning in credits. Only applicable if user_id is filled. Use this field instead of 'extra_price'.
      */
-    private $creditPointDiscount;
+    private ?float $creditPointDiscount;
 
     /**
      * @var float Extra costs added to the order, for instance as handling costs. This can be used as a discount less than zero.
      */
-    private $extraCosts;
+    private float $extraCosts;
 
     /**
      * @var string Description of the extra costs. This is visible on the invoice.
      */
-    private $extraCostsDescription;
+    private string $extraCostsDescription;
 
     /**
      * @var string|null A reference to the invoice number at a third party.
      */
-    private $externalReference;
+    private ?string $externalReference;
 
     /**
      * @var string Direct invoice download link.
      */
-    private $deeplink;
+    private string $deeplink;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\User Link to possible user resource associated with this invoice.
      */
-    private $user;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\User $user;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo Describes personal information of the customer
      */
-    private $customer;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Discountcoupon Link to possible discount coupon associated with this invoice.
      */
-    private $discountcoupon;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Discountcoupon $discountcoupon;
 
     /**
      * @var string|null Link to the order associated with this invoice.
      */
-    private $order;
+    private ?string $order;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicerows Products that are included in this invoice.
      */
-    private $invoicerows;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicerows $invoicerows;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicenotifications Invoice notifications are used to send e-mails of the different types. For instance, an invoice can be sent to the customer. GET will return all previous notifications created by the API.
      */
-    private $invoicenotifications;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicenotifications $invoicenotifications;
 
     /**
      * @var string Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
      */
-    private $downloadLink;
+    private string $downloadLink;
 
     /**
      * @return self
@@ -552,7 +552,6 @@ class Invoices implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -563,7 +562,6 @@ class Invoices implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -574,7 +572,6 @@ class Invoices implements Model
     public function setInvoicenumberPrefix(?string $invoicenumberPrefix): self
     {
         $this->invoicenumberPrefix = $invoicenumberPrefix;
-        $this->propertyFilled('invoicenumberPrefix');
         return $this;
     }
 
@@ -585,7 +582,6 @@ class Invoices implements Model
     public function setInvoicenumber(int $invoicenumber): self
     {
         $this->invoicenumber = $invoicenumber;
-        $this->propertyFilled('invoicenumber');
         return $this;
     }
 
@@ -596,7 +592,6 @@ class Invoices implements Model
     public function setInvoicenumberFull(string $invoicenumberFull): self
     {
         $this->invoicenumberFull = $invoicenumberFull;
-        $this->propertyFilled('invoicenumberFull');
         return $this;
     }
 
@@ -607,7 +602,6 @@ class Invoices implements Model
     public function setOrdernumberPrefix(?string $ordernumberPrefix): self
     {
         $this->ordernumberPrefix = $ordernumberPrefix;
-        $this->propertyFilled('ordernumberPrefix');
         return $this;
     }
 
@@ -618,7 +612,6 @@ class Invoices implements Model
     public function setOrdernumber(int $ordernumber): self
     {
         $this->ordernumber = $ordernumber;
-        $this->propertyFilled('ordernumber');
         return $this;
     }
 
@@ -629,7 +622,6 @@ class Invoices implements Model
     public function setOrdernumberFull(string $ordernumberFull): self
     {
         $this->ordernumberFull = $ordernumberFull;
-        $this->propertyFilled('ordernumberFull');
         return $this;
     }
 
@@ -640,7 +632,6 @@ class Invoices implements Model
     public function setCreateDate(string $createDate): self
     {
         $this->createDate = $createDate;
-        $this->propertyFilled('createDate');
         return $this;
     }
 
@@ -651,7 +642,6 @@ class Invoices implements Model
     public function setStatus(string $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -662,7 +652,6 @@ class Invoices implements Model
     public function setStatusName(string $statusName): self
     {
         $this->statusName = $statusName;
-        $this->propertyFilled('statusName');
         return $this;
     }
 
@@ -673,7 +662,6 @@ class Invoices implements Model
     public function setType(string $type): self
     {
         $this->type = $type;
-        $this->propertyFilled('type');
         return $this;
     }
 
@@ -684,7 +672,6 @@ class Invoices implements Model
     public function setPaymentLinkSent(?string $paymentLinkSent): self
     {
         $this->paymentLinkSent = $paymentLinkSent;
-        $this->propertyFilled('paymentLinkSent');
         return $this;
     }
 
@@ -695,7 +682,6 @@ class Invoices implements Model
     public function setTaxesIncluded(bool $taxesIncluded): self
     {
         $this->taxesIncluded = $taxesIncluded;
-        $this->propertyFilled('taxesIncluded');
         return $this;
     }
 
@@ -706,7 +692,6 @@ class Invoices implements Model
     public function setInvoiceRowTaxesIncluded(bool $invoiceRowTaxesIncluded): self
     {
         $this->invoiceRowTaxesIncluded = $invoiceRowTaxesIncluded;
-        $this->propertyFilled('invoiceRowTaxesIncluded');
         return $this;
     }
 
@@ -717,7 +702,6 @@ class Invoices implements Model
     public function setIsIntraCommunityOrder(bool $isIntraCommunityOrder): self
     {
         $this->isIntraCommunityOrder = $isIntraCommunityOrder;
-        $this->propertyFilled('isIntraCommunityOrder');
         return $this;
     }
 
@@ -728,7 +712,6 @@ class Invoices implements Model
     public function setShippingTaxesIncluded(bool $shippingTaxesIncluded): self
     {
         $this->shippingTaxesIncluded = $shippingTaxesIncluded;
-        $this->propertyFilled('shippingTaxesIncluded');
         return $this;
     }
 
@@ -739,7 +722,6 @@ class Invoices implements Model
     public function setShippingTaxPercentage(float $shippingTaxPercentage): self
     {
         $this->shippingTaxPercentage = $shippingTaxPercentage;
-        $this->propertyFilled('shippingTaxPercentage');
         return $this;
     }
 
@@ -750,7 +732,6 @@ class Invoices implements Model
     public function setTotalShipping(float $totalShipping): self
     {
         $this->totalShipping = $totalShipping;
-        $this->propertyFilled('totalShipping');
         return $this;
     }
 
@@ -761,7 +742,6 @@ class Invoices implements Model
     public function setTotalDiscounts(float $totalDiscounts): self
     {
         $this->totalDiscounts = $totalDiscounts;
-        $this->propertyFilled('totalDiscounts');
         return $this;
     }
 
@@ -772,7 +752,6 @@ class Invoices implements Model
     public function setTotalPriceIncTax(float $totalPriceIncTax): self
     {
         $this->totalPriceIncTax = $totalPriceIncTax;
-        $this->propertyFilled('totalPriceIncTax');
         return $this;
     }
 
@@ -783,7 +762,6 @@ class Invoices implements Model
     public function setTotalPriceExcTax(float $totalPriceExcTax): self
     {
         $this->totalPriceExcTax = $totalPriceExcTax;
-        $this->propertyFilled('totalPriceExcTax');
         return $this;
     }
 
@@ -794,7 +772,6 @@ class Invoices implements Model
     public function setTotalPrice(float $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
-        $this->propertyFilled('totalPrice');
         return $this;
     }
 
@@ -805,7 +782,6 @@ class Invoices implements Model
     public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
-        $this->propertyFilled('totalTax');
         return $this;
     }
 
@@ -816,7 +792,6 @@ class Invoices implements Model
     public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
-        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -827,7 +802,6 @@ class Invoices implements Model
     public function setExtraPaymentOption(string $extraPaymentOption): self
     {
         $this->extraPaymentOption = $extraPaymentOption;
-        $this->propertyFilled('extraPaymentOption');
         return $this;
     }
 
@@ -838,7 +812,6 @@ class Invoices implements Model
     public function setExtraPaymentOptionPrice(?float $extraPaymentOptionPrice): self
     {
         $this->extraPaymentOptionPrice = $extraPaymentOptionPrice;
-        $this->propertyFilled('extraPaymentOptionPrice');
         return $this;
     }
 
@@ -849,7 +822,6 @@ class Invoices implements Model
     public function setPaymethodCosts(float $paymethodCosts): self
     {
         $this->paymethodCosts = $paymethodCosts;
-        $this->propertyFilled('paymethodCosts');
         return $this;
     }
 
@@ -860,7 +832,6 @@ class Invoices implements Model
     public function setCreditPointDiscount(?float $creditPointDiscount): self
     {
         $this->creditPointDiscount = $creditPointDiscount;
-        $this->propertyFilled('creditPointDiscount');
         return $this;
     }
 
@@ -871,7 +842,6 @@ class Invoices implements Model
     public function setExtraCosts(float $extraCosts): self
     {
         $this->extraCosts = $extraCosts;
-        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -882,7 +852,6 @@ class Invoices implements Model
     public function setExtraCostsDescription(string $extraCostsDescription): self
     {
         $this->extraCostsDescription = $extraCostsDescription;
-        $this->propertyFilled('extraCostsDescription');
         return $this;
     }
 
@@ -893,7 +862,6 @@ class Invoices implements Model
     public function setExternalReference(?string $externalReference): self
     {
         $this->externalReference = $externalReference;
-        $this->propertyFilled('externalReference');
         return $this;
     }
 
@@ -904,7 +872,6 @@ class Invoices implements Model
     public function setDeeplink(string $deeplink): self
     {
         $this->deeplink = $deeplink;
-        $this->propertyFilled('deeplink');
         return $this;
     }
 
@@ -915,7 +882,6 @@ class Invoices implements Model
     public function setUser(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\User $user): self
     {
         $this->user = $user;
-        $this->propertyFilled('user');
         return $this;
     }
 
@@ -926,7 +892,6 @@ class Invoices implements Model
     public function setCustomer(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer): self
     {
         $this->customer = $customer;
-        $this->propertyFilled('customer');
         return $this;
     }
 
@@ -937,7 +902,6 @@ class Invoices implements Model
     public function setDiscountcoupon(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Discountcoupon $discountcoupon): self
     {
         $this->discountcoupon = $discountcoupon;
-        $this->propertyFilled('discountcoupon');
         return $this;
     }
 
@@ -948,7 +912,6 @@ class Invoices implements Model
     public function setOrder(?string $order): self
     {
         $this->order = $order;
-        $this->propertyFilled('order');
         return $this;
     }
 
@@ -959,7 +922,6 @@ class Invoices implements Model
     public function setInvoicerows(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicerows $invoicerows): self
     {
         $this->invoicerows = $invoicerows;
-        $this->propertyFilled('invoicerows');
         return $this;
     }
 
@@ -970,7 +932,6 @@ class Invoices implements Model
     public function setInvoicenotifications(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoices\Child\Invoicenotifications $invoicenotifications): self
     {
         $this->invoicenotifications = $invoicenotifications;
-        $this->propertyFilled('invoicenotifications');
         return $this;
     }
 
@@ -982,7 +943,6 @@ class Invoices implements Model
     public function setDownloadLink(string $downloadLink): self
     {
         $this->downloadLink = $downloadLink;
-        $this->propertyFilled('downloadLink');
         return $this;
     }
 }

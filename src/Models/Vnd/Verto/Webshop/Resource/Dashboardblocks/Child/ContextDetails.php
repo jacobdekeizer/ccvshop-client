@@ -19,7 +19,7 @@ class ContextDetails implements Model
     /**
      * @var string An internal name describing the context.
      */
-    private $name;
+    private string $name;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class ContextDetails implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

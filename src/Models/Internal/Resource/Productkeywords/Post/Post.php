@@ -19,7 +19,7 @@ class Post implements Model
     /**
      * @var string Keyword to add for this product.
      */
-    private $keyword;
+    private string $keyword;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Post implements Model
     public function setKeyword(string $keyword): self
     {
         $this->keyword = $keyword;
-        $this->propertyFilled('keyword');
         return $this;
     }
 }

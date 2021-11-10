@@ -19,7 +19,7 @@ class Ordernotes implements Model
     /**
      * @var string Link to notes added to this order
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Ordernotes implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

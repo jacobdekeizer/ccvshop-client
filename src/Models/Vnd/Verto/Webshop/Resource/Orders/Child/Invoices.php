@@ -19,7 +19,7 @@ class Invoices implements Model
     /**
      * @var string|null Link to create a new invoice for this order.
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Invoices implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

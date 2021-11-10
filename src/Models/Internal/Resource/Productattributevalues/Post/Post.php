@@ -19,22 +19,22 @@ class Post implements Model
     /**
      * @var int Attribute option value
      */
-    private $optionvalue;
+    private int $optionvalue;
 
     /**
      * @var float Attribute option value price
      */
-    private $price;
+    private float $price;
 
     /**
      * @var int|null Attribute option value position. When the position isn't filled the highest position will be used.
      */
-    private $position;
+    private ?int $position;
 
     /**
      * @var bool|null Deprecated. Attribute option value enable. Value is always true.
      */
-    private $enable;
+    private ?bool $enable;
 
     /**
      * @return self
@@ -84,7 +84,6 @@ class Post implements Model
     public function setOptionvalue(int $optionvalue): self
     {
         $this->optionvalue = $optionvalue;
-        $this->propertyFilled('optionvalue');
         return $this;
     }
 
@@ -95,7 +94,6 @@ class Post implements Model
     public function setPrice(float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -106,7 +104,6 @@ class Post implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        $this->propertyFilled('position');
         return $this;
     }
 
@@ -118,7 +115,6 @@ class Post implements Model
     public function setEnable(?bool $enable): self
     {
         $this->enable = $enable;
-        $this->propertyFilled('enable');
         return $this;
     }
 }

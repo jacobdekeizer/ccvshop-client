@@ -19,32 +19,32 @@ class Languages implements Model
     /**
      * @var string Display label of the language.
      */
-    private $label;
+    private string $label;
 
     /**
      * @var bool If active, it's visible in the webshop.
      */
-    private $active;
+    private bool $active;
 
     /**
      * @var string Languages on which this language is based.
      */
-    private $baseLanguage;
+    private string $baseLanguage;
 
     /**
      * @var string The iso two code of the language. If this a custom languege this will be an integer with 'c' as prefix.
      */
-    private $isoCode;
+    private string $isoCode;
 
     /**
      * @var string A href to the associated flag of this language. This will be used in the webshop.
      */
-    private $flagIcon;
+    private string $flagIcon;
 
     /**
      * @var string Href to the collection of all languages.
      */
-    private $href;
+    private string $href;
 
     /**
      * @return self
@@ -109,7 +109,6 @@ class Languages implements Model
     public function setLabel(string $label): self
     {
         $this->label = $label;
-        $this->propertyFilled('label');
         return $this;
     }
 
@@ -120,7 +119,6 @@ class Languages implements Model
     public function setActive(bool $active): self
     {
         $this->active = $active;
-        $this->propertyFilled('active');
         return $this;
     }
 
@@ -131,7 +129,6 @@ class Languages implements Model
     public function setBaseLanguage(string $baseLanguage): self
     {
         $this->baseLanguage = $baseLanguage;
-        $this->propertyFilled('baseLanguage');
         return $this;
     }
 
@@ -142,7 +139,6 @@ class Languages implements Model
     public function setIsoCode(string $isoCode): self
     {
         $this->isoCode = $isoCode;
-        $this->propertyFilled('isoCode');
         return $this;
     }
 
@@ -153,7 +149,6 @@ class Languages implements Model
     public function setFlagIcon(string $flagIcon): self
     {
         $this->flagIcon = $flagIcon;
-        $this->propertyFilled('flagIcon');
         return $this;
     }
 
@@ -164,7 +159,6 @@ class Languages implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

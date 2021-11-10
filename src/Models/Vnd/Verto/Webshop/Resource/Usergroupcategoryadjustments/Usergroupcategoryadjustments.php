@@ -19,37 +19,37 @@ class Usergroupcategoryadjustments implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Unique id of the category.
      */
-    private $categoryId;
+    private int $categoryId;
 
     /**
      * @var int Unique id of the user gropup. Making this adjust apply to all users in this group.
      */
-    private $usergroupId;
+    private int $usergroupId;
 
     /**
      * @var int|null Adjusted discount percentage that is applied to all products in this category.
      */
-    private $discount;
+    private ?int $discount;
 
     /**
      * @var bool If TRUE then this categoy and its products won't be visible for this user group.
      */
-    private $hidden;
+    private bool $hidden;
 
     /**
      * @var bool If TRUE this adjustment will be inherited by all sub categories of this one.
      */
-    private $includeSubCategories;
+    private bool $includeSubCategories;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Usergroupcategoryadjustments implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Usergroupcategoryadjustments implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Usergroupcategoryadjustments implements Model
     public function setCategoryId(int $categoryId): self
     {
         $this->categoryId = $categoryId;
-        $this->propertyFilled('categoryId');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Usergroupcategoryadjustments implements Model
     public function setUsergroupId(int $usergroupId): self
     {
         $this->usergroupId = $usergroupId;
-        $this->propertyFilled('usergroupId');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Usergroupcategoryadjustments implements Model
     public function setDiscount(?int $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Usergroupcategoryadjustments implements Model
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Usergroupcategoryadjustments implements Model
     public function setIncludeSubCategories(bool $includeSubCategories): self
     {
         $this->includeSubCategories = $includeSubCategories;
-        $this->propertyFilled('includeSubCategories');
         return $this;
     }
 }

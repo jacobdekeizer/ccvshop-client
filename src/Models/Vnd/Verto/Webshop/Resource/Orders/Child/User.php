@@ -19,17 +19,17 @@ class User implements Model
     /**
      * @var int|null Unique id of the user. If null, no user was associated with this order
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var float|null Percentage of discount this use received on this order. This discount is already calculated in the prices
      */
-    private $discountPercentage;
+    private ?float $discountPercentage;
 
     /**
      * @var string|null Link to user associated with this order
      */
-    private $href;
+    private ?string $href;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class User implements Model
     public function setId(?int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class User implements Model
     public function setDiscountPercentage(?float $discountPercentage): self
     {
         $this->discountPercentage = $discountPercentage;
-        $this->propertyFilled('discountPercentage');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class User implements Model
     public function setHref(?string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 }

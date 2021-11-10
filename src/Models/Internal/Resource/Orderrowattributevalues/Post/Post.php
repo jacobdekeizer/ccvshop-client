@@ -19,17 +19,17 @@ class Post implements Model
     /**
      * @var string Name of the option (attribute)
      */
-    private $optionName;
+    private string $optionName;
 
     /**
      * @var string Name of the attribute value
      */
-    private $valueName;
+    private string $valueName;
 
     /**
      * @var float|null Additional price of this attribute value
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @return self
@@ -70,7 +70,6 @@ class Post implements Model
     public function setOptionName(string $optionName): self
     {
         $this->optionName = $optionName;
-        $this->propertyFilled('optionName');
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post implements Model
     public function setValueName(string $valueName): self
     {
         $this->valueName = $valueName;
-        $this->propertyFilled('valueName');
         return $this;
     }
 
@@ -92,7 +90,6 @@ class Post implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 }

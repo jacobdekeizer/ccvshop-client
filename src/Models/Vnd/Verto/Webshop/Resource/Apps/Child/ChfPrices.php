@@ -19,12 +19,12 @@ class ChfPrices implements Model
     /**
      * @var float|null One time costs
      */
-    private $oneTimeCosts;
+    private ?float $oneTimeCosts;
 
     /**
      * @var float|null Monthly time costs
      */
-    private $monthlyCosts;
+    private ?float $monthlyCosts;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class ChfPrices implements Model
     public function setOneTimeCosts(?float $oneTimeCosts): self
     {
         $this->oneTimeCosts = $oneTimeCosts;
-        $this->propertyFilled('oneTimeCosts');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class ChfPrices implements Model
     public function setMonthlyCosts(?float $monthlyCosts): self
     {
         $this->monthlyCosts = $monthlyCosts;
-        $this->propertyFilled('monthlyCosts');
         return $this;
     }
 }

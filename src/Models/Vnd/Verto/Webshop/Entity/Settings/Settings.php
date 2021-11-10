@@ -19,117 +19,117 @@ class Settings implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var bool If the webshop is disabled a notice will be shown to visitors.
      */
-    private $webshopEnabled;
+    private bool $webshopEnabled;
 
     /**
      * @var string If the webshop is disabled a notice will be shown to visitors. This is the title of the notice.
      */
-    private $webshopDisabledTitle;
+    private string $webshopDisabledTitle;
 
     /**
      * @var string If the webshop is disabled a notice will be shown to visitors. This is the body of the notice.
      */
-    private $webshopDisabledText;
+    private string $webshopDisabledText;
 
     /**
      * @var string|null Currency code used in webshop, ISO 4217 Currency Codes
      */
-    private $currency;
+    private ?string $currency;
 
     /**
      * @var float|null Default VAT rate used when creating new products
      */
-    private $defaultVatRat;
+    private ?float $defaultVatRat;
 
     /**
      * @var bool|null Do prices include VAT
      */
-    private $pricesIncludeVat;
+    private ?bool $pricesIncludeVat;
 
     /**
      * @var bool|null Is the webshop Full SSL. If true, all links should be https://
      */
-    private $fullSslWebshop;
+    private ?bool $fullSslWebshop;
 
     /**
      * @var float|null The current value of one creditpoint in a webshop
      */
-    private $creditpointValue;
+    private ?float $creditpointValue;
 
     /**
      * @var string[]|null Array with available languages of the webshop
      */
-    private $languages;
+    private ?array $languages;
 
     /**
      * @var string Language of the webshop's backend. See ISO 639-1 Language Codes.
      */
-    private $backendLanguage;
+    private string $backendLanguage;
 
     /**
      * @var bool If a shop has multiple languages it can also have a separate domain for each language.
      */
-    private $separateDomainPerLanguage;
+    private bool $separateDomainPerLanguage;
 
     /**
      * @var bool Is stock is enabled certain stock rules apply, like 'ordering_without_stock' and 'stock_level_warnings'.
      */
-    private $stock;
+    private bool $stock;
 
     /**
      * @var string|null Allow or dissallow ordering of products when there is no stock. This option can be overwritten per product
      */
-    private $orderingWithoutStock;
+    private ?string $orderingWithoutStock;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\StockLevelWarnings Describes the stock level thresholds. Typically if a product's stock is above high it's 'green'. Is it below low it's 'red'. In between would be considered 'orange'.
      */
-    private $stockLevelWarnings;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\StockLevelWarnings $stockLevelWarnings;
 
     /**
      * @var string[] If a product has a system_id and is a multishop product, certain properties can't be patch because they are maintained from the multishop system. These properties are read-only.
      */
-    private $multishopReadonlyProperties;
+    private array $multishopReadonlyProperties;
 
     /**
      * @var string[]|null Array with available checkouts
      */
-    private $checkoutType;
+    private ?array $checkoutType;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Takeoutsettings|null Contains takeout settings for this webshop
      */
-    private $takeoutsettings;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Takeoutsettings $takeoutsettings;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus[]|null An array of all possible status.
      */
-    private $quotationStatus;
+    private ?array $quotationStatus;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus[]|null An array of all possible status.
      */
-    private $orderStatus;
+    private ?array $orderStatus;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus[]|null An array of all possible status.
      */
-    private $invoiceStatus;
+    private ?array $invoiceStatus;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus[]|null An array of all possible status.
      */
-    private $returnStatus;
+    private ?array $returnStatus;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ParentItem|null Contains link to parent resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -330,7 +330,6 @@ class Settings implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -341,7 +340,6 @@ class Settings implements Model
     public function setWebshopEnabled(bool $webshopEnabled): self
     {
         $this->webshopEnabled = $webshopEnabled;
-        $this->propertyFilled('webshopEnabled');
         return $this;
     }
 
@@ -352,7 +350,6 @@ class Settings implements Model
     public function setWebshopDisabledTitle(string $webshopDisabledTitle): self
     {
         $this->webshopDisabledTitle = $webshopDisabledTitle;
-        $this->propertyFilled('webshopDisabledTitle');
         return $this;
     }
 
@@ -363,7 +360,6 @@ class Settings implements Model
     public function setWebshopDisabledText(string $webshopDisabledText): self
     {
         $this->webshopDisabledText = $webshopDisabledText;
-        $this->propertyFilled('webshopDisabledText');
         return $this;
     }
 
@@ -374,7 +370,6 @@ class Settings implements Model
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
-        $this->propertyFilled('currency');
         return $this;
     }
 
@@ -385,7 +380,6 @@ class Settings implements Model
     public function setDefaultVatRat(?float $defaultVatRat): self
     {
         $this->defaultVatRat = $defaultVatRat;
-        $this->propertyFilled('defaultVatRat');
         return $this;
     }
 
@@ -396,7 +390,6 @@ class Settings implements Model
     public function setPricesIncludeVat(?bool $pricesIncludeVat): self
     {
         $this->pricesIncludeVat = $pricesIncludeVat;
-        $this->propertyFilled('pricesIncludeVat');
         return $this;
     }
 
@@ -407,7 +400,6 @@ class Settings implements Model
     public function setFullSslWebshop(?bool $fullSslWebshop): self
     {
         $this->fullSslWebshop = $fullSslWebshop;
-        $this->propertyFilled('fullSslWebshop');
         return $this;
     }
 
@@ -418,7 +410,6 @@ class Settings implements Model
     public function setCreditpointValue(?float $creditpointValue): self
     {
         $this->creditpointValue = $creditpointValue;
-        $this->propertyFilled('creditpointValue');
         return $this;
     }
 
@@ -429,7 +420,6 @@ class Settings implements Model
     public function setLanguages(?array $languages): self
     {
         $this->languages = $languages;
-        $this->propertyFilled('languages');
         return $this;
     }
 
@@ -440,7 +430,6 @@ class Settings implements Model
     public function setBackendLanguage(string $backendLanguage): self
     {
         $this->backendLanguage = $backendLanguage;
-        $this->propertyFilled('backendLanguage');
         return $this;
     }
 
@@ -451,7 +440,6 @@ class Settings implements Model
     public function setSeparateDomainPerLanguage(bool $separateDomainPerLanguage): self
     {
         $this->separateDomainPerLanguage = $separateDomainPerLanguage;
-        $this->propertyFilled('separateDomainPerLanguage');
         return $this;
     }
 
@@ -462,7 +450,6 @@ class Settings implements Model
     public function setStock(bool $stock): self
     {
         $this->stock = $stock;
-        $this->propertyFilled('stock');
         return $this;
     }
 
@@ -473,7 +460,6 @@ class Settings implements Model
     public function setOrderingWithoutStock(?string $orderingWithoutStock): self
     {
         $this->orderingWithoutStock = $orderingWithoutStock;
-        $this->propertyFilled('orderingWithoutStock');
         return $this;
     }
 
@@ -484,7 +470,6 @@ class Settings implements Model
     public function setStockLevelWarnings(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\StockLevelWarnings $stockLevelWarnings): self
     {
         $this->stockLevelWarnings = $stockLevelWarnings;
-        $this->propertyFilled('stockLevelWarnings');
         return $this;
     }
 
@@ -495,7 +480,6 @@ class Settings implements Model
     public function setMultishopReadonlyProperties(array $multishopReadonlyProperties): self
     {
         $this->multishopReadonlyProperties = $multishopReadonlyProperties;
-        $this->propertyFilled('multishopReadonlyProperties');
         return $this;
     }
 
@@ -506,7 +490,6 @@ class Settings implements Model
     public function setCheckoutType(?array $checkoutType): self
     {
         $this->checkoutType = $checkoutType;
-        $this->propertyFilled('checkoutType');
         return $this;
     }
 
@@ -517,7 +500,6 @@ class Settings implements Model
     public function setTakeoutsettings(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Takeoutsettings $takeoutsettings): self
     {
         $this->takeoutsettings = $takeoutsettings;
-        $this->propertyFilled('takeoutsettings');
         return $this;
     }
 
@@ -528,7 +510,6 @@ class Settings implements Model
     public function setQuotationStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus ...$quotationStatus): self
     {
         $this->quotationStatus = $quotationStatus;
-        $this->propertyFilled('quotationStatus');
         return $this;
     }
 
@@ -539,7 +520,6 @@ class Settings implements Model
     public function setOrderStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus ...$orderStatus): self
     {
         $this->orderStatus = $orderStatus;
-        $this->propertyFilled('orderStatus');
         return $this;
     }
 
@@ -550,7 +530,6 @@ class Settings implements Model
     public function setInvoiceStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus ...$invoiceStatus): self
     {
         $this->invoiceStatus = $invoiceStatus;
-        $this->propertyFilled('invoiceStatus');
         return $this;
     }
 
@@ -561,7 +540,6 @@ class Settings implements Model
     public function setReturnStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus ...$returnStatus): self
     {
         $this->returnStatus = $returnStatus;
-        $this->propertyFilled('returnStatus');
         return $this;
     }
 
@@ -572,7 +550,6 @@ class Settings implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

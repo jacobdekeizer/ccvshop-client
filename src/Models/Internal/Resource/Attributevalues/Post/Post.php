@@ -19,12 +19,12 @@ class Post implements Model
     /**
      * @var string Attribute value name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var float Default price of this attribute value
      */
-    private $defaultPrice;
+    private float $defaultPrice;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Post implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Post implements Model
     public function setDefaultPrice(float $defaultPrice): self
     {
         $this->defaultPrice = $defaultPrice;
-        $this->propertyFilled('defaultPrice');
         return $this;
     }
 }

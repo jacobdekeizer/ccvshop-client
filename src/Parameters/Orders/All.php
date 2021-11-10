@@ -22,52 +22,52 @@ class All extends PaginatedList implements Parameter
     /**
      * @var int|null Specific order number of the order.
      */
-    private $ordernumber;
+    private ?int $ordernumber = null;
 
     /**
      * @var int|null Specific order status of the orders in the result.
      */
-    private $status;
+    private ?int $status = null;
 
     /**
      * @var bool|null Specific paid status of the orders in the result.
      */
-    private $isPaid;
+    private ?bool $isPaid = null;
 
     /**
      * @var string|null Specific deliver date of the orders in the result.
      */
-    private $deliverDate;
+    private ?string $deliverDate = null;
 
     /**
      * @var string|null Specific take out date of the orders in the result.
      */
-    private $takeOutDate;
+    private ?string $takeOutDate = null;
 
     /**
      * @var string|null Minimal create date of the orders in the result.
      */
-    private $minCreateDate;
+    private ?string $minCreateDate = null;
 
     /**
      * @var string|null Maximal create date of the orders in the result.
      */
-    private $maxCreateDate;
+    private ?string $maxCreateDate = null;
 
     /**
      * @var bool|null Toggles completed orders. Default: true.
      */
-    private $isCompleted;
+    private ?bool $isCompleted = null;
 
     /**
      * @var int|null Specific paymethod of the orders in the result. See resource /paymethods for the options.
      */
-    private $paymethodId;
+    private ?int $paymethodId = null;
 
     /**
      * @var int|null Specific transaction id of the order.
      */
-    private $transactionId;
+    private ?int $transactionId = null;
 
     /**
      * @return self

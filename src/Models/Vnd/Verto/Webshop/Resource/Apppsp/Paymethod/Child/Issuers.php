@@ -19,12 +19,12 @@ class Issuers implements Model
     /**
      * @var string The ID of this issuer. When the consumer selects this issuser, this ID will be posts to /transactions
      */
-    private $id;
+    private string $id;
 
     /**
      * @var string The name of this issuer. This is the label displayed to the consumer.
      */
-    private $name;
+    private string $name;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Issuers implements Model
     public function setId(string $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Issuers implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 }

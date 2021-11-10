@@ -19,37 +19,37 @@ class Usergroupproductadjustments implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Unique id of the product.
      */
-    private $productId;
+    private int $productId;
 
     /**
      * @var int Unique id of the user group.
      */
-    private $usergroupId;
+    private int $usergroupId;
 
     /**
      * @var float|null Adjusted price for this user group for this product.
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @var float|null Adjusted discount price for this user group for this product.
      */
-    private $discount;
+    private ?float $discount;
 
     /**
      * @var bool If TRUE then this product won't be visible for this user group.
      */
-    private $hidden;
+    private bool $hidden;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Usergroupproductadjustments implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Usergroupproductadjustments implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Usergroupproductadjustments implements Model
     public function setProductId(int $productId): self
     {
         $this->productId = $productId;
-        $this->propertyFilled('productId');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Usergroupproductadjustments implements Model
     public function setUsergroupId(int $usergroupId): self
     {
         $this->usergroupId = $usergroupId;
-        $this->propertyFilled('usergroupId');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Usergroupproductadjustments implements Model
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-        $this->propertyFilled('price');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Usergroupproductadjustments implements Model
     public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
-        $this->propertyFilled('discount');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Usergroupproductadjustments implements Model
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
-        $this->propertyFilled('hidden');
         return $this;
     }
 }

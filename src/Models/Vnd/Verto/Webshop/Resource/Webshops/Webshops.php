@@ -19,47 +19,47 @@ class Webshops implements Model
     /**
      * @var string Link to self.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string|null The webshop name.
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @var bool|null Indicates if this is a webshop or a multishop system. Multiple webshops can be connected to one multishop system.
      */
-    private $isMultishopSystem;
+    private ?bool $isMultishopSystem;
 
     /**
      * @var int Maximum limit of products that this shop can have. This can change if the webshop's subscription changes. If the value is -1, it's infinite.
      */
-    private $productLimit;
+    private int $productLimit;
 
     /**
      * @var int The quantity of product that can still be added. Depends on product_limit and the quantity of active products. If the value is -1, it's infinite.
      */
-    private $productLimitLeft;
+    private int $productLimitLeft;
 
     /**
      * @var string The root of the API for this webshop. Do note: other credentials will be needed to access this API.
      */
-    private $apiRoot;
+    private string $apiRoot;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\Webshops|null Collection of webshops.
      */
-    private $webshops;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\Webshops $webshops;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\ParentItem|null Parent resource of this resource.
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -148,7 +148,6 @@ class Webshops implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -159,7 +158,6 @@ class Webshops implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -170,7 +168,6 @@ class Webshops implements Model
     public function setName(?string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -181,7 +178,6 @@ class Webshops implements Model
     public function setIsMultishopSystem(?bool $isMultishopSystem): self
     {
         $this->isMultishopSystem = $isMultishopSystem;
-        $this->propertyFilled('isMultishopSystem');
         return $this;
     }
 
@@ -192,7 +188,6 @@ class Webshops implements Model
     public function setProductLimit(int $productLimit): self
     {
         $this->productLimit = $productLimit;
-        $this->propertyFilled('productLimit');
         return $this;
     }
 
@@ -203,7 +198,6 @@ class Webshops implements Model
     public function setProductLimitLeft(int $productLimitLeft): self
     {
         $this->productLimitLeft = $productLimitLeft;
-        $this->propertyFilled('productLimitLeft');
         return $this;
     }
 
@@ -214,7 +208,6 @@ class Webshops implements Model
     public function setApiRoot(string $apiRoot): self
     {
         $this->apiRoot = $apiRoot;
-        $this->propertyFilled('apiRoot');
         return $this;
     }
 
@@ -225,7 +218,6 @@ class Webshops implements Model
     public function setWebshops(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\Webshops $webshops): self
     {
         $this->webshops = $webshops;
-        $this->propertyFilled('webshops');
         return $this;
     }
 
@@ -236,7 +228,6 @@ class Webshops implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Webshops\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

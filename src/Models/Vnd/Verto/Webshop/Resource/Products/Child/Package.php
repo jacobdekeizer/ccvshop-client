@@ -19,12 +19,12 @@ class Package implements Model
     /**
      * @var string Link to package resource
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Package Id
      */
-    private $id;
+    private int $id;
 
     /**
      * @return self
@@ -57,7 +57,6 @@ class Package implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -68,7 +67,6 @@ class Package implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 }

@@ -19,27 +19,27 @@ class Dashboards implements Model
     /**
      * @var int Id of this dashboard.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string Link to this dashboard.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string Name of this dashboard. Describes more or less the location of the dashboard within the menu structure.
      */
-    private $name;
+    private string $name;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboards\Child\Dashboardblocks Collection of dashboard blocks.
      */
-    private $dashboardblocks;
+    private \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboards\Child\Dashboardblocks $dashboardblocks;
 
     /**
      * @var string Link to parent
      */
-    private $parent;
+    private string $parent;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Dashboards implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Dashboards implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Dashboards implements Model
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->propertyFilled('name');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Dashboards implements Model
     public function setDashboardblocks(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Dashboards\Child\Dashboardblocks $dashboardblocks): self
     {
         $this->dashboardblocks = $dashboardblocks;
-        $this->propertyFilled('dashboardblocks');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Dashboards implements Model
     public function setParent(string $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

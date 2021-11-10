@@ -29,12 +29,19 @@ abstract class Property
 
     abstract protected function getPhpType(): string;
 
-    public function writeProperty(CodeWriter $codeWriter): void
+    public function writeProperty(CodeWriter $codeWriter, bool $initialize = false): void
     {
         $codeWriter->writeMultilineDocblock([
             '@var ' . $this->getDocblockType() . ' ' . $this->description,
         ]);
-        $codeWriter->writeLine('private $' . $this->name . ';');
+
+        $property = sprintf('private %s $%s', $this->getPhpType(), $this->name);
+
+        if ($initialize && $this->isNullable()) {
+            $codeWriter->writeLine($property . ' = null;');
+        } else {
+            $codeWriter->writeLine($property . ';');
+        }
     }
 
     public function writeGetter(CodeWriter $codeWriter): void
@@ -47,7 +54,7 @@ abstract class Property
         $codeWriter->closeMethod();
     }
 
-    public function writeSetter(CodeWriter $codeWriter, bool $setPropertyFilled = true): void
+    public function writeSetter(CodeWriter $codeWriter): void
     {
         $codeWriter->writeMultilineDocblock($this->extendDocblock([
             '@param ' . $this->getDocblockType(true) . ' ' . $this->getVariable() . ' '  . $this->description,
@@ -59,11 +66,6 @@ abstract class Property
             $this->getMethodParameterSignature()
         ));
         $codeWriter->writeLine('$this->' . $this->name . ' = ' . $this->getVariable() . ';');
-
-        if ($setPropertyFilled) {
-            $codeWriter->writeLine('$this->propertyFilled(\'' . $this->name . '\');');
-        }
-
         $codeWriter->writeLine('return $this;');
         $codeWriter->closeMethod();
     }

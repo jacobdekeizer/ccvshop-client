@@ -19,52 +19,52 @@ class Paymethods implements Model
     /**
      * @var int The id of the Payment Service Provider. This can be used to filter in the order resource.
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string The name of the Payment Service Provider.
      */
-    private $psp;
+    private string $psp;
 
     /**
      * @var string The Payment method, can be a sub brand of the psp.
      */
-    private $method;
+    private string $method;
 
     /**
      * @var string Combination of psp and method. This is also found in the paymethod field in orders.
      */
-    private $combinedName;
+    private string $combinedName;
 
     /**
      * @var string This is similar to combined_name, but with a more human readable translation.
      */
-    private $label;
+    private string $label;
 
     /**
      * @var bool True if extra costs are added to an order with this paymethod is used.
      */
-    private $extraCosts;
+    private bool $extraCosts;
 
     /**
      * @var float The fixed amount that will be added to the order costs.
      */
-    private $extraCostsFixed;
+    private float $extraCostsFixed;
 
     /**
      * @var float The percantage amount that will be added to the order costs.
      */
-    private $extraCostsPercentage;
+    private float $extraCostsPercentage;
 
     /**
      * @var string|null Link to the App PSP resource. Will be null if this paymethod is not owned by a app psp. If you don't own this app psp, an error 500 will be thrown.
      */
-    private $apppsp;
+    private ?string $apppsp;
 
     /**
      * @var string|null Link to the App PSP Paymethod resource. Will be null if this paymethod is not owned by a app psp. If you don't own this app psp, an error 500 will be thrown.
      */
-    private $apppsppaymethod;
+    private ?string $apppsppaymethod;
 
     /**
      * @return self
@@ -161,7 +161,6 @@ class Paymethods implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -172,7 +171,6 @@ class Paymethods implements Model
     public function setPsp(string $psp): self
     {
         $this->psp = $psp;
-        $this->propertyFilled('psp');
         return $this;
     }
 
@@ -183,7 +181,6 @@ class Paymethods implements Model
     public function setMethod(string $method): self
     {
         $this->method = $method;
-        $this->propertyFilled('method');
         return $this;
     }
 
@@ -194,7 +191,6 @@ class Paymethods implements Model
     public function setCombinedName(string $combinedName): self
     {
         $this->combinedName = $combinedName;
-        $this->propertyFilled('combinedName');
         return $this;
     }
 
@@ -205,7 +201,6 @@ class Paymethods implements Model
     public function setLabel(string $label): self
     {
         $this->label = $label;
-        $this->propertyFilled('label');
         return $this;
     }
 
@@ -216,7 +211,6 @@ class Paymethods implements Model
     public function setExtraCosts(bool $extraCosts): self
     {
         $this->extraCosts = $extraCosts;
-        $this->propertyFilled('extraCosts');
         return $this;
     }
 
@@ -227,7 +221,6 @@ class Paymethods implements Model
     public function setExtraCostsFixed(float $extraCostsFixed): self
     {
         $this->extraCostsFixed = $extraCostsFixed;
-        $this->propertyFilled('extraCostsFixed');
         return $this;
     }
 
@@ -238,7 +231,6 @@ class Paymethods implements Model
     public function setExtraCostsPercentage(float $extraCostsPercentage): self
     {
         $this->extraCostsPercentage = $extraCostsPercentage;
-        $this->propertyFilled('extraCostsPercentage');
         return $this;
     }
 
@@ -249,7 +241,6 @@ class Paymethods implements Model
     public function setApppsp(?string $apppsp): self
     {
         $this->apppsp = $apppsp;
-        $this->propertyFilled('apppsp');
         return $this;
     }
 
@@ -260,7 +251,6 @@ class Paymethods implements Model
     public function setApppsppaymethod(?string $apppsppaymethod): self
     {
         $this->apppsppaymethod = $apppsppaymethod;
-        $this->propertyFilled('apppsppaymethod');
         return $this;
     }
 }

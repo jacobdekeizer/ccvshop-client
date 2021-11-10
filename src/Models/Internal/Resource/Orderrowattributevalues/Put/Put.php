@@ -19,7 +19,7 @@ class Put implements Model
     /**
      * @var \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post[] Replaces all attributes at this row.
      */
-    private $attributes;
+    private array $attributes;
 
     /**
      * @return self
@@ -44,7 +44,6 @@ class Put implements Model
     public function setAttributes(\JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post ...$attributes): self
     {
         $this->attributes = $attributes;
-        $this->propertyFilled('attributes');
         return $this;
     }
 }

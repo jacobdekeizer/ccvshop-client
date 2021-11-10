@@ -19,37 +19,37 @@ class Productrelevant implements Model
     /**
      * @var string Link to self
      */
-    private $href;
+    private string $href;
 
     /**
      * @var int Unique id of the resource
      */
-    private $id;
+    private int $id;
 
     /**
      * @var int Unique id of the child product. This is product will show on the parent product page as a relevant product.
      */
-    private $childProductId;
+    private int $childProductId;
 
     /**
      * @var int Unique id of the parent product. This is product will show all the child product on the product page as relevant products.
      */
-    private $parentProductId;
+    private int $parentProductId;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ChildProduct|null The child product
      */
-    private $childProduct;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ChildProduct $childProduct;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentProduct|null The parent product
      */
-    private $parentProduct;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentProduct $parentProduct;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentItem|null Parent resource of this resource
      */
-    private $parent;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentItem $parent;
 
     /**
      * @return self
@@ -122,7 +122,6 @@ class Productrelevant implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -133,7 +132,6 @@ class Productrelevant implements Model
     public function setId(int $id): self
     {
         $this->id = $id;
-        $this->propertyFilled('id');
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Productrelevant implements Model
     public function setChildProductId(int $childProductId): self
     {
         $this->childProductId = $childProductId;
-        $this->propertyFilled('childProductId');
         return $this;
     }
 
@@ -155,7 +152,6 @@ class Productrelevant implements Model
     public function setParentProductId(int $parentProductId): self
     {
         $this->parentProductId = $parentProductId;
-        $this->propertyFilled('parentProductId');
         return $this;
     }
 
@@ -166,7 +162,6 @@ class Productrelevant implements Model
     public function setChildProduct(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ChildProduct $childProduct): self
     {
         $this->childProduct = $childProduct;
-        $this->propertyFilled('childProduct');
         return $this;
     }
 
@@ -177,7 +172,6 @@ class Productrelevant implements Model
     public function setParentProduct(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentProduct $parentProduct): self
     {
         $this->parentProduct = $parentProduct;
-        $this->propertyFilled('parentProduct');
         return $this;
     }
 
@@ -188,7 +182,6 @@ class Productrelevant implements Model
     public function setParent(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productrelevant\Child\ParentItem $parent): self
     {
         $this->parent = $parent;
-        $this->propertyFilled('parent');
         return $this;
     }
 }

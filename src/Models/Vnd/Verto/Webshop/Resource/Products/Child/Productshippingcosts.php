@@ -19,27 +19,27 @@ class Productshippingcosts implements Model
     /**
      * @var float Indication of shipping costs if only one item would be baught and shipped to the default country.
      */
-    private $costs;
+    private float $costs;
 
     /**
      * @var string|null This is the default country products are shipped to. Country Alpha-2 code. See ISO 3166-1 and ISO 3166-2.
      */
-    private $defaultCountry;
+    private ?string $defaultCountry;
 
     /**
      * @var float Quantity of items shipped. Default is 1. Can be changed with parameters.
      */
-    private $quantity;
+    private float $quantity;
 
     /**
      * @var string Link to collection of product shipping costs.
      */
-    private $href;
+    private string $href;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts[] Array with collection items
      */
-    private $collection;
+    private array $collection;
 
     /**
      * @return self
@@ -96,7 +96,6 @@ class Productshippingcosts implements Model
     public function setCosts(float $costs): self
     {
         $this->costs = $costs;
-        $this->propertyFilled('costs');
         return $this;
     }
 
@@ -107,7 +106,6 @@ class Productshippingcosts implements Model
     public function setDefaultCountry(?string $defaultCountry): self
     {
         $this->defaultCountry = $defaultCountry;
-        $this->propertyFilled('defaultCountry');
         return $this;
     }
 
@@ -118,7 +116,6 @@ class Productshippingcosts implements Model
     public function setQuantity(float $quantity): self
     {
         $this->quantity = $quantity;
-        $this->propertyFilled('quantity');
         return $this;
     }
 
@@ -129,7 +126,6 @@ class Productshippingcosts implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -140,7 +136,6 @@ class Productshippingcosts implements Model
     public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts ...$collection): self
     {
         $this->collection = $collection;
-        $this->propertyFilled('collection');
         return $this;
     }
 }

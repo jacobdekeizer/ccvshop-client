@@ -19,42 +19,42 @@ class Post implements Model
     /**
      * @var string Username must be unique within the webshop.
      */
-    private $username;
+    private string $username;
 
     /**
      * @var string Password of this user
      */
-    private $password;
+    private string $password;
 
     /**
      * @var string|null Deprecated. Password encryption type. Only use this if you're instructed to change this value.
      */
-    private $encryption;
+    private ?string $encryption;
 
     /**
      * @var int|null User group id
      */
-    private $groupId;
+    private ?int $groupId;
 
     /**
      * @var string|null Deprecated. Gender of user. Please use 'userinfo->billingaddress->gender'
      */
-    private $gender;
+    private ?string $gender;
 
     /**
      * @var bool|null Status of the user. Disabled users can't log in.
      */
-    private $status;
+    private ?bool $status;
 
     /**
      * @var string|null If B2B is enabled and this user has category price adjustments this setting is applicable. If a product is in multiple categories this setting determines which discount is applied. Either the highest or the lowest. Highest is the default.
      */
-    private $productInCategoryDiscount;
+    private ?string $productInCategoryDiscount;
 
     /**
      * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo|null Describes personal information of the user
      */
-    private $userinfo;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo;
 
     /**
      * @return self
@@ -137,7 +137,6 @@ class Post implements Model
     public function setUsername(string $username): self
     {
         $this->username = $username;
-        $this->propertyFilled('username');
         return $this;
     }
 
@@ -148,7 +147,6 @@ class Post implements Model
     public function setPassword(string $password): self
     {
         $this->password = $password;
-        $this->propertyFilled('password');
         return $this;
     }
 
@@ -160,7 +158,6 @@ class Post implements Model
     public function setEncryption(?string $encryption): self
     {
         $this->encryption = $encryption;
-        $this->propertyFilled('encryption');
         return $this;
     }
 
@@ -171,7 +168,6 @@ class Post implements Model
     public function setGroupId(?int $groupId): self
     {
         $this->groupId = $groupId;
-        $this->propertyFilled('groupId');
         return $this;
     }
 
@@ -183,7 +179,6 @@ class Post implements Model
     public function setGender(?string $gender): self
     {
         $this->gender = $gender;
-        $this->propertyFilled('gender');
         return $this;
     }
 
@@ -194,7 +189,6 @@ class Post implements Model
     public function setStatus(?bool $status): self
     {
         $this->status = $status;
-        $this->propertyFilled('status');
         return $this;
     }
 
@@ -205,7 +199,6 @@ class Post implements Model
     public function setProductInCategoryDiscount(?string $productInCategoryDiscount): self
     {
         $this->productInCategoryDiscount = $productInCategoryDiscount;
-        $this->propertyFilled('productInCategoryDiscount');
         return $this;
     }
 
@@ -216,7 +209,6 @@ class Post implements Model
     public function setUserinfo(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $userinfo): self
     {
         $this->userinfo = $userinfo;
-        $this->propertyFilled('userinfo');
         return $this;
     }
 }
