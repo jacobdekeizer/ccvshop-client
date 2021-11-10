@@ -158,6 +158,7 @@ class Billingaddress implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
+     * @deprecated Please use 'first_name' and 'last_name' instead.
      */
     public function getFullName(): ?string
     {
@@ -238,6 +239,7 @@ class Billingaddress implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @deprecated Please use 'country_code'.
      */
     public function getCountry(): ?string
     {
@@ -331,6 +333,7 @@ class Billingaddress implements Model
     /**
      * @param string|null $fullName Deprecated. This field will no longer be used. Please use 'first_name' and 'last_name' instead.
      * @return self
+     * @deprecated Please use 'first_name' and 'last_name' instead.
      */
     public function setFullName(?string $fullName): self
     {
@@ -441,6 +444,7 @@ class Billingaddress implements Model
     /**
      * @param string|null $country Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
+     * @deprecated Please use 'country_code'.
      */
     public function setCountry(?string $country): self
     {

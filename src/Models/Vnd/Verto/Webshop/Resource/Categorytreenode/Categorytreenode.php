@@ -206,28 +206,13 @@ class Categorytreenode implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode[]|null $children Array with child categories. Child categories have the same properies as root categories
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode|null ...$children $children Array with child categories. Child categories have the same properies as root categories
      * @return self
      */
-    public function setChildren(?array $children): self
+    public function setChildren(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$children): self
     {
         $this->children = $children;
         $this->propertyFilled('children');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'children') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

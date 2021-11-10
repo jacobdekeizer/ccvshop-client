@@ -254,6 +254,7 @@ class Input implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'bankaccount'.
+     * @deprecated Please use 'bankaccount'.
      */
     public function getBank(): ?string
     {
@@ -262,6 +263,7 @@ class Input implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'bankname'.
+     * @deprecated Please use 'bankname'.
      */
     public function getTenname(): ?string
     {
@@ -310,6 +312,7 @@ class Input implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'branch'.
+     * @deprecated Please use 'branch'.
      */
     public function getBranche(): ?string
     {
@@ -358,6 +361,7 @@ class Input implements Model
 
     /**
      * @return string|null Deprecated. Fair of the customer. See 'Fair'
+     * @deprecated See 'Fair'
      */
     public function getBeurs(): ?string
     {
@@ -366,6 +370,7 @@ class Input implements Model
 
     /**
      * @return string|null Deprecated. Booth of the customer. See 'Booth'
+     * @deprecated See 'Booth'
      */
     public function getStand(): ?string
     {
@@ -561,6 +566,7 @@ class Input implements Model
     /**
      * @param string|null $bank Deprecated. This field will no longer be used. Please use 'bankaccount'.
      * @return self
+     * @deprecated Please use 'bankaccount'.
      */
     public function setBank(?string $bank): self
     {
@@ -572,6 +578,7 @@ class Input implements Model
     /**
      * @param string|null $tenname Deprecated. This field will no longer be used. Please use 'bankname'.
      * @return self
+     * @deprecated Please use 'bankname'.
      */
     public function setTenname(?string $tenname): self
     {
@@ -638,6 +645,7 @@ class Input implements Model
     /**
      * @param string|null $branche Deprecated. This field will no longer be used. Please use 'branch'.
      * @return self
+     * @deprecated Please use 'branch'.
      */
     public function setBranche(?string $branche): self
     {
@@ -704,6 +712,7 @@ class Input implements Model
     /**
      * @param string|null $beurs Deprecated. Fair of the customer. See 'Fair'
      * @return self
+     * @deprecated See 'Fair'
      */
     public function setBeurs(?string $beurs): self
     {
@@ -715,6 +724,7 @@ class Input implements Model
     /**
      * @param string|null $stand Deprecated. Booth of the customer. See 'Booth'
      * @return self
+     * @deprecated See 'Booth'
      */
     public function setStand(?string $stand): self
     {

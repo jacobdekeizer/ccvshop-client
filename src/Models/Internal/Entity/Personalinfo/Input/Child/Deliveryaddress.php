@@ -207,6 +207,7 @@ class Deliveryaddress implements Model
 
     /**
      * @return string|null Deprecated. This field will no longer be used. Please use 'country_code'.
+     * @deprecated Please use 'country_code'.
      */
     public function getCountry(): ?string
     {
@@ -380,6 +381,7 @@ class Deliveryaddress implements Model
     /**
      * @param string|null $country Deprecated. This field will no longer be used. Please use 'country_code'.
      * @return self
+     * @deprecated Please use 'country_code'.
      */
     public function setCountry(?string $country): self
     {

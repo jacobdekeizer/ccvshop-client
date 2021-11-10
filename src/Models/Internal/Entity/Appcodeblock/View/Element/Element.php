@@ -195,10 +195,10 @@ class Element implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Options[]|null $options Only used for input_radio and input_select. Containts all options of these elements
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Options|null ...$options $options Only used for input_radio and input_select. Containts all options of these elements
      * @return self
      */
-    public function setOptions(?array $options): self
+    public function setOptions(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Options ...$options): self
     {
         $this->options = $options;
         $this->propertyFilled('options');
@@ -214,20 +214,5 @@ class Element implements Model
         $this->action = $action;
         $this->propertyFilled('action');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'options') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Options::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

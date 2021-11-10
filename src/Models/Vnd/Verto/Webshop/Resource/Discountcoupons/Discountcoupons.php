@@ -302,28 +302,13 @@ class Discountcoupons implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products[]|null $products Array with product items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products|null ...$products $products Array with product items
      * @return self
      */
-    public function setProducts(?array $products): self
+    public function setProducts(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products ...$products): self
     {
         $this->products = $products;
         $this->propertyFilled('products');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'products') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Discountcoupons\Child\Products::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

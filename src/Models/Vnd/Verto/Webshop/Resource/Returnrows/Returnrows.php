@@ -797,10 +797,10 @@ class Returnrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returnrows\Child\Attributes[] $attributes Collection of the chosen attribute options of this return row.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returnrows\Child\Attributes ...$attributes $attributes Collection of the chosen attribute options of this return row.
      * @return self
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returnrows\Child\Attributes ...$attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
@@ -838,20 +838,5 @@ class Returnrows implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'attributes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Returnrows\Child\Attributes::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

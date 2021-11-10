@@ -522,10 +522,10 @@ class Settings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus[]|null $quotationStatus An array of all possible status.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus|null ...$quotationStatus $quotationStatus An array of all possible status.
      * @return self
      */
-    public function setQuotationStatus(?array $quotationStatus): self
+    public function setQuotationStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus ...$quotationStatus): self
     {
         $this->quotationStatus = $quotationStatus;
         $this->propertyFilled('quotationStatus');
@@ -533,10 +533,10 @@ class Settings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus[]|null $orderStatus An array of all possible status.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus|null ...$orderStatus $orderStatus An array of all possible status.
      * @return self
      */
-    public function setOrderStatus(?array $orderStatus): self
+    public function setOrderStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus ...$orderStatus): self
     {
         $this->orderStatus = $orderStatus;
         $this->propertyFilled('orderStatus');
@@ -544,10 +544,10 @@ class Settings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus[]|null $invoiceStatus An array of all possible status.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus|null ...$invoiceStatus $invoiceStatus An array of all possible status.
      * @return self
      */
-    public function setInvoiceStatus(?array $invoiceStatus): self
+    public function setInvoiceStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus ...$invoiceStatus): self
     {
         $this->invoiceStatus = $invoiceStatus;
         $this->propertyFilled('invoiceStatus');
@@ -555,10 +555,10 @@ class Settings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus[]|null $returnStatus An array of all possible status.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus|null ...$returnStatus $returnStatus An array of all possible status.
      * @return self
      */
-    public function setReturnStatus(?array $returnStatus): self
+    public function setReturnStatus(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus ...$returnStatus): self
     {
         $this->returnStatus = $returnStatus;
         $this->propertyFilled('returnStatus');
@@ -574,50 +574,5 @@ class Settings implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'quotation_status') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\QuotationStatus::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        if ($key === 'order_status') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\OrderStatus::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        if ($key === 'invoice_status') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\InvoiceStatus::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        if ($key === 'return_status') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Settings\Child\ReturnStatus::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

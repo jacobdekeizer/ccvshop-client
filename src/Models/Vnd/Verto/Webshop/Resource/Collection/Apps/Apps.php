@@ -62,28 +62,13 @@ class Apps implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Apps[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Apps ...$items $items Array with collection items
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Apps ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apps\Apps::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

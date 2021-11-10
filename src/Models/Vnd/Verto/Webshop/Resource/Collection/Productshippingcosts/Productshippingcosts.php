@@ -75,10 +75,10 @@ class Productshippingcosts implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts ...$items $items Array with collection items
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
@@ -94,20 +94,5 @@ class Productshippingcosts implements Model
         $this->quantity = $quantity;
         $this->propertyFilled('quantity');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productshippingcosts\Productshippingcosts::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

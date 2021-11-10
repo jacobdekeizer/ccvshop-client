@@ -217,9 +217,9 @@ class EndpointClassFactory
             $name = str_replace(':', '', $parts[$i]);
 
             $properties[] = new IntegerProperty(
-                false,
                 $name,
                 sprintf('The %s %s', $parts[$i - 1] ?? '', $name),
+                false,
                 true
             );
         }

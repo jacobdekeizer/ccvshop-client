@@ -832,10 +832,10 @@ class Quotationrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotationrows\Child\Attributes[] $attributes Collection of the chosen attribute options of this quotation row.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotationrows\Child\Attributes ...$attributes $attributes Collection of the chosen attribute options of this quotation row.
      * @return self
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotationrows\Child\Attributes ...$attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
@@ -862,20 +862,5 @@ class Quotationrows implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'attributes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Quotationrows\Child\Attributes::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

@@ -134,28 +134,13 @@ class Geozonecountries implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff[] $tariffs Collection of the geozone countries.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff ...$tariffs $tariffs Collection of the geozone countries.
      * @return self
      */
-    public function setTariffs(array $tariffs): self
+    public function setTariffs(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff ...$tariffs): self
     {
         $this->tariffs = $tariffs;
         $this->propertyFilled('tariffs');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'tariffs') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Tariff\Tariff::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

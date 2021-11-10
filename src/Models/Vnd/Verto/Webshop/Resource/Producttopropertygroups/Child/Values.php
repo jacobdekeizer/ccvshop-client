@@ -38,28 +38,13 @@ class Values implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues[] $collection Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues ...$collection $collection Array with collection items
      * @return self
      */
-    public function setCollection(array $collection): self
+    public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues ...$collection): self
     {
         $this->collection = $collection;
         $this->propertyFilled('collection');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'collection') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productpropertyvalues\Productpropertyvalues::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

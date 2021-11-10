@@ -9,59 +9,47 @@ use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class ArrayProperty extends Property
 {
-    private bool $nullable;
-
     private Property $arrayType;
 
-    public function __construct(bool $nullable, Property $arrayType, string $name, string $description, bool $required)
+    public function __construct(Property $arrayType, string $name, string $description, bool $nullable, bool $required)
     {
-        parent::__construct($name, $description, $required);
+        parent::__construct($name, $description, $nullable, $required);
 
-        $this->nullable = $nullable;
         $this->arrayType = $arrayType;
     }
 
-    public function writeConvertCode(CodeWriter $codeWriter): void
+    public function getMethodParameterSignature(): string
     {
-        if (!$this->hasConvertCode()) {
-            return;
+        if ($this->isObjectArray()) {
+            return $this->getPropertyType() . ' ...' . $this->getVariable();
         }
 
-        $snakeName = Str::snake($this->name);
-
-        $codeWriter->writeLine(sprintf('if ($key === \'%s\') {', $snakeName));
-        $codeWriter->indent();
-        $codeWriter->writeLine('$items = [];');
-        $codeWriter->insertNewLine();
-        $codeWriter->writeLine('foreach ($value as $item) {');
-        $codeWriter->indent();
-        $codeWriter->writeLine(sprintf('$items[] = %s::fromArray($item);', $this->getPropertyType()));
-        $codeWriter->outdent();
-        $codeWriter->writeLine('}');
-        $codeWriter->insertNewLine();
-        $codeWriter->writeLine('return $items;');
-        $codeWriter->outdent();
-        $codeWriter->writeLine('}');
+        return parent::getMethodParameterSignature();
     }
 
-    public function hasConvertCode(): bool
+    protected function getDocblockType(bool $supportsVariadic = false): string
     {
-        return $this->arrayType instanceof ObjectProperty;
-    }
+        $nullDocblock = $this->getNullDocblockSuffix();
 
-    protected function getDocblockType(): string
-    {
-        return $this->getPropertyType() . '[]'
-            . ($this->nullable || !$this->required ? '|null' : '');
+        if ($this->isObjectArray() && $supportsVariadic) {
+            return $this->getPropertyType() . $nullDocblock . ' ...' . $this->getVariable();
+        }
+
+        return $this->getPropertyType() . '[]' . $nullDocblock;
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable || !$this->required ? '?' : '') . 'array';
+        return ($this->isNullable() ? '?' : '') . 'array';
     }
 
     private function getPropertyType(): string
     {
         return str_replace('|null', '', $this->arrayType->getDocblockType());
+    }
+
+    private function isObjectArray(): bool
+    {
+        return $this->arrayType instanceof ObjectProperty;
     }
 }

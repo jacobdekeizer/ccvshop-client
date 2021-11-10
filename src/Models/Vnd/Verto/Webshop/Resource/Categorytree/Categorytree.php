@@ -62,28 +62,13 @@ class Categorytree implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode[] $rootCategories Array with root categories.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$rootCategories $rootCategories Array with root categories.
      * @return self
      */
-    public function setRootCategories(array $rootCategories): self
+    public function setRootCategories(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$rootCategories): self
     {
         $this->rootCategories = $rootCategories;
         $this->propertyFilled('rootCategories');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'root_categories') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

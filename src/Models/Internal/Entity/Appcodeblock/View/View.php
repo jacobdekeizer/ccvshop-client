@@ -86,28 +86,13 @@ class View implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element[] $elements Array of elements in this view.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element ...$elements $elements Array of elements in this view.
      * @return self
      */
-    public function setElements(array $elements): self
+    public function setElements(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element ...$elements): self
     {
         $this->elements = $elements;
         $this->propertyFilled('elements');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'elements') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Element::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

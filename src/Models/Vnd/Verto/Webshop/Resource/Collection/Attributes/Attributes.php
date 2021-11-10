@@ -62,28 +62,13 @@ class Attributes implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Attributes[] $items Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Attributes ...$items $items Array with collection items
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Attributes ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributes\Attributes::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

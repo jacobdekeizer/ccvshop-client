@@ -538,6 +538,7 @@ class Invoices implements Model
 
     /**
      * @return string Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
+     * @deprecated Use the property 'deeplink' instead.
      */
     public function getDownloadLink(): string
     {
@@ -976,6 +977,7 @@ class Invoices implements Model
     /**
      * @param string $downloadLink Deprecated. Direct invoice download link. Use the property 'deeplink' instead.
      * @return self
+     * @deprecated Use the property 'deeplink' instead.
      */
     public function setDownloadLink(string $downloadLink): self
     {

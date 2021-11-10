@@ -426,10 +426,10 @@ class Attributecombinations implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination[] $combination Collection of attribute values that combined create this attribute combination.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination ...$combination $combination Collection of attribute values that combined create this attribute combination.
      * @return self
      */
-    public function setCombination(array $combination): self
+    public function setCombination(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination ...$combination): self
     {
         $this->combination = $combination;
         $this->propertyFilled('combination');
@@ -478,20 +478,5 @@ class Attributecombinations implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'combination') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Attributecombinations\Child\Combination::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

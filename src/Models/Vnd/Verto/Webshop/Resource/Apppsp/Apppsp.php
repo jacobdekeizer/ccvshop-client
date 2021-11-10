@@ -195,10 +195,10 @@ class Apppsp implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod[] $paymethods Array of paymethods of the PSP.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod ...$paymethods $paymethods Array of paymethods of the PSP.
      * @return self
      */
-    public function setPaymethods(array $paymethods): self
+    public function setPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod ...$paymethods): self
     {
         $this->paymethods = $paymethods;
         $this->propertyFilled('paymethods');
@@ -214,20 +214,5 @@ class Apppsp implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'paymethods') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

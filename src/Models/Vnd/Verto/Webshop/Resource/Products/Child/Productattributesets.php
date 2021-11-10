@@ -62,28 +62,13 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Productattributesets[] $collection Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Productattributesets ...$collection $collection Array with collection items
      * @return self
      */
-    public function setCollection(array $collection): self
+    public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Productattributesets ...$collection): self
     {
         $this->collection = $collection;
         $this->propertyFilled('collection');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'collection') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Productattributesets::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

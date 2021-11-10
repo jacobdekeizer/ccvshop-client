@@ -38,28 +38,13 @@ class Categories implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appstorecategories\Appstorecategories[] $collection Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appstorecategories\Appstorecategories ...$collection $collection Array with collection items
      * @return self
      */
-    public function setCollection(array $collection): self
+    public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appstorecategories\Appstorecategories ...$collection): self
     {
         $this->collection = $collection;
         $this->propertyFilled('collection');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'collection') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Appstorecategories\Appstorecategories::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

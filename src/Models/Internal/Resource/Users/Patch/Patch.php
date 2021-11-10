@@ -82,6 +82,7 @@ class Patch implements Model
 
     /**
      * @return string|null Deprecated. Password encryption type. Only use this if you're instructed to change this value.
+     * @deprecated
      */
     public function getEncryption(): ?string
     {
@@ -153,6 +154,7 @@ class Patch implements Model
     /**
      * @param string|null $encryption Deprecated. Password encryption type. Only use this if you're instructed to change this value.
      * @return self
+     * @deprecated
      */
     public function setEncryption(?string $encryption): self
     {

@@ -1,8 +1,9 @@
 # CCV Shop API client for PHP
 
 [![Packagist Version](https://img.shields.io/packagist/v/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
-[![Packagist](https://img.shields.io/packagist/l/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
-[![Packagist](https://img.shields.io/packagist/dt/jacobdekeizer/ccvshop-client?color=brightgreen)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
+[![Packagist](https://img.shields.io/packagist/l/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
+[![Packagist](https://img.shields.io/packagist/dt/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/ccvshop-client)
+[![Packagist](https://img.shields.io/packagist/php-v/jacobdekeizer/ccvshop-client)](https://packagist.org/packages/jacobdekeizer/redjepakketje-client)
 ![Build](https://github.com/jacobdekeizer/ccvshop-client/workflows/Build/badge.svg)
 
 An object oriented PHP client for the CCV Shop API. See here for the [CCV Shop API documentation](https://demo.ccvshop.nl/API/Docs/).
@@ -371,7 +372,7 @@ $order = $client->orders()->get(123456);
 For example update the order status and the customer email
 
 ```php
-$patch = (new  \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Patch\Patch())
+$patch = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orders\Patch\Patch())
     ->setStatus(6)
     ->setCustomer(
         (new \JacobDeKeizer\Ccv\Models\Internal\Entity\Personalinfo\Input\Input())
@@ -431,14 +432,14 @@ $client->orderrows()->update(123456, $patch);
 $orderId = 123456;
 
 $newOrderrows = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrows\Put\Put())
-    ->setOrderrows([
+    ->setOrderrows(
         (new \JacobDeKeizer\Ccv\Models\Internal\Entity\Orderrow\Input\Input)
             ->setProductId(12345)
             ->setCount(1)
             ->setPrice(100)
             ->setDiscount(20)
             // ->set..
-    ]);
+    );
 
 $client->orderrows()->updateForOrder($orderId, $newOrderrows);
 ```
@@ -744,7 +745,7 @@ $productPhoto2 = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\
     // ->set...
 
 $put = (new \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Put\Put)
-    ->setProductphotos([$productPhoto1, $productPhoto2]);
+    ->setProductphotos($productPhoto1, $productPhoto2);
 
 $client->productphotos()->updateForProduct(1234, $put);
 ```

@@ -134,28 +134,13 @@ class Patch implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod[]|null $paymethods Array of paymethods of the psp.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod|null ...$paymethods $paymethods Array of paymethods of the psp.
      * @return self
      */
-    public function setPaymethods(?array $paymethods): self
+    public function setPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod ...$paymethods): self
     {
         $this->paymethods = $paymethods;
         $this->propertyFilled('paymethods');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'paymethods') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Entity\Apppsp\Paymethod\Paymethod::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

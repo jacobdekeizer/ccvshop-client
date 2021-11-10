@@ -62,28 +62,13 @@ class Domains implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Domains[] $items Collection of the master domains.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Domains ...$items $items Collection of the master domains.
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Domains ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Domains\Domains::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

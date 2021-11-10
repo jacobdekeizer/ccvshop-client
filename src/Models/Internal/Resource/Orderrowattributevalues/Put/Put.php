@@ -38,28 +38,13 @@ class Put implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post[] $attributes Replaces all attributes at this row.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post ...$attributes $attributes Replaces all attributes at this row.
      * @return self
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post ...$attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'attributes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Resource\Orderrowattributevalues\Post\Post::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

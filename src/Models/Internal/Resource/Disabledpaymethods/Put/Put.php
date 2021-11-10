@@ -38,28 +38,13 @@ class Put implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods[] $disabledPaymethods Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods ...$disabledPaymethods $disabledPaymethods Describes a collection of disabled paymethods. Replaces all disabled paymethods with the new ones.
      * @return self
      */
-    public function setDisabledPaymethods(array $disabledPaymethods): self
+    public function setDisabledPaymethods(\JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods ...$disabledPaymethods): self
     {
         $this->disabledPaymethods = $disabledPaymethods;
         $this->propertyFilled('disabledPaymethods');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'disabled_paymethods') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Resource\Disabledpaymethods\Put\Child\DisabledPaymethods::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

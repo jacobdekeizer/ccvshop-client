@@ -856,10 +856,10 @@ class Invoicerows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes[] $attributes Collection of the chosen attribute options of this invoice row.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes ...$attributes $attributes Collection of the chosen attribute options of this invoice row.
      * @return self
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes ...$attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
@@ -886,20 +886,5 @@ class Invoicerows implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'attributes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Invoicerows\Child\Attributes::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

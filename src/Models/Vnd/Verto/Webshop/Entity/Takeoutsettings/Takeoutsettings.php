@@ -147,10 +147,10 @@ class Takeoutsettings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods[]|null $periods Time periods. These are used to generate slots.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods|null ...$periods $periods Time periods. These are used to generate slots.
      * @return self
      */
-    public function setPeriods(?array $periods): self
+    public function setPeriods(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods ...$periods): self
     {
         $this->periods = $periods;
         $this->propertyFilled('periods');
@@ -158,38 +158,13 @@ class Takeoutsettings implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes[]|null $excludes Exclusions from normal time periods. No slots will be generated for these excluded dates and times
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes|null ...$excludes $excludes Exclusions from normal time periods. No slots will be generated for these excluded dates and times
      * @return self
      */
-    public function setExcludes(?array $excludes): self
+    public function setExcludes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes ...$excludes): self
     {
         $this->excludes = $excludes;
         $this->propertyFilled('excludes');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'periods') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Periods::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        if ($key === 'excludes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Takeoutsettings\Child\Excludes::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

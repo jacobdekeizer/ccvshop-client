@@ -630,6 +630,7 @@ class Orders implements Model
 
     /**
      * @return float Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
+     * @deprecated See 'paymethod_costs' and 'credit_point_discount'
      */
     public function getExtraPrice(): float
     {
@@ -1225,6 +1226,7 @@ class Orders implements Model
     /**
      * @param float $extraPrice Deprecated. Extra price added to the order as an additional fee for paymethod costs and the discount from turning in credits. See 'paymethod_costs' and 'credit_point_discount'
      * @return self
+     * @deprecated See 'paymethod_costs' and 'credit_point_discount'
      */
     public function setExtraPrice(float $extraPrice): self
     {

@@ -254,28 +254,13 @@ class Productproperties implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode[]|null $children Array with child properties, only filled when property is a group
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode|null ...$children $children Array with child properties, only filled when property is a group
      * @return self
      */
-    public function setChildren(?array $children): self
+    public function setChildren(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode ...$children): self
     {
         $this->children = $children;
         $this->propertyFilled('children');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'children') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Categorytreenode\Categorytreenode::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

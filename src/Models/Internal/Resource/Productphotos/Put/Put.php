@@ -38,28 +38,13 @@ class Put implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post[] $productphotos Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post ...$productphotos $productphotos Collection of productphoto entities to replace all current photos of this product. With an empty collection you can achieve a DELETE ALL product photos.
      * @return self
      */
-    public function setProductphotos(array $productphotos): self
+    public function setProductphotos(\JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post ...$productphotos): self
     {
         $this->productphotos = $productphotos;
         $this->propertyFilled('productphotos');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'productphotos') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Resource\Productphotos\Post\Post::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

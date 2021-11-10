@@ -182,28 +182,13 @@ class Patch implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Apppsp\Paymethods\Patch\Child\Issuers[]|null $issuers Collection of Issuers
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Apppsp\Paymethods\Patch\Child\Issuers|null ...$issuers $issuers Collection of Issuers
      * @return self
      */
-    public function setIssuers(?array $issuers): self
+    public function setIssuers(\JacobDeKeizer\Ccv\Models\Internal\Resource\Apppsp\Paymethods\Patch\Child\Issuers ...$issuers): self
     {
         $this->issuers = $issuers;
         $this->propertyFilled('issuers');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'issuers') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Resource\Apppsp\Paymethods\Patch\Child\Issuers::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

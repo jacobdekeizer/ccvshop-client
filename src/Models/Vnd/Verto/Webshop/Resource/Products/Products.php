@@ -560,6 +560,7 @@ class Products implements Model
 
     /**
      * @return float Deprecated. VAT rate of product in percentage.
+     * @deprecated
      */
     public function getVatrate(): float
     {
@@ -1288,6 +1289,7 @@ class Products implements Model
     /**
      * @param float $vatrate Deprecated. VAT rate of product in percentage.
      * @return self
+     * @deprecated
      */
     public function setVatrate(float $vatrate): self
     {

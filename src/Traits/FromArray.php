@@ -6,6 +6,7 @@ namespace JacobDeKeizer\Ccv\Traits;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
 use JacobDeKeizer\Ccv\Support\Str;
+use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 use ReflectionParameter;
@@ -13,41 +14,54 @@ use ReflectionType;
 
 trait FromArray
 {
-    /**
-     * @return static
-     */
-    protected static function createFromArray(array $data)
+    protected static function createFromArray(array $data): static
     {
-        $instance = new self();
+        $instance = new static();
+
+        $instanceProperties = array_keys(get_class_vars(static::class));
+
+        $missingKeys = array_diff($instanceProperties, array_keys($data));
+
+        $missingData = array_fill_keys($missingKeys, null);
+
+        $data = $missingData + $data;
 
         foreach ($data as $key => $value) {
-            $setMethod = 'set' . Str::studly(strtolower($key));
+            $setMethod = 'set' . Str::studly($key);
 
-            if (method_exists($instance, $setMethod) === false) {
+            if (!method_exists($instance, $setMethod)) {
                 continue;
             }
 
             try {
                 $reflectionMethod = new ReflectionMethod($instance, $setMethod);
 
-                $firstParameter = $reflectionMethod->getParameters()[0] ?? null;
-                $parameterReflectionClass = $firstParameter ? $firstParameter->getClass() : null;
+                $reflectionParameter = $reflectionMethod->getParameters()[0] ?? null;
+                $reflectionClass = $reflectionParameter?->getType()?->isBuiltin() === false
+                    ? new ReflectionClass($reflectionParameter->getType()->getName())
+                    : null;
 
-                if (
-                    $parameterReflectionClass !== null
-                    && $parameterReflectionClass->implementsInterface(Model::class)
-                ) {
-                    $value = ($parameterReflectionClass->newInstanceWithoutConstructor())->fromArray($value ?? []);
+                $isNullable = $reflectionParameter?->allowsNull();
+                $isModel = $reflectionClass?->implementsInterface(Model::class) === true;
+                $isVariadic = $reflectionParameter?->isVariadic() === true;
+
+                if ($isModel && $isVariadic) {
+                    $value = array_map(
+                        fn (mixed $val): mixed => self::makeModel($reflectionClass, (array) $val ?? [], $isNullable),
+                        $value ?? []
+                    );
+                } elseif ($isModel) {
+                    $value = self::makeModel($reflectionClass, (array) $value ?? [], $isNullable);
                 } else {
-                    $value = $firstParameter !== null ? self::convertToType($firstParameter, $value) : $value;
+                    $value = $reflectionParameter !== null ? self::convertToType($reflectionParameter, $value) : $value;
 
                     $value = $instance->convertFromArrayData($key, $value);
                 }
-            } catch (ReflectionException $e) {
+            } catch (ReflectionException) {
                 continue;
             }
 
-            $instance->$setMethod($value);
+            $isVariadic ? $instance->$setMethod(...$value) : $instance->$setMethod($value);
         }
 
         return $instance;
@@ -61,22 +75,20 @@ trait FromArray
     private static function convertToType(ReflectionParameter $reflectionParameter, $value)
     {
         $type = $reflectionParameter->getType();
-        $name = $type !== null ? $type->getName() : null;
+        $name = $type?->getName();
 
         if ($type === null || $name === null) {
             return $value;
         }
 
-        switch ($name) {
-            case 'string':
-                return self::convertValueFromType($type, $value, static fn($value) => (string) $value);
-            case 'int':
-                return self::convertValueFromType($type, $value, static fn($value) => (int) $value);
-            case 'float':
-                return self::convertValueFromType($type, $value, static fn($value) => (float) $value);
-            default:
-                return $value;
-        }
+        return match ($name) {
+            'array' => self::convertValueFromType($type, $value, static fn($value): array => (array) $value),
+            'bool' => self::convertValueFromType($type, $value, static fn($value): bool => (bool) $value),
+            'string' => self::convertValueFromType($type, $value, static fn($value): string => (string) $value),
+            'int' => self::convertValueFromType($type, $value, static fn($value): int => (int) $value),
+            'float' => self::convertValueFromType($type, $value, static fn($value): float => (float) $value),
+            default => $value,
+        };
     }
 
     private static function convertValueFromType(ReflectionType $type, $value, \Closure $convert)
@@ -86,5 +98,17 @@ trait FromArray
         }
 
         return $convert($value);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    private static function makeModel(ReflectionClass $reflectionClass, array $value, bool $isNullable): mixed
+    {
+        if ($isNullable && empty($value)) {
+            return null;
+        }
+
+        return ($reflectionClass->newInstanceWithoutConstructor())->fromArray($value);
     }
 }

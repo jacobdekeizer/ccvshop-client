@@ -147,10 +147,10 @@ class Productattributesets implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items[] $items Collection of attribute values
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items ...$items $items Collection of attribute values
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
@@ -166,20 +166,5 @@ class Productattributesets implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productattributesets\Child\Items::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

@@ -880,10 +880,10 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Orderrowattributevalues[]|null $attributes Collection of the chosen attribute options of this order row.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Orderrowattributevalues|null ...$attributes $attributes Collection of the chosen attribute options of this order row.
      * @return self
      */
-    public function setAttributes(?array $attributes): self
+    public function setAttributes(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Orderrowattributevalues ...$attributes): self
     {
         $this->attributes = $attributes;
         $this->propertyFilled('attributes');
@@ -891,10 +891,10 @@ class Orderrows implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrows\Child\Uploads[]|null $uploads A collection of order row uploads
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrows\Child\Uploads|null ...$uploads $uploads A collection of order row uploads
      * @return self
      */
-    public function setUploads(?array $uploads): self
+    public function setUploads(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrows\Child\Uploads ...$uploads): self
     {
         $this->uploads = $uploads;
         $this->propertyFilled('uploads');
@@ -910,30 +910,5 @@ class Orderrows implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'attributes') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrowattributevalues\Orderrowattributevalues::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        if ($key === 'uploads') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orderrows\Child\Uploads::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

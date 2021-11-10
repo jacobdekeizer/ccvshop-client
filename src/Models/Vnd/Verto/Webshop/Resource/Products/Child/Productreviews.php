@@ -62,28 +62,13 @@ class Productreviews implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews[]|null $collection Array with review items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews|null ...$collection $collection Array with review items
      * @return self
      */
-    public function setCollection(?array $collection): self
+    public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews ...$collection): self
     {
         $this->collection = $collection;
         $this->propertyFilled('collection');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'collection') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Productreviews\Productreviews::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

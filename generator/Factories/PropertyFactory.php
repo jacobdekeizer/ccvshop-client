@@ -36,58 +36,58 @@ class PropertyFactory
             }
         }
 
-        if (strpos($type, '|object') !== false) {
-            // some field types are defined as string|object, we fore an object here..
+        if (str_contains($type, '|object')) {
+            // some field types are defined as string|object, we force an object here...
             $type = 'object';
         }
 
         switch ($type) {
             case 'array':
                 return new ArrayProperty(
-                    $nullable,
                     self::make($propertyName, $property['items'][0]),
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
             case 'bool':
             case 'boolean':
                 return new BoolProperty(
-                    $nullable,
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
             case 'number':
             case 'float':
                 return new FloatProperty(
-                    $nullable,
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
             case 'integer':
             case 'int':
                 return new IntegerProperty(
-                    $nullable,
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
             case 'object':
                 return new ObjectProperty(
-                    $nullable,
                     isset($property['phpClass']) ? $property['phpClass']->getNamespacedClass() : 'object',
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
             case 'date':
             case 'string':
                 return new StringType(
-                    $nullable,
                     $propertyName,
                     $description,
+                    $nullable,
                     $required
                 );
         }

@@ -38,28 +38,13 @@ class Input implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations[] $translations Collection of translations.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations ...$translations $translations Collection of translations.
      * @return self
      */
-    public function setTranslations(array $translations): self
+    public function setTranslations(\JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations ...$translations): self
     {
         $this->translations = $translations;
         $this->propertyFilled('translations');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'translations') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Resource\Translations\Input\Child\Translations::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

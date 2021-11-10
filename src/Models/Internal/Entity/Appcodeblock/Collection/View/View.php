@@ -38,28 +38,13 @@ class View implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View[] $views Collection of views
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View ...$views $views Collection of views
      * @return self
      */
-    public function setViews(array $views): self
+    public function setViews(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View ...$views): self
     {
         $this->views = $views;
         $this->propertyFilled('views');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'views') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\View::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

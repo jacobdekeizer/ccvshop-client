@@ -387,6 +387,7 @@ class Post implements Model
 
     /**
      * @return float|null Deprecated. VAT rate of product in percentage.
+     * @deprecated
      */
     public function getVatrate(): ?float
     {
@@ -897,6 +898,7 @@ class Post implements Model
     /**
      * @param float|null $vatrate Deprecated. VAT rate of product in percentage.
      * @return self
+     * @deprecated
      */
     public function setVatrate(?float $vatrate): self
     {

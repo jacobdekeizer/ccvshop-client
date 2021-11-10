@@ -33,31 +33,5 @@ class PropertiesWriter
             $codeWriter->insertNewLine();
             $property->writeSetter($codeWriter, $setPropertyFilled);
         }
-
-        $hasConvertCode = false;
-
-        foreach ($properties as $property) {
-            if ($property->hasConvertCode()) {
-                $hasConvertCode = true;
-                break;
-            }
-        }
-
-        if (!$hasConvertCode) {
-            return;
-        }
-
-        $codeWriter->insertNewLine();
-        $codeWriter->openMethod('protected function convertFromArrayData(string $key, $value)');
-
-        foreach ($properties as $property) {
-            if ($property->hasConvertCode()) {
-                $property->writeConvertCode($codeWriter);
-                $codeWriter->insertNewLine();
-            }
-        }
-
-        $codeWriter->writeLine('return $value;');
-        $codeWriter->closeMethod();
     }
 }

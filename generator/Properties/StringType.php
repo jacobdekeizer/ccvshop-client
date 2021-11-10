@@ -6,22 +6,13 @@ namespace JacobDeKeizer\CcvGenerator\Properties;
 
 class StringType extends Property
 {
-    private bool $nullable;
-
-    public function __construct(bool $nullable, string $name, string $description, bool $required)
+    protected function getDocblockType(bool $supportsVariadic = false): string
     {
-        parent::__construct($name, $description, $required);
-
-        $this->nullable = $nullable;
-    }
-
-    protected function getDocblockType(): string
-    {
-        return 'string' . ($this->nullable || !$this->required ? '|null' : '');
+        return 'string' . $this->getNullDocblockSuffix();
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable || !$this->required ? '?' : '') . 'string';
+        return ($this->isNullable() ? '?' : '') . 'string';
     }
 }

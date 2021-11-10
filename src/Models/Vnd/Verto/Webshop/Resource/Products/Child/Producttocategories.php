@@ -62,28 +62,13 @@ class Producttocategories implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttocategories\Producttocategories[] $collection Array with collection items
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttocategories\Producttocategories ...$collection $collection Array with collection items
      * @return self
      */
-    public function setCollection(array $collection): self
+    public function setCollection(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttocategories\Producttocategories ...$collection): self
     {
         $this->collection = $collection;
         $this->propertyFilled('collection');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'collection') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Producttocategories\Producttocategories::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

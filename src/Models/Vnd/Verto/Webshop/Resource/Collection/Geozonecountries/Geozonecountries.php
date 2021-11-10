@@ -62,28 +62,13 @@ class Geozonecountries implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Geozonecountries[] $items Collection of the geozone countries.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Geozonecountries ...$items $items Collection of the geozone countries.
      * @return self
      */
-    public function setItems(array $items): self
+    public function setItems(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Geozonecountries ...$items): self
     {
         $this->items = $items;
         $this->propertyFilled('items');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Geozonecountries\Geozonecountries::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }

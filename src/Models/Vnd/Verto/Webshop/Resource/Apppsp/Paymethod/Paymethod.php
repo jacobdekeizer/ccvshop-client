@@ -243,10 +243,10 @@ class Paymethod implements Model
     }
 
     /**
-     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers[]|null $issuers Collection of Issuers
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers|null ...$issuers $issuers Collection of Issuers
      * @return self
      */
-    public function setIssuers(?array $issuers): self
+    public function setIssuers(\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers ...$issuers): self
     {
         $this->issuers = $issuers;
         $this->propertyFilled('issuers');
@@ -262,20 +262,5 @@ class Paymethod implements Model
         $this->parent = $parent;
         $this->propertyFilled('parent');
         return $this;
-    }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'issuers') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Apppsp\Paymethod\Child\Issuers::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
     }
 }
