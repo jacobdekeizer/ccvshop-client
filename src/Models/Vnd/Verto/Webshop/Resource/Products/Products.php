@@ -92,6 +92,11 @@ class Products implements Model
     private string $taxtariff;
 
     /**
+     * @var object|null Describes the information of the tradecodesystem from this product.
+     */
+    private ?object $tradecodesystem;
+
+    /**
      * @var float Original price of the product, before discounts
      */
     private float $price;
@@ -240,6 +245,11 @@ class Products implements Model
      * @var int Number of decimals that can be used in amounts
      */
     private int $decimalAmount;
+
+    /**
+     * @var float|null Number of items sold
+     */
+    private ?float $amountSold;
 
     /**
      * @var float Minimal order amount
@@ -573,6 +583,14 @@ class Products implements Model
     }
 
     /**
+     * @return object|null Describes the information of the tradecodesystem from this product.
+     */
+    public function getTradecodesystem(): ?object
+    {
+        return $this->tradecodesystem;
+    }
+
+    /**
      * @return float Original price of the product, before discounts
      */
     public function getPrice(): float
@@ -810,6 +828,14 @@ class Products implements Model
     public function getDecimalAmount(): int
     {
         return $this->decimalAmount;
+    }
+
+    /**
+     * @return float|null Number of items sold
+     */
+    public function getAmountSold(): ?float
+    {
+        return $this->amountSold;
     }
 
     /**
@@ -1292,6 +1318,16 @@ class Products implements Model
     }
 
     /**
+     * @param object|null $tradecodesystem Describes the information of the tradecodesystem from this product.
+     * @return self
+     */
+    public function setTradecodesystem(?object $tradecodesystem): self
+    {
+        $this->tradecodesystem = $tradecodesystem;
+        return $this;
+    }
+
+    /**
      * @param float $price Original price of the product, before discounts
      * @return self
      */
@@ -1588,6 +1624,16 @@ class Products implements Model
     public function setDecimalAmount(int $decimalAmount): self
     {
         $this->decimalAmount = $decimalAmount;
+        return $this;
+    }
+
+    /**
+     * @param float|null $amountSold Number of items sold
+     * @return self
+     */
+    public function setAmountSold(?float $amountSold): self
+    {
+        $this->amountSold = $amountSold;
         return $this;
     }
 

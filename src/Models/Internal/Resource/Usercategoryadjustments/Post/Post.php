@@ -27,9 +27,9 @@ class Post implements Model
     private int $userId;
 
     /**
-     * @var int|null Adjusted discount percentage that is applied to all products in this category.
+     * @var float|null Adjusted discount percentage that is applied to all products in this category.
      */
-    private ?int $discount;
+    private ?float $discount;
 
     /**
      * @var bool|null If TRUE then this categoy and its products won't be visible for this user.
@@ -63,9 +63,9 @@ class Post implements Model
     }
 
     /**
-     * @return int|null Adjusted discount percentage that is applied to all products in this category.
+     * @return float|null Adjusted discount percentage that is applied to all products in this category.
      */
-    public function getDiscount(): ?int
+    public function getDiscount(): ?float
     {
         return $this->discount;
     }
@@ -107,10 +107,10 @@ class Post implements Model
     }
 
     /**
-     * @param int|null $discount Adjusted discount percentage that is applied to all products in this category.
+     * @param float|null $discount Adjusted discount percentage that is applied to all products in this category.
      * @return self
      */
-    public function setDiscount(?int $discount): self
+    public function setDiscount(?float $discount): self
     {
         $this->discount = $discount;
         return $this;

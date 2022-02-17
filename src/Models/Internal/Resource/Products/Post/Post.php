@@ -52,12 +52,12 @@ class Post implements Model
     private ?string $description;
 
     /**
-     * @var float|null Deprecated. VAT rate of product in percentage.
+     * @var float|null Deprecated, use taxtariff instead. VAT rate of product in percentage, either this property or taxtariff must be set.
      */
     private ?float $vatrate;
 
     /**
-     * @var string|null The tax tariff of the product
+     * @var string|null The tax tariff of the product, either this property or vatrate must be set.
      */
     private ?string $taxtariff;
 
@@ -205,6 +205,11 @@ class Post implements Model
      * @var int|null Number of decimals that can be used in amounts
      */
     private ?int $decimalAmount;
+
+    /**
+     * @var float|null Number of items sold
+     */
+    private ?float $amountSold;
 
     /**
      * @var float|null Minimal order amount
@@ -383,8 +388,8 @@ class Post implements Model
     }
 
     /**
-     * @return float|null Deprecated. VAT rate of product in percentage.
-     * @deprecated
+     * @return float|null Deprecated, use taxtariff instead. VAT rate of product in percentage, either this property or taxtariff must be set.
+     * @deprecated use taxtariff instead. VAT rate of product in percentage, either this property or taxtariff must be set.
      */
     public function getVatrate(): ?float
     {
@@ -392,7 +397,7 @@ class Post implements Model
     }
 
     /**
-     * @return string|null The tax tariff of the product
+     * @return string|null The tax tariff of the product, either this property or vatrate must be set.
      */
     public function getTaxtariff(): ?string
     {
@@ -629,6 +634,14 @@ class Post implements Model
     public function getDecimalAmount(): ?int
     {
         return $this->decimalAmount;
+    }
+
+    /**
+     * @return float|null Number of items sold
+     */
+    public function getAmountSold(): ?float
+    {
+        return $this->amountSold;
     }
 
     /**
@@ -886,9 +899,9 @@ class Post implements Model
     }
 
     /**
-     * @param float|null $vatrate Deprecated. VAT rate of product in percentage.
+     * @param float|null $vatrate Deprecated, use taxtariff instead. VAT rate of product in percentage, either this property or taxtariff must be set.
      * @return self
-     * @deprecated
+     * @deprecated use taxtariff instead. VAT rate of product in percentage, either this property or taxtariff must be set.
      */
     public function setVatrate(?float $vatrate): self
     {
@@ -897,7 +910,7 @@ class Post implements Model
     }
 
     /**
-     * @param string|null $taxtariff The tax tariff of the product
+     * @param string|null $taxtariff The tax tariff of the product, either this property or vatrate must be set.
      * @return self
      */
     public function setTaxtariff(?string $taxtariff): self
@@ -1193,6 +1206,16 @@ class Post implements Model
     public function setDecimalAmount(?int $decimalAmount): self
     {
         $this->decimalAmount = $decimalAmount;
+        return $this;
+    }
+
+    /**
+     * @param float|null $amountSold Number of items sold
+     * @return self
+     */
+    public function setAmountSold(?float $amountSold): self
+    {
+        $this->amountSold = $amountSold;
         return $this;
     }
 

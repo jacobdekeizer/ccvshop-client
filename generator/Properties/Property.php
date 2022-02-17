@@ -111,7 +111,7 @@ abstract class Property
 
     private function isDeprecated(): bool
     {
-        return str_starts_with($this->description, 'Deprecated. ');
+        return str_starts_with($this->description, 'Deprecated');
     }
 
     private function getDeprecatedDocblock(): string
@@ -121,6 +121,7 @@ abstract class Property
             'Please use',
             'Use the',
             'Use property',
+            'use',
         ];
 
         $text = '';

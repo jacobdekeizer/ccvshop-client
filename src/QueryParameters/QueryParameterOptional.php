@@ -8,10 +8,10 @@ use JacobDeKeizer\Ccv\Contracts\QueryParameter;
 
 class QueryParameterOptional implements QueryParameter
 {
-    private $parameter;
-    private $value;
+    private string $parameter;
+    private string|int|bool|float|null $value;
 
-    public function __construct(string $parameter, $value)
+    public function __construct(string $parameter, string|int|bool|float|null $value)
     {
         $this->parameter = $parameter;
         $this->value = $value;

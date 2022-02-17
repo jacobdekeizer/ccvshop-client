@@ -79,7 +79,7 @@ class Post implements Model
 
     /**
      * @return string|null Deprecated. Password encryption type. Only use this if you're instructed to change this value.
-     * @deprecated
+     * @deprecated use this if you're instructed to change this value.
      */
     public function getEncryption(): ?string
     {
@@ -150,7 +150,7 @@ class Post implements Model
     /**
      * @param string|null $encryption Deprecated. Password encryption type. Only use this if you're instructed to change this value.
      * @return self
-     * @deprecated
+     * @deprecated use this if you're instructed to change this value.
      */
     public function setEncryption(?string $encryption): self
     {

@@ -11,12 +11,9 @@ class QueryParameterBuilder implements QueryParameter
     /**
      * @var QueryParameter[]
      */
-    private $parameters = [];
+    private array $parameters = [];
 
-    /**
-     * @param string|int|bool|null $value
-     */
-    public function addOptionalParameter(string $parameter, $value): QueryParameterBuilder
+    public function addOptionalParameter(string $parameter, string|int|bool|float|null $value): QueryParameterBuilder
     {
         $this->parameters[] = new QueryParameterOptional($parameter, $value);
         return $this;

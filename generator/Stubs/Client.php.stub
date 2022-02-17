@@ -13,21 +13,20 @@ class Client
     public const API_VERSION = 'v1';
     public const API_ENDPOINT = '/api/rest/';
 
-    /** @var string */
-    private $baseUrl;
+    private string $baseUrl;
 
-    /** @var string */
-    private $publicKey;
+    private string $publicKey;
 
-    /** @var string */
-    private $privateKey;
+    private string $privateKey;
 
-    /** @var ClientInterface */
-    private $client;
+    private ClientInterface $client;
 
-    public function __construct()
+    public function __construct(string $baseUrl = '', string $publicKey = '', string $privateKey = '', ?ClientInterface $client = null)
     {
-        $this->client = new HttpClient();
+        $this->baseUrl = $baseUrl;
+        $this->publicKey = $publicKey;
+        $this->privateKey = $privateKey;
+        $this->client = $client ?? new HttpClient();
     }
 
     public function getBaseUrl(): string
