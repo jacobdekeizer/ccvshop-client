@@ -1,0 +1,81 @@
+<?php
+
+declare(strict_types=1);
+
+namespace JacobDeKeizer\Ccv;
+
+use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\ClientInterface;
+use JacobDeKeizer\Ccv\Endpoints;
+
+class Client
+{
+    public const API_VERSION = 'v1';
+    public const API_ENDPOINT = '/api/rest/';
+
+    private string $baseUrl;
+
+    private string $publicKey;
+
+    private string $privateKey;
+
+    private ClientInterface $client;
+
+    public function __construct(string $baseUrl = '', string $publicKey = '', string $privateKey = '', ?ClientInterface $client = null)
+    {
+        $this->baseUrl = $baseUrl;
+        $this->publicKey = $publicKey;
+        $this->privateKey = $privateKey;
+        $this->client = $client ?? new HttpClient();
+    }
+
+    public function getBaseUrl(): string
+    {
+        return $this->baseUrl;
+    }
+
+    public function setBaseUrl(string $baseUrl): Client
+    {
+        $this->baseUrl = $baseUrl;
+        return $this;
+    }
+
+    public function getPublicKey(): string
+    {
+        return $this->publicKey;
+    }
+
+    public function setPublicKey(string $publicKey): Client
+    {
+        $this->publicKey = $publicKey;
+        return $this;
+    }
+
+    public function getPrivateKey(): string
+    {
+        return $this->privateKey;
+    }
+
+    public function setPrivateKey(string $privateKey): Client
+    {
+        $this->privateKey = $privateKey;
+        return $this;
+    }
+
+    public function getClient(): ClientInterface
+    {
+        return $this->client;
+    }
+
+    public function setClient(ClientInterface $client): Client
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+    public function root(): Endpoints\RootEndpoint
+    {
+        return new Endpoints\RootEndpoint($this);
+    }
+{{ ENDPOINT_METHODS_HERE }}
+}

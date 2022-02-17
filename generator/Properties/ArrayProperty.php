@@ -1,66 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 class ArrayProperty extends Property
 {
-    /**
-     * @var bool
-     */
-    private $nullable;
+    private Property $arrayType;
 
-    /**
-     * @var string
-     */
-    private $arrayType;
-
-    public function __construct(bool $nullable, Property $arrayType, string $name, string $description, bool $required)
+    public function __construct(Property $arrayType, string $name, string $description, bool $nullable, bool $required)
     {
-        parent::__construct($name, $description, $required);
+        parent::__construct($name, $description, $nullable, $required);
 
-        $this->nullable = $nullable;
         $this->arrayType = $arrayType;
     }
 
-    public function getConvertCode(): ?string
+    public function getMethodParameterSignature(): string
     {
-        if (!($this->arrayType instanceof ObjectProperty)) {
-            return null;
+        if ($this->isObjectArray()) {
+            return $this->getPropertyType() . ' ...' . $this->getVariable();
         }
 
-        $startIndent = self::INDENT . self::INDENT;
-
-        $snakeName = Str::snake($this->name);
-
-        return $startIndent . sprintf('if ($key === \'%s\') {', $snakeName) . PHP_EOL
-            . $startIndent . self::INDENT . '$items = [];' . PHP_EOL
-            . PHP_EOL
-            . $startIndent . self::INDENT . 'foreach ($value as $item) {' . PHP_EOL
-            . $startIndent . self::INDENT . self::INDENT . sprintf(
-                '$items[] = %s::fromArray($item);',
-                $this->getPropertyType()
-            ) . PHP_EOL
-            . $startIndent . self::INDENT . '}' . PHP_EOL
-            . PHP_EOL
-            . $startIndent . self::INDENT . 'return $items;' . PHP_EOL
-            . $startIndent . '}' . PHP_EOL;
+        return parent::getMethodParameterSignature();
     }
 
-    protected function getDocblockType(): string
+    protected function getDocblockType(bool $supportsVariadic = false): string
     {
-        return $this->getPropertyType() . '[]'
-            . ($this->nullable || !$this->required ? '|null' : '');
+        $nullDocblock = $this->getNullDocblockSuffix();
+
+        if ($this->isObjectArray() && $supportsVariadic) {
+            return $this->getPropertyType() . $nullDocblock . ' ...' . $this->getVariable();
+        }
+
+        return $this->getPropertyType() . '[]' . $nullDocblock;
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable || !$this->required ? '?' : '') . 'array';
+        return ($this->isNullable() ? '?' : '') . 'array';
     }
 
     private function getPropertyType(): string
     {
         return str_replace('|null', '', $this->arrayType->getDocblockType());
+    }
+
+    private function isObjectArray(): bool
+    {
+        return $this->arrayType instanceof ObjectProperty;
     }
 }

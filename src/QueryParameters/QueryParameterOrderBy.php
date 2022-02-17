@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\QueryParameters;
 
 use JacobDeKeizer\Ccv\Contracts\QueryParameter;
 
 class QueryParameterOrderBy implements QueryParameter
 {
-    private $orderBy;
+    private ?string $orderBy;
 
     public function __construct(?string $orderBy)
     {

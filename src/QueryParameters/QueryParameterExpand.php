@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\QueryParameters;
 
 use JacobDeKeizer\Ccv\Contracts\QueryParameter;
@@ -9,8 +11,11 @@ class QueryParameterExpand implements QueryParameter
     /**
      * @var string[]
      */
-    private $expandedFields;
+    private array $expandedFields;
 
+    /**
+     * @param string[] $expandedFields
+     */
     public function __construct(array $expandedFields)
     {
         $this->expandedFields = $expandedFields;

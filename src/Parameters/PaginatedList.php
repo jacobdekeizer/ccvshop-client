@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Parameters;
 
 use JacobDeKeizer\Ccv\Contracts\Parameter;
@@ -7,11 +9,9 @@ use JacobDeKeizer\Ccv\QueryParameters\QueryParameterBuilder;
 
 abstract class PaginatedList implements Parameter
 {
-    /** @var int|null */
-    protected $start;
+    protected ?int $start = null;
 
-    /** @var int|null */
-    protected $size;
+    protected ?int $size = null;
 
     public function toBuilder(): QueryParameterBuilder
     {
@@ -25,7 +25,7 @@ abstract class PaginatedList implements Parameter
         return $this->start;
     }
 
-    public function setStart(?int $start): self
+    public function setStart(?int $start): static
     {
         $this->start = $start;
         return $this;
@@ -36,7 +36,7 @@ abstract class PaginatedList implements Parameter
         return $this->size;
     }
 
-    public function setSize(?int $size): self
+    public function setSize(?int $size): static
     {
         $this->size = $size;
         return $this;

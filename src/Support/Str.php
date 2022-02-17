@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Support;
 
 class Str
@@ -9,21 +11,21 @@ class Str
      *
      * @var array
      */
-    protected static $snakeCache = [];
+    protected static array $snakeCache = [];
 
     /**
      * The cache of studly-cased words.
      *
      * @var array
      */
-    protected static $studlyCache = [];
+    protected static array $studlyCache = [];
 
     /**
      * The cache of camel-cased words.
      *
      * @var array
      */
-    protected static $camelCache = [];
+    protected static array $camelCache = [];
 
     /**
      * Convert a string to snake case.
@@ -79,5 +81,44 @@ class Str
         }
 
         return static::$camelCache[$value] = lcfirst(static::studly($value));
+    }
+
+    /**
+     * Determine if a given string ends with a given substring.
+     *
+     * @param  string  $haystack
+     * @param  string|string[]  $needles
+     * @return bool
+     */
+    public static function endsWith(string $haystack, string|array $needles): bool
+    {
+        foreach ((array) $needles as $needle) {
+            if (
+                $needle !== '' && $needle !== null
+                && substr($haystack, -strlen($needle)) === (string) $needle
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine if a given string starts with a given substring.
+     *
+     * @param  string  $haystack
+     * @param  string|string[]  $needles
+     * @return bool
+     */
+    public static function startsWith(string $haystack, string|array $needles): bool
+    {
+        foreach ((array) $needles as $needle) {
+            if ((string) $needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

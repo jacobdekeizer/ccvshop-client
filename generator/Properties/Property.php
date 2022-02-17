@@ -1,87 +1,117 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Properties;
+
+use JacobDeKeizer\CcvGenerator\Constants\Php;
+use JacobDeKeizer\CcvGenerator\Writers\CodeWriter;
 
 abstract class Property
 {
-    protected const INDENT = '    ';
+    protected string $name;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $description;
 
-    /**
-     * @var string
-     */
-    protected $description;
+    protected bool $nullable;
 
-    /**
-     * @var bool
-     */
-    protected $required;
+    protected bool $required;
 
-    public function __construct(string $name, string $description, bool $required)
+    public function __construct(string $name, string $description, bool $nullable, bool $required)
     {
-        $this->description = $description;
-        $this->required = $required;
         $this->name = $name;
+        $this->description = $description;
+        $this->nullable = $nullable;
+        $this->required = $required;
     }
 
-    abstract protected function getDocblockType(): string;
+    abstract protected function getDocblockType(bool $supportsVariadic = false): string;
 
     abstract protected function getPhpType(): string;
 
-    public function getConvertCode(): ?string
+    public function writeProperty(CodeWriter $codeWriter, bool $initialize = false): void
     {
-        return null;
+        $codeWriter->writeMultilineDocblock([
+            '@var ' . $this->getDocblockType() . ' ' . $this->description,
+        ]);
+
+        $property = sprintf('private %s $%s', $this->getPhpType(), $this->name);
+
+        if ($initialize && $this->isNullable()) {
+            $codeWriter->writeLine($property . ' = null;');
+        } else {
+            $codeWriter->writeLine($property . ';');
+        }
     }
 
-    public function getProperty(): string
+    public function writeGetter(CodeWriter $codeWriter): void
     {
-        return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @var ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'private $' . $this->name . ';' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock($this->extendDocblock([
+            '@return ' . $this->getDocblockType() . ' ' . $this->description,
+        ]));
+        $codeWriter->openMethod('public function get' . $this->getMethodName() . '(): ' . $this->getPhpType());
+        $codeWriter->writeLine('return $this->' . $this->name . ';');
+        $codeWriter->closeMethod();
     }
 
-    public function getGetter(): string
+    public function writeSetter(CodeWriter $codeWriter): void
     {
-        return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @return ' . $this->getDocblockType() . ' ' . $this->description . PHP_EOL
-            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public function get' . ucfirst($this->name) . '(): ' . $this->getPhpType() . PHP_EOL
-            . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . 'return $this->' . $this->name . ';' . PHP_EOL
-            . self::INDENT . '}' . PHP_EOL;
+        $codeWriter->writeMultilineDocblock($this->extendDocblock([
+            '@param ' . $this->getDocblockType(true) . ' ' . $this->getVariable() . ' '  . $this->description,
+            '@return self',
+        ]));
+        $codeWriter->openMethod(sprintf(
+            'public function set%s(%s): self',
+            $this->getMethodName(),
+            $this->getMethodParameterSignature()
+        ));
+        $codeWriter->writeLine('$this->' . $this->name . ' = ' . $this->getVariable() . ';');
+        $codeWriter->writeLine('return $this;');
+        $codeWriter->closeMethod();
     }
 
-    public function getSetter(): string
+    public function getMethodParameterSignature(): string
     {
-        return self::INDENT . '/**' . PHP_EOL
-            . self::INDENT . ' * @param '
-                . $this->getDocblockType() . ' ' . $this->getVariable() . ' '  . $this->description . PHP_EOL
-            . self::INDENT . ' * @return self' . PHP_EOL
-            . ($this->isDeprecated() ? self::INDENT . ' * ' . $this->getDeprecatedDocblock() . PHP_EOL : '')
-            . self::INDENT . ' */' . PHP_EOL
-            . self::INDENT . 'public function set' . ucfirst($this->name)
-                . '(' . $this->getPhpType() . ' ' . $this->getVariable() . '): self' . PHP_EOL
-            . self::INDENT . '{' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->' . $this->name . ' = ' . $this->getVariable() . ';' . PHP_EOL
-            . self::INDENT . self::INDENT . '$this->propertyFilled(\'' . $this->name . '\');' . PHP_EOL
-            . self::INDENT . self::INDENT . 'return $this;' . PHP_EOL
-            . self::INDENT . '}' . PHP_EOL;
+        return $this->getPhpType() . ' ' . $this->getVariable();
     }
 
-    public function isDeprecated(): bool
-    {
-        return substr($this->description, 0, 12) === 'Deprecated. ';
-    }
-
-    protected function getVariable(): string
+    public function getVariable(): string
     {
         return '$' . $this->name;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    protected function getNullDocblockSuffix(): string
+    {
+        return $this->isNullable() ? '|null' : '';
+    }
+
+    protected function isNullable(): bool
+    {
+        return $this->nullable || !$this->required;
+    }
+
+    private function getMethodName(): string
+    {
+        return ucfirst($this->getName());
+    }
+
+    private function extendDocblock(array $lines): array
+    {
+        if ($this->isDeprecated()) {
+            $lines[] = $this->getDeprecatedDocblock();
+        }
+
+        return $lines;
+    }
+
+    private function isDeprecated(): bool
+    {
+        return str_starts_with($this->description, 'Deprecated');
     }
 
     private function getDeprecatedDocblock(): string
@@ -90,13 +120,15 @@ abstract class Property
             'See',
             'Please use',
             'Use the',
+            'Use property',
+            'use',
         ];
 
         $text = '';
 
         foreach ($seeProps as $seeProp) {
             if (strpos($this->description, $seeProp)) {
-                $text = ' ' . substr($this->description, (strpos($this->description, $seeProp) ?: -1));
+                $text = ' ' . substr($this->description, strpos($this->description, $seeProp));
                 break;
             }
         }

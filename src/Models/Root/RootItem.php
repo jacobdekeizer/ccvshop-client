@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Root;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,27 +10,28 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class RootItem implements Model
 {
-    use FromArray, ToArray;
+    use FromArray;
+    use ToArray;
 
     /**
      * @var string
      */
-    private $href;
+    private string $href;
 
     /**
      * @var string
      */
-    private $title;
+    private string $title;
 
     /**
      * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * @var string
      */
-    private $uri;
+    private string $uri;
 
     /**
      * @return self
@@ -53,7 +56,6 @@ class RootItem implements Model
     public function setHref(string $href): self
     {
         $this->href = $href;
-        $this->propertyFilled('href');
         return $this;
     }
 
@@ -72,7 +74,6 @@ class RootItem implements Model
     public function setTitle(string $title): self
     {
         $this->title = $title;
-        $this->propertyFilled('title');
         return $this;
     }
 
@@ -91,7 +92,6 @@ class RootItem implements Model
     public function setDescription(string $description): self
     {
         $this->description = $description;
-        $this->propertyFilled('description');
         return $this;
     }
 
@@ -110,8 +110,6 @@ class RootItem implements Model
     public function setUri(string $uri): self
     {
         $this->uri = $uri;
-        $this->propertyFilled('uri');
         return $this;
     }
 }
-

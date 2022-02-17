@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Models\Root;
 
 use JacobDeKeizer\Ccv\Contracts\Model;
@@ -8,12 +10,13 @@ use JacobDeKeizer\Ccv\Traits\ToArray;
 
 class RootCollection implements Model
 {
-    use FromArray, ToArray;
+    use FromArray;
+    use ToArray;
 
     /**
      * @var RootItem[] Array with collection items
      */
-    private $items;
+    private array $items;
 
     /**
      * @return self
@@ -32,29 +35,12 @@ class RootCollection implements Model
     }
 
     /**
-     * @param RootItem[] Array with collection items
-     * @return self
+     * @param RootItem ...$items
+     * @return $this
      */
-    public function setItems(array $items): self
+    public function setItems(RootItem ...$items): self
     {
         $this->items = $items;
-        $this->propertyFilled('items');
         return $this;
     }
-
-    protected function convertFromArrayData(string $key, $value)
-    {
-        if ($key === 'items') {
-            $items = [];
-
-            foreach ($value as $item) {
-                $items[] = RootItem::fromArray($item);
-            }
-
-            return $items;
-        }
-
-        return $value;
-    }
 }
-

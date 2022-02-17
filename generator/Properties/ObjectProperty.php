@@ -1,34 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\CcvGenerator\Properties;
 
 class ObjectProperty extends Property
 {
-    /**
-     * @var bool
-     */
-    private $nullable;
+    private string $objectClass;
 
-    /**
-     * @var string
-     */
-    private $objectClass;
-
-    public function __construct(bool $nullable, string $objectClass, string $name, string $description, bool $required)
+    public function __construct(string $objectClass, string $name, string $description, bool $nullable, bool $required)
     {
-        parent::__construct($name, $description, $required);
+        parent::__construct($name, $description, $nullable, $required);
 
-        $this->nullable = $nullable;
         $this->objectClass = $objectClass;
     }
 
-    protected function getDocblockType(): string
+    protected function getDocblockType(bool $supportsVariadic = false): string
     {
-        return $this->objectClass . ($this->nullable || !$this->required ? '|null' : '');
+        return $this->objectClass . $this->getNullDocblockSuffix();
     }
 
     protected function getPhpType(): string
     {
-        return ($this->nullable || !$this->required ? '?' : '') . $this->objectClass;
+        return ($this->isNullable() ? '?' : '') . $this->objectClass;
     }
 }

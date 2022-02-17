@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JacobDeKeizer\Ccv\Parameters\Concerns;
 
 trait SortableFields
 {
-    /** @var string|null */
-    private $orderBy;
+    private ?string $orderBy = null;
 
     /**
      * Setter for the from array method.
