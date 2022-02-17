@@ -3,7 +3,7 @@
 ## v1.0.0
 
 - All endpoints, models and parameters are now added and automatically generated.
-- Methods and namespaces have been renamed, look at the examples in the readme for your code.
+- Methods and namespaces have been renamed, look at the examples in the readme for the implementation details.
 - Upgraded to PHP 8
 
 ## v0.18.0
