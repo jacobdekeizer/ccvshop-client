@@ -11,21 +11,21 @@ class Str
      *
      * @var array
      */
-    protected static $snakeCache = [];
+    protected static array $snakeCache = [];
 
     /**
      * The cache of studly-cased words.
      *
      * @var array
      */
-    protected static $studlyCache = [];
+    protected static array $studlyCache = [];
 
     /**
      * The cache of camel-cased words.
      *
      * @var array
      */
-    protected static $camelCache = [];
+    protected static array $camelCache = [];
 
     /**
      * Convert a string to snake case.
@@ -90,7 +90,7 @@ class Str
      * @param  string|string[]  $needles
      * @return bool
      */
-    public static function endsWith(string $haystack, $needles)
+    public static function endsWith(string $haystack, string|array $needles): bool
     {
         foreach ((array) $needles as $needle) {
             if (
@@ -111,7 +111,7 @@ class Str
      * @param  string|string[]  $needles
      * @return bool
      */
-    public static function startsWith(string $haystack, $needles)
+    public static function startsWith(string $haystack, string|array $needles): bool
     {
         foreach ((array) $needles as $needle) {
             if ((string) $needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0) {
