@@ -61,7 +61,7 @@ class ModelClassFactory
         };
 
         foreach ($object['properties'] as $propertyName => $property) {
-            if ($property['type'] === 'object') {
+            if ($property['type'] === 'object' || $property['type'] === 'object|null') {
                 $makeObject($propertyName, $property);
             }
 
@@ -77,7 +77,7 @@ class ModelClassFactory
                     $arrayItem = $property['items'][0];
                 }
 
-                if (isset($arrayItem['type']) && $arrayItem['type'] === 'object') {
+                if (isset($arrayItem['type']) && ($arrayItem['type'] === 'object' || $arrayItem['type'] === 'object|null')) {
                     $makeObject($propertyName, $arrayItem);
                 } elseif (isset($arrayItem['$ref'])) {
                     $makeRef($arrayItem);

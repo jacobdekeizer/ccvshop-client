@@ -92,9 +92,9 @@ class Products implements Model
     private string $taxtariff;
 
     /**
-     * @var object|null Describes the information of the tradecodesystem from this product.
+     * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem|null Describes the information of the tradecodesystem from this product.
      */
-    private ?object $tradecodesystem;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem $tradecodesystem;
 
     /**
      * @var float Original price of the product, before discounts
@@ -192,9 +192,9 @@ class Products implements Model
     private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Condition $condition;
 
     /**
-     * @var object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      */
-    private ?object $color;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color $color;
 
     /**
      * @var string|null Link to mainphoto
@@ -583,9 +583,9 @@ class Products implements Model
     }
 
     /**
-     * @return object|null Describes the information of the tradecodesystem from this product.
+     * @return \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem|null Describes the information of the tradecodesystem from this product.
      */
-    public function getTradecodesystem(): ?object
+    public function getTradecodesystem(): ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem
     {
         return $this->tradecodesystem;
     }
@@ -743,9 +743,9 @@ class Products implements Model
     }
 
     /**
-     * @return object|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     * @return \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color|null A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      */
-    public function getColor(): ?object
+    public function getColor(): ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color
     {
         return $this->color;
     }
@@ -1318,10 +1318,10 @@ class Products implements Model
     }
 
     /**
-     * @param object|null $tradecodesystem Describes the information of the tradecodesystem from this product.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem|null $tradecodesystem Describes the information of the tradecodesystem from this product.
      * @return self
      */
-    public function setTradecodesystem(?object $tradecodesystem): self
+    public function setTradecodesystem(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Tradecodesystem $tradecodesystem): self
     {
         $this->tradecodesystem = $tradecodesystem;
         return $this;
@@ -1518,10 +1518,10 @@ class Products implements Model
     }
 
     /**
-     * @param object|null $color A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color|null $color A color resource. It will be NULL if the product has not color. Product colors can be used to filter results.
      * @return self
      */
-    public function setColor(?object $color): self
+    public function setColor(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Products\Child\Color $color): self
     {
         $this->color = $color;
         return $this;

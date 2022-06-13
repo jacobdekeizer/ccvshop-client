@@ -272,9 +272,9 @@ class Orders implements Model
     private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Entity\Personalinfo\Personalinfo $customer;
 
     /**
-     * @var object|null The pickup address that the customer selected
+     * @var \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress|null The pickup address that the customer selected
      */
-    private ?object $pickupAddress;
+    private ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress $pickupAddress;
 
     /**
      * @var string|null Deeplink to download the pdf packing slip. This will be null on uncompleted orders.
@@ -731,9 +731,9 @@ class Orders implements Model
     }
 
     /**
-     * @return object|null The pickup address that the customer selected
+     * @return \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress|null The pickup address that the customer selected
      */
-    public function getPickupAddress(): ?object
+    public function getPickupAddress(): ?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress
     {
         return $this->pickupAddress;
     }
@@ -1314,10 +1314,10 @@ class Orders implements Model
     }
 
     /**
-     * @param object|null $pickupAddress The pickup address that the customer selected
+     * @param \JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress|null $pickupAddress The pickup address that the customer selected
      * @return self
      */
-    public function setPickupAddress(?object $pickupAddress): self
+    public function setPickupAddress(?\JacobDeKeizer\Ccv\Models\Vnd\Verto\Webshop\Resource\Orders\Child\PickupAddress $pickupAddress): self
     {
         $this->pickupAddress = $pickupAddress;
         return $this;
