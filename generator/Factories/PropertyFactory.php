@@ -12,6 +12,7 @@ use JacobDeKeizer\CcvGenerator\Properties\ObjectProperty;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\CcvGenerator\Properties\StringType;
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Support\PropertyType;
 
 class PropertyFactory
 {
@@ -20,26 +21,11 @@ class PropertyFactory
         $propertyName = Str::camel($propertyName);
         $required = self::isRequired($property);
         $description = trim($property['description'] ?? '');
-        $nullable = false;
-        $type = $property['type'];
 
-        $nullPos = strpos($type, '|null');
-        if ($nullPos !== false) {
-            $nullable = true;
-            $type = substr($type, 0, $nullPos);
-        } else {
-            $nullPos = strpos($type, 'null|');
+        $propertyInfo = PropertyType::getInfo($property['type']);
 
-            if ($nullPos !== false) {
-                $nullable = true;
-                $type = substr($type, strlen('null|'), strlen($type));
-            }
-        }
-
-        if (str_contains($type, '|object')) {
-            // some field types are defined as string|object, we force an object here...
-            $type = 'object';
-        }
+        $nullable = $propertyInfo->nullable;
+        $type = $propertyInfo->type;
 
         switch ($type) {
             case 'array':

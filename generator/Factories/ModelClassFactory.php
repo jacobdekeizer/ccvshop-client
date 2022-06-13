@@ -7,6 +7,7 @@ namespace JacobDeKeizer\CcvGenerator\Factories;
 use JacobDeKeizer\CcvGenerator\Classes\ModelClass;
 use JacobDeKeizer\CcvGenerator\Properties\Property;
 use JacobDeKeizer\Ccv\Support\Str;
+use JacobDeKeizer\CcvGenerator\Support\PropertyType;
 
 class ModelClassFactory
 {
@@ -61,11 +62,13 @@ class ModelClassFactory
         };
 
         foreach ($object['properties'] as $propertyName => $property) {
-            if ($property['type'] === 'object') {
+            $propertyTypeInfo = PropertyType::getInfo($property['type']);
+
+            if ($propertyTypeInfo->type === 'object') {
                 $makeObject($propertyName, $property);
             }
 
-            if ($property['type'] === 'array') {
+            if ($propertyTypeInfo->type === 'array') {
                 if (!isset($property['items']) && isset($property['properties'])) {
                     $arrayItem = null;
 
@@ -77,7 +80,7 @@ class ModelClassFactory
                     $arrayItem = $property['items'][0];
                 }
 
-                if (isset($arrayItem['type']) && $arrayItem['type'] === 'object') {
+                if (isset($arrayItem['type']) && PropertyType::getInfo($arrayItem['type'])->type === 'object') {
                     $makeObject($propertyName, $arrayItem);
                 } elseif (isset($arrayItem['$ref'])) {
                     $makeRef($arrayItem);

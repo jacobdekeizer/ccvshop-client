@@ -17,9 +17,9 @@ class Options implements Model
     use ToArray;
 
     /**
-     * @var object|null Label of this options.
+     * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label|null Label of this options.
      */
-    private ?object $label;
+    private ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label $label;
 
     /**
      * @var string|null Value of this options. This will be posted as value.
@@ -37,9 +37,9 @@ class Options implements Model
     }
 
     /**
-     * @return object|null Label of this options.
+     * @return \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label|null Label of this options.
      */
-    public function getLabel(): ?object
+    public function getLabel(): ?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label
     {
         return $this->label;
     }
@@ -61,10 +61,10 @@ class Options implements Model
     }
 
     /**
-     * @param object|null $label Label of this options.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label|null $label Label of this options.
      * @return self
      */
-    public function setLabel(?object $label): self
+    public function setLabel(?\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label $label): self
     {
         $this->label = $label;
         return $this;

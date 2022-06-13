@@ -32,6 +32,11 @@ class Post implements Model
     private ?int $position;
 
     /**
+     * @var float|null Attribute combination stock amount. Attribute combinations generated after the post will have this stock amount. Stock won't be created if not posted.
+     */
+    private ?float $stock;
+
+    /**
      * @var bool|null Deprecated. Attribute option value enable. Value is always true.
      */
     private ?bool $enable;
@@ -63,6 +68,14 @@ class Post implements Model
     public function getPosition(): ?int
     {
         return $this->position;
+    }
+
+    /**
+     * @return float|null Attribute combination stock amount. Attribute combinations generated after the post will have this stock amount. Stock won't be created if not posted.
+     */
+    public function getStock(): ?float
+    {
+        return $this->stock;
     }
 
     /**
@@ -101,6 +114,16 @@ class Post implements Model
     public function setPosition(?int $position): self
     {
         $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * @param float|null $stock Attribute combination stock amount. Attribute combinations generated after the post will have this stock amount. Stock won't be created if not posted.
+     * @return self
+     */
+    public function setStock(?float $stock): self
+    {
+        $this->stock = $stock;
         return $this;
     }
 

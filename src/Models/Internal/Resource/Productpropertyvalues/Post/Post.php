@@ -22,7 +22,7 @@ class Post implements Model
     private int $productId;
 
     /**
-     * @var int Unique id of the product property group
+     * @var int Unique property id
      */
     private int $productPropertyId;
 
@@ -45,7 +45,7 @@ class Post implements Model
     }
 
     /**
-     * @return int Unique id of the product property group
+     * @return int Unique property id
      */
     public function getProductPropertyId(): int
     {
@@ -71,7 +71,7 @@ class Post implements Model
     }
 
     /**
-     * @param int $productPropertyId Unique id of the product property group
+     * @param int $productPropertyId Unique property id
      * @return self
      */
     public function setProductPropertyId(int $productPropertyId): self

@@ -22,9 +22,9 @@ class Element implements Model
     private string $name;
 
     /**
-     * @var object This label will be display above or next to this element, depending on the 'element_type'.
+     * @var \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label This label will be display above or next to this element, depending on the 'element_type'.
      */
-    private object $label;
+    private \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label $label;
 
     /**
      * @var string Defines the different webpage elements that can be used. Deeplinks are a unordered list with links to remote files. Attachments will create a 'Save As' promt for the user to download a remote file.
@@ -70,9 +70,9 @@ class Element implements Model
     }
 
     /**
-     * @return object This label will be display above or next to this element, depending on the 'element_type'.
+     * @return \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label This label will be display above or next to this element, depending on the 'element_type'.
      */
-    public function getLabel(): object
+    public function getLabel(): \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label
     {
         return $this->label;
     }
@@ -136,10 +136,10 @@ class Element implements Model
     }
 
     /**
-     * @param object $label This label will be display above or next to this element, depending on the 'element_type'.
+     * @param \JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label $label This label will be display above or next to this element, depending on the 'element_type'.
      * @return self
      */
-    public function setLabel(object $label): self
+    public function setLabel(\JacobDeKeizer\Ccv\Models\Internal\Entity\Appcodeblock\View\Element\Child\Label $label): self
     {
         $this->label = $label;
         return $this;
