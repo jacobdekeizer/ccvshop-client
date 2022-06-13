@@ -1,5 +1,9 @@
 # Change log
 
+## v1.1.0
+
+- Fixed nullable object models not being generated
+
 ## v1.0.0
 
 - All endpoints, models and parameters are now added and automatically generated.
